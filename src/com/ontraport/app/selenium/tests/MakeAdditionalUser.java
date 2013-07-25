@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -13,8 +15,17 @@ AppUtilities appUtilities = new AppUtilities();
 	
 	@Test
 	public void testMakeAdditionalUser() throws Exception{
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String emailId = "SelUsr"+varTimeStamp+"@gmail.com";
 		
@@ -25,9 +36,12 @@ AppUtilities appUtilities = new AppUtilities();
 		Thread.sleep (3000);
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Agree']")).click();
 		
-		appUtilities.getTextBoxOnTheLabel(driver, "First Name").sendKeys("Selenium");
-		appUtilities.getTextBoxOnTheLabel(driver, "Last Name").sendKeys("Test");
-		appUtilities.getTextBoxOnTheLabel(driver, "Email 'From' Name").sendKeys("Selenium");
+		String fname = "Selenium" + varTimeStamp;
+		String lname = "Test" + varTimeStamp;
+		String emailName = "Selenium" + varTimeStamp;
+		appUtilities.getTextBoxOnTheLabel(driver, "First Name").sendKeys(fname);
+		appUtilities.getTextBoxOnTheLabel(driver, "Last Name").sendKeys(lname);
+		appUtilities.getTextBoxOnTheLabel(driver, "Email 'From' Name").sendKeys(emailName);
 		appUtilities.getTextBoxOnTheLabel(driver, "Reply-To Email").sendKeys(emailId);
 		Thread.sleep (3000);
 		//driver.findElement(By.partialLinkText("Password & Misc")).click();
@@ -36,13 +50,16 @@ AppUtilities appUtilities = new AppUtilities();
 		appUtilities.getTextBoxOnTheLabel(driver, "New Password").sendKeys("test");
 		appUtilities.getTextBoxOnTheLabel(driver, "Password Confirm").sendKeys("test");
 		
-		appUtilities.selectItem(driver, "Select Role", "Sub Director");
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div[1]/div[3]/div[2]/div[2]/div/div/div[1]/div/div/button")).click();
+		driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label")).click();		
 		appUtilities.selectItem(driver, "Select User", "Pin Chen");
 		appUtilities.selectItem(driver, "Select Timezone...", "EST");
 		appUtilities.selectItem(driver, "Select Language...", "English");
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (emailId) +"']")));
+	
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 	
 }

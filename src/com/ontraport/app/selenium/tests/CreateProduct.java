@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -19,8 +20,17 @@ public class CreateProduct extends OntraportFirefoxTest {
 	@Test
 	public void testCreateContact() throws Exception {
 		//baseUrl = "http://app.ontraport.com";
-		driver.get(baseUrl + "/");
-		loginToApp();
+		//driver.get(baseUrl + "/");
+		//loginToApp();
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		driver.findElement(By.xpath("//*[@class='primary-nav-item-label' and text()='Sales']")).click();
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Products']")).click();
@@ -28,9 +38,9 @@ public class CreateProduct extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Product']")).click();
 		
 		//Fill the fields
-		WebElement productIDTxtBox = getTextBoxOnTheLabel(driver, "Product Id");
-		productIDTxtBox.clear();
-		productIDTxtBox.sendKeys(String.valueOf(varTimeStamp));
+		//WebElement productIDTxtBox = getTextBoxOnTheLabel(driver, "Product Id");
+		//productIDTxtBox.clear();
+		//productIDTxtBox.sendKeys(String.valueOf(varTimeStamp));
 		
 		WebElement nameTxtBox = getTextBoxOnTheLabel(driver, "Name");
 		nameTxtBox.clear();
@@ -42,20 +52,20 @@ public class CreateProduct extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
-		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("Name"+varTimeStamp) +"']")));
-
+		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("Name"+varTimeStamp) +"']"), driver));
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		
 		//Logout
-		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user"))
-				.click();
-		driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
+		//driver.findElement(By.cssSelector("li.ussr-header-nav-option-user"))
+		//		.click();
+		//driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
 		
 	}
 
 
 
 
-	public void loginToApp (){
+	/*public void loginToApp (){
 		driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys("tester");
@@ -72,9 +82,9 @@ public class CreateProduct extends OntraportFirefoxTest {
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 	
-	private boolean isElementPresent(By by) {
+	private boolean isElementPresent(By by, WebDriver driver) {
 		try {
 			driver.findElement(by);
 			return true;

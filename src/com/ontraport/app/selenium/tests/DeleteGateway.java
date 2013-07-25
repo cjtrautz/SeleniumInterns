@@ -5,7 +5,9 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,8 +16,16 @@ public class DeleteGateway extends OntraportFirefoxTest {
 	
 	@Test
 	public void testDeleteGateWay() throws Exception{
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String gatewayName = "SelGW" + varTimeStamp;
 		
@@ -52,8 +62,8 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Ok']")).click();
 		Thread.sleep (3000);
 		Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(gatewayName)));
-		appUtilities.logOutOfApp(driver);
-
+		//appUtilities.logOutOfApp(driver);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		
 	}
 

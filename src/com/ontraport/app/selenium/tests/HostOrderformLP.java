@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -17,35 +18,50 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 		
 	@Test
 	public void testHostOrderformLP () throws Exception{
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
-		
+		String pageName = "SelOrderPage"+varTimeStamp;
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Landing Page']")).click();
 		driver.findElement(By.xpath("//div[div[*/text()='Easy Pages']]/descendant::button[*[normalize-space(text())='Create']]")).click();
 		
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("SelOrderPage"+varTimeStamp);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(pageName);
 		
 		driver.findElement(By.xpath("//div[@class='menu_button_class']//td[normalize-space(text())='Page URL:']")).click();
 		//select radio button
 		//driver.findElement(By.xpath("//*[*[normalize-space(text())='Use a Hosted Domain']]/descendant::input")).click();
-		fillThePopUp (driver, "Use a Hosted Domain", "seleniumorderform");
+		fillThePopUp (driver, "Use a Hosted Domain", pageName);
 		Thread.sleep (5000);
 		driver.findElement(By.cssSelector("input.btn2")).click();
+		
+		//Add a title
+		driver.findElement(By.xpath("//td[@id='Menu_Bar']/div/div/table/tbody/tr[2]/td[1]/div/table/tbody/tr/td[2]/input")).click();
+        driver.findElement(By.xpath("//td[@id='Menu_Bar']/div/div/table/tbody/tr[2]/td[1]/div/table/tbody/tr/td[2]/input")).clear();
+        driver.findElement(By.xpath("//td[@id='Menu_Bar']/div/div/table/tbody/tr[2]/td[1]/div/table/tbody/tr/td[2]/input")).sendKeys(pageName);
 		
 		//Add a form
 		driver.findElement(By.xpath("//div[@id='layer_box']/div[contains(normalize-space(text()),'New Item')]")).click();
 		driver.findElement(By.xpath("//div[@class='ussr-dialog-content jb-ace-scroll-target']//div[@class='create_button_class']//td[contains(normalize-space(text()),'Form')]")).click();
 		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='Select...']]/descendant::button")).click();
 		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='Select...']]/descendant::li/span[normalize-space(text())='Smart Forms and Order Forms']")).click();
-		driver.findElement(By.xpath("//div[input[@placeholder='Select...']]/descendant::li//div[text()='Ontraport Signup Form']")).click();
+		driver.findElement(By.xpath("//div[input[@placeholder='Select...']]/descendant::li//div[@class='ussr-component-drilldownselect-item-label text-overflow-ellipsis']")).click();
 				
-		
+		//Thread.sleep (5000);
 		//driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']//input[@value='Accept']")).click();
-		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
-		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ("SelOrderPage"+varTimeStamp) +"']")));
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
+		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + pageName +"']")));
+		//Thread.sleep (5000);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 	
 	
@@ -68,7 +84,7 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 		
 	}
 	
-	public void selectItem(String formLink, String formType, String formName ){
+	public void selectItem(String formLink, String formType, String formName, WebDriver driver ){
 		
 		
 		try {

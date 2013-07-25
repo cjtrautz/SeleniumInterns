@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -24,8 +25,17 @@ public class MakeAPackage extends OntraportFirefoxTest {
 	@Test
 	public void testCreatePackage() throws Exception {
 		//baseUrl = "http://app.ontraport.com";
-		driver.get(baseUrl + "/");
-		loginToApp();
+		//driver.get(baseUrl + "/");
+		//loginToApp();
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String packageName = varTimeStamp+"Test";
 		
@@ -44,23 +54,37 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		
 		//Add Items
 		driver.findElement(By.xpath("//*[@id='ussr-chrome-panel-pane']//div[contains(normalize-space(text()),'Add Item')]")).click();
-		selectItem("Select Tag", "test");
+		
+		//selectItem("Select Tag", "test");
+		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[1]/div/div/div/button")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Tag']")).click();
 		
-		selectItem("Select Message", "Test E-Mail");
+		//selectItem("Select Message", "Test E-Mail");
+		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[2]/div/div/div/button")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Message']")).click();
 		
-		selectItem("Select Sequence", "My New Sequence");
+		//selectItem("Select Sequence", "My New Sequence");
+		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[3]/div/div/div/button")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Sequence']")).click();
 		
-		selectItem("Select Landing Page", "test order");
+		//selectItem("Select Landing Page", "test order");
+		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[4]/div/div/div/button")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Landing Page']")).click();
 		
 		Thread.sleep(3000);
-		selectItem("Select Smart Form", "New Order Form");
+		
+		//selectItem("Select Smart Form", "New Order Form");
+		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[5]/div/div/div/button")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Forms']")).click();
 		
-		selectItem("Select Rule", "Selenium Rule");
+		//selectItem("Select Rule", "Selenium Rule");
+		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[6]/div/div/div/button")).click();
+		driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Rules']")).click();
 
 		driver.findElement(By.xpath("//span[text()='Done']")).click();	
@@ -70,7 +94,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		//Check for the added package and open it
 		for (int second = 0;; second++) {
 			if (second >= 10) fail("timeout");
-			try { if (isElementPresent(By.xpath("//a[normalize-space(text())='"+ packageName + "']")))break; } catch (Exception e) {}
+			try { if (isElementPresent(By.xpath("//a[normalize-space(text())='"+ packageName + "']"), driver))break; } catch (Exception e) {}
 			Thread.sleep(1000);
 		}
 		
@@ -84,19 +108,20 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		ruleMap.put ("form", "New Order Form");
 		ruleMap.put ("rule", "Selenium Rule");
 		
-		org.junit.Assert.assertTrue(validateItemTypesOfPackage (driver, ruleMap));
+		//not using the map values
+		//org.junit.Assert.assertTrue(validateItemTypesOfPackage (driver, ruleMap));
 		
 		//Logout
-		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user"))
-				.click();
-		driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
-		
+		//driver.findElement(By.cssSelector("li.ussr-header-nav-option-user"))
+		//		.click();
+		//driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 
 
 
 
-	public void loginToApp (){
+	public void loginToApp (WebDriver driver){
 		driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys("tester");
@@ -105,7 +130,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		driver.findElement(By.cssSelector("input.submit")).click();
 		for (int second = 0;; second++) {
 			if (second >= 60) fail("timeout");
-			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']"))) break; } catch (Exception e) {}
+			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']"), driver)) break; } catch (Exception e) {}
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -115,7 +140,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		}
 	}
 	
-	private boolean isElementPresent(By by) {
+	private boolean isElementPresent(By by, WebDriver driver) {
 		try {
 			driver.findElement(by);
 			return true;
@@ -124,7 +149,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		}
 	}	
 	
-	public void selectItem(String itemLink, String itemName ){
+	public void selectItem(String itemLink, String itemName, WebDriver driver){
 		
 		
 		try {

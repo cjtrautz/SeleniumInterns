@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -17,8 +18,17 @@ public class MakeANewLP extends OntraportFirefoxTest{
 		
 	@Test
 	public void testMakeANewLP () throws Exception{
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		
@@ -31,12 +41,14 @@ public class MakeANewLP extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//div[@class='menu_button_class']//td[normalize-space(text())='Page URL:']")).click();
 		//select radio button
 		//driver.findElement(By.xpath("//*[*[normalize-space(text())='Use a Hosted Domain']]/descendant::input")).click();
-		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage");
+		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage" + varTimeStamp);
 		Thread.sleep (5000);
 		driver.findElement(By.cssSelector("input.btn2")).click();
 		//driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']//input[@value='Accept']")).click();
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ("SelLP"+varTimeStamp) +"']")));
+		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 	
 	

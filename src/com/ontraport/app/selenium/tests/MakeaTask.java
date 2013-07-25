@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -20,11 +21,19 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
 		public void testMakeaTask() throws Exception {
 
-			driver.get(baseUrl + "/");
+			//driver.get(baseUrl + "/");
 
 			//login
-
-			appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+			//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+			WebDriver driver;
+			try {
+				driver = getDriver();
+			} catch (Exception e) {
+				System.out.println("get Driver failed");
+				driver = new FirefoxDriver();
+				e.printStackTrace();
+			}
+			
 			String taskName = "SelRule"+Calendar.getInstance().getTimeInMillis();
 			driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
 			driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Message']")).click();
@@ -36,11 +45,11 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			getTextBoxOnTheLabel(driver, "Task Subject").sendKeys("You need to do this!");
 			getTextBoxOnTheLabel(driver, "Due Date").sendKeys("1");
 			
-			selectItem("Select User", "Pin Chen");
+			selectItem("Select User", "Pin Chen", driver);
 
 			
-			selectItem("Insert Merge Field", "First Name");
-			selectItem("Insert Merge Field", "First Name");
+			selectItem("Insert Merge Field", "First Name", driver);
+			selectItem("Insert Merge Field", "First Name", driver);
 			
 			
 			driver.findElement(By.xpath("//*[@class='task_notification_control']//span")).click();
@@ -65,7 +74,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			driver.findElement(By.xpath("//div[@class='ussr-component-drilldownselect-menu-wrapper']//span[text()='Select']")).click();
 
 
-			selectItem("Select Action...", "Recharge all declined transactions");
+			selectItem("Select Action...", "Recharge all declined transactions", driver);
 			driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div[3]/div/div[2]/table/tbody/tr[2]/td[2]/div/div/div[3]/span[2]")).click();
 
 			driver.findElement(By.xpath("//button//span[text()='Save']")).click();
@@ -82,7 +91,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			
 			
 
-			
+			driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 			
 
@@ -90,7 +99,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 		}	
 			
 		
-		public void selectItem(String itemLink, String itemName ){
+		public void selectItem(String itemLink, String itemName, WebDriver driver){
 			
 			
 			try {
@@ -102,7 +111,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			}
 		}
 		
-		public void selectItemSpan(String itemLink, String itemName ){
+		public void selectItemSpan(String itemLink, String itemName, WebDriver driver){
 			
 			
 			try {

@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -20,8 +21,17 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 	@Test
 	public void testCreateContact() throws Exception {
 		//baseUrl = "http://app.ontraport.com";
-		driver.get(baseUrl + "/");
-		loginToApp();
+		//driver.get(baseUrl + "/");
+		//loginToApp();
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		driver.findElement(By.xpath("//*[@class='primary-nav-item-label' and text()='Sales']")).click();
 		driver.findElement(By.xpath("//li[3]//*[@class='primary-nav-sub-item']/a//span[text()='Settings']")).click();
@@ -47,20 +57,20 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
-		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("SelGW"+varTimeStamp) +"']")));
+		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("SelGW"+varTimeStamp) +"']"), driver));
 
 		
 		//Logout
-		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user"))
-				.click();
-		driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
-		
+		//driver.findElement(By.cssSelector("li.ussr-header-nav-option-user"))
+		//		.click();
+		//driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 
 
 
 
-	public void loginToApp (){
+	public void loginToApp (WebDriver driver){
 		driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys("tester");
@@ -69,7 +79,7 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 		driver.findElement(By.cssSelector("input.submit")).click();
 		for (int second = 0;; second++) {
 			if (second >= 60) fail("timeout");
-			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']"))) break; } catch (Exception e) {}
+			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']"), driver)) break; } catch (Exception e) {}
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -79,7 +89,7 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 		}
 	}
 	
-	private boolean isElementPresent(By by) {
+	private boolean isElementPresent(By by, WebDriver driver) {
 		try {
 			driver.findElement(by);
 			return true;

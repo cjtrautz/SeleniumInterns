@@ -5,6 +5,7 @@ import java.util.Calendar;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -16,9 +17,18 @@ public class CreateRule extends OntraportFirefoxTest {
 	@Test
 	public void testCreateRule() throws Exception {
 		
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		String ruleName = "SelRule"+Calendar.getInstance().getTimeInMillis();
 		
 		//Click Rules
@@ -26,8 +36,9 @@ public class CreateRule extends OntraportFirefoxTest {
 		//Click on New Rule
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Rule']")).click();
 		//Type the Rule Name
-		driver.findElement(By.xpath("//input[@type='text' and @class='ussr-form-input ussr-form-state-default']")).clear();
-		driver.findElement(By.xpath("//input[@type='text' and @class='ussr-form-input ussr-form-state-default']")).sendKeys(ruleName);
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
+        driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).clear();
+        driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).sendKeys(ruleName);
 		
 		selectRuleDropDown (driver, "WHEN THIS HAPPENS:","Select Trigger...", "A Certain field is updated");
 		selectRuleDropDown(driver, "WHEN THIS HAPPENS:", "Select Field...", "City");
@@ -41,18 +52,23 @@ public class CreateRule extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).clear();
 		driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).sendKeys("selenium");
 		
+		driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[2]/div/div/input")).click();
+        driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[2]/div/div/input")).clear();
+        driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[2]/div/div/input")).sendKeys("change");
+        driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//div[.='Change the value of a field']")).click();
+		selectRuleDropDown(driver, "THEN DO THIS:", "Select Field...", "Last Name");
 		
-		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Add Contact to Tag");
-		selectRuleDropDown(driver, "THEN DO THIS:", "Select Tag", "test");
-		
+		driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div/table/tbody/tr/td[4]/span[1]/div/div/input")).click();
+        driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div/table/tbody/tr/td[4]/span[1]/div/div/input")).clear();
+        driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/div/table/tbody/tr/td[4]/span[1]/div/div/input")).sendKeys("selenium");
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
-
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 	
 	

@@ -25,12 +25,23 @@ public class AppUtilities {
 	
 	
 	public void loginToApp (WebDriver driver, String userName, String password){
-		driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
+		//try{
+		//	driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
+		//}catch(Exception e){
+			driver.findElement(By.xpath("//input[@id='username']")).click();
+		//}
+		
+		
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys(userName);
 		driver.findElement(By.name("password")).clear();
 		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.cssSelector("input.submit")).click();
+		//try{
+		//	driver.findElement(By.cssSelector("input.submit")).click();
+		//}catch(Exception e){
+			driver.findElement(By.xpath("//input[@id='login_button']")).click();
+		//}
+		
 		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
 	}
 	

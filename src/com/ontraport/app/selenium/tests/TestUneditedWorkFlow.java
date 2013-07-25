@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -17,8 +18,17 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 	
 	@Test
 	public void testUneditedWorkflow ()throws Exception {
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String gateWayName = "SelGW"+varTimeStamp;
 		Thread.sleep(5000);
@@ -37,11 +47,11 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
 		Thread.sleep(5000);
 		
-		boolean b = isUnEditItemsLogAvaialable(gateWayName);
+		boolean b = isUnEditItemsLogAvaialable(gateWayName, driver);
 		System.out.println(b);
 		AssertJUnit.assertEquals(true, b);
 		
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 	
 	public void clickOnNonBlankLastNameContactLink (WebDriver driver){
@@ -60,7 +70,7 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 		}
 	}
 	
-	public boolean isUnEditItemsLogAvaialable(String gatewayname) throws InterruptedException{
+	public boolean isUnEditItemsLogAvaialable(String gatewayname, WebDriver driver) throws InterruptedException{
 		String nxtBtnXpath = "//div[table[contains(@class,'ussr-workflow-menu-section-list-type-unedited')]]/descendant::a[@class='ussr-paginator-control-next']/span";
 		String disabledNxtBtnXpath = "//div[table[contains(@class,'ussr-workflow-menu-section-list-type-unedited')]]/descendant::a[@class='ussr-paginator-control-next']/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']";
 		//String logLinkXpath = "//table[contains(@class,'ussr-workflow-menu-section-list-type-unedited')]//a[text()='Gateway: "+gatewayname+"']";

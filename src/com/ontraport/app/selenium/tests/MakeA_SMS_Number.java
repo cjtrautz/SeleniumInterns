@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -13,8 +15,17 @@ public class MakeA_SMS_Number extends OntraportFirefoxTest {
 	
 	@Test
 	public void testMakeSMSNumber () throws Exception{
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String name = "SelName"+varTimeStamp;
 		
@@ -34,7 +45,7 @@ public class MakeA_SMS_Number extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//button//span[normalize-space(text())='Buy Number']")).click();
 		Thread.sleep(2000);
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (name) +"']")));
-		appUtilities.logOutOfApp(driver);
-		
+		//appUtilities.logOutOfApp(driver);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 }

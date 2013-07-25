@@ -1,9 +1,13 @@
 package com.ontraport.app.selenium.tests;
 
+import java.util.Calendar;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -13,10 +17,18 @@ public class DeleteATag extends OntraportFirefoxTest {
 	
 	@Test
 	public void testCreateATag() throws InterruptedException{
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		//long varTimeStamp = Calendar.getInstance().getTimeInMillis();
-		String tagName = "SelTagDel";
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String tagName = "SelTagDel" + varTimeStamp;
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
 		
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.xpath("//ul[@class='ussr-corner-bl']/li/a[text()='Admin']")).click();
@@ -41,8 +53,8 @@ public class DeleteATag extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Ok']")).click();
 		Thread.sleep (3000);
 		Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(tagName)));
-		appUtilities.logOutOfApp(driver);
-		
+		//appUtilities.logOutOfApp(driver);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		
 	}
 

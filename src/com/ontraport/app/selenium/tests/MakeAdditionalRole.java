@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -13,8 +15,17 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 	
 	@Test
 	public void testMakeARole(){
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String roleName = "Role"+varTimeStamp;
 		
@@ -27,7 +38,7 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(roleName);
 
-		selectItem ("Select Role", "Administrator");
+		selectItem ("Select Role", "Administrator", driver);
 		
 		driver.findElement(By.xpath("//div[label[text()='Dashboard']]/descendant::a/span")).click();
 		driver.findElement(By.xpath("//div[label[text()='Can Send Emails']]/descendant::a/span")).click();
@@ -37,11 +48,11 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (roleName) +"']")));
 		
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		
 	}
 	
-	public void selectItem(String itemLink, String itemName ){
+	public void selectItem(String itemLink, String itemName, WebDriver driver){
 		
 		
 		try {
