@@ -1,5 +1,6 @@
 package com.ontraport.app.selenium.tests;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -34,6 +36,16 @@ AppUtilities appUtilities = new AppUtilities();
 		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
 		Thread.sleep(5000);
+		
+		List<WebElement> finder = new ArrayList<WebElement>();
+		while(finder.isEmpty() == true){
+			finder=driver.findElements(By.xpath("//a[normalize-space(text())='" + "Message: List" +"']"));
+			System.out.println(finder.isEmpty());
+			if(finder.isEmpty() == true){
+				AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//div[7]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']")));
+				driver.findElement(By.xpath("//div[7]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next']")).click();
+			}
+		}
 		Assert.assertTrue(isLinkPresentIntable (driver, "Message: List"));
 		driver.findElement(By.cssSelector("a.ussr-icon.ussr-icon-circle-file")).click();
 		Thread.sleep (3000);
@@ -42,7 +54,15 @@ AppUtilities appUtilities = new AppUtilities();
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
 		Thread.sleep(5000);
 		
-		Assert.assertFalse(isLinkPresentIntable (driver, "Message: List"));
+		List<WebElement> finder2 = new ArrayList<WebElement>();
+		while(finder2.isEmpty() == true){
+			finder2=driver.findElements(By.xpath("//div[7]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']"));
+			System.out.println(finder2.isEmpty());
+			Assert.assertFalse(isLinkPresentIntable (driver, "Message: List"));
+			if(finder2.isEmpty() == true){
+				driver.findElement(By.xpath("//div[7]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next']")).click();
+			}
+		}
 		driver.findElement(By.cssSelector("a.ussr-icon.ussr-icon-circle-file")).click();
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}

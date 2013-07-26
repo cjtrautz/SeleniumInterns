@@ -1,5 +1,6 @@
 package com.ontraport.app.selenium.tests;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -52,6 +53,15 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 		//boolean b = isUnEditItemsLogAvaialable(gateWayName, driver);
 		//System.out.println(b);
 		//AssertJUnit.assertEquals(true, b);
+		List<WebElement> finder = new ArrayList<WebElement>();
+		while(finder.isEmpty() == true){
+			finder=driver.findElements(By.xpath("//a[normalize-space(text())='Gateway: " + (gateWayName) +"']"));
+			//System.out.println(finder.isEmpty());
+			if(finder.isEmpty() == true){
+				AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//div[8]/div[1]/div/div[2]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']")));
+				driver.findElement(By.xpath("//div[8]/div[1]/div/div[2]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next']")).click();
+			}
+		}
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='Gateway: " + (gateWayName) +"']")));
 		
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();

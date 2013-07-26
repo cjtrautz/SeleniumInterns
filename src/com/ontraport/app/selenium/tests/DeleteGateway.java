@@ -49,11 +49,15 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		nicknameTxtBox.clear();
 		nicknameTxtBox.sendKeys("nick"+varTimeStamp);
 		
-		
-		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(gatewayName);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));
+		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
+		
 		Thread.sleep(3000);
 		WebElement chkBox = driver.findElement(By.xpath("//tr[td[span[a[normalize-space(text())='" + gatewayName + "']]]]/descendant::td[3]"));
 		chkBox.click();
@@ -61,7 +65,7 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		driver.findElement(By.linkText("Delete Gateway")).click();		
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Ok']")).click();
 		Thread.sleep (3000);
-		Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(gatewayName)));
+		Assert.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));
 		//appUtilities.logOutOfApp(driver);
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		

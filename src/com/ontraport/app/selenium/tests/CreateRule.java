@@ -64,6 +64,10 @@ public class CreateRule extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(ruleName);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 

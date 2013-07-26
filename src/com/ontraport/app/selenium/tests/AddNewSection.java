@@ -128,7 +128,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 	    
 	    
 	    
-	    //these don't work
+	   
 	    AssertJUnit.assertTrue(driver.getPageSource().contains(sectionTitle));
 	    AssertJUnit.assertTrue(driver.getPageSource().contains(sectionDesc));
 			

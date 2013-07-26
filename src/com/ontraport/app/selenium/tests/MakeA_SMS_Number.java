@@ -44,6 +44,11 @@ public class MakeA_SMS_Number extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='Select Select Number...']]/descendant::li[2]/div")).click();
 		driver.findElement(By.xpath("//button//span[normalize-space(text())='Buy Number']")).click();
 		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(name);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (name) +"']")));
 		//appUtilities.logOutOfApp(driver);
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();

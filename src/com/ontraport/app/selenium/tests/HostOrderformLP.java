@@ -59,6 +59,11 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 		//Thread.sleep (5000);
 		//driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']//input[@value='Accept']")).click();
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
+		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(pageName);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + pageName +"']")));
 		//Thread.sleep (5000);
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();

@@ -43,7 +43,12 @@ public class DeleteATag extends OntraportFirefoxTest {
 	
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(7000);
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(tagName);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//*[normalize-space(text())='" + (tagName) +"']")));
+		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
 		
 		Thread.sleep(3000);
 		WebElement chkBox = driver.findElement(By.xpath("//tr[td[span[normalize-space(text())='" + tagName + "']]]/descendant::td[3]"));
@@ -52,7 +57,12 @@ public class DeleteATag extends OntraportFirefoxTest {
 		driver.findElement(By.linkText("Delete Tag")).click();		
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Ok']")).click();
 		Thread.sleep (3000);
-		Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(tagName)));
+		//driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		//driver.findElement(By.xpath("//input[@type='search']")).clear();
+		//driver.findElement(By.xpath("//input[@type='search']")).sendKeys(tagName);
+		//driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
+		//Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(tagName)));
+		AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//*[normalize-space(text())='" + (tagName) +"']")));
 		//appUtilities.logOutOfApp(driver);
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		

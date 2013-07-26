@@ -98,8 +98,6 @@ public class MakeAPackage extends OntraportFirefoxTest {
 			Thread.sleep(1000);
 		}
 		
-		driver.findElement(By.xpath("//a[normalize-space(text())='"+ packageName + "']")).click();
-		
 		HashMap<String, String> ruleMap = new HashMap<String, String>();
 		ruleMap.put ("tag", "test");
 		ruleMap.put ("message", "Test E-Mail");
@@ -108,7 +106,13 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		ruleMap.put ("form", "New Order Form");
 		ruleMap.put ("rule", "Selenium Rule");
 		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(packageName);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
+		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + (packageName) +"']"), driver));
 		//not using the map values
+		//driver.findElement(By.xpath("//a[normalize-space(text())='"+ packageName + "']")).click();
 		//org.junit.Assert.assertTrue(validateItemTypesOfPackage (driver, ruleMap));
 		
 		//Logout

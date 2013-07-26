@@ -57,6 +57,10 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("SelGW"+varTimeStamp);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("SelGW"+varTimeStamp) +"']"), driver));
 
 		

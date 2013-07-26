@@ -79,8 +79,12 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
 			driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 			Thread.sleep(6000);
-			driver.findElement(By.xpath("//a[normalize-space(text())='Date Added']")).click();
-			Thread.sleep(4000);
+			//driver.findElement(By.xpath("//a[normalize-space(text())='Date Added']")).click();
+			//Thread.sleep(4000);
+			driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+			driver.findElement(By.xpath("//input[@type='search']")).clear();
+			driver.findElement(By.xpath("//input[@type='search']")).sendKeys(taskName);
+			driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 			AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//span/a[normalize-space(text())='"+(taskName)+"']")));	
 	
 			
