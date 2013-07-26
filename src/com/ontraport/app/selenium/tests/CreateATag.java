@@ -42,7 +42,7 @@ public class CreateATag  extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
 		//fail
-		//AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (tagName) +"']")));
+		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//span[normalize-space(text())='" + (tagName) +"']")));
 		
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		

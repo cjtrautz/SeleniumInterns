@@ -36,7 +36,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.MakeANewLP.class,
 	//com.ontraport.app.selenium.tests.MakeAPackage.class,
 	//com.ontraport.app.selenium.tests.MakeaTask.class,
-	com.ontraport.app.selenium.tests.TestPinnedItemsWorkflow.class,
+	//com.ontraport.app.selenium.tests.TestPinnedItemsWorkflow.class,
 	com.ontraport.app.selenium.tests.TestUneditedWorkFlow.class
 	})
 

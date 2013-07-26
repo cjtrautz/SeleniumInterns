@@ -85,11 +85,16 @@ public class AddNewSection extends OntraportFirefoxTest {
 		
     
 	    Thread.sleep(6000);
-	    driver.findElement(By.xpath("//div[@class='ussr-component-section-titlebar ussr-border-solid-bottom']//span[normalize-space(text())='Untitled']")).click();
-	    driver.findElement(By.xpath("//div[*[text()='Section Description']]/descendant::input")).clear();
-	    driver.findElement(By.xpath("//div[*[text()='Section Description']]/descendant::input")).sendKeys(sectionTitle);
+	    //driver.findElement(By.xpath("//div[2]/div/section/div/div/div[4]/div[1]/div[1]/div[3]/div[1]/span[3]")).click();
+        //driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).click();
+	    driver.findElement(By.xpath("(//div[@class='ussr-component-section-titlebar ussr-border-solid-bottom']//span[normalize-space(text())='Untitled'])[1]")).click();
+	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).clear();
+	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).sendKeys(sectionTitle);
 
 	    Thread.sleep(6000);
+	    
+	    //driver.findElement(By.xpath("//div[2]/div/section/div/div/div[4]/div[1]/div[1]/div[3]/div[3]")).click();
+        //driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).click();
 	    driver.findElement(By.xpath("//div//div[normalize-space(text())='Section Description']")).click();
 	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).clear();
 	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).sendKeys(sectionDesc);
@@ -124,8 +129,8 @@ public class AddNewSection extends OntraportFirefoxTest {
 	    
 	    
 	    //these don't work
-	    //AssertJUnit.assertTrue(driver.getPageSource().contains(sectionTitle));
-	    //AssertJUnit.assertTrue(driver.getPageSource().contains(sectionDesc));
+	    AssertJUnit.assertTrue(driver.getPageSource().contains(sectionTitle));
+	    AssertJUnit.assertTrue(driver.getPageSource().contains(sectionDesc));
 			
 	    driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	    driver.findElement(By.xpath("//div[@class='ussr-dialog-buttons']//button[.='OK']")).click();

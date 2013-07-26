@@ -38,6 +38,8 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 				
 		Thread.sleep(3000);
 		appUtilities.selectItemSpan(driver, "Select Gateway...", "Create New Gateway");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@placeholder='Enter Name']")).clear();
 		driver.findElement(By.xpath("//input[@placeholder='Enter Name']")).sendKeys(gateWayName);
 
 		driver.findElement(By.xpath("//button/span[text()='Save as Draft']")).click();
@@ -47,9 +49,10 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
 		Thread.sleep(5000);
 		
-		boolean b = isUnEditItemsLogAvaialable(gateWayName, driver);
-		System.out.println(b);
-		AssertJUnit.assertEquals(true, b);
+		//boolean b = isUnEditItemsLogAvaialable(gateWayName, driver);
+		//System.out.println(b);
+		//AssertJUnit.assertEquals(true, b);
+		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='Gateway: " + (gateWayName) +"']")));
 		
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
@@ -69,6 +72,7 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 			
 		}
 	}
+	
 	
 	public boolean isUnEditItemsLogAvaialable(String gatewayname, WebDriver driver) throws InterruptedException{
 		String nxtBtnXpath = "//div[table[contains(@class,'ussr-workflow-menu-section-list-type-unedited')]]/descendant::a[@class='ussr-paginator-control-next']/span";

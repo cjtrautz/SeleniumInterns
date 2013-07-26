@@ -60,8 +60,13 @@ public class CreateContact extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		
-		//fails
-		//AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("Fname"+varTimeStamp) +"']"), driver));
+		//search
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("Fname"+varTimeStamp);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
+		//assert
+		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + (emailId) +"']"), driver));
 
 		
 		//Logout

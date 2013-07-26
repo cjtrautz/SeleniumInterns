@@ -60,7 +60,7 @@ public class DeleteSMS_Number extends OntraportFirefoxTest  {
 		Thread.sleep (3000);
 		
 		//this didn't work
-		//Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(name)));
+		Assert.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (name) +"']")));
 		//appUtilities.logOutOfApp(driver);
 		
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
