@@ -40,7 +40,7 @@ AppUtilities appUtilities = new AppUtilities();
 		List<WebElement> finder = new ArrayList<WebElement>();
 		while(finder.isEmpty() == true){
 			finder=driver.findElements(By.xpath("//a[normalize-space(text())='" + "Message: List" +"']"));
-			System.out.println(finder.isEmpty());
+			//System.out.println(finder.isEmpty());
 			if(finder.isEmpty() == true){
 				AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//div[7]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']")));
 				driver.findElement(By.xpath("//div[7]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next']")).click();

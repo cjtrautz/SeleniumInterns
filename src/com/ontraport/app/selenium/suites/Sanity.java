@@ -19,7 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 @RunWith(Suite.class)
 @SuiteClasses({
 	com.ontraport.app.selenium.tests.Login.class,
-	//com.ontraport.app.selenium.tests.AddNewSection.class,
+	com.ontraport.app.selenium.tests.AddNewSection.class,
 	//com.ontraport.app.selenium.tests.AddTab.class,
 	//com.ontraport.app.selenium.tests.CreateATag.class,
 	//com.ontraport.app.selenium.tests.CreateContact.class,
@@ -36,7 +36,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.MakeANewLP.class,
 	//com.ontraport.app.selenium.tests.MakeAPackage.class,
 	//com.ontraport.app.selenium.tests.MakeaTask.class,
-	com.ontraport.app.selenium.tests.TestPinnedItemsWorkflow.class,
+	//com.ontraport.app.selenium.tests.TestPinnedItemsWorkflow.class,
 	//com.ontraport.app.selenium.tests.TestUneditedWorkFlow.class
 	})
 
