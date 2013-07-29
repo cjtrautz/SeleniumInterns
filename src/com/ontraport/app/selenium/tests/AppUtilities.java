@@ -11,8 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.internal.Locatable;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AppUtilities {
 	
@@ -27,26 +25,15 @@ public class AppUtilities {
 	
 	
 	public void loginToApp (WebDriver driver, String userName, String password){
-		//try{
-		//	driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
-		//}catch(Exception e){
-			driver.findElement(By.xpath("//input[@id='username']")).click();
-		//}
-		
-		
+		driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys(userName);
 		driver.findElement(By.name("password")).clear();
 		driver.findElement(By.name("password")).sendKeys(password);
-		//try{
-		//	driver.findElement(By.cssSelector("input.submit")).click();
-		//}catch(Exception e){
-			driver.findElement(By.xpath("//input[@id='login_button']")).click();
-		//}
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']")));
+		driver.findElement(By.cssSelector("input.submit")).click();
+		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
 	}
-	/*
+	
 	public void waitForElement (WebDriver driver, String sXpath, int timeInSeconds){
 		for (int second = 0;; second++) {
 			if (second >= timeInSeconds) fail("timeout");
@@ -61,7 +48,7 @@ public class AppUtilities {
 				e.printStackTrace();
 			}
 		}
-	}*/
+	}
 	
 	public void logOutOfApp (WebDriver driver){
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
@@ -101,9 +88,7 @@ public class AppUtilities {
 	 */
 	public void navigateTo (WebDriver driver, String menuPath) throws Exception{
 		String[] menus = menuPath.split("==");
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-attr]")));
-		//waitForElement(driver, "//*[@data-attr]", 30);
+		waitForElement(driver, "//*[@data-attr]", 30);
 		
 		List<WebElement> primaryNav = driver.findElements(By.xpath("//*[@data-attr]"));
 		Iterator<WebElement> primaryNavItr = primaryNav.iterator();
@@ -155,10 +140,13 @@ public class AppUtilities {
 	 * @param itemName
 	 */
 	public void selectItem(WebDriver driver, String itemLink, String itemName){
-		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")));
-		driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
+		try {
+			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+			Thread.sleep(4000);
+			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
+		} catch (InterruptedException e) {
+
+		}
 	}
 	
 	
@@ -205,10 +193,13 @@ public class AppUtilities {
 	
 	
 	public void selectItemSpan(WebDriver driver, String itemLink, String itemName ){
-		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[normalize-space(text())='"+ (itemName) +"']")));			
-		driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[normalize-space(text())='"+ (itemName) +"']")).click();
+		try {
+			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+			Thread.sleep(4000);
+			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[normalize-space(text())='"+ (itemName) +"']")).click();
+		} catch (InterruptedException e) {
+
+		}
 	}
 	
 	
@@ -222,6 +213,67 @@ public class AppUtilities {
 		Locatable hoverItem = (Locatable) element;
 		Mouse mouse = ((HasInputDevices) webDriver).getMouse();
 		mouse.mouseMove(hoverItem.getCoordinates());
+	}
+
+
+	public String clickOnNonBlankLastNameContactLink (WebDriver driver) throws Exception{
+		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
+		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
+		Iterator<WebElement> iterator = findElements.iterator();
+		while (iterator.hasNext()) {
+			WebElement webElement = (WebElement) iterator.next();
+			System.out.println("linkname:"+webElement.getText());
+			System.out.println(webElement.getText().trim().length());
+			System.out.println("");
+			String contactName = webElement.getText().trim();
+			if (contactName.length()!=0){
+				webElement.click();
+				return contactName;
+			}
+			
+		}
+		throw new Exception ("No Contacts Found");
+	}
+	
+	public String selectNonBlankLastNameContactLink (WebDriver driver) throws Exception{
+		
+		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
+		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
+		Iterator<WebElement> iterator = findElements.iterator();
+		while (iterator.hasNext()) {
+			WebElement webElement = (WebElement) iterator.next();
+			System.out.println("linkname:"+webElement.getText());
+			System.out.println(webElement.getText().trim().length());
+			System.out.println("");
+			String contactName = webElement.getText().trim();
+			if (contactName.length()!=0){
+				webElement.findElement(By.xpath("/descendant::td[2]")).click();
+				//webElement.click();
+				return contactName;
+			}
+			
+		}
+		throw new Exception ("No Contacts Found");
+	}
+	
+	public String selectContactsCheckbox (WebDriver driver, String contactName) throws Exception{
+		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
+		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
+		Iterator<WebElement> iterator = findElements.iterator();
+		while (iterator.hasNext()) {
+			WebElement webElement = (WebElement) iterator.next();
+			System.out.println("linkname:"+webElement.getText());
+			System.out.println(webElement.getText().trim().length());
+			System.out.println("");
+			String appContactName = webElement.getText().trim();
+			if (appContactName.equalsIgnoreCase(contactName)){
+				webElement.findElement(By.xpath("/descendant::td[2]")).click();
+				//webElement.click();
+				return contactName;
+			}
+			
+		}
+		throw new Exception ("No Contacts Found");
 	}
 	
 	
