@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -25,7 +27,7 @@ public class MakeA_SMS_Number extends OntraportFirefoxTest {
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String name = "SelName"+varTimeStamp;
 		
@@ -43,8 +45,9 @@ public class MakeA_SMS_Number extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='Select Select Number...']]/descendant::button")).click();
 		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='Select Select Number...']]/descendant::li[2]/div")).click();
 		driver.findElement(By.xpath("//button//span[normalize-space(text())='Buy Number']")).click();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(name);

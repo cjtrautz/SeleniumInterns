@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -28,6 +30,7 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String pageName = "SelOrderPage"+varTimeStamp;
@@ -41,7 +44,7 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 		//select radio button
 		//driver.findElement(By.xpath("//*[*[normalize-space(text())='Use a Hosted Domain']]/descendant::input")).click();
 		fillThePopUp (driver, "Use a Hosted Domain", pageName);
-		Thread.sleep (5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.btn2")));
 		driver.findElement(By.cssSelector("input.btn2")).click();
 		
 		//Add a title
@@ -58,6 +61,7 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 				
 		//Thread.sleep (5000);
 		//driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']//input[@value='Accept']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")));
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();

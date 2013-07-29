@@ -19,8 +19,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 @RunWith(Suite.class)
 @SuiteClasses({
 	com.ontraport.app.selenium.tests.Login.class,
-	com.ontraport.app.selenium.tests.AddNewSection.class,
-	//com.ontraport.app.selenium.tests.AddTab.class,
+	//com.ontraport.app.selenium.tests.AddNewSection.class,
+	com.ontraport.app.selenium.tests.AddTab.class,
 	//com.ontraport.app.selenium.tests.CreateATag.class,
 	//com.ontraport.app.selenium.tests.CreateContact.class,
 	//com.ontraport.app.selenium.tests.CreateProduct.class,

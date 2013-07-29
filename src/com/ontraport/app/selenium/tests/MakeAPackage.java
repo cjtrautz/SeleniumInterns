@@ -16,6 +16,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -35,7 +37,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String packageName = varTimeStamp+"Test";
 		
@@ -48,7 +50,8 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Package']")).click();
 		
 		//Typing name Package name
-		Thread.sleep(5000);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ussr-chrome-panel-pane']//div[contains(normalize-space(text()),'Add Item')]")));
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(packageName);
 		
@@ -75,7 +78,8 @@ public class MakeAPackage extends OntraportFirefoxTest {
         driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Landing Page']")).click();
 		
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[7]/div/div[2]/div/div[5]/div/div/div/button")));
+
 		
 		//selectItem("Select Smart Form", "New Order Form");
 		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[5]/div/div/div/button")).click();
@@ -92,11 +96,12 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
 		
 		//Check for the added package and open it
+		/*
 		for (int second = 0;; second++) {
 			if (second >= 10) fail("timeout");
 			try { if (isElementPresent(By.xpath("//a[normalize-space(text())='"+ packageName + "']"), driver))break; } catch (Exception e) {}
 			Thread.sleep(1000);
-		}
+		}*/
 		
 		HashMap<String, String> ruleMap = new HashMap<String, String>();
 		ruleMap.put ("tag", "test");
@@ -156,13 +161,10 @@ public class MakeAPackage extends OntraportFirefoxTest {
 	public void selectItem(String itemLink, String itemName, WebDriver driver){
 		
 		
-		try {
-			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-			Thread.sleep(4000);
-			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
-		} catch (InterruptedException e) {
-
-		}
+		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")));			
+		driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
 	}
 	
 	

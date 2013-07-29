@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -28,6 +30,7 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		}
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String gatewayName = "SelGW" + varTimeStamp;
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
 		driver.findElement(By.xpath("//*[@class='primary-nav-item-label' and text()='Sales']")).click();
 		driver.findElement(By.xpath("//li[3]//*[@class='primary-nav-sub-item']/a//span[text()='Settings']")).click();
@@ -58,13 +61,19 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));
 		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
 		
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[span[a[normalize-space(text())='" + gatewayName + "']]]]/descendant::td[3]")));
 		WebElement chkBox = driver.findElement(By.xpath("//tr[td[span[a[normalize-space(text())='" + gatewayName + "']]]]/descendant::td[3]"));
 		chkBox.click();
-		Thread.sleep (2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Delete Gateway")));
 		driver.findElement(By.linkText("Delete Gateway")).click();		
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Ok']")).click();
-		Thread.sleep (3000);
+		Thread.sleep (1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("SelGW");
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='ussr-icon ussr-icon-plus']")));
 		Assert.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));
 		//appUtilities.logOutOfApp(driver);
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();

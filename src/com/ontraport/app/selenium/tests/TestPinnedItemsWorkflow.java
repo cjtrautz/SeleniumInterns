@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -29,13 +31,14 @@ AppUtilities appUtilities = new AppUtilities();
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-s")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-s")).click();
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));
 		
 		List<WebElement> finder = new ArrayList<WebElement>();
 		while(finder.isEmpty() == true){
@@ -48,11 +51,11 @@ AppUtilities appUtilities = new AppUtilities();
 		}
 		Assert.assertTrue(isLinkPresentIntable (driver, "Message: List"));
 		driver.findElement(By.cssSelector("a.ussr-icon.ussr-icon-circle-file")).click();
-		Thread.sleep (3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-n")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-n")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));
 		
 		List<WebElement> finder2 = new ArrayList<WebElement>();
 		while(finder2.isEmpty() == true){

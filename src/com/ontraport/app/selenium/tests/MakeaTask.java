@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -33,12 +35,13 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 				driver = new FirefoxDriver();
 				e.printStackTrace();
 			}
-			
+			WebDriverWait wait = new WebDriverWait(driver, 20);
+
 			String taskName = "SelRule"+Calendar.getInstance().getTimeInMillis();
 			driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
 			driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Message']")).click();
 			driver.findElement(By.xpath("//div[div[*/text()='Task']]/descendant::button[*[normalize-space(text())='Create']]")).click();
-			Thread.sleep (6000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']")));			
 			driver.findElement(By.xpath("//input[@type='text']")).clear();
 			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(taskName);
 			
@@ -57,13 +60,13 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			//driver.findElement(By.xpath("//div[div[*/text()='Select...']]/descendant::button[*[normalize-space(text())='Contact Owner']]")).click();
 			fillTaskOwnerNotification (driver);
 			driver.findElement(By.xpath("//div[text()='Add New']")).click();
-			Thread.sleep(4000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ussr-chrome-panel-pane']/div[4]/div[3]/div/div/div[2]")));			
 			WebElement scrollElement = driver.findElement(By.xpath("//*[@id='ussr-chrome-panel-pane']/div[4]/div[3]/div/div/div[2]"));
 			appUtilities.scrollUntillElementFound(driver, scrollElement, By.xpath("//*[@id='ussr-chrome-panel-pane']/div[4]/div[1]/div/div/div[4]/div"));
 			
 			//Add task outcome
 			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='Select OUTCOME NAME...']]/descendant::button")).click();
-			Thread.sleep(4000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='Select OUTCOME NAME...']]/descendant::li/span")));			
 			driver.findElement(By.xpath("//div[input[@placeholder='Select OUTCOME NAME...']]/descendant::li/span")).click();
 
 
@@ -78,7 +81,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div[3]/div/div[2]/table/tbody/tr[2]/td[2]/div/div/div[3]/span[2]")).click();
 
 			driver.findElement(By.xpath("//button//span[text()='Save']")).click();
-			Thread.sleep(6000);
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));			
 			//driver.findElement(By.xpath("//a[normalize-space(text())='Date Added']")).click();
 			//Thread.sleep(4000);
 			driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
@@ -104,27 +107,20 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			
 		
 		public void selectItem(String itemLink, String itemName, WebDriver driver){
-			
-			
-			try {
-				driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-				Thread.sleep(4000);
-				driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
-			} catch (InterruptedException e) {
+			WebDriverWait wait = new WebDriverWait(driver, 20);
 
-			}
+			
+			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")));			
+			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
 		}
 		
 		public void selectItemSpan(String itemLink, String itemName, WebDriver driver){
+			WebDriverWait wait = new WebDriverWait(driver, 20);
 			
-			
-			try {
-				driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-				Thread.sleep(4000);
-				driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[text()='"+ (itemName) +"']")).click();
-			} catch (InterruptedException e) {
-
-			}
+			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[text()='"+ (itemName) +"']")));			
+			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[text()='"+ (itemName) +"']")).click();
 		}
 		
 	

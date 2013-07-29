@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -28,7 +30,7 @@ public class MakeANewLP extends OntraportFirefoxTest{
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		
@@ -42,7 +44,8 @@ public class MakeANewLP extends OntraportFirefoxTest{
 		//select radio button
 		//driver.findElement(By.xpath("//*[*[normalize-space(text())='Use a Hosted Domain']]/descendant::input")).click();
 		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage" + varTimeStamp);
-		Thread.sleep (5000);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.btn2")));
 		driver.findElement(By.cssSelector("input.btn2")).click();
 		//driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']//input[@value='Accept']")).click();
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();

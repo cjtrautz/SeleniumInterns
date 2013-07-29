@@ -54,7 +54,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']"), driver)) break; } catch (Exception e) {}
 			Thread.sleep(1000);
 		}*/
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")));
 		driver.findElement(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")));
@@ -71,7 +71,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 		WebElement draggablePartOfScrollbar = driver.findElement(By.xpath("//div[@class='jb-ace-scroll-wrapper jb-ace-scroll jb-ace-scroll-orientation-vertical']//div[@class='jb-ace-scroll-scrollbar-middle']"));
 		int numberOfPixelsToDragTheScrollbarDown = 100;
 
-		for (int i=10;i<1000;i=i+numberOfPixelsToDragTheScrollbarDown){
+		for (int i=10;i<2000;i=i+numberOfPixelsToDragTheScrollbarDown){
 			try{    		
 	    		        	
 				dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
@@ -86,7 +86,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 	    //if(!draggablePartOfScrollbarTest.isEmpty()){
     	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space(text())='Contact Information']")));	    
 	    
-    	for (int i=5;i<numberOfPixelsToDragTheScrollbarDown;i=i+numberOfPixelsToDragTheScrollbarDown){
+    	for (int i=5;i<100;i=i+numberOfPixelsToDragTheScrollbarDown){
     		try{
 	    		
     			//try { if (isElementPresent(By.xpath("//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']"))) break; } catch (Exception e) {}
@@ -121,7 +121,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 
 		//Click Field Editor
 		driver.findElement(By.xpath("//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")).click();
-	    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div//div[normalize-space(text())='Section Description']")));	    
+	    //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[normalize-space(text())='Section Description']")));	    
 		
 		
 		//Thread.sleep(6000);
@@ -129,7 +129,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 	    	//Actions dragger = new Actions(driver);
 	    	//WebElement draggablePartOfScrollbar = driver.findElement(By.xpath("//div[@class='jb-ace-scroll-wrapper jb-ace-scroll jb-ace-scroll-orientation-vertical']//div[@class='jb-ace-scroll-scrollbar-middle']"));    	
 	    draggablePartOfScrollbar = driver.findElement(By.xpath("//div[@class='jb-ace-scroll-wrapper jb-ace-scroll jb-ace-scroll-orientation-vertical']//div[@class='jb-ace-scroll-scrollbar-middle']"));
-	    for (int i=10;i<500;i=i+100){
+	    for (int i=10;i<500;i=i+numberOfPixelsToDragTheScrollbarDown){
 	    	try{
 	    		
 	   			//try { if (isElementPresent(By.xpath("//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']"))) break; } catch (Exception e) {}

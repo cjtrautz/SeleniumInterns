@@ -10,6 +10,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -36,19 +39,28 @@ public class AddTab extends OntraportFirefoxTest {
 		
 		
 		//Click Messages
-		for (int second = 0;; second++) {
-			if (second >= 60) fail("timeout");
-			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']"), driver)) break; } catch (Exception e) {}
-				Thread.sleep(1000);
-		}
+		//for (int second = 0;; second++) {
+		//	if (second >= 60) fail("timeout");
+		//	try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']"), driver)) break; } catch (Exception e) {}
+		//		Thread.sleep(1000);
+		//}
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")));
 		driver.findElement(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")).click();
 		//Click Field Editor
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")));
 		driver.findElement(By.xpath("//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")).click();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-chrome-panel-pane-header-bottom ussr-theme-orange']//span[@class='ussr-icon ussr-icon-plus']")));
+		//Thread.sleep(6000);
 
 		//Click "ADD TAB"
-		driver.findElement(By.xpath("//div[@class='ussr-chrome-panel-pane-header-bottom ussr-theme-orange']//span[@class='ussr-icon ussr-icon-plus']")).click();
-		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-plus")).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Untitled")));
+		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-n")).click();
+        //driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
+        //Thread.sleep(2000);
+        driver.findElement(By.xpath(("(//a[contains(text(),'Untitled')])[2]"))).click();
+        //driver.findElement(By.xpath("//a[@data-href='tab_15'")).click();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).clear();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).sendKeys(tabName);
 				
@@ -58,17 +70,18 @@ public class AddTab extends OntraportFirefoxTest {
 				
 				
 		//Click Messages
-		for (int second = 0;; second++) {
-			if (second >= 60) fail("timeout");
-			try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']"), driver)) break; } catch (Exception e) {}
-				Thread.sleep(1000);
-			}
+		//for (int second = 0;; second++) {
+		//	if (second >= 60) fail("timeout");
+		//	try { if (isElementPresent(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']"), driver)) break; } catch (Exception e) {}
+		//		Thread.sleep(1000);
+		//	}
 
 		//Click Field Editor
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")));
 		driver.findElement(By.xpath("//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")).click();
-		Thread.sleep(6000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")));
 		driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
-		assertTrue(isElementPresent(By.xpath("(//a[contains(text(),'"+tabName+"')])[2]"), driver));
+		assertTrue(isElementPresent(By.xpath("//a[contains(text(),'"+tabName+"')]"), driver));
 
 		
 		
