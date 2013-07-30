@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.internal.Locatable;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AppUtilities {
 	
@@ -30,10 +32,13 @@ public class AppUtilities {
 		driver.findElement(By.name("username")).sendKeys(userName);
 		driver.findElement(By.name("password")).clear();
 		driver.findElement(By.name("password")).sendKeys(password);
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']")));
 		driver.findElement(By.cssSelector("input.submit")).click();
-		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']")));
+		//waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
 	}
-	
+	/*
 	public void waitForElement (WebDriver driver, String sXpath, int timeInSeconds){
 		for (int second = 0;; second++) {
 			if (second >= timeInSeconds) fail("timeout");
@@ -49,7 +54,7 @@ public class AppUtilities {
 			}
 		}
 	}
-	
+	*/
 	public void logOutOfApp (WebDriver driver){
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
@@ -88,7 +93,8 @@ public class AppUtilities {
 	 */
 	public void navigateTo (WebDriver driver, String menuPath) throws Exception{
 		String[] menus = menuPath.split("==");
-		waitForElement(driver, "//*[@data-attr]", 30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-attr]"))); 
 		
 		List<WebElement> primaryNav = driver.findElements(By.xpath("//*[@data-attr]"));
 		Iterator<WebElement> primaryNavItr = primaryNav.iterator();
@@ -140,13 +146,10 @@ public class AppUtilities {
 	 * @param itemName
 	 */
 	public void selectItem(WebDriver driver, String itemLink, String itemName){
-		try {
-			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-			Thread.sleep(4000);
-			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click();
-		} catch (InterruptedException e) {
-
-		}
+		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")));
+		driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/div[text()='"+ (itemName) +"']")).click(); 
 	}
 	
 	
@@ -193,13 +196,10 @@ public class AppUtilities {
 	
 	
 	public void selectItemSpan(WebDriver driver, String itemLink, String itemName ){
-		try {
-			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
-			Thread.sleep(4000);
-			driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[normalize-space(text())='"+ (itemName) +"']")).click();
-		} catch (InterruptedException e) {
-
-		}
+		driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[normalize-space(text())='"+ (itemName) +"']")));      
+		driver.findElement(By.xpath("//div[input[@placeholder='"+ (itemLink) +"']]/descendant::li/span[normalize-space(text())='"+ (itemName) +"']")).click();
 	}
 	
 	
@@ -217,7 +217,9 @@ public class AppUtilities {
 
 
 	public String clickOnNonBlankLastNameContactLink (WebDriver driver) throws Exception{
-		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@class='ussr-table-striped']")));      
+		//waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
 		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
 		Iterator<WebElement> iterator = findElements.iterator();
 		while (iterator.hasNext()) {
@@ -236,8 +238,9 @@ public class AppUtilities {
 	}
 	
 	public String selectNonBlankLastNameContactLink (WebDriver driver) throws Exception{
-		
-		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@class='ussr-table-striped']")));
+		//waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
 		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
 		Iterator<WebElement> iterator = findElements.iterator();
 		while (iterator.hasNext()) {
@@ -257,7 +260,9 @@ public class AppUtilities {
 	}
 	
 	public String selectContactsCheckbox (WebDriver driver, String contactName) throws Exception{
-		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@class='ussr-table-striped']")));      
+		//waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
 		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
 		Iterator<WebElement> iterator = findElements.iterator();
 		while (iterator.hasNext()) {

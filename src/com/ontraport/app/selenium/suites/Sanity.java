@@ -20,7 +20,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 @SuiteClasses({
 	com.ontraport.app.selenium.tests.Login.class,
 	//com.ontraport.app.selenium.tests.AddNewSection.class,
-	com.ontraport.app.selenium.tests.AddTab.class,
+	//com.ontraport.app.selenium.tests.AddTab.class,
 	//com.ontraport.app.selenium.tests.CreateATag.class,
 	//com.ontraport.app.selenium.tests.CreateContact.class,
 	//com.ontraport.app.selenium.tests.CreateProduct.class,
@@ -37,7 +37,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.MakeAPackage.class,
 	//com.ontraport.app.selenium.tests.MakeaTask.class,
 	//com.ontraport.app.selenium.tests.TestPinnedItemsWorkflow.class,
-	//com.ontraport.app.selenium.tests.TestUneditedWorkFlow.class
+	//com.ontraport.app.selenium.tests.TestUneditedWorkFlow.class,
+	//com.ontraport.app.selenium.tests.AddDeleteUserPermission.class,
+	//com.ontraport.app.selenium.tests.AddRoundRobin.class,
+	//com.ontraport.app.selenium.tests.DeleteALP.class,
+	com.ontraport.app.selenium.tests.DeleteAWPSite.class
+
+
 	})
 
 public class Sanity {

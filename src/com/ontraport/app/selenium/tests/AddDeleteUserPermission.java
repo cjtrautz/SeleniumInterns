@@ -57,7 +57,7 @@ public class AddDeleteUserPermission extends OntraportFirefoxTest {
 		String txt = driver.findElement(By.xpath("//div[span[@class='ussr-state-empty']]")).getText();
 		System.out.println ("txt:"+txt);
 		Assert.assertTrue(txt.trim().equalsIgnoreCase("There are no items to display"));
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 
 }

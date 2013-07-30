@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -68,6 +70,8 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 	}
 	
 	public void clickOnNonBlankLastNameContactLink (WebDriver driver){
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@class='ussr-table-striped']")));
 		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
 		Iterator<WebElement> iterator = findElements.iterator();
 		while (iterator.hasNext()) {

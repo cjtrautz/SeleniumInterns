@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -12,15 +14,24 @@ public class DeleteAWPSite extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
 	public void testDeleteAWPSite() throws Exception {
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester","passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester","passphrases are easy to break");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String siteName = "SelSite"+varTimeStamp;
 		String domain = "seleniumwp2"+varTimeStamp;
 		String level = "Level 1";
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
 		
 		//Navigate to Word Press page
-		appUtilities.navigateTo(driver, "Sites==WordPress");
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Sites']")).click();
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='WordPress']")).click();
 		
 		
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Website']")).click();
@@ -58,19 +69,9 @@ public class DeleteAWPSite extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//div[@class='ussr-dialog-buttons']//span[normalize-space(text())='Ok']/parent::button")).click();
 		Thread.sleep(3000);
 		Assert.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" +(siteName)+"']")));
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 		
-		
-		
-
-		
-
-		
-
-
-		
-		
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();	
 		
 		
 	}
