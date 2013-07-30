@@ -7,12 +7,18 @@ import java.util.Calendar;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.internal.seleniumemulation.JavascriptLibrary;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.thoughtworks.selenium.DefaultSelenium;
+import com.thoughtworks.selenium.Selenium;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -54,18 +60,35 @@ public class AddTab extends OntraportFirefoxTest {
 		//Thread.sleep(6000);
 
 		//Click "ADD TAB"
-		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-plus")).click();
-		//wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Untitled")));
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//a[.='Add Tab']")).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@data-modelid='ontraport_models_view_piece_tab_113'")));
 		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-n")).click();
         //driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
-        //Thread.sleep(2000);
-        driver.findElement(By.xpath(("(//a[contains(text(),'Untitled')])[2]"))).click();
+        //Thread.sleep(6000);
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[contains(@class, 'ussr-component-tab')]")));
+		//driver.findElement(By.xpath("//li[contains(@class, 'ussr-component-tab')]")).click();
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//text()[contains(.,'Untitled')]")));
+		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-n")).click();
+		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
+		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
+		//JavascriptLibrary jsLib = new JavascriptLibrary(); 
+        //jsLib.callEmbeddedSelenium(driver,"triggerMouseEventAt", driver.findElement(By.xpath(("//a[contains(text(),'Untitled')]"))),"click");
+        //JavascriptExecutor js = null;
+        //if(driver instanceof JavascriptExecutor){
+        //	js= (JavascriptExecutor) driver;
+        //}
+        //js.executeScript("document.getElemen);
+        //JavascriptExecutor executor = (JavascriptExecutor)driver;
+        //executor.executeScript("arguments[0].click();", element);
+		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(text(),'Untitled')])[2]")));
+        //element.click();
+        //driver.findElement(By.xpath(("//a[contains(text(),'Untitled')]"))).click();
         //driver.findElement(By.xpath("//a[@data-href='tab_15'")).click();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).clear();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).sendKeys(tabName);
-				
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div[2]/div[2]/ul")).click();
 		//Click Save
-		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
+		//driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();		
 				
 				

@@ -3,6 +3,8 @@ package com.ontraport.app.selenium.tests;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -10,9 +12,17 @@ public class AddDeleteUserPermission extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
 	public void testChangeUserInfo() throws Exception {
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester","passphrases are easy to break");
-				
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester","passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
 		//Navigate to Personal Settings
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-wrapper']//*[@class='ussr-corner-bl']//a[normalize-space(text())='Personal Settings']")).click();
