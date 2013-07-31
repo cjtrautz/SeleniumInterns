@@ -62,6 +62,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//*[@id='ussr-chrome-panel-pane']//div[contains(normalize-space(text()),'Add Item')]")).click();
 		
 		//selectItem("Select Tag", "test");
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[7]/div/div[2]/div/div[1]/div/div/div/button")));
 		driver.findElement(By.xpath("//div[7]/div/div[2]/div/div[1]/div/div/div/button")).click();
         driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
 		driver.findElement(By.xpath("//span[text()='Add Tag']")).click();

@@ -72,8 +72,8 @@ public class AddTab extends OntraportFirefoxTest {
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//text()[contains(.,'Untitled')]")));
 		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-n")).click();
 		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
-		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
-		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
+		//driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
+		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])")).click();
 		//JavascriptLibrary jsLib = new JavascriptLibrary(); 
         //jsLib.callEmbeddedSelenium(driver,"triggerMouseEventAt", driver.findElement(By.xpath(("//a[contains(text(),'Untitled')]"))),"click");
         //JavascriptExecutor js = null;
@@ -89,7 +89,7 @@ public class AddTab extends OntraportFirefoxTest {
         //driver.findElement(By.xpath("//a[@data-href='tab_15'")).click();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).clear();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).sendKeys(tabName);
-		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div[2]/div[2]/ul")).click();
+		//driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div[2]/div[2]/ul")).click();
 		//Click Save
 		//driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();		
@@ -105,8 +105,8 @@ public class AddTab extends OntraportFirefoxTest {
 		//Click Field Editor
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")));
 		driver.findElement(By.xpath("//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")));
-		driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")));
+		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
 		assertTrue(isElementPresent(By.xpath("//a[contains(text(),'"+tabName+"')]"), driver));
 
 		
