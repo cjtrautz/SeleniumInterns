@@ -30,6 +30,7 @@ AppUtilities appUtilities = new AppUtilities();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		String emailId = "SelUsr"+varTimeStamp+"@gmail.com";
 		

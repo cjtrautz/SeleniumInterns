@@ -39,7 +39,8 @@ public class CreateContact extends OntraportFirefoxTest {
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Contact']")).click();
 		//Thread.sleep(3000);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();

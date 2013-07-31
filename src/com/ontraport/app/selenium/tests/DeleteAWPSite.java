@@ -33,6 +33,7 @@ public class DeleteAWPSite extends OntraportFirefoxTest {
 			e.printStackTrace();
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 20);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Navigate to Word Press page
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Sites']")).click();
@@ -83,7 +84,7 @@ public class DeleteAWPSite extends OntraportFirefoxTest {
 		//Thread.sleep(10000);
 
 		driver.findElement(By.xpath("//div[@class='ussr-dialog-buttons']//span[normalize-space(text())='Ok']/parent::button")).click();
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);

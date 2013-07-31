@@ -28,7 +28,8 @@ public class CreateATag  extends OntraportFirefoxTest{
 			e.printStackTrace();
 		}
 		String tagName = "SelTag" + varTimeStamp;
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.xpath("//ul[@class='ussr-corner-bl']/li/a[text()='Admin']")).click();
 		

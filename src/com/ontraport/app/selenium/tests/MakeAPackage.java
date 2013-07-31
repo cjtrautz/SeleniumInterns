@@ -40,6 +40,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		String packageName = varTimeStamp+"Test";
 		

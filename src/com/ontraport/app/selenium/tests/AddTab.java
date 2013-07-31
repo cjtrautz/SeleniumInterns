@@ -51,6 +51,8 @@ public class AddTab extends OntraportFirefoxTest {
 		//		Thread.sleep(1000);
 		//}
 		WebDriverWait wait = new WebDriverWait(driver, 10);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")));
 		driver.findElement(By.xpath("//li[@class='primary-nav-sub-item']//a//span[ text()='Settings']")).click();
 		//Click Field Editor

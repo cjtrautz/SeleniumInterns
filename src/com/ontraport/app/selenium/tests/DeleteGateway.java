@@ -60,7 +60,6 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));
-		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[span[a[normalize-space(text())='" + gatewayName + "']]]]/descendant::td[3]")));
 		WebElement chkBox = driver.findElement(By.xpath("//tr[td[span[a[normalize-space(text())='" + gatewayName + "']]]]/descendant::td[3]"));
@@ -69,6 +68,8 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		driver.findElement(By.linkText("Delete Gateway")).click();		
 		driver.findElement(By.xpath("//*[@class='ussr-dialog-buttons']/button/span[normalize-space(text())='Ok']")).click();
 		Thread.sleep (1000);
+		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();

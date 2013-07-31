@@ -34,6 +34,8 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String gateWayName = "SelGW"+varTimeStamp;
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='sem-collection-header-display']//a[.='Email']")));
 		clickOnNonBlankLastNameContactLink(driver);
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='Actions']")).click();
@@ -61,8 +63,8 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 			finder=driver.findElements(By.xpath("//a[normalize-space(text())='Gateway: " + (gateWayName) +"']"));
 			//System.out.println(finder.isEmpty());
 			if(finder.isEmpty() == true){
-				AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//div[8]/div[1]/div/div[2]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']")));
-				driver.findElement(By.xpath("//div[8]/div[1]/div/div[2]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next']")).click();
+				AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//div[8]/div[1]/div/div[3]/div/ul/li[4]/a[1]/span[@class='ussr-icon ussr-icon-seek-next ussr-state-disabled']")));
+				driver.findElement(By.xpath("//div[@class='ussr-workflow-menu-box']/div[3]/div/ul/li[4]/a[1]/span")).click();
 			}
 		}
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='Gateway: " + (gateWayName) +"']")));

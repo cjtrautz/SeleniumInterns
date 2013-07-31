@@ -35,6 +35,7 @@ public class MakeANewLP extends OntraportFirefoxTest{
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String lpName = "SelLP"+varTimeStamp;
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 

@@ -33,6 +33,7 @@ public class CreateProduct extends OntraportFirefoxTest {
 		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		driver.findElement(By.xpath("//*[@class='primary-nav-item-label' and text()='Sales']")).click();
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Products']")).click();

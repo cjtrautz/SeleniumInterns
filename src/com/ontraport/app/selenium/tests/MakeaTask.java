@@ -39,11 +39,13 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 			String Search =  String.valueOf(varTimeStamp);
 			String taskName = "SelRule"+varTimeStamp;
-			
+			driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 			driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
 			driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Message']")).click();
 			driver.findElement(By.xpath("//div[div[*/text()='Task']]/descendant::button[*[normalize-space(text())='Create']]")).click();
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']")));			
+			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")));			
+			driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
 			driver.findElement(By.xpath("//input[@type='text']")).clear();
 			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(taskName);
 			

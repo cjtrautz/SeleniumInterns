@@ -16,7 +16,7 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	
 	@Test
-	public void testMakeARole(){
+	public void testMakeARole() throws InterruptedException{
 		//driver.get(baseUrl + "/");
 		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		WebDriver driver;
@@ -27,9 +27,11 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		String roleName = "Role"+varTimeStamp;
 		
@@ -49,7 +51,8 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//div[label[text()='Can Manage Sequences']]/descendant::a/span")).click();
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
-		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='ussr-icon ussr-icon-search']")));
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);

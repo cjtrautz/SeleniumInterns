@@ -32,6 +32,7 @@ public class DeleteSMS_Number extends OntraportFirefoxTest  {
 		}
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		String name = "SelName"+varTimeStamp;
 		WebDriverWait wait = new WebDriverWait(driver, 10);

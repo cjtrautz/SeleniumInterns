@@ -33,7 +33,8 @@ public class DeleteATag extends OntraportFirefoxTest {
 			e.printStackTrace();
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.xpath("//ul[@class='ussr-corner-bl']/li/a[text()='Admin']")).click();
 		
@@ -47,6 +48,7 @@ public class DeleteATag extends OntraportFirefoxTest {
 	
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);

@@ -32,7 +32,8 @@ AppUtilities appUtilities = new AppUtilities();
 			e.printStackTrace();
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 20);
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-s")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));

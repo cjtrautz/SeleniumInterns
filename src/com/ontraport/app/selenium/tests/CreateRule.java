@@ -33,6 +33,7 @@ public class CreateRule extends OntraportFirefoxTest {
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String ruleName = "SelRule" + varTimeStamp;
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();

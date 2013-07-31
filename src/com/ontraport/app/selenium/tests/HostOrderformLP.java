@@ -30,11 +30,14 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
 		String pageName = "SelOrderPage"+varTimeStamp;
+		
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Landing Page']")).click();
 		driver.findElement(By.xpath("//div[div[*/text()='Easy Pages']]/descendant::button[*[normalize-space(text())='Create']]")).click();
 		

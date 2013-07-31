@@ -34,6 +34,8 @@ public class AddRoundRobin extends OntraportFirefoxTest {
 			e.printStackTrace();
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 10);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='primary-nav-sub-item']/a//span[ text()='Settings']")));
 
 		//appUtilities.loginToApp(driver, "tester","passphrases are easy to break");

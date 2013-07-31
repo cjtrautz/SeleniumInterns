@@ -30,6 +30,7 @@ public class MakeA_SMS_Number extends OntraportFirefoxTest {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		String name = "SelName"+varTimeStamp;
 		
