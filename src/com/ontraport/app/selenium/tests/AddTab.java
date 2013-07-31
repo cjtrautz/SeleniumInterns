@@ -71,6 +71,7 @@ public class AddTab extends OntraportFirefoxTest {
 		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-n")).click();
 		//driver.findElement(By.cssSelector("a.jb-overflowmenu-menu-secondary-handle > span.ussr-icon.ussr-icon-carat-2-s")).click();
 		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
+		driver.findElement(By.xpath("(//a[contains(text(),'Untitled')])[2]")).click();
 		//JavascriptLibrary jsLib = new JavascriptLibrary(); 
         //jsLib.callEmbeddedSelenium(driver,"triggerMouseEventAt", driver.findElement(By.xpath(("//a[contains(text(),'Untitled')]"))),"click");
         //JavascriptExecutor js = null;

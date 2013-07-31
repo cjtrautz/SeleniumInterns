@@ -35,6 +35,8 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 		}
 		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
+
 		driver.findElement(By.xpath("//*[@class='primary-nav-item-label' and text()='Sales']")).click();
 		driver.findElement(By.xpath("//li[3]//*[@class='primary-nav-sub-item']/a//span[text()='Settings']")).click();
 		
@@ -61,7 +63,7 @@ public class MakeAGateWay extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("SelGW"+varTimeStamp);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + ("SelGW"+varTimeStamp) +"']"), driver));
 

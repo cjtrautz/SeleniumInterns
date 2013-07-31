@@ -43,6 +43,8 @@ public class CreateContact extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Contact']")).click();
 		//Thread.sleep(3000);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
+
 		System.out.println (varTimeStamp);
 		WebElement fNameTxtBox = getTextBoxOnTheLabel (driver, "First Name");
 		fNameTxtBox.clear();
@@ -54,7 +56,7 @@ public class CreateContact extends OntraportFirefoxTest {
 		
 		
 		String emailId = "selenium"+varTimeStamp+"@test.com";
-		WebElement emailTxtBox = getTextBoxOnTheLabel (driver, "E-Mail");
+		WebElement emailTxtBox = getTextBoxOnTheLabel (driver, "Email");
 		emailTxtBox.clear();
 		emailTxtBox.sendKeys(emailId);
 		
@@ -63,7 +65,7 @@ public class CreateContact extends OntraportFirefoxTest {
 		//search
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("Fname"+varTimeStamp);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		//assert
 		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + (emailId) +"']"), driver));

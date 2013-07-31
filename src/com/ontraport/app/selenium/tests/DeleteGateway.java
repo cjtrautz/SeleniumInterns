@@ -29,6 +29,7 @@ public class DeleteGateway extends OntraportFirefoxTest {
 			e.printStackTrace();
 		}
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
 		String gatewayName = "SelGW" + varTimeStamp;
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		
@@ -56,7 +57,7 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(gatewayName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));
 		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
@@ -71,7 +72,7 @@ public class DeleteGateway extends OntraportFirefoxTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("SelGW");
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='ussr-icon ussr-icon-plus']")));
 		Assert.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (gatewayName) +"']")));

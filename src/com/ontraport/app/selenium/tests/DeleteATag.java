@@ -23,6 +23,7 @@ public class DeleteATag extends OntraportFirefoxTest {
 		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String tagName = "SelTagDel" + varTimeStamp;
+		String Search =  String.valueOf(varTimeStamp);
 		WebDriver driver;
 		try {
 			driver = getDriver();
@@ -48,11 +49,11 @@ public class DeleteATag extends OntraportFirefoxTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(tagName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//*[normalize-space(text())='" + (tagName) +"']")));
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")));
-		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
+		//wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")));
+		//driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[td[span[normalize-space(text())='" + tagName + "']]]/descendant::td[3]")));
 		WebElement chkBox = driver.findElement(By.xpath("//tr[td[span[normalize-space(text())='" + tagName + "']]]/descendant::td[3]"));
@@ -67,12 +68,16 @@ public class DeleteATag extends OntraportFirefoxTest {
 		//driver.findElement(By.xpath("//input[@type='search']")).sendKeys(tagName);
 		//driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		//Assert.assertFalse(appUtilities.isElementPresent(driver, By.linkText(tagName)));
+		
 		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")));
+		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='ussr-icon ussr-icon-plus']")));
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("SelTagDel");
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='ussr-icon ussr-icon-plus']")));
 		AssertJUnit.assertFalse(appUtilities.isElementPresent(driver, By.xpath("//*[normalize-space(text())='" + (tagName) +"']")));

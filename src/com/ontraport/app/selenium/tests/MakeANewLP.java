@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -31,30 +32,34 @@ public class MakeANewLP extends OntraportFirefoxTest{
 			e.printStackTrace();
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 20);
-		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
-		
+		String lpName = "SelLP"+varTimeStamp;
+		String Search =  String.valueOf(varTimeStamp);
+
+		appUtilities.navigateTo (driver, "Sites==Landing Page");
+
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Landing Page']")).click();
 		driver.findElement(By.xpath("//div[div[*/text()='Easy Pages']]/descendant::button[*[normalize-space(text())='Create']]")).click();
-		
+				
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("SelLP"+varTimeStamp);
-		
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(lpName);
+				
 		driver.findElement(By.xpath("//div[@class='menu_button_class']//td[normalize-space(text())='Page URL:']")).click();
 		//select radio button
 		//driver.findElement(By.xpath("//*[*[normalize-space(text())='Use a Hosted Domain']]/descendant::input")).click();
-		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage" + varTimeStamp);
-		
+		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage");
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.btn2")));
 		driver.findElement(By.cssSelector("input.btn2")).click();
+				
+		driver.findElement(By.xpath("//div[@id='layer_box']/div[contains(normalize-space(text()),'New Item')]")).click();
+		driver.findElement(By.xpath("//div[@class='ussr-dialog-content jb-ace-scroll-target']//div[@class='create_button_class']//td[contains(normalize-space(text()),'Shape')]")).click();
 		//driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']//input[@value='Accept']")).click();
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
-		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys("SelLP"+varTimeStamp);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
-		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ("SelLP"+varTimeStamp) +"']")));
+		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (lpName) +"']")));
 		
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}

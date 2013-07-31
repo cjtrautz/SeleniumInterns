@@ -34,7 +34,6 @@ AppUtilities appUtilities = new AppUtilities();
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-s")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-pin-s")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();

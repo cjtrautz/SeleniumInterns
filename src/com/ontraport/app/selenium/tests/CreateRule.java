@@ -30,9 +30,10 @@ public class CreateRule extends OntraportFirefoxTest {
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
-		String ruleName = "SelRule"+Calendar.getInstance().getTimeInMillis();
-		
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String ruleName = "SelRule" + varTimeStamp;
+		String Search =  String.valueOf(varTimeStamp);
+
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
 		//Click on New Rule
@@ -68,7 +69,7 @@ public class CreateRule extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(ruleName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();

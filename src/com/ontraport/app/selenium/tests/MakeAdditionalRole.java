@@ -29,6 +29,8 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 		}
 		
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
+
 		String roleName = "Role"+varTimeStamp;
 		
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
@@ -50,7 +52,7 @@ public class MakeAdditionalRole  extends OntraportFirefoxTest{
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(roleName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (roleName) +"']")));
 		

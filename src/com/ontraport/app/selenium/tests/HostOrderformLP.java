@@ -33,6 +33,7 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		appUtilities.navigateTo (driver, "Sites==Landing Page");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
 		String pageName = "SelOrderPage"+varTimeStamp;
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Landing Page']")).click();
 		driver.findElement(By.xpath("//div[div[*/text()='Easy Pages']]/descendant::button[*[normalize-space(text())='Create']]")).click();
@@ -66,7 +67,7 @@ public class HostOrderformLP extends OntraportFirefoxTest{
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(pageName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + pageName +"']")));
 		//Thread.sleep (5000);

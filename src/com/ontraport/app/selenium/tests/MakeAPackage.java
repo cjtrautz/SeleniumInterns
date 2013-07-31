@@ -39,6 +39,8 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		}
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
+
 		String packageName = varTimeStamp+"Test";
 		
 		//Navigate to Admin page
@@ -113,7 +115,7 @@ public class MakeAPackage extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
-		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(packageName);
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(isElementPresent(By.xpath("//a[normalize-space(text())='" + (packageName) +"']"), driver));
 		//not using the map values

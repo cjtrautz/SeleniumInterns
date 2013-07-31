@@ -36,8 +36,10 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 				e.printStackTrace();
 			}
 			WebDriverWait wait = new WebDriverWait(driver, 20);
-
-			String taskName = "SelRule"+Calendar.getInstance().getTimeInMillis();
+			long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+			String Search =  String.valueOf(varTimeStamp);
+			String taskName = "SelRule"+varTimeStamp;
+			
 			driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Messages']")).click();
 			driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Message']")).click();
 			driver.findElement(By.xpath("//div[div[*/text()='Task']]/descendant::button[*[normalize-space(text())='Create']]")).click();
@@ -86,7 +88,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 			//Thread.sleep(4000);
 			driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
 			driver.findElement(By.xpath("//input[@type='search']")).clear();
-			driver.findElement(By.xpath("//input[@type='search']")).sendKeys(taskName);
+			driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 			driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 			AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//span/a[normalize-space(text())='"+(taskName)+"']")));	
 	

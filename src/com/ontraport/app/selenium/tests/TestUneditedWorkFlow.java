@@ -31,26 +31,27 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String gateWayName = "SelGW"+varTimeStamp;
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='sem-collection-header-display']//a[.='Email']")));
 		clickOnNonBlankLastNameContactLink(driver);
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='Actions']")).click();
 		driver.findElement(By.linkText("Log Transaction")).click();
 				
-		Thread.sleep(3000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[input[normalize-space(@placeholder)='Select Gateway...']]/descendant::button")));
 		appUtilities.selectItemSpan(driver, "Select Gateway...", "Create New Gateway");
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Enter Name']")));
 		driver.findElement(By.xpath("//input[@placeholder='Enter Name']")).clear();
 		driver.findElement(By.xpath("//input[@placeholder='Enter Name']")).sendKeys(gateWayName);
 
 		driver.findElement(By.xpath("//button/span[text()='Save as Draft']")).click();
 		driver.findElement(By.xpath("//button[@value='Cancel']")).click();
-
-		Thread.sleep(3000);
+		
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")));
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ussr-workflow-menu-box']//th[normalize-space(.)='workflow']")));
 		
 		//boolean b = isUnEditItemsLogAvaialable(gateWayName, driver);
 		//System.out.println(b);
@@ -65,7 +66,7 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 			}
 		}
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='Gateway: " + (gateWayName) +"']")));
-		
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-circle-file")).click();
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 	}
 	

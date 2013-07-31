@@ -112,7 +112,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 	    driver.findElement(By.xpath("//div//div[normalize-space(text())='Section Description']")).click();
 	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).clear();
 	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).sendKeys(sectionDesc);
-
+	    Thread.sleep(1000);
 
 
 	    
