@@ -49,8 +49,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.DeleteAllMessages.class,
 	//com.ontraport.app.selenium.tests.DeleteAllRules.class,
 	//com.ontraport.app.selenium.tests.DeleteAllSequences.class,
-	com.ontraport.app.selenium.tests.DeleteMessage.class,
-
+	//com.ontraport.app.selenium.tests.DeleteMessage.class,
+	//com.ontraport.app.selenium.tests.SendFromAddress.class,
+	//com.ontraport.app.selenium.tests.AddGroup.class,
+	//com.ontraport.app.selenium.tests.FormEditorLoad.class,
+	com.ontraport.app.selenium.tests.SetUpOrderForm.class,
 	})
 
 public class Sanity {
