@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -27,6 +29,8 @@ AppUtilities appUtilities = new AppUtilities();
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		
@@ -34,7 +38,7 @@ AppUtilities appUtilities = new AppUtilities();
 		driver.findElement(By.xpath("//ul[@class='ussr-corner-bl']/li/a[text()='Admin']")).click();
 		
 		driver.findElement(By.xpath("//div[div[text()='E-Mail']]/descendant::a")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[span[text()='Add E-Mail']]")));
 		driver.findElement(By.xpath("//button[span[text()='Add E-Mail']]")).click();
 
 		driver.findElement(By.xpath("//input[@type='text']")).clear();

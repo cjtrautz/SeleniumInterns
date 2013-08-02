@@ -69,7 +69,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.ChangeUserInfo.class,
 	//com.ontraport.app.selenium.tests.DeleteSingleContact.class,
 	//com.ontraport.app.selenium.tests.DeletSendFromAddress.class,
-	com.ontraport.app.selenium.tests.TestWorkflowEnsureItemStore.class,
+	//com.ontraport.app.selenium.tests.TestWorkflowEnsureItemStore.class,
+	//com.ontraport.app.selenium.tests.DeleteRule.class,
+	//com.ontraport.app.selenium.tests.OpensDrawerRule.class,
+	//com.ontraport.app.selenium.tests.PauseRule.class,
+	com.ontraport.app.selenium.tests.TryToFailUsageAgreement.class,
 
 
 

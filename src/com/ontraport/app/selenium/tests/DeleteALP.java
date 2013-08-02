@@ -65,7 +65,7 @@ public class DeleteALP extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + (lpName) +"']")));
 		//driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
-		driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
+		//driver.findElement(By.cssSelector("a.ussr-form-input-type-search-clear.position-absolute-right > span.ussr-icon.ussr-icon-close")).click();
 
 		//Thread.sleep(10000);
 

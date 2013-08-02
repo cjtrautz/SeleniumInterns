@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -26,8 +28,10 @@ public class EnsureOPPPWork extends OntraportFirefoxTest {
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
-		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
 		String siteName = "SelSite"+varTimeStamp;
 		String domain = "seleniumwp2"+varTimeStamp;
 		String level = "Level 1";
@@ -39,7 +43,7 @@ public class EnsureOPPPWork extends OntraportFirefoxTest {
 		
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[normalize-space(text())='New Website']")).click();
 		driver.findElement(By.xpath("//div[div[*/text()='New Wordpress Site']]/descendant::button[*[normalize-space(text())='Create']]")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']")));
 		
 		// Enter WebSite Name
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
@@ -58,11 +62,14 @@ public class EnsureOPPPWork extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//span[normalize-space(text())='Add']")).click();
 		
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
-		Thread.sleep(8000);		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-dialog-buttons']/button")));
 		driver.findElement(By.xpath("//div[@class='ussr-dialog-buttons']/button")).click();
 
-		Thread.sleep(8000);
-		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" +(siteName)+"']")));
 
 		

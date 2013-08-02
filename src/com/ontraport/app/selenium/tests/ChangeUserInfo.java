@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -28,6 +30,8 @@ public class ChangeUserInfo extends OntraportFirefoxTest {
 			driver = new FirefoxDriver();
 			e.printStackTrace();
 		}
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Navigate to Personal Settings
@@ -39,33 +43,33 @@ public class ChangeUserInfo extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='First Name']/parent::div//div/input")).clear();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='First Name']/parent::div//div/input")).sendKeys(FirstName);
 		
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Last Name']/parent::div/div")));
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Last Name']/parent::div/div")).click();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Last Name']/parent::div//div/input")).clear();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Last Name']/parent::div//div/input")).sendKeys(LastName);
 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Telephone']/parent::div/div")));
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Telephone']/parent::div/div")).click();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Telephone']/parent::div//div/input")).clear();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Telephone']/parent::div//div/input")).sendKeys(Telephone);
 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Cell Phone']/parent::div/div")));
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Cell Phone']/parent::div/div")).click();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Cell Phone']/parent::div//div/input")).clear();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Cell Phone']/parent::div//div/input")).sendKeys(CellPhone);
 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Fax']/parent::div/div")));
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Fax']/parent::div/div")).click();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Fax']/parent::div//div/input")).clear();
 		driver.findElement(By.xpath("//label[@class='ussr-form-label' and normalize-space(text())='Fax']/parent::div//div/input")).sendKeys(Fax);
 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space(text())='Save']")));
 		driver.findElement(By.xpath("//span[normalize-space(text())='Save']")).click();
 
 		//Navigate to Contacts
 		
 		driver.findElement(By.xpath("//span[@class='primary-nav-item-label' and normalize-space(text())='Contacts']")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li.ussr-header-nav-option-user")));
 		//Navigate to Personal Settings
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-wrapper']//*[@class='ussr-corner-bl']//a[normalize-space(text())='Personal Settings']")).click();
