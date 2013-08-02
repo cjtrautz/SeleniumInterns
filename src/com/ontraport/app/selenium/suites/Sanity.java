@@ -53,7 +53,26 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.SendFromAddress.class,
 	//com.ontraport.app.selenium.tests.AddGroup.class,
 	//com.ontraport.app.selenium.tests.FormEditorLoad.class,
-	com.ontraport.app.selenium.tests.SetUpOrderForm.class,
+	//com.ontraport.app.selenium.tests.SetUpOrderForm.class,
+	//com.ontraport.app.selenium.tests.UploadAttachment.class,
+	//com.ontraport.app.selenium.tests.CreateFulfillment.class,
+	//com.ontraport.app.selenium.tests.AffiliateLink.class,
+	//com.ontraport.app.selenium.tests.UploadVideo.class,
+	//com.ontraport.app.selenium.tests.DoubleOptIn.class,
+	//com.ontraport.app.selenium.tests.NewInvoice.class,
+	//com.ontraport.app.selenium.tests.EnsureOPPPWork.class,
+	//com.ontraport.app.selenium.tests.SetTimezone.class,
+	//com.ontraport.app.selenium.tests.DeleteAllTags.class,
+	//com.ontraport.app.selenium.tests.ClickLogOut.class,
+	//com.ontraport.app.selenium.tests.MakeATagAndAddItToContact.class,
+	//com.ontraport.app.selenium.tests.ClickAddPackage.class,
+	//com.ontraport.app.selenium.tests.ChangeUserInfo.class,
+	//com.ontraport.app.selenium.tests.DeleteSingleContact.class,
+	//com.ontraport.app.selenium.tests.DeletSendFromAddress.class,
+	com.ontraport.app.selenium.tests.TestWorkflowEnsureItemStore.class,
+
+
+
 	})
 
 public class Sanity {
