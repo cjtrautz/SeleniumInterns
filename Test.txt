@@ -1,5 +1,0 @@
-Try to fail the usage agreement
-Opens Drawer with actions
-Delete Rule
-Pause Rule
-Unpause Rule
