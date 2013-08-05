@@ -73,7 +73,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.DeleteRule.class,
 	//com.ontraport.app.selenium.tests.OpensDrawerRule.class,
 	//com.ontraport.app.selenium.tests.PauseRule.class,
-	com.ontraport.app.selenium.tests.TryToFailUsageAgreement.class,
+	//com.ontraport.app.selenium.tests.TryToFailUsageAgreement.class,
+	//com.ontraport.app.selenium.tests.CreateNote.class,
+	//com.ontraport.app.selenium.tests.AddColumn.class,
+	//com.ontraport.app.selenium.tests.AllSequenceSteps.class,
+	//com.ontraport.app.selenium.tests.CreateEmailSequence.class,
+	//com.ontraport.app.selenium.tests.CreateSMSSTep.class,
+	//com.ontraport.app.selenium.tests.CreateTaskSequence.class,
+	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
+	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
+	com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+
+
+
+
 
 
 
