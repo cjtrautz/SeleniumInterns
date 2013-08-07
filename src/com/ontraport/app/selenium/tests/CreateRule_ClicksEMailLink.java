@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,11 +16,23 @@ public class CreateRule_ClicksEMailLink extends OntraportFirefoxTest {
 
 	@Test
 	public void testCreateRule_Visitswebsite_Wp() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
 
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		String ruleName = "SelRClkEm"+Calendar.getInstance().getTimeInMillis();
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search =  String.valueOf(varTimeStamp);
+		String ruleName = "SelRClkEm"+varTimeStamp;
+
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -43,6 +57,11 @@ public class CreateRule_ClicksEMailLink extends OntraportFirefoxTest {
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
 
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
@@ -57,9 +76,10 @@ public class CreateRule_ClicksEMailLink extends OntraportFirefoxTest {
 
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText().trim());
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 }
