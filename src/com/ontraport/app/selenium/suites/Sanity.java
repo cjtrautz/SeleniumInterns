@@ -117,7 +117,7 @@ public class Sanity {
 		driver.manage().window().setPosition(new Point(0,0));
 		driver.manage().window().setSize(new Dimension(1600, 1200));
 		proc = Runtime.getRuntime()
-		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
+		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (Sanity.class.getSimpleName()) + ".avi");
 	}
 
 	@AfterClass
