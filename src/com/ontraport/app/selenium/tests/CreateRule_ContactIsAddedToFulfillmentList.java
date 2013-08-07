@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,10 +16,17 @@ public class CreateRule_ContactIsAddedToFulfillmentList extends OntraportFirefox
 
 	@Test
 	public void testCreateRule_ContactIsAddedToFulfillmentList() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
-
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		String ruleName = "SelAddCntFulFil"+Calendar.getInstance().getTimeInMillis();
 
 		//Click Rules
