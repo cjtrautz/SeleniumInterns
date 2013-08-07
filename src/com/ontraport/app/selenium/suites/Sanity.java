@@ -82,10 +82,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateTaskSequence.class,
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
-	com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
-
-
-
+	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
+	com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
+	com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
+	//com.ontraport.app.selenium.tests.CreateRule_CreditCardCharged.class,
+	//com.ontraport.app.selenium.tests.CreateRule_CreditCardDeclined.class,
+	//com.ontraport.app.selenium.tests.CreateRule_GetsRefundOnProduct.class,
+	//com.ontraport.app.selenium.tests.CreateRule_LosesAccess.class,
+	//com.ontraport.app.selenium.tests.CreateRule_MembershipAdded.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscribedToSubscriptionProduct.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Cancelled.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Charged.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Completed.class,
+	//com.ontraport.app.selenium.tests.CreateRule_VisitsLandingPage.class,
+	//com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
 
 
 

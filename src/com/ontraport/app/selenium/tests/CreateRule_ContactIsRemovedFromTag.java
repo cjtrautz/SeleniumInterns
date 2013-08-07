@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,11 +16,22 @@ public class CreateRule_ContactIsRemovedFromTag extends OntraportFirefoxTest {
 
 	@Test
 	public void testCreateRule_ContactIsRemovedFromTag() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
-
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		String ruleName = "SelRemTag"+Calendar.getInstance().getTimeInMillis();
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search = String.valueOf(varTimeStamp);
+		String ruleName = "SelRemTag"+varTimeStamp;
+		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -30,7 +43,7 @@ public class CreateRule_ContactIsRemovedFromTag extends OntraportFirefoxTest {
 
 		appUtilities.selectRuleDropDown (driver, "WHEN THIS HAPPENS:","Select Trigger...", "When Contact is removed from Tag");
 		Thread.sleep(2000);
-		appUtilities.selectRuleDropDown (driver, "WHEN THIS HAPPENS:","Select Tag", "Sel Test");
+		appUtilities.selectRuleDropDown (driver, "WHEN THIS HAPPENS:","Select Tag", "SelTag");
 		Thread.sleep(5000);
 		
 
@@ -41,7 +54,11 @@ public class CreateRule_ContactIsRemovedFromTag extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 		
-		appUtilities.setHundredRecordsPerPage(driver);
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
+		//appUtilities.setHundredRecordsPerPage(driver);
 
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
@@ -50,12 +67,13 @@ public class CreateRule_ContactIsRemovedFromTag extends OntraportFirefoxTest {
 		Assert.assertEquals("RuleNameAssertion",ruleName, driver.findElement(By.xpath("//input[@type='text']")).getAttribute("value"));
 
 		Assert.assertEquals("Rule When it happens assertion","When Contact is removed from Tag:", driver.findElement(By.cssSelector("span.sem-statement-text-wrapper")).getText().trim());
-		Assert.assertEquals("Sequence type Assertion","Sel Test", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value").trim());
+		Assert.assertEquals("Sequence type Assertion","SelTag", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value").trim());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText().trim());
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 }

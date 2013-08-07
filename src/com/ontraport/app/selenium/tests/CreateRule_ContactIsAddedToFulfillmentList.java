@@ -27,7 +27,11 @@ public class CreateRule_ContactIsAddedToFulfillmentList extends OntraportFirefox
 			e.printStackTrace();
 		}
 		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		String ruleName = "SelAddCntFulFil"+Calendar.getInstance().getTimeInMillis();
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search = String.valueOf(varTimeStamp);
+		String ruleName = "SelAddCntFulFil"+varTimeStamp;
+		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -50,7 +54,11 @@ public class CreateRule_ContactIsAddedToFulfillmentList extends OntraportFirefox
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 		
-		appUtilities.setHundredRecordsPerPage(driver);
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
+		//appUtilities.setHundredRecordsPerPage(driver);
 
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
@@ -62,9 +70,10 @@ public class CreateRule_ContactIsAddedToFulfillmentList extends OntraportFirefox
 		Assert.assertEquals("Sequence type Assertion","Any Fulfillment List", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value").trim());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText().trim());
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 }

@@ -14,7 +14,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreateFulfillmentSequence extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();
@@ -42,9 +42,10 @@ public class CreateFulfillmentSequence extends OntraportFirefoxTest{
         driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-triangle-3-n")).click();
         
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
+        Thread.sleep(5000);
         
-        driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")).click();
-		driver.findElement(By.xpath("//input[@type='search']")).clear();
+        driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+        driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
         
