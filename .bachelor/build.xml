@@ -73,9 +73,11 @@
     <javac source="1.6" srcdir="${basedir}/src" fork="true" destdir="${basedir}/bin">
       <classpath>
         <pathelement path="${basedir}/bin"/>
+<!--
         <fileset dir="${basedir}/lib">
           <include name="**/*.jar"/>
         </fileset>
+-->
       </classpath>
     </javac>
   </target>
