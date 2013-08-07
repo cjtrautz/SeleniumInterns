@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -19,11 +20,23 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 
 	@Test
 	public void testCreateRule() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
 
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		String ruleName = "SelFldUpdt"+Calendar.getInstance().getTimeInMillis();
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search = String.valueOf(varTimeStamp);
+		String ruleName = "SelFldUpdt"+varTimeStamp;
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -38,8 +51,12 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 		selectRuleDropDown(driver, "WHEN THIS HAPPENS:", "Select Field...", "First Name");
 
 		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
-		Thread.sleep(3000);		
-
+		Thread.sleep(3000);	
+		
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
@@ -47,14 +64,15 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
 		Thread.sleep(5000);
-		
+
 		Assert.assertEquals("RuleNameAssertion",ruleName, driver.findElement(By.xpath("//input[@type='text']")).getAttribute("value"));
 		Assert.assertEquals("Rule:When This Happens Assertion", "First Name", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value"));
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText());
-		
+
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 
