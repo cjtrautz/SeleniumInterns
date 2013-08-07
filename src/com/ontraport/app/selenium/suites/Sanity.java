@@ -84,7 +84,7 @@ public class Sanity {
 	protected static Process proc;
 	protected static StringBuffer verificationErrors = new StringBuffer();
 	private static WebDriver driver;
-	
+
 	@BeforeClass
 	public static void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -92,14 +92,14 @@ public class Sanity {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().setPosition(new Point(0,0));
 		driver.manage().window().setSize(new Dimension(1600, 1200));
-		//proc = Runtime.getRuntime()
-		//.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
+		proc = Runtime.getRuntime()
+		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
 	}
 
 	@AfterClass
 	public static void tearDown() throws Exception {
 		driver.quit();
-		//proc.destroy();
+		proc.destroy();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 		fail(verificationErrorString);
@@ -108,5 +108,5 @@ public class Sanity {
 	public static WebDriver getDriver(){
 		return driver;
 	}
-	
+
 }
