@@ -94,11 +94,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
 	//com.ontraport.app.selenium.tests.CreateAPIKeys.class,
 	//com.ontraport.app.selenium.tests.Create1SCSync.class,
-	com.ontraport.app.selenium.tests.CreateUCConfig.class,
-
-
-
-
+	//com.ontraport.app.selenium.tests.CreateUCConfig.class,
+	//com.ontraport.app.selenium.tests.CreateFacebook.class,
+	//com.ontraport.app.selenium.tests.CreateUserFieldEditor.class,
+	com.ontraport.app.selenium.tests.CreateAffiliateTrackingPixel.class,
+	
 
 
 	})
