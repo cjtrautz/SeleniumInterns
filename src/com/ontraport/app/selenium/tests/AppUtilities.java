@@ -23,6 +23,56 @@ public class AppUtilities {
 			return false;
 		}
 	}
+<<<<<<< HEAD
+=======
+	public void selectRuleDropDown (WebDriver driver, String ruleDesc, String placeHolder, String option){
+		System.out.println("**************************************************************");
+		System.out.println("ruleDesc:" + ruleDesc);
+		System.out.println("placeHolder:" + placeHolder);
+		System.out.println("option:" + option);
+		WebElement drop = driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button"));
+		drop.click();
+
+
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]/descendant::li/div[normalize-space(text())='"+option+"']")).click();
+		List<WebElement> childEleP = driver.findElements(By.xpath("//div[div[text()='"+ruleDesc
+				+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]//li/div"));
+		//Iterator<WebElement> childEleIteratorP = childEleP.iterator();
+		System.out.println("*************ChildItems************");
+		System.out.println("Number:"+childEleP.size());
+
+		for (int i = 0; i < childEleP.size(); i++) {
+			drop.sendKeys(Keys.ARROW_DOWN);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			List<WebElement> childEle = driver.findElements(By.xpath("//div[div[text()='"+ruleDesc
+					+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]//li/div"));
+			Iterator<WebElement> childEleIterator = childEle.iterator();
+			while (childEleIterator.hasNext()) {
+				WebElement webElement = (WebElement) childEleIterator.next();
+				System.out.println(webElement.getText());
+				if (webElement.getText().trim().equalsIgnoreCase(option.trim())){
+					webElement.click();
+					return;
+				}
+
+			}
+		}
+
+
+	}
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
 	
 	public void loginToApp (WebDriver driver, String userName, String password){
 		//driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
@@ -30,12 +80,19 @@ public class AppUtilities {
 		driver.findElement(By.name("username")).sendKeys(userName);
 		driver.findElement(By.name("password")).clear();
 		driver.findElement(By.name("password")).sendKeys(password);
+<<<<<<< HEAD
 		//driver.findElement(By.cssSelector("input.submit")).click();
 		driver.findElement(By.xpath("//input[@id='login_button']")).click();
 		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
 	}
 	
 	
+=======
+		driver.findElement(By.cssSelector("input.submit")).click();
+		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
+	}
+	
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
 	public void waitForElement (WebDriver driver, String sXpath, int timeInSeconds){
 		for (int second = 0;; second++) {
 			if (second >= timeInSeconds) fail("timeout");
@@ -304,8 +361,65 @@ public class AppUtilities {
 		System.out.println("option:" + option);
 		WebElement drop = driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button"));
 		drop.click();
+<<<<<<< HEAD
+=======
 	
 	
+	
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]/descendant::li/div[normalize-space(text())='"+option+"']")).click();
+		List<WebElement> childEleP = driver.findElements(By.xpath("//div[div[text()='"+ruleDesc
+				+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]//li/div"));
+		//Iterator<WebElement> childEleIteratorP = childEleP.iterator();
+		System.out.println("*************ChildItems************");
+		System.out.println("Number:"+childEleP.size());
+	
+		for (int i = 0; i < childEleP.size(); i++) {
+			drop.sendKeys(Keys.ARROW_DOWN);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			List<WebElement> childEle = driver.findElements(By.xpath("//div[div[text()='"+ruleDesc
+					+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]//li/div"));
+			Iterator<WebElement> childEleIterator = childEle.iterator();
+			while (childEleIterator.hasNext()) {
+				WebElement webElement = (WebElement) childEleIterator.next();
+				System.out.println(webElement.getText());
+				if (webElement.getText().trim().equalsIgnoreCase(option.trim())){
+					webElement.click();
+					return;
+				}
+	
+			}
+		}
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
+	
+	
+	}
+	
+	/**
+	 * To set the number of records per page to 100
+	 * @param driver
+	 */
+	public void setHundredRecordsPerPage (WebDriver driver){
+		try {
+			driver.findElement(By.xpath("//div[label[text()='RECORDS']]/descendant::button")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[label[text()='RECORDS']]/descendant::li/div[text()='100']")).click();
+			Thread.sleep(5000);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 		try {
 			Thread.sleep(2000);

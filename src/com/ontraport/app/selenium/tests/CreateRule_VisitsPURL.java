@@ -5,6 +5,11 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+<<<<<<< HEAD
+=======
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,11 +19,29 @@ public class CreateRule_VisitsPURL extends OntraportFirefoxTest {
 
 	@Test
 	public void testCreateRule_Visitswebsite_Wp() throws Exception {
+<<<<<<< HEAD
 		driver.get(baseUrl + "/");
 		//login
 
 		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		String ruleName = "SelRVWp"+Calendar.getInstance().getTimeInMillis();
+=======
+		//driver.get(baseUrl + "/");
+		//login
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search = String.valueOf(varTimeStamp);
+		String ruleName = "SelRVWp"+varTimeStamp;
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -41,7 +64,15 @@ public class CreateRule_VisitsPURL extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 		
+<<<<<<< HEAD
 		appUtilities.setHundredRecordsPerPage(driver);
+=======
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
+		//appUtilities.setHundredRecordsPerPage(driver);
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
 
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
@@ -53,9 +84,16 @@ public class CreateRule_VisitsPURL extends OntraportFirefoxTest {
 		Assert.assertEquals("Sequence type Assertion","Any PURL", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value").trim());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText().trim());
 		
+<<<<<<< HEAD
 
 		//Logout
 		appUtilities.logOutOfApp(driver);
+=======
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
+		//Logout
+		//appUtilities.logOutOfApp(driver);
+>>>>>>> 175b7aa135abfaf64cdc7622f7eb440c2b8f75e7
 	}
 
 

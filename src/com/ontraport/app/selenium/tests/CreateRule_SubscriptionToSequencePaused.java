@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -19,11 +20,22 @@ public class CreateRule_SubscriptionToSequencePaused extends OntraportFirefoxTes
 
 	@Test
 	public void testCreateRule() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
+		String Search = String.valueOf(varTimeStamp);
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		String ruleName = "SelRSubSeq"+Calendar.getInstance().getTimeInMillis();
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		String ruleName = "SelRSubSeq"+varTimeStamp;
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -37,28 +49,34 @@ public class CreateRule_SubscriptionToSequencePaused extends OntraportFirefoxTes
 		Thread.sleep(2000);
 		selectRuleDropDown (driver, "WHEN THIS HAPPENS:","Select Sequence", "Any Sequence");
 		Thread.sleep(5000);
-		
+
 
 		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
-		Thread.sleep(3000);		
+		Thread.sleep(3000);
 
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
+		driver.findElement(By.xpath("//input[@type='search']")).clear();
+		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
+		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
+
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
 		Thread.sleep(5000);
-		
+
 		Assert.assertEquals("RuleNameAssertion",ruleName, driver.findElement(By.xpath("//input[@type='text']")).getAttribute("value"));
 
 		Assert.assertEquals("Rule When it happens assertion","Subscription to", driver.findElement(By.cssSelector("span.sem-statement-text-wrapper")).getText().trim());
 		Assert.assertEquals("Sequence type Assertion","Any Sequence", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value").trim());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText().trim());
-		
+
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 
