@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
-public class CreateRuleSequence extends OntraportFirefoxTest{
+public class CreateRuleDateSeq extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
 	public void test() {
@@ -33,48 +33,50 @@ public class CreateRuleSequence extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Sequences']")).click();
-        driver.findElement(By.xpath("//div[@id='ontraport_panel_action_new']//span[.='New Sequence']")).click();
-        driver.findElement(By.xpath("//div[@class='ussr-component-section-components']//button[normalize-space(.)='Create']")).click();
-        
+	    driver.findElement(By.xpath("//div[@id='ontraport_panel_action_new']//span[.='New Sequence']")).click();
+	    driver.findElement(By.xpath("//div[@class='ussr-component-section-components']/div/div[3]/a/button")).click();
+	    
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")));
 
-        driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
+	    driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).clear();
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).sendKeys(seqName);
         
         driver.findElement(By.xpath("//span[@class='ussr-theme-sequence-rule']//button[normalize-space(.)='Rule']")).click();
         driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[1]/div[2]/div/div[2]/div")).click();
         driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[2]/div[2]/div/div[2]/div")).click();
+        driver.findElement(By.cssSelector("div.step_detail_radio > input[name=\"step_details_type\"]")).click();
+        driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[1]/div[2]/span[5]/div/div/button")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
         driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[2]/div[2]/div[1]/div/div/input")).click();
         driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[2]/div[2]/div[1]/div/div/input")).clear();
-        driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[2]/div[2]/div[1]/div/div/input")).sendKeys(seqName);
+        driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[2]/div[2]/div[1]/div/div/input")).sendKeys("test");
         driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']//button[normalize-space(.)='<br>']")).click();
-        driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//div[.='Field is this value']")).click();
-        driver.findElement(By.xpath("//tr[@class='sem_condition_row']//button[normalize-space(.)='<br>']")).click();
-        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
-        driver.findElement(By.xpath("//tr[@class='sem_condition_row']/td[2]/span/div/div/button")).click();
-        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
-        driver.findElement(By.cssSelector("input.ussr-border-solid-all")).click();
-        driver.findElement(By.cssSelector("input.ussr-border-solid-all")).clear();
-        driver.findElement(By.cssSelector("input.ussr-border-solid-all")).sendKeys("test");
+        driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li[3]/div")).click();
+        driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']//button[normalize-space(.)='<br>']")).click();
+        driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']//div[.='Any Sequence']")).click();
         driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/div[2]/div/div/button")).click();
         driver.findElement(By.xpath("//div[@class='ussr-component-helper-field-display-rule-editor']/div[2]/div[2]/div/div[1]/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div[3]/ul/li[1]/div")).click();
-        driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-triangle-3-n")).click();
-        
+
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
-        
+		
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]")));
+
         driver.findElement(By.xpath("//div[2]/div/section/div/div/div[1]/div[5]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
-        
-        assertTrue(appUtilities.isElementPresent(driver, By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(.)='" + "Step" + "']")));
-        assertTrue(appUtilities.isElementPresent(driver, By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(.)='" + seqName + "']")));
+		
+		assertTrue(appUtilities.isElementPresent(driver, By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(.)='" + seqName + "']")));
+		assertTrue(appUtilities.isElementPresent(driver, By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(.)='" + "Date" + "']")));
         driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(.)='" + seqName + "']")).click();
         
         assertTrue(appUtilities.isElementPresent(driver, By.xpath("//div[@class='sequence_editor']//div[.=' RULE']")));
-	
+    	
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
+        
 	}
+
 }
+

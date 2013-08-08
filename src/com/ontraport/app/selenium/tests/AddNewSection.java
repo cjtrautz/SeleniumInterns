@@ -114,11 +114,13 @@ public class AddNewSection extends OntraportFirefoxTest {
 	    driver.findElement(By.xpath("//div//div[normalize-space(text())='Section Description']")).click();
 	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).clear();
 	    driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input")).sendKeys(sectionDesc);
-	    Thread.sleep(1000);
+	    //driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//span[.='Edit Contact Fields']"));
+	    Thread.sleep(3000);
 
 
 	    
 		//Click Save
+		//driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
 
 		//Click Field Editor

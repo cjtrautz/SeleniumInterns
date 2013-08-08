@@ -49,11 +49,11 @@ public class CreateRule_ContactIsCreated extends OntraportFirefoxTest {
 		Thread.sleep(5000);
 
 		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
-		Thread.sleep(3000);	
+		Thread.sleep(3000);
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(3000);
-		
+
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
@@ -67,7 +67,6 @@ public class CreateRule_ContactIsCreated extends OntraportFirefoxTest {
 		Assert.assertEquals("RuleNameAssertion",ruleName, driver.findElement(By.xpath("//input[@type='text']")).getAttribute("value"));
 		Assert.assertEquals("Rule:When This Happens Assertion", "Contact is created", driver.findElement(By.cssSelector("span.sem-statement-text-wrapper")).getText());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText());
-
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout

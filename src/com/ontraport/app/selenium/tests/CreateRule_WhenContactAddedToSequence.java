@@ -52,12 +52,12 @@ public class CreateRule_WhenContactAddedToSequence extends OntraportFirefoxTest{
 
 
 		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
-		Thread.sleep(3000);	
+		Thread.sleep(3000);
 
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
-		
+
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
@@ -72,7 +72,6 @@ public class CreateRule_WhenContactAddedToSequence extends OntraportFirefoxTest{
 		Assert.assertEquals("Rule When it happens assertion","When Contact is added to Sequence:", driver.findElement(By.cssSelector("span.sem-statement-text-wrapper")).getText());
 		Assert.assertEquals("Sequence type Assertion","Any Sequence", driver.findElement(By.xpath("(//input[@type='text'])[2]")).getAttribute("value"));
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText());
-
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
@@ -121,7 +120,7 @@ public class CreateRule_WhenContactAddedToSequence extends OntraportFirefoxTest{
 					webElement.click();
 					return;
 				}
-				
+
 			}
 		}
 
