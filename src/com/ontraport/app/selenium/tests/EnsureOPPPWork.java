@@ -35,6 +35,8 @@ public class EnsureOPPPWork extends OntraportFirefoxTest {
 		String siteName = "SelSite"+varTimeStamp;
 		String domain = "seleniumwp2"+varTimeStamp;
 		String level = "Level 1";
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		
 		//Navigate to Word Press page
 		//appUtilities.navigateTo(driver, "Sites==WordPress");
@@ -72,7 +74,7 @@ public class EnsureOPPPWork extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//span[@class='ussr-icon ussr-icon-search']")).click();
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" +(siteName)+"']")));
 
-		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();	
 
 
 		

@@ -12,8 +12,8 @@ public class Login extends OntraportFirefoxTest {
 
 	@Test
 	public void testLogin() {
-		String user = "tester";      //"colton@officeautopilot.com";
-		String pass = "passphrases are easy to break"; //"test123";
+		String user = "colton@officeautopilot.com";
+		String pass = "test123";
 		String baseUrl = "http://app.ontraport.com";
 		WebDriver driver;
 		try {
