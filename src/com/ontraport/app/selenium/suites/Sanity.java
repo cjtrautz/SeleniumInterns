@@ -82,8 +82,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateTaskSequence.class,
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
-	com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
-
+	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsCreated.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToSequencePaused.class,
+	//com.ontraport.app.selenium.tests.CreateRule_WhenContactAddedToSequence.class,
+	//com.ontraport.app.selenium.tests.CreateRule_WhenContactRemovedFromSequence.class,
+	//com.ontraport.app.selenium.tests.CreateEmailDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateSMSDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateTaskDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreatePostcardDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateAPIKeys.class,
+	//com.ontraport.app.selenium.tests.Create1SCSync.class,
+	com.ontraport.app.selenium.tests.CreateUCConfig.class,
 
 
 

@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -19,11 +20,20 @@ public class CreateRule_ContactIsCreated extends OntraportFirefoxTest {
 
 	@Test
 	public void testCreateRule() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
-
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		String ruleName = "SelRule"+Calendar.getInstance().getTimeInMillis();
+
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -51,8 +61,10 @@ public class CreateRule_ContactIsCreated extends OntraportFirefoxTest {
 		Assert.assertEquals("Rule:When This Happens Assertion", "Contact is created", driver.findElement(By.cssSelector("span.sem-statement-text-wrapper")).getText());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Recharge all declined transactions", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div/div/div/div[3]/div[2]/div/div/div/div[2]/div[2]/div/span")).getText());
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 
