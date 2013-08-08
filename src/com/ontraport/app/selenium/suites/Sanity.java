@@ -94,9 +94,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
 	//com.ontraport.app.selenium.tests.CreateAPIKeys.class,
 	//com.ontraport.app.selenium.tests.Create1SCSync.class,
-	com.ontraport.app.selenium.tests.CreateUCConfig.class,
-
-
+	//com.ontraport.app.selenium.tests.CreateUCConfig.class,
+	//com.ontraport.app.selenium.tests.CreateFacebook.class,
+	//com.ontraport.app.selenium.tests.CreateUserFieldEditor.class,
+	//com.ontraport.app.selenium.tests.CreateAffiliateTrackingPixel.class,
+	com.ontraport.app.selenium.tests.CreateRule_PurchasesProduct.class,
+	com.ontraport.app.selenium.tests.CreateRule_OpensEmail.class,
+	com.ontraport.app.selenium.tests.CreateRule_ClicksTrackedLink.class,
+	com.ontraport.app.selenium.tests.CreateRule_ClicksEMailLink.class,
+	com.ontraport.app.selenium.tests.CreateRule_SendsAnEMail.class,
+	com.ontraport.app.selenium.tests.CreateRule_SubscriptionToSequenceUnPaused.class,
+	com.ontraport.app.selenium.tests.CreateRule_Visitswebsite_Wp.class,
 
 
 
