@@ -52,7 +52,7 @@ public class CreateRule_SubscriptionToSequencePaused extends OntraportFirefoxTes
 
 
 		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
-		Thread.sleep(3000);	
+		Thread.sleep(3000);
 
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();

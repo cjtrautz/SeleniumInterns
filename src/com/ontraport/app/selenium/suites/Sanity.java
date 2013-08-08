@@ -83,6 +83,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
 	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+<<<<<<< HEAD
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
 	com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
 	com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
@@ -97,6 +98,30 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Completed.class,
 	//com.ontraport.app.selenium.tests.CreateRule_VisitsLandingPage.class,
 	//com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
+=======
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsCreated.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToSequencePaused.class,
+	//com.ontraport.app.selenium.tests.CreateRule_WhenContactAddedToSequence.class,
+	//com.ontraport.app.selenium.tests.CreateRule_WhenContactRemovedFromSequence.class,
+	//com.ontraport.app.selenium.tests.CreateEmailDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateSMSDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateTaskDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreatePostcardDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateAPIKeys.class,
+	//com.ontraport.app.selenium.tests.Create1SCSync.class,
+	//com.ontraport.app.selenium.tests.CreateUCConfig.class,
+	//com.ontraport.app.selenium.tests.CreateFacebook.class,
+	//com.ontraport.app.selenium.tests.CreateUserFieldEditor.class,
+	//com.ontraport.app.selenium.tests.CreateAffiliateTrackingPixel.class,
+	com.ontraport.app.selenium.tests.CreateRule_PurchasesProduct.class,
+	com.ontraport.app.selenium.tests.CreateRule_OpensEmail.class,
+	com.ontraport.app.selenium.tests.CreateRule_ClicksTrackedLink.class,
+	com.ontraport.app.selenium.tests.CreateRule_ClicksEMailLink.class,
+	com.ontraport.app.selenium.tests.CreateRule_SendsAnEMail.class,
+	com.ontraport.app.selenium.tests.CreateRule_SubscriptionToSequenceUnPaused.class,
+	com.ontraport.app.selenium.tests.CreateRule_Visitswebsite_Wp.class,
+>>>>>>> bed2d8605e22964e90f7670f1c48ed75221c2f1e
 
 
 
