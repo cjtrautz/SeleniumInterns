@@ -84,8 +84,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
 	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
-	com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
-	com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
 	//com.ontraport.app.selenium.tests.CreateRule_CreditCardCharged.class,
 	//com.ontraport.app.selenium.tests.CreateRule_CreditCardDeclined.class,
 	//com.ontraport.app.selenium.tests.CreateRule_GetsRefundOnProduct.class,
@@ -97,6 +97,18 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Completed.class,
 	//com.ontraport.app.selenium.tests.CreateRule_VisitsLandingPage.class,
 	//com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
+	//com.ontraport.app.selenium.tests.CreateTaskCopy.class,
+	//com.ontraport.app.selenium.tests.CreateSMSMessage.class,
+	//com.ontraport.app.selenium.tests.CreateSMSCopy.class,
+	//com.ontraport.app.selenium.tests.CreateExportContacts.class,
+	//com.ontraport.app.selenium.tests.SetLanguage.class,
+	//com.ontraport.app.selenium.tests.CreateEmailCopy.class,
+	com.ontraport.app.selenium.tests.CreateSectionWithFields.class,
+
+
+
+
+
 
 
 
