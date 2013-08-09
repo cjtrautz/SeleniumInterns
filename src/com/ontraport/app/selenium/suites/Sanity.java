@@ -123,20 +123,21 @@ public class Sanity {
 	protected static Process proc;
 	protected static StringBuffer verificationErrors = new StringBuffer();
 	private static WebDriver driver;
-
+	
 	@BeforeClass
-	public void setUp() throws Exception {
+	public static void setUp() throws Exception {
+		String filename = new Object() {}.getClass().getEnclosingClass().getSimpleName();
 		driver = new FirefoxDriver();
 		baseUrl = "http://ontraport.com.dev";
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().setPosition(new Point(0,0));
 		driver.manage().window().setSize(new Dimension(1600, 1200));
 		proc = Runtime.getRuntime()
-		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :2.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
+		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :2.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + filename + ".avi");
 	}
 
 	@AfterClass
-	public void tearDown() throws Exception {
+	public static void tearDown() throws Exception {
 		driver.quit();
 		proc.destroy();
 		String verificationErrorString = verificationErrors.toString();
