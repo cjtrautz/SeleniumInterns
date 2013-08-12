@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.AssertJUnit;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
@@ -19,12 +20,22 @@ public class CreateNote extends OntraportFirefoxTest{
 	
 	@Test
 	public void testCreateNote() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String note="testnote";
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
 		//login
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		//Create a new contact
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Contact']")).click();
 		
@@ -39,7 +50,7 @@ public class CreateNote extends OntraportFirefoxTest{
 		Thread.sleep(2000);
 		
 		String emailId = "selenium"+varTimeStamp+"@test.com";
-		WebElement emailTxtBox = appUtilities.getTextBoxOnTheLabel (driver, "E-Mail");
+		WebElement emailTxtBox = appUtilities.getTextBoxOnTheLabel (driver, "Email");
 		emailTxtBox.clear();
 		emailTxtBox.sendKeys(emailId);
 		Thread.sleep(2000);
@@ -69,8 +80,10 @@ public class CreateNote extends OntraportFirefoxTest{
 		//Assert that note created is present
 		AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='"+ note +"']")));
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 		
 	}
 }

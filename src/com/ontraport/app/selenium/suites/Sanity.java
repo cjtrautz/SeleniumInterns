@@ -82,7 +82,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateTaskSequence.class,
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
-	com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	com.ontraport.app.selenium.tests.CreateNote.class,
+	com.ontraport.app.selenium.tests.CreateRule_IsSubscribedIoProduct.class,
+	com.ontraport.app.selenium.tests.CreateRule_SubscribedToProductForCertainTime.class,
+	com.ontraport.app.selenium.tests.Rules_AddContactToSequence_Step.class,
+	com.ontraport.app.selenium.tests.Rules_PauseSubscriptionToSequence_Step.class,
+	com.ontraport.app.selenium.tests.Rules_RemoveContactFromSequence_Step.class,
+	com.ontraport.app.selenium.tests.Rules_UnpauseSubscriptionToSequence_Step.class,
+	com.ontraport.app.selenium.tests.Rules_RemoveFromAllSequences.class,
+
 
 
 

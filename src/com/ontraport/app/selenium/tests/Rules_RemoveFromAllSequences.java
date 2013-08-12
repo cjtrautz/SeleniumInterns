@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,10 +16,18 @@ public class Rules_RemoveFromAllSequences extends OntraportFirefoxTest{
 	@Test
 	public void testRemoveFromAllSequences () throws Exception{
 		
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
-		
-		
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		String ruleName = "SelRule"+Calendar.getInstance().getTimeInMillis();
 		
 		//Click Rules
@@ -37,7 +47,7 @@ public class Rules_RemoveFromAllSequences extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 		
-		appUtilities.setHundredRecordsPerPage (driver);
+		//appUtilities.setHundredRecordsPerPage (driver);
 		//Assert existence of Rule Name in Rules page
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		//Click the rule name hyper link
@@ -49,8 +59,10 @@ public class Rules_RemoveFromAllSequences extends OntraportFirefoxTest{
 		Assert.assertEquals("Rule When it happens assertion","Contact is created", driver.findElement(By.cssSelector("span.sem-statement-text-wrapper")).getText().trim());
 		Assert.assertEquals("Rule:Then Do this Assertion", "Remove from all sequences", driver.findElement(By.xpath("//*[@id='ussr-chrome-panel-pane']/div[4]/div[1]/div/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div[2]/div[1]/span")).getText().trim());
 		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 		
 

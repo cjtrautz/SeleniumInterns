@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -15,11 +17,22 @@ public class Rules_UnpauseSubscriptionToSequence_Step extends OntraportFirefoxTe
 	public void testUnpauseSubscriptionToSequence_Step () throws Exception{
 		
 		//logging with https://app.ontraport.com
-		driver.get(baseUrl + "/");
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		//driver.get(baseUrl + "/");
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
 		//long varTimeStamp = Calendar.getInstance().getTimeInMillis(); 
 		String seqName = "StepSeqEmail"+Calendar.getInstance().getTimeInMillis();
 		String ruleName = "SelRule"+Calendar.getInstance().getTimeInMillis();
+		
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		//Click on Sequences
 		driver.findElement(By.xpath("//li[@class='primary-nav-sub-item']/a//span[normalize-space(text())='Sequences']")).click();
 		Thread.sleep(1000);
@@ -45,7 +58,7 @@ public class Rules_UnpauseSubscriptionToSequence_Step extends OntraportFirefoxTe
 		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath("//div[@class='ussr-form-input-wrapper']//input[@placeholder='Select mail from']")).click();
-		driver.findElement(By.xpath("//div[@class='ussr-component-drilldownselect-listview sem-listview jb-ace-scroll-target']//li[@data-val='tester@sendpepper.com']")).click();
+		driver.findElement(By.xpath("//div[@class='ussr-component-drilldownselect-listview sem-listview jb-ace-scroll-target']//li[@data-val='colton@ontraport.com']")).click();
 		Thread.sleep(3000);
 		
 		String sendfromvalue = appUtilities.selectItemBasedOnIndex(driver, "Select Send From...", 1);
@@ -54,7 +67,7 @@ public class Rules_UnpauseSubscriptionToSequence_Step extends OntraportFirefoxTe
 		//Save the Email Step Sequence
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//span[normalize-space(text())='Save']")).click();
 		
-		appUtilities.setHundredRecordsPerPage (driver);
+		//appUtilities.setHundredRecordsPerPage (driver);
 		
 		//To find the created sequence in the List
 		Assert.assertTrue(appUtilities.isElementPresent(driver,By.xpath("//span[@class='ussr-component-collection-cell-data-wrapper']/a[normalize-space(text())='" + seqName +"']")));
@@ -79,7 +92,7 @@ public class Rules_UnpauseSubscriptionToSequence_Step extends OntraportFirefoxTe
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 		
-		appUtilities.setHundredRecordsPerPage (driver);
+		//appUtilities.setHundredRecordsPerPage (driver);
 		//Assert existence of Rule Name in Rules page
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		//Click the rule name hyper link
@@ -93,8 +106,10 @@ public class Rules_UnpauseSubscriptionToSequence_Step extends OntraportFirefoxTe
 		System.out.println( driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value").trim());
 		Assert.assertEquals("Sequence type Assertion",seqName, driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value").trim());
 
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 
