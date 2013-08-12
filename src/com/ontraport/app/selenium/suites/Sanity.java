@@ -22,7 +22,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.AddNewSection.class,
 	//com.ontraport.app.selenium.tests.AddTab.class,
 	//com.ontraport.app.selenium.tests.CreateATag.class,
+	
 	//com.ontraport.app.selenium.tests.CreateContact.class,
+	
 	//com.ontraport.app.selenium.tests.CreateProduct.class,
 	//com.ontraport.app.selenium.tests.CreateRule.class,
 	//com.ontraport.app.selenium.tests.DeleteATag.class,
@@ -74,8 +76,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.OpensDrawerRule.class,
 	//com.ontraport.app.selenium.tests.PauseRule.class,
 	//com.ontraport.app.selenium.tests.TryToFailUsageAgreement.class,
+	
 	//com.ontraport.app.selenium.tests.CreateNote.class,
-	//com.ontraport.app.selenium.tests.AddColumn.class,
+	
+	com.ontraport.app.selenium.tests.AddColumn.class,
+	
 	//com.ontraport.app.selenium.tests.AllSequenceSteps.class,
 	//com.ontraport.app.selenium.tests.CreateEmailSequence.class,
 	//com.ontraport.app.selenium.tests.CreateSMSSTep.class,
@@ -83,6 +88,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
 	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	//com.ontraport.app.selenium.tests.CreateEmailDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateSMSDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateTaskDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreatePostcardDateSeq.class,
+	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
+
+	
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
@@ -110,12 +122,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_Numeric.class,
 	//com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_Price.class,
 	//com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_State.class,
-	com.ontraport.app.selenium.tests.CreateRule_SMSReceived.class,
-	com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SMSReceived.class,
+	//com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
+	//com.ontraport.app.selenium.tests.EnsureColumnPencil.class,
+	//com.ontraport.app.selenium.tests.MoveColumn.class,
+	//com.ontraport.app.selenium.tests.EditGroupPermEveryoneViewAndEdit.class,
+	//com.ontraport.app.selenium.tests.EditGroupPermIEditYouView.class,
+	//com.ontraport.app.selenium.tests.EditGroupPermIViewAndEdit.class,
+	//com.ontraport.app.selenium.tests.EnsureSequenceEditSteps.class,
 
-
-
-
+	
 	})
 
 public class Sanity {
