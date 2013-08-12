@@ -82,7 +82,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreateTaskSequence.class,
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
-	com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
+	com.ontraport.app.selenium.tests.CreateRule_AFieldMeetsGivenCriteria_Text.class,
+	com.ontraport.app.selenium.tests.CreateRule_HasBeenOnSeq.class,
+	com.ontraport.app.selenium.tests.CreateRule_HasOrderedSomeOnProduct.class,
+	com.ontraport.app.selenium.tests.CreateRule_HasSpentAmountOnProduct.class,
+	com.ontraport.app.selenium.tests.CreateRule_OpenedEmailCertainTimes.class,
+	com.ontraport.app.selenium.tests.CreateRule_VisitAnyWebSiteCertainTimes.class,
+	com.ontraport.app.selenium.tests.CreateRule_VisitLPCertainTimes.class,
 
 
 

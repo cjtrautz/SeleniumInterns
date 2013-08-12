@@ -5,6 +5,8 @@ import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
@@ -14,11 +16,21 @@ public class CreateRule_HasOrderedSomeOnProduct extends OntraportFirefoxTest {
 
 	@Test
 	public void testCreateRule_HasSpentAmountOnProduct() throws Exception {
-		driver.get(baseUrl + "/");
+		//driver.get(baseUrl + "/");
 		//login
-
-		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+		WebDriver driver;
+		try {
+			driver = getDriver();
+		} catch (Exception e) {
+			System.out.println("get Driver failed");
+			driver = new FirefoxDriver();
+			e.printStackTrace();
+		}
+		
+		//appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		String ruleName = "SelordPr"+Calendar.getInstance().getTimeInMillis();
+
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -47,7 +59,7 @@ public class CreateRule_HasOrderedSomeOnProduct extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
 		
-		appUtilities.setHundredRecordsPerPage(driver);
+		//appUtilities.setHundredRecordsPerPage(driver);
 
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
@@ -59,9 +71,10 @@ public class CreateRule_HasOrderedSomeOnProduct extends OntraportFirefoxTest {
 
 		Assert.assertEquals("Any Product", driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value"));
 
+		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 		//Logout
-		appUtilities.logOutOfApp(driver);
+		//appUtilities.logOutOfApp(driver);
 	}
 
 
