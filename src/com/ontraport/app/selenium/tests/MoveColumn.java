@@ -19,7 +19,7 @@ public class MoveColumn extends OntraportFirefoxTest {
 
 
 	@Test
-	public void test() throws InterruptedException {
+	public void testMoveColumn() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();
