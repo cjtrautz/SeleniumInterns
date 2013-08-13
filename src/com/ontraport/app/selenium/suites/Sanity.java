@@ -19,7 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 @RunWith(Suite.class)
 @SuiteClasses({
 	com.ontraport.app.selenium.tests.Login.class,
-<<<<<<< HEAD
+
 	//com.ontraport.app.selenium.tests.AddNewSection.class,
 	//com.ontraport.app.selenium.tests.AddTab.class,
 	//com.ontraport.app.selenium.tests.CreateATag.class,
@@ -131,7 +131,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.EditGroupPermIEditYouView.class,
 	//com.ontraport.app.selenium.tests.EditGroupPermIViewAndEdit.class,
 	//com.ontraport.app.selenium.tests.EnsureSequenceEditSteps.class,
-=======
+
 	com.ontraport.app.selenium.tests.AddNewSection.class,
 //	com.ontraport.app.selenium.tests.AddTab.class,
 	com.ontraport.app.selenium.tests.CreateATag.class,
@@ -228,7 +228,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 
->>>>>>> 46a5e036e01ca865141bb730339162715131c233
+
 
 	
 	})
