@@ -48,7 +48,12 @@ public class CreateFulfillmentSequence extends OntraportFirefoxTest{
         driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-triangle-3-n")).click();
 
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();
-        Thread.sleep(5000);
+        try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
         driver.findElement(By.xpath("//input[@type='search']")).clear();

@@ -78,10 +78,8 @@ public class CreateRule extends OntraportFirefoxTest {
 
         //Logout
         //appUtilities.logOutOfApp(driver);
+
 	}
-
-        driver.findElement(By.xpath("//button//span[text()='Save']")).click();
-
 	public void selectRuleDropDown (WebDriver driver, String ruleDesc, String placeHolder, String option) throws InterruptedException{
 		driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button")).click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
