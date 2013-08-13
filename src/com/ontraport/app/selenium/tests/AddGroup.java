@@ -16,7 +16,7 @@ public class AddGroup extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() {
+	public void testAddGroup() {
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search =  String.valueOf(varTimeStamp);
 		String name = "Selenium" + varTimeStamp;

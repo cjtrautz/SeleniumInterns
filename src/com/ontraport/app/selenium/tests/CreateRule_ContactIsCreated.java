@@ -96,7 +96,7 @@ public class CreateRule_ContactIsCreated extends OntraportFirefoxTest {
 		//Iterator<WebElement> childEleIteratorP = childEleP.iterator();
 		System.out.println("*************ChildItems************");
 		System.out.println("Number:"+childEleP.size());
-
+		
 		for (int i = 0; i < childEleP.size(); i++) {
 			drop.sendKeys(Keys.ARROW_DOWN);
 			try {
