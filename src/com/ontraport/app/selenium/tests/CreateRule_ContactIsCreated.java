@@ -19,7 +19,7 @@ public class CreateRule_ContactIsCreated extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule() throws Exception {
+	public void testCreateRule_ContactIsCreated () throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 		WebDriver driver;

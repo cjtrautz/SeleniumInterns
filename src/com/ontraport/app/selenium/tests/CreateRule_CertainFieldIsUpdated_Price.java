@@ -15,7 +15,7 @@ public class CreateRule_CertainFieldIsUpdated_Price extends OntraportFirefoxTest
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule() throws Exception {
+	public void testCreateRule_CertainFieldIsUpdated_Price() throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 		WebDriver driver;
