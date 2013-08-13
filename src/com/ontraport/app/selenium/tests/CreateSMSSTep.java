@@ -14,7 +14,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreateSMSSTep extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testCreateSMSStep() {
 		WebDriver driver;
 		try {
 			driver = getDriver();

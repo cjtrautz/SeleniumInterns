@@ -14,7 +14,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreateFulfillmentSequence extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testCreateFulfillmentSequence() {
 		WebDriver driver;
 		try {
 			driver = getDriver();
