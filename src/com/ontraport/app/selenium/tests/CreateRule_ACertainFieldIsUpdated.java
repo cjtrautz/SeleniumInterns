@@ -19,7 +19,7 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule() throws Exception {
+	public void testCreateRule_ACertainFieldIsUpdated() throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 

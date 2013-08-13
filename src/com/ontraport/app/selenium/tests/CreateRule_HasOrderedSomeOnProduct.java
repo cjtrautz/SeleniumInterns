@@ -15,7 +15,7 @@ public class CreateRule_HasOrderedSomeOnProduct extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule_HasSpentAmountOnProduct() throws Exception {
+	public void testCreateRule_HasOrderedSomeOnProduct() throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 		WebDriver driver;

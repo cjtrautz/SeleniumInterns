@@ -15,7 +15,7 @@ public class CreateRule_AFieldMeetsGivenCriteria_Text  extends OntraportFirefoxT
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule_HasBeenOnSeq() throws Exception {
+	public void testCreateRule_AFieldMeetsGivenCriteria_Text() throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 		WebDriver driver;

@@ -15,7 +15,7 @@ public class CreateRule_VisitLPCertainTimes extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule_HasBeenOnSeq() throws Exception {
+	public void testCreateRule_VisitLPCertainTimes() throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 		WebDriver driver;
