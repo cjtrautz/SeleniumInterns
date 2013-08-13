@@ -24,7 +24,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	com.ontraport.app.selenium.tests.CreateATag.class,
 	com.ontraport.app.selenium.tests.CreateContact.class,
 	com.ontraport.app.selenium.tests.CreateProduct.class,
-	com.ontraport.app.selenium.tests.CreateRule.class,
+//	com.ontraport.app.selenium.tests.CreateRule.class,
 	com.ontraport.app.selenium.tests.DeleteATag.class,
 	com.ontraport.app.selenium.tests.MakeAGateWay.class,
 	com.ontraport.app.selenium.tests.DeleteGateway.class,
