@@ -33,7 +33,7 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 			e.printStackTrace();
 		}
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
-		
+
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search = String.valueOf(varTimeStamp);
 		String ruleName = "SelFldUpdt"+varTimeStamp;
