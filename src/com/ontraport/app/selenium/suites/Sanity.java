@@ -83,28 +83,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreatePostcardSequence.class,
 	//com.ontraport.app.selenium.tests.CreateRuleSequence.class,
 	//com.ontraport.app.selenium.tests.CreateFulfillmentSequence.class,
-	//com.ontraport.app.selenium.tests.CreateRule_ContactIsCreated.class,
-	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToSequencePaused.class,
-	//com.ontraport.app.selenium.tests.CreateRule_WhenContactAddedToSequence.class,
-	//com.ontraport.app.selenium.tests.CreateRule_WhenContactRemovedFromSequence.class,
-	//com.ontraport.app.selenium.tests.CreateEmailDateSeq.class,
-	//com.ontraport.app.selenium.tests.CreateSMSDateSeq.class,
-	//com.ontraport.app.selenium.tests.CreateTaskDateSeq.class,
-	//com.ontraport.app.selenium.tests.CreatePostcardDateSeq.class,
-	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
-	//com.ontraport.app.selenium.tests.CreateAPIKeys.class,
-	//com.ontraport.app.selenium.tests.Create1SCSync.class,
-	//com.ontraport.app.selenium.tests.CreateUCConfig.class,
-	//com.ontraport.app.selenium.tests.CreateFacebook.class,
-	//com.ontraport.app.selenium.tests.CreateUserFieldEditor.class,
-	//com.ontraport.app.selenium.tests.CreateAffiliateTrackingPixel.class,
-	com.ontraport.app.selenium.tests.CreateRule_PurchasesProduct.class,
-	com.ontraport.app.selenium.tests.CreateRule_OpensEmail.class,
-	com.ontraport.app.selenium.tests.CreateRule_ClicksTrackedLink.class,
-	com.ontraport.app.selenium.tests.CreateRule_ClicksEMailLink.class,
-	com.ontraport.app.selenium.tests.CreateRule_SendsAnEMail.class,
-	com.ontraport.app.selenium.tests.CreateRule_SubscriptionToSequenceUnPaused.class,
-	com.ontraport.app.selenium.tests.CreateRule_Visitswebsite_Wp.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
+	//com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
+	//com.ontraport.app.selenium.tests.CreateRule_CreditCardCharged.class,
+	//com.ontraport.app.selenium.tests.CreateRule_CreditCardDeclined.class,
+	//com.ontraport.app.selenium.tests.CreateRule_GetsRefundOnProduct.class,
+	//com.ontraport.app.selenium.tests.CreateRule_LosesAccess.class,
+	//com.ontraport.app.selenium.tests.CreateRule_MembershipAdded.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscribedToSubscriptionProduct.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Cancelled.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Charged.class,
+	//com.ontraport.app.selenium.tests.CreateRule_SubscriptionToProduct_Completed.class,
+	//com.ontraport.app.selenium.tests.CreateRule_VisitsLandingPage.class,
+	//com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
+	//com.ontraport.app.selenium.tests.CreateTaskCopy.class,
+	//com.ontraport.app.selenium.tests.CreateSMSMessage.class,
+	//com.ontraport.app.selenium.tests.CreateSMSCopy.class,
+	//com.ontraport.app.selenium.tests.CreateExportContacts.class,
+	//com.ontraport.app.selenium.tests.SetLanguage.class,
+	//com.ontraport.app.selenium.tests.CreateEmailCopy.class,
+	com.ontraport.app.selenium.tests.CreateSectionWithFields.class,
 
 
 
@@ -116,7 +115,7 @@ public class Sanity {
 	protected static Process proc;
 	protected static StringBuffer verificationErrors = new StringBuffer();
 	private static WebDriver driver;
-	
+
 	@BeforeClass
 	public static void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -124,14 +123,14 @@ public class Sanity {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().setPosition(new Point(0,0));
 		driver.manage().window().setSize(new Dimension(1600, 1200));
-		//proc = Runtime.getRuntime()
-		//.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
+		proc = Runtime.getRuntime()
+		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (Sanity.class.getSimpleName()) + ".avi");
 	}
 
 	@AfterClass
 	public static void tearDown() throws Exception {
 		driver.quit();
-		//proc.destroy();
+		proc.destroy();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 		fail(verificationErrorString);
@@ -140,5 +139,5 @@ public class Sanity {
 	public static WebDriver getDriver(){
 		return driver;
 	}
-	
+
 }

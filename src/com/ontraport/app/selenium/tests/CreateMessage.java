@@ -87,7 +87,17 @@ public class CreateMessage  extends OntraportFirefoxTest {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[normalize-space(text())='" + (msgName) +"']")));
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//*[normalize-space(text())='" + (msgName) +"']")));
 		//appUtilities.logOutOfApp(driver);
-		
+		driver.findElement(By.xpath("//*[normalize-space(text())='" + (msgName) +"']")).click();
+
+        Assert.assertEquals("TaskNameAssertion",msgName, driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).getAttribute("value"));
+        Assert.assertEquals("TaskNameAssertion","Selenium Test", driver.findElement(By.xpath("//div[label[normalize-space(text())='Send out name']]/descendant::input")).getAttribute("value"));
+        Assert.assertEquals("TaskNameAssertion","selenium@test.com", driver.findElement(By.xpath("//div[label[normalize-space(text())='Reply to email']]/descendant::input")).getAttribute("value"));
+        Assert.assertEquals("TaskNameAssertion","Selenium Test", driver.findElement(By.xpath("//div[label[normalize-space(text())='Subject']]/descendant::input")).getAttribute("value"));
+        driver.switchTo().frame(1);
+        System.out.println(driver.findElement(By.xpath("/html[@class='CSS1Compat']/body")).getText());
+        Assert.assertEquals("TaskNameAssertion","Selenium Test[First Name]", driver.findElement(By.xpath("/html[@class='CSS1Compat']/body")).getText());
+		driver.switchTo().defaultContent();
+        
 	    driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 
