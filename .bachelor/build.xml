@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="ontraport-3.0-selenium" default="build" basedir="..">
+<project name="ontraport-3.0-selenium" default="build-sanity" basedir="..">
 
   <!--
    =============================================================================
@@ -28,10 +28,15 @@
    =============================================================================
   -->
 
-  <target name="build" description="Run tools in sequence.">
-    <antcall target='prepare'/>
-    <antcall target='selenium'/>
-  </target>
+	  <target name="build-sanity" description="Run tools in sequence.">
+	    <antcall target='prepare'/>
+	    <antcall target='sanity'/>
+	  </target>
+
+	  <target name="build-review" description="Run tools in sequence.">
+	    <antcall target='prepare'/>
+	    <antcall target='review'/>
+	  </target>
 
   <!--
    =============================================================================
@@ -80,24 +85,44 @@
     </javac>
   </target>
 
-  <target name="selenium" depends="compile">
-    <junit printsummary="yes" haltonfailure="no">
-      <classpath>
-        <pathelement location="${basedir}/bin"/>
-        <fileset dir="${basedir}/lib">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
-      <test name="com.ontraport.app.selenium.suites.Sanity" haltonfailure="no" todir="${report}/selenium/xml" outfile="TEST-result">
-        <formatter type="xml"/>
-      </test>
-    </junit>
-    <junitreport todir="${report}/selenium/xml">
-      <fileset dir="${report}/selenium/xml">
-        <include name="TEST*.xml"/>
-      </fileset>
-      <report format="frames" todir="${report}/selenium/html"/>
-    </junitreport>
-  </target>
+	  <target name="sanity" depends="compile">
+	    <junit printsummary="yes" haltonfailure="no">
+	      <classpath>
+	        <pathelement location="${basedir}/bin"/>
+	        <fileset dir="${basedir}/lib">
+	          <include name="**/*.jar"/>
+	        </fileset>
+	      </classpath>
+	      <test name="com.ontraport.app.selenium.suites.Sanity" haltonfailure="no" todir="${report}/selenium/xml/sanity" outfile="TEST-Sanity">
+	        <formatter type="xml"/>
+	      </test>
+	    </junit>
+	    <junitreport todir="${report}/selenium/xml/sanity">
+	      <fileset dir="${report}/selenium/xml/sanity">
+	        <include name="TEST*.xml"/>
+	      </fileset>
+	      <report format="frames" todir="${report}/selenium/html/sanity"/>
+	    </junitreport>
+	  </target>
+
+	  <target name="review" depends="compile">
+	    <junit printsummary="yes" haltonfailure="no">
+	      <classpath>
+	        <pathelement location="${basedir}/bin"/>
+	        <fileset dir="${basedir}/lib">
+	          <include name="**/*.jar"/>
+	        </fileset>
+	      </classpath>
+	      <test name="com.ontraport.app.selenium.suites.Review" haltonfailure="no" todir="${report}/selenium/xml/review" outfile="TEST-Review">
+	        <formatter type="xml"/>
+	      </test>
+	    </junit>
+	    <junitreport todir="${report}/selenium/xml/review">
+	      <fileset dir="${report}/selenium/xml/review">
+	        <include name="TEST*.xml"/>
+	      </fileset>
+	      <report format="frames" todir="${report}/selenium/html/review"/>
+	    </junitreport>
+	  </target>
 
 </project>
