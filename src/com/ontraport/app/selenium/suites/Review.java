@@ -92,4 +92,4 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.ontraport.app.selenium.tests.CreateEmailCopy.class,
 	com.ontraport.app.selenium.tests.CreateSectionWithFields.class,
 	})
-public class Sanity extends SuperSuite {}
+public class Review extends SuperSuite {}
