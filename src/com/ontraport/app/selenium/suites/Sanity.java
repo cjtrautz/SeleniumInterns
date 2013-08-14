@@ -19,12 +19,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 @RunWith(Suite.class)
 @SuiteClasses({
 	com.ontraport.app.selenium.tests.Login.class,
+	/*
 	com.ontraport.app.selenium.tests.AddNewSection.class,
-//	com.ontraport.app.selenium.tests.AddTab.class,
+	com.ontraport.app.selenium.tests.AddTab.class,
 	com.ontraport.app.selenium.tests.CreateATag.class,
 	com.ontraport.app.selenium.tests.CreateContact.class,
 	com.ontraport.app.selenium.tests.CreateProduct.class,
-//	com.ontraport.app.selenium.tests.CreateRule.class,
+	com.ontraport.app.selenium.tests.CreateRule.class,
 	com.ontraport.app.selenium.tests.DeleteATag.class,
 	com.ontraport.app.selenium.tests.MakeAGateWay.class,
 	com.ontraport.app.selenium.tests.DeleteGateway.class,
@@ -104,6 +105,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	com.ontraport.app.selenium.tests.SetLanguage.class,
 	com.ontraport.app.selenium.tests.CreateEmailCopy.class,
 	com.ontraport.app.selenium.tests.CreateSectionWithFields.class,
+	*/
 
 	})
 
@@ -120,14 +122,17 @@ public class Sanity {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().setPosition(new Point(0,0));
 		driver.manage().window().setSize(new Dimension(1600, 1200));
-		proc = Runtime.getRuntime()
-		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (Sanity.class.getSimpleName()) + ".avi");
+		// We could use this:
+		// java.net.InetAddress.getLocalHost().getHostName();
+		// to see where the tests are running and activate this only when on the Bachelor.
+//		proc = Runtime.getRuntime()
+//		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (Sanity.class.getSimpleName()) + ".avi");
 	}
 
 	@AfterClass
 	public static void tearDown() throws Exception {
 		driver.quit();
-		proc.destroy();
+//		proc.destroy();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 		fail(verificationErrorString);
