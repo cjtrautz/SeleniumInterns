@@ -109,7 +109,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Sanity {
 	protected static String baseUrl;
-	protected static Process proc;
 	protected static StringBuffer verificationErrors = new StringBuffer();
 	private static WebDriver driver;
 
@@ -130,15 +129,6 @@ public class Sanity {
 		if (!"".equals(verificationErrorString)) {
 		fail(verificationErrorString);
 		}
-	}
-	@BeforeClass
-	public void startVideo() throws Exception {
-		proc = Runtime.getRuntime()
-		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :1.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
-	}
-	@AfterClass
-	public void stopVideo() throws Exception {
-		proc.destroy();
 	}
 	public static WebDriver getDriver(){
 		return driver;
