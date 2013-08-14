@@ -55,8 +55,10 @@
     <mkdir dir="${basedir}/bin" />
     <mkdir dir="${browse}"/>
     <mkdir dir="${output}"/>
-    <mkdir dir="${report}/selenium/xml"/>
-    <mkdir dir="${report}/selenium/html"/>
+    <mkdir dir="${report}/selenium/xml/sanity"/>
+    <mkdir dir="${report}/selenium/xml/review"/>
+    <mkdir dir="${report}/selenium/html/sanity"/>
+    <mkdir dir="${report}/selenium/html/review"/>
   </target>
 
   <!--
