@@ -23,7 +23,10 @@ AppUtilities appUtilities = new AppUtilities();
 		Thread.sleep(12000);
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div[2]/div[2]/ul/li[2]/a")).click();
 		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).click();
-		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).sendKeys("Lead 1aB4");
+		driver.findElement(By.cssSelector("input.ussr-widget-editinplace-input.text-transform-uppercase")).sendKeys("LEAD 1AB4");
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div/div[2]/div[2]/div/span[2]")).click();
+
+		Assert.assertEquals("LEAD 1AB4", driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div[2]/div[2]/ul/li[2]/a")).getText());
 		appUtilities.logOutOfApp(driver);
 		
 }

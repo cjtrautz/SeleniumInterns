@@ -1,13 +1,15 @@
 package com.ontraport.app.selenium.tests;
+import com.ontraport.app.selenium.tests.AppUtilities;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
 public class NextPage extends OntraportFirefoxTest {
-	AppUtilities appUtilities = new AppUtilities();
+	AppUtilities appUtilities = new AppUtilities(); 
 
 	@Test
 	public void testNextPage() throws Exception {
@@ -110,4 +112,36 @@ public class NextPage extends OntraportFirefoxTest {
 		appUtilities.logOutOfApp(driver);
 
 	}
+
+
+
+@Test
+public void testFirstPage() throws Exception {
+	driver.get(baseUrl + "/");
+	//login	
+	appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
+	Thread.sleep(20000);
+	String pageCount = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-page-count')]")).getText();
+	//String currentPageNumber = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-current-page')]")).getAttribute("value");
+	System.out.println("page count"+pageCount);
+	int pgCnt = Integer.parseInt(pageCount);
+	if (pgCnt>1){
+		driver.findElement(By.xpath("//a[@class='ussr-paginator-control-last']")).click();
+		driver.findElement(By.xpath("//a[@class='ussr-paginator-control-first']")).click();
+	    Thread.sleep(20000);
+		String currentPageNumber = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-current-page')]")).getAttribute("value");
+		int crntPgNo = Integer.parseInt(currentPageNumber);
+		if (crntPgNo==(1)){
+			Assert.assertTrue("FirstPageNavigation success", true);
+		}else{
+			Assert.assertTrue("FirstPageNavigation success", false);
+		}
+
+	}else{
+		Assert.assertTrue("No suffecient records to execute test case", false);
+	}
+
+	appUtilities.logOutOfApp(driver);
+
+}
 }
