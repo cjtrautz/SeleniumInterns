@@ -121,7 +121,7 @@ public class CreateRule_SubscriptionToSequencePaused extends OntraportFirefoxTes
 					webElement.click();
 					return;
 				}
-
+				
 			}
 		}
 

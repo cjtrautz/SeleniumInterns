@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,10 +70,11 @@ public class SendFromAddress extends OntraportFirefoxTest {
 
 		//delete it
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[4]/div[1]")).click();
-        driver.findElement(By.xpath("//div[@class='sender_collection_target']/table/tbody/tr[9]/td[1]/span[2]")).click();
-		
+        //WebElement straw = driver.findElement(By.xpath("//div[@class='sender_collection_target']/table/tbody"));
+		WebElement straw2 = driver.findElement(By.xpath("//tr/td[following-sibling::td[.='njcross1990@gmail.com']]/span[2]"));
+        straw2.click();
         driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
-
+      
 	}
 
 }
