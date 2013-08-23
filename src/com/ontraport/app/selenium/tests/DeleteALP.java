@@ -51,7 +51,7 @@ public class DeleteALP extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//div[@class='menu_button_class']//td[normalize-space(text())='Page URL:']")).click();
 		//select radio button
 		//driver.findElement(By.xpath("//*[*[normalize-space(text())='Use a Hosted Domain']]/descendant::input")).click();
-		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage");
+		fillThePopUp (driver, "Use a Hosted Domain", "seleniumlandingpage" + varTimeStamp);
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input.btn2")));
 		driver.findElement(By.cssSelector("input.btn2")).click();
 		

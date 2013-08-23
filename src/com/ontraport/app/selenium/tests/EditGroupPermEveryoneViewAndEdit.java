@@ -26,7 +26,7 @@ public class EditGroupPermEveryoneViewAndEdit extends OntraportFirefoxTest{
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 		Thread.sleep(2000);
 
-		
+
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='<br>']")).click();
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//div[.='731 test']")).click();
         driver.findElement(By.xpath("//div[@id='ontraport_panel_action_group_edit']//span[.='Manage Groups']")).click();
@@ -41,7 +41,7 @@ public class EditGroupPermEveryoneViewAndEdit extends OntraportFirefoxTest{
         driver.findElement(By.xpath("//div[@id='ontraport_panel_action_group_edit']//span[.='Manage Groups']")).click();
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='<br>']")).click();
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//div[.='Group: All']")).click();
-        
+
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 	}

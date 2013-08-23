@@ -14,7 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.internal.Locatable;
 
 public class AppUtilities {
-	
+
 	public boolean isElementPresent(WebDriver driver, By by) {
 		try {
 			driver.findElement(by);
@@ -23,8 +23,6 @@ public class AppUtilities {
 			return false;
 		}
 	}
-	
-	
 	public void loginToApp (WebDriver driver, String userName, String password){
 		/*driver.findElement(By.xpath("//div[@id='sod-drawer-handle']/div")).click();
 		driver.findElement(By.name("username")).clear();
@@ -33,23 +31,23 @@ public class AppUtilities {
 		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("input.submit")).click();
 		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);*/
-		
+
 		driver.findElement(By.id("username")).clear();
 		driver.findElement(By.id("username")).sendKeys(userName);
 		driver.findElement(By.id("password")).clear();
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.id("login_button")).click();
 
-		
+
 		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
 	}
-	
+
 	public void waitForElement (WebDriver driver, String sXpath, int timeInSeconds){
 		for (int second = 0;; second++) {
 			if (second >= timeInSeconds) fail("timeout");
 			try {
 				if (isElementPresent(driver, By.xpath(sXpath)))
-					break; 
+					break;
 				} catch (Exception e) {}
 			try {
 				Thread.sleep(1000);
@@ -59,12 +57,12 @@ public class AppUtilities {
 			}
 		}
 	}
-	
+
 	public void logOutOfApp (WebDriver driver){
 		driver.findElement(By.cssSelector("li.ussr-header-nav-option-user")).click();
 		driver.findElement(By.cssSelector("a[href=\"Login/logout\"]")).click();
 	}
-	
+
 	public WebElement getTextBoxOnTheLabel (WebDriver driver, String textboxLabel, String parentXpath, String childXpath) throws Exception{
 		//List<WebElement> textBoxParentElement = driver.findElements(By.xpath("//*[@class='ussr-component-input ussr-form-input-type-text  clearfix']"));
 		List<WebElement> textBoxParentElement = driver.findElements(By.xpath(parentXpath));
@@ -77,19 +75,19 @@ public class AppUtilities {
 				//return eachParentElement.findElement(By.xpath(".//input[@type='text']"));
 				return eachParentElement.findElement(By.xpath(childXpath));
 			}
-			
+
 		}
-		
+
 		throw new Exception ("No Label Match found");
-		
+
 	}
-	
+
 	public WebElement getTextBoxOnTheLabel (WebDriver driver, String textboxLabel) throws Exception{
-		return getTextBoxOnTheLabel(driver, textboxLabel, 
+		return getTextBoxOnTheLabel(driver, textboxLabel,
 				"//*[@class='ussr-component-input ussr-form-input-type-text  clearfix']", ".//input[@type='text']");
-		
+
 	}
-	
+
 	/**
 	 * Navigate to the side menu
 	 * @param driver
@@ -99,22 +97,22 @@ public class AppUtilities {
 	public void navigateTo (WebDriver driver, String menuPath) throws Exception{
 		String[] menus = menuPath.split("==");
 		waitForElement(driver, "//*[@data-attr]", 30);
-		
+
 		List<WebElement> primaryNav = driver.findElements(By.xpath("//*[@data-attr]"));
 		Iterator<WebElement> primaryNavItr = primaryNav.iterator();
 		System.out.println (primaryNav.size());
 		WebElement mainMenuEle = null;
-		
+
 		while (primaryNavItr.hasNext()) {
 			WebElement eachPrimaryNav = (WebElement) primaryNavItr.next();
 			String mainMenu = eachPrimaryNav.findElement(By.xpath(".//*[@class='primary-nav-item-label']")).getText();
-			System.out.println (mainMenu);			
+			System.out.println (mainMenu);
 			if (mainMenu.equalsIgnoreCase(menus[0])){
 				mainMenuEle = eachPrimaryNav;
 				//break;
 			}
 		}
-		
+
 		if (mainMenuEle==null){
 			throw new Exception (menus[0] + " not found");
 		}
@@ -125,7 +123,7 @@ public class AppUtilities {
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		System.out.println ("********************************************************");
 		if (menus.length>1){
 			List<WebElement> subMenuElements = mainMenuEle.findElements(By.xpath(".//*[@class='primary-nav-sub-item']/a"));
@@ -137,14 +135,14 @@ public class AppUtilities {
 				if (subMenutxt.equalsIgnoreCase(menus[1])){
 					subMenuEle.click();
 				}
-				
+
 			}
 		}
 
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param driver
 	 * @param itemLink
 	 * @param itemName
@@ -158,10 +156,10 @@ public class AppUtilities {
 
 		}
 	}
-	
-	
+
+
 	/**
-	 * 
+	 *
 	 * @param driver
 	 * @param itemLink
 	 * @param itemName
@@ -175,9 +173,7 @@ public class AppUtilities {
 
 		}
 	}
-	
-	
-	
+
 	public boolean isAlertPresent(WebDriver driver){
         try{
             driver.switchTo().alert();
@@ -188,7 +184,7 @@ public class AppUtilities {
             return false;
         }//catch
     }
-	
+
 	public boolean scrollUntillElementFound (WebDriver driver, WebElement scrollElement, By byElementLocator){
 
 		Actions dragger = new Actions(driver);
@@ -205,20 +201,20 @@ public class AppUtilities {
 	    				System.out.println("element displayed");
 	    				return true;
 	    			}
-	    			
+
 	    		}
 	    		System.out.println("*************FirstNameEnd************");
 	    		dragger.moveToElement(scrollElement).clickAndHold().moveByOffset(0,numberOfPixelsToDragTheScrollbarDown).release().perform();
 	    		Thread.sleep(1000L);
 	    	}catch(Exception e1){}
-	    } 
-	    
+	    }
+
 	    return false;
-	   
+
 	}
-	
-	
-	
+
+
+
 	public void selectItemSpan(WebDriver driver, String itemLink, String itemName ){
 		try {
 			driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
@@ -228,8 +224,8 @@ public class AppUtilities {
 
 		}
 	}
-	
-	
+
+
 	/**
 	 * Performs the mouse over operation on the specified element
 	 * @param webDriver
@@ -240,7 +236,6 @@ public class AppUtilities {
 		Locatable hoverItem = (Locatable) element;
 		Mouse mouse = ((HasInputDevices) webDriver).getMouse();
 		mouse.mouseMove(hoverItem.getCoordinates());
-		
 	}
 
 
@@ -258,13 +253,12 @@ public class AppUtilities {
 				webElement.click();
 				return contactName;
 			}
-			
+
 		}
 		throw new Exception ("No Contacts Found");
 	}
-	
+
 	public String selectNonBlankLastNameContactLink (WebDriver driver) throws Exception{
-		
 		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
 		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
 		Iterator<WebElement> iterator = findElements.iterator();
@@ -279,11 +273,11 @@ public class AppUtilities {
 				//webElement.click();
 				return contactName;
 			}
-			
+
 		}
 		throw new Exception ("No Contacts Found");
 	}
-	
+
 	public String selectContactsCheckbox (WebDriver driver, String contactName) throws Exception{
 		waitForElement(driver, "//table[@class='ussr-table-striped']", 30);
 		List<WebElement> findElements = driver.findElements(By.xpath("//table[@class='ussr-table-striped']//td[2]/span/a"));
@@ -299,11 +293,10 @@ public class AppUtilities {
 				//webElement.click();
 				return contactName;
 			}
-			
+
 		}
 		throw new Exception ("No Contacts Found");
 	}
-
 
 	public void selectRuleDropDown (WebDriver driver, String ruleDesc, String placeHolder, String option){
 		System.out.println("**************************************************************");
@@ -312,9 +305,9 @@ public class AppUtilities {
 		System.out.println("option:" + option);
 		WebElement drop = driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button"));
 		drop.click();
-	
-	
-	
+
+
+
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -327,7 +320,7 @@ public class AppUtilities {
 		//Iterator<WebElement> childEleIteratorP = childEleP.iterator();
 		System.out.println("*************ChildItems************");
 		System.out.println("Number:"+childEleP.size());
-	
+
 		for (int i = 0; i < childEleP.size(); i++) {
 			drop.sendKeys(Keys.ARROW_DOWN);
 			try {
@@ -346,13 +339,13 @@ public class AppUtilities {
 					webElement.click();
 					return;
 				}
-	
+
 			}
 		}
-	
-	
+
+
 	}
-	
+
 	/**
 	 * To set the number of records per page to 100
 	 * @param driver
@@ -368,6 +361,6 @@ public class AppUtilities {
 			e.printStackTrace();
 		}
 	}
-	
+
 
 }

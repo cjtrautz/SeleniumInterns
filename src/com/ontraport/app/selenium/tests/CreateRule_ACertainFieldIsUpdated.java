@@ -37,7 +37,7 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String Search = String.valueOf(varTimeStamp);
 		String ruleName = "SelFldUpdt"+varTimeStamp;
-		
+
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
 		//Click on New Rule
@@ -46,14 +46,14 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ruleName);
-		
+
 		selectRuleDropDown (driver, "WHEN THIS HAPPENS:","Select Trigger...", "A Certain field is updated");
 		Thread.sleep(5000);
 		selectRuleDropDown(driver, "WHEN THIS HAPPENS:", "Select Field...", "First Name");
-		
+
 		selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
 		Thread.sleep(3000);
-		
+
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
@@ -61,12 +61,12 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
-		
+
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[5]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='search']")).clear();
 		driver.findElement(By.xpath("//input[@type='search']")).sendKeys(Search);
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-search")).click();
-		
+
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
 		Thread.sleep(5000);
@@ -88,7 +88,7 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 		System.out.println("option:" + option);
 		WebElement drop = driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button"));
 		drop.click();
-		
+
 
 
 		try {
@@ -103,7 +103,7 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 		//Iterator<WebElement> childEleIteratorP = childEleP.iterator();
 		System.out.println("*************ChildItems************");
 		System.out.println("Number:"+childEleP.size());
-		
+
 		for (int i = 0; i < childEleP.size(); i++) {
 			drop.sendKeys(Keys.ARROW_DOWN);
 			try {
@@ -122,7 +122,7 @@ public class CreateRule_ACertainFieldIsUpdated extends OntraportFirefoxTest {
 					webElement.click();
 					return;
 				}
-				
+
 			}
 		}
 

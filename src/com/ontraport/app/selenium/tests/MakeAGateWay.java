@@ -21,7 +21,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class MakeAGateWay extends OntraportFirefoxTest {
 
 	@Test
-	public void testCreateContact() throws Exception {
+	public void testMakeAGateWay() throws Exception {
 		//baseUrl = "http://app.ontraport.com";
 		//driver.get(baseUrl + "/");
 		//loginToApp();
