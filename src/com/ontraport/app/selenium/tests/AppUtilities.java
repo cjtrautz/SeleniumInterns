@@ -34,7 +34,6 @@ public class AppUtilities {
 		waitForElement(driver, "//li[@class='primary-nav-sub-item']//a//span[ text()='Messages']", 10);
 	}
 
-
 	public void waitForElement (WebDriver driver, String sXpath, int timeInSeconds){
 		for (int second = 0;; second++) {
 			if (second >= timeInSeconds) fail("timeout");
@@ -149,6 +148,7 @@ public class AppUtilities {
 
 		}
 	}
+<<<<<<< HEAD
 
 
 	/**
@@ -166,8 +166,6 @@ public class AppUtilities {
 
 		}
 	}
-
-
 
 	public boolean isAlertPresent(WebDriver driver){
         try{

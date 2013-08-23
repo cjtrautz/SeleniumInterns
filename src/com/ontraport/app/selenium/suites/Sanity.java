@@ -1,21 +1,8 @@
 package com.ontraport.app.selenium.suites;
-
-import static org.junit.Assert.fail;
-
-import java.util.concurrent.TimeUnit;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import com.ontraport.app.selenium.tools.SuperSuite;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 @RunWith(Suite.class)
 @SuiteClasses({
 	com.ontraport.app.selenium.tests.Login.class,
@@ -23,9 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.AddNewSection.class,
 	//com.ontraport.app.selenium.tests.AddTab.class,
 	//com.ontraport.app.selenium.tests.CreateATag.class,
-	
+
 	//com.ontraport.app.selenium.tests.CreateContact.class,
-	
+
 	//com.ontraport.app.selenium.tests.CreateProduct.class,
 	//com.ontraport.app.selenium.tests.CreateRule.class,
 	//com.ontraport.app.selenium.tests.DeleteATag.class,
@@ -77,11 +64,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.OpensDrawerRule.class,
 	//com.ontraport.app.selenium.tests.PauseRule.class,
 	//com.ontraport.app.selenium.tests.TryToFailUsageAgreement.class,
-	
+
 	//com.ontraport.app.selenium.tests.CreateNote.class,
-	
+
 	com.ontraport.app.selenium.tests.AddColumn.class,
-	
+
 	//com.ontraport.app.selenium.tests.AllSequenceSteps.class,
 	//com.ontraport.app.selenium.tests.CreateEmailSequence.class,
 	//com.ontraport.app.selenium.tests.CreateSMSSTep.class,
@@ -95,7 +82,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.CreatePostcardDateSeq.class,
 	//com.ontraport.app.selenium.tests.CreateRuleDateSeq.class,
 
-	
+
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsAddedToTag.class,
 	//com.ontraport.app.selenium.tests.CreateRule_ContactIsRemovedFromTag.class,
@@ -133,7 +120,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	//com.ontraport.app.selenium.tests.EnsureSequenceEditSteps.class,
 
 	com.ontraport.app.selenium.tests.AddNewSection.class,
-//	com.ontraport.app.selenium.tests.AddTab.class,
+	com.ontraport.app.selenium.tests.AddTab.class,
 	com.ontraport.app.selenium.tests.CreateATag.class,
 	com.ontraport.app.selenium.tests.CreateContact.class,
 	com.ontraport.app.selenium.tests.CreateProduct.class,
@@ -225,12 +212,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_State.class,
 	com.ontraport.app.selenium.tests.CreateRule_SMSReceived.class,
 	com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
-
-
-
-
-
-	
 	})
 
 public class Sanity {
@@ -238,7 +219,7 @@ public class Sanity {
 	protected static Process proc;
 	protected static StringBuffer verificationErrors = new StringBuffer();
 	private static WebDriver driver;
-	
+
 	@BeforeClass
 	public static void setUp() throws Exception {
 		String filename = new Object() {}.getClass().getEnclosingClass().getSimpleName();
@@ -247,14 +228,11 @@ public class Sanity {
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().window().setPosition(new Point(0,0));
 		driver.manage().window().setSize(new Dimension(1600, 1200));
-		proc = Runtime.getRuntime()
-		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :2.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + filename + ".avi");
 	}
 
 	@AfterClass
 	public static void tearDown() throws Exception {
 		driver.quit();
-		proc.destroy();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 		fail(verificationErrorString);

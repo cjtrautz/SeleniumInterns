@@ -47,21 +47,21 @@ public class AddGroup extends OntraportFirefoxTest{
         driver.findElement(By.cssSelector("input.ussr-border-solid-all")).clear();
         driver.findElement(By.cssSelector("input.ussr-border-solid-all")).sendKeys(name);
         driver.findElement(By.xpath("//div[@class='group-editor-button-wrapper-left']//button[.='Save']")).click();
-   
+
         //better wait then just sleep
         while(!driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[2]/div/div[2]/div/input")).getAttribute("value").equals(name));
         {
         	//System.out.println(driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[1]/div[2]/div/div[2]/div/input")).getAttribute("value").equals(name));
         	Thread.sleep(10);
         }
-        
+
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='<br>']")).click();
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//div[.='Group: All']")).click();
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='<br>']")).click();
         AssertJUnit.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//div[.='" +name+ "']")));
-        
+
         Thread.sleep(3000);
-        
+
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
 	}
