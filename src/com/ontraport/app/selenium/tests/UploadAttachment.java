@@ -17,7 +17,7 @@ public class UploadAttachment extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() throws InterruptedException {
+	public void testUploadAttachment() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();

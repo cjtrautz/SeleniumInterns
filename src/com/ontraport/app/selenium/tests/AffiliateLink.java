@@ -13,7 +13,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class AffiliateLink extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testAffiliateLink() {
 		WebDriver driver;
 		try {
 			driver = getDriver();

@@ -19,7 +19,7 @@ public class NewInvoice extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() throws InterruptedException {
+	public void testNewInvoice() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();

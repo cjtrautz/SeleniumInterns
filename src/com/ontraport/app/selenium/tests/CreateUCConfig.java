@@ -14,7 +14,7 @@ public class CreateUCConfig extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() throws InterruptedException {
+	public void testCreateUCConfig() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();
