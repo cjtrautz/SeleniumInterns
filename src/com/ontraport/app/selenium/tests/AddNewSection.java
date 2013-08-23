@@ -139,7 +139,7 @@ public class AddNewSection extends OntraportFirefoxTest {
 	   			//try { if (isElementPresent(By.xpath("//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']"))) break; } catch (Exception e) {}
 	        	
 	   			dragger.moveToElement(draggablePartOfScrollbar).clickAndHold().moveByOffset(0,100).release().perform();
-	   			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div//div[normalize-space(text())='Section Description']")));	    
+	   			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space(text())='Contact Information']")));	    
 	   		}catch(Exception e1){}
     	}
 //	    }

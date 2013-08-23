@@ -16,16 +16,16 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 
 	AppUtilities appUtilities = new AppUtilities();
-	
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaLongText() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlLTxt"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -33,27 +33,27 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//textarea[@placeholder='Enter Value...']")).sendKeys("test");
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("SelLongText", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
 		Assert.assertEquals("test", driver.findElement(By.xpath("//textarea[@placeholder='Enter Value...']")).getAttribute("value"));
-		
+
 		appUtilities.logOutOfApp(driver);
-		
-		
+
+
 	}
-	
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaNumeric() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlNum"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -61,28 +61,28 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).sendKeys("1");
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("SelNumeric", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
 		Assert.assertEquals("1", driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).getAttribute("value"));
-		
+
 		appUtilities.logOutOfApp(driver);
-		
-		
+
+
 	}
-	
-	
+
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaPrice() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlPrc"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -90,29 +90,29 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).sendKeys("1.00");
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("SelPrice", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
 		Assert.assertEquals("1.00", driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).getAttribute("value"));
-		
+
 		appUtilities.logOutOfApp(driver);
-		
-		
+
+
 	}
-	
-	
-	
+
+
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaCheckBox() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlDt"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -120,27 +120,27 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-checkbox-empty")).click();
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("SelChkbox", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
-		
-		
+
+
 		appUtilities.logOutOfApp(driver);
-		
-		
+
+
 	}
-	
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaState() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlDt"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -148,26 +148,26 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		selectRuleDropDownByTyping(driver, "IF THIS IS TRUE:", "Select...", "Alabama");
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("State", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
 		Assert.assertEquals("Alabama", driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value"));
-		
+
 		appUtilities.logOutOfApp(driver);
-		
+
 	}
-	
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaDate() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlDt"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -175,28 +175,28 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@placeholder='Enter Value...']")).sendKeys("01/01/2014");
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("SelDate", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
 		Assert.assertEquals("01/01/2014", driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value"));
-		
-		
+
+
 		appUtilities.logOutOfApp(driver);
-		
-		
+
+
 	}
-	
+
 	@Test
 	public void testAFieldMeetsGivenCriteriaDropDown() throws Exception{
 		driver.get(baseUrl + "/");
 		//login
 		appUtilities.loginToApp(driver);
 		String ruleName = "RlDt"+Calendar.getInstance().getTimeInMillis();
-		
+
 		navigateToNewRuleAndFillCommonFields (driver, ruleName);
-		
+
 
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition (optional)...", "Field is this value");
 		Thread.sleep(3000);
@@ -204,19 +204,19 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		appUtilities.selectRuleDropDown(driver, "IF THIS IS TRUE:", "Select Condition...", "Equal To");
 		Thread.sleep(3000);
 		selectRuleDropDownByTyping(driver, "IF THIS IS TRUE:", "Select...", "SelOption");
-				
+
 		saveTheRuleAndCommonAssert (driver, ruleName);
-		
+
 		Assert.assertEquals("SelDropdown", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
 		Assert.assertEquals("SelOption", driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value"));
-		
+
 		appUtilities.logOutOfApp(driver);
-		
+
 	}
-	
+
 	public void navigateToNewRuleAndFillCommonFields (WebDriver driver, String ruleName) throws Exception {
-		
+
 
 		//Click Rules
 		driver.findElement(By.xpath("//*[@class='primary-nav-sub-item']/a//span[text()='Rules']")).click();
@@ -230,22 +230,22 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		Thread.sleep(3000);
 		appUtilities.selectRuleDropDown(driver, "THEN DO THIS:", "Select Action...", "Recharge all declined transactions");
 		Thread.sleep(3000);
-		
+
 	}
-	
-	
+
+
 	public void saveTheRuleAndCommonAssert (WebDriver driver, String ruleName) throws InterruptedException{
 		Thread.sleep(3000);
-		
+
 		driver.findElement(By.xpath("//button//span[text()='Save']")).click();
 		Thread.sleep(5000);
-		
+
 		appUtilities.setHundredRecordsPerPage(driver);
 
 		Assert.assertTrue(appUtilities.isElementPresent(driver, By.xpath("//a[normalize-space(text())='" + ruleName +"']")));
 		driver.findElement(By.xpath("//a[normalize-space(text())='" + ruleName +"']")).click();
 		Thread.sleep(5000);
-		
+
 		Assert.assertEquals("RuleNameAssertion",ruleName, driver.findElement(By.xpath("//input[@type='text']")).getAttribute("value"));
 /*		Assert.assertEquals("Equal To", driver.findElement(By.xpath("(//input[@type='text'])[3]")).getAttribute("value"));
 		Assert.assertEquals("10", driver.findElement(By.xpath("(//input[@type='text'])[4]")).getAttribute("value"));
@@ -253,20 +253,20 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 		Assert.assertEquals("Any Product", driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value"));*/
 
 	}
-	
-	
+
+
 	 public void selectDropDownByTyping (WebDriver driver, String placeHolder, String option){
          System.out.println("**************************************************************");
-        
+
          System.out.println("placeHolder:" + placeHolder);
          System.out.println("option:" + option);
-         
+
          //driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ (itemLink) +"']]/descendant::button")).click();
          WebElement drop = driver.findElement(By.xpath("//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button"));
          drop.click();
          driver.findElement(By.xpath("//div//input[normalize-space(@placeholder)='"+ placeHolder +"']")).sendKeys(option);
-   
-   
+
+
          try {
                Thread.sleep(2000);
          } catch (InterruptedException e) {
@@ -278,7 +278,7 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
          //Iterator<WebElement> childEleIteratorP = childEleP.iterator();
          System.out.println("*************ChildItems************");
          System.out.println("Number:"+childEleP.size());
-   
+
          for (int i = 0; i < childEleP.size(); i++) {
                drop.sendKeys(Keys.ARROW_DOWN);
                try {
@@ -296,14 +296,14 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
                            webElement.click();
                            return;
                      }
-   
+
                }
          }
-   
-   
+
+
    }
-	 
-	 
+
+
 	 public void selectRuleDropDownByTyping (WebDriver driver, String ruleDesc, String placeHolder, String option){
 			System.out.println("**************************************************************");
 			System.out.println("ruleDesc:" + ruleDesc);
@@ -312,7 +312,7 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 			WebElement drop = driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+ placeHolder +"']]/descendant::button"));
 			drop.click();
 			driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div//input[normalize-space(@placeholder)='"+ placeHolder +"']")).sendKeys(option);
-		
+
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
@@ -325,7 +325,7 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 			//Iterator<WebElement> childEleIteratorP = childEleP.iterator();
 			System.out.println("*************ChildItems************");
 			System.out.println("Number:"+childEleP.size());
-		
+
 			for (int i = 0; i < childEleP.size(); i++) {
 				drop.sendKeys(Keys.ARROW_DOWN);
 				try {
@@ -344,12 +344,12 @@ public class CreateRule_AFieldMeetsGivenCriteria extends OntraportFirefoxTest {
 						webElement.click();
 						return;
 					}
-		
+
 				}
 			}
-		
-		
+
+
 		}
 
-	
+
 }

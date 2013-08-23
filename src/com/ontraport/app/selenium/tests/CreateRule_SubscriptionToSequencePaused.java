@@ -19,7 +19,7 @@ public class CreateRule_SubscriptionToSequencePaused extends OntraportFirefoxTes
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void testCreateRule() throws Exception {
+	public void testCreateRule_SubscriptionToSequencePaused() throws Exception {
 		//driver.get(baseUrl + "/");
 		//login
 		WebDriver driver;
@@ -121,7 +121,7 @@ public class CreateRule_SubscriptionToSequencePaused extends OntraportFirefoxTes
 					webElement.click();
 					return;
 				}
-				
+
 			}
 		}
 

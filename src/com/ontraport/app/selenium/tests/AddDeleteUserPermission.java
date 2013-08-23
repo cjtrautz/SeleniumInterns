@@ -13,7 +13,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class AddDeleteUserPermission extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void testChangeUserInfo() throws Exception {
+	public void testAddDeleteUserPermission() throws Exception {
 		//driver.get(baseUrl + "/");
 		//appUtilities.loginToApp(driver, "tester","passphrases are easy to break");
 		WebDriver driver;
