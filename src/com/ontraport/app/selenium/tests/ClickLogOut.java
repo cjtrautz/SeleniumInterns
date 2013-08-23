@@ -16,7 +16,7 @@ AppUtilities appUtilities = new AppUtilities();
 	
 	
 	@Test
-	public void testClickPackage() throws Exception {
+	public void testClickLogOut() throws Exception {
 		//baseUrl = "http://app.ontraport.com";
 		//driver.get(baseUrl + "/");
 		//appUtilities.loginToApp(driver, "tester","passphrases are easy to break");

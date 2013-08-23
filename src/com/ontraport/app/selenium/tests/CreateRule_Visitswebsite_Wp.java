@@ -39,6 +39,7 @@ public class CreateRule_Visitswebsite_Wp  extends OntraportFirefoxTest {
 		//Click on New Rule
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='New Rule']")).click();
 		//Type the Rule Name
+		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ruleName);
 
