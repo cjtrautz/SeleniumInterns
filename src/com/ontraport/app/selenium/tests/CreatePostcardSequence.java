@@ -16,7 +16,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreatePostcardSequence extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testCreatePostcardSequence() {
 		WebDriver driver;
 		try {
 			driver = getDriver();

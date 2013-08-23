@@ -12,7 +12,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class AddColumn extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testAddColumn() {
 		WebDriver driver;
 		try {
 			driver = getDriver();

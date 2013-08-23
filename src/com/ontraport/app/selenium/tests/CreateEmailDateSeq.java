@@ -49,6 +49,8 @@ public class CreateEmailDateSeq extends OntraportFirefoxTest{
         driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
         driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[3]/div/div[2]/div[2]/div/div/button")).click();
         driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
+        driver.findElement(By.xpath("//div[@class='component-target-send-fields']//button[normalize-space(.)='<br>']")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
         driver.findElement(By.xpath("//div[@class='from_target']//button[normalize-space(.)='<br>']")).click();
         driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
         

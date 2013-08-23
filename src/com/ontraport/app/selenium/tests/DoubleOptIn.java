@@ -19,7 +19,7 @@ public class DoubleOptIn extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() throws InterruptedException {
+	public void testDoubleOptIn() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();

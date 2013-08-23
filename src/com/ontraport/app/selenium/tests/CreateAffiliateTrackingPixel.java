@@ -13,7 +13,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreateAffiliateTrackingPixel extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testCreateAffiliateTrackingPixel() {
 		WebDriver driver;
 		try {
 			driver = getDriver();

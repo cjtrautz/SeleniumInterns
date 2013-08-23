@@ -18,7 +18,7 @@ public class CreateFulfillment extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() {
+	public void testCreateFulfillment() {
 		WebDriver driver;
 		try {
 			driver = getDriver();

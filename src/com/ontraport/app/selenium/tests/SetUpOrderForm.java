@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -51,10 +52,13 @@ public class SetUpOrderForm extends OntraportFirefoxTest{
 		driver.findElement(By.name("name")).click();
 		driver.findElement(By.name("name")).clear();
 		driver.findElement(By.name("name")).sendKeys("Dollar");
+		driver.findElement(By.name("name")).sendKeys(Keys.ENTER);
 		driver.findElement(By.xpath("//div[@class='ontraport_grid_offer']/div")).click();
+		driver.findElement(By.xpath("//div[@class='ontraport_grid_offer']/div")).click();
+
 		driver.findElement(By.name("price")).click();
-		driver.findElement(By.name("price")).clear();
-		driver.findElement(By.name("price")).sendKeys("1.00");
+		//driver.findElement(By.name("price")).clear();
+		driver.findElement(By.name("price")).sendKeys("1");
 		driver.findElement(By.xpath("//div[@class='ui-dialog-buttonset']//button[.='Done']")).click();
 		driver.findElement(By.xpath("//div[@id='fe-style-selector-element-options']//button[.='Add payment method']")).click();
 		if (!driver.findElement(By.xpath("//div[@id='fe-style-selector-element-options']/div[14]/div[2]/div/div/ul/li/select//option[2]")).isSelected()) {

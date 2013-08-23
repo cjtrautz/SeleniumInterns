@@ -36,7 +36,7 @@ public class TestUneditedWorkFlow extends OntraportFirefoxTest{
 		String gateWayName = "SelGW"+varTimeStamp;
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
 
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='sem-collection-header-display']//a[.='E-Mail']")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tr[@class='sem-collection-header-display']//a[.='Email']")));
 		clickOnNonBlankLastNameContactLink(driver);
 		driver.findElement(By.xpath("//*[@id='panelbuttonbar']/div//span[text()='Actions']")).click();
 		driver.findElement(By.linkText("Log Transaction")).click();
