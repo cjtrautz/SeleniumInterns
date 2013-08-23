@@ -93,8 +93,8 @@ public class CreateRule_WhenContactAddedToSequence extends OntraportFirefoxTest{
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				e.printStackTrace();
+		}	
 		//driver.findElement(By.xpath("//div[div[text()='"+ruleDesc+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]/descendant::li/div[normalize-space(text())='"+option+"']")).click();
 		List<WebElement> childEleP = driver.findElements(By.xpath("//div[div[text()='"+ruleDesc
 				+"']]//div[input[normalize-space(@placeholder)='"+placeHolder+"']]//li/div"));

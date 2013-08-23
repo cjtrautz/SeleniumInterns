@@ -9,12 +9,12 @@ import org.openqa.selenium.By;
 import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 
 public class NextPage extends OntraportFirefoxTest {
-	AppUtilities appUtilities = new AppUtilities(); 
+	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
 	public void testNextPage() throws Exception {
 		driver.get(baseUrl + "/");
-		//login	
+		//login
 		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		Thread.sleep(20000);
 		String pageCount = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-page-count')]")).getText();
@@ -40,12 +40,12 @@ public class NextPage extends OntraportFirefoxTest {
 		appUtilities.logOutOfApp(driver);
 
 	}
-	
-	
+
+
 	@Test
 	public void testLastPage() throws Exception {
 		driver.get(baseUrl + "/");
-		//login	
+		//login
 		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		Thread.sleep(20000);
 		String pageCount = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-page-count')]")).getText();
@@ -70,13 +70,13 @@ public class NextPage extends OntraportFirefoxTest {
 		appUtilities.logOutOfApp(driver);
 
 	}
-	
-	
-	
+
+
+
 	@Test
 	public void testPreviousPage() throws Exception {
 		driver.get(baseUrl + "/");
-		//login	
+		//login
 		appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 		Thread.sleep(20000);
 		String pageCount = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-page-count')]")).getText();
@@ -100,7 +100,7 @@ public class NextPage extends OntraportFirefoxTest {
 				}else{
 					Assert.assertTrue("PreviousPageNavigation success", false);
 				}
-				
+
 			}else{
 				Assert.assertTrue("NextPageNavigation success", false);
 			}
@@ -118,7 +118,7 @@ public class NextPage extends OntraportFirefoxTest {
 @Test
 public void testFirstPage() throws Exception {
 	driver.get(baseUrl + "/");
-	//login	
+	//login
 	appUtilities.loginToApp(driver, "tester", "passphrases are easy to break");
 	Thread.sleep(20000);
 	String pageCount = driver.findElement(By.xpath("//*[contains(@class,'ussr-component-paginator-page-count')]")).getText();

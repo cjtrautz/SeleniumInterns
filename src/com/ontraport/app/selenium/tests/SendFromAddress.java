@@ -19,7 +19,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class SendFromAddress extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() throws InterruptedException {
+	public void testSendFromAddress() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();
