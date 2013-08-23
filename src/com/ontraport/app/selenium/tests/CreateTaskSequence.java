@@ -16,7 +16,7 @@ import com.ontraport.app.selenium.tools.OntraportFirefoxTest;
 public class CreateTaskSequence extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 	@Test
-	public void test() {
+	public void testCreateTaskSequence () {
 		WebDriver driver;
 		try {
 			driver = getDriver();
@@ -45,6 +45,10 @@ public class CreateTaskSequence extends OntraportFirefoxTest{
         driver.findElement(By.xpath("//span[@class='ussr-theme-sequence-task']//button[normalize-space(.)='Task']")).click();
         driver.findElement(By.xpath("//div[@class='sequence_editor']/div[2]/div[3]/div/div[2]/div[3]/div/div[2]/div[2]/div/div/button")).click();
         driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
+        driver.findElement(By.xpath("//div[@class='component-target-send-fields']/div[1]/div/div/div/div/div/input")).sendKeys("1");
+        driver.findElement(By.xpath("//div[@class='component-target-send-fields']//button[normalize-space(.)='<br>']")).click();
+        driver.findElement(By.cssSelector("div.ussr-component-drilldownselect-item-label.text-overflow-ellipsis")).click();
+        
         driver.findElement(By.cssSelector("span.ussr-icon.ussr-icon-triangle-3-n")).click();
         
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")).click();

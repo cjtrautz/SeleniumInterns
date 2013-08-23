@@ -50,9 +50,9 @@ public class TryToFailUsageAgreement extends OntraportFirefoxTest {
 		
 		String expectedmsg = "Errors have prevented you from advancing to the next step. Please make sure you have accepted (checked) all the terms of the Usage Agreement";
 		Assert.assertTrue( msgfromapp.toLowerCase().contains(expectedmsg.trim().toLowerCase()),"Pop up Message verification");
-		driver.findElement(By.xpath("//div[7]/div/div[4]/button")).click();
+		driver.findElement(By.xpath("//div[@class='ussr-dialog-buttons']//button[.='Close']")).click();
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
-		driver.findElement(By.xpath("//div[7]/div/div[4]/button")).click();
+		driver.findElement(By.xpath("//div[@class='ussr-dialog-buttons']//button[.='OK']")).click();
 
 		
 	}	
