@@ -47,10 +47,14 @@ public class AddWeightedRandom extends OntraportFirefoxTest {
 		driver.findElement(By.xpath("//div[div[a[text()='Weighted Random']]]/descendant::a/button")).click();
 
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='target-rout ussr-component ussr-component-lead_rout_target ontraport_components_lead_rout_target'][1]//button")));
+
 		driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")).click();
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(name);
 		
+		//driver.findElement(By.xpath("//div/div[text()='Add User']")).click();
+
 		//driver.findElement(By.xpath("//div/div[text()='Add User']")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='target-rout ussr-component ussr-component-lead_rout_target ontraport_components_lead_rout_target'][1]//button")));
 		

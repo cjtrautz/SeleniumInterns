@@ -18,7 +18,7 @@ public class CreateExportContacts extends OntraportFirefoxTest{
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() throws InterruptedException {
+	public void testCreateExportContacts() throws InterruptedException {
 		WebDriver driver;
 		try {
 			driver = getDriver();

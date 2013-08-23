@@ -33,6 +33,8 @@ public class MakeATagAndAddItToContact extends OntraportFirefoxTest {
 
 		long varTimeStamp = Calendar.getInstance().getTimeInMillis();
 		String tagName = "SelAddTag" + varTimeStamp;
+        driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();
+
 		String contactName = appUtilities.selectNonBlankLastNameContactLink(driver);
 		System.out.println("contactName:"+contactName);
 		driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).click();

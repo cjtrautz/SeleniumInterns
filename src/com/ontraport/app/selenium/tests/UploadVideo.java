@@ -19,7 +19,7 @@ public class UploadVideo extends OntraportFirefoxTest {
 	AppUtilities appUtilities = new AppUtilities();
 
 	@Test
-	public void test() {
+	public void testUploadVideo() {
 		WebDriver driver;
 		try {
 			driver = getDriver();
