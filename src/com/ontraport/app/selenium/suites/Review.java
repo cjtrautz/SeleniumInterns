@@ -91,42 +91,5 @@ import org.junit.runners.Suite.SuiteClasses;
 	com.ontraport.app.selenium.tests.SetLanguage.class,
 	com.ontraport.app.selenium.tests.CreateEmailCopy.class,
 	com.ontraport.app.selenium.tests.CreateSectionWithFields.class,
-	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_Checkbox.class,
-	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_Date.class,
-	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_LongText.class,
-	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_Numeric.class,
-	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_Price.class,
-	com.ontraport.app.selenium.tests.CreateRule_CertainFieldIsUpdated_State.class,
-	com.ontraport.app.selenium.tests.CreateRule_SMSReceived.class,
-	com.ontraport.app.selenium.tests.CreateRule_VisitsPURL.class,
 	})
-
-public class Sanity {
-	protected static String baseUrl;
-	protected static Process proc;
-	protected static StringBuffer verificationErrors = new StringBuffer();
-	private static WebDriver driver;
-
-	@BeforeClass
-	public static void setUp() throws Exception {
-		String filename = new Object() {}.getClass().getEnclosingClass().getSimpleName();
-		driver = new FirefoxDriver();
-		baseUrl = "http://ontraport.com.dev";
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		driver.manage().window().setPosition(new Point(0,0));
-		driver.manage().window().setSize(new Dimension(1600, 1200));
-	}
-
-	@AfterClass
-	public static void tearDown() throws Exception {
-		driver.quit();
-		String verificationErrorString = verificationErrors.toString();
-		if (!"".equals(verificationErrorString)) {
-		fail(verificationErrorString);
-		}
-	}
-	public static WebDriver getDriver(){
-		return driver;
-	}
-
-}
+public class Review extends SuperSuite {}
