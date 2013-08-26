@@ -25,12 +25,12 @@ public abstract class OntraportFirefoxTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		proc = Runtime.getRuntime()
-		.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :2.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
+		//proc = Runtime.getRuntime()
+		//.exec("ffmpeg -r 30 -s 1600x1200 -f x11grab -i :2.0 -vcodec msmpeg4v2 -qscale 2 ./report/selenium/" + (getClass().getSimpleName()) + ".avi");
 	}
 	@After
 	public void tearDown() throws Exception {
-		proc.destroy();
+		//proc.destroy();
 	}
 
 }
