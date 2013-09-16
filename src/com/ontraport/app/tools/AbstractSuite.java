@@ -38,7 +38,7 @@ public class AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        String browser = "Chrome";
+        String browser = "Firefox";
 
         if (browser.equalsIgnoreCase("Firefox"))
         {
