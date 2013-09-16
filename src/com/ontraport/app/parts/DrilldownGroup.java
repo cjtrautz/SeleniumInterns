@@ -30,21 +30,21 @@ public class DrilldownGroup extends AbstractPart
 
     public DrilldownGroup toggle ()
     {
-        wait(3).until(ExpectedConditions.visibilityOf(button)).click();
+        wait(7).until(ExpectedConditions.visibilityOf(button)).click();
         return this;
     }
 
     public DrilldownGroup open ()
     {
         toggle();
-        wait(3).until(ExpectedConditions.visibilityOf(list));
+        wait(7).until(ExpectedConditions.visibilityOf(list));
         return this;
     }
 
     public DrilldownGroup close ()
     {
         toggle();
-        wait(3).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(list)));
+        wait(7).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(list)));
         return this;
     }
 
@@ -53,13 +53,13 @@ public class DrilldownGroup extends AbstractPart
         open();
 
         By loading = By.cssSelector("div.chrome-action-bar-group-selector.ussr-group-selector .ussr-state-loading");
-        wait(3).until(ExpectedConditions.invisibilityOfElementLocated(loading));
+        wait(7).until(ExpectedConditions.invisibilityOfElementLocated(loading));
 
         WebElement item = list.findElement(By.xpath(".//div[text()='"+name+"']/.."));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", item);
         wait(0).until(isClickable(item));
-        wait(3).until(ExpectedConditions.visibilityOf(item)).click();
-        wait(3).until(hasAttributeValue(input, "value", name));
+        wait(7).until(ExpectedConditions.visibilityOf(item)).click();
+        wait(7).until(hasAttributeValue(input, "value", name));
         return this;
     }
 
@@ -67,7 +67,7 @@ public class DrilldownGroup extends AbstractPart
     {
         Boolean output = false;
         open();
-        output = wait(3).until(hasTextValue(list, name));
+        output = wait(7).until(hasTextValue(list, name));
         close();
         return output;
     }
@@ -76,7 +76,7 @@ public class DrilldownGroup extends AbstractPart
     {
         Boolean output = false;
         open();
-        output = wait(3).until(hasTextNotValue(list, name));
+        output = wait(7).until(hasTextNotValue(list, name));
         close();
         return output;
     }
@@ -85,7 +85,7 @@ public class DrilldownGroup extends AbstractPart
     {
         Boolean output = false;
         open();
-        output = wait(3).until(hasAttributeValue(input, "value", name));
+        output = wait(7).until(hasAttributeValue(input, "value", name));
         close();
         return output;
     }
@@ -94,7 +94,7 @@ public class DrilldownGroup extends AbstractPart
     {
         Boolean output = false;
         open();
-        output = wait(3).until(hasAttributeNotValue(input, "value", name));
+        output = wait(7).until(hasAttributeNotValue(input, "value", name));
         close();
         return output;
     }
