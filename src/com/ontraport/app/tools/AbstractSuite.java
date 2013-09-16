@@ -33,7 +33,7 @@ public class AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        System.setProperty("webdriver.chrome.driver", "../chromedriver");
         driver = new ChromeDriver();
 /*
         FirefoxProfile profile = new FirefoxProfile();
