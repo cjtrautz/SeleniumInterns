@@ -22,7 +22,7 @@ import com.ontraport.app.pages.Login;
 public class AbstractSuite
 {
 
-    public final static long UNIQUE = System.nanoTime();
+    public final static String UNIQUE = String.valueOf(System.nanoTime());
 //    public final static String UNIQUE = " "+Long.toHexString(Double.doubleToLongBits(Math.random()));
     public final static int DEFAULT_WAIT = 60;
     public final static Properties prop = new Properties();
