@@ -25,6 +25,8 @@ public class AbstractSuite
     public final static String UNIQUE = String.valueOf(System.nanoTime());
 //    public final static String UNIQUE = " "+Long.toHexString(Double.doubleToLongBits(Math.random()));
     public final static int DEFAULT_WAIT = 60;
+    public final static int DEFAULT_EXPLICIT_WAIT = 5;
+    public final static int DEFAULT_IMPLICIT_WAIT = 10;
     public final static Properties prop = new Properties();
     protected static WebDriver driver;
 

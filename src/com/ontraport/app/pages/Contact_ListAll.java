@@ -47,7 +47,8 @@ public class Contact_ListAll extends AbstractPage
     public Contact_ListAll selectAllOnPage ()
     {
 //        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollection)));
-        wait(7).until(ExpectedConditions.visibilityOf(uiSelectAll));
+        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
+//        wait(7).until(ExpectedConditions.visibilityOf(uiSelectAll));
         uiSelectAll.click();
         return this;
     }
