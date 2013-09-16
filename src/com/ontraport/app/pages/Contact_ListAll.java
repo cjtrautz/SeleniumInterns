@@ -67,8 +67,8 @@ public class Contact_ListAll extends AbstractPage
 
     public Boolean confirmRowsContain ( String value )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiCollectionBody));
-        Boolean output = uiCollectionBody.findElements(By.xpath(".//tr[contains(.,'"+value+"')]")).size() > 0;
+        wait(7).until(ExpectedConditions.visibilityOf(uiCollection));
+        Boolean output = uiCollection.findElements(By.xpath(".//tr[contains(.,'"+value+"')]")).size() > 0;
         return output;
     }
 
