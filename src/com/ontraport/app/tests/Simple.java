@@ -58,32 +58,32 @@ public class Simple extends AbstractTest
             fail("Failure: 'Group: All' not selected.");
         }
         contactListAll.drawerManageGroups.open();
-        contactListAll.drawerManageGroups.enterGroupName(values.get("group-name")+suffix);
+        contactListAll.drawerManageGroups.enterGroupName(values.get("group_name")+suffix);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
         contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.clickField("First Name", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
         contactListAll.drawerManageGroups.clickCondition("starts with", 0);
-        contactListAll.drawerManageGroups.enterValue(values.get("contact-first-name")+suffix, 0, 0);
+        contactListAll.drawerManageGroups.enterValue(values.get("contact_first_name")+suffix, 0, 0);
         contactListAll.drawerManageGroups.clickSave();
-        if (contactListAll.drilldownGroup.confirmGroupSelected(values.get("group-name")+suffix) == false)
+        if (contactListAll.drilldownGroup.confirmGroupSelected(values.get("group_name")+suffix) == false)
         {
-            fail("Failure: '"+values.get("group-name")+suffix+"' not selected.");
+            fail("Failure: '"+values.get("group_name")+suffix+"' not selected.");
         }
         contactListAll.drilldownGroup.selectGroup("Group: All");
         if (contactListAll.drilldownGroup.confirmGroupSelected("Group: All") == false)
         {
             fail("Failure: 'Group: All' not selected.");
         }
-        if (contactListAll.drilldownGroup.confirmGroupExists(values.get("group-name")+suffix) == false)
+        if (contactListAll.drilldownGroup.confirmGroupExists(values.get("group_name")+suffix) == false)
         {
-            fail("Failure: '"+values.get("group-name")+suffix+"' does not exist.");
+            fail("Failure: '"+values.get("group_name")+suffix+"' does not exist.");
         }
-        contactListAll.drilldownGroup.selectGroup(values.get("group-name")+suffix);
-        if (contactListAll.drilldownGroup.confirmGroupSelected(values.get("group-name")+suffix) == false)
+        contactListAll.drilldownGroup.selectGroup(values.get("group_name")+suffix);
+        if (contactListAll.drilldownGroup.confirmGroupSelected(values.get("group_name")+suffix) == false)
         {
-            fail("Failure: '"+values.get("group-name")+suffix+"' not selected.");
+            fail("Failure: '"+values.get("group_name")+suffix+"' not selected.");
         }
         contactListAll.drilldownGroup.selectGroup("Group: All");
         if (contactListAll.paginator.isDisplayed())
@@ -94,14 +94,14 @@ public class Simple extends AbstractTest
         for (int i = 0; i < 12; i++)
         {
             Contact_Create contactCreate = contactListAll.clickNewContact();
-            contactCreate.enterFirstName(values.get("contact-first-name")+suffix+i);
-            contactCreate.enterLastName(values.get("contact-last-name")+suffix+i);
-            contactCreate.enterEmail(values.get("contact-email"));
+            contactCreate.enterFirstName(values.get("contact_first_name")+suffix+i);
+            contactCreate.enterLastName(values.get("contact_last_name")+suffix+i);
+            contactCreate.enterEmail(values.get("contact_email"));
             contactListAll = contactCreate.clickSave();
-            contactListAll.formSearch.find(values.get("contact-first-name")+suffix+i);
-            if (contactListAll.confirmRowsContain(values.get("contact-first-name")+suffix+i) == false)
+            contactListAll.formSearch.find(values.get("contact_first_name")+suffix+i);
+            if (contactListAll.confirmRowsContain(values.get("contact_first_name")+suffix+i) == false)
             {
-                fail("Failure: '"+values.get("contact-first-name")+suffix+i+"' not found.");
+                fail("Failure: '"+values.get("contact_first_name")+suffix+i+"' not found.");
             }
             contactListAll.selectAllOnPage();
             contactListAll.drawerActions.clickDeleteContacts();
@@ -116,12 +116,12 @@ public class Simple extends AbstractTest
             contactListAll.paginator.openRecordsPerPagePane();
             contactListAll.paginator.clickRecordsPerPage(100);
         }
-        contactListAll.drilldownGroup.selectGroup(values.get("group-name")+suffix);
+        contactListAll.drilldownGroup.selectGroup(values.get("group_name")+suffix);
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.clickDelete();
-        if (contactListAll.drilldownGroup.confirmGroupNotExists(values.get("group-name")+suffix) == false)
+        if (contactListAll.drilldownGroup.confirmGroupNotExists(values.get("group_name")+suffix) == false)
         {
-            fail("Failure: '"+values.get("group-name")+suffix+"' still exists.");
+            fail("Failure: '"+values.get("group_name")+suffix+"' still exists.");
         }
         contactListAll.drawerActions.close();
         System.out.println("Completed in "+((System.nanoTime() - started) / 1000000000) + " seconds");
