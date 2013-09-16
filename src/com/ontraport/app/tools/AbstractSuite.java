@@ -14,8 +14,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.ontraport.app.pages.Login;
 
@@ -36,27 +36,34 @@ public class AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        if (new File("../chromedriver").isFile())
+        String browser = "Firefox";
+
+        if (browser.equalsIgnoreCase("Firefox"))
         {
-            System.setProperty("webdriver.chrome.driver", "../chromedriver");
+            FirefoxProfile profile = new FirefoxProfile();
+//            profile.setEnableNativeEvents(true);
+            profile.setPreference("browser.cache.disk.enable", false);
+            profile.setPreference("browser.cache.memory.enable", false);
+            profile.setPreference("browser.cache.offline.enable", false);
+            profile.setPreference("network.http.use-cache", false);
+//            JavaScriptError.addExtension(profile);
+            driver = new FirefoxDriver(profile);
         }
-        else
+        else if (browser.equalsIgnoreCase("Chrome"))
         {
-            capabilities.setCapability("chrome.binary", "chromedriver");
+            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+            if (new File("../chromedriver").isFile())
+            {
+                System.setProperty("webdriver.chrome.driver", "../chromedriver");
+            }
+            else
+            {
+                capabilities.setCapability("chrome.binary", "chromedriver");
+            }
+            capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
+            driver = new ChromeDriver(capabilities);
         }
-        capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
-        driver = new ChromeDriver(capabilities);
-/*
-        FirefoxProfile profile = new FirefoxProfile();
-//        profile.setEnableNativeEvents(true);
-        profile.setPreference("browser.cache.disk.enable", false);
-        profile.setPreference("browser.cache.memory.enable", false);
-        profile.setPreference("browser.cache.offline.enable", false);
-        profile.setPreference("network.http.use-cache", false);
-        JavaScriptError.addExtension(profile);
-        driver = new FirefoxDriver(profile);
-*/
+
         driver.manage()
               .timeouts()
               .implicitlyWait(DEFAULT_WAIT, TimeUnit.SECONDS);
