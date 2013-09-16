@@ -1,6 +1,7 @@
 package com.ontraport.app.tools;
 
 //import java.util.List;
+import java.io.File;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -11,6 +12,7 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -33,8 +35,16 @@ public class AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        System.setProperty("webdriver.chrome.driver", "../chromedriver");
-        driver = new ChromeDriver();
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        if (new File("../chromedriver").isFile())
+        {
+            System.setProperty("webdriver.chrome.driver", "../chromedriver");
+        }
+        else
+        {
+            capabilities.setCapability("chrome.binary", "chromedriver");
+        }
+        driver = new ChromeDriver(capabilities);
 /*
         FirefoxProfile profile = new FirefoxProfile();
 //        profile.setEnableNativeEvents(true);
