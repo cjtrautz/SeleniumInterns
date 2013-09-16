@@ -24,37 +24,26 @@ public class Simple extends AbstractTest
     @Test
     public void sanity1 () { sanity(); }
 
-    @Test
     public void sanity2 () { sanity(); }
 
-    @Test
     public void sanity3 () { sanity(); }
 
-    @Test
     public void sanity4 () { sanity(); }
 
-    @Test
     public void sanity5 () { sanity(); }
 
-    @Test
     public void sanity6 () { sanity(); }
 
-    @Test
     public void sanity7 () { sanity(); }
 
-    @Test
     public void sanity8 () { sanity(); }
 
-    @Test
     public void sanity9 () { sanity(); }
 
-    @Test
     public void sanity10 () { sanity(); }
 
-    @Test
     public void sanity11 () { sanity(); }
 
-    @Test
     public void sanity12 () { sanity(); }
 
     public void sanity ()
