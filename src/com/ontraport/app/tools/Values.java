@@ -35,7 +35,7 @@ public final class Values
     }
     public final String get (String field)
     {
-        return prop.getProperty(field);
+        return String.valueOf(prop.getProperty(field));
     }
     public final void set (String field, String value)
     {
