@@ -11,7 +11,6 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -34,9 +33,8 @@ public class AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability("chrome.binary", "chromedriver");
-        driver = new ChromeDriver(capabilities);
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        driver = new ChromeDriver();
 /*
         FirefoxProfile profile = new FirefoxProfile();
 //        profile.setEnableNativeEvents(true);
