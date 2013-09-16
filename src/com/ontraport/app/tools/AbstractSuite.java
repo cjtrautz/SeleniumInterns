@@ -44,6 +44,7 @@ public class AbstractSuite
         {
             capabilities.setCapability("chrome.binary", "chromedriver");
         }
+        capabilities.setCapability("chrome.switches", Arrays.asList("--start-maximized"));
         driver = new ChromeDriver(capabilities);
 /*
         FirefoxProfile profile = new FirefoxProfile();

@@ -28,8 +28,8 @@ public class Login extends AbstractPage
             using = "//thead[@class='ussr-component-collection-head']")
     private WebElement uiCollectionHead;
 
-    @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ',@class,' '),' ussr-component-collection ')]/table")
+    @FindBy(how = How.CSS,
+            using = ".ontraport_panes_contact")
     protected WebElement      uiCollection;
 
     public Contact_ListAll as ( String username, String password )
