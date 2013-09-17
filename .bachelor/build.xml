@@ -65,8 +65,9 @@
 
   <path id="test.classpath">
     <pathelement location="${basedir}/bin" />
-    <fileset dir="${config}/selenium/lib">
-      <include name="**/*.jar"/>
+    <fileset dir="${config}/selenium/">
+        <include name="**/lib/*.jar"/>
+        <include name="**/etc*.properties"/>
     </fileset>
   </path>
 
@@ -85,7 +86,7 @@
     <junit printsummary="yes" haltonfailure="no">
       <classpath>
         <pathelement location="${basedir}/bin"/>
-        <pathelement location="${basedir}/properties"/>
+        <pathelement location="${basedir}/etc"/>
         <fileset dir="${basedir}/lib">
           <include name="**/*.jar"/>
         </fileset>

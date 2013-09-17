@@ -1,6 +1,5 @@
 package com.ontraport.app.tools;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,7 +17,7 @@ public final class Values
         name = suite+".properties";
         try
         {
-            InputStream file = this.getClass().getClassLoader().getResourceAsStream(name);
+            InputStream file = Thread.currentThread().getContextClassLoader().getResourceAsStream(name);
             prop.loadFromXML(file);
         }
         catch (FileNotFoundException e)
