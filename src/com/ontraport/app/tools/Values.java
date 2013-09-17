@@ -1,9 +1,9 @@
 package com.ontraport.app.tools;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 
@@ -13,10 +13,13 @@ public final class Values
     private String name = null;
     public Values (String suite)
     {
-        InputStream xml;
+        name = String.valueOf("etc/"+suite+".properties");
+        System.out.println(name);
+        FileInputStream xml;
         try
         {
-            xml = Values.class.getResourceAsStream(suite+".properties");
+//            xml = new FileInputStream(name);
+            xml = new FileInputStream(name);
             prop.loadFromXML(xml);
         }
         catch (FileNotFoundException e)
