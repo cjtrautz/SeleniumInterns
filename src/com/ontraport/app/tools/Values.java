@@ -1,26 +1,25 @@
 package com.ontraport.app.tools;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.InvalidPropertiesFormatException;
 import java.util.Properties;
 
 public final class Values
 {
-    public final Properties prop = new Properties();
-    private String name = null;
+    protected final Properties prop = new Properties();
+    protected String name;
+    protected InputStream file;
     public Values (String suite)
     {
-        name = String.valueOf("etc/"+suite+".properties");
-        System.out.println(name);
-        FileInputStream xml;
+        name = suite+".properties";
         try
         {
-//            xml = new FileInputStream(name);
-            xml = new FileInputStream(name);
-            prop.loadFromXML(xml);
+            InputStream file = this.getClass().getClassLoader().getResourceAsStream(name);
+            prop.loadFromXML(file);
         }
         catch (FileNotFoundException e)
         {
