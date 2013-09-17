@@ -13,7 +13,7 @@ public final class Values
     private String name = null;
     public Values (String suite)
     {
-        name = "src/com/ontraport/app/suites/"+suite+".properties";
+        name = "/com.ontraport.app-ontraport/bin/com/ontraport/app/suites/"+suite+".properties";
         FileInputStream xml;
         try
         {
