@@ -13,7 +13,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Ok']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='OK' or text()='Ok' or text()='ok']")
     private WebElement uiOk;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Cancel']")

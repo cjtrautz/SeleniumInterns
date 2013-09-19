@@ -9,55 +9,44 @@ import com.ontraport.app.tools.AbstractPage;
 
 public class Contact_Create extends AbstractPage
 {
-
-
-    @FindBy(how = How.ID,
-            using = "ussr-chrome-page")
-    private WebElement uiPage;
-
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-section-titlebar ')]/span[text()='Sequences and Tags']")
+    private WebElement sequencesAndTagsTitle;
     @FindBy(how = How.XPATH,
             using = "//label[text()='First Name']/following-sibling::div/input")
     private WebElement uiFirstName;
-
     @FindBy(how = How.XPATH,
             using = "//label[text()='Last Name']/following-sibling::div/input")
     private WebElement uiLastName;
-
     @FindBy(how = How.XPATH,
             using = "//label[text()='Email']/following-sibling::div/input")
     private WebElement uiEmail;
-
     @FindBy(how = How.XPATH,
             using = "//button/span[text()='Save']")
     private WebElement uiSave;
-
     public Contact_Create enterFirstName (String name)
     {
-        wait(3).until(ExpectedConditions.visibilityOf(uiFirstName));
+        wait.until(ExpectedConditions.visibilityOf(sequencesAndTagsTitle));
+        wait.until(ExpectedConditions.visibilityOf(uiFirstName));
         uiFirstName.sendKeys(name);
         return this;
     }
-
     public Contact_Create enterLastName (String name)
     {
-        wait(3).until(ExpectedConditions.visibilityOf(uiLastName));
+        wait.until(ExpectedConditions.visibilityOf(uiLastName));
         uiLastName.sendKeys(name);
         return this;
     }
-
     public Contact_Create enterEmail (String email)
     {
-        wait(3).until(ExpectedConditions.visibilityOf(uiEmail));
+        wait.until(ExpectedConditions.visibilityOf(uiEmail));
         uiEmail.sendKeys(email);
         return this;
     }
-
     public Contact_ListAll clickSave ()
     {
-        wait(3).until(ExpectedConditions.visibilityOf(uiSave));
+        wait.until(ExpectedConditions.visibilityOf(uiSave));
         uiSave.click();
-        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiPage)));
         return (Contact_ListAll) new Contact_ListAll().init();
     }
-
 }

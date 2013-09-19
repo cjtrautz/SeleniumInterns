@@ -1,4 +1,4 @@
-package com.ontraport.app.tests;
+package com.ontraport.app.tests.bb;
 
 import static org.junit.Assert.*;
 
@@ -59,6 +59,7 @@ public class Simple extends AbstractTest
 
     public void sanity ()
     {
+    /*
         long started = System.nanoTime();
         Values values = new Values("Active");
         String suffix = AbstractSuite.UNIQUE;
@@ -136,5 +137,6 @@ public class Simple extends AbstractTest
         }
         contactListAll.drawerActions.close();
         System.out.println("Completed in "+((System.nanoTime() - started) / 1000000000) + " seconds");
+        */
     }
 }

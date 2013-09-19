@@ -2,9 +2,6 @@ package com.ontraport.app.tools;
 
 import java.io.File;
 import java.io.FileOutputStream;
-//import java.util.List;
-
-//import net.jsourcerer.webdriver.jserrorcollector.JavaScriptError;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,9 +11,12 @@ import org.junit.Rule;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractTest
 {
@@ -35,17 +35,15 @@ public abstract class AbstractTest
     {}
     @After
     public void afterEachTest ()
-    {}
+    {
+       
+    }
     @AfterClass
     public static void afterTest ()
     {
-//        final List<JavaScriptError> jsErrors = JavaScriptError.readErrors(driver);
-//        if (!jsErrors.isEmpty())
-//        {
-//            System.out.println("---------- TEST TRIGGERED JAVASCRIPT ERRORS ----------");
-//            System.out.println(jsErrors);
-//            System.out.flush();
-//        }
+        driver.get("http://app.ontraport.com/#!/contact/listAll");
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr/td[2]")));
     }
     class Screenshot implements MethodRule
     {

@@ -3,6 +3,7 @@ package com.ontraport.app.parts;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -12,22 +13,9 @@ import com.ontraport.app.tools.AbstractPart;
 
 public class DrawerManageGroups extends AbstractPart
 {
-
-    @FindBy(how = How.CSS,
-            using = "div.ussr-state-loading")
-    private WebElement uiLoading;
-
     @FindBy(how = How.XPATH,
             using = "//div[@id='ontraport_panel_action_group_edit']")
     private WebElement uiToggleDrawerManageGroupsPane;
-
-    @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ',@class,' '),' ussr-chrome-panel-action-drawer-content ')]")
-    private WebElement uiDrawerManageGroupsPane;
-
-    @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ',@class,' '),' ussr-chrome-panel-action-drawer-content ')]//ul")
-    private WebElement uiDrawerManageGroupsPaneUL;
 
     @FindBy(how = How.XPATH,
             using = "//label[text()='Group Name']/following-sibling::div/input")
@@ -64,128 +52,99 @@ public class DrawerManageGroups extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Save']")
     private WebElement uiButtonSave;
-
+    
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Delete Group']")
-    private WebElement uiButtonDelete;
-
+    using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Delete Group']")
+private WebElement uiButtonDeleteGroup;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]")
     private WebElement uiSelectedGroupDisplayHook;
-
-    @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//input")
-    private WebElement uiInputGroupSelector;
 
     public DrawerManageGroups open ()
     {
         toggle();
         return this;
     }
-
     public DrawerManageGroups close ()
     {
         toggle();
         return this;
     }
-
     public DrawerManageGroups toggle ()
     {
+        wait(1).until(ExpectedConditions.visibilityOf(uiToggleDrawerManageGroupsPane));
         uiToggleDrawerManageGroupsPane.click();
         return this;
     }
-
     public DrawerManageGroups enterGroupName ( String groupname )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiInputGroupName));
-        uiInputGroupName.clear();
         uiInputGroupName.sendKeys(groupname);
         return this;
     }
-
     public DrawerManageGroups openGroupPermissionsPane ()
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiToggleGroupPermissionsPane));
         uiToggleGroupPermissionsPane.click();
         return this;
     }
-
     public DrawerManageGroups clickPermissions ( String permissions )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList));
+        wait(1).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList));
         uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']")).click();
-        wait(7).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiGroupPermissionsList)));
+        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiGroupPermissionsList)));
         return this;
     }
-
     public DrawerManageGroups openFieldPane (int row)
     {
-        wait(7).until(ExpectedConditions.visibilityOfAllElements(uiToggleFieldPane));
         uiToggleFieldPane.get(row).click();
         return this;
     }
-
     public DrawerManageGroups clickField ( String field,  int row )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiFieldList.get(row)));
+        wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row)));
         uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")).click();
-        wait(7).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiFieldList.get(row))));
+        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiFieldList.get(row))));
         return this;
     }
-
     public DrawerManageGroups openConditionPane (int row)
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiToggleConditionPane.get(row)));
         uiToggleConditionPane.get(row).click();
         return this;
     }
-
     public DrawerManageGroups clickCondition ( String condition, int row )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiConditionList.get(row)));
+        wait(1).until(ExpectedConditions.visibilityOf(uiConditionList.get(row)));
         uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']")).click();
-        wait(7).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
+        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
         return this;
     }
-
     public DrawerManageGroups enterValue ( String value, int row, int index )
     {
-        WebElement we = uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input"));
-        wait(7).until(ExpectedConditions.visibilityOf(we));
-        we.sendKeys(value);
+        uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input")).sendKeys(value);
         return this;
     }
-
+    public Boolean confirmGroupApplied (final String name)
+    {
+        try
+        {
+            wait(1).until(ExpectedConditions.stalenessOf(uiSelectedGroupDisplayHook.findElement(By.xpath(".//button[@value='0']"))));
+            return true;
+        }
+        catch (TimeoutException te)
+        {
+            return false;
+        }
+    }
     public DrawerManageGroups clickSave ()
     {
-        if (!uiDrawerManageGroupsPane.isDisplayed())
-        {
-            open();
-        }
-        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiDrawerManageGroupsPane)));
-        wait(7).until(ExpectedConditions.visibilityOf(uiButtonSave)).click();
-        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiInputGroupSelector)));
-        if (uiDrawerManageGroupsPane.isDisplayed())
-        {
-            wait(7).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiDrawerManageGroupsPane)));
-        }
+        wait(1).until(ExpectedConditions.visibilityOf(uiButtonSave));
+        uiButtonSave.click();
         return this;
     }
-
-    public DrawerManageGroups clickDelete ()
+    public DrawerManageGroups clickDeleteGroup ()
     {
-        if (!uiDrawerManageGroupsPane.isDisplayed())
-        {
-            open();
-        }
-        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiDrawerManageGroupsPane)));
-        wait(7).until(ExpectedConditions.visibilityOf(uiButtonDelete)).click();
-        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiInputGroupSelector)));
-        if (uiDrawerManageGroupsPane.isDisplayed())
-        {
-            wait(7).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiDrawerManageGroupsPane)));
-        }
+        uiButtonDeleteGroup.click();
         return this;
+        
     }
-
 }

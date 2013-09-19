@@ -1,56 +1,54 @@
 package com.ontraport.app.tools;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.InvalidPropertiesFormatException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
-public final class Values
+public class Values
 {
-    protected final Properties prop = new Properties();
-    protected String name;
-    protected InputStream file;
-    public Values (String suite)
+    private Map<String, Properties> map = new HashMap<String, Properties>();
+    public Values ()
     {
-        name = suite+".properties";
-        try
+        InputStream stream;
+        List<String> files = new ArrayList<String>();
+        files.add("Users");
+        files.add("Contacts");
+        files.add("Sequences");
+        files.add("Rules");
+        files.add("SmartForms");
+        files.add("Messages");
+        for ( String file : files )
         {
-            InputStream file = Thread.currentThread().getContextClassLoader().getResourceAsStream(name);
-            prop.loadFromXML(file);
-        }
-        catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        catch (InvalidPropertiesFormatException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+            try
+            {
+                stream = this.getClass()
+                             .getResourceAsStream("/" + file + ".properties");
+                map.put(file, new Properties());
+                map.get(file)
+                   .load(stream);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
         }
     }
-    public final String get (String field)
+    public String get ( String group, String name )
     {
-        return String.valueOf(prop.getProperty(field));
-    }
-    public final void set (String field, String value)
-    {
-        prop.setProperty(field, value);
+        String output = "";
         try
         {
-            prop.storeToXML(new FileOutputStream(name), null);
+            output = map.get(group)
+                        .getProperty(name, group + ":" + name + " could not be found.");
         }
-        catch (FileNotFoundException e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        return output;
     }
 }

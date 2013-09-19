@@ -116,6 +116,15 @@ public class MenuPrimary extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
     private WebElement uiTrackingLinksListAll;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header-title ')]//span[text()='Sequences']")
+    private WebElement seqeuenceTitle;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header-title ')]//span[text()='Rules']")
+    private WebElement rulesTitle;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header-title ')]//span[text()='Products']")
+    private WebElement productTitle;
     public Contact_ListAll clickContactListAll ()
     {
         wait(1).until(ExpectedConditions.visibilityOf(uiContactListAll));
@@ -130,6 +139,7 @@ public class MenuPrimary extends AbstractPart
             .perform();
         wait(1).until(ExpectedConditions.visibilityOf(uiSequenceListAll));
         uiSequenceListAll.click();
+        wait(1).until(ExpectedConditions.visibilityOf(seqeuenceTitle));
         return (Sequence_ListAll) new Sequence_ListAll().init();
     }
     public Rule_ListAll clickRuleListAll ()
@@ -140,6 +150,7 @@ public class MenuPrimary extends AbstractPart
             .perform();
         wait(1).until(ExpectedConditions.visibilityOf(uiRuleListAll));
         uiRuleListAll.click();
+        wait(1).until(ExpectedConditions.visibilityOf(rulesTitle));
         return (Rule_ListAll) new Rule_ListAll().init();
     }
     public SmartFormFe_ListAll clickSmartFormFeListAll ()
@@ -196,6 +207,7 @@ public class MenuPrimary extends AbstractPart
             .perform();
         wait(1).until(ExpectedConditions.visibilityOf(uiProductListAll));
         uiProductListAll.click();
+        wait(1).until(ExpectedConditions.visibilityOf(productTitle));
         return (Product_ListAll) new Product_ListAll().init();
     }
     public SalesReport_ListAll clickSalesReportView ()

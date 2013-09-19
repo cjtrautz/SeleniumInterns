@@ -11,38 +11,23 @@ import com.ontraport.app.tools.AbstractPage;
 public class Login extends AbstractPage
 {
     public static String url = "/login.html";
-
     @FindBy(how = How.XPATH,
             using = "//input[@id='username']")
     private WebElement   loginInputUsername;
-
     @FindBy(how = How.XPATH,
             using = "//input[@id='password']")
     private WebElement   loginInputPassword;
-
     @FindBy(how = How.XPATH,
             using = "//input[@id='login_button']")
     private WebElement   loginInputSubmit;
-
-    @FindBy(how = How.XPATH,
-            using = "//thead[@class='ussr-component-collection-head']")
-    private WebElement uiCollectionHead;
-
-    @FindBy(how = How.CSS,
-            using = ".ontraport_panes_contact")
-    protected WebElement      uiCollection;
-
     public Contact_ListAll as ( String username, String password )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(loginInputUsername));
+        wait.until(ExpectedConditions.visibilityOf(loginInputUsername));
         loginInputUsername.sendKeys(username);
-        wait(7).until(ExpectedConditions.visibilityOf(loginInputPassword));
+        wait.until(ExpectedConditions.visibilityOf(loginInputPassword));
         loginInputPassword.sendKeys(password);
-        wait(7).until(ExpectedConditions.visibilityOf(loginInputSubmit));
+        wait.until(ExpectedConditions.visibilityOf(loginInputSubmit));
         loginInputSubmit.click();
-        wait(15).until(ExpectedConditions.visibilityOf(uiCollection));
-//        waitForContentPane();
         return PageFactory.initElements(driver, Contact_ListAll.class);
     }
-
 }
