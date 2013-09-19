@@ -2,6 +2,7 @@ package com.ontraport.app.parts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -76,7 +77,14 @@ public class DrilldownGroup extends AbstractPart
     {
         Boolean output = false;
         open();
-        output = wait(7).until(hasTextNotValue(list, name));
+        try
+        {
+            output = wait(7).until(hasTextNotValue(list, name));
+        }
+        catch (TimeoutException te)
+        {
+            output = false;
+        }
         close();
         return output;
     }
