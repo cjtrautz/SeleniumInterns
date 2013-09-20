@@ -132,6 +132,7 @@ public class Field_Editor extends AbstractPage
 
     public Field_Editor clickDeleteSection (String title)
     {
+        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         WebElement deleteSection = driver.findElement(By.xpath("//div[span[text()='" + title + "']]/following-sibling::div[@class='ussr-component-section-columns-wrapper']//button[span[text()='Delete Section']]"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", deleteSection);
         deleteSection.click();

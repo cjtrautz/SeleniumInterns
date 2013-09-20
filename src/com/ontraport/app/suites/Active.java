@@ -20,8 +20,8 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on having contacts
     com.ontraport.app.tests.CreateExportContacts.class,
     //relies on having contacts
-    com.ontraport.app.tests.AddColumn.class,
-    com.ontraport.app.tests.DeleteColumn.class,
+    //com.ontraport.app.tests.AddColumn.class,
+    //com.ontraport.app.tests.DeleteColumn.class,
     //relies on contact
     com.ontraport.app.tests.AddDeleteUserPermissions.class,
     com.ontraport.app.tests.DeleteContact.class,
