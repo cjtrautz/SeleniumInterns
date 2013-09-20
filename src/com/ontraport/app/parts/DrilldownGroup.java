@@ -188,7 +188,7 @@ public class DrilldownGroup extends AbstractPart
         wait(1).until(ExpectedConditions.visibilityOf(groupSelectorPane));
         groupAll.click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownMenu)));
-        wait(1).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiButtonGroupSelectorAll)));
+        wait(3).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiButtonGroupSelectorAll)));
         return this;
         
     }
