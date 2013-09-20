@@ -20,6 +20,7 @@ public class AddNewSection extends AbstractTest
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
         field_Editor.clickAddNewSection();
         field_Editor.enterSectionTitle("Untitled", "SelTitle");
+        field_Editor.clickTitle();
         field_Editor.enterSectionDescription("SelTitle", "Section Description", "SelDescription");
         contact_Settings = field_Editor.clickSave();
         field_Editor = contact_Settings.clickFieldEditor();

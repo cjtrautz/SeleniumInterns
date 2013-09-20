@@ -33,9 +33,9 @@ public class FormSearch extends AbstractPart
 
     public FormSearch find ( String text )
     {
-        wait(7).until(ExpectedConditions.visibilityOf(uiCollection));
+        wait(7).until(ExpectedConditions.visibilityOf(uiCollectionBody));
         uiSearch.sendKeys(text+Keys.ENTER);
-        wait(7).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollection)));
+        wait(7).until(ExpectedConditions.visibilityOf(uiCollection));
         return this;
     }
 

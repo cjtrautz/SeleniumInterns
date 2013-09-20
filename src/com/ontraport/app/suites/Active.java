@@ -10,8 +10,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
-    //com.ontraport.app.tests.AddNewSection.class,
-    //
+    com.ontraport.app.tests.AddNewSection.class,
     com.ontraport.app.tests.DeleteSection.class,
     
     com.ontraport.app.tests.CreateContact.class,

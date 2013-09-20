@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.JavascriptExecutor;
 
 import com.ontraport.app.pages.Contact_Settings;
@@ -44,6 +45,7 @@ public class Field_Editor extends AbstractPage
 
     public Field_Editor clickAddNewSection ()
     {
+        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         newSectionButton.click();
         return this;
@@ -133,6 +135,12 @@ public class Field_Editor extends AbstractPage
         WebElement deleteSection = driver.findElement(By.xpath("//div[span[text()='" + title + "']]/following-sibling::div[@class='ussr-component-section-columns-wrapper']//button[span[text()='Delete Section']]"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", deleteSection);
         deleteSection.click();
+        return this;
+    }
+    
+    public Field_Editor clickTitle ()
+    {
+        sectionTitle.click();
         return this;
     }
     
