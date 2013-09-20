@@ -4,10 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-<<<<<<< HEAD
 import org.openqa.selenium.StaleElementReferenceException;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -35,8 +32,6 @@ public class Facebook_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll;
-<<<<<<< HEAD
-    
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr/td[2]//span")
     private WebElement uiCollectionBodyRow1;
@@ -44,8 +39,6 @@ public class Facebook_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()='Facebook Apps']")
     private WebElement facebookTitle;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 
     public Facebook_Create clickNewFacebookApp ()
     {
@@ -111,7 +104,6 @@ public class Facebook_ListAll extends AbstractPage
         return this;
         
     }
-<<<<<<< HEAD
     public Facebook_Edit clickFacebook (String facebook)
     {
         driver.manage()
@@ -143,7 +135,6 @@ public class Facebook_ListAll extends AbstractPage
         }
         return PageFactory.initElements(driver, Facebook_Edit.class);
     }
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
     
 }

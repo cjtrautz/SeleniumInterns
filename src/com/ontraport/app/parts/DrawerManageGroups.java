@@ -79,19 +79,13 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups enterGroupName ( String groupname )
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiInputGroupName));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiInputGroupName.sendKeys(groupname);
         return this;
     }
     public DrawerManageGroups openGroupPermissionsPane ()
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleGroupPermissionsPane));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiToggleGroupPermissionsPane.click();
         return this;
     }
@@ -104,50 +98,33 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups openFieldPane (int row)
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiToggleFieldPane.get(row).click();
         return this;
     }
     public DrawerManageGroups clickField ( String field,  int row )
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']"))));
-=======
-        wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row)));
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiFieldList.get(row))));
         return this;
     }
     public DrawerManageGroups openConditionPane (int row)
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiToggleConditionPane.get(row).click();
         return this;
     }
     public DrawerManageGroups clickCondition ( String condition, int row )
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']"))));
-=======
-        wait(1).until(ExpectedConditions.visibilityOf(uiConditionList.get(row)));
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
         return this;
     }
     public DrawerManageGroups enterValue ( String value, int row, int index )
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf( uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input"))));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input")).sendKeys(value);
         return this;
     }
@@ -171,10 +148,7 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups clickDeleteGroup ()
     {
-<<<<<<< HEAD
         wait(1).until(ExpectedConditions.visibilityOf(uiButtonDeleteGroup));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiButtonDeleteGroup.click();
         return this;
         

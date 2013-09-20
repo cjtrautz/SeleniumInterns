@@ -48,19 +48,11 @@ public class CreateRule_AFieldMeetsGivenCriteria extends AbstractTest
         {
             fail("didnt select Field is this value");
         }
-<<<<<<< HEAD
         if(rule_Edit.verifyIfDropDownInputText(2, "Equal To")==null)
         {
             fail("didnt select equal to");
         }
         if(rule_Edit.verifyIfDropDownInputText(1, "First Name")==null)
-=======
-        if(rule_Edit.verifyIfDropDown(2, "0")==null)
-        {
-            fail("didnt select equal to");
-        }
-        if(rule_Edit.verifyIfDropDown(1, "firstname")==null)
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         {
             fail("didnt select first name");
         }

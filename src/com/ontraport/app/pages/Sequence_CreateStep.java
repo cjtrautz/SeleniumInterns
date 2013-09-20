@@ -13,7 +13,6 @@ import com.ontraport.app.tools.AbstractPage;
 
 public class Sequence_CreateStep extends AbstractPage
 {
-<<<<<<< HEAD
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-menu ') and div[ul[@class='ussr-component-drilldownselect-ul']]]")
     private WebElement drillDownMenuIf;
@@ -22,8 +21,6 @@ public class Sequence_CreateStep extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-menu ') and div[ul[@class='ussr-component-drilldownselect-ul']]]")
     private WebElement drillDownMenuThen;
     
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     @FindBy(
             how = How.XPATH,
             using = "//a[text()='subscribers (0)']")
@@ -36,14 +33,11 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-<<<<<<< HEAD
             using = "//div[contains(concat(' ', @class, ' '),' ussr-sequence-editor-rule-name ')]//input")
     private WebElement ruleName;
     
     @FindBy(
             how = How.XPATH,
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             using = "//div[contains(concat(' ', @class, ' '),' component-target-message-selector ')]//button")
     private WebElement toggleMessageSelector;
     
@@ -63,7 +57,6 @@ public class Sequence_CreateStep extends AbstractPage
     private WebElement emailStep;
     
     @FindBy(
-<<<<<<< HEAD
             how = How.XPATH,
             using = "//span[@class='ussr-theme-sequence-rule']//button")
     private WebElement ruleStep;
@@ -74,21 +67,18 @@ public class Sequence_CreateStep extends AbstractPage
     private WebElement fulfillmentStep;
     
     @FindBy(
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement drillDownPane;
     
     @FindBy(
             how = How.XPATH,
-<<<<<<< HEAD
-                    using = "//div[@class='ussr-component-drilldownselect-menu-wrapper']")
+            using = "//div[@class='ussr-component-drilldownselect-menu-wrapper']")
     private WebElement drillDownPaneGone;
     
     @FindBy(
             how = How.XPATH,
-                    using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[@class='ussr-component-drilldownselect-menu-wrapper']")
+            using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[@class='ussr-component-drilldownselect-menu-wrapper']")
     private WebElement drillDownPaneWhole;
     
     @FindBy(
@@ -98,14 +88,11 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             using = "//div[@class='ussr-pane-editor-back']")
     private WebElement back;
     
     @FindBy(
             how = How.XPATH,
-<<<<<<< HEAD
             using = "//div[contains(concat(' ', @class, ' '),' ussr-message-preview ') and contains(text(), 'No E-Mail selected.')]")
     private WebElement emailBody;
     
@@ -154,22 +141,16 @@ public class Sequence_CreateStep extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement thenDrillDownSelectPane;
-=======
-            using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")
-    private WebElement save;
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
 
     public Sequence_CreateStep enterSequenceName ( String name )
     {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         wait.until(ExpectedConditions.visibilityOf(subsicribers));
-<<<<<<< HEAD
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
         sequenceNameInput.click();
-=======
         wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         sequenceNameInput.sendKeys(name);
         return this;
         
@@ -179,10 +160,7 @@ public class Sequence_CreateStep extends AbstractPage
     {
         wait.until(ExpectedConditions.visibilityOf(emailStep));
         emailStep.click();
-<<<<<<< HEAD
         wait.until(ExpectedConditions.visibilityOf(emailBody));
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         return this;
         
     }
@@ -194,7 +172,6 @@ public class Sequence_CreateStep extends AbstractPage
         return this;
         
     }
-<<<<<<< HEAD
     public Sequence_CreateStep selectDrillDownEmailName ( String option )
     {
         wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
@@ -221,10 +198,6 @@ public class Sequence_CreateStep extends AbstractPage
         
     }
     public Sequence_CreateStep selectDrillDownByIndex ( int index )
-=======
-
-    public Sequence_CreateStep selectDrillDown ( int index )
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     {
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         List<WebElement> messages = drillDownPane.findElements(By.xpath(".//li/div"));
@@ -252,18 +225,14 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_ListAll clickSave ()
     {
         save.click();
-<<<<<<< HEAD
-        return (Sequence_ListAll) new Sequence_ListAll().init();
-=======
         return PageFactory.initElements(driver, Sequence_ListAll.class);
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
     }
     
     public Sequence_ListAll clickBack ()
     {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         back.click();
-<<<<<<< HEAD
         return (Sequence_ListAll) new Sequence_ListAll().init();
     }
 
@@ -341,10 +310,6 @@ public class Sequence_CreateStep extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(fulfillmentDropDown));
         fulfillmentDropDown.click();
         return this;
-        
-=======
-        return PageFactory.initElements(driver, Sequence_ListAll.class);
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     }
 
     

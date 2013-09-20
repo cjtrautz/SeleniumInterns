@@ -99,7 +99,6 @@ public class LeadRouter_ListAll extends AbstractPage
 
     }
     
-<<<<<<< HEAD
     public LeadRouter_Edit clickRouter (String router)
     {
         driver.manage()
@@ -117,7 +116,5 @@ public class LeadRouter_ListAll extends AbstractPage
         collectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + router + "']")).click();
         return PageFactory.initElements(driver, LeadRouter_Edit.class);
     }
-    
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
 }

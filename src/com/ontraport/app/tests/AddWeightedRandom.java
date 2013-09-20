@@ -7,10 +7,7 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.pages.LeadRouter_CreateWR;
-<<<<<<< HEAD
 import com.ontraport.app.pages.LeadRouter_Edit;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import com.ontraport.app.pages.LeadRouter_ListAll;
 import com.ontraport.app.pages.LeadRouter_TypeSelection;
 import com.ontraport.app.tools.AbstractTest;
@@ -34,7 +31,6 @@ public class AddWeightedRandom extends AbstractTest
         leadRouter_ListAll.formSearch.find("SelWeightedRandom");
         
         //verify that SelWeightedRandom is there
-<<<<<<< HEAD
         if(leadRouter_ListAll.verifyRouter("SelWeightedRandom")==null)
         {
             fail("couldnt find router");
@@ -48,8 +44,6 @@ public class AddWeightedRandom extends AbstractTest
         {
             fail("couldnt find user percent");
         }
-=======
-        leadRouter_ListAll.verifyRouter("SelWeightedRandom");
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
     }
 }

@@ -7,10 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-<<<<<<< HEAD
 import org.openqa.selenium.support.PageFactory;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
@@ -32,13 +29,10 @@ public class Message_ListAll extends AbstractPage
     private WebElement uiCollectionBody;
     
     @FindBy(how = How.XPATH,
-<<<<<<< HEAD
             using = "//tbody[@class='ussr-component-collection-body']/tr")
     private WebElement uiCollectionBodyRow1;
     
     @FindBy(how = How.XPATH,
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
     private WebElement emptyCell;
 
@@ -84,7 +78,6 @@ public class Message_ListAll extends AbstractPage
         
         return this;
     }
-<<<<<<< HEAD
     public Message_Edit clickSequence (String message)
     {
         driver.manage()
@@ -100,8 +93,6 @@ public class Message_ListAll extends AbstractPage
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + message + "']")).click();
         return PageFactory.initElements(driver, Message_Edit.class);
     }
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     
     public Message_ListAll verifyNoMessage ()
     {

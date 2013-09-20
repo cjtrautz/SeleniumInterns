@@ -44,11 +44,7 @@ public class CreateRule_ClicksEMailLink extends AbstractTest
         {
             fail("didnt select email links");
         }
-<<<<<<< HEAD
         if(rule_Edit.verifyWhenDropDownInputText(1, "Any E-Mail")==null)
-=======
-        if(rule_Edit.verifyWhenDropDown(1, "0")==null)
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         {
             fail("didnt select any email link");
         }

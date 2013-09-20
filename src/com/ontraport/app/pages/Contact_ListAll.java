@@ -31,24 +31,16 @@ public class Contact_ListAll extends AbstractPage
             using = "//div[@id='ontraport_panel_action_new']")
     private WebElement uiNewContact;
     @FindBy(how = How.XPATH,
-<<<<<<< HEAD
             using = "//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]]]]]")
     private WebElement emptyCell;
     @FindBy(how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")
     private WebElement firstCellOrContactAddOptions;
-    public Contact_Create clickNewContact ()
-    {
-        wait.until(ExpectedConditions.visibilityOf(firstCellOrContactAddOptions));
-=======
-            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
-    private WebElement emptyCell;
 
     public Contact_Create clickNewContact ()
     {
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.visibilityOf(uiNewContact));
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         uiNewContact.click();
         return (Contact_Create) new Contact_Create().init();
     }

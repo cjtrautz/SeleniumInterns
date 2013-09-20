@@ -100,11 +100,7 @@ public class Contact_Edit extends AbstractPage
         {
             driver.manage()
             .timeouts()
-<<<<<<< HEAD
             .implicitlyWait(8, TimeUnit.SECONDS);
-=======
-            .implicitlyWait(5, TimeUnit.SECONDS);
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + note + "']"));
             driver.manage()
             .timeouts()

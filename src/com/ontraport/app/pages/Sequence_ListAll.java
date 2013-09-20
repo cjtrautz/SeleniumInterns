@@ -32,14 +32,11 @@ public class Sequence_ListAll extends AbstractPage
             how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
-<<<<<<< HEAD
     
     @FindBy(
             how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr/td")
     private WebElement uiCollectionBodyRow1;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 
     public Sequence_TypeSelection clickNewSequence ()
     {
@@ -105,7 +102,6 @@ public class Sequence_ListAll extends AbstractPage
         return this;
         
     }
-<<<<<<< HEAD
     public Sequence_Edit clickSequence (String sequence)
     {
         driver.manage()
@@ -121,6 +117,5 @@ public class Sequence_ListAll extends AbstractPage
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
         return PageFactory.initElements(driver, Sequence_Edit.class);
     }
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
 }

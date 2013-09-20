@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Sequence_CreateStep;
+import com.ontraport.app.pages.Sequence_Edit;
 import com.ontraport.app.pages.Sequence_ListAll;
 import com.ontraport.app.pages.Sequence_TypeSelection;
 import com.ontraport.app.tools.AbstractTest;
@@ -26,11 +27,11 @@ public class CreateEmailSequence extends AbstractTest
         sequence_CreateStep.enterSequenceName("SelEmailStepSequence");
         sequence_CreateStep.clickAddEmailStep();
         sequence_CreateStep.openEmailNamePane();
-        sequence_CreateStep.selectDrillDown(1);
+        sequence_CreateStep.selectDrillDownEmailName("SelEmailMessage");
         sequence_CreateStep.openEmailFromPane();
-        sequence_CreateStep.selectDrillDown(1);
+        sequence_CreateStep.selectDrillDownByIndex(1);
         sequence_CreateStep.openSendFromPane();
-        sequence_CreateStep.selectDrillDown(1);
+        sequence_CreateStep.selectDrillDown("Contact Owner");
         sequence_ListAll = sequence_CreateStep.clickSave();
         sequence_ListAll.formSearch.find("SelEmailStepSequence");
         
@@ -38,6 +39,23 @@ public class CreateEmailSequence extends AbstractTest
         if(sequence_ListAll.verifySequence("SelEmailStepSequence")==null)
         {
             fail("couldn't find sequence");
+        }
+        Sequence_Edit sequence_Edit = sequence_ListAll.clickSequence("SelEmailDateSequence");
+        if(sequence_Edit.verifySequenceStepAndExpand("EMAIL", 1)==null)
+        {
+            fail("couldn't find sequence step");
+        }
+        if(sequence_Edit.verifyEmailName("SelEmailMessage")==null)
+        {
+            fail("couldn't find sequence email name");
+        }
+        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        {
+            fail("couldn't find sequence email send from");
+        }
+        if(sequence_Edit.verifyEmailMessage("SelBody[First Name]")==null)
+        {
+            fail("couldn't find sequence email message");
         }
         
     }

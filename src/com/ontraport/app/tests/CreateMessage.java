@@ -6,10 +6,7 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Message_CreateEmail;
-<<<<<<< HEAD
 import com.ontraport.app.pages.Message_Edit;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Message_TypeSelection;
 import com.ontraport.app.tools.AbstractTest;
@@ -41,7 +38,7 @@ public class CreateMessage extends AbstractTest
         {
             fail("couldn't find created message");
         }
-<<<<<<< HEAD
+
         Message_Edit message_Edit = message_ListAll.clickSequence("SelEmailMessage");
         if(message_Edit.verifyBody("SelBody[First Name]")==null)
         {
@@ -59,8 +56,6 @@ public class CreateMessage extends AbstractTest
         {
             fail("couldn't find subject");
         }
-=======
-        
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
     }
 }

@@ -2,10 +2,7 @@ package com.ontraport.app.parts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-<<<<<<< HEAD
 import org.openqa.selenium.StaleElementReferenceException;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -36,21 +33,17 @@ public class FormColumnManager extends AbstractPart
             how = How.XPATH,
             using = "//tr[@class='sem-collection-header-display']")
     private WebElement headerColumns;
-<<<<<<< HEAD
   
     @FindBy(
             how = How.XPATH,
             using = "//tr[@class='sem-collection-header-display']//a[text()='Zip Code']")
     private WebElement zipCodeColumn;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
-    
+
     @FindBy(
             how = How.XPATH,
             using = "//tr[@class='sem-collection-header-display']//a[text()='Add Column']")
     private WebElement addColumn;
     
-<<<<<<< HEAD
     @FindBy(
             how = How.XPATH,
             using = "//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")
@@ -95,22 +88,7 @@ public class FormColumnManager extends AbstractPart
 //        wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
         //driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @href='javascript://']/span")).click();
         System.out.println("here3");
-=======
-    public FormColumnManager open (String column) 
-    {
-        wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
-        WebElement columnToEdit = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", columnToEdit);
-        wait(1).until(ExpectedConditions.visibilityOf(columnToEdit));
-        WebElement pencil = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']/following-sibling::div/a[3]/span"));
-        Actions action = new Actions(driver);
-        action.moveToElement(columnToEdit)
-            .perform();
-        wait(1).until(ExpectedConditions.visibilityOf(pencil));
-        pencil.click();
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
-        
-        return this; 
+        return this;
     }
     public FormColumnManager open () 
     { 

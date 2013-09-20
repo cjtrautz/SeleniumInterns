@@ -4,27 +4,22 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-<<<<<<< HEAD
+
 import org.openqa.selenium.StaleElementReferenceException;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.pages.ApiSettings_Create;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class ApiSettings_ListAll extends AbstractPage
 {
     @FindBy(how = How.XPATH,
-<<<<<<< HEAD
             using = "//tbody[@class='ussr-component-collection-body']/tr/td[2]//span")
-=======
-            using = "//tbody[@class='ussr-component-collection-body']/tr")
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     private WebElement uiCollectionBodyRow1;
     
     @FindBy(
@@ -41,13 +36,10 @@ public class ApiSettings_ListAll extends AbstractPage
             how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement collection;
-<<<<<<< HEAD
-    
+
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()='API Keys']")
     private WebElement apiTitle;
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 
     public ApiSettings_Create clickNewApiKey ()
     {
@@ -113,7 +105,6 @@ public class ApiSettings_ListAll extends AbstractPage
         
     }
     
-<<<<<<< HEAD
     public ApiSettings_Edit clickAPI (String api)
     {
         driver.manage()
@@ -146,6 +137,5 @@ public class ApiSettings_ListAll extends AbstractPage
         return PageFactory.initElements(driver, ApiSettings_Edit.class);
     }
     
-=======
->>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
+
 }
