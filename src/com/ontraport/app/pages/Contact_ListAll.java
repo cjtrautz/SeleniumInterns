@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.pages.Contact_Create;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractSuite;
 
@@ -39,7 +40,7 @@ public class Contact_ListAll extends AbstractPage
 
     public Contact_Create clickNewContact ()
     {
-        wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.visibilityOf(uiNewContact));
         uiNewContact.click();
         return (Contact_Create) new Contact_Create().init();
