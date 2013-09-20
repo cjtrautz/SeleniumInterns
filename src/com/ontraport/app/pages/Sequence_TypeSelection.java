@@ -14,15 +14,19 @@ public class Sequence_TypeSelection extends AbstractPage
             using = "//a[@href='#!/sequence/create&type=step']/button")
     private WebElement stepSequenceCreate;
     
+<<<<<<< HEAD
     @FindBy(
             how = How.XPATH,
             using = "//a[@href='#!/sequence/create&type=date']/button")
     private WebElement dateSequenceCreate;
     
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     public Sequence_CreateStep clickStepSequenceCreate ()
     {
         stepSequenceCreate.click();
         return PageFactory.initElements(driver, Sequence_CreateStep.class);
+<<<<<<< HEAD
     }
 
     public Sequence_CreateDate clickDateSequenceCreate ()
@@ -32,3 +36,6 @@ public class Sequence_TypeSelection extends AbstractPage
     }
     
 }
+=======
+    }}
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2

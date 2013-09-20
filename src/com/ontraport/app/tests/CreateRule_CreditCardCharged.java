@@ -40,7 +40,11 @@ public class CreateRule_CreditCardCharged extends AbstractTest
         {
             fail("didnt select credit card");
         }
+<<<<<<< HEAD
         if(rule_Edit.verifyWhenDropDownInputText(1, "Charged")==null)
+=======
+        if(rule_Edit.verifyWhenDropDown(1, "0")==null)
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         {
             fail("didnt select charged");
         }

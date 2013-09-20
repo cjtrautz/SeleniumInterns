@@ -40,7 +40,11 @@ public class CreateRule_ClicksTrackedLink extends AbstractTest
         {
             fail("didnt select tracked links");
         }
+<<<<<<< HEAD
         if(rule_Edit.verifyWhenDropDownInputText(1, "Any Tracked Link")==null)
+=======
+        if(rule_Edit.verifyWhenDropDown(1, "0")==null)
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         {
             fail("didnt select any tracked link");
         }

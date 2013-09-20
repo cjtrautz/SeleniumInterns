@@ -17,7 +17,11 @@ public class DeleteRule_ClicksEMailLink extends AbstractTest
         
          Rule_ListAll rule_ListAll = contactListAll.menuPrimary.clickRuleListAll();
          rule_ListAll.formSearch.find("SelRuleClicksEmailLink");
+<<<<<<< HEAD
          rule_ListAll.selectRule("SelRuleClicksEmailLink");
+=======
+         rule_ListAll.selectAllOnPage();
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
          rule_ListAll.drawerActions.clickDeleteRule();
          rule_ListAll.dialogBox.clickOk();
          

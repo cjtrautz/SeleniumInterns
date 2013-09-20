@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="src" path="etc"/>
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/apache-mime4j-0.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/bsh-1.3.0.jar"/>
@@ -13,7 +17,11 @@
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/commons-lang3-3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/commons-logging-1.1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/cssparser-0.9.9.jar"/>
+<<<<<<< HEAD
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/guava-14.0.jar" sourcepath="lib/selenium-2.35.0/libs/guava-14.0.jar"/>
+=======
+	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/guava-14.0.jar"/>
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/hamcrest-core-1.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/hamcrest-library-1.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/selenium-2.35.0/libs/htmlunit-2.12.jar"/>
@@ -44,5 +52,9 @@
 	<classpathentry exported="true" kind="lib" path="lib/junit-4.11.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jvcp.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/MonteScreenRecorder.jar"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="lib/JSErrorCollector-0.5.jar"/>
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 	<classpathentry kind="output" path="bin"/>
 </classpath>

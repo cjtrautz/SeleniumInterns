@@ -39,7 +39,11 @@ public class CreateRule_ACertainFieldIsUpdated extends AbstractTest
         {
             fail("didnt select field updated");
         }
+<<<<<<< HEAD
         if(rule_Edit.verifyWhenDropDownInputText(1, "First Name")==null)
+=======
+        if(rule_Edit.verifyWhenDropDown(1, "firstname")==null)
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         {
             fail("didnt select first name");
         }

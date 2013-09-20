@@ -7,7 +7,10 @@ import org.junit.Test;
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Fulfillment_Create;
+<<<<<<< HEAD
 import com.ontraport.app.pages.Fulfillment_Edit;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import com.ontraport.app.pages.Fulfillment_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
@@ -35,6 +38,7 @@ public class CreateFulfillment extends AbstractTest
         {
             fail("didnt find fulfillment");
         }
+<<<<<<< HEAD
         Fulfillment_Edit fulfillment_Edit = fulfillment_ListAll.clickFulfillment("SelFulfillment");
         if(fulfillment_Edit.verifyFieldValue(1, "First Name")==null)
         {
@@ -48,5 +52,8 @@ public class CreateFulfillment extends AbstractTest
         {
             fail("didnt find fulfillment list name");
         }
+=======
+        
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     }
 }

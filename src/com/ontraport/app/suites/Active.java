@@ -8,6 +8,7 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
+<<<<<<< HEAD
 {   
     com.ontraport.app.tests.CreateContact.class,
     //relies on single contact
@@ -171,12 +172,20 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_WhenContactIsRemovedFromAnySequence.class,
     com.ontraport.app.tests.CreateRule_WhenContactIsAddedToAnySequence.class,
     com.ontraport.app.tests.DeleteRule_WhenContactIsAddedToAnySequence.class,
+=======
+{
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     com.ontraport.app.tests.CreateRule_CreditCardDeclined.class,
     com.ontraport.app.tests.DeleteRule_CreditCardDeclined.class,
     com.ontraport.app.tests.CreateRule_CreditCardCharged.class,
     com.ontraport.app.tests.DeleteRule_CreditCardCharged.class,
     com.ontraport.app.tests.CreateRule_ContactIsAddedToFulfillmentList.class,
     com.ontraport.app.tests.DeleteRule_ContactIsAddedToFulfillmentList.class,
+<<<<<<< HEAD
+=======
+    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.DeleteContact.class,
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     com.ontraport.app.tests.CreateRule_ClicksTrackedLink.class,
     com.ontraport.app.tests.DeleteRule_ClicksTrackedLink.class,
     com.ontraport.app.tests.CreateRule_ClicksEMailLink.class,
@@ -185,6 +194,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteria.class,
     com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdated.class,
     com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdated.class,
+<<<<<<< HEAD
     
     com.ontraport.app.tests.AddGroup.class,
     com.ontraport.app.tests.DeleteGroup.class,
@@ -201,6 +211,40 @@ import com.ontraport.app.tools.AbstractSuite;
 //  //relies on a message
 //    com.ontraport.app.tests.CreateEmailDateSequence.class,
 //    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+=======
+    com.ontraport.app.tests.CreateProduct.class,
+    com.ontraport.app.tests.DeleteProduct.class,
+    com.ontraport.app.tests.AddGroup.class,
+    com.ontraport.app.tests.DeleteGroup.class,
+    com.ontraport.app.tests.CreateNote.class,
+    com.ontraport.app.tests.DeleteNote.class,
+    com.ontraport.app.tests.CreateFulfillment.class,
+    com.ontraport.app.tests.DeleteFulfillment.class,
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateEmailSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    com.ontraport.app.tests.DeleteEmailSequence.class,
+    com.ontraport.app.tests.CreateFacebook.class,
+    com.ontraport.app.tests.DeleteFacebook.class,
+    com.ontraport.app.tests.CreateExportContacts.class,
+    com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.DeleteTag.class,
+    com.ontraport.app.tests.CreateAPIKeys.class,
+    com.ontraport.app.tests.DeleteAPIKeys.class,
+    com.ontraport.app.tests.CreateAffiliateTrackingPixel.class,
+    com.ontraport.app.tests.Create1SCSync.class,
+    com.ontraport.app.tests.AffiliateLink.class,
+    com.ontraport.app.tests.AddRoundRobin.class,
+    com.ontraport.app.tests.DeleteRoundRobin.class,
+    com.ontraport.app.tests.AddWeightedRandom.class,
+    com.ontraport.app.tests.DeleteWeightedRandom.class,
+    com.ontraport.app.tests.AddColumn.class,
+    com.ontraport.app.tests.AddDeleteUserPermissions.class,
+    
+    com.ontraport.app.tests.AddNewSection.class,
+    com.ontraport.app.tests.DeleteSection.class,
+    com.ontraport.app.tests.DeleteColumn.class,
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     
 })
 public class Active extends AbstractSuite

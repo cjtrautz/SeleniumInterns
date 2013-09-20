@@ -1,6 +1,9 @@
 package com.ontraport.app.parts;
 
+<<<<<<< HEAD
 import org.openqa.selenium.By;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -20,11 +23,14 @@ public class MenuUser extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
+<<<<<<< HEAD
             using = "//li[@class='ussr-header-nav-option-user']//a[@href='javascript://']")
     private WebElement menuUserName;
     
     @FindBy(
             how = How.XPATH,
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Personal Settings']")
     private WebElement personalSettings;
     
@@ -41,8 +47,11 @@ public class MenuUser extends AbstractPart
     public MenuUser open () 
     { 
         wait(4).until(ExpectedConditions.visibilityOf(toggleMenuUser));
+<<<<<<< HEAD
         wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']/span")));
         wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']//a[@href='javascript://']")));
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         toggleMenuUser.click();
         return this; 
     }

@@ -43,7 +43,11 @@ public abstract class AbstractTest
     {
         driver.get("http://app.ontraport.com/#!/contact/listAll");
         WebDriverWait wait = new WebDriverWait(driver, 30);
+<<<<<<< HEAD
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
+=======
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr/td[2]")));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     }
     class Screenshot implements MethodRule
     {

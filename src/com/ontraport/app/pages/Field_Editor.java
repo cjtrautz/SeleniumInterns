@@ -51,8 +51,13 @@ public class Field_Editor extends AbstractPage
 
     public Field_Editor enterSectionTitle ( String oldTitle, String newTitle )
     {
+<<<<<<< HEAD
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         WebElement titleToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + oldTitle + "']"));
+=======
+        WebElement titleToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + oldTitle + "']"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", titleToEdit);
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         titleToEdit.click();
         input.sendKeys(newTitle+Keys.ENTER);
         return this;
@@ -60,8 +65,13 @@ public class Field_Editor extends AbstractPage
 
     public Field_Editor enterSectionDescription ( String title, String oldDescription, String newDescription )
     {
+<<<<<<< HEAD
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         WebElement descriptionToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + title + "']/ancestor::div/following-sibling::div[text()='" + oldDescription + "']"));
+=======
+        WebElement descriptionToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + title + "']/ancestor::div/following-sibling::div[text()='" + oldDescription + "']"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", descriptionToEdit);
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         descriptionToEdit.click();
         input.sendKeys(newDescription+Keys.ENTER);
         return this;

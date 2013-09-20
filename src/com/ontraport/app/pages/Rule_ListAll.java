@@ -4,15 +4,22 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+<<<<<<< HEAD
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+<<<<<<< HEAD
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+=======
+import org.openqa.selenium.support.ui.ExpectedConditions;
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractSuite;
@@ -32,7 +39,11 @@ public class Rule_ListAll extends AbstractPage
     private WebElement uiCollectionBody;
     
     @FindBy(how = How.XPATH,
+<<<<<<< HEAD
             using = "//tbody[@class='ussr-component-collection-body']/tr/td[2]//span")
+=======
+            using = "//tbody[@class='ussr-component-collection-body']/tr")
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     private WebElement uiCollectionBodyRow1;
     
     @FindBy(how = How.XPATH,
@@ -47,9 +58,13 @@ public class Rule_ListAll extends AbstractPage
     {
         wait.until(ExpectedConditions.visibilityOf(rulesTitle));
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+<<<<<<< HEAD
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ontraport_panel_action_new']")));
+=======
+        wait.until(ExpectedConditions.visibilityOf(newRule));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         newRule.click();
         return PageFactory.initElements(driver, Rule_Create.class);
 
@@ -61,7 +76,11 @@ public class Rule_ListAll extends AbstractPage
         .implicitlyWait(0, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOf(rulesTitle));
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+<<<<<<< HEAD
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+=======
+        //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -104,6 +123,7 @@ public class Rule_ListAll extends AbstractPage
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
+<<<<<<< HEAD
         catch(StaleElementReferenceException d)
         {
             driver.manage()
@@ -114,6 +134,8 @@ public class Rule_ListAll extends AbstractPage
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);   
         }
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         catch(NoSuchElementException e){
             driver.manage()
             .timeouts()
@@ -130,6 +152,7 @@ public class Rule_ListAll extends AbstractPage
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOf(rulesTitle));
+<<<<<<< HEAD
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + rule + "']"))));
@@ -186,6 +209,19 @@ public class Rule_ListAll extends AbstractPage
         return this;
         
     }
+=======
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
+        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']")))));
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']")))));
+        uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']")).click();
+        return PageFactory.initElements(driver, Rule_Edit.class);
+    }
+    
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     
     
 }

@@ -28,10 +28,13 @@ public class Product_ListAll extends AbstractPage
     private WebElement uiCollectionBody;
     
     @FindBy(how = How.XPATH,
+<<<<<<< HEAD
             using = "//tbody[@class='ussr-component-collection-body']/tr/td")
     private WebElement uiCollectionBodyRow1;
     
     @FindBy(how = How.XPATH,
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
     private WebElement emptyCell;
 
@@ -99,6 +102,7 @@ public class Product_ListAll extends AbstractPage
         
         return this;
     }
+<<<<<<< HEAD
     public Product_Edit clickProduct (String product)
     {
         driver.manage()
@@ -115,5 +119,7 @@ public class Product_ListAll extends AbstractPage
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + product + "']")).click();
         return PageFactory.initElements(driver, Product_Edit.class);
     }
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     
 }

@@ -6,7 +6,10 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Product_Create;
+<<<<<<< HEAD
 import com.ontraport.app.pages.Product_Edit;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import com.ontraport.app.pages.Product_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
@@ -29,6 +32,7 @@ public class CreateProduct extends AbstractTest
         {
             fail("couldnt find product");
         }
+<<<<<<< HEAD
         Product_Edit product_Edit = product_ListAll.clickProduct("SelProduct");
         if(product_Edit.verifyName("SelProduct")==null)
         {
@@ -38,6 +42,8 @@ public class CreateProduct extends AbstractTest
         {
             fail("couldnt find product price");
         }
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         
     }
 }

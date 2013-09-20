@@ -26,6 +26,7 @@ public class Rule_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]")
     private WebElement thenEvents;
+<<<<<<< HEAD
     public Rule_Edit verifyTextLabel (String text)
     {
         try
@@ -68,6 +69,9 @@ public class Rule_Edit extends AbstractPage
         
         return this;
     }
+=======
+    
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     public Rule_Edit verifyText (String text)
     {
         try
@@ -110,6 +114,7 @@ public class Rule_Edit extends AbstractPage
         
         return this;
     }
+<<<<<<< HEAD
     public Rule_Edit verifyThenTextArea (int index, String value)
     {
         try
@@ -143,6 +148,9 @@ public class Rule_Edit extends AbstractPage
         return this;
     } 
     public Rule_Edit verifyWhenDropDownInputText (int index, String value)
+=======
+    public Rule_Edit verifyWhenDropDown (int index, String value)
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     {
         try
         {
@@ -151,6 +159,7 @@ public class Rule_Edit extends AbstractPage
             .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(whenEvents));
             List<WebElement> whenDropDowns = whenEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
+<<<<<<< HEAD
             String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
             System.out.println(compare);
             if(compare.equals(value)!=true)
@@ -160,6 +169,9 @@ public class Rule_Edit extends AbstractPage
                 .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
+=======
+            whenDropDowns.get(index-1).findElement(By.xpath("//button[@value='" + value + "']"));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -174,7 +186,11 @@ public class Rule_Edit extends AbstractPage
         return this;
     } 
     
+<<<<<<< HEAD
     public Rule_Edit verifyIfDropDownInputText (int index, String value)
+=======
+    public Rule_Edit verifyIfDropDown (int index, String value)
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     {
         try
         {
@@ -183,6 +199,7 @@ public class Rule_Edit extends AbstractPage
             .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(whenEvents));
             List<WebElement> whenDropDowns = ifEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
+<<<<<<< HEAD
             String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
             System.out.println(compare);
             if(compare.equals(value)!=true)
@@ -192,6 +209,9 @@ public class Rule_Edit extends AbstractPage
                 .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
+=======
+            whenDropDowns.get(index-1).findElement(By.xpath("//button[@value='" + value + "']"));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -205,8 +225,13 @@ public class Rule_Edit extends AbstractPage
         
         return this;
     }  
+<<<<<<< HEAD
      
     public Rule_Edit verifyThenDropDownInputText (int index, String value)
+=======
+    
+    public Rule_Edit verifyThenDropDown (int index, String value)
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     {
         try
         {
@@ -215,6 +240,7 @@ public class Rule_Edit extends AbstractPage
             .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(whenEvents));
             List<WebElement> whenDropDowns = thenEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
+<<<<<<< HEAD
             System.out.println(whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value"));
             String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
             System.out.println(compare);
@@ -225,6 +251,9 @@ public class Rule_Edit extends AbstractPage
                 .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
+=======
+            whenDropDowns.get(index-1).findElement(By.xpath("//button[@value='" + value + "']"));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -237,5 +266,9 @@ public class Rule_Edit extends AbstractPage
         }
         
         return this;
+<<<<<<< HEAD
     } 
+=======
+    }  
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 }

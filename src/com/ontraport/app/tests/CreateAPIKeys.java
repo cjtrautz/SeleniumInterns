@@ -6,7 +6,10 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.ApiSettings_Create;
+<<<<<<< HEAD
 import com.ontraport.app.pages.ApiSettings_Edit;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import com.ontraport.app.pages.ApiSettings_ListAll;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.OntraportAdmin_TrackingPixel;
@@ -39,6 +42,7 @@ public class CreateAPIKeys extends AbstractTest
         {
             fail("couldnt find create api name");
         }
+<<<<<<< HEAD
         ApiSettings_Edit apiSettings_Edit = apiSettings_ListAll.clickAPI("SelAPI");
         if(apiSettings_Edit.verifyAddContacts()==null)
         {
@@ -64,6 +68,8 @@ public class CreateAPIKeys extends AbstractTest
         {
             fail("search contacts not checked");
         }
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         
     }
 }

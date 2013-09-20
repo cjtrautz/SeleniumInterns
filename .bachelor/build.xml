@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="selenium-com-ontraport-app" default="build-active" basedir="..">
+
+  <!--
+   =============================================================================
+   = Preferences
+   =============================================================================
+  -->
+
+  <presetdef name="javac">
+    <javac includeantruntime="false" />
+  </presetdef>
+
+  <!--
+   =============================================================================
+   = Re-Usable Variables
+   =============================================================================
+  -->
+
+  <property name="browse" value="${basedir}/.bachelor/browse"/>
+  <property name="config" value="${basedir}/.bachelor/config"/>
+  <property name="output" value="${basedir}/.bachelor/output"/>
+  <property name="report" value="${basedir}/.bachelor/report"/>
+  <property name="screenshots" value="${basedir}/.bachelor/screenshots"/>
+
+  <!--
+   =============================================================================
+   = Build Tasks
+   =============================================================================
+  -->
+
+	  <target name="build-active" description="Run tools in sequence.">
+	    <antcall target='prepare'/>
+	    <antcall target='active'/>
+	  </target>
+
+  <!--
+   =============================================================================
+   = Build Preparation
+   =============================================================================
+  -->
+
+  <target name="clean" description="Cleanup build artifacts">
+    <delete dir="${basedir}/bin" />
+    <delete dir="${browse}"/>
+    <delete dir="${output}"/>
+    <delete dir="${report}"/>
+    <delete dir="${screenshots}"/>
+  </target>
+
+  <target name="prepare" depends="clean" description="Prepare for build">
+    <mkdir dir="${basedir}/bin" />
+    <mkdir dir="${browse}"/>
+    <mkdir dir="${output}"/>
+    <mkdir dir="${screenshots}"/>
+    <mkdir dir="${report}/selenium/xml/active"/>
+    <mkdir dir="${report}/selenium/html/active"/>
+  </target>
+
+  <!--
+   =============================================================================
+   = Selenium
+   =============================================================================
+  -->
+
+  <path id="test.classpath">
+    <pathelement location="${basedir}/bin" />
+    <fileset dir="${config}/selenium/">
+        <include name="**/lib/*.jar"/>
+        <include name="**/etc*.properties"/>
+    </fileset>
+  </path>
+
+  <target name="compile">
+    <javac source="1.6" srcdir="${basedir}/src" fork="true" destdir="${basedir}/bin">
+      <classpath>
+        <pathelement path="${basedir}/bin"/>
+        <fileset dir="${basedir}/lib">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="active" depends="compile">
+    <junit printsummary="yes" haltonfailure="no">
+      <classpath>
+        <pathelement location="${basedir}/bin"/>
+        <pathelement location="${basedir}/etc"/>
+        <fileset dir="${basedir}/lib">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+      <test name="com.ontraport.app.suites.Active" haltonfailure="no" todir="${report}/selenium/xml/active" outfile="TEST-Active">
+        <formatter type="xml"/>
+      </test>
+    </junit>
+    <junitreport todir="${report}/selenium/xml/active">
+      <fileset dir="${report}/selenium/xml/active">
+        <include name="TEST-*.xml"/>
+      </fileset>
+      <report format="frames" todir="${report}/selenium/html/active"/>
+    </junitreport>
+  </target>
+
+</project>

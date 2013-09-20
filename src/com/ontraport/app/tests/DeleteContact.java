@@ -13,7 +13,10 @@ public class DeleteContact extends AbstractTest
     public void test ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+<<<<<<< HEAD
         contactListAll.formSearch.clear();
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         contactListAll.formSearch.find("SelFirstName");
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
@@ -24,6 +27,9 @@ public class DeleteContact extends AbstractTest
         {
             fail("found deleted contatct");
         }
+<<<<<<< HEAD
         contactListAll.formSearch.clear();
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     }
 }

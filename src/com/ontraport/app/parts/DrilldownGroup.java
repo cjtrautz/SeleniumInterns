@@ -18,7 +18,11 @@ public class DrilldownGroup extends AbstractPart
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]")
     private WebElement uiGroupSelector;
     @FindBy(how = How.XPATH,
+<<<<<<< HEAD
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//button[@value='0' or]")
+=======
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//button[@value='0']")
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     private WebElement uiButtonGroupSelectorAll;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//button")
@@ -29,9 +33,12 @@ public class DrilldownGroup extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//li/div[text()='Group: All']")
     private WebElement groupAll;
+<<<<<<< HEAD
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-menu ')]")
     private WebElement drillDownMenu;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     public DrilldownGroup toggle ()
     {
         wait(1).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiButtonGroupSelector)));
@@ -186,7 +193,11 @@ public class DrilldownGroup extends AbstractPart
         open();
         wait(1).until(ExpectedConditions.visibilityOf(groupSelectorPane));
         groupAll.click();
+<<<<<<< HEAD
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownMenu)));
+=======
+        wait(1).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiButtonGroupSelectorAll)));
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         return this;
         
     }

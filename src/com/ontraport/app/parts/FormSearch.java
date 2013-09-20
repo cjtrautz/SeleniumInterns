@@ -1,15 +1,22 @@
 package com.ontraport.app.parts;
 
+<<<<<<< HEAD
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
+=======
+import org.openqa.selenium.Keys;
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+<<<<<<< HEAD
 import org.openqa.selenium.support.ui.WebDriverWait;
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
 
 import com.ontraport.app.tools.AbstractPart;
 
@@ -23,6 +30,7 @@ public class FormSearch extends AbstractPart
     private WebElement       uiClear;
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
+<<<<<<< HEAD
     private WebElement collection;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-pane-header-title ')]")
@@ -56,6 +64,14 @@ public class FormSearch extends AbstractPart
 //                                                       return (a.intValue()==b.intValue());
 //                                                   }
 //                                               });
+=======
+    private WebElement firstRow;
+    public FormSearch find ( String text )
+    {
+        wait(3).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(firstRow)));
+        uiSearch.sendKeys(text+Keys.ENTER);
+        
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
         return this;
     }
     public FormSearch clear ()

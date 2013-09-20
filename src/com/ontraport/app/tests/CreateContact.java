@@ -27,7 +27,10 @@ public class CreateContact extends AbstractTest
             fail("couldnt find created contact");
         }
         
+<<<<<<< HEAD
         contactListAll.formSearch.clear();
         
+=======
+>>>>>>> b9afb0ebe45e75744f33e843429e8dfc3a7345f2
     }
 }
