@@ -230,7 +230,7 @@ public class Rule_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuWhen));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()='" + string + "']]")));
         whenDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")).click();
         return this;
@@ -243,7 +243,7 @@ public class Rule_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuIf));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()='" + string + "']]")));
         ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")).click();
         return this;

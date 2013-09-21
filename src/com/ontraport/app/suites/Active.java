@@ -10,6 +10,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
+    //com.ontraport.app.tests.AddColumn.class,
+    //com.ontraport.app.tests.DeleteColumn.class,
+    
     com.ontraport.app.tests.AddNewSection.class,
     com.ontraport.app.tests.DeleteSection.class,
     

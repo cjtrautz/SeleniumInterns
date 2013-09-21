@@ -31,7 +31,7 @@ public class FormSearch extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-pane-header-title ')]")
     private WebElement title;
     @FindBy(how = How.XPATH,
-            using = "//tbody[@class='ussr-component-collection-body']/tr/td")
+            using = "//tbody[@class='ussr-component-collection-body']/tr")
     private WebElement firstCell;
     public FormSearch find ( String text )
     {
@@ -46,8 +46,8 @@ public class FormSearch extends AbstractPart
         wait(3).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='search']"))));
         uiSearch.click();
         uiSearch.sendKeys(text+Keys.ENTER);
-        wait(4).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(firstCell)));
-        wait(8).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + text + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + text + "')]]"))));
+        wait(4).until(ExpectedConditions.visibilityOf(firstCell));
+        wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + text + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + text + "')]]")));
 //        new WebDriverWait (driver, 10){}.until(new ExpectedCondition<Boolean>()
 //                                               {
 //                                                   @Override

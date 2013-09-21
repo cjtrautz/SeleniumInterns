@@ -80,7 +80,7 @@ public class Sequence_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        wait.until(ExpectedConditions.visibilityOf(steps.get(index-1).findElement(By.xpath(".//div[@class='step_drop']"))));
+        //wait.until(ExpectedConditions.visibilityOf(steps.get(index-1).findElement(By.xpath(".//div[@class='step_drop']"))));
         steps.get(index-1).findElement(By.xpath(".//div[@class='step_drop']")).click();
         
         return this;

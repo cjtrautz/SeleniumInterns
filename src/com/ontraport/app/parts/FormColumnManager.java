@@ -53,7 +53,7 @@ public class FormColumnManager extends AbstractPart
             how = How.XPATH,
             using = "//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")
     private WebElement zipCodePencil2;
-    public FormColumnManager open (String column) 
+    public FormColumnManager open (String column) throws InterruptedException 
     {
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
         //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
@@ -68,6 +68,9 @@ public class FormColumnManager extends AbstractPart
         //WebElement pencil = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"));
         Actions actions = new Actions(driver);
         actions.moveToElement(zipCodeColumn).perform();
+        
+        Thread.sleep(3000);
+        wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         zipCodePencil2.click();
 //        actions.perform();
