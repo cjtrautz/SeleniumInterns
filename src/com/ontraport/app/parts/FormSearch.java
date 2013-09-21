@@ -46,8 +46,22 @@ public class FormSearch extends AbstractPart
         wait(3).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='search']"))));
         uiSearch.click();
         uiSearch.sendKeys(text+Keys.ENTER);
-        wait(4).until(ExpectedConditions.visibilityOf(firstCell));
-        wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + text + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + text + "')]]")));
+        try{
+            wait(4).until(ExpectedConditions.visibilityOf(firstCell));  
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(4).until(ExpectedConditions.visibilityOf(firstCell));
+        }
+        try{
+            wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + text + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + text + "')]]")));  
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + text + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + text + "')]]")));
+        }
+        
+        
 //        new WebDriverWait (driver, 10){}.until(new ExpectedCondition<Boolean>()
 //                                               {
 //                                                   @Override

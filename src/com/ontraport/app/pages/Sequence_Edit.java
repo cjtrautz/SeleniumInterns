@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -80,8 +81,9 @@ public class Sequence_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        //wait.until(ExpectedConditions.visibilityOf(steps.get(index-1).findElement(By.xpath(".//div[@class='step_drop']"))));
-        steps.get(index-1).findElement(By.xpath(".//div[@class='step_drop']")).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"))));
+        List<WebElement> steps2 = driver.findElements(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"));
+        steps2.get(index-1).findElement(By.xpath(".//div[@class='step_drop']")).click();
         
         return this;
     }

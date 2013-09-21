@@ -101,7 +101,7 @@ public class Rule_ListAll extends AbstractPage
         {
             driver.manage()
             .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            .implicitlyWait(7, TimeUnit.SECONDS);
             emptyCell.isDisplayed();
             driver.manage()
             .timeouts()
