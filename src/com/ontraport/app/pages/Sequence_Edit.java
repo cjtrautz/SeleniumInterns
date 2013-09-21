@@ -71,6 +71,7 @@ public class Sequence_Edit extends AbstractPage
             .implicitlyWait(5, TimeUnit.SECONDS);
             //System.out.println(steps.size());
             steps.get(index-1).findElement(By.xpath(".//div[normalize-space(.)='" + step + "']"));
+            System.out.println("found it");
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -82,6 +83,7 @@ public class Sequence_Edit extends AbstractPage
             return null;
         }
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"))));
+        System.out.println("past the wait");
         List<WebElement> steps2 = driver.findElements(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"));
         steps2.get(index-1).findElement(By.xpath(".//div[@class='step_drop']")).click();
         
