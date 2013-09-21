@@ -88,6 +88,7 @@ public class Contact_Edit extends AbstractPage
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
         uiSelectAll.click();
         return this;

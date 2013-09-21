@@ -57,6 +57,7 @@ public class DrawerSimpleActions extends AbstractPart
     }
     public DrawerSimpleActions clickDelete ()
     {
+        wait(3).until(ExpectedConditions.visibilityOf(delete));
         delete.click();
         return this;
         
