@@ -129,23 +129,23 @@ public class Contact_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll)); try
         {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span")));
         }
         catch(StaleElementReferenceException e)
         {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span")));
         }
         catch(TimeoutException e)
         {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span")));
         }
         try
         {
-            uiCollectionBody.findElement(By.xpath(".//tr[" + i + "]/td[2]/span/a")).click();
+            driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")).click();
         }
         catch(StaleElementReferenceException e)
         {
-            uiCollectionBody.findElement(By.xpath(".//tr[" + i + "]/td[2]/span/a")).click();
+            driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")).click();
         }
         return (Contact_Edit) new Contact_Edit().init();
     }
