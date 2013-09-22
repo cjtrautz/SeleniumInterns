@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -111,8 +113,26 @@ public class Contact_ListAll extends AbstractPage
     public Contact_Edit clickContact ( int i )
     {
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
-        wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
-        uiCollectionBody.findElement(By.xpath(".//tr[" + i + "]/td[2]/span/a")).click();
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll)); try
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")));
+        }
+        catch(TimeoutException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span/a")));
+        }
+        try
+        {
+            uiCollectionBody.findElement(By.xpath(".//tr[" + i + "]/td[2]/span/a")).click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            uiCollectionBody.findElement(By.xpath(".//tr[" + i + "]/td[2]/span/a")).click();
+        }
         return (Contact_Edit) new Contact_Edit().init();
     }
     public Contact_ListAll verifyContact (String contact)
