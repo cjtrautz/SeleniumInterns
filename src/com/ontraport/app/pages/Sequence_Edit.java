@@ -94,7 +94,14 @@ public class Sequence_Edit extends AbstractPage
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
-        catch(NoSuchElementException e){
+        catch(IndexOutOfBoundsException e1)
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;   
+        }
+        catch(NoSuchElementException e2){
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
