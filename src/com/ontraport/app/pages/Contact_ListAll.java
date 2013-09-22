@@ -52,11 +52,25 @@ public class Contact_ListAll extends AbstractPage
         driver.manage()
               .timeouts()
               .implicitlyWait(0, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        try 
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        }
         driver.manage()
               .timeouts()
               .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        uiSelectAll.click();
+        try
+        {
+            uiSelectAll.click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            uiSelectAll.click();
+        }
         return this;
     }
     public Contact_ListAll selectAllInGroup ()
