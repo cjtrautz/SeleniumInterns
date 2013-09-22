@@ -81,6 +81,16 @@ public class Facebook_ListAll extends AbstractPage
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
+        catch(StaleElementReferenceException e2)
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(7, TimeUnit.SECONDS);
+            emptyCell.isDisplayed();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
         catch(NoSuchElementException e){
             driver.manage()
             .timeouts()

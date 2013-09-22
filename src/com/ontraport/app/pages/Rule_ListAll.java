@@ -168,14 +168,14 @@ public class Rule_ListAll extends AbstractPage
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOf(rulesTitle));
-        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        //wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         
         int attempts = 0;
-        while(attempts < 2) {
+        while(attempts < 3) {
             try {
                 System.out.println(attempts);
                 driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
