@@ -100,15 +100,16 @@ public class Sequence_Edit extends AbstractPage
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
         wait.until(ExpectedConditions.visibilityOf(complaints));
-        try{
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]//div[@class='step_drop']/span")));
-        }
-        catch(TimeoutException e)
-        {
-            System.out.println("timed out sequence");
-        }
-        List<WebElement> steps2 = driver.findElements(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"));
-        steps2.get(index-1).findElement(By.xpath(".//div[@class='step_drop']/span")).click();
+//        try{
+//        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]//div[@class='step_drop']/span")));
+//        }
+//        catch(TimeoutException e)
+//        {
+//            System.out.println("timed out sequence");
+//        }
+        steps.get(index-1).findElement(By.xpath(".//div[normalize-space(.)='" + step + "']")).click();
+        //List<WebElement> steps2 = driver.findElements(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"));
+        //steps2.get(index-1).findElement(By.xpath(".//div[@class='step_drop']/span")).click();
         
         return this;
     }
