@@ -61,14 +61,30 @@ public class Rule_ListAll extends AbstractPage
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOf(rulesTitle));
-        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
-        wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(rulesTitle));
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+            wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        }
+        catch(StaleElementReferenceException e1)
+        {
+            wait.until(ExpectedConditions.visibilityOf(rulesTitle));
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+            wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        }
         //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        uiSelectAll.click();
+        try
+        {
+            uiSelectAll.click();
+        }
+        catch(StaleElementReferenceException e2)
+        {
+            uiSelectAll.click();
+        }
         return this;
         
     }
@@ -101,7 +117,7 @@ public class Rule_ListAll extends AbstractPage
         {
             driver.manage()
             .timeouts()
-            .implicitlyWait(7, TimeUnit.SECONDS);
+            .implicitlyWait(10, TimeUnit.SECONDS);
             emptyCell.isDisplayed();
             driver.manage()
             .timeouts()
@@ -111,7 +127,7 @@ public class Rule_ListAll extends AbstractPage
         {
             driver.manage()
             .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            .implicitlyWait(10, TimeUnit.SECONDS);
             emptyCell.isDisplayed();
             driver.manage()
             .timeouts()
