@@ -126,8 +126,23 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_Edit clickContact ( int i )
     {
+        try
+        {
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
-        wait.until(ExpectedConditions.visibilityOf(uiSelectAll)); try
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        }
+        try
+        {
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll)); 
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        }
+        try
         {
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span")));
         }

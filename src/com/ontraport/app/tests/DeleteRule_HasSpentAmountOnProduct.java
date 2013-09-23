@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteRule_HasSpentAmountOnProduct extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteRule_HasSpentAmountOnProduct ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

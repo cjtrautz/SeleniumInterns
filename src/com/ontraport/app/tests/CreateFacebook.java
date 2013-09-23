@@ -14,7 +14,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateFacebook extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testCreateFacebook ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteEmailSequence extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteEmailSequence ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

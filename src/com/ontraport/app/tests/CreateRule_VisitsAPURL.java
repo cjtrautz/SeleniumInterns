@@ -13,7 +13,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateRule_VisitsAPURL extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testCreateRule_VisitsAPURL ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

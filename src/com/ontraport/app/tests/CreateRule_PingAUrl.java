@@ -13,7 +13,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateRule_PingAUrl extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testCreateRule_PingAUrl ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

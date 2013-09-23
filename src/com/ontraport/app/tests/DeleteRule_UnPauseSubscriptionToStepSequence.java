@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteRule_UnPauseSubscriptionToStepSequence extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteRule_UnPauseSubscriptionToStepSequence ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

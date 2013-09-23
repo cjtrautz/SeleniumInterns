@@ -70,7 +70,7 @@ public class LeadRouter_ListAll extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            collectionBody.findElement(By.xpath(".//td[@class='ussr-collection-empty']"));
+            driver.findElement(By.xpath("//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

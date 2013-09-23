@@ -10,7 +10,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteColumn extends AbstractTest
 {
     @Test
-    public void test () throws InterruptedException
+    public void testDeleteColumn () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

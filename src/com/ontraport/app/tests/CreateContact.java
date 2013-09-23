@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateContact extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testCreateContact ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Contact_Create contact_Create = contactListAll.clickNewContact();

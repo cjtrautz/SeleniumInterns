@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteSection extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteSection ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -23,7 +23,10 @@ public class DeleteSection extends AbstractTest
         field_Editor = contact_Settings.clickFieldEditor();
         
         //verify
-        
+        if(field_Editor.verifyNotSection("SelTitle")==null)
+        {
+            fail("found deleted section");
+        }
         
         field_Editor.clickCancel();
         field_Editor.dialogBox.clickOk();

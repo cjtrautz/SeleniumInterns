@@ -15,7 +15,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class AddWeightedRandom extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testAddWeightedRandom ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

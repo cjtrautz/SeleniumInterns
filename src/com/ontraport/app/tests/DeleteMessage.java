@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteMessage extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteMessage ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();

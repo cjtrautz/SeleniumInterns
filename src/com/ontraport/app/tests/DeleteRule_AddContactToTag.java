@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteRule_AddContactToTag extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteRule_AddContactToTag ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

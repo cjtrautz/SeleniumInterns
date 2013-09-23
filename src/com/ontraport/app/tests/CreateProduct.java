@@ -13,7 +13,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateProduct extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testCreateProduct ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

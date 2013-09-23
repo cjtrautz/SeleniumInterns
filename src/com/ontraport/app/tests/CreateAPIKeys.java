@@ -16,7 +16,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateAPIKeys extends AbstractTest
 { 
     @Test
-    public void test ()
+    public void testCreateAPIKeys ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

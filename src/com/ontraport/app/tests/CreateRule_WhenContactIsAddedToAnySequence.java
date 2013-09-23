@@ -13,7 +13,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateRule_WhenContactIsAddedToAnySequence extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testCreateRule_WhenContactIsAddedToAnySequence ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

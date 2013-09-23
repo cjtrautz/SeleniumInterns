@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteGroup extends AbstractTest
 {
     @Test
-    public void test ()
+    public void testDeleteGroup ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.drilldownGroup.open();
