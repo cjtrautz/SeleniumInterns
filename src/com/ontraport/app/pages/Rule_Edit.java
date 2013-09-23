@@ -28,6 +28,7 @@ public class Rule_Edit extends AbstractPage
     private WebElement thenEvents;
     public Rule_Edit verifyTextLabel (String text)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -49,6 +50,7 @@ public class Rule_Edit extends AbstractPage
     }
     public Rule_Edit verifyTextDiv (String text)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -71,6 +73,7 @@ public class Rule_Edit extends AbstractPage
 
     public Rule_Edit verifyText (String text)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -92,6 +95,7 @@ public class Rule_Edit extends AbstractPage
     }
     public Rule_Edit verifyHeaderText (String text)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -114,6 +118,7 @@ public class Rule_Edit extends AbstractPage
 
     public Rule_Edit verifyThenTextArea (int index, String value)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -146,6 +151,7 @@ public class Rule_Edit extends AbstractPage
     } 
     public Rule_Edit verifyWhenDropDownInputText (int index, String value)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -178,6 +184,7 @@ public class Rule_Edit extends AbstractPage
     
     public Rule_Edit verifyIfDropDownInputText (int index, String value)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
@@ -211,6 +218,7 @@ public class Rule_Edit extends AbstractPage
      
     public Rule_Edit verifyThenDropDownInputText (int index, String value)
     {
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
             driver.manage()
