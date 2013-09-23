@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.ApiSettings_Create;
 import com.ontraport.app.pages.Contact_Export;
@@ -57,78 +58,109 @@ public class DrawerActions extends AbstractPart
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Message')]")
-        private WebElement uiDeleteMessage;
+    private WebElement uiDeleteMessage;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
+        private WebElement actionPane;
     
     public DrawerActions clickDeleteContacts ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteContacts.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        
         return this;
     }
     public DrawerActions open ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiToggleDrawerActions.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
     public DrawerActions close ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiToggleDrawerActions.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
     public DrawerActions clickDeleteRouter ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRouter.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
     public DrawerActions clickDeleteAPIKey ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteAPI.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public DrawerActions clickDeleteTag ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteTag.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public DrawerActions clickDeleteSequences ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteSequences.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public Contact_Export clickExportContacts ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiExportContacts.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return PageFactory.initElements(driver, Contact_Export.class);
     }
     public DrawerActions clickDeleteFacebookApp ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteFacebookApp.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public DrawerActions clickDeleteList ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteList.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public DrawerActions clickDeleteMessage ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteMessage.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public DrawerActions clickDeleteProduct ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteProduct.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
     public DrawerActions clickDeleteRule ()
     {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRule.click();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
