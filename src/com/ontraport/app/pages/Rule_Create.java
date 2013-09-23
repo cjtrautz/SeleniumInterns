@@ -107,6 +107,9 @@ public class Rule_Create extends AbstractPage
     {
         wait.until(ExpectedConditions.visibilityOf(thenEvents));
         wait.until(ExpectedConditions.visibilityOf(nameInput));
+        wait.until(ExpectedConditions.visibilityOf(whenEvents.findElement(By.xpath(".//input"))));
+        wait.until(ExpectedConditions.visibilityOf(thenEvents.findElement(By.xpath(".//input"))));
+        wait.until(ExpectedConditions.visibilityOf(ifEvents.findElement(By.xpath(".//input"))));
         nameInput.sendKeys(name);
         return this;
         
@@ -267,6 +270,7 @@ public class Rule_Create extends AbstractPage
     public Rule_Create openThenActionPane ( int index )
     {
         wait.until(ExpectedConditions.visibilityOf(thenEvents));
+        wait.until(ExpectedConditions.visibilityOf(thenEvents.findElement(By.xpath(".//button"))));
         List<WebElement> thenDropDowns = thenEvents.findElements(By.xpath(".//button"));
         thenDropDowns.get(index-1).click();
         return this;
