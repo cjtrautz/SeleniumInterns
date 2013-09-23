@@ -68,7 +68,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteContacts.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         
         return this;
     }
@@ -76,28 +76,28 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiToggleDrawerActions.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
     public DrawerActions close ()
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiToggleDrawerActions.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
     public DrawerActions clickDeleteRouter ()
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRouter.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
     public DrawerActions clickDeleteAPIKey ()
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteAPI.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -105,7 +105,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteTag.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -113,7 +113,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteSequences.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -121,14 +121,14 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiExportContacts.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return PageFactory.initElements(driver, Contact_Export.class);
     }
     public DrawerActions clickDeleteFacebookApp ()
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteFacebookApp.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -136,7 +136,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteList.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -144,7 +144,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteMessage.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -152,7 +152,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteProduct.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }
@@ -160,7 +160,7 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRule.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
     }

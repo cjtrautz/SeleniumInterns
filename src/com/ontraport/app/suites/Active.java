@@ -10,29 +10,13 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
+    
     //com.ontraport.app.tests.AddColumn.class,
     //com.ontraport.app.tests.DeleteColumn.class,
-    
-    com.ontraport.app.tests.AddNewSection.class,
-    com.ontraport.app.tests.DeleteSection.class,
-    
-    com.ontraport.app.tests.CreateContact.class,
-    //relies on single contact
-    com.ontraport.app.tests.CreateNote.class,
-    com.ontraport.app.tests.DeleteNote.class,
-    //relies on having contacts
-    com.ontraport.app.tests.CreateExportContacts.class,
-    //relies on having contacts
-    //com.ontraport.app.tests.AddColumn.class,
-    //com.ontraport.app.tests.DeleteColumn.class,
-    //relies on contact
-    com.ontraport.app.tests.AddDeleteUserPermissions.class,
-    com.ontraport.app.tests.DeleteContact.class,
-    
-//    com.ontraport.app.tests.AddNewSection.class,
-//    com.ontraport.app.tests.DeleteSection.class,
-    
     com.ontraport.app.tests.CreateMessage.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
     //relies on a message
     com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
     com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
@@ -52,6 +36,22 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
     com.ontraport.app.tests.DeleteEmailStepSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.AddNewSection.class,
+    com.ontraport.app.tests.DeleteSection.class,
+    
+    com.ontraport.app.tests.CreateContact.class,
+    //relies on single contact
+    com.ontraport.app.tests.CreateNote.class,
+    com.ontraport.app.tests.DeleteNote.class,
+    //relies on having contacts
+    com.ontraport.app.tests.CreateExportContacts.class,
+    //relies on having contacts
+    //com.ontraport.app.tests.AddColumn.class,
+    //com.ontraport.app.tests.DeleteColumn.class,
+    //relies on contact
+    com.ontraport.app.tests.AddDeleteUserPermissions.class,
+    com.ontraport.app.tests.DeleteContact.class,
     
     com.ontraport.app.tests.CreateFulfillment.class, 
   //relies on a fulfillment

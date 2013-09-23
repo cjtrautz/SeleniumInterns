@@ -20,26 +20,18 @@ public class CreateCopyOfEmailMessage extends AbstractTest
         
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
-        Message_CreateEmail message_CreateEmail = message_TypeSelection.clickEmailCreate();
-        message_CreateEmail.enterMessageName("SelEmailMessage");
-        message_CreateEmail.enterSendOutName("Selenium");
-        message_CreateEmail.enterReplyToEmail("selenium@email.com");
-        message_CreateEmail.openMailFromPane();
-        message_CreateEmail.selectMailFrom(1);
-        message_CreateEmail.enterSubject("SelSubject");
-        message_CreateEmail.enterMessageBody("SelBody");
-        message_CreateEmail.openMergeFieldPane();
-        message_CreateEmail.selectMergeField("First Name");
+        message_TypeSelection.clickEmailCopy();
+        Message_CreateEmail message_CreateEmail = message_TypeSelection.selectEmailCopy("SelEmailMessage");
         message_ListAll = message_CreateEmail.clickSave();
-        message_ListAll.formSearch.find("SelEmailMessage");
+        message_ListAll.formSearch.find("Copy of SelEmailMessage");
         
         //verify that it exists
-        if(message_ListAll.verifyMessage("SelEmailMessage")==null)
+        if(message_ListAll.verifyMessage("Copy of SelEmailMessage")==null)
         {
             fail("couldn't find created message");
         }
 
-        Message_Edit message_Edit = message_ListAll.clickSequence("SelEmailMessage");
+        Message_Edit message_Edit = message_ListAll.clickSequence("Copy of SelEmailMessage");
         if(message_Edit.verifyBody("SelBody[First Name]")==null)
         {
             fail("couldn't find message body");
