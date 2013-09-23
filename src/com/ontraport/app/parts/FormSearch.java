@@ -42,8 +42,21 @@ public class FormSearch extends AbstractPart
         {
             wait(10).until(ExpectedConditions.visibilityOf(title));
         }
-        wait(10).until(ExpectedConditions.visibilityOf(collection));
-        wait(3).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='search']"))));
+        try{
+            wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='search']"))));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='search']"))));
+        }
+        try
+        {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
         uiSearch.click();
         uiSearch.sendKeys(text+Keys.ENTER);
         try{
