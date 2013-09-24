@@ -84,8 +84,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateAPIKeys.class, 
     com.ontraport.app.tests.DeleteAPIKeys.class,
     
-    com.ontraport.app.tests.CreateFacebook.class, 
-    com.ontraport.app.tests.DeleteFacebook.class,
+    //com.ontraport.app.tests.CreateFacebook.class, 
+    //com.ontraport.app.tests.DeleteFacebook.class,
     
     com.ontraport.app.tests.AddRoundRobin.class, 
     //relies on a router
