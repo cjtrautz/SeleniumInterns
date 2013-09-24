@@ -14,14 +14,14 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateCopyOfEmailMessage extends AbstractTest
 {
     @Test
-    public void testCreateMessage ()
+    public void testCreateCopyOfEmailMessage ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         message_TypeSelection.clickEmailCopy();
-        Message_CreateEmail message_CreateEmail = message_TypeSelection.selectEmailCopy("SelEmailMessage");
+        Message_CreateEmail message_CreateEmail = message_TypeSelection.selectEmailCopyOption("SelEmailMessage");
         message_ListAll = message_CreateEmail.clickSave();
         message_ListAll.formSearch.find("Copy of SelEmailMessage");
         

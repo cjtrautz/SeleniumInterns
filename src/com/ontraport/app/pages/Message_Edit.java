@@ -25,6 +25,10 @@ public class Message_Edit extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' target-subject ')]")
     private WebElement subject;
     
+    @FindBy(how = How.XPATH,
+            using = "//tbody//tr[contains(concat(' ', normalize-space(@class), ' '),' outcome_rules ')]//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a")
+    private WebElement taskOutcomes;
+    
     @FindBy(
             how = How.XPATH,
             using = "//iframe[@class='cke_wysiwyg_frame cke_reset']")
@@ -150,6 +154,38 @@ public class Message_Edit extends AbstractPage
         
         
         return this;
+    }
+
+    public Message_Edit verifyOutcome ( String name )
+    {
+        {
+            try
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(5, TimeUnit.SECONDS);
+                System.out.println(taskOutcomes.getText());
+                String compare = taskOutcomes.getText();
+                if(compare.equals(name)!=true)
+                {
+                    driver.manage()
+                    .timeouts()
+                    .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                    return null;
+                }
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            }
+            catch(NoSuchElementException e){
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            
+            return this;
+        }
     }
     
     

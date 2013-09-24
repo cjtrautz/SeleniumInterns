@@ -41,6 +41,7 @@ public abstract class AbstractTest
     @AfterClass
     public static void afterTest ()
     {
+        driver.navigate().refresh();
         driver.get("http://app.ontraport.com/#!/contact/listAll");
         WebDriverWait wait = new WebDriverWait(driver, 30);
 

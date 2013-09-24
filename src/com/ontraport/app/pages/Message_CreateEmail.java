@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 
@@ -63,6 +64,8 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail enterMessageName ( String name )
     {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
+        messageNameInput.click();
         messageNameInput.sendKeys(name); 
         return this;
     }

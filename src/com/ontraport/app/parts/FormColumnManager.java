@@ -44,15 +44,6 @@ public class FormColumnManager extends AbstractPart
             using = "//tr[@class='sem-collection-header-display']//a[text()='Add Column']")
     private WebElement addColumn;
     
-    @FindBy(
-            how = How.XPATH,
-            using = "//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")
-    private WebElement zipCodePencil;
-    
-    @FindBy(
-            how = How.XPATH,
-            using = "//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")
-    private WebElement zipCodePencil2;
     public FormColumnManager open (String column) throws InterruptedException 
     {
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
@@ -69,11 +60,12 @@ public class FormColumnManager extends AbstractPart
         Actions actions = new Actions(driver);
         actions.moveToElement(zipCodeColumn).perform();
         
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-        zipCodePencil2.click();
-//        actions.perform();
+        WebElement toDelete = driver.findElement(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
+        actions.clickAndHold(toDelete).perform();
+        actions.release(toDelete).perform();
         //wait(3).until(ExpectedConditions.visibilityOf(zipCodePencil2));
 //
       // zipCodePencil2.click();

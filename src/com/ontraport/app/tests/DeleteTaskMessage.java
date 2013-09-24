@@ -8,14 +8,14 @@ import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class DeleteCopyOfEmailMessage extends AbstractTest
+public class DeleteTaskMessage extends AbstractTest
 {
     @Test
-    public void testDeleteCopyOfEmailMessage ()
+    public void testDeleteTaskMessage ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
-        message_ListAll.formSearch.find("Copy of SelEmailMessage");
+        message_ListAll.formSearch.find("SelTaskMessage");
         message_ListAll.selectAllOnPage();
         message_ListAll.drawerActions.clickDeleteMessage();
         message_ListAll.dialogBox.clickOk();

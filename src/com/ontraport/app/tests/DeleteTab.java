@@ -9,7 +9,7 @@ import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.pages.Field_Editor;
 import com.ontraport.app.tools.AbstractTest;
 
-public class AddNewSection extends AbstractTest
+public class DeleteTab extends AbstractTest
 {
     @Test
     public void testAddNewSection ()
@@ -18,15 +18,14 @@ public class AddNewSection extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        field_Editor.clickAddNewSection();
-        field_Editor.enterSectionTitle("Untitled", "SelTitle");
-        field_Editor.clickTitle();
-        field_Editor.enterSectionDescription("SelTitle", "Section Description", "SelDescription");
+        field_Editor.clickOverflowExpand();
+        field_Editor.clickTabName("SelTab", 8);
+        field_Editor.deleteTab(8);
         contact_Settings = field_Editor.clickSave();
         field_Editor = contact_Settings.clickFieldEditor();
         
         //verify new section is in the field editor
-        if(field_Editor.verifySection("SelTitle", "SelDescription")==null)
+        if(field_Editor.verifyNoOverflowTab("SelTab")==null)
         {
             fail("couldnt find section");
         }

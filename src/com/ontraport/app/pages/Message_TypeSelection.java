@@ -17,8 +17,23 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[div[*/text()='Task']]/descendant::button[*[normalize-space(text())='Create']]")
+    private WebElement taskMessage;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][1]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
     private WebElement emailDropDownButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
+    private WebElement taskDropDownButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]")
+    private WebElement taskDropDownPane;
     
     @FindBy(
             how = How.XPATH,
@@ -27,11 +42,12 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement dropDownCollection;
 
     public Message_CreateEmail clickEmailCreate ()
     {
+        wait.until(ExpectedConditions.visibilityOf(emailMessage));
         emailMessage.click();
         return (Message_CreateEmail) new Message_CreateEmail().init();
     }
@@ -41,13 +57,34 @@ public class Message_TypeSelection extends AbstractPage
         emailDropDownButton.click();
         return this;
     }
-    public Message_CreateEmail selectEmailCopy (String option)
+    public Message_CreateEmail selectEmailCopyOption (String option)
     {
         wait.until(ExpectedConditions.visibilityOf(emailDropDownPane));
         wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
         dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
         return (Message_CreateEmail) new Message_CreateEmail().init();
+    }
+    public Message_CreateTask selectTaskCopyOption (String option)
+    {
+        wait.until(ExpectedConditions.visibilityOf(taskDropDownPane));
+        wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
+        dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
+        return (Message_CreateTask) new Message_CreateTask().init();
+    }
+    public Message_CreateTask clickTaskCreate ()
+    {
+        wait.until(ExpectedConditions.visibilityOf(taskMessage));
+        taskMessage.click();
+        return (Message_CreateTask) new Message_CreateTask().init();
+    }
+    public Message_TypeSelection clickTaskCopy ()
+    {
+        wait.until(ExpectedConditions.visibilityOf(taskDropDownButton));
+        taskDropDownButton.click();
+        return this;
+        
     }
     
 }
