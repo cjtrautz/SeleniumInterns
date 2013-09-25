@@ -10,20 +10,20 @@ import com.ontraport.app.pages.Field_Editor;
 import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.tools.AbstractTest;
 
-public class CreateCheckboxField extends AbstractTest
+public class CreateTextField extends AbstractTest
 {
     @Test
-    public void testCreateCheckboxField ()
+    public void testCreateTextField ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 2);
-        dialogBox.enterFieldName("SelCheckbox");
+        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 3);
+        dialogBox.enterFieldName("SelText");
         dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Checkbox");
-        dialogBox.clickSave("SelCheckbox");
+        dialogBox.selectField("Text");
+        dialogBox.clickSave("SelText");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();
@@ -31,9 +31,9 @@ public class CreateCheckboxField extends AbstractTest
         driver.navigate().refresh();
         
         //verify new section is in the field editor
-        if(field_Editor.verifyFieldCheckbox("SelCheckbox")==null)
+        if(field_Editor.verifyFieldText("SelText")==null)
         {
-            fail("couldnt find checkbox field");
+            fail("couldnt find date field");
         }
         
         field_Editor.clickCancel();

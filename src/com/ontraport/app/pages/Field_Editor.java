@@ -903,5 +903,153 @@ public class Field_Editor extends AbstractPage
         return this;
         
     }
+
+    public Field_Editor verifyFieldDropDown ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input[contains(@placeholder, 'Drop')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Field_Editor clickDeleteFieldDropdown ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
+        WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
+        Actions action = new Actions(driver);
+        action.moveToElement(moveTo).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-border-dashed-all ')]"))));
+        WebElement toDelete = driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-border-dashed-all ')]//label[normalize-space(text())='" + string + "']/preceding-sibling::a/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-trashcan ')]"));
+        action.clickAndHold(toDelete).perform();
+        action.release(toDelete).perform();
+        new WebDriverWait (driver, 15){}.until(new ExpectedCondition<Boolean>(){
+            @Override
+            public Boolean apply(WebDriver d){
+                try{
+                    while(true){
+                    d.manage()
+                    .timeouts()
+                    .implicitlyWait(0, TimeUnit.SECONDS);
+                    d.findElement(By.xpath("//label[normalize-space(text())='SelDropdown']/preceding-sibling::a")).isDisplayed();
+                    d.manage()
+                    .timeouts()
+                    .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                    }
+                }
+                catch(StaleElementReferenceException e1)
+                {
+                    while(true){
+                        d.manage()
+                        .timeouts()
+                        .implicitlyWait(0, TimeUnit.SECONDS);
+                        d.findElement(By.xpath("//label[normalize-space(text())='SelDropdown']/preceding-sibling::a")).isDisplayed();
+                        d.manage()
+                        .timeouts()
+                        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                        }
+                }
+                catch(NoSuchElementException e)
+                {
+                    d.manage()
+                    .timeouts()
+                    .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                    return true;    
+                }
+            }
+        });
+        
+        return this;
+        
+    }
+
+    public Field_Editor verifyFieldText ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input[contains(@placeholder, 'Text')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Field_Editor clickDeleteFieldText ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
+        WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
+        Actions action = new Actions(driver);
+        action.moveToElement(moveTo).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-border-dashed-all ')]"))));
+        WebElement toDelete = driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-border-dashed-all ')]//label[normalize-space(text())='" + string + "']/preceding-sibling::a/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-trashcan ')]"));
+        action.clickAndHold(toDelete).perform();
+        action.release(toDelete).perform();
+        new WebDriverWait (driver, 15){}.until(new ExpectedCondition<Boolean>(){
+            @Override
+            public Boolean apply(WebDriver d){
+                try{
+                    while(true){
+                    d.manage()
+                    .timeouts()
+                    .implicitlyWait(0, TimeUnit.SECONDS);
+                    d.findElement(By.xpath("//label[normalize-space(text())='SelText']/preceding-sibling::a")).isDisplayed();
+                    d.manage()
+                    .timeouts()
+                    .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                    }
+                }
+                catch(StaleElementReferenceException e1)
+                {
+                    while(true){
+                        d.manage()
+                        .timeouts()
+                        .implicitlyWait(0, TimeUnit.SECONDS);
+                        d.findElement(By.xpath("//label[normalize-space(text())='SelText']/preceding-sibling::a")).isDisplayed();
+                        d.manage()
+                        .timeouts()
+                        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                        }
+                }
+                catch(NoSuchElementException e)
+                {
+                    d.manage()
+                    .timeouts()
+                    .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                    return true;    
+                }
+            }
+        });
+        
+        return this;
+        
+    }
     
 }

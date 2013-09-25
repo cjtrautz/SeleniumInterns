@@ -49,6 +49,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-custom-value-creator-target-save-button ')]/span[contains(text(), 'Add')]")
     private WebElement addButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[text()='Errors have prevented you from advancing to the next step. Please make sure you have accepted (checked) all the terms of the Usage Agreement']")
+    private WebElement usageAgreement;
     
     public DialogBox clickOk ()
     {
@@ -129,5 +132,38 @@ public class DialogBox extends AbstractPart
         addButton.click();
         return this;
         
+    }
+    public Object verifyUsageAgreement ()
+    {
+        try
+        {
+            if (uiDialogBox.isDisplayed())
+            {
+                
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch (NoSuchElementException e)
+        {
+            return false;
+        }
+    try
+    {
+        if (usageAgreement.isDisplayed())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    catch (NoSuchElementException e)
+    {
+        return false;
+    }
     }
 }

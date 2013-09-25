@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteStateField extends AbstractTest
 {
     @Test
-    public void testDeleteLongTextField () throws InterruptedException
+    public void testDeleteStateField () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -25,7 +25,7 @@ public class DeleteStateField extends AbstractTest
         //verify
         if(field_Editor.verifyNotField("SelState")==null)
         {
-            fail("found deleted list");
+            fail("found deleted state");
         }
         
         field_Editor.clickCancel();

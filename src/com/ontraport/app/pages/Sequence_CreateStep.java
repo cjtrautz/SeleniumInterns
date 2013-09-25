@@ -149,8 +149,8 @@ public class Sequence_CreateStep extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(subsicribers));
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
-        sequenceNameInput.click();
         wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
+        sequenceNameInput.click();
         sequenceNameInput.sendKeys(name);
         return this;
         
