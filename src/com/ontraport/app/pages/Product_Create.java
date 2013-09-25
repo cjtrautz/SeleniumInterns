@@ -1,9 +1,11 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 
@@ -26,6 +28,8 @@ public class Product_Create extends AbstractPage
 
     public Product_Create enterProductName ( String name )
     {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-component-tab-container']//label[.='Name']/following-sibling::div/input")));
+        wait.until(ExpectedConditions.visibilityOf(nameInput));
         nameInput.sendKeys(name);
         return this;
         

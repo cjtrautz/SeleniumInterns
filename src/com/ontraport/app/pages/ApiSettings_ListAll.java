@@ -96,12 +96,27 @@ public class ApiSettings_ListAll extends AbstractPage
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+        }
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        try
+        {
         selectAll.click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            selectAll.click();
+        }
         return this;
+        }
         
     }
     
@@ -110,10 +125,20 @@ public class ApiSettings_ListAll extends AbstractPage
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOf(apiTitle));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(selectAll)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + api + "']"))));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(apiTitle));
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(selectAll)));
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + api + "']"))));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(apiTitle));
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(selectAll)));
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + api + "']"))));
+        }
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

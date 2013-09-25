@@ -139,4 +139,26 @@ public class Contact_Edit extends AbstractPage
         return this;
     }
     
+    public Contact_Edit verifyFieldValue (String value)
+    {
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(8, TimeUnit.SECONDS);
+            driver.findElement(By.xpath(".//div[normalize-space(text())='" + value + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    
 }

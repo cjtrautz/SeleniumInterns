@@ -38,7 +38,7 @@ public class Product_ListAll extends AbstractPage
 
     public Product_Create clickNewProduct ()
     {
-        wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newProduct));
         newProduct.click();
         return PageFactory.initElements(driver, Product_Create.class);

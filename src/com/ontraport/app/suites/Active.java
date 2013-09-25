@@ -10,6 +10,29 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
+    com.ontraport.app.tests.AddNewSection.class,
+    //relies on section
+    com.ontraport.app.tests.CreatePriceField.class,
+    com.ontraport.app.tests.DeletePriceField.class,
+  //relies on section
+    com.ontraport.app.tests.CreateNumericField.class,
+    com.ontraport.app.tests.DeleteNumericField.class,
+    //relies on section
+    com.ontraport.app.tests.CreateLongTextField.class,
+    com.ontraport.app.tests.DeleteLongTextField.class,
+    //relies on section
+    com.ontraport.app.tests.CreateListSelectionField.class,
+    com.ontraport.app.tests.DeleteListSelectionField.class,
+    //relies on section
+    com.ontraport.app.tests.CreateDateField.class,
+    com.ontraport.app.tests.DeleteDateField.class,
+    //relies on section
+    com.ontraport.app.tests.CreateCheckboxField.class,
+    com.ontraport.app.tests.DeleteCheckBoxField.class,
+    com.ontraport.app.tests.DeleteSection.class,
+    
+    com.ontraport.app.tests.CreateASmartForm.class,
+    
     //com.ontraport.app.tests.CreateTab.class,
     //com.ontraport.app.tests.DeleteTab.class,
     
@@ -25,12 +48,6 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on contact
     com.ontraport.app.tests.AddDeleteUserPermissions.class,
     com.ontraport.app.tests.DeleteContact.class,
-    
-    com.ontraport.app.tests.AddNewSection.class,
-    //relies on section
-    com.ontraport.app.tests.CreateCheckboxField.class,
-    com.ontraport.app.tests.DeleteCheckBoxField.class,
-    com.ontraport.app.tests.DeleteSection.class,
     
     com.ontraport.app.tests.CreateTaskMessage.class,
     //relies on task message

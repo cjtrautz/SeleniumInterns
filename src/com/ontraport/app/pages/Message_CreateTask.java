@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -248,6 +249,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickOutcomeThenDropDown ()
     {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", actionsDropDown);
         wait.until(ExpectedConditions.visibilityOf(actionsDropDown));
         actionsDropDown.click();
         wait.until(ExpectedConditions.visibilityOf(actionsDropDownPane));
@@ -265,6 +267,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickSaveOutcome ()
     {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", saveOutcome);
         wait.until(ExpectedConditions.visibilityOf(saveOutcome));
         saveOutcome.click();
         wait.until(ExpectedConditions.visibilityOf(outcomeLine));

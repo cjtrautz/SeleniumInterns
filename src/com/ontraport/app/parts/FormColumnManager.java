@@ -47,7 +47,7 @@ public class FormColumnManager extends AbstractPart
     public FormColumnManager open (String column) throws InterruptedException 
     {
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
-        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
         //wait(1).until(ExpectedConditions.visibilityOf(columnToEdit));
         //WebElement pencil = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']/following-sibling::div/a[3]/span"));
         //Actions actions = new Actions(driver);

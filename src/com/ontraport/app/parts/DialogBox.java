@@ -39,10 +39,16 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']/button[span[contains(text(), 'Save')]]")
     private WebElement saveButton;
+    @FindBy(how = How.XPATH,
+            using = "//label[contains(text(), 'Add Option')]/following-sibling::div/input")
+    private WebElement addOptionInput;
     @FindBy(
             how = How.XPATH,
             using = "//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']")
     private WebElement newSectionButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-custom-value-creator-target-save-button ')]/span[contains(text(), 'Add')]")
+    private WebElement addButton;
     
     public DialogBox clickOk ()
     {
@@ -107,6 +113,20 @@ public class DialogBox extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
         wait(5).until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + string + "')]")));
         fieldDropDownPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
+        return this;
+        
+    }
+    public DialogBox enterAddOption ( String string )
+    {
+        wait(5).until(ExpectedConditions.visibilityOf(addOptionInput));
+        addOptionInput.sendKeys(string);
+        return this;
+        
+    }
+    public DialogBox clickAdd ()
+    {
+        wait(5).until(ExpectedConditions.visibilityOf(addButton));
+        addButton.click();
         return this;
         
     }

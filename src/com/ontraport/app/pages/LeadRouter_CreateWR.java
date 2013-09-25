@@ -26,6 +26,11 @@ public class LeadRouter_CreateWR extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//input[@placeholder='Select...']")
+    private WebElement dropDownInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' lead_rout_entry_target_list ')]")
     private WebElement leadRouterEntryList;
     
@@ -36,6 +41,9 @@ public class LeadRouter_CreateWR extends AbstractPage
     
     public LeadRouter_CreateWR enterRouterName ( String name )
     {
+        wait.until(ExpectedConditions.visibilityOf(dropDownInput));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']")));
+        wait.until(ExpectedConditions.visibilityOf(leadRouterName));
         leadRouterName.sendKeys(name);
         return this;
         

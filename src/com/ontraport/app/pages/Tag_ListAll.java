@@ -33,6 +33,8 @@ public class Tag_ListAll extends AbstractPage
 
     public Tag_Create clickNewTag ()
     {
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.visibilityOf(newTag));
         newTag.click();
         return PageFactory.initElements(driver, Tag_Create.class);

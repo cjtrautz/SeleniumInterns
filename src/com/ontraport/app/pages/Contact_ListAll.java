@@ -207,5 +207,45 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
+    public Contact_Edit clickContact ( String string )
+    {
+        try
+        {
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        }
+        try
+        {
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll)); 
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        }
+        try
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")));
+        }
+        catch(TimeoutException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")));
+        }
+        try
+        {
+            driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")).click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")).click();
+        }
+        return (Contact_Edit) new Contact_Edit().init();
+    }
     
 }
