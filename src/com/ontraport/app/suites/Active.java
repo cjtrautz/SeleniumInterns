@@ -11,6 +11,9 @@ import com.ontraport.app.tools.AbstractSuite;
 
 {   
     com.ontraport.app.tests.AddNewSection.class,
+  //relies on section
+    //com.ontraport.app.tests.CreateStateField.class,
+    //com.ontraport.app.tests.DeletePriceField.class,
     //relies on section
     com.ontraport.app.tests.CreatePriceField.class,
     com.ontraport.app.tests.DeletePriceField.class,
