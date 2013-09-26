@@ -19,11 +19,11 @@ public class CreateCheckboxField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 2);
-        dialogBox.enterFieldName("SelCheckbox");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Checkbox");
-        dialogBox.clickSave("SelCheckbox");
+        field_Editor.clickAddField("SelDescription", 2);
+        field_Editor.dialogBox.enterFieldName("SelCheckbox");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("Checkbox");
+        field_Editor.dialogBox.clickSave("SelCheckbox");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

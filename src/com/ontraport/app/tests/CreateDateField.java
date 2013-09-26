@@ -19,11 +19,11 @@ public class CreateDateField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 2);
-        dialogBox.enterFieldName("SelDate");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Date");
-        dialogBox.clickSave("SelDate");
+        field_Editor.clickAddField("SelDescription", 2);
+        field_Editor.dialogBox.enterFieldName("SelDate");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("Date");
+        field_Editor.dialogBox.clickSave("SelDate");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

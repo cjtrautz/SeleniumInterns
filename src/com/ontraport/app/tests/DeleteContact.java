@@ -14,7 +14,7 @@ public class DeleteContact extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.formSearch.clear();
-        contactListAll.formSearch.find("SelFirstName");
+        contactListAll.formSearch.find("Sel@email.com");
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
         contactListAll.dialogBox.clickOk();

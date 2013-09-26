@@ -22,15 +22,15 @@ public class TryToFailUsageAgreementImport extends AbstractTest
         Contact_Import contact_Import = contact_Settings.clickImportContacts();
         contact_Import.clickFirstContactList();
         contact_Import.clickNext();
-        DialogBox dialogBox = contact_Import.clickNextWithFail();
+        contact_Import.clickNextWithFail();
         //verify new section is in the field editor
-        if(dialogBox.verifyUsageAgreement()==null)
+        if(contact_Import.dialogBox.verifyUsageAgreement()==null)
         {
             fail("no usage agreement");
         }
-        dialogBox.clickClose();
+        contact_Import.dialogBox.clickClose();
         contact_Import.menuPrimary.clickContactListAll();
-        dialogBox.clickOk();
+        contact_Import.dialogBox.clickOk();
         
     }
 }

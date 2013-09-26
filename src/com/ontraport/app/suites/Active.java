@@ -10,6 +10,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    com.ontraport.app.tests.CreateGateway.class, 
+    com.ontraport.app.tests.DeleteGateway.class,
+    
     com.ontraport.app.tests.CreateMessage.class,
     //relies on a message
     com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
@@ -21,6 +24,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateEmailStepSequence.class,
     //relies on a step sequence
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
     //relies on a step sequence
     com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
     com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,

@@ -19,11 +19,11 @@ public class CreateStateField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 2);
-        dialogBox.enterFieldName("SelState");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("State");
-        dialogBox.clickSave("SelState");
+        field_Editor.clickAddField("SelDescription", 2);
+        field_Editor.dialogBox.enterFieldName("SelState");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("State");
+        field_Editor.dialogBox.clickSave("SelState");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

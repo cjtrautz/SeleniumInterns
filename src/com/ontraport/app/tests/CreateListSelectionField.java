@@ -19,13 +19,13 @@ public class CreateListSelectionField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 1);
-        dialogBox.enterFieldName("SelList");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("List Selection");
-        dialogBox.enterAddOption("a");
-        dialogBox.clickAdd();
-        dialogBox.clickSave("SelList");
+        field_Editor.clickAddField("SelDescription", 1);
+        field_Editor.dialogBox.enterFieldName("SelList");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("List Selection");
+        field_Editor.dialogBox.enterAddOption("a");
+        field_Editor.dialogBox.clickAdd();
+        field_Editor.dialogBox.clickSave("SelList");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

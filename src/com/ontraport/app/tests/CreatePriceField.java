@@ -19,11 +19,11 @@ public class CreatePriceField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 2);
-        dialogBox.enterFieldName("SelPrice");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Price");
-        dialogBox.clickSave("SelPrice");
+        field_Editor.clickAddField("SelDescription", 2);
+        field_Editor.dialogBox.enterFieldName("SelPrice");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("Price");
+        field_Editor.dialogBox.clickSave("SelPrice");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

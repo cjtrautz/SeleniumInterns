@@ -19,11 +19,11 @@ public class CreateLongTextField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 2);
-        dialogBox.enterFieldName("SelLongText");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Long Text");
-        dialogBox.clickSave("SelLongText");
+        field_Editor.clickAddField("SelDescription", 2);
+        field_Editor.dialogBox.enterFieldName("SelLongText");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("Long Text");
+        field_Editor.dialogBox.clickSave("SelLongText");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

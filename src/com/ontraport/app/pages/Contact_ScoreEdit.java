@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -46,13 +48,29 @@ public class Contact_ScoreEdit extends AbstractPage
     private WebElement saveButton;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule_segment ')]")
+    private WebElement firstCondition;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule_segment ')]//div[contains(@style,'left: -16px')]/a/span")
+    private WebElement trashCan;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(text(),'CONTACT SCORING CONDITIONS:')]")
     private WebElement contactScoringCondition;
 
     public Contact_ScoreEdit clickAddNewCondition ()
     {
-        wait.until(ExpectedConditions.visibilityOf(addNewCondition));
-        addNewCondition.click();
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(addNewCondition));
+            addNewCondition.click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(addNewCondition));
+            addNewCondition.click();
+        }
         return this;
         
     }
@@ -186,7 +204,7 @@ public class Contact_ScoreEdit extends AbstractPage
         return this;
     }
 
-    public Object verifyDegradationPercent ( String value )
+    public Contact_ScoreEdit verifyDegradationPercent ( String value )
     {
         wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
         try
@@ -216,6 +234,39 @@ public class Contact_ScoreEdit extends AbstractPage
         }
         
         return this;
+    }
+
+    public Contact_ScoreEdit clickDeleteCondition ()
+    {
+        Actions action = new Actions(driver);
+        action.moveToElement(firstCondition).perform();
+        wait.until(ExpectedConditions.visibilityOf(trashCan));
+        trashCan.click();
+        return this;
+        
+    }
+
+    public Contact_ScoreEdit verifyNoText ( String string )
+    {
+        wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//span[text()='" + string +"']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        
+        return null;
     }
     
 }

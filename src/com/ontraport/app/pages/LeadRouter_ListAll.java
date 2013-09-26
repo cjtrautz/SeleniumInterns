@@ -36,6 +36,7 @@ public class LeadRouter_ListAll extends AbstractPage
 
     public LeadRouter_TypeSelection clickNewLeadRouter ()
     {
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newLeadRouterButton));
         newLeadRouterButton.click();
         return PageFactory.initElements(driver, LeadRouter_TypeSelection.class);

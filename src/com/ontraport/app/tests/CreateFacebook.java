@@ -25,7 +25,6 @@ public class CreateFacebook extends AbstractTest
         facebook_Create.enterAppName("SelFacebook");
         facebook_Create.enterAppID("SelFacebook");
         facebook_Create.enterRedirect("SelFacebook");
-        facebook_Create.enterVisits("0");
         facebook_ListAll = facebook_Create.clickSave();
         facebook_ListAll.formSearch.find("SelFacebook");
 
@@ -48,10 +47,6 @@ public class CreateFacebook extends AbstractTest
         if(facebook_Edit.verifyRedirect("SelFacebook")==null)
         {
             fail("couldnt find redirect name");
-        }
-        if(facebook_Edit.verifyVisits("0")==null)
-        {
-            fail("couldnt visits");
         }
 
         

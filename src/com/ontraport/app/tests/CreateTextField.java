@@ -19,11 +19,11 @@ public class CreateTextField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 3);
-        dialogBox.enterFieldName("SelText");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Text");
-        dialogBox.clickSave("SelText");
+        field_Editor.clickAddField("SelDescription", 3);
+        field_Editor.dialogBox.enterFieldName("SelText");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("Text");
+        field_Editor.dialogBox.clickSave("SelText");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();

@@ -61,6 +61,10 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteMessage;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Gateway')]")
+    private WebElement uiDeleteGateway;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
         private WebElement actionPane;
     
@@ -160,6 +164,14 @@ public class DrawerActions extends AbstractPart
     {
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRule.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+        
+    }
+    public DrawerActions clickDeleteGateway ()
+    {
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiDeleteGateway.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         

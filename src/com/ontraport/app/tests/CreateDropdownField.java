@@ -19,13 +19,13 @@ public class CreateDropdownField extends AbstractTest
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
-        DialogBox dialogBox = field_Editor.clickAddField("SelDescription", 3);
-        dialogBox.enterFieldName("SelDropdown");
-        dialogBox.clickFieldTypeDropDown();
-        dialogBox.selectField("Dropdown");
-        dialogBox.enterAddOption("a");
-        dialogBox.clickAdd();
-        dialogBox.clickSave("SelDropdown");
+        field_Editor.clickAddField("SelDescription", 3);
+        field_Editor.dialogBox.enterFieldName("SelDropdown");
+        field_Editor.dialogBox.clickFieldTypeDropDown();
+        field_Editor.dialogBox.selectField("Dropdown");
+        field_Editor.dialogBox.enterAddOption("a");
+        field_Editor.dialogBox.clickAdd();
+        field_Editor.dialogBox.clickSave("SelDropdown");
         contact_Settings = field_Editor.clickSave();
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();
