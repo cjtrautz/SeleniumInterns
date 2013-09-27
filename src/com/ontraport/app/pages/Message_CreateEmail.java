@@ -9,6 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Message_CreateEmail extends AbstractPage
 {
@@ -64,6 +65,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail enterMessageName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
         messageNameInput.click();
         messageNameInput.sendKeys(name); 
@@ -72,6 +74,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail enterSendOutName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         sendOutNameInput.sendKeys(name);
         return this;
         
@@ -79,6 +82,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail enterReplyToEmail ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         replyToEmailInput.sendKeys(name);
         return this;
         
@@ -86,6 +90,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail openMailFromPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         toggleMailFromPane.click();
         return this;
         
@@ -93,6 +98,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail selectMailFrom ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         List<WebElement> selectionOptions = mailFromPane.findElements(By.xpath(".//li/div"));
         selectionOptions.get(i-1).click();
         return this;
@@ -101,6 +107,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail enterSubject ( String subject )
     {
+        AbstractPart.waitForAjax(driver, 20);
         subjectInput.sendKeys(subject);
         return this;
         
@@ -108,6 +115,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail enterMessageBody ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.switchTo().frame(iFrame);
         body.sendKeys(string);
         driver.switchTo().defaultContent();
@@ -117,6 +125,7 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail openMergeFieldPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         toggleMergeFieldPane.click();
         return this;
         
@@ -124,12 +133,14 @@ public class Message_CreateEmail extends AbstractPage
 
     public Message_CreateEmail selectMergeField ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
     }
 
     public Message_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
     }

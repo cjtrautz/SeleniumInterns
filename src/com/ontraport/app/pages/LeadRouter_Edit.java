@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class LeadRouter_Edit extends AbstractPage
@@ -20,6 +21,7 @@ public class LeadRouter_Edit extends AbstractPage
     
     public LeadRouter_Edit verifyUser (String router)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -41,6 +43,7 @@ public class LeadRouter_Edit extends AbstractPage
     }
     public LeadRouter_Edit verifyPercent (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_Edit extends AbstractPage
@@ -51,6 +52,7 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit clickNotesAndTasksTab ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(contactInformationTitle)));
         notesAndTasksTab.click();
         return this;
@@ -59,6 +61,7 @@ public class Contact_Edit extends AbstractPage
 
     public Contact_Edit clickNewNote ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody)));
         newNote.click();
         return this;
@@ -67,6 +70,7 @@ public class Contact_Edit extends AbstractPage
 
     public Contact_Edit enterNote ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         textArea.sendKeys(string);
         return this;
         
@@ -74,6 +78,7 @@ public class Contact_Edit extends AbstractPage
 
     public Contact_Edit clickSaveNote ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         saveNote.click();
         return this;
         
@@ -81,6 +86,7 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(5, TimeUnit.SECONDS);
@@ -97,6 +103,7 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit verifyNote (String note)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -119,6 +126,7 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit verifyNoNote (String note)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -141,6 +149,7 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit verifyFieldValue (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

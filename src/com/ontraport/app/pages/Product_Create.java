@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Product_Create extends AbstractPage
 {
@@ -28,6 +29,7 @@ public class Product_Create extends AbstractPage
 
     public Product_Create enterProductName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-component-tab-container']//label[.='Name']/following-sibling::div/input")));
         wait.until(ExpectedConditions.visibilityOf(nameInput));
         nameInput.sendKeys(name);
@@ -37,6 +39,7 @@ public class Product_Create extends AbstractPage
 
     public Product_Create enterProductPrice ( String price )
     {
+        AbstractPart.waitForAjax(driver, 20);
         priceInput.clear();
         priceInput.sendKeys(price);
         return this;
@@ -45,6 +48,7 @@ public class Product_Create extends AbstractPage
 
     public Product_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return PageFactory.initElements(driver, Product_ListAll.class);
     }

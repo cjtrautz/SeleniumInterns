@@ -11,6 +11,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Rule_Edit extends AbstractPage
@@ -28,6 +29,7 @@ public class Rule_Edit extends AbstractPage
     private WebElement thenEvents;
     public Rule_Edit verifyTextLabel (String text)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -50,6 +52,7 @@ public class Rule_Edit extends AbstractPage
     }
     public Rule_Edit verifyTextDiv (String text)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -73,6 +76,7 @@ public class Rule_Edit extends AbstractPage
 
     public Rule_Edit verifyText (String text)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -95,6 +99,7 @@ public class Rule_Edit extends AbstractPage
     }
     public Rule_Edit verifyHeaderText (String text)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -118,6 +123,7 @@ public class Rule_Edit extends AbstractPage
 
     public Rule_Edit verifyThenTextArea (int index, String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -151,6 +157,7 @@ public class Rule_Edit extends AbstractPage
     } 
     public Rule_Edit verifyWhenDropDownInputText (int index, String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -184,6 +191,7 @@ public class Rule_Edit extends AbstractPage
     
     public Rule_Edit verifyIfDropDownInputText (int index, String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {
@@ -218,6 +226,7 @@ public class Rule_Edit extends AbstractPage
      
     public Rule_Edit verifyThenDropDownInputText (int index, String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         try
         {

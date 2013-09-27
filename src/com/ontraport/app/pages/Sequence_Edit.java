@@ -13,6 +13,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Sequence_Edit extends AbstractPage
@@ -75,6 +76,7 @@ public class Sequence_Edit extends AbstractPage
     
     public Sequence_Edit verifySequenceStepAndExpand (String step, int index)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"))));
         System.out.println("past the wait");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
@@ -123,6 +125,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyEmailName (String name)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -153,6 +156,7 @@ public class Sequence_Edit extends AbstractPage
     
     public Sequence_Edit verifySendFrom (String name)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -179,6 +183,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyEmailMessage (String step)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -201,6 +206,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyRuleName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -230,6 +236,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyIfText ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -252,6 +259,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Object verifyIfDropDownInputs ( String string, int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -282,6 +290,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyThenText ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -304,6 +313,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyFulfillmentDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -333,6 +343,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifySpecificEventSelected ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -361,6 +372,7 @@ public class Sequence_Edit extends AbstractPage
     }
     public Sequence_Edit verifyEventFieldDropDown ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

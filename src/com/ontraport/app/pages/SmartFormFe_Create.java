@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class SmartFormFe_Create extends AbstractPage
@@ -20,6 +21,7 @@ public class SmartFormFe_Create extends AbstractPage
 
     public SmartFormFe_Create verifySubmitButton ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(smartForm));
         try
         {

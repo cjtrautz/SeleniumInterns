@@ -11,6 +11,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Gateway_Edit extends AbstractPage
@@ -29,6 +30,7 @@ public class Gateway_Edit extends AbstractPage
 
     public Gateway_Edit verifyGatewayName ( String value )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(gatewayName));
         try
         {
@@ -60,6 +62,7 @@ public class Gateway_Edit extends AbstractPage
 
     public Gateway_Edit verifyGatewayTypeDummy ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -88,6 +91,7 @@ public class Gateway_Edit extends AbstractPage
 
     public Gateway_Edit verifyGatewayNickName ( String value )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(gatewayNickName));
         try
         {

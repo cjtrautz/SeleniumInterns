@@ -31,7 +31,7 @@ import com.ontraport.app.parts.Paginator;
 public abstract class AbstractPage
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
-    protected String                    url                         = "https://app.ontraport.com";
+    protected String                    url                         = "https://app.ontraport.com?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Message_TypeSelection extends AbstractPage
 {
@@ -47,18 +48,21 @@ public class Message_TypeSelection extends AbstractPage
 
     public Message_CreateEmail clickEmailCreate ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(emailMessage));
         emailMessage.click();
         return (Message_CreateEmail) new Message_CreateEmail().init();
     }
     public Message_TypeSelection clickEmailCopy ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(emailDropDownButton));
         emailDropDownButton.click();
         return this;
     }
     public Message_CreateEmail selectEmailCopyOption (String option)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(emailDropDownPane));
         wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
@@ -67,6 +71,7 @@ public class Message_TypeSelection extends AbstractPage
     }
     public Message_CreateTask selectTaskCopyOption (String option)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(taskDropDownPane));
         wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
@@ -75,12 +80,14 @@ public class Message_TypeSelection extends AbstractPage
     }
     public Message_CreateTask clickTaskCreate ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(taskMessage));
         taskMessage.click();
         return (Message_CreateTask) new Message_CreateTask().init();
     }
     public Message_TypeSelection clickTaskCopy ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(taskDropDownButton));
         taskDropDownButton.click();
         return this;

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class OneShoppingCart_View extends AbstractPage
@@ -35,6 +36,7 @@ public class OneShoppingCart_View extends AbstractPage
     
     public OneShoppingCart_View verify ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

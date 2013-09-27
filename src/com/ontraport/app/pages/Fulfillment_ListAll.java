@@ -16,6 +16,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Fulfillment_ListAll extends AbstractPage
@@ -47,12 +48,14 @@ public class Fulfillment_ListAll extends AbstractPage
 
     public Fulfillment_Create clickNewFulfillmentList ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newFulfillmentList));
         newFulfillmentList.click();
         return (Fulfillment_Create) new Fulfillment_Create().init();
     }
     public Fulfillment_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -67,6 +70,7 @@ public class Fulfillment_ListAll extends AbstractPage
     
     public Fulfillment_ListAll verifyFulfillment (String fulfillment)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -88,6 +92,7 @@ public class Fulfillment_ListAll extends AbstractPage
     }
     public Fulfillment_Edit clickFulfillment (String fulfillment)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -124,6 +129,7 @@ public class Fulfillment_ListAll extends AbstractPage
     
     public Fulfillment_ListAll verifyNoFulfillment ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

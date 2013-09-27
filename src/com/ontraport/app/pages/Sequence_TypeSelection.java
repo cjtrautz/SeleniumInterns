@@ -6,6 +6,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Sequence_TypeSelection extends AbstractPage
 {
@@ -21,6 +22,7 @@ public class Sequence_TypeSelection extends AbstractPage
 
     public Sequence_CreateStep clickStepSequenceCreate ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         stepSequenceCreate.click();
         return PageFactory.initElements(driver, Sequence_CreateStep.class);
 
@@ -28,6 +30,7 @@ public class Sequence_TypeSelection extends AbstractPage
 
     public Sequence_CreateDate clickDateSequenceCreate ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         dateSequenceCreate.click();
         return PageFactory.initElements(driver, Sequence_CreateDate.class);
     }

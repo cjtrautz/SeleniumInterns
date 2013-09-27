@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Message_ListAll extends AbstractPage
@@ -38,6 +39,7 @@ public class Message_ListAll extends AbstractPage
 
     public Message_TypeSelection clickNewMessage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newMessageList));
         newMessageList.click();
         return (Message_TypeSelection) new Message_TypeSelection().init();
@@ -45,6 +47,7 @@ public class Message_ListAll extends AbstractPage
 
     public Message_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -59,6 +62,7 @@ public class Message_ListAll extends AbstractPage
     
     public Message_ListAll verifyMessage (String message)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -80,6 +84,7 @@ public class Message_ListAll extends AbstractPage
     }
     public Message_Edit clickSequence (String message)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -96,6 +101,7 @@ public class Message_ListAll extends AbstractPage
     
     public Message_ListAll verifyNoMessage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

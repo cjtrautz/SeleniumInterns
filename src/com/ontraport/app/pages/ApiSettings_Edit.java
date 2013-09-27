@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class ApiSettings_Edit extends AbstractPage
@@ -44,6 +45,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifyAPIOwner (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -76,6 +78,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifyAddContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -104,6 +107,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifySearchContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -132,6 +136,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifyDeleteContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -160,6 +165,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifyCreateKey ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -188,6 +194,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifyAppID ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -216,6 +223,7 @@ public class ApiSettings_Edit extends AbstractPage
     
     public ApiSettings_Edit verifyKey ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

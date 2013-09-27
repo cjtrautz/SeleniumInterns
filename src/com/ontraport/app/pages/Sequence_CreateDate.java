@@ -9,6 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Sequence_CreateDate extends AbstractPage
 {
@@ -133,6 +134,7 @@ public class Sequence_CreateDate extends AbstractPage
     
     public Sequence_CreateDate enterSequenceName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         wait.until(ExpectedConditions.visibilityOf(subsicribers));
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
@@ -145,6 +147,7 @@ public class Sequence_CreateDate extends AbstractPage
 
      public Sequence_CreateDate clickAddEmailStep ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(emailStep));
         emailStep.click();
         wait.until(ExpectedConditions.visibilityOf(emailBody));
@@ -154,6 +157,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate clickRadioButtonSpecificEvent ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(stepRadioButton));
         stepRadioButton.click();
         return this;
@@ -162,6 +166,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate clickEventFieldDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(fieldDropDown));
         fieldDropDown.click();
         return this;
@@ -169,6 +174,7 @@ public class Sequence_CreateDate extends AbstractPage
     }
     public Sequence_CreateDate selectDrillDownEmailName ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
@@ -183,6 +189,7 @@ public class Sequence_CreateDate extends AbstractPage
     
     public Sequence_CreateDate selectDropDown ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
@@ -195,6 +202,7 @@ public class Sequence_CreateDate extends AbstractPage
     }
     public Sequence_CreateDate openEmailNamePane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
         toggleMessageSelector.click();
         return this;
@@ -202,6 +210,7 @@ public class Sequence_CreateDate extends AbstractPage
     }
     public Sequence_CreateDate selectDrillDownByIndex ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         List<WebElement> messages = drillDownPane.findElements(By.xpath(".//li/div"));
         messages.get(index-1).click();
@@ -211,6 +220,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate openEmailFromPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleEmailFrom));
         toggleEmailFrom.click();
         return this;
@@ -219,6 +229,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate openSendFromPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleSendFrom));
         toggleSendFrom.click();
         return this;
@@ -227,12 +238,14 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return (Sequence_ListAll) new Sequence_ListAll().init();
     }
 
     public Sequence_CreateDate clickAddRuleStep ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ruleStep));  
         ruleStep.click();   
         wait.until(ExpectedConditions.visibilityOf(ruleBody));
@@ -242,6 +255,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate enterRuleName ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ruleName));
         ruleName.sendKeys(string);
         return this;
@@ -250,6 +264,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate openIfPane ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifTarget));
         List<WebElement> dropDowns = ifTarget.findElements(By.xpath(".//button"));
         dropDowns.get(i-1).click();
@@ -259,6 +274,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate selectIfOption ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
@@ -272,6 +288,7 @@ public class Sequence_CreateDate extends AbstractPage
 
     public Sequence_CreateDate openThenPane ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifTarget));
         List<WebElement> dropDowns = thenTarget.findElements(By.xpath(".//button"));
         dropDowns.get(i-1).click();
@@ -281,6 +298,7 @@ public class Sequence_CreateDate extends AbstractPage
     
     public Sequence_CreateDate selectThenOption ( String string)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane));

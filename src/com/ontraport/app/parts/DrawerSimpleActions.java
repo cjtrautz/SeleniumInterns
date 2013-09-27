@@ -35,6 +35,7 @@ public class DrawerSimpleActions extends AbstractPart
     
     public DrawerSimpleActions open () 
     { 
+        waitForAjax(driver, 20);
         wait(3).until(ExpectedConditions.visibilityOf(collection));
         wait(3).until(ExpectedConditions.visibilityOf(toggleActionsPane));
         toggleActionsPane.click();
@@ -43,6 +44,7 @@ public class DrawerSimpleActions extends AbstractPart
     public DrawerSimpleActions close () { return this; }
     public DrawerSimpleActions clickAddPermissionException ()
     {
+        waitForAjax(driver, 20);
         wait(3).until(ExpectedConditions.visibilityOf(deleteException));
         addPermissionException.click();
         return this; 
@@ -50,6 +52,7 @@ public class DrawerSimpleActions extends AbstractPart
     }
     public DrawerSimpleActions clickDeleteException ()
     {
+        waitForAjax(driver, 20);
         wait(3).until(ExpectedConditions.visibilityOf(deleteException));
         deleteException.click();
         return this;
@@ -57,6 +60,7 @@ public class DrawerSimpleActions extends AbstractPart
     }
     public DrawerSimpleActions clickDelete ()
     {
+        waitForAjax(driver, 20);
         wait(3).until(ExpectedConditions.visibilityOf(delete));
         delete.click();
         return this;

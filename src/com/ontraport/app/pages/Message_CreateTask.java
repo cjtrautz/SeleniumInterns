@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Message_CreateTask extends AbstractPage
 {  
@@ -135,6 +136,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask enterTaskName ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(concat(' ', @class, ' '),' ussr-collection-empty ')]//div[contains(., 'There are no items to display')]")));
         wait.until(ExpectedConditions.visibilityOf(taskNameInput));
@@ -146,6 +148,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask enterTaskSubjectName ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(taskSubject));
         taskSubject.sendKeys(string);
         return this;
@@ -154,6 +157,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask enterDueDate ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(taskDueDate));
         taskDueDate.sendKeys(string);
         return this;
@@ -162,6 +166,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickAssigneeDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ownerDropDown));
         ownerDropDown.click();
         wait.until(ExpectedConditions.visibilityOf(ownerDropDownPane));
@@ -171,6 +176,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask selectDropDownOption ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
         dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
@@ -180,6 +186,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickMergeFieldsDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(mergeDropDown));
         mergeDropDown.click();
         wait.until(ExpectedConditions.visibilityOf(mergeDropDownPane));
@@ -189,6 +196,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickAddNewNotification ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addNewNotification));
         addNewNotification.click();
         return this;
@@ -197,6 +205,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickWhoDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(recipientDropDown));
         recipientDropDown.click();
         wait.until(ExpectedConditions.visibilityOf(recipientDropDownPane));
@@ -206,6 +215,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickWhenDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(eventDropDown));
         eventDropDown.click();
         wait.until(ExpectedConditions.visibilityOf(eventDropDownPane));
@@ -215,6 +225,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickAddNewOutcome ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addNewOutcome));
         addNewOutcome.click();
         return this;
@@ -223,6 +234,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickOutcomeNameDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(outcomeNameDropDown));
         outcomeNameDropDown.click();
         wait.until(ExpectedConditions.visibilityOf(outcomeNameDropDownPane));
@@ -232,6 +244,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask selectCreateNewOutcome ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         wait.until(ExpectedConditions.visibilityOf(createNewOutcomeOption));
         createNewOutcomeOption.click();
@@ -241,6 +254,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask enterOutcomeName ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(outcomeNameInput));
         outcomeNameInput.sendKeys(string);
         return this;
@@ -249,6 +263,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickOutcomeThenDropDown ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", actionsDropDown);
         wait.until(ExpectedConditions.visibilityOf(actionsDropDown));
         actionsDropDown.click();
@@ -259,6 +274,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickSelect ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(selectOutcomeName));
         selectOutcomeName.click();       
         return this;
@@ -267,6 +283,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_CreateTask clickSaveOutcome ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", saveOutcome);
         wait.until(ExpectedConditions.visibilityOf(saveOutcome));
         saveOutcome.click();
@@ -277,6 +294,7 @@ public class Message_CreateTask extends AbstractPage
 
     public Message_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click(); 
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));

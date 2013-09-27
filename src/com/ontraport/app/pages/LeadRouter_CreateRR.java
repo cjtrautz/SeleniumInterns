@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class LeadRouter_CreateRR extends AbstractPage
 {
@@ -41,6 +42,7 @@ public class LeadRouter_CreateRR extends AbstractPage
     
     public LeadRouter_CreateRR enterRouterName (String name)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDownInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='text']")));
         wait.until(ExpectedConditions.visibilityOf(leadRouterName));
@@ -50,6 +52,7 @@ public class LeadRouter_CreateRR extends AbstractPage
 
     public LeadRouter_CreateRR openWhoPane ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try{
             leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]//button")).click();
         }
@@ -63,6 +66,7 @@ public class LeadRouter_CreateRR extends AbstractPage
 
     public LeadRouter_CreateRR selectWho ( int index, int index2 )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]")).findElement(By.xpath(".//ul[@class='ussr-component-drilldownselect-ul']/li/div"))));
         List<WebElement> dropDownOptions = leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]")).findElements(By.xpath(".//ul[@class='ussr-component-drilldownselect-ul']/li/div"));
         System.out.println(dropDownOptions.size());
@@ -73,6 +77,7 @@ public class LeadRouter_CreateRR extends AbstractPage
 
     public LeadRouter_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return PageFactory.initElements(driver, LeadRouter_ListAll.class);
     }

@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class User_Edit extends AbstractPage
@@ -25,6 +26,7 @@ public class User_Edit extends AbstractPage
     
     public User_Edit verifyPermission (String permission)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -47,6 +49,7 @@ public class User_Edit extends AbstractPage
     
     public User_Edit verifyNoPermissions ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -69,6 +72,7 @@ public class User_Edit extends AbstractPage
     
     public void clickPermissionExceptionsCheckBox ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.stalenessOf(selectAllEmptyCheckBox));
         selectAllEmptyCheckBox.click();
         

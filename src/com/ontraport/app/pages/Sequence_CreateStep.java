@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Sequence_CreateStep extends AbstractPage
 {
@@ -145,6 +146,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep enterSequenceName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         wait.until(ExpectedConditions.visibilityOf(subsicribers));
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
@@ -158,6 +160,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep clickAddEmailStep ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(emailStep));
         emailStep.click();
         wait.until(ExpectedConditions.visibilityOf(emailBody));
@@ -167,6 +170,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep openEmailNamePane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
         toggleMessageSelector.click();
         return this;
@@ -174,6 +178,7 @@ public class Sequence_CreateStep extends AbstractPage
     }
     public Sequence_CreateStep selectDrillDownEmailName ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
@@ -187,6 +192,7 @@ public class Sequence_CreateStep extends AbstractPage
     }
     public Sequence_CreateStep selectDrillDown ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
@@ -199,6 +205,7 @@ public class Sequence_CreateStep extends AbstractPage
     }
     public Sequence_CreateStep selectDrillDownByIndex ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         List<WebElement> messages = drillDownPane.findElements(By.xpath(".//li/div"));
         messages.get(index-1).click();
@@ -208,6 +215,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep openEmailFromPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleEmailFrom));
         toggleEmailFrom.click();
         return this;
@@ -216,6 +224,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep openSendFromPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleSendFrom));
         toggleSendFrom.click();
         return this;
@@ -224,6 +233,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return PageFactory.initElements(driver, Sequence_ListAll.class);
 
@@ -231,6 +241,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     public Sequence_ListAll clickBack ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         back.click();
         return (Sequence_ListAll) new Sequence_ListAll().init();
@@ -238,6 +249,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep clickAddRuleStep ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ruleStep));
         ruleStep.click();
         wait.until(ExpectedConditions.visibilityOf(ruleBody));
@@ -247,6 +259,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep enterRuleName ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ruleName));
         ruleName.sendKeys(string);
         return this;
@@ -255,6 +268,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep openIfPane ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifTarget));
         List<WebElement> dropDowns = ifTarget.findElements(By.xpath(".//button"));
         dropDowns.get(i-1).click();
@@ -264,6 +278,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     public Sequence_CreateStep openThenPane ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifTarget));
         List<WebElement> dropDowns = thenTarget.findElements(By.xpath(".//button"));
         dropDowns.get(i-1).click();
@@ -273,6 +288,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep selectIfOption ( String string)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
@@ -285,6 +301,7 @@ public class Sequence_CreateStep extends AbstractPage
     }
     public Sequence_CreateStep selectThenOption ( String string)
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane));
@@ -298,6 +315,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep clickAddFulfillmentStep ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(fulfillmentStep));
         fulfillmentStep.click();
         wait.until(ExpectedConditions.visibilityOf(fulfillmentBody));
@@ -307,6 +325,7 @@ public class Sequence_CreateStep extends AbstractPage
 
     public Sequence_CreateStep openFulfillmentDropDownPane ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(fulfillmentDropDown));
         fulfillmentDropDown.click();
         return this;

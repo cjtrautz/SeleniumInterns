@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Account_View extends AbstractPage
 {
@@ -56,6 +57,7 @@ public class Account_View extends AbstractPage
     
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         softwareAffiliateLinks.click();
         return PageFactory.initElements(driver, OntraportAdmin_Afflink.class);
@@ -63,6 +65,7 @@ public class Account_View extends AbstractPage
 
     public OneShoppingCart_View click1ShoppingCartSyncing ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         oneShoppingCartSyncing.click();
         return PageFactory.initElements(driver, OneShoppingCart_View.class);
@@ -70,6 +73,7 @@ public class Account_View extends AbstractPage
 
     public OntraportAdmin_TrackingPixel clickGetAffiliateTrackingPixel ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         getAffiliateTrackingPixel.click();
         return PageFactory.initElements(driver, OntraportAdmin_TrackingPixel.class);
@@ -77,6 +81,7 @@ public class Account_View extends AbstractPage
 
     public ApiSettings_ListAll clickOntraportApiInstructionsAndKeyManager ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         ontraportApiInstructionsAndKeyManager.click();
         return PageFactory.initElements(driver, ApiSettings_ListAll.class);
@@ -84,6 +89,7 @@ public class Account_View extends AbstractPage
 
     public Tag_ListAll clickManageTags ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         manageTags.click();
         return PageFactory.initElements(driver, Tag_ListAll.class);
@@ -91,6 +97,7 @@ public class Account_View extends AbstractPage
 
     public OntraportAdmin_ListExports clickExportedLists ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         exportedLists.click();
         return PageFactory.initElements(driver, OntraportAdmin_ListExports.class);
@@ -98,6 +105,7 @@ public class Account_View extends AbstractPage
 
     public Facebook_ListAll clickFacebook ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(facebook)));
@@ -107,6 +115,7 @@ public class Account_View extends AbstractPage
 
     public Fulfillment_ListAll clickFulfillmentManager ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentManager)));

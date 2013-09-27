@@ -12,6 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class OntraportAdmin_ListExports extends AbstractPage
@@ -23,6 +24,7 @@ public class OntraportAdmin_ListExports extends AbstractPage
 
     public Object verifyExportedList ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         DateFormat dateFormat = new SimpleDateFormat("M_d_yyyy");
         // get current date time with Date()
         Date date = new Date();

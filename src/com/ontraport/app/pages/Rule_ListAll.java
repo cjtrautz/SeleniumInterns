@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Rule_ListAll extends AbstractPage
@@ -47,6 +48,7 @@ public class Rule_ListAll extends AbstractPage
 
     public Rule_Create clickNewRule ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(rulesTitle));
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
@@ -58,6 +60,7 @@ public class Rule_ListAll extends AbstractPage
     }
     public Rule_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -91,6 +94,7 @@ public class Rule_ListAll extends AbstractPage
     
     public Rule_ListAll verifyRule (String rule)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -113,6 +117,7 @@ public class Rule_ListAll extends AbstractPage
     
     public Rule_ListAll verifyNoRule ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -145,6 +150,7 @@ public class Rule_ListAll extends AbstractPage
     
     public Rule_Edit clickRule (String rule)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -180,6 +186,7 @@ public class Rule_ListAll extends AbstractPage
     }
     public Rule_ListAll selectRule (String rule)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);

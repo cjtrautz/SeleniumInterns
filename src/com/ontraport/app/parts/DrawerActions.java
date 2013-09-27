@@ -70,6 +70,7 @@ public class DrawerActions extends AbstractPart
     
     public DrawerActions clickDeleteContacts ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteContacts.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -78,6 +79,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions open ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiToggleDrawerActions.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -85,6 +87,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions close ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiToggleDrawerActions.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -92,6 +95,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteRouter ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRouter.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -99,6 +103,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteAPIKey ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteAPI.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -107,6 +112,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteTag ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteTag.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -115,6 +121,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteSequences ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteSequences.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -123,6 +130,7 @@ public class DrawerActions extends AbstractPart
     }
     public Contact_Export clickExportContacts ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiExportContacts.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -130,6 +138,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteFacebookApp ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteFacebookApp.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -138,6 +147,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteList ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteList.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -146,6 +156,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteMessage ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteMessage.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -154,6 +165,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteProduct ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteProduct.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -162,6 +174,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteRule ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteRule.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
@@ -170,6 +183,7 @@ public class DrawerActions extends AbstractPart
     }
     public DrawerActions clickDeleteGateway ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteGateway.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));

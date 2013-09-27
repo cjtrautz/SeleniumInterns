@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Contact_Import;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Contact_Settings extends AbstractPage
 {
@@ -34,6 +35,7 @@ public class Contact_Settings extends AbstractPage
     
     public Field_Editor clickFieldEditor ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(leadRouting));
         fieldEditor.click();
         return PageFactory.initElements(driver, Field_Editor.class);
@@ -41,6 +43,7 @@ public class Contact_Settings extends AbstractPage
 
     public LeadRouter_ListAll clickLeadRouting ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(fieldEditor));
         leadRouting.click();
         return PageFactory.initElements(driver, LeadRouter_ListAll.class);
@@ -48,6 +51,7 @@ public class Contact_Settings extends AbstractPage
 
     public Contact_Import clickImportContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(importContacts));
         importContacts.click();
         return PageFactory.initElements(driver, Contact_Import.class);
@@ -55,6 +59,7 @@ public class Contact_Settings extends AbstractPage
 
     public Contact_ScoreEdit clickLeadScoring ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(leadScoring));
         leadScoring.click();
         return PageFactory.initElements(driver, Contact_ScoreEdit.class);

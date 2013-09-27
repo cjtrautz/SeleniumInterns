@@ -35,6 +35,7 @@ public class FormSearch extends AbstractPart
     private WebElement firstCell;
     public FormSearch find ( String text )
     {
+        waitForAjax(driver, 20);
         try{
             wait(10).until(ExpectedConditions.visibilityOf(title));
         }
@@ -59,6 +60,7 @@ public class FormSearch extends AbstractPart
         }
         uiSearch.click();
         uiSearch.sendKeys(text+Keys.ENTER);
+        waitForAjax(driver, 20);
         try{
             wait(4).until(ExpectedConditions.visibilityOf(firstCell));  
         }
@@ -92,6 +94,7 @@ public class FormSearch extends AbstractPart
 
     public FormSearch clear ()
     {
+        waitForAjax(driver, 20);
         uiClear.click();
         return this;
     }

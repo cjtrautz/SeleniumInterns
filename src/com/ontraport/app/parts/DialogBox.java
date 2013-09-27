@@ -52,25 +52,41 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[text()='Errors have prevented you from advancing to the next step. Please make sure you have accepted (checked) all the terms of the Usage Agreement']")
     private WebElement usageAgreement;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='domaintype']")
+    private WebElement hostedDomainRadioButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[@style='margin-bottom: 10px;']//input[@type='TEXT']")
+    private WebElement hostedDomainInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@value='Accept' and @class='btn2']")
+    private WebElement buttonAccept;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='create_button_class']//td[text()='Shape']")
+    private WebElement shapeButton;
     
     public DialogBox clickOk ()
     {
+        waitForAjax(driver, 20);
         uiOk.click();
         wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return null;
     }
     public DialogBox clickCancel ()
     {
+        waitForAjax(driver, 20);
         uiCancel.click();
         return null;
     }
     public DialogBox clickClose ()
     {
+        waitForAjax(driver, 20);
         uiClose.click();
         return null;
     }
     public Boolean isDisplayed ()
     {
+        waitForAjax(driver, 20);
         try
         {
             if (uiDialogBox.isDisplayed())
@@ -89,6 +105,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterFieldName ( String string )
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldName));
         fieldName.sendKeys(string);
         return this;
@@ -96,6 +113,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox clickFieldTypeDropDown ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldTypeDropDown));
         fieldTypeDropDown.click();
         wait(5).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
@@ -104,6 +122,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox clickSave (String string)
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(saveButton));
         saveButton.click();
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
@@ -113,6 +132,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox selectField ( String string )
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
         wait(5).until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + string + "')]")));
         fieldDropDownPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
@@ -121,6 +141,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterAddOption ( String string )
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(addOptionInput));
         addOptionInput.sendKeys(string);
         return this;
@@ -128,13 +149,15 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox clickAdd ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(addButton));
         addButton.click();
         return this;
         
     }
-    public Object verifyUsageAgreement ()
+    public DialogBox verifyUsageAgreement ()
     {
+        waitForAjax(driver, 20);
         try
         {
             if (uiDialogBox.isDisplayed())
@@ -143,27 +166,55 @@ public class DialogBox extends AbstractPart
             }
             else
             {
-                return false;
+                return null;
             }
         }
         catch (NoSuchElementException e)
         {
-            return false;
+            return null;
         }
     try
     {
         if (usageAgreement.isDisplayed())
         {
-            return true;
+            return this;
         }
         else
         {
-            return false;
+            return null;
         }
     }
     catch (NoSuchElementException e)
     {
-        return false;
+        return null;
     }
+    }
+    public DialogBox clickUseHostedDomain ()
+    {
+        waitForAjax(driver, 20);
+        hostedDomainRadioButton.click();
+        return this;
+        
+    }
+    public DialogBox enterHostedDomainName ( String string )
+    {
+        waitForAjax(driver, 20);
+        hostedDomainInput.sendKeys(string);
+        return this;
+        
+    }
+    public DialogBox clickAccept ()
+    {
+        waitForAjax(driver, 20);
+        buttonAccept.click();
+        return this;
+        
+    }
+    public DialogBox clickShape ()
+    {
+        waitForAjax(driver, 20);
+        shapeButton.click();
+        return this;
+        
     }
 }

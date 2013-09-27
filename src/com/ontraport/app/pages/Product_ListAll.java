@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Product_ListAll extends AbstractPage
@@ -38,6 +39,7 @@ public class Product_ListAll extends AbstractPage
 
     public Product_Create clickNewProduct ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newProduct));
         newProduct.click();
@@ -45,6 +47,7 @@ public class Product_ListAll extends AbstractPage
     }
     public Product_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -59,6 +62,7 @@ public class Product_ListAll extends AbstractPage
     
     public Product_ListAll verifyProduct (String product)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -81,6 +85,7 @@ public class Product_ListAll extends AbstractPage
     
     public Product_ListAll verifyNoProduct ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -102,6 +107,7 @@ public class Product_ListAll extends AbstractPage
     }
     public Product_Edit clickProduct (String product)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);

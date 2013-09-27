@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Contact_Import extends AbstractPage
 {
@@ -38,6 +39,7 @@ public class Contact_Import extends AbstractPage
 
     public Contact_Import clickFirstContactList ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(collection));
         wait.until(ExpectedConditions.visibilityOf(table));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tfoot[@class='ussr-component-collection-foot']")));
@@ -49,6 +51,7 @@ public class Contact_Import extends AbstractPage
 
     public Contact_Import clickNext ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-verify-next-button ')]")));
         wait.until(ExpectedConditions.visibilityOf(nextButton));
         nextButton.click();
@@ -58,6 +61,7 @@ public class Contact_Import extends AbstractPage
 
     public DialogBox clickNextWithFail ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(step3));
         wait.until(ExpectedConditions.visibilityOf(nextButtonMerge));
         nextButtonMerge.click();

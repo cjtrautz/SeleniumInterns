@@ -46,6 +46,7 @@ public class FormColumnManager extends AbstractPart
     
     public FormColumnManager open (String column) throws InterruptedException 
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
         //wait(1).until(ExpectedConditions.visibilityOf(columnToEdit));
@@ -87,6 +88,7 @@ public class FormColumnManager extends AbstractPart
     }
     public FormColumnManager open () 
     { 
+        waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
         wait(5).until(ExpectedConditions.visibilityOf(addColumn)); 
         addColumn.click();
@@ -96,6 +98,7 @@ public class FormColumnManager extends AbstractPart
     
     public FormColumnManager clickField ( String field )
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldPaneCollection)); 
         WebElement fieldToChoose = fieldPaneCollection.findElement(By.xpath(".//div[text()='" + field + "']"));
         fieldToChoose.click();
@@ -104,6 +107,7 @@ public class FormColumnManager extends AbstractPart
     }
     public FormColumnManager openFieldPane ()
     {
+        waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldPaneDropDown)); 
         fieldPaneDropDown.click(); 
         return this;
@@ -111,6 +115,7 @@ public class FormColumnManager extends AbstractPart
     }
     public FormColumnManager clickCheckMark ()
     {
+        waitForAjax(driver, 20);
         checkMark.click();
         return this;
 
@@ -118,6 +123,7 @@ public class FormColumnManager extends AbstractPart
     }
     public FormColumnManager clickTrashCan ()
     {
+        waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", trashCan);
         wait(5).until(ExpectedConditions.visibilityOf(trashCan)); 
         trashCan.click();

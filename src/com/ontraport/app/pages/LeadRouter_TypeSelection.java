@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class LeadRouter_TypeSelection extends AbstractPage
 {
@@ -23,6 +24,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
     
     public LeadRouter_CreateRR clickRoundRobinCreate ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(roundRobinCreate));
         roundRobinCreate.click();
         return PageFactory.initElements(driver, LeadRouter_CreateRR.class);
@@ -30,6 +32,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
 
     public LeadRouter_CreateWR clickWeightedRandomCreate ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(weightedRandomCreate));
         weightedRandomCreate.click();
         return PageFactory.initElements(driver, LeadRouter_CreateWR.class);

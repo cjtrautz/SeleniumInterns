@@ -10,6 +10,14 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+  com.ontraport.app.tests.CreateTab.class,
+  com.ontraport.app.tests.DeleteTab.class,
+    
+    com.ontraport.app.tests.CreateRuleDateSequence.class,
+    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class, 
+    
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.DeleteGateway.class,
     
@@ -17,6 +25,9 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on a message
     com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
     com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
     //relies on a message
     com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
     com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
@@ -94,9 +105,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
     com.ontraport.app.tests.DeleteTaskMessage.class,
     
-    //com.ontraport.app.tests.AddColumn.class,
-    //com.ontraport.app.tests.DeleteColumn.class,
-    
     com.ontraport.app.tests.CreateFulfillment.class, 
   //relies on a fulfillment
     com.ontraport.app.tests.CreateFulfillmentStepSequence.class,
@@ -114,9 +122,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateAPIKeys.class, 
     com.ontraport.app.tests.DeleteAPIKeys.class,
-    
-    //com.ontraport.app.tests.CreateFacebook.class, 
-    //com.ontraport.app.tests.DeleteFacebook.class,
     
     com.ontraport.app.tests.AddRoundRobin.class, 
     //relies on a router
@@ -245,15 +250,13 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.AffiliateLink.class,
     
     //failing
-//    com.ontraport.app.tests.CreateRuleDateSequence.class,
-//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+    
+  //com.ontraport.app.tests.CreateFacebook.class, 
+    //com.ontraport.app.tests.DeleteFacebook.class,
 //    com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
 //    com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
-//  //relies on a message
-//    com.ontraport.app.tests.CreateEmailDateSequence.class,
-//    com.ontraport.app.tests.DeleteEmailDateSequence.class,
-    //com.ontraport.app.tests.CreateTab.class,
-    //com.ontraport.app.tests.DeleteTab.class,
+//    com.ontraport.app.tests.CreateTab.class,
+//    com.ontraport.app.tests.DeleteTab.class,
 
     
 })

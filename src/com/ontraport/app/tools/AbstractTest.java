@@ -29,7 +29,14 @@ public abstract class AbstractTest
     }
     @BeforeClass
     public static void beforeTest ()
-    {}
+    {
+        driver = AbstractSuite.getDriver();
+        driver.navigate().refresh();
+        driver.get("http://app.ontraport.com/?track_requests=1/#!/contact/listAll");
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
+        AbstractPart.waitForAjax(driver, 25);
+    }
     @Before
     public void beforeEachTest ()
     {}
@@ -41,11 +48,7 @@ public abstract class AbstractTest
     @AfterClass
     public static void afterTest ()
     {
-        driver.navigate().refresh();
-        driver.get("http://app.ontraport.com/#!/contact/listAll");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
+        
     }
     class Screenshot implements MethodRule
     {

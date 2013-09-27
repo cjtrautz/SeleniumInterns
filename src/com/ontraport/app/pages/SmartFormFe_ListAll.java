@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class SmartFormFe_ListAll extends AbstractPage
 {
@@ -20,6 +21,7 @@ public class SmartFormFe_ListAll extends AbstractPage
 
     public SmartFormFe_Create clickNewSmartForm ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newSmartForm));
         newSmartForm.click();

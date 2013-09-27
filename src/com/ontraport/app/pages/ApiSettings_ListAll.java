@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.ApiSettings_Create;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class ApiSettings_ListAll extends AbstractPage
@@ -49,6 +50,7 @@ public class ApiSettings_ListAll extends AbstractPage
     
     public ApiSettings_ListAll verifyAPIKey (String api)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -71,6 +73,7 @@ public class ApiSettings_ListAll extends AbstractPage
     
     public ApiSettings_ListAll verifyNoAPIKey ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -93,6 +96,7 @@ public class ApiSettings_ListAll extends AbstractPage
 
     public ApiSettings_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -122,6 +126,7 @@ public class ApiSettings_ListAll extends AbstractPage
     
     public ApiSettings_Edit clickAPI (String api)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Tag_Create extends AbstractPage
 {
@@ -22,6 +23,7 @@ public class Tag_Create extends AbstractPage
 
     public Tag_Create enterTagName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_input_text ')]//input")));
         wait.until(ExpectedConditions.visibilityOf(tagNameInput));
         tagNameInput.sendKeys(name);
@@ -31,6 +33,7 @@ public class Tag_Create extends AbstractPage
 
     public Tag_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return PageFactory.initElements(driver, Tag_ListAll.class);
     }

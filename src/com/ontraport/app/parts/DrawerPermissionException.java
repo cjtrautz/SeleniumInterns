@@ -29,29 +29,39 @@ public class DrawerPermissionException extends AbstractPart
             using="//div[@class='target_controls']/span[contains(concat(' ', @class, ' '),' target_add_exception ')]//span[normalize-space(text())='Add Exception']")
     private WebElement addException;
 
-    public void openPermissionExceptionPane ()
+    public DrawerPermissionException openPermissionExceptionPane ()
     {
-        togglePermissionExceptionPane.click();       
+        waitForAjax(driver, 20);
+        togglePermissionExceptionPane.click();
+        return this;
     }
 
-    public void clickPermissionException ( String permission )
+    public DrawerPermissionException clickPermissionException ( String permission )
     {
-        permissionExceptionPane.findElement(By.xpath(".//div[normalize-space(text())='" + permission + "']")).click();        
+        waitForAjax(driver, 20);
+        permissionExceptionPane.findElement(By.xpath(".//div[normalize-space(text())='" + permission + "']")).click(); 
+        return this;
     }
 
-    public void openPermissionFeaturesPane ()
+    public DrawerPermissionException openPermissionFeaturesPane ()
     {
+        waitForAjax(driver, 20);
         togglePermissionFeaturesPane.click();        
+        return this;
     }
 
-    public void clickCanViewContacts ( String permissionFeature )
+    public DrawerPermissionException clickCanViewContacts ( String permissionFeature )
     {
-        permissionFeaturesPane.findElement(By.xpath(".//div[normalize-space(text())='" + permissionFeature + "']")).click();         
+        waitForAjax(driver, 20);
+        permissionFeaturesPane.findElement(By.xpath(".//div[normalize-space(text())='" + permissionFeature + "']")).click();      
+        return this;
     }
 
-    public void clickAddException ()
+    public DrawerPermissionException clickAddException ()
     {
+        waitForAjax(driver, 20);
         addException.click();
+        return this;
         
     }
     

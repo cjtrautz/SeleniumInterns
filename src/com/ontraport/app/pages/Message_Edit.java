@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Message_Edit extends AbstractPage
@@ -40,6 +41,7 @@ public class Message_Edit extends AbstractPage
     
     public Message_Edit verifySendName (String name)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -70,6 +72,7 @@ public class Message_Edit extends AbstractPage
     
     public Message_Edit verifyReplyTo (String name)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -100,6 +103,7 @@ public class Message_Edit extends AbstractPage
     
     public Message_Edit verifySubject (String name)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -129,6 +133,7 @@ public class Message_Edit extends AbstractPage
     }
     public Message_Edit verifyBody (String stuff)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -158,7 +163,7 @@ public class Message_Edit extends AbstractPage
 
     public Message_Edit verifyOutcome ( String name )
     {
-        {
+        AbstractPart.waitForAjax(driver, 20);
             try
             {
                 driver.manage()
@@ -185,7 +190,6 @@ public class Message_Edit extends AbstractPage
             }
             
             return this;
-        }
     }
     
     

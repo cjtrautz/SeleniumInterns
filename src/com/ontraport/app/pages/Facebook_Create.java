@@ -6,6 +6,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Facebook_Create extends AbstractPage
 {
@@ -36,6 +37,7 @@ public class Facebook_Create extends AbstractPage
 
     public Facebook_Create enterAppName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         appName.sendKeys(name);
         return this;
         
@@ -43,6 +45,7 @@ public class Facebook_Create extends AbstractPage
 
     public Facebook_Create enterAppID ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         appID.sendKeys(name);
         return this;
         
@@ -50,6 +53,7 @@ public class Facebook_Create extends AbstractPage
 
     public Facebook_Create enterRedirect ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         redirect.sendKeys(name);
         return this;
         
@@ -57,6 +61,7 @@ public class Facebook_Create extends AbstractPage
 
     public Facebook_Create enterVisits ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         visits.sendKeys(name);
         return this;
         
@@ -64,6 +69,7 @@ public class Facebook_Create extends AbstractPage
 
     public Facebook_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return PageFactory.initElements(driver, Facebook_ListAll.class);
         

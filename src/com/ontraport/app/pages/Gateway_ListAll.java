@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Gateway_Edit;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Gateway_ListAll extends AbstractPage
@@ -36,6 +37,7 @@ public class Gateway_ListAll extends AbstractPage
     
     public Gateway_Create clickNewGateway ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollection));
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ontraport_panel_action_new']")));
@@ -45,6 +47,7 @@ public class Gateway_ListAll extends AbstractPage
 
     public Gateway_ListAll verifyGatewayName ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -67,6 +70,7 @@ public class Gateway_ListAll extends AbstractPage
 
     public Gateway_Edit clickGateway ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -111,6 +115,7 @@ public class Gateway_ListAll extends AbstractPage
 
     public Gateway_ListAll selectGateway ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -142,6 +147,7 @@ public class Gateway_ListAll extends AbstractPage
 
     public Gateway_ListAll verifyNoGateway ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

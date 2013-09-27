@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class ApiSettings_Create extends AbstractPage
 {
@@ -56,6 +57,7 @@ public class ApiSettings_Create extends AbstractPage
     
     public ApiSettings_Create enterApiName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         apiName.clear();
         apiName.sendKeys(name);
         return this;
@@ -64,6 +66,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_Create openContactOwnerPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         toggleContactOwnerPane.click();
         return this;
         
@@ -71,6 +74,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_Create selectOwner ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
        wait.until(ExpectedConditions.visibilityOf(contactOwnerPaneCollection));
        List<WebElement> userOptions = contactOwnerPaneCollection.findElements(By.xpath(".//li"));
        WebElement toSelect = userOptions.get(index-1);
@@ -81,6 +85,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_Create checkAddContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         addContactsCheckbox.click();
         return this;
         
@@ -88,6 +93,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_Create checkSearchContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         searchContactsCheckbox.click();
         return this;
         
@@ -95,6 +101,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_Create checkDeleteContacts ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         deleteContactsCheckbox.click();
         return this;
         
@@ -102,6 +109,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_Create checkCreateKey ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         createKeyCheckbox.click();
         return this;
         
@@ -109,6 +117,7 @@ public class ApiSettings_Create extends AbstractPage
 
     public ApiSettings_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         save.click();
         return PageFactory.initElements(driver, ApiSettings_ListAll.class);
     }

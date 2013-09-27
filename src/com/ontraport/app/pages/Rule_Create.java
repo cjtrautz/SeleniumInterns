@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Rule_ListAll;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 import com.ontraport.app.tools.AbstractSuite;
 
@@ -105,6 +106,7 @@ public class Rule_Create extends AbstractPage
 
     public Rule_Create enterRuleName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(thenEvents));
         wait.until(ExpectedConditions.visibilityOf(nameInput));
         wait.until(ExpectedConditions.visibilityOf(whenEvents.findElement(By.xpath(".//input"))));
@@ -117,6 +119,7 @@ public class Rule_Create extends AbstractPage
 
     public Rule_Create openWhenTriggerPane ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(whenEvents));
         wait.until(ExpectedConditions.visibilityOf(whenEvents.findElement(By.xpath(".//button"))));
         List<WebElement> whenDropDowns = whenEvents.findElements(By.xpath(".//button"));
@@ -127,6 +130,7 @@ public class Rule_Create extends AbstractPage
     
     public Rule_Create openIfConditionPane ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         wait.until(ExpectedConditions.visibilityOf(ifEvents.findElement(By.xpath(".//button"))));
         List<WebElement> ifDropDowns = ifEvents.findElements(By.xpath(".//button"));
@@ -136,6 +140,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create enterThenInput ( String value, int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(thenEvents));
         List<WebElement> thenInputs = thenEvents.findElements(By.xpath(".//input"));
         thenInputs.get(index-1).sendKeys(value);
@@ -144,6 +149,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create enterThenTextArea ( String value, int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(thenEvents));
         List<WebElement> thenInputs = thenEvents.findElements(By.xpath(".//textarea"));
         thenInputs.get(index-1).sendKeys(value);
@@ -153,6 +159,7 @@ public class Rule_Create extends AbstractPage
     
     public Rule_Create enterIfInput ( String value, int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         List<WebElement> ifInputs = ifEvents.findElements(By.xpath(".//input"));
         ifInputs.get(index-1).sendKeys(value);
@@ -161,6 +168,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create enterIfInputCalender ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         List<WebElement> ifInputs = ifEvents.findElements(By.xpath(".//input"));
         ifInputs.get(index-1).click();
@@ -171,6 +179,7 @@ public class Rule_Create extends AbstractPage
     
     public Rule_Create enterWhenInput ( String value, int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(whenEvents));
         wait.until(ExpectedConditions.visibilityOf(whenEvents.findElement(By.xpath(".//input"))));
         List<WebElement> whenInputs = whenEvents.findElements(By.xpath(".//input"));
@@ -181,6 +190,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create trashCondition ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-trashcan']"))));
         Actions action = new Actions(driver);
         action.moveToElement(ifEvents.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-trashcan']")))
@@ -191,6 +201,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create trashTrigger ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(whenEvents.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-trashcan']"))));
         Actions action = new Actions(driver);
         action.moveToElement(whenEvents.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-trashcan']")))
@@ -201,6 +212,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create trashAction ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(thenEvents.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-trashcan']"))));
         Actions action = new Actions(driver);
         action.moveToElement(thenEvents.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-trashcan']")))
@@ -211,24 +223,28 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create addNewCondition ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addNewCondition));
         addNewCondition.click();
         return this;
     }
     public Rule_Create addNewTrigger ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addNewTrigger));
         addNewTrigger.click();
         return this;
     }
     public Rule_Create addNewAction ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addNewAction));
         addNewAction.click();
         return this;
     }
     public Rule_Create selectWhenDrillDownPaneOption (String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane));
@@ -242,6 +258,7 @@ public class Rule_Create extends AbstractPage
     
     public Rule_Create selectIfDrillDownPaneOption (String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
        // wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
@@ -255,6 +272,7 @@ public class Rule_Create extends AbstractPage
     
     public Rule_Create selectThenDrillDownPaneOption (String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPanePaddingWait));
@@ -269,6 +287,7 @@ public class Rule_Create extends AbstractPage
 
     public Rule_Create openThenActionPane ( int index )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(thenEvents));
         wait.until(ExpectedConditions.visibilityOf(thenEvents.findElement(By.xpath(".//button"))));
         List<WebElement> thenDropDowns = thenEvents.findElements(By.xpath(".//button"));
@@ -279,6 +298,7 @@ public class Rule_Create extends AbstractPage
 
     public Rule_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(saveButton));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button//span[text()='Save']")));
         saveButton.click();
@@ -286,6 +306,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create verifyNewRows()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -312,6 +333,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create verifyOneAction()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -334,6 +356,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create verifyOneCondition()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -356,6 +379,7 @@ public class Rule_Create extends AbstractPage
     }
     public Rule_Create verifyOneTrigger()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

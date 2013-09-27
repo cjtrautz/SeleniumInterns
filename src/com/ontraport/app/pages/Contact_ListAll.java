@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Contact_Create;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_ListAll extends AbstractPage
@@ -42,6 +43,7 @@ public class Contact_ListAll extends AbstractPage
 
     public Contact_Create clickNewContact ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.visibilityOf(uiNewContact));
         uiNewContact.click();
@@ -49,6 +51,7 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
               .timeouts()
               .implicitlyWait(0, TimeUnit.SECONDS);
@@ -75,15 +78,18 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_ListAll selectAllInGroup ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         return this;
     }
     public Contact_ListAll selectNone ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         uiSelectAll.click();
         return this;
     }
     public Contact_ListAll verifyColumn (String column)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -105,6 +111,7 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_ListAll verifyNotColumn (String column)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -126,6 +133,7 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_Edit clickContact ( int i )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
@@ -166,6 +174,7 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_ListAll verifyContact (String contact)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -188,6 +197,7 @@ public class Contact_ListAll extends AbstractPage
     
     public Contact_ListAll verifyNoContact ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -209,6 +219,7 @@ public class Contact_ListAll extends AbstractPage
     }
     public Contact_Edit clickContact ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));

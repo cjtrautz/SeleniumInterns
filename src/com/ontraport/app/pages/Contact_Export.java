@@ -7,6 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Contact_Export extends AbstractPage
 {
@@ -27,6 +28,7 @@ public class Contact_Export extends AbstractPage
 
     public Contact_Export openFieldPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         toggleFieldSelector.click();
         return this;
         
@@ -34,6 +36,7 @@ public class Contact_Export extends AbstractPage
 
     public Contact_Export selectField ( String field )
     {
+        AbstractPart.waitForAjax(driver, 20);
         WebElement fieldOptions = drillDownPane.findElement(By.xpath(".//li/div[text()='" + field + "']"));
         fieldOptions.click();
         return this;
@@ -41,6 +44,7 @@ public class Contact_Export extends AbstractPage
 
     public Contact_ListAll clickExport ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         export.click();
         return PageFactory.initElements(driver, Contact_ListAll.class);
     }

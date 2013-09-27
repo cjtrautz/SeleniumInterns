@@ -35,6 +35,7 @@ public class DrilldownGroup extends AbstractPart
 
     public DrilldownGroup toggle ()
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiButtonGroupSelector)));
         uiButtonGroupSelector.click();
         return this;
@@ -52,6 +53,7 @@ public class DrilldownGroup extends AbstractPart
     public Boolean confirmGroupExists (String name)
     {
         open();
+        waitForAjax(driver, 20);
         System.out.println(uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText());
         try
         {
@@ -88,6 +90,7 @@ public class DrilldownGroup extends AbstractPart
     {
         open();
         //System.out.println(uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText());
+        waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -121,6 +124,7 @@ public class DrilldownGroup extends AbstractPart
     }
     public Boolean confirmGroupNotAll ()
     {
+        waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -152,6 +156,7 @@ public class DrilldownGroup extends AbstractPart
     }
     public Boolean confirmGroupAll ()
     {
+        waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -185,6 +190,7 @@ public class DrilldownGroup extends AbstractPart
     public DrilldownGroup clickGroupAll ()
     {
         open();
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(groupSelectorPane));
         groupAll.click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownMenu)));
@@ -193,6 +199,7 @@ public class DrilldownGroup extends AbstractPart
     }
     public DrilldownGroup clickGroup ( String name )
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(groupSelectorPane));
         groupSelectorPane.findElement(By.xpath(".//li/div[text()='" + name + "']")).click();
         return this;

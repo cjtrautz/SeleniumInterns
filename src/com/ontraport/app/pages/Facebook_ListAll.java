@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Facebook_ListAll extends AbstractPage
@@ -42,6 +43,7 @@ public class Facebook_ListAll extends AbstractPage
 
     public Facebook_Create clickNewFacebookApp ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newFaceookApp));
         newFaceookApp.click();
         return PageFactory.initElements(driver, Facebook_Create.class);
@@ -49,6 +51,7 @@ public class Facebook_ListAll extends AbstractPage
     
     public Facebook_ListAll verifyFacebook (String facebook)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -71,6 +74,7 @@ public class Facebook_ListAll extends AbstractPage
     
     public Facebook_ListAll verifyNoFacebook ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -103,6 +107,7 @@ public class Facebook_ListAll extends AbstractPage
 
     public Facebook_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -116,6 +121,7 @@ public class Facebook_ListAll extends AbstractPage
     }
     public Facebook_Edit clickFacebook (String facebook)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);

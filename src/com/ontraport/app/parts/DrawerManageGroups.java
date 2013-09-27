@@ -73,24 +73,28 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups toggle ()
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleDrawerManageGroupsPane));
         uiToggleDrawerManageGroupsPane.click();
         return this;
     }
     public DrawerManageGroups enterGroupName ( String groupname )
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiInputGroupName));
         uiInputGroupName.sendKeys(groupname);
         return this;
     }
     public DrawerManageGroups openGroupPermissionsPane ()
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleGroupPermissionsPane));
         uiToggleGroupPermissionsPane.click();
         return this;
     }
     public DrawerManageGroups clickPermissions ( String permissions )
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList));
         uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiGroupPermissionsList)));
@@ -98,12 +102,14 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups openFieldPane (int row)
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
         uiToggleFieldPane.get(row).click();
         return this;
     }
     public DrawerManageGroups clickField ( String field,  int row )
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']"))));
         uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiFieldList.get(row))));
@@ -111,12 +117,14 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups openConditionPane (int row)
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
         uiToggleConditionPane.get(row).click();
         return this;
     }
     public DrawerManageGroups clickCondition ( String condition, int row )
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']"))));
         uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
@@ -124,12 +132,14 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups enterValue ( String value, int row, int index )
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf( uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input"))));
         uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input")).sendKeys(value);
         return this;
     }
     public Boolean confirmGroupApplied (final String name)
     {
+        waitForAjax(driver, 20);
         try
         {
             wait(1).until(ExpectedConditions.stalenessOf(uiSelectedGroupDisplayHook.findElement(By.xpath(".//button[@value='0']"))));
@@ -142,12 +152,14 @@ private WebElement uiButtonDeleteGroup;
     }
     public DrawerManageGroups clickSave ()
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiButtonSave));
         uiButtonSave.click();
         return this;
     }
     public DrawerManageGroups clickDeleteGroup ()
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiButtonDeleteGroup));
         uiButtonDeleteGroup.click();
         return this;

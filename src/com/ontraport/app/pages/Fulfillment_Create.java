@@ -7,6 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Fulfillment_Create extends AbstractPage
 {
@@ -37,6 +38,7 @@ public class Fulfillment_Create extends AbstractPage
 
     public Fulfillment_Create enterFulfillmentListName ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentListNameInput)));
         fulfillmentListNameInput.sendKeys(name);
         return this;
@@ -45,6 +47,7 @@ public class Fulfillment_Create extends AbstractPage
 
     public Fulfillment_Create openSendTimePane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(toggleTimeSchedulerSelector)));
         toggleTimeSchedulerSelector.click();
         return this;
@@ -53,6 +56,7 @@ public class Fulfillment_Create extends AbstractPage
 
     public Fulfillment_Create selectTime ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownSelectPane)));
         drillDownSelectPane.findElement(By.xpath(".//li/div[text()='" + option + "']")).click();
         return this;
@@ -60,6 +64,7 @@ public class Fulfillment_Create extends AbstractPage
 
     public Fulfillment_Create openFieldPane ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(toggleFieldSelector)));
         toggleFieldSelector.click();
         return this;
@@ -68,6 +73,7 @@ public class Fulfillment_Create extends AbstractPage
 
     public Fulfillment_Create selectField ( String option )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownSelectPane)));
         drillDownSelectPane.findElement(By.xpath(".//li/div[text()='" + option + "']")).click();
         return this;
@@ -76,6 +82,7 @@ public class Fulfillment_Create extends AbstractPage
 
     public Fulfillment_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(save)));
         save.click();
         return (Fulfillment_ListAll) new Fulfillment_ListAll().init();

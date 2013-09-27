@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class LeadRouter_ListAll extends AbstractPage
@@ -44,6 +45,7 @@ public class LeadRouter_ListAll extends AbstractPage
     
     public LeadRouter_ListAll verifyRouter (String router)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -66,6 +68,7 @@ public class LeadRouter_ListAll extends AbstractPage
 
     public LeadRouter_ListAll verifyNoRouter ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -88,6 +91,7 @@ public class LeadRouter_ListAll extends AbstractPage
     
     public LeadRouter_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(5, TimeUnit.SECONDS);
@@ -102,6 +106,7 @@ public class LeadRouter_ListAll extends AbstractPage
     
     public LeadRouter_Edit clickRouter (String router)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);

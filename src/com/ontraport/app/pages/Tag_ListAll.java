@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Tag_ListAll extends AbstractPage
@@ -33,6 +34,7 @@ public class Tag_ListAll extends AbstractPage
 
     public Tag_Create clickNewTag ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.visibilityOf(newTag));
@@ -42,6 +44,7 @@ public class Tag_ListAll extends AbstractPage
 
     public Tag_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -56,6 +59,7 @@ public class Tag_ListAll extends AbstractPage
     
     public Tag_ListAll verifyTag (String tag)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -78,6 +82,7 @@ public class Tag_ListAll extends AbstractPage
     
     public Tag_ListAll verifyNoTag ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

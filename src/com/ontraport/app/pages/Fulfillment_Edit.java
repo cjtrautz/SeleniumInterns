@@ -11,6 +11,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Fulfillment_Edit extends AbstractPage
@@ -29,6 +30,7 @@ public class Fulfillment_Edit extends AbstractPage
     
     public Fulfillment_Edit verifyFulfillmentName (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -61,6 +63,7 @@ public class Fulfillment_Edit extends AbstractPage
     
     public Fulfillment_Edit verifyFrequencyScheduler (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -92,6 +95,7 @@ public class Fulfillment_Edit extends AbstractPage
     }
     public Fulfillment_Edit verifyFieldValue (int index, String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

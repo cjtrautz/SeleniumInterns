@@ -20,6 +20,7 @@ public class Paginator extends AbstractPart
     private WebElement uiToggleRecordsPerPageList;
     public Boolean isDisplayed ()
     {
+        waitForAjax(driver, 20);
         try
         {
             wait(1).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPagePane));
@@ -56,6 +57,7 @@ public class Paginator extends AbstractPart
     }
     public Paginator toggleRecordsPerPagePane ()
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPagePane));
         uiToggleRecordsPerPagePane.click();
         return this;
@@ -72,6 +74,7 @@ public class Paginator extends AbstractPart
     }
     public Paginator clickRecordsPerPage (int count)
     {
+        waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList));
         uiToggleRecordsPerPageList.findElement(By.xpath(".//li[@data-val='"+count+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList)));

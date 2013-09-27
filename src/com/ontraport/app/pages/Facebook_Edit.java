@@ -11,6 +11,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Facebook_Edit extends AbstractPage
@@ -33,6 +34,7 @@ public class Facebook_Edit extends AbstractPage
     
     public Facebook_Edit verifyFacebookName (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -65,6 +67,7 @@ public class Facebook_Edit extends AbstractPage
     
     public Facebook_Edit verifyApplicationId (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -97,6 +100,7 @@ public class Facebook_Edit extends AbstractPage
     
     public Facebook_Edit verifyRedirect (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -129,6 +133,7 @@ public class Facebook_Edit extends AbstractPage
     
     public Facebook_Edit verifyVisits (String value)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

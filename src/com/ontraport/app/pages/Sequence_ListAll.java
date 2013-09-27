@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Sequence_ListAll extends AbstractPage
@@ -49,6 +50,7 @@ public class Sequence_ListAll extends AbstractPage
     
     public Sequence_ListAll verifySequence (String tag)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -71,6 +73,7 @@ public class Sequence_ListAll extends AbstractPage
     
     public Sequence_ListAll verifyNoTag ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -93,6 +96,7 @@ public class Sequence_ListAll extends AbstractPage
 
     public Sequence_ListAll selectAllOnPage ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
@@ -106,6 +110,7 @@ public class Sequence_ListAll extends AbstractPage
     }
     public Sequence_Edit clickSequence (String sequence)
     {
+        AbstractPart.waitForAjax(driver, 20);
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);

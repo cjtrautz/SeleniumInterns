@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_ScoreEdit extends AbstractPage
@@ -61,6 +62,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit clickAddNewCondition ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             wait.until(ExpectedConditions.visibilityOf(addNewCondition));
@@ -77,6 +79,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit clickDropDownCondition ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDownButton));
         dropDownButton.click();
         return this;
@@ -85,6 +88,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit selectDrillDown ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownList));
         wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
         drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
@@ -94,6 +98,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit enterPointScore ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(scoreInput));
         scoreInput.clear();
         scoreInput.sendKeys(string);
@@ -103,6 +108,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit enterDegradationPercent ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(scoreDegradation));
         scoreDegradation.clear();
         scoreDegradation.sendKeys(string);
@@ -112,6 +118,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ListAll clickSave ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(saveButton));
         saveButton.click();
         return PageFactory.initElements(driver, Contact_ListAll.class);
@@ -119,6 +126,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit verifyText ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
         try
         {
@@ -142,6 +150,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit verifyConditionDrillDown ( String value )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
         try
         {
@@ -174,6 +183,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit verifyPointScore ( String value )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
         try
         {
@@ -206,6 +216,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit verifyDegradationPercent ( String value )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
         try
         {
@@ -238,8 +249,15 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit clickDeleteCondition ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         Actions action = new Actions(driver);
-        action.moveToElement(firstCondition).perform();
+        try{
+            action.moveToElement(firstCondition).perform();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            action.moveToElement(firstCondition).perform();
+        }
         wait.until(ExpectedConditions.visibilityOf(trashCan));
         trashCan.click();
         return this;
@@ -248,6 +266,7 @@ public class Contact_ScoreEdit extends AbstractPage
 
     public Contact_ScoreEdit verifyNoText ( String string )
     {
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
         try
         {

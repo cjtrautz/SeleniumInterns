@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class OntraportAdmin_TrackingPixel extends AbstractPage
@@ -19,6 +20,7 @@ public class OntraportAdmin_TrackingPixel extends AbstractPage
     
     public OntraportAdmin_TrackingPixel verify ()
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

@@ -41,6 +41,7 @@ public class MenuUser extends AbstractPart
     
     public MenuUser open () 
     { 
+        waitForAjax(driver, 20);
         wait(4).until(ExpectedConditions.visibilityOf(toggleMenuUser));
         wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']/span")));
         wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']//a[@href='javascript://']")));
@@ -51,12 +52,14 @@ public class MenuUser extends AbstractPart
     public MenuUser close () { return this; }
     public User_Edit clickPersonalSettings ()
     {
+        waitForAjax(driver, 20);
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         personalSettings.click();
         return PageFactory.initElements(driver, User_Edit.class);
     }
     public Account_View clickAdmin ()
     {
+        waitForAjax(driver, 20);
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         wait(4).until(ExpectedConditions.visibilityOf(admin));
         admin.click();

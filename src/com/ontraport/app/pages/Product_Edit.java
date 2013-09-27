@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class Product_Edit extends AbstractPage
@@ -22,6 +23,7 @@ public class Product_Edit extends AbstractPage
     
     public Product_Edit verifyName (String text)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
@@ -43,6 +45,7 @@ public class Product_Edit extends AbstractPage
     }
     public Product_Edit verifyPrice (String text)
     {
+        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()
