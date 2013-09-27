@@ -39,11 +39,23 @@ public class CreateLandingPage extends AbstractTest
         //verify product exists
         if(landingPage_ListAll.verifyLandingPage("SelEasyLP")==null)
         {
-            fail("couldnt find product");
+            fail("couldnt find lp");
         }
 
-        //LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage("SelEasyLP");
+        LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage("SelEasyLP");
         //not sure how to wait to see if website has been hosted yet efficiently
+        if(landingPage_Edit.verifyLandingPageTitle("SelEasyLPTitles")==null)
+        {
+            fail("couldnt find lp titile");
+        }
+        if(landingPage_Edit.verifyLandingPageURL("SelEasyLP" + AbstractSuite.UNIQUE)==null)
+        {
+            fail("couldnt find lp url");
+        }
+        if(landingPage_Edit.verifyLandingPageShape()==null)
+        {
+            fail("didnt add item shape");
+        }
 
         
     }

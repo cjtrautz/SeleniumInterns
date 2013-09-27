@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -18,6 +19,10 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class LandingPage_ListAll extends AbstractPage
 {
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
+    private WebElement emptyCell;
+    
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
@@ -63,6 +68,54 @@ public class LandingPage_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
         return PageFactory.initElements(driver, LandingPage_Edit.class);
+    }
+
+    public LandingPage_ListAll selectLandingPage ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(0, TimeUnit.SECONDS);
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a/span")))));
+        //uiCollectionBody.findElement(By.xpath(".//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a/span")).click();
+        return this;
+        
+    }
+
+    public Object verifyNoLandingPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(emptyCell.isDisplayed()!=true)
+                {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+                }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
     }
     
 }
