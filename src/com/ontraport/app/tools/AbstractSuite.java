@@ -44,7 +44,7 @@ public class AbstractSuite
               .maximize();
         Login login = (Login) new Login().init();
         login.open(Login.url);
-        login.as("selenium@ontraport.com", "test123");
+        login.as("nick@ontraport.com", "Lughead1");
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
     }

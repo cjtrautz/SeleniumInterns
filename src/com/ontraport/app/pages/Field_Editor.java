@@ -463,7 +463,7 @@ public class Field_Editor extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(0, TimeUnit.SECONDS);
-            wait.until(ExpectedConditions.visibilityOf(toggleOverflowMenu));
+            //wait.until(ExpectedConditions.visibilityOf(toggleOverflowMenu));
             toggleOverflowMenu.click();
             wait.until(ExpectedConditions.visibilityOf(overflowCollection));
         }

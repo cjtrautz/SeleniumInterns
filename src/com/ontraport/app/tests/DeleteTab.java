@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteTab extends AbstractTest
 {
     @Test
-    public void testAddNewSection ()
+    public void testDeleteTab ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
