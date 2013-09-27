@@ -60,8 +60,9 @@ public class LandingPage_ListAll extends AbstractPage
 
     public LandingPage_Edit clickPage ( String string )
     {
-        // TODO Auto-generated method stub
-        return null;
+        AbstractPart.waitForAjax(driver, 20);
+        uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
+        return PageFactory.initElements(driver, LandingPage_Edit.class);
     }
     
 }

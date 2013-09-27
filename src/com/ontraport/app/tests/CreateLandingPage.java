@@ -26,10 +26,10 @@ public class CreateLandingPage extends AbstractTest
         LandingPage_TypeSelection landingPage_TypeSelection = landingPage_ListAll.clickNewLandingPage();
         LandingPage_CreateType1 landingPage_CreateType1 = landingPage_TypeSelection.clickCreateEasyPages();
         landingPage_CreateType1.enterLandingPageName("SelEasyLP");
-        landingPage_CreateType1.enterLandingPageTitle("SelEasyLPTitles" + AbstractSuite.UNIQUE);
+        landingPage_CreateType1.enterLandingPageTitle("SelEasyLPTitles");
         landingPage_CreateType1.clickPageURL();
         landingPage_CreateType1.dialogBox.clickUseHostedDomain();
-        landingPage_CreateType1.dialogBox.enterHostedDomainName("SelEasyLP");
+        landingPage_CreateType1.dialogBox.enterHostedDomainName("SelEasyLP" + AbstractSuite.UNIQUE);
         landingPage_CreateType1.dialogBox.clickAccept();
         landingPage_CreateType1.clickNewItem();
         landingPage_CreateType1.dialogBox.clickShape();
