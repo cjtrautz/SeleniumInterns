@@ -16,8 +16,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRuleDateSequence.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     
-    com.ontraport.app.tests.CreateLandingPage.class, 
-    
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.DeleteGateway.class,
     

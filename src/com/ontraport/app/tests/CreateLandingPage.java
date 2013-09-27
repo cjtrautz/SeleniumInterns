@@ -6,11 +6,13 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.LandingPage_CreateType1;
+import com.ontraport.app.pages.LandingPage_Edit;
 import com.ontraport.app.pages.LandingPage_ListAll;
 import com.ontraport.app.pages.LandingPage_TypeSelection;
 import com.ontraport.app.pages.Product_Create;
 import com.ontraport.app.pages.Product_Edit;
 import com.ontraport.app.pages.Product_ListAll;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateLandingPage extends AbstractTest
@@ -24,7 +26,7 @@ public class CreateLandingPage extends AbstractTest
         LandingPage_TypeSelection landingPage_TypeSelection = landingPage_ListAll.clickNewLandingPage();
         LandingPage_CreateType1 landingPage_CreateType1 = landingPage_TypeSelection.clickCreateEasyPages();
         landingPage_CreateType1.enterLandingPageName("SelEasyLP");
-        landingPage_CreateType1.enterLandingPageTitle("SelEasyLPTitle");
+        landingPage_CreateType1.enterLandingPageTitle("SelEasyLPTitles" + AbstractSuite.UNIQUE);
         landingPage_CreateType1.clickPageURL();
         landingPage_CreateType1.dialogBox.clickUseHostedDomain();
         landingPage_CreateType1.dialogBox.enterHostedDomainName("SelEasyLP");
