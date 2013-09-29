@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -60,6 +61,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 clickNewItem ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newItem);
         newItem.click();
         return this;
         
