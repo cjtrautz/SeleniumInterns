@@ -33,9 +33,7 @@ public abstract class AbstractTest
         driver = AbstractSuite.getDriver();
         driver.navigate().refresh();
         driver.get("http://app.ontraport.com/?track_requests=1/#!/contact/listAll");
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
-        AbstractPart.waitForAjax(driver, 25);
+        AbstractPart.waitForAjax(driver, 30);
     }
     @Before
     public void beforeEachTest ()
