@@ -37,13 +37,6 @@ public class FormSearch extends AbstractPart
     {
         waitForAjax(driver, 20);
         try{
-            wait(10).until(ExpectedConditions.visibilityOf(title));
-        }
-        catch(StaleElementReferenceException e)
-        {
-            wait(10).until(ExpectedConditions.visibilityOf(title));
-        }
-        try{
             wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='search']"))));
         }
         catch(StaleElementReferenceException e)

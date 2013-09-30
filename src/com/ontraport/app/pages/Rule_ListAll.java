@@ -190,23 +190,31 @@ public class Rule_ListAll extends AbstractPage
         driver.manage()
         .timeouts()
         .implicitlyWait(0, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOf(rulesTitle));
-        //wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
-        //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(rulesTitle));
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+            wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + rule + "']")));
+        }
+        catch(StaleElementReferenceException e1)
+        {
+            wait.until(ExpectedConditions.visibilityOf(rulesTitle));
+            wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
+            wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + rule + "']")));
+        }
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         
-        int attempts = 0;
-        while(attempts < 3) {
-            try {
-                System.out.println(attempts);
-                driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
-                break;
-            } catch(StaleElementReferenceException e) {
-            }
-            
-            attempts++;
+        try
+        {
+            uiSelectAll.click();
+        }
+        catch(StaleElementReferenceException e2)
+        {
+            uiSelectAll.click();
         }
         driver.manage()
         .timeouts()

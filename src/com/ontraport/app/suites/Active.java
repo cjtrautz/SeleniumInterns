@@ -10,8 +10,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-//  com.ontraport.app.tests.CreateTab.class,
-//  com.ontraport.app.tests.DeleteTab.class,
+    com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
     com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.DeleteLandingPage.class,
     

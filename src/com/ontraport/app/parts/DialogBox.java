@@ -1,14 +1,21 @@
 package com.ontraport.app.parts;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.pages.WordPress_ListAll;
+import com.ontraport.app.pages.WordPress_TypeSelection;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class DialogBox extends AbstractPart
 {
@@ -24,6 +31,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
     private WebElement uiClose;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Close']")
+    private WebElement uiClose2;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
     private WebElement actionPane;
@@ -64,25 +74,43 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='create_button_class']//td[text()='Shape']")
     private WebElement shapeButton;
+    @FindBy(how = How.XPATH,
+            using = "//a[text()='Upload']")
+    private WebElement uploadTab;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-file-uploader-target-url ')]//input")
+    private WebElement urlInput;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-file-uploader-target-go-button ')]")
+    private WebElement uploadGo;
+    @FindBy(how = How.XPATH,
+            using = "//a[text()='Browse']")
+    private WebElement browseTab;
+    @FindBy(how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']")
+    private WebElement uiCollectionBody;
+    @FindBy(how = How.XPATH,
+            using = "//thead[@class='ussr-component-collection-head']/tr/th")
+    private WebElement uiSelectAll;
     
     public DialogBox clickOk ()
     {
         waitForAjax(driver, 20);
         uiOk.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
-        return null;
+        return this;
     }
     public DialogBox clickCancel ()
     {
         waitForAjax(driver, 20);
         uiCancel.click();
-        return null;
+        return this;
     }
     public DialogBox clickClose ()
     {
         waitForAjax(driver, 20);
         uiClose.click();
-        return null;
+        return this;
     }
     public Boolean isDisplayed ()
     {
@@ -216,5 +244,74 @@ public class DialogBox extends AbstractPart
         shapeButton.click();
         return this;
         
+    }
+    public WordPress_ListAll clickClose2 ()
+    {
+        waitForAjax(driver, 20);
+        uiClose2.click();
+        return PageFactory.initElements(driver, WordPress_ListAll.class);
+    }
+    public DialogBox clickUpload ()
+    {
+        waitForAjax(driver, 20);
+        uploadTab.click();
+        return this;
+        
+    }
+    public DialogBox enterURL ( String string )
+    {
+        waitForAjax(driver, 20);
+        urlInput.click();
+        return this;
+        
+    }
+    public DialogBox clickGo ()
+    {
+        waitForAjax(driver, 20);
+        uploadGo.click();
+        return this;
+        
+    }
+    public DialogBox clickBrowse ()
+    {
+        waitForAjax(driver, 20);
+        browseTab.click();
+        return this;
+        
+    }
+    public DialogBox verifyAttachement ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DialogBox selectAll ()
+    {
+
+        AbstractPart.waitForAjax(driver, 20);
+        uiSelectAll.click();
+        return this;
+        
+    }
+    public Object verifyNoAttachement ()
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

@@ -52,6 +52,11 @@ public class Account_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[@class='ussr-settings']//div[.='ATTACHMENT MANAGER']/span")
+    private WebElement attachmentManager;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@class='ussr-settings']//div[.='ONTRAPORT API INSTRUCTIONS AND KEY MANAGER']/span")
     private WebElement ontraportApiInstructionsAndKeyManager;
     
@@ -121,6 +126,17 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentManager)));
         fulfillmentManager.click();
         return PageFactory.initElements(driver, Fulfillment_ListAll.class);
+    }
+
+    public Account_View clickAttachmentManager ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(attachmentManager)));
+        attachmentManager.click();
+        return this;
+        
     }
     
 }
