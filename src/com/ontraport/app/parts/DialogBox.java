@@ -69,7 +69,7 @@ public class DialogBox extends AbstractPart
     {
         waitForAjax(driver, 20);
         uiOk.click();
-        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return null;
     }
     public DialogBox clickCancel ()
