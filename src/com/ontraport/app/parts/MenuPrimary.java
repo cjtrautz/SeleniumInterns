@@ -128,280 +128,280 @@ public class MenuPrimary extends AbstractPart
     public Contact_ListAll clickContactListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         uiContactListAll.click();
         return (Contact_ListAll) new Contact_ListAll().init();
     }
     public Sequence_ListAll clickSequenceListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiContactListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiSequenceListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiSequenceListAll));
         uiSequenceListAll.click();
-        wait(3).until(ExpectedConditions.visibilityOf(seqeuenceTitle));
+        wait(5).until(ExpectedConditions.visibilityOf(seqeuenceTitle));
         return (Sequence_ListAll) new Sequence_ListAll().init();
     }
     public Rule_ListAll clickRuleListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiContactListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiRuleListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiRuleListAll));
         uiRuleListAll.click();
-        wait(3).until(ExpectedConditions.visibilityOf(rulesTitle));
+        wait(5).until(ExpectedConditions.visibilityOf(rulesTitle));
         return (Rule_ListAll) new Rule_ListAll().init();
     }
     public SmartFormFe_ListAll clickSmartFormFeListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiContactListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiSmartFormFeListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiSmartFormFeListAll));
         uiSmartFormFeListAll.click();
         return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
     }
     public Message_ListAll clickMessageListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiContactListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiMessageListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiMessageListAll));
         uiMessageListAll.click();
         return (Message_ListAll) new Message_ListAll().init();
     }
     public Contact_Settings clickContactSettings ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiContactListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactSettings));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactSettings));
         uiContactSettings.click();
         return (Contact_Settings) new Contact_Settings().init();
     }
     public Task_ListAll clickTaskListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiContactListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiContactListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiContactListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTaskListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTaskListAll));
         uiTaskListAll.click();
         return (Task_ListAll) new Task_ListAll().init();
     }
     public Purchase_ListAll clickPurchaseListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
         uiPurchaseListAll.click();
         return (Purchase_ListAll) new Purchase_ListAll().init();
     }
     public Product_ListAll clickProductListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiPurchaseListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiProductListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiProductListAll));
         uiProductListAll.click();
-        wait(3).until(ExpectedConditions.visibilityOf(productTitle));
+        wait(5).until(ExpectedConditions.visibilityOf(productTitle));
         return (Product_ListAll) new Product_ListAll().init();
     }
     public SalesReport_ListAll clickSalesReportView ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiPurchaseListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiProductListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiProductListAll));
         uiProductListAll.click();
         return (SalesReport_ListAll) new SalesReport_ListAll().init();
     }
     public SalesReport_Settings clickSalesReportSettings ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiPurchaseListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiSalesReportSettings));
+        wait(5).until(ExpectedConditions.visibilityOf(uiSalesReportSettings));
         uiSalesReportSettings.click();
         return (SalesReport_Settings) new SalesReport_Settings().init();
     }
     public Affiliate_ListAll clickAffiliateListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
         uiAffiliateListAll.click();
         return (Affiliate_ListAll) new Affiliate_ListAll().init();
     }
     public AffiliateProgram_ListAll clickAffiliateProgramListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiAffiliateListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateProgramListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateProgramListAll));
         uiAffiliateProgramListAll.click();
         return (AffiliateProgram_ListAll) new AffiliateProgram_ListAll().init();
     }
     public Affiliate_View clickAffiliateView ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiAffiliateListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateView));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateView));
         uiAffiliateView.click();
         return (Affiliate_View) new Affiliate_View().init();
     }
     public Affiliate_Settings clickAffiliateSettings ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateListAll));
         Actions action = new Actions(driver);
         action.moveToElement(uiAffiliateListAll)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiAffiliateSettings));
+        wait(5).until(ExpectedConditions.visibilityOf(uiAffiliateSettings));
         uiAffiliateSettings.click();
         return (Affiliate_Settings) new Affiliate_Settings().init();
     }
     public LandingPage_ListAll clickLandingPageListAll1 ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
         uiLandingPageListAll1.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
     public LandingPage_ListAll clickLandingPageListAll2 ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiLandingPageListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiLandingPageListAll2));
+        wait(5).until(ExpectedConditions.visibilityOf(uiLandingPageListAll2));
         uiLandingPageListAll2.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
     public WordPress_ListAll clickWordPressListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiLandingPageListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiWordPressListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiWordPressListAll));
         uiWordPressListAll.click();
         return (WordPress_ListAll) new WordPress_ListAll().init();
     }
     public TrackedDomain_ListAll clickTrackedDomainListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiLandingPageListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiLandingPageListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackedDomainListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackedDomainListAll));
         uiTrackedDomainListAll.click();
         return (TrackedDomain_ListAll) new TrackedDomain_ListAll().init();
     }
     public TrackingCampaign_ListAll clickTrackingCampaignListAll1 ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         uiTrackingCampaignListAll1.click();
         return (TrackingCampaign_ListAll) new TrackingCampaign_ListAll().init();
     }
     public TrackingCampaign_ListAll clickTrackingCampaignListAll2 ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll2));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll2));
         uiTrackingCampaignListAll2.click();
         return (TrackingCampaign_ListAll) new TrackingCampaign_ListAll().init();
     }
     public TrackingLeadSource_ListAll clickTrackingLeadSourceListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingLeadSourceListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingLeadSourceListAll));
         uiTrackingLeadSourceListAll.click();
         return (TrackingLeadSource_ListAll) new TrackingLeadSource_ListAll().init();
     }
     public TrackingMedium_ListAll clickTrackingMediumListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingMediumListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingMediumListAll));
         uiTrackingMediumListAll.click();
         return (TrackingMedium_ListAll) new TrackingMedium_ListAll().init();
     }
     public TrackingContent_ListAll clickTrackingContentListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingContentListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingContentListAll));
         uiTrackingContentListAll.click();
         return (TrackingContent_ListAll) new TrackingContent_ListAll().init();
     }
     public TrackingTerm_ListAll clickTrackingTermListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingTermListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingTermListAll));
         uiTrackingTermListAll.click();
         return (TrackingTerm_ListAll) new TrackingTerm_ListAll().init();
     }
     public TrackingUrlHistory_ListAll clickTrackingUrlHistoryListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingUrlHistoryListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingUrlHistoryListAll));
         uiTrackingUrlHistoryListAll.click();
         return (TrackingUrlHistory_ListAll) new TrackingUrlHistory_ListAll().init();
     }
     public TrackingLinks_ListAll clickTrackingLinksListAll ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingCampaignListAll1));
         Actions action = new Actions(driver);
         action.moveToElement(uiTrackingCampaignListAll1)
             .perform();
-        wait(3).until(ExpectedConditions.visibilityOf(uiTrackingLinksListAll));
+        wait(5).until(ExpectedConditions.visibilityOf(uiTrackingLinksListAll));
         uiTrackingLinksListAll.click();
         return (TrackingLinks_ListAll) new TrackingLinks_ListAll().init();
     }

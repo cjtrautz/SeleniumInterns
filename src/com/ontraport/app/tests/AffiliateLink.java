@@ -11,6 +11,7 @@ import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.OntraportAdmin_Afflink;
 import com.ontraport.app.pages.User_Edit;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractTest;
 
 public class AffiliateLink extends AbstractTest
@@ -35,8 +36,7 @@ public class AffiliateLink extends AbstractTest
         driver.navigate().back();
         
         //wait for app to load
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ussr-component-section-components']/div[3]/div[2]"))));
+        AbstractPart.waitForAjax(driver, 20);
         
     }
 }

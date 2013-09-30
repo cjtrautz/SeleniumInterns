@@ -14,6 +14,7 @@ public class DeleteNote extends AbstractTest
     public void testDeleteNote ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+        contactListAll.menuPrimary.clickContactListAll();
         
         Contact_Edit contact_Edit = contactListAll.clickContact(1);
         contact_Edit.clickNotesAndTasksTab();
