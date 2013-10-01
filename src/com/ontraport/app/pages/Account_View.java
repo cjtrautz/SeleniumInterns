@@ -60,6 +60,16 @@ public class Account_View extends AbstractPage
             using = "//div[@class='ussr-settings']//div[.='ONTRAPORT API INSTRUCTIONS AND KEY MANAGER']/span")
     private WebElement ontraportApiInstructionsAndKeyManager;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-settings']//div[contains(., 'ADDRESS SET UP')]/span")
+    private WebElement sendFromAddress;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-settings']//div[.='DOUBLE OPT IN / INVOICE MANAGER']/span")
+    private WebElement doubleOptInInvoice;
+    
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -137,6 +147,26 @@ public class Account_View extends AbstractPage
         attachmentManager.click();
         return this;
         
+    }
+
+    public Sender_View clickSendFrom ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(sendFromAddress)));
+        sendFromAddress.click();
+        return PageFactory.initElements(driver, Sender_View.class);
+    }
+
+    public MessageTemplate_ListAll clickDoubleOptInOrInvoiceManager ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doubleOptInInvoice)));
+        doubleOptInInvoice.click();
+        return PageFactory.initElements(driver, MessageTemplate_ListAll.class);
     }
     
 }

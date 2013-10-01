@@ -32,7 +32,7 @@ public class CreateCopyOfTaskMessage extends AbstractTest
             fail("couldn't find created message");
         }
 
-        Message_Edit message_Edit = message_ListAll.clickSequence("Copy of SelTaskMessage");
+        Message_Edit message_Edit = message_ListAll.clickMessage("Copy of SelTaskMessage");
         if(message_Edit.verifyOutcome("SelOutcome")==null)
         {
             fail("couldn't find SelOutcome");

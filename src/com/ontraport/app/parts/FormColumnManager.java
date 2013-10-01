@@ -49,6 +49,7 @@ public class FormColumnManager extends AbstractPart
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
+        
         //wait(1).until(ExpectedConditions.visibilityOf(columnToEdit));
         //WebElement pencil = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']/following-sibling::div/a[3]/span"));
         //Actions actions = new Actions(driver);
@@ -60,7 +61,7 @@ public class FormColumnManager extends AbstractPart
         //WebElement pencil = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"));
         Actions actions = new Actions(driver);
         actions.moveToElement(zipCodeColumn).perform();
-        
+        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         //Thread.sleep(3000);
         wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));

@@ -51,7 +51,7 @@ public class CreateTaskMessage extends AbstractTest
             fail("couldn't find created message");
         }
 
-        Message_Edit message_Edit = message_ListAll.clickSequence("SelTaskMessage");
+        Message_Edit message_Edit = message_ListAll.clickMessage("SelTaskMessage");
         if(message_Edit.verifyOutcome("SelOutcome")==null)
         {
             fail("couldn't find SelOutcome");

@@ -91,7 +91,16 @@ public class DialogBox extends AbstractPart
     private WebElement uiCollectionBody;
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
-    private WebElement uiSelectAll;
+    private WebElement uiSelectAll; 
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
+    private WebElement emptyCell;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' sender_new_email ')]//input")
+    private WebElement newEmailInput;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ussr-dialog-buttons']//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]/span[text()='Add E-Mail']")
+    private WebElement addEmail;
     
     public DialogBox clickOk ()
     {
@@ -262,6 +271,7 @@ public class DialogBox extends AbstractPart
     {
         waitForAjax(driver, 20);
         urlInput.click();
+        urlInput.sendKeys(string);
         return this;
         
     }
@@ -287,7 +297,7 @@ public class DialogBox extends AbstractPart
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"));
+            uiCollectionBody.findElement(By.xpath(".//a[contains(normalize-space(text()), '" + string + "')]"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -309,9 +319,41 @@ public class DialogBox extends AbstractPart
         return this;
         
     }
-    public Object verifyNoAttachement ()
+    public DialogBox verifyNoAttachement ()
     {
-        // TODO Auto-generated method stub
-        return null;
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            emptyCell.isDisplayed();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DialogBox enterEmailAddress ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        newEmailInput.sendKeys(string);
+        return this;
+        
+    }
+    public DialogBox addEmail (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        addEmail.click();
+        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[text()='" + string + "']"))));
+        return this;
+        
     }
 }

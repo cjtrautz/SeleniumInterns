@@ -9,7 +9,15 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{ 
+{   
+    //com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    //com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+    
+    com.ontraport.app.tests.CreateSendFromAddress.class,
+    
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+    
     com.ontraport.app.tests.CreateAWordPressSite.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
@@ -89,8 +97,8 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateContact.class,
     //relies on having contacts
-    com.ontraport.app.tests.AddColumn.class,
-    com.ontraport.app.tests.DeleteColumn.class,
+    //com.ontraport.app.tests.AddColumn.class,
+    //com.ontraport.app.tests.DeleteColumn.class,
     //relies on single contact
     com.ontraport.app.tests.CreateNote.class,
     com.ontraport.app.tests.DeleteNote.class,

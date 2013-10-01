@@ -39,7 +39,7 @@ public class CreateMessage extends AbstractTest
             fail("couldn't find created message");
         }
 
-        Message_Edit message_Edit = message_ListAll.clickSequence("SelEmailMessage");
+        Message_Edit message_Edit = message_ListAll.clickMessage("SelEmailMessage");
         if(message_Edit.verifyBody("SelBody[First Name]")==null)
         {
             fail("couldn't find message body");
