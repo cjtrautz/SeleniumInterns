@@ -19,7 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 public class Sequence_ListAll extends AbstractPage
 {
     @FindBy(how = How.XPATH,
-            using = "//td[contains(concat(' ', normalize-space(@class), ' '),'ussr-collection-empty']")
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '),'ussr-collection-empty')]")
     private WebElement emptyCell;
     
     @FindBy(how = How.XPATH,

@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,6 +37,8 @@ public class CreateSendFromAddress extends AbstractTest
         gmail.enterUserName("njcross1990@gmail.com");
         gmail.enterPassword("Lughead1");
         gmail.clickSignIn();
+        Actions action = new Actions(driver);
+        action.sendKeys("6086980624" + Keys.ENTER);
         gmail.clickConfirmationEmail();
         gmail.clickLink();
         gmail.clickDelete();

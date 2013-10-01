@@ -10,35 +10,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
-    //yep
-    
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
-    
-    com.ontraport.app.tests.CreateUCConfig.class,
-    
-    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
-    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
-    
     com.ontraport.app.tests.CreateSendFromAddress.class,
-    
-    com.ontraport.app.tests.UploadToAttachmentManager.class,
-    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
-    
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    com.ontraport.app.tests.DeleteWordPressSite.class,
-    
-    com.ontraport.app.tests.CreateLandingPage.class,
-    com.ontraport.app.tests.DeleteLandingPage.class,
-    
-    com.ontraport.app.tests.CreateRuleDateSequence.class,
-    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-    
-    com.ontraport.app.tests.CreateGateway.class, 
-    com.ontraport.app.tests.DeleteGateway.class,
     
     com.ontraport.app.tests.CreateMessage.class,
     //relies on a message
@@ -69,6 +41,34 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
     com.ontraport.app.tests.DeleteEmailStepSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.CreateRole.class,
+    //relies on role
+    com.ontraport.app.tests.CreateUser.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    com.ontraport.app.tests.DeleteRole.class,
+    
+    com.ontraport.app.tests.CreateUCConfig.class,
+    
+    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+    
+    com.ontraport.app.tests.CreateSendFromAddress.class,
+    
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+    
+    com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
+    com.ontraport.app.tests.CreateRuleDateSequence.class,
+    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+    
+    com.ontraport.app.tests.CreateGateway.class, 
+    com.ontraport.app.tests.DeleteGateway.class,
     
     //requires previously imported csv
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
