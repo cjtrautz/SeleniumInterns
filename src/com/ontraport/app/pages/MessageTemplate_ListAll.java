@@ -28,6 +28,10 @@ public class MessageTemplate_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
+    
+    @FindBy(how = How.XPATH,
+            using = "//thead[@class='ussr-component-collection-head']/tr/th")
+    private WebElement uiSelectAll;
 
     public MessageTemplate_TypeSelection clickNewMessageTemplate ()
     {

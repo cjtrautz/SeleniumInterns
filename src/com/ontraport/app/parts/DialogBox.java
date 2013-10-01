@@ -12,6 +12,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.pages.Rule_Create;
+import com.ontraport.app.pages.User_Create;
 import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.pages.WordPress_TypeSelection;
 import com.ontraport.app.tools.AbstractPart;
@@ -101,6 +103,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]/span[text()='Add E-Mail']")
     private WebElement addEmail;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Agree']")
+    private WebElement uiAgree;
     
     public DialogBox clickOk ()
     {
@@ -355,5 +360,11 @@ public class DialogBox extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[text()='" + string + "']"))));
         return this;
         
+    }
+    public User_Create clickAgree ()
+    {
+        waitForAjax(driver, 20);
+        uiAgree.click();
+        return PageFactory.initElements(driver, User_Create.class);
     }
 }

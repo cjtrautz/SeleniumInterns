@@ -22,6 +22,10 @@ public class DeleteEmailDateSequence extends AbstractTest
         sequence_ListAll.drawerActions.clickDeleteSequences();
         sequence_ListAll.dialogBox.clickOk();
         //verify
+        if(sequence_ListAll.verifyNoTag()==null)
+        {
+            fail("found deleted sequence");
+        }
         
     }
 }

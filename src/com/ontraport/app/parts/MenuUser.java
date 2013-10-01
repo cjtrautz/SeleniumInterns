@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.User_Edit;
+import com.ontraport.app.pages.User_ListAll;
 import com.ontraport.app.tools.AbstractPart;
 
 public class MenuUser extends AbstractPart
@@ -28,6 +29,11 @@ public class MenuUser extends AbstractPart
             how = How.XPATH,
             using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Personal Settings']")
     private WebElement personalSettings;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Manage Users']")
+    private WebElement manageUsers;
     
     @FindBy(
             how = How.XPATH,
@@ -64,5 +70,13 @@ public class MenuUser extends AbstractPart
         wait(4).until(ExpectedConditions.visibilityOf(admin));
         admin.click();
         return PageFactory.initElements(driver, Account_View.class);
+    }
+    public User_ListAll clickManageUsers ()
+    {
+        waitForAjax(driver, 20);
+        wait(4).until(ExpectedConditions.visibilityOf(logOut));
+        wait(4).until(ExpectedConditions.visibilityOf(manageUsers));
+        manageUsers.click();
+        return PageFactory.initElements(driver, User_ListAll.class);
     }
 }

@@ -70,6 +70,16 @@ public class Account_View extends AbstractPage
             using = "//div[@class='ussr-settings']//div[.='DOUBLE OPT IN / INVOICE MANAGER']/span")
     private WebElement doubleOptInInvoice;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-settings']//div[.='ULTRACART CONFIGURATION']/span")
+    private WebElement ultraCart;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-settings']//div[.='Team Roles & Permission Management']/span")
+    private WebElement roles;
+    
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -167,6 +177,26 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doubleOptInInvoice)));
         doubleOptInInvoice.click();
         return PageFactory.initElements(driver, MessageTemplate_ListAll.class);
+    }
+
+    public UltraCart_View clickUCConfig ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(ultraCart)));
+        ultraCart.click();
+        return PageFactory.initElements(driver, UltraCart_View.class);
+    }
+
+    public Role_ListAll clickTeamRolesAndPermissionManagement ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(roles)));
+        roles.click();
+        return PageFactory.initElements(driver, Role_ListAll.class);
     }
     
 }

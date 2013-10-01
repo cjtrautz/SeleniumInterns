@@ -9,25 +9,32 @@ import com.ontraport.app.pages.Contact_Import;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.pages.Field_Editor;
+import com.ontraport.app.pages.Role_Create;
+import com.ontraport.app.pages.Role_ListAll;
 import com.ontraport.app.pages.UltraCart_View;
 import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.tools.AbstractTest;
 
-public class CreateUCConfig extends AbstractTest
+public class CreateRole extends AbstractTest
 {
     @Test
-    public void testCreateUCConfig ()
+    public void testCreateRole ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
         contactListAll.menuUser.open();
         Account_View account_View = contactListAll.menuUser.clickAdmin();
-        UltraCart_View ultraCart_View = account_View.clickUCConfig();
+        Role_ListAll role_ListAll = account_View.clickTeamRolesAndPermissionManagement();
+        Role_Create role_Create = role_ListAll.clickNewRole();
+        role_Create.enterRoleName("SeleniumRole");
+        role_Create.clickRoleManagerDropDown();
+        role_Create.selectDropDown(2);
+        role_ListAll = role_Create.clickSave();
+        role_ListAll.formSearch.find("SeleniumRole");
         
-        
-        if(ultraCart_View.keyAdding()==null)
+        if(role_ListAll.verifyRole("SeleniumRole")==null)
         {
-            fail("no uc config key");
+            fail("no Role");
         }
         
     }

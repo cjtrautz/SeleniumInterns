@@ -9,9 +9,17 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{   
-    //com.ontraport.app.tests.CreateDoubleOptinMessage.class,
-    //com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+{     
+    com.ontraport.app.tests.CreateRole.class,
+    //relies on role
+    com.ontraport.app.tests.CreateUser.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    com.ontraport.app.tests.DeleteRole.class,
+    
+    com.ontraport.app.tests.CreateUCConfig.class,
+    
+    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
     
     com.ontraport.app.tests.CreateSendFromAddress.class,
     

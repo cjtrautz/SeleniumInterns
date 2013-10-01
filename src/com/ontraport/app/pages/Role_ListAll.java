@@ -15,33 +15,32 @@ import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
-public class User_ListAll extends AbstractPage
+public class Role_ListAll extends AbstractPage
 {
     @FindBy(how = How.XPATH,
-            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
-    private WebElement emptyCell;
+            using = "//div[@id='ontraport_panel_action_new']")
+    private WebElement newRole;
     
     @FindBy(how = How.XPATH,
-            using = "//div[@id='ontraport_panel_action_new']")
-    private WebElement newUser;
+            using = "//tbody[@class='ussr-component-collection-body']")
+    private WebElement uiCollectionBody;
     
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll;
     
     @FindBy(how = How.XPATH,
-            using = "//tbody[@class='ussr-component-collection-body']")
-    private WebElement uiCollectionBody;
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
+    private WebElement emptyCell;
 
-    public User_ListAll clickNewUser ()
+    public Role_Create clickNewRole ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        newUser.click();
-        return this;
-        
+        newRole.click();
+        return PageFactory.initElements(driver, Role_Create.class);
     }
 
-    public User_ListAll verifyUser ( String string )
+    public Role_ListAll verifyRole ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -64,7 +63,7 @@ public class User_ListAll extends AbstractPage
         return this;
     }
 
-    public User_ListAll selectAllOnPage ()
+    public Role_ListAll selectAllRoles ()
     {
         AbstractPart.waitForAjax(driver, 20);
         uiSelectAll.click();
@@ -72,7 +71,7 @@ public class User_ListAll extends AbstractPage
         
     }
 
-    public User_ListAll verifyNoUser ()
+    public Role_ListAll verifyNoRole ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -85,7 +84,8 @@ public class User_ListAll extends AbstractPage
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
-        catch(NoSuchElementException e){
+        catch(NoSuchElementException e)
+        {
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

@@ -73,6 +73,22 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDelete;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Role')]")
+    private WebElement uiDeleteRole;
+    
+    @FindBy(how = How.XPATH,
+            using = "//input[@class='remove_role_btn']")
+    private WebElement uiRemoveRole;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete User')]")
+    private WebElement uiDeleteUser;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//div[@class='control_buttons']//span[text()='Delete']")
+        private WebElement uiReassignDelete;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
         private WebElement actionPane;
     
@@ -221,6 +237,41 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDeleteTemplate.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+        
+    }
+    public DrawerActions clickDeleteRole ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiDeleteRole.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+        
+    }
+    public DrawerActions clickRemoveRole ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiRemoveRole.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+        
+    }
+    public DrawerActions clickDeleteUser ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiDeleteUser.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+    }
+    public DrawerActions clickDelete ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiReassignDelete.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         

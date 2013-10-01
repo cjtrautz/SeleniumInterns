@@ -23,7 +23,8 @@ public class DeleteDoubleOptinMessage extends AbstractTest
         messageTemplate_ListAll.selectAllOnPage();
         messageTemplate_ListAll.drawerActions.clickDeleteTemplate();
         messageTemplate_ListAll.dialogBox.clickOk();
-        
+        messageTemplate_ListAll.formSearch.clear();
+        messageTemplate_ListAll.formSearch.find("SelDoubleOptInMessage");
         //verify
         if(messageTemplate_ListAll.verifyNoMessage()==null)
         {
