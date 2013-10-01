@@ -37,8 +37,7 @@ public class CreateSendFromAddress extends AbstractTest
         gmail.enterUserName("njcross1990@gmail.com");
         gmail.enterPassword("Lughead1");
         gmail.clickSignIn();
-        Actions action = new Actions(driver);
-        action.sendKeys("6086980624" + Keys.ENTER);
+        driver.findElement(By.xpath("//input[@placeholder='Enter full phone number']")).sendKeys("6086980624"+Keys.ENTER);
         gmail.clickConfirmationEmail();
         gmail.clickLink();
         gmail.clickDelete();
