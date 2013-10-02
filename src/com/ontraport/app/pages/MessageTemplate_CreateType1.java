@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -131,6 +132,7 @@ public class MessageTemplate_CreateType1 extends AbstractPage
     public MessageTemplate_CreateType1 openMergeFieldPane ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", toggleMergeFieldPane);
         toggleMergeFieldPane.click();
         return this;
         
@@ -139,6 +141,7 @@ public class MessageTemplate_CreateType1 extends AbstractPage
     public MessageTemplate_CreateType1 selectMergeField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
     }
@@ -153,6 +156,7 @@ public class MessageTemplate_CreateType1 extends AbstractPage
     public MessageTemplate_CreateType1 enterMessagePlainTextBody ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", plainTextEmailBody);
         plainTextEmailBody.sendKeys(string);
         return this;
         
