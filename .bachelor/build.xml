@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="selenium-com-ontraport-app" default="build-active" basedir="..">
+<project name="selenium-com-ontraport-app" basedir="..">
 
   <!--
    =============================================================================
@@ -29,10 +29,14 @@
    =============================================================================
   -->
 
-	  <target name="build-active" description="Run tools in sequence.">
-	    <antcall target='prepare'/>
-	    <antcall target='active'/>
-	  </target>
+    <target name="build-app" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='app'/>
+    </target>
+    <target name="build-staging" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='staging'/>
+    </target>
 
   <!--
    =============================================================================
@@ -53,8 +57,10 @@
     <mkdir dir="${browse}"/>
     <mkdir dir="${output}"/>
     <mkdir dir="${screenshots}"/>
-    <mkdir dir="${report}/selenium/xml/active"/>
-    <mkdir dir="${report}/selenium/html/active"/>
+    <mkdir dir="${report}/selenium/xml/app"/>
+    <mkdir dir="${report}/selenium/xml/staging"/>
+    <mkdir dir="${report}/selenium/html/app"/>
+    <mkdir dir="${report}/selenium/html/staging"/>
   </target>
 
   <!--
@@ -82,25 +88,46 @@
     </javac>
   </target>
 
-  <target name="active" depends="compile">
-    <junit printsummary="yes" haltonfailure="no">
-      <classpath>
-        <pathelement location="${basedir}/bin"/>
-        <pathelement location="${basedir}/etc"/>
-        <fileset dir="${basedir}/lib">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
-      <test name="com.ontraport.app.suites.Active" haltonfailure="no" todir="${report}/selenium/xml/active" outfile="TEST-Active">
-        <formatter type="xml"/>
-      </test>
-    </junit>
-    <junitreport todir="${report}/selenium/xml/active">
-      <fileset dir="${report}/selenium/xml/active">
-        <include name="TEST-*.xml"/>
-      </fileset>
-      <report format="frames" todir="${report}/selenium/html/active"/>
-    </junitreport>
-  </target>
+	  <target name="app" depends="compile">
+	    <junit printsummary="yes" haltonfailure="no">
+	      <classpath>
+	        <pathelement location="${basedir}/bin"/>
+	        <pathelement location="${basedir}/etc"/>
+	        <fileset dir="${basedir}/lib">
+	          <include name="**/*.jar"/>
+	        </fileset>
+	      </classpath>
+	      <test name="com.ontraport.app.suites.App" haltonfailure="no" todir="${report}/selenium/xml/app" outfile="TEST-App">
+	        <formatter type="xml"/>
+	      </test>
+	    </junit>
+	    <junitreport todir="${report}/selenium/xml/app">
+	      <fileset dir="${report}/selenium/xml/app">
+	        <include name="TEST-*.xml"/>
+	      </fileset>
+	      <report format="frames" todir="${report}/selenium/html/app"/>
+	    </junitreport>
+	  </target>
+
+	  <target name="staging" depends="compile">
+	    <junit printsummary="yes" haltonfailure="no">
+	      <classpath>
+	        <pathelement location="${basedir}/bin"/>
+	        <pathelement location="${basedir}/etc"/>
+	        <fileset dir="${basedir}/lib">
+	          <include name="**/*.jar"/>
+	        </fileset>
+	      </classpath>
+	      <test name="com.ontraport.app.suites.Staging" haltonfailure="no" todir="${report}/selenium/xml/staging" outfile="TEST-Staging">
+	        <formatter type="xml"/>
+	      </test>
+	    </junit>
+	    <junitreport todir="${report}/selenium/xml/staging">
+	      <fileset dir="${report}/selenium/xml/staging">
+	        <include name="TEST-*.xml"/>
+	      </fileset>
+	      <report format="frames" todir="${report}/selenium/html/staging"/>
+	    </junitreport>
+	  </target>
 
 </project>

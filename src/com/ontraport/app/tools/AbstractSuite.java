@@ -23,6 +23,8 @@ public class AbstractSuite
     {
         return driver;
     }
+    // MOVED TO INDIVIDUAL SUITES
+    /*
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
@@ -49,6 +51,7 @@ public class AbstractSuite
         //WebDriverWait wait = new WebDriverWait(driver, 20);
         //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
     }
+    */
     @AfterClass
     public static void afterSuite ()
     {
