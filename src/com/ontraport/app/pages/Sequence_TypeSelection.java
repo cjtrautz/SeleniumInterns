@@ -24,7 +24,7 @@ public class Sequence_TypeSelection extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         stepSequenceCreate.click();
-        return PageFactory.initElements(driver, Sequence_CreateStep.class);
+        return (Sequence_CreateStep) new Sequence_CreateStep().init();
 
     }
 
@@ -32,7 +32,7 @@ public class Sequence_TypeSelection extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         dateSequenceCreate.click();
-        return PageFactory.initElements(driver, Sequence_CreateDate.class);
+        return (Sequence_CreateDate) new Sequence_CreateDate().init();
     }
     
 }

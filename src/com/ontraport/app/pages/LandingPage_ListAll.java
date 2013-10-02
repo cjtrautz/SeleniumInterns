@@ -37,7 +37,7 @@ public class LandingPage_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         wait.until(ExpectedConditions.visibilityOf(newLandingPage));
         newLandingPage.click();
-        return PageFactory.initElements(driver, LandingPage_TypeSelection.class);
+        return (LandingPage_TypeSelection) new LandingPage_TypeSelection().init();
     }
 
     public LandingPage_ListAll verifyLandingPage ( String string )
@@ -67,7 +67,7 @@ public class LandingPage_ListAll extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
-        return PageFactory.initElements(driver, LandingPage_Edit.class);
+        return (LandingPage_Edit) new LandingPage_Edit().init();
     }
 
     public LandingPage_ListAll selectLandingPage ( String string )

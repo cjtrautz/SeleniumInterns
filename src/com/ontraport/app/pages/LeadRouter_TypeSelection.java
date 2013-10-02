@@ -27,7 +27,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(roundRobinCreate));
         roundRobinCreate.click();
-        return PageFactory.initElements(driver, LeadRouter_CreateRR.class);
+        return (LeadRouter_CreateRR) new LeadRouter_CreateRR().init();
     }
 
     public LeadRouter_CreateWR clickWeightedRandomCreate ()
@@ -35,7 +35,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(weightedRandomCreate));
         weightedRandomCreate.click();
-        return PageFactory.initElements(driver, LeadRouter_CreateWR.class);
+        return (LeadRouter_CreateWR) new LeadRouter_CreateWR().init();
     }
     
 }

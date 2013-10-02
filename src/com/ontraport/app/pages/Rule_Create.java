@@ -302,7 +302,7 @@ public class Rule_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(saveButton));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button//span[text()='Save']")));
         saveButton.click();
-        return PageFactory.initElements(driver, Rule_ListAll.class);
+        return (Rule_ListAll) new Rule_ListAll().init();
     }
     public Rule_Create verifyNewRows()
     {

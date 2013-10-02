@@ -96,7 +96,7 @@ public class Message_ListAll extends AbstractPage
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         //wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']")))));
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + message + "']")).click();
-        return PageFactory.initElements(driver, Message_Edit.class);
+        return (Message_Edit) new Message_Edit().init();
     }
     
     public Message_ListAll verifyNoMessage ()

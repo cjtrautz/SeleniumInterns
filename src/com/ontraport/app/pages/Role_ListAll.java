@@ -37,7 +37,7 @@ public class Role_ListAll extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         newRole.click();
-        return PageFactory.initElements(driver, Role_Create.class);
+        return (Role_Create) new Role_Create().init();
     }
 
     public Role_ListAll verifyRole ( String string )

@@ -65,7 +65,7 @@ public class Contact_Import extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(step3));
         wait.until(ExpectedConditions.visibilityOf(nextButtonMerge));
         nextButtonMerge.click();
-        return PageFactory.initElements(driver, DialogBox.class);
+        return (DialogBox) new DialogBox().init();
     }
     
 }

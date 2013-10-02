@@ -42,7 +42,7 @@ public class Gateway_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ontraport_panel_action_new']")));
         newGateway.click();
-        return PageFactory.initElements(driver, Gateway_Create.class);
+        return (Gateway_Create) new Gateway_Create().init();
     }
 
     public Gateway_ListAll verifyGatewayName ( String string )
@@ -110,7 +110,7 @@ public class Gateway_ListAll extends AbstractPage
         {
             uiCollection.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
         }
-        return PageFactory.initElements(driver, Gateway_Edit.class);
+        return (Gateway_Edit) new Gateway_Edit().init();
     }
 
     public Gateway_ListAll selectGateway ( String string )

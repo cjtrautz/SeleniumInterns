@@ -21,7 +21,7 @@ public class MessageTemplate_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(createDoubleOptIn));
         createDoubleOptIn.click();
-        return PageFactory.initElements(driver, MessageTemplate_CreateType1.class);
+        return (MessageTemplate_CreateType1) new MessageTemplate_CreateType1().init();
     }
     
 }

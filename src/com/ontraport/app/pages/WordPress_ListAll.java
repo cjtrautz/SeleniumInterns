@@ -40,7 +40,7 @@ public class WordPress_ListAll extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         newWebsite.click();
-        return PageFactory.initElements(driver, WordPress_TypeSelection.class);
+        return (WordPress_TypeSelection) new WordPress_TypeSelection().init();
     }
 
     public WordPress_ListAll verifyLandingPage ( String string )
@@ -78,7 +78,7 @@ public class WordPress_ListAll extends AbstractPage
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + string + "']")));
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
-        return PageFactory.initElements(driver, WordPress_Edit.class);
+        return (WordPress_Edit) new WordPress_Edit().init();
     }
 
     public WordPress_ListAll selectAllOnPage ()

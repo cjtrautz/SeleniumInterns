@@ -151,7 +151,7 @@ public class User_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(saveButton));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button//span[text()='Save']")));
         saveButton.click();
-        return PageFactory.initElements(driver, User_ListAll.class);
+        return (User_ListAll) new User_ListAll().init();
     }
     
 }

@@ -74,7 +74,7 @@ public class Gateway_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
-        return PageFactory.initElements(driver, Gateway_ListAll.class);
+        return (Gateway_ListAll) new Gateway_ListAll().init();
         
     }
 

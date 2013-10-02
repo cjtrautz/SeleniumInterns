@@ -45,7 +45,7 @@ public class ApiSettings_ListAll extends AbstractPage
     public ApiSettings_Create clickNewApiKey ()
     {
         additionalFields.click();
-        return PageFactory.initElements(driver, ApiSettings_Create.class);
+        return (ApiSettings_Create) new ApiSettings_Create().init();
     }
     
     public ApiSettings_ListAll verifyAPIKey (String api)
@@ -164,7 +164,7 @@ public class ApiSettings_ListAll extends AbstractPage
         {
             collection.findElement(By.xpath(".//a[normalize-space(text())='" + api + "']")).click();
         }
-        return PageFactory.initElements(driver, ApiSettings_Edit.class);
+        return (ApiSettings_Edit) new ApiSettings_Edit().init();
     }
     
 

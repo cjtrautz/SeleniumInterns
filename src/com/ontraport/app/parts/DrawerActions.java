@@ -158,7 +158,7 @@ public class DrawerActions extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiExportContacts.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
-        return PageFactory.initElements(driver, Contact_Export.class);
+        return (Contact_Export) new Contact_Export().init();
     }
     public DrawerActions clickDeleteFacebookApp ()
     {

@@ -55,7 +55,7 @@ public class Rule_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ontraport_panel_action_new']")));
         newRule.click();
-        return PageFactory.initElements(driver, Rule_Create.class);
+        return (Rule_Create) new Rule_Create().init();
 
     }
     public Rule_ListAll selectAllOnPage ()
@@ -182,7 +182,7 @@ public class Rule_ListAll extends AbstractPage
         {
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']")).click();
         }
-        return PageFactory.initElements(driver, Rule_Edit.class);
+        return (Rule_Edit) new Rule_Edit().init();
     }
     public Rule_ListAll selectRule (String rule)
     {

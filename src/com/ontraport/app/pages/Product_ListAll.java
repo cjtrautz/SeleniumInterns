@@ -43,7 +43,7 @@ public class Product_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newProduct));
         newProduct.click();
-        return PageFactory.initElements(driver, Product_Create.class);
+        return (Product_Create) new Product_Create().init();
     }
     public Product_ListAll selectAllOnPage ()
     {
@@ -134,7 +134,7 @@ public class Product_ListAll extends AbstractPage
         {
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + product + "']")).click();
         }
-        return PageFactory.initElements(driver, Product_Edit.class);
+        return (Product_Edit) new Product_Edit().init();
     }
 
 }
