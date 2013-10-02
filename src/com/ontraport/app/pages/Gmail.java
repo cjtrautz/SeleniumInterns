@@ -1,8 +1,10 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
@@ -32,6 +34,9 @@ public class Gmail extends AbstractPage
     @FindBy(how = How.XPATH,
         using = "//div[@class=' G-atb D E']//div[@class='ar9 T-I-J3 J-J5-Ji']")
     private WebElement delete;
+    @FindBy(how = How.XPATH,
+            using = "//div[@id=':31']")
+        private WebElement primary;
 
     public Gmail enterUserName ( String string )
     {
@@ -58,7 +63,15 @@ public class Gmail extends AbstractPage
     public Gmail clickConfirmationEmail ()
     {
         //AbstractPart.waitForAjax(driver, 20);
-        confirmationEmail.click();
+        try
+        {
+            confirmationEmail.click();
+        }
+        catch(NoSuchElementException e)
+        {
+            driver.navigate().refresh();
+            confirmationEmail.click();
+        }
         return this;
         
     }
@@ -67,6 +80,7 @@ public class Gmail extends AbstractPage
     {
         //AbstractPart.waitForAjax(driver, 20);
         link.click();
+        //driver.switchTo().defaultContent();
         return this;
         
     }
@@ -74,7 +88,9 @@ public class Gmail extends AbstractPage
     public Gmail clickDelete ()
     {
         //AbstractPart.waitForAjax(driver, 20);
+        //driver.switchTo().defaultContent();
         delete.click();
+       // wait.until(ExpectedConditions.visibilityOf(primary));
         return this;
         
     }

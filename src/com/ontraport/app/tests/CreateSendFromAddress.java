@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,13 +34,23 @@ public class CreateSendFromAddress extends AbstractTest
         sender_View.dialogBox.enterEmailAddress("njcross1990@gmail.com");
         sender_View.dialogBox.addEmail("njcross1990@gmail.com");
         driver.get("gmail.com");
+        driver.navigate().refresh();
         Gmail gmail = (Gmail) new Gmail().init();
         gmail.enterUserName("njcross1990@gmail.com");
         gmail.enterPassword("Lughead1");
         gmail.clickSignIn();
+        driver.navigate().refresh();
         gmail.clickConfirmationEmail();
         gmail.clickLink();
         gmail.clickDelete();
+        try{
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        }
+        catch(NoAlertPresentException e)
+        {
+            
+        }
         driver.get("http://app.ontraport.com/?track_requests=1/#!/sender/view");
         //Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, 20);

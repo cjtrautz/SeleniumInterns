@@ -285,9 +285,9 @@ public class Message_CreateTask extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", saveOutcome);
-        wait.until(ExpectedConditions.visibilityOf(saveOutcome));
+        //wait.until(ExpectedConditions.visibilityOf(saveOutcome));
         saveOutcome.click();
-        wait.until(ExpectedConditions.visibilityOf(outcomeLine));
+        //wait.until(ExpectedConditions.visibilityOf(outcomeLine));
         return this;
         
     }
