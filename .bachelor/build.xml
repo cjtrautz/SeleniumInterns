@@ -57,8 +57,10 @@
     <mkdir dir="${browse}"/>
     <mkdir dir="${output}"/>
     <mkdir dir="${screenshots}"/>
-    <mkdir dir="${report}/selenium/xml/active"/>
-    <mkdir dir="${report}/selenium/html/active"/>
+    <mkdir dir="${report}/selenium/xml/app"/>
+    <mkdir dir="${report}/selenium/xml/staging"/>
+    <mkdir dir="${report}/selenium/html/app"/>
+    <mkdir dir="${report}/selenium/html/staging"/>
   </target>
 
   <!--
