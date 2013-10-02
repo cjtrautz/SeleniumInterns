@@ -73,8 +73,7 @@ public abstract class AbstractTest
                 {
                     try
                     {
-                        new File(".bachelor/screenshots/").mkdirs();
-                        FileOutputStream out = new FileOutputStream(".bachelor/screenshots/failure-" + fileName + ".png");
+                        FileOutputStream out = new FileOutputStream("screenshots/failure-" + fileName + ".png");
                         out.write(( (TakesScreenshot) driver ).getScreenshotAs(OutputType.BYTES));
                         out.close();
                     }
