@@ -124,8 +124,18 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//label[text()='Message Name']/following-sibling::div/input[@placeholder='Enter Name']")
+    private WebElement messageNameInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")
     private WebElement save;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[normalize-space(.)='Save as Draft']")
+    private WebElement saveAsDraft;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div[@class='ussr-component-drilldownselect-menu-wrapper']")
@@ -206,8 +216,8 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_CreateStep selectDrillDownByIndex ( int index )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(drillDownPane));
-        List<WebElement> messages = drillDownPane.findElements(By.xpath(".//li/div"));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPane));
+        List<WebElement> messages = drillDownPane.findElements(By.xpath(".//li"));
         messages.get(index-1).click();
         return this;
         
@@ -328,6 +338,20 @@ public class Sequence_CreateStep extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(fulfillmentDropDown));
         fulfillmentDropDown.click();
+        return this;
+    }
+
+    public Sequence_CreateStep enterMessageName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        messageNameInput.sendKeys(string);
+        return this;
+    }
+
+    public Sequence_CreateStep clickSaveAsDraft ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        saveAsDraft.click();
         return this;
     }
 

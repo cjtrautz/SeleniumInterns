@@ -38,14 +38,6 @@ public class Message_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
     private WebElement emptyCell;
-    
-    @FindBy(how = How.XPATH,
-            using = "//table[contains(concat(' ', normalize-space(@class), ' '),' ussr-workflow-menu-section-list-type-pinned ')]")
-    private WebElement pinTable;
-    
-    @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' pinned-paginator ')]")
-    private WebElement pinPaginator;
 
     public Message_TypeSelection clickNewMessage ()
     {
@@ -132,62 +124,6 @@ public class Message_ListAll extends AbstractPage
         return this;
     }
 
-    public Message_ListAll verifyPinnedWorkflow ( String string )
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        List<WebElement> finder = new ArrayList<WebElement>();
-        while(finder.isEmpty() == true){
-            AbstractPart.waitForAjax(driver, 20);
-            int i = pinTable.findElements(By.xpath(".//tr")).size();
-            System.out.println(i);
-            if(pinTable.findElements(By.xpath(".//tr")).size()==1)
-            {
-                return null;
-            }
-            finder=pinTable.findElements(By.xpath(".//a[normalize-space(text())='" + string +"']"));
-            //System.out.println(finder.isEmpty());
-            if(finder.isEmpty() == true){  
-                try
-                {
-                    pinPaginator.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-seek-next']")).click();
-                }
-                catch(NoSuchElementException e)
-                {
-                    return null;
-                }
-            }
-            
-        }
-        return this;
-    }
-
-    public Message_ListAll verifyNoPinnedWorkflow ( String string )
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        List<WebElement> finder = new ArrayList<WebElement>();
-        while(finder.isEmpty() == true){
-            AbstractPart.waitForAjax(driver, 20);
-            int i = pinTable.findElements(By.xpath(".//tr")).size();
-            System.out.println(i);
-            if(pinTable.findElements(By.xpath(".//tr")).size()==1)
-            {
-                return this;
-            }
-            finder=pinTable.findElements(By.xpath(".//a[normalize-space(text())='" + string +"']"));
-            //System.out.println(finder.isEmpty());
-            if(finder.isEmpty() == true){  
-                try
-                {
-                    pinPaginator.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-seek-next']")).click();
-                }
-                catch(NoSuchElementException e)
-                {
-                    return this;
-                }
-            }
-            
-        }
-        return null;
-    }
+    
     
 }

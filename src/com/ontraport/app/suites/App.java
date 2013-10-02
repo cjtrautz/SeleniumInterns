@@ -17,6 +17,10 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
+    
+    com.ontraport.app.tests.UneditedWorkflow.class,
     com.ontraport.app.tests.PinnedItemsWorkflow.class,
     
     com.ontraport.app.tests.SetTimezone.class,
@@ -123,6 +127,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateASmartForm.class,
     
     com.ontraport.app.tests.CreateContact.class,
+  //relies on having contacts
+    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     //relies on having contacts
     //com.ontraport.app.tests.AddColumn.class,
     //com.ontraport.app.tests.DeleteColumn.class,

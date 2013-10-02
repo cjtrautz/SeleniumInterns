@@ -22,14 +22,14 @@ public class PinnedItemsWorkflow extends AbstractTest
         message_ListAll.pin.pin();
         message_ListAll.menuWorkflow.open();
         
-        if(message_ListAll.verifyPinnedWorkflow("Message: List")==null)
+        if(message_ListAll.menuWorkflow.verifyPinnedWorkflow("Message: List")==null)
         {
             fail("couldnt find pinned messages");
         }
         message_ListAll.menuWorkflow.close();
         message_ListAll.pin.unPin();
         message_ListAll.menuWorkflow.open();
-        if(message_ListAll.verifyNoPinnedWorkflow("Message: List")==null)
+        if(message_ListAll.menuWorkflow.verifyNoPinnedWorkflow("Message: List")==null)
         {
             fail("found pinned messages");
         }

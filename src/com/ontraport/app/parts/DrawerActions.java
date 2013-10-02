@@ -1,5 +1,8 @@
 package com.ontraport.app.parts;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -8,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.ApiSettings_Create;
 import com.ontraport.app.pages.Contact_Export;
+import com.ontraport.app.pages.Facebook_ListAll;
+import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.tools.AbstractPart;
 
 public class DrawerActions extends AbstractPart
@@ -85,8 +90,16 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteUser;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send E-Mail')]")
+    private WebElement uiSendEmail;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//div[@class='control_buttons']//span[text()='Delete']")
         private WebElement uiReassignDelete;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='E-mail name']/following-sibling::div/button")
+        private WebElement emailNameDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
@@ -275,5 +288,27 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
         
+    }
+    public DrawerActions clickSendEmail ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiSendEmail.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+        
+    }
+    public DrawerActions clickEmailNameDropDown ()
+    {
+        waitForAjax(driver, 20);
+        emailNameDropDown.click();
+        return this;
+    }
+    public Message_Edit selectDropDown ( int i )
+    {
+        waitForAjax(driver, 20);
+        List<WebElement> options = driver.findElements(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//li"));
+        options.get(i-1).click();
+        return (Message_Edit) new Message_Edit().init();
     }
 }

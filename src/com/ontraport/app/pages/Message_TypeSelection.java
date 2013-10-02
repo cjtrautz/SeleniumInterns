@@ -23,6 +23,11 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[div[*/text()='SMS']]/descendant::button[*[normalize-space(text())='Create']]")
+    private WebElement smsMessage;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][1]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
     private WebElement emailDropDownButton;
     
@@ -92,6 +97,13 @@ public class Message_TypeSelection extends AbstractPage
         taskDropDownButton.click();
         return this;
         
+    }
+    public Message_CreateSMS clickSMSCreate ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smsMessage));
+        smsMessage.click();
+        return (Message_CreateSMS) new Message_CreateSMS().init();
     }
     
 }
