@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="selenium-com-ontraport-app" default="build-active" basedir="..">
+<project name="selenium-com-ontraport-app" basedir="..">
 
   <!--
    =============================================================================
@@ -29,10 +29,14 @@
    =============================================================================
   -->
 
-	  <target name="build-active" description="Run tools in sequence.">
-	    <antcall target='prepare'/>
-	    <antcall target='active'/>
-	  </target>
+    <target name="build-app" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='app'/>
+    </target>
+    <target name="build-staging" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='staging'/>
+    </target>
 
   <!--
    =============================================================================
