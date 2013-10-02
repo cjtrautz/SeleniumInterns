@@ -17,6 +17,8 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
+    com.ontraport.app.tests.PinnedItemsWorkflow.class,
+    
     com.ontraport.app.tests.SetTimezone.class,
     
     com.ontraport.app.tests.ChangeUserInfo.class,

@@ -23,6 +23,7 @@ import com.ontraport.app.parts.MenuPrimary;
 import com.ontraport.app.parts.MenuUser;
 import com.ontraport.app.parts.MenuWorkflow;
 import com.ontraport.app.parts.Paginator;
+import com.ontraport.app.parts.Pin;
 
 /**
  * @author Bill Brown
@@ -35,6 +36,7 @@ public abstract class AbstractPage
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------
+    public Pin                          pin                         = (Pin) new Pin().init();
     public MenuPrimary                  menuPrimary                 = (MenuPrimary) new MenuPrimary().init();
     public MenuUser                     menuUser                    = (MenuUser) new MenuUser().init();
     public MenuHelp                     menuHelp                    = (MenuHelp) new MenuHelp().init();

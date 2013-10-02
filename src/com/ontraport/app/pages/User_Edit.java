@@ -22,7 +22,7 @@ public class User_Edit extends AbstractPage
     private WebElement permissionCollectionBody;
     
     @FindBy(how=How.XPATH,
-            using="//label[text()='Timezone']/following-sibling::div/div[@class='ussr-form-input']")
+            using="//label[text()='Timezone']/following-sibling::div/span")
     private WebElement timezoneField;
     
     @FindBy(how=How.XPATH,
