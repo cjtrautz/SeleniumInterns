@@ -1,5 +1,7 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -152,6 +154,15 @@ public class User_Create extends AbstractPage
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button//span[text()='Save']")));
         saveButton.click();
         return PageFactory.initElements(driver, User_ListAll.class);
+    }
+
+    public User_Create selectDropDown ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        List<WebElement> options = driver.findElements(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div"));
+        options.get(i-1).click();
+        return this;
+        
     }
     
 }
