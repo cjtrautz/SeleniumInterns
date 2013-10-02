@@ -10,13 +10,13 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.DeleteUserFieldEditor.class,
+    
     com.ontraport.app.tests.CreateSendFromAddress.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     
     com.ontraport.app.tests.AccountAddAPackage.class,
-    
-    com.ontraport.app.tests.CreateUserFieldEditor.class,
-    com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
     com.ontraport.app.tests.CreateMessage.class,
     //relies on a message

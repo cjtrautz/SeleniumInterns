@@ -22,9 +22,9 @@ public class CreateUserFieldEditor extends AbstractTest
         Field_Editor field_Editor = account_View.clickUserFieldEditor();
         field_Editor.clickAddNewSection();
         field_Editor.enterSectionTitle("Untitled", "SelTitle");
-        field_Editor.clickTitle();
+        field_Editor.clickUserPermissionsExceptionTitle();
         field_Editor.enterSectionDescription("SelTitle", "Section Description", "SelDescription");
-        field_Editor.clickTitle();
+        field_Editor.clickUserPermissionsExceptionTitle();
         field_Editor.clickAddField("SelDescription", 1);
         field_Editor.dialogBox.enterFieldName("SelText");
         field_Editor.dialogBox.clickFieldTypeDropDown();

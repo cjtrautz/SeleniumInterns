@@ -27,6 +27,11 @@ public class Field_Editor extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//span[text()='User Permission Exceptions']")
+    private WebElement userPermisionTitle;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-section-titlebar ')]")
     private WebElement sectionTitle;
     
@@ -100,6 +105,8 @@ public class Field_Editor extends AbstractPage
         WebElement titleToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + oldTitle + "']"));
         titleToEdit.click();
         input.sendKeys(newTitle+Keys.ENTER);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ENTER);
         return this;
     }
 
@@ -110,6 +117,8 @@ public class Field_Editor extends AbstractPage
         WebElement descriptionToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + title + "']/ancestor::div/following-sibling::div[text()='" + oldDescription + "']"));
         descriptionToEdit.click();
         input.sendKeys(newDescription+Keys.ENTER);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ENTER);
         return this;
     }
 
@@ -233,6 +242,12 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         sectionTitle.click();
+        return this;
+    }
+    public Field_Editor clickUserPermissionsExceptionTitle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        userPermisionTitle.click();
         return this;
     }
 
