@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,7 +25,9 @@ public abstract class AbstractPart
 
     public AbstractPart init ()
     {
-        return PageFactory.initElements(driver, this.getClass());
+        ElementLocatorFactory finder =  new AjaxElementLocatorFactory(driver, AbstractSuite.DEFAULT_WAIT);
+        PageFactory.initElements(finder, this);
+        return this;
     }
 
     public ExpectedCondition<Boolean> hasAttributeValue (   final WebElement we,

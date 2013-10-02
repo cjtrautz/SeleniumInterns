@@ -25,7 +25,7 @@ public class SmartFormFe_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newSmartForm));
         newSmartForm.click();
-        return PageFactory.initElements(driver, SmartFormFe_Create.class);
+        return (SmartFormFe_Create) new SmartFormFe_Create().init();
     }
     
 }

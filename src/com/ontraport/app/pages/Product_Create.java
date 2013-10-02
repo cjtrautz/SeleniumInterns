@@ -50,7 +50,7 @@ public class Product_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
-        return PageFactory.initElements(driver, Product_ListAll.class);
+        return (Product_ListAll) new Product_ListAll().init();
     }
     
 }

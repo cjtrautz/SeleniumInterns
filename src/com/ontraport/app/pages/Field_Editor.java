@@ -132,14 +132,14 @@ public class Field_Editor extends AbstractPage
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
         //save.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
-        return PageFactory.initElements(driver, Contact_Settings.class);
+        return (Contact_Settings) new Contact_Settings().init();
     }
 
     public Contact_Settings clickCancel ()
     {
         AbstractPart.waitForAjax(driver, 20);
         cancel.click();
-        return PageFactory.initElements(driver, Contact_Settings.class);
+        return (Contact_Settings) new Contact_Settings().init();
         
     }
     public Field_Editor verifySection (String title, String description)
@@ -259,7 +259,7 @@ public class Field_Editor extends AbstractPage
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         List<WebElement> addFields = driver.findElements(By.xpath("//div[contains(text(), '" + string + "')]/following-sibling::div//a[contains(., 'Add Field')]"));
         addFields.get(i-1).click();
-        return PageFactory.initElements(driver, DialogBox.class);
+        return (DialogBox) new DialogBox().init();
     }
 
     public Field_Editor verifyFieldCheckbox ( String string )
@@ -1143,7 +1143,7 @@ public class Field_Editor extends AbstractPage
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
         //save.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
-        return PageFactory.initElements(driver, Account_View.class);
+        return (Account_View) new Account_View().init();
     }
     
 }

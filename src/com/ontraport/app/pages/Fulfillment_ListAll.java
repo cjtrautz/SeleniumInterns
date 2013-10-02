@@ -124,7 +124,7 @@ public class Fulfillment_ListAll extends AbstractPage
         {
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + fulfillment + "']")).click();
         }
-        return PageFactory.initElements(driver, Fulfillment_Edit.class);
+        return (Fulfillment_Edit) new Fulfillment_Edit().init();
     }
     
     public Fulfillment_ListAll verifyNoFulfillment ()

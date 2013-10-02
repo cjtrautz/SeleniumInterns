@@ -235,7 +235,7 @@ public class Sequence_CreateStep extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
-        return PageFactory.initElements(driver, Sequence_ListAll.class);
+        return (Sequence_ListAll) new Sequence_ListAll().init();
 
     }
     

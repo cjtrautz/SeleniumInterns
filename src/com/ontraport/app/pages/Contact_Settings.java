@@ -38,7 +38,7 @@ public class Contact_Settings extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(leadRouting));
         fieldEditor.click();
-        return PageFactory.initElements(driver, Field_Editor.class);
+        return (Field_Editor) new Field_Editor().init();
     }
 
     public LeadRouter_ListAll clickLeadRouting ()
@@ -46,7 +46,7 @@ public class Contact_Settings extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(fieldEditor));
         leadRouting.click();
-        return PageFactory.initElements(driver, LeadRouter_ListAll.class);
+        return (LeadRouter_ListAll) new LeadRouter_ListAll().init();
     }
 
     public Contact_Import clickImportContacts ()
@@ -54,7 +54,7 @@ public class Contact_Settings extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(importContacts));
         importContacts.click();
-        return PageFactory.initElements(driver, Contact_Import.class);
+        return (Contact_Import) new Contact_Import().init();
     }
 
     public Contact_ScoreEdit clickLeadScoring ()
@@ -62,7 +62,7 @@ public class Contact_Settings extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(leadScoring));
         leadScoring.click();
-        return PageFactory.initElements(driver, Contact_ScoreEdit.class);
+        return (Contact_ScoreEdit) new Contact_ScoreEdit().init();
     }
     
 }

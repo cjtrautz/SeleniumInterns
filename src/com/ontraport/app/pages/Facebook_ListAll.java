@@ -46,7 +46,7 @@ public class Facebook_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newFaceookApp));
         newFaceookApp.click();
-        return PageFactory.initElements(driver, Facebook_Create.class);
+        return (Facebook_Create) new Facebook_Create().init();
     }
     
     public Facebook_ListAll verifyFacebook (String facebook)
@@ -149,7 +149,7 @@ public class Facebook_ListAll extends AbstractPage
         {
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + facebook + "']")).click();
         }
-        return PageFactory.initElements(driver, Facebook_Edit.class);
+        return (Facebook_Edit) new Facebook_Edit().init();
     }
 
     

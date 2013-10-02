@@ -46,7 +46,7 @@ public class Contact_Export extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         export.click();
-        return PageFactory.initElements(driver, Contact_ListAll.class);
+        return (Contact_ListAll) new Contact_ListAll().init();
     }
     
 }

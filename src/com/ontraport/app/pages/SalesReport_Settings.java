@@ -21,7 +21,7 @@ public class SalesReport_Settings extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(gateway));
         gateway.click();
-        return PageFactory.initElements(driver, Gateway_ListAll.class);
+        return (Gateway_ListAll) new Gateway_ListAll().init();
     }
     
 }

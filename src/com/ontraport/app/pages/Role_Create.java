@@ -56,7 +56,7 @@ public class Role_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         saveButton.click();
-        return PageFactory.initElements(driver, Role_ListAll.class);
+        return (Role_ListAll) new Role_ListAll().init();
     }
     
 }

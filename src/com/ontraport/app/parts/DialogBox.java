@@ -266,7 +266,7 @@ public class DialogBox extends AbstractPart
     {
         waitForAjax(driver, 20);
         uiClose2.click();
-        return PageFactory.initElements(driver, WordPress_ListAll.class);
+        return (WordPress_ListAll) new WordPress_ListAll().init();
     }
     public DialogBox clickUpload ()
     {
@@ -368,7 +368,7 @@ public class DialogBox extends AbstractPart
     {
         waitForAjax(driver, 20);
         uiAgree.click();
-        return PageFactory.initElements(driver, User_Create.class);
+        return (User_Create) new User_Create().init();
     }
     public DialogBox verifyPopUpAddPackage ()
     {

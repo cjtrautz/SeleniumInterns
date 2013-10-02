@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.parts.DialogBox;
@@ -100,6 +102,8 @@ public abstract class AbstractPage
     }
     public AbstractPage init ()
     {
-        return PageFactory.initElements(driver, this.getClass());
+        ElementLocatorFactory finder =  new AjaxElementLocatorFactory(driver, AbstractSuite.DEFAULT_WAIT);
+        PageFactory.initElements(finder, this);
+        return this;
     }
 }

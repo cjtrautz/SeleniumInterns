@@ -40,7 +40,7 @@ public class LeadRouter_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         wait.until(ExpectedConditions.visibilityOf(newLeadRouterButton));
         newLeadRouterButton.click();
-        return PageFactory.initElements(driver, LeadRouter_TypeSelection.class);
+        return (LeadRouter_TypeSelection) new LeadRouter_TypeSelection().init();
     }
     
     public LeadRouter_ListAll verifyRouter (String router)
@@ -120,7 +120,7 @@ public class LeadRouter_ListAll extends AbstractPage
         //wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a")));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + rule + "']")));
         collectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + router + "']")).click();
-        return PageFactory.initElements(driver, LeadRouter_Edit.class);
+        return (LeadRouter_Edit) new LeadRouter_Edit().init();
     }
 
 }

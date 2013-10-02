@@ -71,7 +71,7 @@ public class Facebook_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
-        return PageFactory.initElements(driver, Facebook_ListAll.class);
+        return (Facebook_ListAll) new Facebook_ListAll().init();
         
     }
     

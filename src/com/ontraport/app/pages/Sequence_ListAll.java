@@ -45,7 +45,7 @@ public class Sequence_ListAll extends AbstractPage
     {
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         newSequence.click();
-        return PageFactory.initElements(driver, Sequence_TypeSelection.class);
+        return (Sequence_TypeSelection) new Sequence_TypeSelection().init();
     }
     
     public Sequence_ListAll verifySequence (String tag)
@@ -141,7 +141,7 @@ public class Sequence_ListAll extends AbstractPage
         {
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
         }
-        return PageFactory.initElements(driver, Sequence_Edit.class);
+        return (Sequence_Edit) new Sequence_Edit().init();
     }
 
 }

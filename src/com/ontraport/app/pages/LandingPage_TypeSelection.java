@@ -20,7 +20,7 @@ public class LandingPage_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(creatEasyPages));
         creatEasyPages.click();
-        return PageFactory.initElements(driver, LandingPage_CreateType1.class);
+        return (LandingPage_CreateType1) new LandingPage_CreateType1().init();
     }
     
 }

@@ -28,6 +28,6 @@ public class Login extends AbstractPage
         loginInputPassword.sendKeys(password);
         wait.until(ExpectedConditions.visibilityOf(loginInputSubmit));
         loginInputSubmit.click();
-        return PageFactory.initElements(driver, Contact_ListAll.class);
+        return (Contact_ListAll) new Contact_ListAll().init();
     }
 }

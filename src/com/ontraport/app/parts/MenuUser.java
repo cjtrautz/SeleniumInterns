@@ -67,7 +67,7 @@ public class MenuUser extends AbstractPart
         waitForAjax(driver, 20);
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         personalSettings.click();
-        return PageFactory.initElements(driver, User_Edit.class);
+        return (User_Edit) new User_Edit().init();
     }
     public Account_View clickAdmin ()
     {
@@ -75,7 +75,7 @@ public class MenuUser extends AbstractPart
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         wait(4).until(ExpectedConditions.visibilityOf(admin));
         admin.click();
-        return PageFactory.initElements(driver, Account_View.class);
+        return (Account_View) new Account_View().init();
     }
     public User_ListAll clickManageUsers ()
     {
@@ -83,7 +83,7 @@ public class MenuUser extends AbstractPart
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         wait(4).until(ExpectedConditions.visibilityOf(manageUsers));
         manageUsers.click();
-        return PageFactory.initElements(driver, User_ListAll.class);
+        return (User_ListAll) new User_ListAll().init();
     }
     public OPPackage_View clickAccount ()
     {
@@ -91,7 +91,7 @@ public class MenuUser extends AbstractPart
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         wait(4).until(ExpectedConditions.visibilityOf(account));
         account.click();
-        return PageFactory.initElements(driver, OPPackage_View.class);
+        return (OPPackage_View) new OPPackage_View().init();
     }
 
 }

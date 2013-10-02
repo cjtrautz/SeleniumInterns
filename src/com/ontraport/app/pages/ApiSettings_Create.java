@@ -119,7 +119,7 @@ public class ApiSettings_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
-        return PageFactory.initElements(driver, ApiSettings_ListAll.class);
+        return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }
 
     

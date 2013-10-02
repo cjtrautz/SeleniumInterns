@@ -35,7 +35,7 @@ public class Tag_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
-        return PageFactory.initElements(driver, Tag_ListAll.class);
+        return (Tag_ListAll) new Tag_ListAll().init();
     }
     
 }

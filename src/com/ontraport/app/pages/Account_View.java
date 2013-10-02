@@ -90,7 +90,7 @@ public class Account_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         softwareAffiliateLinks.click();
-        return PageFactory.initElements(driver, OntraportAdmin_Afflink.class);
+        return (OntraportAdmin_Afflink) new OntraportAdmin_Afflink().init();
     }
 
     public OneShoppingCart_View click1ShoppingCartSyncing ()
@@ -98,7 +98,7 @@ public class Account_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         oneShoppingCartSyncing.click();
-        return PageFactory.initElements(driver, OneShoppingCart_View.class);
+        return (OneShoppingCart_View) new OneShoppingCart_View().init();
     }
 
     public OntraportAdmin_TrackingPixel clickGetAffiliateTrackingPixel ()
@@ -106,7 +106,7 @@ public class Account_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         getAffiliateTrackingPixel.click();
-        return PageFactory.initElements(driver, OntraportAdmin_TrackingPixel.class);
+        return (OntraportAdmin_TrackingPixel) new OntraportAdmin_TrackingPixel().init();
     }
 
     public ApiSettings_ListAll clickOntraportApiInstructionsAndKeyManager ()
@@ -114,7 +114,7 @@ public class Account_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         ontraportApiInstructionsAndKeyManager.click();
-        return PageFactory.initElements(driver, ApiSettings_ListAll.class);
+        return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }
 
     public Tag_ListAll clickManageTags ()
@@ -122,7 +122,7 @@ public class Account_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         manageTags.click();
-        return PageFactory.initElements(driver, Tag_ListAll.class);
+        return (Tag_ListAll) new Tag_ListAll().init();
     }
 
     public OntraportAdmin_ListExports clickExportedLists ()
@@ -130,7 +130,7 @@ public class Account_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         exportedLists.click();
-        return PageFactory.initElements(driver, OntraportAdmin_ListExports.class);
+        return (OntraportAdmin_ListExports) new OntraportAdmin_ListExports().init();
     }
 
     public Facebook_ListAll clickFacebook ()
@@ -140,7 +140,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(facebook)));
         facebook.click();
-        return PageFactory.initElements(driver, Facebook_ListAll.class);
+        return (Facebook_ListAll) new Facebook_ListAll().init();
     }
 
     public Fulfillment_ListAll clickFulfillmentManager ()
@@ -150,7 +150,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentManager)));
         fulfillmentManager.click();
-        return PageFactory.initElements(driver, Fulfillment_ListAll.class);
+        return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
     }
 
     public Account_View clickAttachmentManager ()
@@ -171,7 +171,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(sendFromAddress)));
         sendFromAddress.click();
-        return PageFactory.initElements(driver, Sender_View.class);
+        return (Sender_View) new Sender_View().init();
     }
 
     public MessageTemplate_ListAll clickDoubleOptInOrInvoiceManager ()
@@ -181,7 +181,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doubleOptInInvoice)));
         doubleOptInInvoice.click();
-        return PageFactory.initElements(driver, MessageTemplate_ListAll.class);
+        return (MessageTemplate_ListAll) new MessageTemplate_ListAll().init();
     }
 
     public UltraCart_View clickUCConfig ()
@@ -191,7 +191,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(ultraCart)));
         ultraCart.click();
-        return PageFactory.initElements(driver, UltraCart_View.class);
+        return (UltraCart_View) new UltraCart_View().init();
     }
 
     public Role_ListAll clickTeamRolesAndPermissionManagement ()
@@ -201,7 +201,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(roles)));
         roles.click();
-        return PageFactory.initElements(driver, Role_ListAll.class);
+        return (Role_ListAll) new Role_ListAll().init();
     }
 
     public Field_Editor clickUserFieldEditor ()
@@ -211,7 +211,7 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
         userFieldEditor.click();
-        return PageFactory.initElements(driver, Field_Editor.class);
+        return (Field_Editor) new Field_Editor().init();
     }
     
 }

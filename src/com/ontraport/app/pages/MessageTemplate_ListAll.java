@@ -38,7 +38,7 @@ public class MessageTemplate_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newMessageTemplate));
         newMessageTemplate.click();
-        return PageFactory.initElements(driver, MessageTemplate_TypeSelection.class);
+        return (MessageTemplate_TypeSelection) new MessageTemplate_TypeSelection().init();
     }
     
     public MessageTemplate_ListAll verifyMessage (String message)
@@ -77,7 +77,7 @@ public class MessageTemplate_ListAll extends AbstractPage
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         //wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']")))));
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + message + "']")).click();
-        return PageFactory.initElements(driver, MessageTemplate_Edit.class);
+        return (MessageTemplate_Edit) new MessageTemplate_Edit().init();
     }
 
     public MessageTemplate_ListAll selectAllOnPage ()

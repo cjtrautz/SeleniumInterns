@@ -18,7 +18,7 @@ public class WordPress_TypeSelection extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         newWordPress.click();
-        return PageFactory.initElements(driver, WordPress_CreateType2.class);
+        return (WordPress_CreateType2) new WordPress_CreateType2().init();
     }
     
 }

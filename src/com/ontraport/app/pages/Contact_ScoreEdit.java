@@ -121,7 +121,7 @@ public class Contact_ScoreEdit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(saveButton));
         saveButton.click();
-        return PageFactory.initElements(driver, Contact_ListAll.class);
+        return (Contact_ListAll) new Contact_ListAll().init();
     }
 
     public Contact_ScoreEdit verifyText ( String string )

@@ -79,7 +79,7 @@ public class LeadRouter_CreateRR extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
-        return PageFactory.initElements(driver, LeadRouter_ListAll.class);
+        return (LeadRouter_ListAll) new LeadRouter_ListAll().init();
     }
     
 }
