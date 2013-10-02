@@ -106,6 +106,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Agree']")
     private WebElement uiAgree;
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Package Code']/following-sibling::div/input")
+    private WebElement packageCodeInput;
     
     public DialogBox clickOk ()
     {
@@ -366,5 +369,40 @@ public class DialogBox extends AbstractPart
         waitForAjax(driver, 20);
         uiAgree.click();
         return PageFactory.initElements(driver, User_Create.class);
+    }
+    public DialogBox verifyPopUpAddPackage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            if(uiDialogBox.isDisplayed()!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            if(packageCodeInput.isDisplayed()!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
     }
 }

@@ -1117,5 +1117,17 @@ public class Field_Editor extends AbstractPage
         return this;
         
     }
+
+    public Account_View clickSave2 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOf(save));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")));
+        //Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
+        //save.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
+        return PageFactory.initElements(driver, Account_View.class);
+    }
     
 }

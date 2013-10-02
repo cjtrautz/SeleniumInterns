@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Account_View;
+import com.ontraport.app.pages.OPPackage_View;
 import com.ontraport.app.pages.User_Edit;
 import com.ontraport.app.pages.User_ListAll;
 import com.ontraport.app.tools.AbstractPart;
@@ -39,6 +40,11 @@ public class MenuUser extends AbstractPart
             how = How.XPATH,
             using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Admin']")
     private WebElement admin;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Account']")
+    private WebElement account;
     
     @FindBy(
             how = How.XPATH,
@@ -79,4 +85,13 @@ public class MenuUser extends AbstractPart
         manageUsers.click();
         return PageFactory.initElements(driver, User_ListAll.class);
     }
+    public OPPackage_View clickAccount ()
+    {
+        waitForAjax(driver, 20);
+        wait(4).until(ExpectedConditions.visibilityOf(logOut));
+        wait(4).until(ExpectedConditions.visibilityOf(account));
+        account.click();
+        return PageFactory.initElements(driver, OPPackage_View.class);
+    }
+
 }

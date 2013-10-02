@@ -80,6 +80,11 @@ public class Account_View extends AbstractPage
             using = "//div[@class='ussr-settings']//div[.='Team Roles & Permission Management']/span")
     private WebElement roles;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-settings']//div[.='User Field Editor']/span")
+    private WebElement userFieldEditor;
+    
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -197,6 +202,16 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(roles)));
         roles.click();
         return PageFactory.initElements(driver, Role_ListAll.class);
+    }
+
+    public Field_Editor clickUserFieldEditor ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
+        userFieldEditor.click();
+        return PageFactory.initElements(driver, Field_Editor.class);
     }
     
 }
