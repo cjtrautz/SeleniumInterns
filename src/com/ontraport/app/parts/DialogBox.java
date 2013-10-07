@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -51,6 +52,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']/button[span[contains(text(), 'Save')]]")
     private WebElement saveButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'save')]]")
+    private WebElement saveButton2;
     @FindBy(how = How.XPATH,
             using = "//label[contains(text(), 'Add Option')]/following-sibling::div/input")
     private WebElement addOptionInput;
@@ -109,6 +113,27 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//label[text()='Package Code']/following-sibling::div/input")
     private WebElement packageCodeInput;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(text(), 'Enter Name')]/input")
+    private WebElement enterNameInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@placeholder='Enter product']")
+    private WebElement enterProduct;
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' orderform-objectselector-list-item-add-new ')]")
+    private WebElement createNew;
+    @FindBy(how = How.XPATH,
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '), ' orderform-objectselector-create-new-name ')]")
+    private WebElement createNewInput;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ontraport_grid_offer']")
+    private WebElement grid;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='price']")
+    private WebElement priceInput;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ui-button ')]/span[text()='Done']")
+    private WebElement done;
     
     public DialogBox clickOk ()
     {
@@ -172,6 +197,14 @@ public class DialogBox extends AbstractPart
         saveButton.click();
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']"))));
+        return this;
+        
+    }
+    public DialogBox clickSave ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(saveButton2));
+        saveButton2.click();
         return this;
         
     }
@@ -404,5 +437,52 @@ public class DialogBox extends AbstractPart
         }
         
         return this;
+    }
+    public DialogBox enterName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        enterNameInput.sendKeys(string);
+        return this;
+        
+    }
+    public DialogBox clickProductName ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        enterProduct.click();
+        return this;
+    }
+    public DialogBox selectCreateNew ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        createNew.click();
+        return this;
+    }
+    public DialogBox enterProductName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        createNewInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox clickGrid ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        grid.click();
+        return this;
+    }
+    
+    public DialogBox enterPrice ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        priceInput.click();
+        //priceInput.clear();
+        priceInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox clickDone ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        done.click();
+        return this;
+        
     }
 }

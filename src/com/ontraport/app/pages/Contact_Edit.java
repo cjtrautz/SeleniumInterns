@@ -15,6 +15,30 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_Edit extends AbstractPage
 {
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Last Name']/following-sibling::div/input")
+    private WebElement lastNameInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Last Name']/following-sibling::button")
+    private WebElement lastNameSave;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Last Name']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement lastNameField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='First Name']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement firstNameField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='First Name']/following-sibling::div/input")
+    private WebElement firstNameInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='First Name']/following-sibling::button")
+    private WebElement firstNameSave;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-note-create-target-text ')]//textarea")
     private WebElement textArea;
@@ -49,6 +73,30 @@ public class Contact_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//span[text()='Contact Information']")
     private WebElement contactInformationTitle;
+    
+    public Contact_Edit clickLastName ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        lastNameField.click();
+        return this;
+        
+    }
+
+    public Contact_Edit enterLastName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        lastNameInput.sendKeys(string);
+        return this;
+        
+    }
+
+    public Contact_Edit clickLastNameSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        lastNameSave.click();
+        return this;
+        
+    }
     
     public Contact_Edit clickNotesAndTasksTab ()
     {
@@ -167,6 +215,118 @@ public class Contact_Edit extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+
+    public Contact_Edit verifyTag ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(8, TimeUnit.SECONDS);
+            driver.findElement(By.xpath(".//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Contact_Edit deleteTag ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.xpath(".//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]/a/span")).click();
+        return this;
+        
+    }
+
+    public Contact_Edit verifyNoTag ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(8, TimeUnit.SECONDS);
+            driver.findElement(By.xpath(".//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        
+        return null;
+    }
+
+    public Contact_Edit clickFirstName ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        firstNameField.click();
+        return this;
+        
+    }
+
+    public Contact_Edit enterFirstName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        firstNameInput.sendKeys(string);
+        return this;
+        
+    }
+
+    public Contact_Edit clickFirstNameSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        firstNameSave.click();
+        return this;
+        
+    }
+
+    public Contact_Edit verifyFirstName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = firstNameField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Contact_Edit verifyLastName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = lastNameField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
         return this;
     }
     

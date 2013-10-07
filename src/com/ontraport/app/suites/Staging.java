@@ -16,7 +16,64 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{  
+{ 
+    com.ontraport.app.tests.CreateGateway.class, 
+    //com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.DeleteGateway.class,
+    
+    com.ontraport.app.tests.SetTimezone.class,
+    
+    com.ontraport.app.tests.EnsureRulesFire.class,
+    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
+    
+    com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.CreateContact.class,
+    //relies on having contacts
+    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
+    //com.ontraport.app.tests.AddColumn.class,
+    //com.ontraport.app.tests.DeleteColumn.class,
+    //relies on single contact
+    com.ontraport.app.tests.CreateNote.class,
+    com.ontraport.app.tests.DeleteNote.class,
+    //relies on having contacts
+    com.ontraport.app.tests.CreateExportContacts.class,
+    //relies on contact
+    com.ontraport.app.tests.AddDeleteUserPermissions.class,
+    com.ontraport.app.tests.CreateATag.class,
+    //relies on a tag and contact
+    com.ontraport.app.tests.AddTagToContact.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_RemoveContactFromTag.class,
+    com.ontraport.app.tests.DeleteRule_RemoveContactFromTag.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_AddContactToTag.class,
+    com.ontraport.app.tests.DeleteRule_AddContactToTag.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_1ConditionWithOrAndAnd.class,
+    com.ontraport.app.tests.DeleteRule_1ConditionWithOrAndAnd.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_ContactIsNotSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactIsNotSubscribedToTag.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_ContactIsSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactIsSubscribedToTag.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_ContactRemovedFromTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactRemovedFromTag.class,
+    //relies on a tag
+    com.ontraport.app.tests.CreateRule_ContactAddedToTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactAddedToTag.class,
+    com.ontraport.app.tests.DeleteTag.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
+    
+    com.ontraport.app.tests.UneditedWorkflow.class,
+    com.ontraport.app.tests.PinnedItemsWorkflow.class,
+    
+    com.ontraport.app.tests.ChangeUserInfo.class,
+    
     com.ontraport.app.tests.CreateSendFromAddress.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     
@@ -78,9 +135,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRuleDateSequence.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     
-    com.ontraport.app.tests.CreateGateway.class, 
-    com.ontraport.app.tests.DeleteGateway.class,
-    
     //requires previously imported csv
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
     
@@ -116,19 +170,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateASmartForm.class,
     
-    com.ontraport.app.tests.CreateContact.class,
-    //relies on having contacts
-    //com.ontraport.app.tests.AddColumn.class,
-    //com.ontraport.app.tests.DeleteColumn.class,
-    //relies on single contact
-    com.ontraport.app.tests.CreateNote.class,
-    com.ontraport.app.tests.DeleteNote.class,
-    //relies on having contacts
-    com.ontraport.app.tests.CreateExportContacts.class,
-    //relies on contact
-    com.ontraport.app.tests.AddDeleteUserPermissions.class,
-    com.ontraport.app.tests.DeleteContact.class,
-    
     com.ontraport.app.tests.CreateTaskMessage.class,
     //relies on task message
     com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
@@ -160,30 +201,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRoundRobin.class,
     com.ontraport.app.tests.AddWeightedRandom.class, 
     com.ontraport.app.tests.DeleteWeightedRandom.class,
-    
-    com.ontraport.app.tests.CreateATag.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_RemoveContactFromTag.class,
-    com.ontraport.app.tests.DeleteRule_RemoveContactFromTag.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_AddContactToTag.class,
-    com.ontraport.app.tests.DeleteRule_AddContactToTag.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_1ConditionWithOrAndAnd.class,
-    com.ontraport.app.tests.DeleteRule_1ConditionWithOrAndAnd.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_ContactIsNotSubscribedToTag.class,
-    com.ontraport.app.tests.DeleteRule_ContactIsNotSubscribedToTag.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_ContactIsSubscribedToTag.class,
-    com.ontraport.app.tests.DeleteRule_ContactIsSubscribedToTag.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_ContactRemovedFromTag.class,
-    com.ontraport.app.tests.DeleteRule_ContactRemovedFromTag.class,
-    //relies on a tag
-    com.ontraport.app.tests.CreateRule_ContactAddedToTag.class,
-    com.ontraport.app.tests.DeleteRule_ContactAddedToTag.class,
-    com.ontraport.app.tests.DeleteTag.class,
     
     com.ontraport.app.tests.CreateProduct.class,
     //relies on product

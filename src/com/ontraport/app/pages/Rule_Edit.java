@@ -97,6 +97,29 @@ public class Rule_Edit extends AbstractPage
         
         return this;
     }
+      public Rule_Edit verifyTDText (String text)
+        {
+            AbstractPart.waitForAjax(driver, 20);
+            wait.until(ExpectedConditions.visibilityOf(ifEvents));
+            try
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(5, TimeUnit.SECONDS);
+                driver.findElement(By.xpath("//td[text()='" + text + "']"));
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            }
+            catch(NoSuchElementException e){
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            
+            return this;
+    }
     public Rule_Edit verifyHeaderText (String text)
     {
         AbstractPart.waitForAjax(driver, 20);

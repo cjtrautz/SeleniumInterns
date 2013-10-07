@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -257,6 +258,16 @@ public class Contact_ListAll extends AbstractPage
             driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")).click();
         }
         return (Contact_Edit) new Contact_Edit().init();
+    }
+    public Contact_ListAll selectContact (int i)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll)); 
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td[2]/span")));
+        driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td")).click();
+        return this;
+        
     }
     
 }

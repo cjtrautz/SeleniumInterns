@@ -1,5 +1,8 @@
 package com.ontraport.app.pages;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -223,6 +226,33 @@ public class Rule_ListAll extends AbstractPage
         //uiCollectionBody.findElement(By.xpath(".//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a/span")).click();
         return this;
         
+    }
+    public Rule_ListAll verifyRuleFired ( String rule )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + rule + "']/ancestor::td/following-sibling::td[@class='ussr-component-collection-cell ussr-component-collection-cell-type-timestamp']/span/a[contains(text(),'" + name + "')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
     }
     
     

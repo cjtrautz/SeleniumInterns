@@ -42,6 +42,10 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteProduct;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Add/Remove Tags')]")
+    private WebElement uiAddRemoveTag;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete API KEY')]")
     private WebElement uiDeleteAPI;
     
@@ -102,8 +106,20 @@ public class DrawerActions extends AbstractPart
         private WebElement emailNameDropDown;
     
     @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+        private WebElement drillDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
         private WebElement actionPane;
+    
+    @FindBy(how = How.XPATH,
+            using = "//input[@placeholder='Select Tag']/following-sibling::button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-drilldownselect-button-menu-toggle ')]")
+        private WebElement dropDownButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-done-button ')]")
+        private WebElement submitButton;
     
     public DrawerActions clickDeleteContacts ()
     {
@@ -310,5 +326,33 @@ public class DrawerActions extends AbstractPart
         List<WebElement> options = driver.findElements(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//li"));
         options.get(i-1).click();
         return (Message_Edit) new Message_Edit().init();
+    }
+    public DrawerActions clickAddRemoveTags ()
+    {
+        waitForAjax(driver, 20);
+        uiAddRemoveTag.click();
+        return this;
+        
+    }
+    public DrawerActions clickTagDropDown ()
+    {
+        waitForAjax(driver, 20);
+        dropDownButton.click();
+        return this;
+        
+    }
+    public DrawerActions selectDrillDown ( String string )
+    {
+        waitForAjax(driver, 20);
+        drillDown.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
+        return this;
+        
+    }
+    public DrawerActions clickSubmit ()
+    {
+        waitForAjax(driver, 20);
+        submitButton.click();
+        return this;
+        
     }
 }
