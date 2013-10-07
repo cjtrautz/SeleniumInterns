@@ -38,7 +38,7 @@ public class CreateUser extends AbstractTest
         user_Create.clickLanguageDropDown();
         user_Create.selectDropDown("English");
         user_Create.clickManagerDropDown();
-        user_Create.selectDropDown(2);
+        user_Create.selectDropDown(1);
         user_Create.enterNewPassword("test");
         user_Create.enterConfirmPassword("test");
         user_ListAll = user_Create.clickSave();
