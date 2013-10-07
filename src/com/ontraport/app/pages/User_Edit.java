@@ -22,6 +22,10 @@ public class User_Edit extends AbstractPage
     private WebElement permissionCollectionBody;
     
     @FindBy(how=How.XPATH,
+            using="//label[text()='Language']/following-sibling::div/span")
+    private WebElement languageField;
+    
+    @FindBy(how=How.XPATH,
             using="//label[text()='Timezone']/following-sibling::div/span")
     private WebElement timezoneField;
     
@@ -540,6 +544,198 @@ public class User_Edit extends AbstractPage
         {
             return null;
         }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit clickLanguage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        languageField.click();
+        return this;
+    }
+
+    public User_Edit verifySpanishLanguage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contactos']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Tareas']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Ventas']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Socios']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Sitios']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Seguimiento']")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyChineseLanguage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='联系人']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='任务']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='销售']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='合作伙伴']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='网站']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='跟踪']")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyHebrewLanguage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='אנשי קשר']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='משימות']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='מכירות']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='שותפים']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='אתרים']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='מעקב']")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyRussianLanguage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Контакты']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Задачи']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Продажи']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Партнеры']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Сайты']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Отслеживание']")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Object verifyEnglishLanguage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Contacts']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Tasks']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Sales']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Partners']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Sites']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!driver.findElement(By.xpath("//aside[@id='ussr-chrome-sidebar']//span[.='Tracking']")).isDisplayed())
+            {
+                return null;
+            }
+
         }
         catch(NoSuchElementException e){
             return null;

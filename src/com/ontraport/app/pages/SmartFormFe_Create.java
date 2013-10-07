@@ -103,6 +103,7 @@ public class SmartFormFe_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//li/div[contains(text(), '" + string +"')]")).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[contains(concat(' ', normalize-space(@class), ' '),' paymentgateway ') and contains(text(), '" + string + "')]"))));
         return this;
         
     }

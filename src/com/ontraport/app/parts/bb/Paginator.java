@@ -18,6 +18,7 @@ public class Paginator extends AbstractPart
     @FindBy(how=How.XPATH,
             using="//div[contains(concat(' ',@class,' '),' ussr-component-paginator ')]/following-sibling::div//div[contains(concat(' ',@class,' '),' ussr-component-drilldownselect-listview ')]")
     private WebElement uiToggleRecordsPerPageList;
+    
     public Boolean isDisplayed ()
     {
         try

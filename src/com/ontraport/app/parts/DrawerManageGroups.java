@@ -3,6 +3,7 @@ package com.ontraport.app.parts;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,10 @@ public class DrawerManageGroups extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//label[text()='Group Name']/following-sibling::div/input")
     private WebElement uiInputGroupName;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Group Permissions']/following-sibling::div/input")
+    private WebElement uiInputGroupPermissions;
 
     @FindBy(how=How.XPATH,
             using="//div[contains(concat(' ', @class, ' '),' group_editor_public ')]//button")
@@ -164,5 +169,27 @@ private WebElement uiButtonDeleteGroup;
         uiButtonDeleteGroup.click();
         return this;
         
+    }
+    public DrawerManageGroups verifyGroupPermissions ( String string )
+    {
+        waitForAjax(driver, 20);
+        try
+        {
+            String value = uiInputGroupPermissions.getAttribute("value");
+            System.out.println(value);
+            if(value.equals(string))
+            {
+                return this;
+            }
+        }
+        catch (TimeoutException te)
+        {
+            return null;
+        }
+        catch (NoSuchElementException e)
+        {
+            return null;
+        }
+        return null;
     }
 }

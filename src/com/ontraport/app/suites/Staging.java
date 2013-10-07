@@ -17,6 +17,14 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    com.ontraport.app.tests.AddGroup.class,
+    com.ontraport.app.tests.EditGroupPermission.class,
+    com.ontraport.app.tests.DeleteGroup.class,
+    
+    com.ontraport.app.tests.SetLanguage.class, 
+    
+    com.ontraport.app.tests.EnsurePagination.class, 
+    
     com.ontraport.app.tests.CreateGateway.class, 
     //com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.DeleteGateway.class,
@@ -30,8 +38,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateContact.class,
     //relies on having contacts
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
-    //com.ontraport.app.tests.AddColumn.class,
-    //com.ontraport.app.tests.DeleteColumn.class,
     //relies on single contact
     com.ontraport.app.tests.CreateNote.class,
     com.ontraport.app.tests.DeleteNote.class,
@@ -289,9 +295,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdated.class,
     com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdated.class,
     
-    com.ontraport.app.tests.AddGroup.class,
-    com.ontraport.app.tests.DeleteGroup.class,
-    
     com.ontraport.app.tests.CreateAffiliateTrackingPixel.class,
     com.ontraport.app.tests.Create1SCSync.class,
     com.ontraport.app.tests.AffiliateLink.class,
@@ -304,6 +307,9 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
 //    com.ontraport.app.tests.CreateTab.class,
 //    com.ontraport.app.tests.DeleteTab.class,
+  //com.ontraport.app.tests.CreateOrderform.class,
+  //com.ontraport.app.tests.AddColumn.class,
+    //com.ontraport.app.tests.DeleteColumn.class,
 
     
 })

@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -268,6 +269,24 @@ public class Contact_ListAll extends AbstractPage
         driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr[" + i + "]/td")).click();
         return this;
         
+    }
+    public Object verifyNumberOfContactsPerPage ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            List<WebElement> rows = driver.findElements(By.xpath("//tbody[@class='ussr-component-collection-body']//tr"));
+            System.out.println(rows.size());
+            if(rows.size()!=i)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
     }
     
 }
