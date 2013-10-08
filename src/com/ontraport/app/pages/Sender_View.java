@@ -14,6 +14,7 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Sender_View extends AbstractPage
 {
+    public static String url = "/#!/sender/view";
     @FindBy(
             how = How.XPATH,
             using = "//div[@class='sender_add']/button")

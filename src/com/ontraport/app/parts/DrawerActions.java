@@ -102,7 +102,7 @@ public class DrawerActions extends AbstractPart
         private WebElement uiReassignDelete;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='E-mail name']/following-sibling::div/button")
+            using = "//label[text()='E-mail Name']/following-sibling::div/button")
         private WebElement emailNameDropDown;
     
     @FindBy(how = How.XPATH,

@@ -17,19 +17,11 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    com.ontraport.app.tests.AddGroup.class,
-    com.ontraport.app.tests.EditGroupPermission.class,
-    com.ontraport.app.tests.DeleteGroup.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class,
+    com.ontraport.app.tests.DeleteSendFromAddress.class,
     
-    com.ontraport.app.tests.EnsurePagination.class, 
-    
-    com.ontraport.app.tests.CreateGateway.class, 
-    com.ontraport.app.tests.DeleteGateway.class,
-    
-    com.ontraport.app.tests.SetTimezone.class,
-    
-    com.ontraport.app.tests.EnsureRulesFire.class,
-    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,
@@ -68,6 +60,20 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteTag.class,
     com.ontraport.app.tests.DeleteContact.class,
     
+    com.ontraport.app.tests.AddGroup.class,
+    com.ontraport.app.tests.EditGroupPermission.class,
+    com.ontraport.app.tests.DeleteGroup.class,
+    
+    com.ontraport.app.tests.EnsurePagination.class, 
+    
+    com.ontraport.app.tests.CreateGateway.class, 
+    com.ontraport.app.tests.DeleteGateway.class,
+    
+    com.ontraport.app.tests.SetTimezone.class,
+    
+    com.ontraport.app.tests.EnsureRulesFire.class,
+    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
+    
     com.ontraport.app.tests.CreateSMSMessage.class,
     com.ontraport.app.tests.DeleteSMSMessage.class,
     
@@ -75,12 +81,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.PinnedItemsWorkflow.class,
     
     com.ontraport.app.tests.ChangeUserInfo.class,
-    
-    com.ontraport.app.tests.CreateSendFromAddress.class,
-    com.ontraport.app.tests.DeleteSendFromAddress.class,
-    
-    com.ontraport.app.tests.CreateUserFieldEditor.class,
-    com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
     com.ontraport.app.tests.AccountAddAPackage.class,
     

@@ -34,7 +34,7 @@ import com.ontraport.app.parts.Pin;
 public abstract class AbstractPage
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
-    protected String                    url                         = "https://staging.app.ontraport.com?track_requests=1";
+    private static String               url                         = "https://staging.app.ontraport.com?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------
@@ -95,9 +95,9 @@ public abstract class AbstractPage
     @FindBy(how = How.XPATH,
             using = "")
     protected WebElement      uiToggleDrilldownRecordsPerPage;
-    public AbstractPage open ( String url )
+    public AbstractPage open ( String url2 )
     {
-        driver.get(this.url + url);
+        driver.get(url + url2);
         return null;
     }
     public AbstractPage init ()
@@ -106,4 +106,9 @@ public abstract class AbstractPage
         PageFactory.initElements(finder, this);
         return this;
     }
+    public static String getUrl ()
+    {
+        return url;
+    }
+
 }

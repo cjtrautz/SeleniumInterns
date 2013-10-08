@@ -17,7 +17,10 @@ import com.ontraport.app.pages.Facebook_Create;
 import com.ontraport.app.pages.Facebook_Edit;
 import com.ontraport.app.pages.Facebook_ListAll;
 import com.ontraport.app.pages.Gmail;
+import com.ontraport.app.pages.Login;
 import com.ontraport.app.pages.Sender_View;
+import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateSendFromAddress extends AbstractTest
@@ -51,7 +54,11 @@ public class CreateSendFromAddress extends AbstractTest
         {
             
         }
-        driver.get("http://app.ontraport.com/?track_requests=1/#!/sender/view");
+        driver.get(AbstractPage.getUrl() + Sender_View.url);
+        AbstractPart.waitForAjax(driver, 30);
+//        contactListAll.menuUser.open();
+//        account_View = contactListAll.menuUser.clickAdmin();
+//        sender_View = account_View.clickSendFrom();
         //Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='chrome-company-logo ussr-helper-position-reset']")));
