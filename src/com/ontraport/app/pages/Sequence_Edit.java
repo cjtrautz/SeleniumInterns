@@ -74,6 +74,46 @@ public class Sequence_Edit extends AbstractPage
             using = "//span[contains(concat(' ', @class, ' '),' ontraport_components_form_control_drill_down_select_field_selector ')]//input")
     private WebElement fieldDropDownInput;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//li[@data-tabindex='status']/a")
+    private WebElement statsTab;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@data-tabindex='status']//span[contains(concat(' ', @class, ' '),' ussr-component-section-title ')]")
+    private WebElement statsTitle;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//li[@data-tabindex='steps']/a")
+    private WebElement stepsTab;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' sequence_action_bar ')]/span[contains(concat(' ', @class, ' '),' sequence_actions ')]")
+    private WebElement stepsTitle;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//li[@data-tabindex='subscribers']/a")
+    private WebElement subscribersTab;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@data-tabindex='subscribers']//span[contains(concat(' ', @class, ' '),' ussr-component-section-title ')]")
+    private WebElement subscribersTitle;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")
+    private WebElement save;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Settings']")
+    private WebElement settings;
+    
     public Sequence_Edit verifySequenceStepAndExpand (String step, int index)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -400,6 +440,127 @@ public class Sequence_Edit extends AbstractPage
         }
         
         return this;
+    }
+    public Sequence_Edit clickStats ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        statsTab.click();
+        return this;
+    }
+    public Sequence_Edit verifyStatsTitle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println(messageSelector.findElement(By.xpath(".//input")).getAttribute("value"));
+            if(!statsTitle.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit clickSubscribers ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        subscribersTab.click();
+        return this;
+        
+    }
+    public Sequence_Edit verifySubscriptionsTitle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println(messageSelector.findElement(By.xpath(".//input")).getAttribute("value"));
+            if(!subscribersTitle.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit clickEditSteps ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        stepsTab.click();
+        return this;
+        
+    }
+    public Sequence_Edit verifyAddAStepTitle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println(messageSelector.findElement(By.xpath(".//input")).getAttribute("value"));
+            if(!stepsTitle.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit clickSettings ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        settings.click();
+        return this;
+        
+    }
+    public Sequence_Edit clickSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        save.click();
+        return this;
+        
     }
 
 }

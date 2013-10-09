@@ -17,6 +17,80 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.AddNewSection.class,
+    //relies on section
+      com.ontraport.app.tests.CreateStateField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithStateField.class,
+      com.ontraport.app.tests.DeleteStateGroup.class,
+      com.ontraport.app.tests.DeleteStateField.class,
+      //relies on section
+      com.ontraport.app.tests.CreatePriceField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithPriceField.class,
+      com.ontraport.app.tests.DeletePriceGroup.class,
+      com.ontraport.app.tests.DeletePriceField.class,
+    //relies on section
+      com.ontraport.app.tests.CreateNumericField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithNumericField.class,
+      com.ontraport.app.tests.DeleteNumericGroup.class,
+      com.ontraport.app.tests.DeleteNumericField.class,
+      //relies on section
+      com.ontraport.app.tests.CreateLongTextField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithLongTextField.class,
+      com.ontraport.app.tests.DeleteLongTextGroup.class,
+      com.ontraport.app.tests.DeleteLongTextField.class,
+      //relies on section
+      com.ontraport.app.tests.CreateListSelectionField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithListField.class,
+      com.ontraport.app.tests.DeleteListGroup.class,
+      com.ontraport.app.tests.DeleteListSelectionField.class,
+      //relies on section
+      com.ontraport.app.tests.CreateDateField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithDateField.class,
+      com.ontraport.app.tests.DeleteDateGroup.class,
+      com.ontraport.app.tests.DeleteDateField.class,
+      //relies on section
+      com.ontraport.app.tests.CreateCheckboxField.class,
+    //relies on text field
+//      com.ontraport.app.tests.AddGroupWithCheckboxField.class,
+//      com.ontraport.app.tests.DeleteCheckboxGroup.class,
+      com.ontraport.app.tests.DeleteCheckBoxField.class,
+    //relies on section
+      com.ontraport.app.tests.CreateDropdownField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithDropDownField.class,
+      com.ontraport.app.tests.DeleteDropdownGroup.class,
+      com.ontraport.app.tests.DeleteDropdownField.class,
+    //relies on section
+      com.ontraport.app.tests.CreateTextField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithTextField.class,
+      com.ontraport.app.tests.DeleteTextGroup.class,
+      com.ontraport.app.tests.DeleteTextField.class,
+      com.ontraport.app.tests.DeleteSection.class,
+      
+    com.ontraport.app.tests.AddGroup.class,
+    com.ontraport.app.tests.EditGroupPermission.class,
+    com.ontraport.app.tests.DeleteGroup.class,
+    
+    com.ontraport.app.tests.CollapseNavButton.class,
+    
+    com.ontraport.app.tests.CheckLogOut.class,
+    
+    com.ontraport.app.tests.CreateRuleDateSequence.class,
+  //relies on sequence
+    com.ontraport.app.tests.UnsubscribeContactAfterLastStep.class,
+  //relies on sequence
+    com.ontraport.app.tests.RunSequenceOnlyOnWeekends.class,
+  //relies on sequence
+    com.ontraport.app.tests.VerifySequenceEditSteps.class,
+    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+    
     com.ontraport.app.tests.CreateSendFromAddress.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     
@@ -59,10 +133,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_ContactAddedToTag.class,
     com.ontraport.app.tests.DeleteTag.class,
     com.ontraport.app.tests.DeleteContact.class,
-    
-    com.ontraport.app.tests.AddGroup.class,
-    com.ontraport.app.tests.EditGroupPermission.class,
-    com.ontraport.app.tests.DeleteGroup.class,
     
     com.ontraport.app.tests.EnsurePagination.class, 
     
@@ -134,41 +204,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.DeleteLandingPage.class,
     
-    com.ontraport.app.tests.CreateRuleDateSequence.class,
-    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-    
     //requires previously imported csv
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
-    
-    com.ontraport.app.tests.AddNewSection.class,
-  //relies on section
-    com.ontraport.app.tests.CreateStateField.class,
-    com.ontraport.app.tests.DeleteStateField.class,
-    //relies on section
-    com.ontraport.app.tests.CreatePriceField.class,
-    com.ontraport.app.tests.DeletePriceField.class,
-  //relies on section
-    com.ontraport.app.tests.CreateNumericField.class,
-    com.ontraport.app.tests.DeleteNumericField.class,
-    //relies on section
-    com.ontraport.app.tests.CreateLongTextField.class,
-    com.ontraport.app.tests.DeleteLongTextField.class,
-    //relies on section
-    com.ontraport.app.tests.CreateListSelectionField.class,
-    com.ontraport.app.tests.DeleteListSelectionField.class,
-    //relies on section
-    com.ontraport.app.tests.CreateDateField.class,
-    com.ontraport.app.tests.DeleteDateField.class,
-    //relies on section
-    com.ontraport.app.tests.CreateCheckboxField.class,
-    com.ontraport.app.tests.DeleteCheckBoxField.class,
-  //relies on section
-    com.ontraport.app.tests.CreateDropdownField.class,
-    com.ontraport.app.tests.DeleteDropdownField.class,
-  //relies on section
-    com.ontraport.app.tests.CreateTextField.class,
-    com.ontraport.app.tests.DeleteTextField.class,
-    com.ontraport.app.tests.DeleteSection.class,
     
     com.ontraport.app.tests.CreateASmartForm.class,
     

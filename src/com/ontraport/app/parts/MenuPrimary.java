@@ -1,5 +1,9 @@
 package com.ontraport.app.parts;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +36,7 @@ import com.ontraport.app.pages.TrackingTerm_ListAll;
 import com.ontraport.app.pages.TrackingUrlHistory_ListAll;
 import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class MenuPrimary extends AbstractPart
 {
@@ -125,6 +130,18 @@ public class MenuPrimary extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header-title ')]//span[text()='Products']")
     private WebElement productTitle;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='primary-nav-toggle-view position-absolute-zero']//span[@class='ussr-icon ussr-icon-toggle-e']")
+    private WebElement uiCollapse;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='primary-nav-toggle-view position-absolute-zero']//span[@class='ussr-icon ussr-icon-toggle-w']")
+    private WebElement uiExpand;
+    @FindBy(how = How.XPATH,
+            using = "//nav[contains(concat(' ', @class, ' '),' ussr-border-inset-all ')]")
+    private WebElement collapsedMenu;
+    @FindBy(how = How.XPATH,
+            using = "//nav[contains(concat(' ', @class, ' '),' ussr-border-dark-bottom ')]")
+    private WebElement expandedMenu;
     public Contact_ListAll clickContactListAll ()
     {
         waitForAjax(driver, 20);
@@ -404,5 +421,75 @@ public class MenuPrimary extends AbstractPart
         wait(15).until(ExpectedConditions.visibilityOf(uiTrackingLinksListAll));
         uiTrackingLinksListAll.click();
         return (TrackingLinks_ListAll) new TrackingLinks_ListAll().init();
+    }
+    public MenuPrimary collapse ()
+    {
+        waitForAjax(driver, 20);
+        uiCollapse.click();
+        return this;
+        
+    }
+    public MenuPrimary expand ()
+    {
+        waitForAjax(driver, 20);
+        uiExpand.click();
+        return this;
+        
+    }
+    public MenuPrimary verifyMenuCollapsed ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            if(!collapsedMenu.isEnabled())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public MenuPrimary verifyMenuExpanded ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            if(!expandedMenu.isEnabled())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
     }
 }

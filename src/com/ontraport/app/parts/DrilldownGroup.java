@@ -54,7 +54,7 @@ public class DrilldownGroup extends AbstractPart
     {
         open();
         waitForAjax(driver, 20);
-        System.out.println(uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText());
+        //System.out.println(uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText());
         try
         {
             driver.manage()

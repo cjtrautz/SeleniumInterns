@@ -93,5 +93,12 @@ public class MenuUser extends AbstractPart
         account.click();
         return (OPPackage_View) new OPPackage_View().init();
     }
+    public void clickLogOut ()
+    {
+        waitForAjax(driver, 20);
+        wait(4).until(ExpectedConditions.visibilityOf(logOut));
+        logOut.click();
+        
+    }
 
 }

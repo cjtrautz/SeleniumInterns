@@ -1,8 +1,11 @@
 package com.ontraport.app.parts;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -14,6 +17,7 @@ import com.ontraport.app.pages.Contact_Export;
 import com.ontraport.app.pages.Facebook_ListAll;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class DrawerActions extends AbstractPart
 {
@@ -120,6 +124,26 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-done-button ')]")
         private WebElement submitButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Run this sequence only on weekends']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
+    private WebElement onWeekendsEmptyCheckbox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Run this sequence only on weekends']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
+    private WebElement onWeekendsCheckedCheckbox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Unsubscribe contact after last step']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
+    private WebElement unsubcribeContactAfterLastStepEmptyCheckbox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Unsubscribe contact after last step']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
+    private WebElement unsubcribeContactAfterLastStepCheckedCheckbox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='sequence_setting_controls']/button/span[text()='Save Settings']")
+    private WebElement saveSettings;
     
     public DrawerActions clickDeleteContacts ()
     {
@@ -352,6 +376,99 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         submitButton.click();
+        return this;
+        
+    }
+    public DrawerActions checkRunOnlyOnWeekends ()
+    {
+        waitForAjax(driver, 20);
+        onWeekendsEmptyCheckbox.click();
+        return this;
+        
+    }
+    public DrawerActions clickSaveSettings ()
+    {
+        waitForAjax(driver, 20);
+        saveSettings.click();
+        return this;
+        
+    }
+    public DrawerActions verifyOnlyOnWeekendsChecked ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            Point zero = new Point(0,0);
+            if(onWeekendsCheckedCheckbox.getLocation()==zero)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerActions checkUnsubscribeContactAfterLastStep ()
+    {
+        waitForAjax(driver, 20);
+        unsubcribeContactAfterLastStepEmptyCheckbox.click();
+        return this;
+  
+    }
+    public DrawerActions verifyUnsubscribeContactAfterLastStepChecked ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            Point zero = new Point(0,0);
+            if(unsubcribeContactAfterLastStepCheckedCheckbox.getLocation()==zero)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerActions uncheckRunOnlyOnWeekends ()
+    {
+        waitForAjax(driver, 20);
+        onWeekendsCheckedCheckbox.click();
+        return this;
+        
+    }
+    public DrawerActions uncheckUnsubscribeContactAfterLastStep ()
+    {
+        waitForAjax(driver, 20);
+        unsubcribeContactAfterLastStepCheckedCheckbox.click();
         return this;
         
     }

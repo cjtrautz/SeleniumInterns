@@ -1,6 +1,7 @@
 package com.ontraport.app.parts;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class DrawerManageGroups extends AbstractPart
 {
@@ -37,6 +39,10 @@ public class DrawerManageGroups extends AbstractPart
     @FindBy(how=How.XPATH,
             using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_field']//button")
     private List<WebElement> uiToggleFieldPane;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_field']//input")
+    private List<WebElement> uiFieldPaneInput;
 
     @FindBy(how=How.XPATH,
             using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_field']//div[contains(concat(' ',@class,' '),' ussr-component-drilldownselect-listview ')]")
@@ -45,10 +51,30 @@ public class DrawerManageGroups extends AbstractPart
     @FindBy(how=How.XPATH,
             using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_condition']//button")
     private List<WebElement> uiToggleConditionPane;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_condition']//input")
+    private List<WebElement> uiConditionPaneInput;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_value']//button")
+    private List<WebElement> uiToggleValuePane;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[contains(@class, 'sem_value')]//input")
+    private List<WebElement> uiValuePaneInput;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[contains(@class, 'sem_value')]//textarea")
+    private List<WebElement> uiValuePaneTextArea;
 
     @FindBy(how=How.XPATH,
             using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_condition']//div[contains(concat(' ',@class,' '),' ussr-component-drilldownselect-listview ')]")
     private List<WebElement> uiConditionList;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_value']//div[contains(concat(' ',@class,' '),' ussr-component-drilldownselect-listview ')]")
+    private List<WebElement> uiValueList;
 
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ',@class,' '), ' sem-segment-entry ')]")
@@ -112,6 +138,15 @@ private WebElement uiButtonDeleteGroup;
         uiToggleFieldPane.get(row).click();
         return this;
     }
+    
+    public DrawerManageGroups enterFieldPaneInput (String string, int row)
+    {
+        waitForAjax(driver, 20);
+        wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
+        uiFieldPaneInput.get(row).sendKeys(string);
+        return this;
+    }
+    
     public DrawerManageGroups clickField ( String field,  int row )
     {
         waitForAjax(driver, 20);
@@ -138,8 +173,15 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups enterValue ( String value, int row, int index )
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf( uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input"))));
-        uiInputValueRows.get(row).findElement(By.xpath("//tr[@class='sem_condition_row']["+(index+1)+"]//td[@class='sem_value']//input")).sendKeys(value);
+        List<WebElement> ya = uiInputValueRows.get(row).findElements(By.xpath("//tr[@class='sem_condition_row']//td[contains(@class,'sem_value')]//input"));
+        ya.get(index).sendKeys(value);
+        return this;
+    }
+    public DrawerManageGroups enterValueTextArea ( String value, int row, int index )
+    {
+        waitForAjax(driver, 20);
+        List<WebElement> ya = uiInputValueRows.get(row).findElements(By.xpath("//tr[@class='sem_condition_row']//td[contains(@class,'sem_value')]//textarea"));
+        ya.get(index).sendKeys(value);
         return this;
     }
     public Boolean confirmGroupApplied (final String name)
@@ -191,5 +233,150 @@ private WebElement uiButtonDeleteGroup;
             return null;
         }
         return null;
+    }
+    public DrawerManageGroups openValuePane ( int i )
+    {
+        waitForAjax(driver, 20);
+        wait(1).until(ExpectedConditions.visibilityOf(uiToggleValuePane.get(i)));
+        uiToggleValuePane.get(i).click();
+        return this;
+        
+    }
+    public DrawerManageGroups clickValue ( String string, int i )
+    {
+        waitForAjax(driver, 20);
+        wait(1).until(ExpectedConditions.visibilityOf(uiValueList.get(i).findElement(By.xpath(".//div[text()='"+string+"']"))));
+        uiValueList.get(i).findElement(By.xpath(".//div[text()='"+string+"']")).click();
+        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiValueList.get(i))));
+        return this;
+        
+    }
+    public DrawerManageGroups verifyFieldDropDown ( String string, int row )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(3).until(ExpectedConditions.visibilityOf(uiFieldPaneInput.get(row)));
+            String compare = uiFieldPaneInput.get(row).getAttribute("value");
+            System.out.println(compare);
+            //System.out.println(value);
+            if(compare.equals(string)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerManageGroups verifyConditionDropDown ( String string, int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(3).until(ExpectedConditions.visibilityOf(uiConditionPaneInput.get(i)));
+            String compare = uiConditionPaneInput.get(i).getAttribute("value");
+            System.out.println(compare);
+            //System.out.println(value);
+            if(compare.equals(string)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerManageGroups verifyValueDropDown ( String string, int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(3).until(ExpectedConditions.visibilityOf(uiValuePaneInput.get(i)));
+            String compare = uiValuePaneInput.get(i).getAttribute("value");
+            System.out.println(compare);
+            //System.out.println(value);
+            if(compare.equals(string)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerManageGroups verifyValueTextArea ( String string, int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(3).until(ExpectedConditions.visibilityOf(uiValuePaneTextArea.get(i)));
+            String compare = uiValuePaneTextArea.get(i).getAttribute("value");
+            System.out.println(compare);
+            //System.out.println(value);
+            if(compare.equals(string)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
     }
 }
