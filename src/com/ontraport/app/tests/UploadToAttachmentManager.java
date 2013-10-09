@@ -6,9 +6,6 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.Facebook_Create;
-import com.ontraport.app.pages.Facebook_Edit;
-import com.ontraport.app.pages.Facebook_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
 public class UploadToAttachmentManager extends AbstractTest

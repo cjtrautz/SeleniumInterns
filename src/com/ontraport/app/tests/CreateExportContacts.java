@@ -2,9 +2,6 @@ package com.ontraport.app.tests;
 
 import static org.junit.Assert.*;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import org.junit.Test;
 
 import com.ontraport.app.pages.Account_View;

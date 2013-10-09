@@ -4,13 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.OntraportAdmin_Afflink;
-import com.ontraport.app.pages.User_Edit;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractTest;
 

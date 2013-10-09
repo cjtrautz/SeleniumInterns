@@ -10,10 +10,6 @@ import com.ontraport.app.pages.MessageTemplate_CreateType1;
 import com.ontraport.app.pages.MessageTemplate_Edit;
 import com.ontraport.app.pages.MessageTemplate_ListAll;
 import com.ontraport.app.pages.MessageTemplate_TypeSelection;
-import com.ontraport.app.pages.Message_CreateEmail;
-import com.ontraport.app.pages.Message_Edit;
-import com.ontraport.app.pages.Message_ListAll;
-import com.ontraport.app.pages.Message_TypeSelection;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateDoubleOptinMessage extends AbstractTest

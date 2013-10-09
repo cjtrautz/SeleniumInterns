@@ -1,13 +1,7 @@
 package com.ontraport.app.tests.bb;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-import com.ontraport.app.pages.Contact_Create;
-import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.tools.AbstractSuite;
-import com.ontraport.app.tools.Values;
 import com.ontraport.app.tools.AbstractTest;
 
 public class Simple extends AbstractTest

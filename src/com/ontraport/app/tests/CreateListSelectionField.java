@@ -7,7 +7,6 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.pages.Field_Editor;
-import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateListSelectionField extends AbstractTest

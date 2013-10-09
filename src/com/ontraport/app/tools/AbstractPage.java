@@ -27,14 +27,11 @@ import com.ontraport.app.parts.MenuWorkflow;
 import com.ontraport.app.parts.Paginator;
 import com.ontraport.app.parts.Pin;
 
-/**
- * @author Bill Brown
- *
- */
 public abstract class AbstractPage
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
-    private static String               url                         = "https://staging.app.ontraport.com?track_requests=1";
+    protected static String             url                         = "";
+    protected static String             latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------
@@ -95,9 +92,19 @@ public abstract class AbstractPage
     @FindBy(how = How.XPATH,
             using = "")
     protected WebElement      uiToggleDrilldownRecordsPerPage;
-    public AbstractPage open ( String url2 )
+    public AbstractPage open ( String url )
     {
-        driver.get(url + url2);
+        driver.get(AbstractPage.url + AbstractPage.latch + url);
+        return null;
+    }
+    public AbstractPage open ( String url, Boolean login )
+    {
+        if (login == false)
+        {
+            driver.get(AbstractPage.url + AbstractPage.latch + url);
+        } else {
+            driver.get(AbstractPage.url + url + AbstractPage.latch);
+        }
         return null;
     }
     public AbstractPage init ()
@@ -106,9 +113,13 @@ public abstract class AbstractPage
         PageFactory.initElements(finder, this);
         return this;
     }
+    public static void setUrl (String url)
+    {
+        AbstractPage.url = url;
+    }
     public static String getUrl ()
     {
-        return url;
+        return AbstractPage.url;
     }
 
 }

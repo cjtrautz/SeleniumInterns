@@ -1,7 +1,5 @@
 package com.ontraport.app.tests;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;

@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.pages.Field_Editor;
 import com.ontraport.app.pages.User_Edit;
 import com.ontraport.app.tools.AbstractTest;

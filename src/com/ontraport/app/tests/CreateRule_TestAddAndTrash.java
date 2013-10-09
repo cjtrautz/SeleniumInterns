@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Rule_Create;
-import com.ontraport.app.pages.Rule_Edit;
 import com.ontraport.app.pages.Rule_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
