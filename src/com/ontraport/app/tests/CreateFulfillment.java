@@ -24,7 +24,7 @@ public class CreateFulfillment extends AbstractTest
         Fulfillment_Create fulfillment_Create = fulfillment_ListAll.clickNewFulfillmentList();
         fulfillment_Create.enterFulfillmentListName("SelFulfillment");
         fulfillment_Create.openSendTimePane();
-        fulfillment_Create.selectTime("12:00am");
+        fulfillment_Create.selectTime("12:00 AM");
         fulfillment_Create.openFieldPane();
         fulfillment_Create.selectField("First Name");
         fulfillment_ListAll = fulfillment_Create.clickSave();

@@ -36,6 +36,11 @@ public class Field_Editor extends AbstractPage
     private WebElement sectionTitle;
     
     @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-pane-header-title ')]")
+    private WebElement sectionTitle2;
+    
+    @FindBy(
             how = How.CSS,
             using = "input.ussr-widget-editinplace-input")
     private WebElement input;
@@ -1147,6 +1152,13 @@ public class Field_Editor extends AbstractPage
         //save.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
         return (Account_View) new Account_View().init();
+    }
+
+    public Field_Editor clickUserTitle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sectionTitle2.click();
+        return this;
     }
     
 }

@@ -17,38 +17,41 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.DeleteUserFieldEditor.class,
+    
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
-      com.ontraport.app.tests.CreateStateField.class,
-    //relies on text field
-      com.ontraport.app.tests.AddGroupWithStateField.class,
-      com.ontraport.app.tests.DeleteStateGroup.class,
-      com.ontraport.app.tests.DeleteStateField.class,
-      //relies on section
-      com.ontraport.app.tests.CreatePriceField.class,
-    //relies on text field
-      com.ontraport.app.tests.AddGroupWithPriceField.class,
-      com.ontraport.app.tests.DeletePriceGroup.class,
-      com.ontraport.app.tests.DeletePriceField.class,
-    //relies on section
-      com.ontraport.app.tests.CreateNumericField.class,
-    //relies on text field
-      com.ontraport.app.tests.AddGroupWithNumericField.class,
-      com.ontraport.app.tests.DeleteNumericGroup.class,
-      com.ontraport.app.tests.DeleteNumericField.class,
-      //relies on section
-      com.ontraport.app.tests.CreateLongTextField.class,
-    //relies on text field
-      com.ontraport.app.tests.AddGroupWithLongTextField.class,
-      com.ontraport.app.tests.DeleteLongTextGroup.class,
-      com.ontraport.app.tests.DeleteLongTextField.class,
-      //relies on section
-      com.ontraport.app.tests.CreateListSelectionField.class,
-    //relies on text field
-      com.ontraport.app.tests.AddGroupWithListField.class,
-      com.ontraport.app.tests.DeleteListGroup.class,
-      com.ontraport.app.tests.DeleteListSelectionField.class,
-      //relies on section
+//      com.ontraport.app.tests.CreateStateField.class,
+//    //relies on text field
+//      com.ontraport.app.tests.AddGroupWithStateField.class,
+//      com.ontraport.app.tests.DeleteStateGroup.class,
+//      com.ontraport.app.tests.DeleteStateField.class,
+//      //relies on section
+//      com.ontraport.app.tests.CreatePriceField.class,
+//    //relies on text field
+//      com.ontraport.app.tests.AddGroupWithPriceField.class,
+//      com.ontraport.app.tests.DeletePriceGroup.class,
+//      com.ontraport.app.tests.DeletePriceField.class,
+//    //relies on section
+//      com.ontraport.app.tests.CreateNumericField.class,
+//    //relies on text field
+//      com.ontraport.app.tests.AddGroupWithNumericField.class,
+//      com.ontraport.app.tests.DeleteNumericGroup.class,
+//      com.ontraport.app.tests.DeleteNumericField.class,
+//      //relies on section
+//      com.ontraport.app.tests.CreateLongTextField.class,
+//    //relies on text field
+//      com.ontraport.app.tests.AddGroupWithLongTextField.class,
+//      com.ontraport.app.tests.DeleteLongTextGroup.class,
+//      com.ontraport.app.tests.DeleteLongTextField.class,
+//      //relies on section
+//      com.ontraport.app.tests.CreateListSelectionField.class,
+//    //relies on text field
+//      com.ontraport.app.tests.AddGroupWithListField.class,
+//      com.ontraport.app.tests.DeleteListGroup.class,
+//      com.ontraport.app.tests.DeleteListSelectionField.class,
+//      //relies on section
       com.ontraport.app.tests.CreateDateField.class,
     //relies on text field
       com.ontraport.app.tests.AddGroupWithDateField.class,
@@ -93,9 +96,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateSendFromAddress.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
-    
-    com.ontraport.app.tests.CreateUserFieldEditor.class,
-    com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,

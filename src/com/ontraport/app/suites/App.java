@@ -17,6 +17,10 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.DeleteUserFieldEditor.class,
+    
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
@@ -93,9 +97,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateSendFromAddress.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
-    
-    com.ontraport.app.tests.CreateUserFieldEditor.class,
-    com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,

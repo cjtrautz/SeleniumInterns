@@ -173,7 +173,7 @@ public class Sequence_CreateStep extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(emailStep));
         emailStep.click();
-        wait.until(ExpectedConditions.visibilityOf(emailBody));
+        //wait.until(ExpectedConditions.visibilityOf(emailBody));
         return this;
         
     }

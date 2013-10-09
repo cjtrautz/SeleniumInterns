@@ -45,7 +45,7 @@ public class AddGroupWithDateField extends AbstractTest
         {
             fail("couldnt find condition group");
         }
-        if (contactListAll.drawerManageGroups.verifyValueDropDown("1/1/2014", 0) == null)
+        if (contactListAll.drawerManageGroups.verifyValueDropDown("01/01/2014", 0) == null)
         {
             fail("couldnt find value group");
         }
