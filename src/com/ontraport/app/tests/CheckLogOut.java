@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Login;
+import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CheckLogOut extends AbstractTest
@@ -24,7 +25,7 @@ public class CheckLogOut extends AbstractTest
         }
         Login login = (Login) new Login().init();
         login.open(Login.url);
-        login.as("nick@ontraport.com", "Lughead1");
+        login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
         
     }
 }

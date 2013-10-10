@@ -18,6 +18,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
+    
     com.ontraport.app.tests.CreatePostcardMessage.class,
     //relies postcard message
     com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
@@ -384,7 +387,7 @@ public class Staging extends AbstractSuite
               .maximize();
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
-        login.as("selenium@ontraport.com", "test123");
+        login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);
         //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));

@@ -82,6 +82,9 @@ public class DialogBox extends AbstractPart
             using = "//div[@class='create_button_class']//td[text()='Shape']")
     private WebElement shapeButton;
     @FindBy(how = How.XPATH,
+            using = "//div[@class='create_button_class']//td[text()='Text Area']")
+    private WebElement textAreaButton;
+    @FindBy(how = How.XPATH,
             using = "//a[text()='Upload']")
     private WebElement uploadTab;
     @FindBy(how = How.XPATH,
@@ -497,5 +500,12 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         sendButton.click();
         return this;
+    }
+    public DialogBox clickTextArea ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        textAreaButton.click();
+        return this;
+        
     }
 }

@@ -30,6 +30,8 @@ import com.ontraport.app.parts.Pin;
 public abstract class AbstractPage
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
+    protected static String             password                    = "test123";
+    protected static String             login                       = "selenium@ontraport.com";
     protected static String             url                         = "";
     protected static String             latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
@@ -120,6 +122,14 @@ public abstract class AbstractPage
     public static String getUrl ()
     {
         return AbstractPage.url;
+    }
+    public static String getLogin ()
+    {
+        return AbstractPage.login;
+    }
+    public static String getPassword ()
+    {
+        return AbstractPage.password;
     }
 
 }

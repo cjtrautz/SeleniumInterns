@@ -27,12 +27,12 @@ public class CreatePostcardAndEditFontSize extends AbstractTest
         Message_CreatePostcard message_CreatePostcard = message_TypeSelection.clickPostcardCreate();
         message_CreatePostcard.enterMessageName("SelMessageTestingPostcard");
         message_CreatePostcard.clickNewItem();
-//        message_CreatePostcard.dialogBox.clickTextArea();
-//        message_CreatePostcard.doubleClickInsertText();
-//        message_CreatePostcard.enterText("test text");
-//        message_CreatePostcard.doubleClickText();
-//        message_CreatePostcard.clickFontSizeDropDown();
-//        message_CreatePostcard.selectSize("32");
+        message_CreatePostcard.dialogBox.clickTextArea();
+        message_CreatePostcard.doubleClickInsertText();
+        message_CreatePostcard.enterText("test text");
+        message_CreatePostcard.doubleClickText("test text");
+        message_CreatePostcard.clickFontDropDown();
+        message_CreatePostcard.selectSize("32");
         message_ListAll = message_CreatePostcard.clickSave();
         message_ListAll.formSearch.find("SelMessageTestingPostcard");
         
@@ -43,10 +43,10 @@ public class CreatePostcardAndEditFontSize extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelMessageTestingPostcard");
-//        if(message_Edit.verifyTextSize("32")==null)
-//        {
-//            fail("couldn't find body text size");
-//        }
+        if(message_Edit.verifyTextSize("32")==null)
+        {
+            fail("couldn't find body text size");
+        }
 
 
     }
