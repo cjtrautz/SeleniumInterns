@@ -61,6 +61,18 @@ public class DrawerManageGroups extends AbstractPart
     private List<WebElement> uiToggleValuePane;
     
     @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_value']//div[contains(concat(' ',@class,' '),' ussr-form-input-type-checkbox ')]/div/a")
+    private List<WebElement> uiValueCheckbox;
+   
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_value']//div[contains(concat(' ',@class,' '),' ussr-form-input-type-checkbox ')]/div/a/span[@class='ussr-icon ussr-icon-checkbox-checked']")
+    private List<WebElement> uiValueCheckboxChecked;
+    
+    @FindBy(how=How.XPATH,
+            using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[@class='sem_value']//div[contains(concat(' ',@class,' '),' ussr-form-input-type-checkbox ')]/div/a/span[@class='ussr-icon ussr-icon-checkbox-empty']")
+    private List<WebElement> uiValueCheckboxEmpty;
+    
+    @FindBy(how=How.XPATH,
             using = "//tr[contains(concat(' ',@class,' '),' sem_condition_row ')]//td[contains(@class, 'sem_value')]//input")
     private List<WebElement> uiValuePaneInput;
     
@@ -360,6 +372,43 @@ private WebElement uiButtonDeleteGroup;
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(string)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerManageGroups clickValueCheckbox (int i)
+    {
+        waitForAjax(driver, 20);
+        uiValueCheckbox.get(i).click();
+        return this;
+        
+    }
+    public DrawerManageGroups verifyValueChecked ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            System.out.println(uiValueCheckboxChecked.get(i).isDisplayed());
+            //System.out.println(value);
+            if(!uiValueCheckboxChecked.get(i).isDisplayed())
             {
                 driver.manage()
                 .timeouts()

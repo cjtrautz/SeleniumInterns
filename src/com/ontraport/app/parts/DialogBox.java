@@ -26,6 +26,9 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//input")
+    private WebElement uiInput;
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='OK' or text()='Ok' or text()='ok']")
     private WebElement uiOk;
     @FindBy(how = How.XPATH,
@@ -55,6 +58,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'save')]]")
     private WebElement saveButton2;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
+    private WebElement sendButton;
     @FindBy(how = How.XPATH,
             using = "//label[contains(text(), 'Add Option')]/following-sibling::div/input")
     private WebElement addOptionInput;
@@ -484,5 +490,17 @@ public class DialogBox extends AbstractPart
         done.click();
         return this;
         
+    }
+    public DialogBox enterEmail ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        uiInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox clickSend ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sendButton.click();
+        return this;
     }
 }

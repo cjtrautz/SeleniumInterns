@@ -36,13 +36,15 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.clickAddPaymentMethod();
         smartFormFe_Create.clickGatewayDropDown();
         smartFormFe_Create.selectDropDown("SelGateway");
-        smartFormFe_ListAll = smartFormFe_Create.clickSave();
-        Thread.sleep(100000);
+        smartFormFe_Create.clickSave();
+        smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
+        smartFormFe_ListAll.formSearch.find("SelOrderform");
+
         //verify Sel Tag exists
-//        if(smartFormFe_ListAll.verifySmartForm()==null)
-//        {
-//            fail("couldn't find smartform");
-//        }
+        if(smartFormFe_ListAll.verifySmartForm("SelOrderform")==null)
+        {
+            fail("couldn't find smartform");
+        }
         
     }
 }

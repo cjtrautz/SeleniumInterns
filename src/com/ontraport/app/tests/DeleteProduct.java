@@ -21,6 +21,9 @@ public class DeleteProduct extends AbstractTest
         product_ListAll.drawerActions.clickDeleteProduct();
         product_ListAll.dialogBox.clickOk();
         //verify
-        
+        if(product_ListAll.verifyNoProduct()==null)
+        {
+            fail("deleted [roduct found");
+        }
     }
 }

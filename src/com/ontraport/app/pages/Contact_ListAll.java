@@ -20,7 +20,7 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_ListAll extends AbstractPage
 {
-    protected String   url = "/#!/contact/listAll";
+    public static String    url = "/#!/contact/listAll";
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']")
     private WebElement uiCollectionHead;

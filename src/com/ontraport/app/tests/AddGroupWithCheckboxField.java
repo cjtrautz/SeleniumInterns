@@ -24,7 +24,7 @@ public class AddGroupWithCheckboxField extends AbstractTest
         contactListAll.drawerManageGroups.clickField("SelCheckbox", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
         contactListAll.drawerManageGroups.clickCondition("equals", 0);
-        contactListAll.drawerManageGroups.enterValue("Everybody", 0, 0);
+        //contactListAll.drawerManageGroups.clickValueCheckbox(0);
         contactListAll.drawerManageGroups.clickSave();
 
         if (contactListAll.drilldownGroup.confirmGroupExists("My First checkbox Group"+AbstractSuite.UNIQUE) == true)
@@ -35,6 +35,19 @@ public class AddGroupWithCheckboxField extends AbstractTest
         {
             System.out.println("Exists: Failure");
             fail("Failure");
+        }
+        contactListAll.drawerManageGroups.open();
+        if (contactListAll.drawerManageGroups.verifyFieldDropDown("SelCheckbox", 0) == null)
+        {
+            fail("couldnt find field group");
+        }
+        if (contactListAll.drawerManageGroups.verifyConditionDropDown("equals", 0) == null)
+        {
+            fail("couldnt find condition group");
+        }
+        if (contactListAll.drawerManageGroups.verifyValueChecked(0) == null)
+        {
+            fail("couldnt find value group");
         }
         contactListAll.drilldownGroup.clickGroupAll();
     }

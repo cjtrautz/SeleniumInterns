@@ -17,41 +17,84 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    com.ontraport.app.tests.CreatePostcardMessage.class,
+    //relies postcard message
+    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeletePostcardMessage.class,
+    
+    com.ontraport.app.tests.CreateMessage.class,
+  //relies on a message
+    com.ontraport.app.tests.SendTestEmail.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
+    com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_PauseSubscriptionToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_PauseSubscriptionToStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_RemoveContactFromStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_RemoveContactFromStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_AddContactToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
+    com.ontraport.app.tests.DeleteEmailStepSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.CreateGateway.class, 
+    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    com.ontraport.app.tests.DeleteGateway.class,
+    
     com.ontraport.app.tests.CreateUserFieldEditor.class,
     com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
-//      com.ontraport.app.tests.CreateStateField.class,
-//    //relies on text field
-//      com.ontraport.app.tests.AddGroupWithStateField.class,
-//      com.ontraport.app.tests.DeleteStateGroup.class,
-//      com.ontraport.app.tests.DeleteStateField.class,
-//      //relies on section
-//      com.ontraport.app.tests.CreatePriceField.class,
-//    //relies on text field
-//      com.ontraport.app.tests.AddGroupWithPriceField.class,
-//      com.ontraport.app.tests.DeletePriceGroup.class,
-//      com.ontraport.app.tests.DeletePriceField.class,
-//    //relies on section
-//      com.ontraport.app.tests.CreateNumericField.class,
-//    //relies on text field
-//      com.ontraport.app.tests.AddGroupWithNumericField.class,
-//      com.ontraport.app.tests.DeleteNumericGroup.class,
-//      com.ontraport.app.tests.DeleteNumericField.class,
-//      //relies on section
-//      com.ontraport.app.tests.CreateLongTextField.class,
-//    //relies on text field
-//      com.ontraport.app.tests.AddGroupWithLongTextField.class,
-//      com.ontraport.app.tests.DeleteLongTextGroup.class,
-//      com.ontraport.app.tests.DeleteLongTextField.class,
-//      //relies on section
-//      com.ontraport.app.tests.CreateListSelectionField.class,
-//    //relies on text field
-//      com.ontraport.app.tests.AddGroupWithListField.class,
-//      com.ontraport.app.tests.DeleteListGroup.class,
-//      com.ontraport.app.tests.DeleteListSelectionField.class,
-//      //relies on section
+      com.ontraport.app.tests.CreateStateField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithStateField.class,
+      com.ontraport.app.tests.DeleteStateGroup.class,
+      com.ontraport.app.tests.DeleteStateField.class,
+      //relies on section
+      com.ontraport.app.tests.CreatePriceField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithPriceField.class,
+      com.ontraport.app.tests.DeletePriceGroup.class,
+      com.ontraport.app.tests.DeletePriceField.class,
+    //relies on section
+      com.ontraport.app.tests.CreateNumericField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithNumericField.class,
+      com.ontraport.app.tests.DeleteNumericGroup.class,
+      com.ontraport.app.tests.DeleteNumericField.class,
+      //relies on section
+      com.ontraport.app.tests.CreateLongTextField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithLongTextField.class,
+      com.ontraport.app.tests.DeleteLongTextGroup.class,
+      com.ontraport.app.tests.DeleteLongTextField.class,
+      //relies on section
+      com.ontraport.app.tests.CreateListSelectionField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithListField.class,
+      com.ontraport.app.tests.DeleteListGroup.class,
+      com.ontraport.app.tests.DeleteListSelectionField.class,
+      //relies on section
       com.ontraport.app.tests.CreateDateField.class,
     //relies on text field
       com.ontraport.app.tests.AddGroupWithDateField.class,
@@ -60,8 +103,8 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreateCheckboxField.class,
     //relies on text field
-//      com.ontraport.app.tests.AddGroupWithCheckboxField.class,
-//      com.ontraport.app.tests.DeleteCheckboxGroup.class,
+      com.ontraport.app.tests.AddGroupWithCheckboxField.class,
+      com.ontraport.app.tests.DeleteCheckboxGroup.class,
       com.ontraport.app.tests.DeleteCheckBoxField.class,
     //relies on section
       com.ontraport.app.tests.CreateDropdownField.class,
@@ -139,10 +182,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.EnsurePagination.class, 
     
-    com.ontraport.app.tests.CreateGateway.class, 
-    //com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.DeleteGateway.class,
-    
     com.ontraport.app.tests.SetTimezone.class,
     
     com.ontraport.app.tests.EnsureRulesFire.class,
@@ -157,36 +196,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.ChangeUserInfo.class,
     
     com.ontraport.app.tests.AccountAddAPackage.class,
-    
-    com.ontraport.app.tests.CreateMessage.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
-    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateEmailDateSequence.class,
-    com.ontraport.app.tests.DeleteEmailDateSequence.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
-    com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateEmailStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
-    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_PauseSubscriptionToStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_PauseSubscriptionToStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_RemoveContactFromStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_RemoveContactFromStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_AddContactToStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
-    com.ontraport.app.tests.DeleteEmailStepSequence.class,
-    com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.CreateRole.class,
     //relies on role
@@ -344,7 +353,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
 //    com.ontraport.app.tests.CreateTab.class,
 //    com.ontraport.app.tests.DeleteTab.class,
-  //com.ontraport.app.tests.CreateOrderform.class,
+  
   //com.ontraport.app.tests.AddColumn.class,
     //com.ontraport.app.tests.DeleteColumn.class,
 

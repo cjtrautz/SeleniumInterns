@@ -472,4 +472,12 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    public DrawerActions clickDeleteSmartForm ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        uiDelete.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+    }
 }

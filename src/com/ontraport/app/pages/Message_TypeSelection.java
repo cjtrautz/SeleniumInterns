@@ -23,6 +23,11 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[div[*/text()='Postcard']]/descendant::button[*[normalize-space(text())='Create']]")
+    private WebElement postcardMessage;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[div[*/text()='SMS']]/descendant::button[*[normalize-space(text())='Create']]")
     private WebElement smsMessage;
     
@@ -35,6 +40,11 @@ public class Message_TypeSelection extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
     private WebElement taskDropDownButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][2]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
+    private WebElement postcardDropDownButton;
     
     @FindBy(
             how = How.XPATH,
@@ -104,6 +114,28 @@ public class Message_TypeSelection extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(smsMessage));
         smsMessage.click();
         return (Message_CreateSMS) new Message_CreateSMS().init();
+    }
+    public Message_CreatePostcard clickPostcardCreate ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(postcardMessage));
+        postcardMessage.click();
+        return (Message_CreatePostcard) new Message_CreatePostcard().init();
+    }
+    public Message_TypeSelection clickPostcardCopy ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(postcardDropDownButton));
+        postcardDropDownButton.click();
+        return this;
+    }
+    public Message_CreatePostcard selectPostcardCopyOption ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + string + "')]")));
+        dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
+        return (Message_CreatePostcard) new Message_CreatePostcard().init();
     }
     
 }

@@ -23,6 +23,11 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' ussr-icon-mail-closed-moving-2 ')]")
+    private WebElement sendTestEmail;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-reply ')]//input")
     private WebElement replyToEmailInput;
     
@@ -41,6 +46,11 @@ public class Message_Edit extends AbstractPage
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement mailFromPane;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-message-notification']")
+    private WebElement notification;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' target-send-name ')]")
     private WebElement sendName;
@@ -52,6 +62,10 @@ public class Message_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' target-subject ')]")
     private WebElement subject;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]")
+    private WebElement shape;
     
     @FindBy(how = How.XPATH,
             using = "//tbody//tr[contains(concat(' ', normalize-space(@class), ' '),' outcome_rules ')]//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a")
@@ -296,7 +310,7 @@ public class Message_Edit extends AbstractPage
         return (Contact_ListAll) new Contact_ListAll().init();
     }
 
-    public Object verifyTextArea ( String name )
+    public Message_Edit verifyTextArea ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -307,6 +321,72 @@ public class Message_Edit extends AbstractPage
             System.out.println(textArea.getAttribute("value"));
             String compare = textArea.getAttribute("value");
             if(compare.equals(name)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Message_Edit clickSendTestEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sendTestEmail.click();
+        return this;
+        
+    }
+
+    public Message_Edit verifyEmailSent ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!notification.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Message_Edit verifyShape ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!shape.isDisplayed())
             {
                 driver.manage()
                 .timeouts()
