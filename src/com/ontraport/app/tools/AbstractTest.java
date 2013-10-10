@@ -26,7 +26,7 @@ public abstract class AbstractTest
     @BeforeClass
     public static void beforeTest ()
     {
-//        driver.navigate().refresh();
+        driver.navigate().refresh();
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
     }
     @Before

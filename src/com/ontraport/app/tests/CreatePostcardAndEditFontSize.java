@@ -25,26 +25,28 @@ public class CreatePostcardAndEditFontSize extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         Message_CreatePostcard message_CreatePostcard = message_TypeSelection.clickPostcardCreate();
-        message_CreatePostcard.enterMessageName("SelPostcardMessage");
+        message_CreatePostcard.enterMessageName("SelMessageTestingPostcard");
         message_CreatePostcard.clickNewItem();
 //        message_CreatePostcard.dialogBox.clickTextArea();
 //        message_CreatePostcard.doubleClickInsertText();
 //        message_CreatePostcard.enterText("test text");
 //        message_CreatePostcard.doubleClickText();
+//        message_CreatePostcard.clickFontSizeDropDown();
+//        message_CreatePostcard.selectSize("32");
         message_ListAll = message_CreatePostcard.clickSave();
-        message_ListAll.formSearch.find("SelPostcardMessage");
+        message_ListAll.formSearch.find("SelMessageTestingPostcard");
         
         //verify that it exists
-        if(message_ListAll.verifyMessage("SelPostcardMessage")==null)
+        if(message_ListAll.verifyMessage("SelMessageTestingPostcard")==null)
         {
             fail("couldn't find created message");
         }
 
-        Message_Edit message_Edit = message_ListAll.clickMessage("SelPostcardMessage");
-        if(message_Edit.verifyShape()==null)
-        {
-            fail("couldn't find message body");
-        }
+        Message_Edit message_Edit = message_ListAll.clickMessage("SelMessageTestingPostcard");
+//        if(message_Edit.verifyTextSize("32")==null)
+//        {
+//            fail("couldn't find body text size");
+//        }
 
 
     }
