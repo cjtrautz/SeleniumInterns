@@ -5,11 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.Contact_Settings;
-import com.ontraport.app.pages.Gateway_ListAll;
-import com.ontraport.app.pages.LandingPage_ListAll;
-import com.ontraport.app.pages.Rule_ListAll;
-import com.ontraport.app.pages.SalesReport_Settings;
 import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 

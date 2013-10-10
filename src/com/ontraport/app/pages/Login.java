@@ -1,16 +1,17 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 
 public class Login extends AbstractPage
 {
-    public static String url = "/login.html?track_requests=1";
+    public static String url = "/login.html";
     @FindBy(how = How.XPATH,
             using = "//input[@id='username']")
     private WebElement   loginInputUsername;
@@ -22,12 +23,21 @@ public class Login extends AbstractPage
     private WebElement   loginInputSubmit;
     public Contact_ListAll as ( String username, String password )
     {
+        final String previousURL = driver.getCurrentUrl();
         wait.until(ExpectedConditions.visibilityOf(loginInputUsername));
         loginInputUsername.sendKeys(username);
         wait.until(ExpectedConditions.visibilityOf(loginInputPassword));
         loginInputPassword.sendKeys(password);
         wait.until(ExpectedConditions.visibilityOf(loginInputSubmit));
         loginInputSubmit.click();
+        wait.until(new ExpectedCondition<Boolean>()
+            {
+                public Boolean apply (WebDriver d)
+                {
+                    return (previousURL.equals(d.getCurrentUrl()) == false);
+                }
+            }
+        );
         return (Contact_ListAll) new Contact_ListAll().init();
     }
 }

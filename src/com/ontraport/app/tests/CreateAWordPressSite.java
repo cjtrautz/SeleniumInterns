@@ -5,18 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.LandingPage_CreateType1;
-import com.ontraport.app.pages.LandingPage_Edit;
-import com.ontraport.app.pages.LandingPage_ListAll;
-import com.ontraport.app.pages.LandingPage_TypeSelection;
-import com.ontraport.app.pages.Product_Create;
-import com.ontraport.app.pages.Product_Edit;
-import com.ontraport.app.pages.Product_ListAll;
 import com.ontraport.app.pages.WordPress_CreateType2;
 import com.ontraport.app.pages.WordPress_Edit;
 import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.pages.WordPress_TypeSelection;
-import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateAWordPressSite extends AbstractTest

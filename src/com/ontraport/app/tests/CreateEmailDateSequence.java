@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Sequence_CreateDate;
-import com.ontraport.app.pages.Sequence_CreateStep;
 import com.ontraport.app.pages.Sequence_Edit;
 import com.ontraport.app.pages.Sequence_ListAll;
 import com.ontraport.app.pages.Sequence_TypeSelection;

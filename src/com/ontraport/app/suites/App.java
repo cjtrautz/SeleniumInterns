@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.ontraport.app.pages.Login;
+import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
@@ -361,6 +362,7 @@ public class App extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
+        AbstractPage.setUrl("https://app.ontraport.com");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);
@@ -378,7 +380,7 @@ public class App extends AbstractSuite
               .window()
               .maximize();
         Login login = (Login) new Login().init();
-        login.open(Login.url);
+        login.open(Login.url, true);
         login.as("nick@ontraport.com", "Lughead1");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);

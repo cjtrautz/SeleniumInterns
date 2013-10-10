@@ -10,8 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import com.ontraport.app.pages.Message_Edit;
-import com.ontraport.app.pages.Message_ListAll;
-import com.ontraport.app.pages.Message_TypeSelection;
 import com.ontraport.app.tools.AbstractPart;
 
 public class MenuWorkflow extends AbstractPart

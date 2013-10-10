@@ -7,7 +7,6 @@ import org.junit.Test;
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.MessageTemplate_ListAll;
-import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
 public class DeleteDoubleOptinMessage extends AbstractTest

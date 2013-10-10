@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.pages.Role_ListAll;
-import com.ontraport.app.pages.Rule_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
 public class DeleteRole extends AbstractTest

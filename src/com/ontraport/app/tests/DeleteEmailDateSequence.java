@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.Product_ListAll;
 import com.ontraport.app.pages.Sequence_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 

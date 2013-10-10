@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.User_Edit;
-import com.ontraport.app.pages.User_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
 public class SetLanguage extends AbstractTest

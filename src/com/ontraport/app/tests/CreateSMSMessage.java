@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.pages.Message_CreateEmail;
 import com.ontraport.app.pages.Message_CreateSMS;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Message_ListAll;

@@ -7,8 +7,6 @@ import org.openqa.selenium.By;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Login;
-import com.ontraport.app.pages.User_Edit;
-import com.ontraport.app.pages.User_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CheckLogOut extends AbstractTest

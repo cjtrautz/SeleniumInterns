@@ -1,6 +1,5 @@
 package com.ontraport.app.tools;
 
-import java.io.File;
 import java.io.FileOutputStream;
 
 import org.junit.After;
@@ -11,44 +10,36 @@ import org.junit.Rule;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractTest
 {
-    protected static WebDriver driver;
+    protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
     public Screenshot          screenshotTestRule = new Screenshot();
     public AbstractTest ()
     {
-        driver = AbstractSuite.getDriver();
+        //driver = AbstractSuite.getDriver();
     }
     @BeforeClass
     public static void beforeTest ()
     {
-        driver = AbstractSuite.getDriver();
-        driver.navigate().refresh();
-        driver.get("http://staging.app.ontraport.com/?track_requests=1/#!/contact/listAll");
-        AbstractPart.waitForAjax(driver, 30);
-        //WebDriverWait wait = new WebDriverWait(driver, 20);
-        //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
+//        driver.navigate().refresh();
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
     }
     @Before
     public void beforeEachTest ()
     {}
     @After
     public void afterEachTest ()
-    {
-       
-    }
+    {}
     @AfterClass
     public static void afterTest ()
     {
-        
+        //WebDriverWait wait = new WebDriverWait(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
     }
     class Screenshot implements MethodRule
     {

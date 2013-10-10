@@ -7,7 +7,6 @@ import org.junit.Test;
 import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.OneShoppingCart_View;
-import com.ontraport.app.pages.OntraportAdmin_Afflink;
 import com.ontraport.app.tools.AbstractTest;
 
 public class Create1SCSync extends AbstractTest
