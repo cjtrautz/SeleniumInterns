@@ -17,7 +17,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{
+{     
     com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
     com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,

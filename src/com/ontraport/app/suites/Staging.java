@@ -18,6 +18,14 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.AddNewSection.class,
+    com.ontraport.app.tests.CreateCheckboxField.class,
+    //relies on text field
+      com.ontraport.app.tests.AddGroupWithCheckboxField.class,
+      com.ontraport.app.tests.DeleteCheckboxGroup.class,
+      com.ontraport.app.tests.DeleteCheckBoxField.class,
+      com.ontraport.app.tests.DeleteSection.class,
+      
     com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
     com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,

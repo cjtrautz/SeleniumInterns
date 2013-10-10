@@ -24,7 +24,7 @@ public class AddGroupWithCheckboxField extends AbstractTest
         contactListAll.drawerManageGroups.clickField("SelCheckbox", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
         contactListAll.drawerManageGroups.clickCondition("equals", 0);
-        //contactListAll.drawerManageGroups.clickValueCheckbox(0);
+        contactListAll.drawerManageGroups.clickValueCheckbox(0);
         contactListAll.drawerManageGroups.clickSave();
 
         if (contactListAll.drilldownGroup.confirmGroupExists("My First checkbox Group"+AbstractSuite.UNIQUE) == true)
