@@ -25,6 +25,12 @@ public class Message_CreateSMS extends AbstractPage
             how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement mailFromPane;
+
+    @FindBy(
+            how = How.XPATH,
+            using = "//textarea")
+    private WebElement textarea;
+
     
     @FindBy(
             how = How.XPATH,
@@ -61,5 +67,11 @@ public class Message_CreateSMS extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
+    }
+    public Message_CreateSMS enterMessageText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        textarea.sendKeys(string);
+        return this;
     }
 }

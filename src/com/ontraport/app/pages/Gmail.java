@@ -47,21 +47,41 @@ public class Gmail extends AbstractPage
     public Gmail enterUserName ( String string )
     {
         //AbstractPart.waitForAjax(driver, 20);
-        userName.sendKeys(string);
+        try{
+            userName.sendKeys(string);
+        }
+        catch(NoSuchElementException e)
+        {
+            
+        }
         return this;
     }
 
     public Gmail enterPassword ( String string )
     {
         //AbstractPart.waitForAjax(driver, 20);
-        password.sendKeys(string);
+        try
+        {
+            password.sendKeys(string);
+        }
+        catch(NoSuchElementException e)
+        {
+        
+        }
         return this;
     }
 
     public Gmail clickSignIn ()
     {
         //AbstractPart.waitForAjax(driver, 20);
+        try
+        {
         signIn.click();
+        }
+        catch(NoSuchElementException e)
+        {
+            
+        }
         return this;
         
     }
@@ -104,6 +124,22 @@ public class Gmail extends AbstractPage
     public Gmail clickMessageFrom ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            testEmail.click();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.navigate().refresh();
+        }
         try
         {
             driver.manage()

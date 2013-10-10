@@ -24,7 +24,7 @@ public class User_Edit extends AbstractPage
     private WebElement languageField;
     
     @FindBy(how=How.XPATH,
-            using="//label[text()='Timezone']/following-sibling::div/span")
+            using="//label[text()='Timezone']/following-sibling::div")
     private WebElement timezoneField;
     
     @FindBy(how=How.XPATH,

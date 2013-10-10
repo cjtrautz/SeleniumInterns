@@ -19,6 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 
 {
     com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
     
     com.ontraport.app.tests.CreatePostcardMessage.class,
@@ -148,6 +149,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateContact.class,
     //relies on having contacts
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
+    com.ontraport.app.tests.EnsureRulesFire.class,
+    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
     //relies on single contact
     com.ontraport.app.tests.CreateNote.class,
     com.ontraport.app.tests.DeleteNote.class,
@@ -184,9 +187,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EnsurePagination.class, 
     
     com.ontraport.app.tests.SetTimezone.class,
-    
-    com.ontraport.app.tests.EnsureRulesFire.class,
-    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
     
     com.ontraport.app.tests.CreateSMSMessage.class,
     com.ontraport.app.tests.DeleteSMSMessage.class,

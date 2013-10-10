@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -76,9 +78,14 @@ public class Message_Edit extends AbstractPage
             using = "//iframe[@class='cke_wysiwyg_frame cke_reset']")
     private WebElement iFrame;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//iframe")
+    private WebElement iFrame2;
+    
     @FindBy(how = How.XPATH,
-            using = "//body")
-    private WebElement body;
+            using = "//img[@title='Bold']")
+    private WebElement boldButton;
     
     @FindBy(how = How.XPATH,
             using = "//textarea")
@@ -419,6 +426,66 @@ public class Message_Edit extends AbstractPage
             //System.out.println("here2");
             //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//font[@size='" + string + "PX']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit doubleClickText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        WebElement text = driver.findElement(By.xpath("//div[contains(concat(' ', @style, ' '),' font-family: Verdana,Geneva,sans-serif; ') and .='" + string + "']"));
+        Actions action = new Actions(driver);
+        action.doubleClick(text).build().perform();
+        return this;
+    }
+
+    public Message_Edit highlightText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iFrame2);
+        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        text.click();
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.SHIFT).build().perform();
+        for(int i = 0; i<string.length(); i++)
+        {
+            action.sendKeys(Keys.ARROW_LEFT).build().perform();
+        }
+        action.keyUp(Keys.SHIFT).build().perform();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit clickBold ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        boldButton.click();
+        return this;
+    }
+
+    public Object verifyBold (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//b[.='" + string + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
