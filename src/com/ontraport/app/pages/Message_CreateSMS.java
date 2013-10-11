@@ -57,6 +57,7 @@ public class Message_CreateSMS extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[text()='[Warning! This message contains merge fields; it could produce very large output.]']")));
         driver.findElement(By.xpath("//textarea")).sendKeys("Sel");
         return this;

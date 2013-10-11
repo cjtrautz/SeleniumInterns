@@ -17,7 +17,17 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{ 
+{
+    com.ontraport.app.tests.CreatePostcardMessage.class,
+    com.ontraport.app.tests.EditPostcardColor.class,
+    com.ontraport.app.tests.EditPostcardRounded.class,
+    com.ontraport.app.tests.EditPostcardRectangle.class,
+    com.ontraport.app.tests.EditPostcardCircle.class,
+    //relies postcard message
+    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeletePostcardMessage.class,
+    
     com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
     com.ontraport.app.tests.EditPostcardLetterSpacing.class,
     com.ontraport.app.tests.EditPostcardLineSpacing.class,
@@ -28,12 +38,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditPostcardItalic.class,
     com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
-    
-    com.ontraport.app.tests.CreatePostcardMessage.class,
-    //relies postcard message
-    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
-    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
-    com.ontraport.app.tests.DeletePostcardMessage.class,
     
     com.ontraport.app.tests.CreateMessage.class,
   //relies on a message

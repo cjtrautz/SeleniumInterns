@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractPage;
 
 public class Login extends AbstractPage
 {
-    public static String url = "/login.html";
+    public static String url = "/";
     @FindBy(how = How.XPATH,
             using = "//input[@id='username']")
     private WebElement   loginInputUsername;

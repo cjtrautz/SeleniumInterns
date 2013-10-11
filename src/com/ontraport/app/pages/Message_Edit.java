@@ -70,6 +70,18 @@ public class Message_Edit extends AbstractPage
     private WebElement shape;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span")
+    private WebElement shapeClick;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]//div[contains(concat(' ', normalize-space(@style), ' '),' left: 128.84px; ')]")
+    private WebElement circleShape;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]//div[contains(concat(' ', normalize-space(@style), ' '),' left: 5px; ')]")
+    private WebElement roundedShape;
+    
+    @FindBy(how = How.XPATH,
             using = "//tbody//tr[contains(concat(' ', normalize-space(@class), ' '),' outcome_rules ')]//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a")
     private WebElement taskOutcomes;
     
@@ -86,6 +98,22 @@ public class Message_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//img[@title='Bold']")
     private WebElement boldButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Circle']")
+    private WebElement circle;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='colorSelector']")
+    private WebElement color;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Rectangle']")
+    private WebElement rectangle;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Rounded']")
+    private WebElement rounded;
     
     @FindBy(how = How.XPATH,
             using = "//img[@title='Right']")
@@ -459,7 +487,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -519,7 +546,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -552,7 +578,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -585,7 +610,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -619,7 +643,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -652,7 +675,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -703,7 +725,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -739,7 +760,6 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -757,7 +777,7 @@ public class Message_Edit extends AbstractPage
         return this;
     }
 
-    public Object verifyLetterSpacing ( double d, String string )
+    public Message_Edit verifyLetterSpacing ( double d, String string )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -774,7 +794,125 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickShape ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        shapeClick.click();
+        return this;
+    }
+
+    public Message_Edit clickCircle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        circle.click();
+        return this;
+    }
+
+    public Message_Edit verifyCircle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!circleShape.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickRounded ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        rounded.click();
+        return this;
+    }
+
+    public Message_Edit verifyRounded ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!roundedShape.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickRectangle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        rectangle.click();
+        return this;
+    }
+
+    public Message_Edit clickColor ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        color.click();
+        return this;
+    }
+
+    public Message_Edit verifyColor ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' rgb" + string + "; ') or div[contains(concat(' ', @style, ' '),' rgb" + string + "; ')]]")).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

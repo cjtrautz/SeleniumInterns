@@ -79,6 +79,9 @@ public class DialogBox extends AbstractPart
             using = "//input[@value='Accept' and @class='btn2']")
     private WebElement buttonAccept;
     @FindBy(how = How.XPATH,
+            using = "//input[@value='Accept' and @type='BUTTON']")
+    private WebElement buttonAcceptColor;
+    @FindBy(how = How.XPATH,
             using = "//div[@class='create_button_class']//td[text()='Shape']")
     private WebElement shapeButton;
     @FindBy(how = How.XPATH,
@@ -138,6 +141,15 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ui-button ')]/span[text()='Done']")
     private WebElement done;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'R:')]/following-sibling::td/input")
+    private WebElement rInput;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'G:')]/following-sibling::td/input")
+    private WebElement gInput;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'B:')]/following-sibling::td/input")
+    private WebElement bInput;
     
     public DialogBox clickOk ()
     {
@@ -507,5 +519,32 @@ public class DialogBox extends AbstractPart
         textAreaButton.click();
         return this;
         
+    }
+    public DialogBox enterRValue ( String i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        rInput.clear();
+        rInput.sendKeys(i);
+        return this;
+    }
+    public DialogBox enterGValue ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        gInput.clear();
+        gInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterBValue ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        bInput.clear();
+        bInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox clickAcceptColor ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        buttonAcceptColor.click();
+        return this;
     }
 }
