@@ -351,6 +351,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteria.class,
     com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdated.class,
     com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdated.class,
+    com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
+    com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
     
     com.ontraport.app.tests.CreateAffiliateTrackingPixel.class,
     com.ontraport.app.tests.Create1SCSync.class,
@@ -360,8 +362,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
   //com.ontraport.app.tests.CreateFacebook.class, 
     //com.ontraport.app.tests.DeleteFacebook.class,
-//    com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
-//    com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
 //    com.ontraport.app.tests.CreateTab.class,
 //    com.ontraport.app.tests.DeleteTab.class,
   
