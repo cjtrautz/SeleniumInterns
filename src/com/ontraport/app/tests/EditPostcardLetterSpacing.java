@@ -15,10 +15,10 @@ import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Message_TypeSelection;
 import com.ontraport.app.tools.AbstractTest;
 
-public class EditPostcardItalic extends AbstractTest
+public class EditPostcardLetterSpacing extends AbstractTest
 {
     @Test
-    public void testEditPostcardItalic ()
+    public void testEditPostcardLetterSpacing ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -28,7 +28,7 @@ public class EditPostcardItalic extends AbstractTest
         Message_Edit message_Edit = message_ListAll.clickMessage("SelMessageTestingPostcard");
         message_Edit.doubleClickText("test text");
         message_Edit.highlightTextRight("test text");
-        message_Edit.clickItalic();
+        message_Edit.clickMoveLetterSpacer(30);
         message_ListAll = message_Edit.clickSave();
         message_ListAll.formSearch.find("SelMessageTestingPostcard");
         
@@ -39,9 +39,9 @@ public class EditPostcardItalic extends AbstractTest
         }
 
         message_Edit = message_ListAll.clickMessage("SelMessageTestingPostcard");
-        if(message_Edit.verifyItalic("test text")==null)
+        if(message_Edit.verifyLetterSpacing(5.6, "test text")==null)
         {
-            fail("couldn't find bold text");
+            fail("couldn't space letters");
         }
 
 

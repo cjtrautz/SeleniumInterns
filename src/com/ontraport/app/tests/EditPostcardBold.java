@@ -27,7 +27,7 @@ public class EditPostcardBold extends AbstractTest
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelMessageTestingPostcard");
         message_Edit.doubleClickText("test text");
-        //message_Edit.highlightText("test text");
+        message_Edit.highlightTextRight("test text");
         message_Edit.clickBold();
         message_ListAll = message_Edit.clickSave();
         message_ListAll.formSearch.find("SelMessageTestingPostcard");

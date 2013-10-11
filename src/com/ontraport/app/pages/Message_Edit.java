@@ -88,6 +88,34 @@ public class Message_Edit extends AbstractPage
     private WebElement boldButton;
     
     @FindBy(how = How.XPATH,
+            using = "//img[@title='Right']")
+    private WebElement alignRight;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Left']")
+    private WebElement alignLeft;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Center']")
+    private WebElement alignCenter;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Italic']")
+    private WebElement italic;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Underline']")
+    private WebElement underline;
+    
+    @FindBy(how = How.XPATH,
+            using = "//center[text()='Line Spacing']/following-sibling::div/img")
+    private WebElement lineSpacing;
+    
+    @FindBy(how = How.XPATH,
+            using = "//center[text()='Letter Spacing']/following-sibling::div/img")
+    private WebElement letterSpacing;
+    
+    @FindBy(how = How.XPATH,
             using = "//textarea")
     private WebElement textArea;
     
@@ -474,7 +502,7 @@ public class Message_Edit extends AbstractPage
         return this;
     }
 
-    public Object verifyBold (String string)
+    public Message_Edit verifyBold (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -486,6 +514,261 @@ public class Message_Edit extends AbstractPage
             //System.out.println("here2");
             //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//b[.='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickItalic ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        italic.click();
+        return this;
+    }
+
+    public Message_Edit verifyItalic ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//i[.='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickUnderline ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        underline.click();
+        return this;
+    }
+
+    public Message_Edit verifyUnderlined ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//u[.='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickAlignCenter ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        alignCenter.click();
+        return this;
+        
+    }
+
+    public Message_Edit verifyAlignedCenter ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//div[@align='center' and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickAlignLeft ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        alignLeft.click();
+        return this;
+    }
+
+    public Message_Edit verifyAlignedLeft ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//div[@align='left' and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit highlightTextRight ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iFrame2);
+        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        text.click();
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.SHIFT).build().perform();
+        for(int i = 0; i<string.length(); i++)
+        {
+            action.sendKeys(Keys.ARROW_RIGHT).build().perform();
+        }
+        action.keyUp(Keys.SHIFT).build().perform();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit clickAlignRight ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        alignRight.click();
+        return this;
+    }
+
+    public Message_Edit verifyAlignedRight ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//div[@align='right' and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickMoveLineSpacer ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(lineSpacing, i, 0).build().perform();
+
+        return this;
+        
+    }
+
+    public Message_Edit verifyLineSpacing ( double i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' line-height: " + i +"; ') and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickMoveLetterSpacer ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(letterSpacing, i, 0).build().perform();
+
+        return this;
+    }
+
+    public Object verifyLetterSpacing ( double d, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' letter-spacing: " + d +"px; ') and .='" + string + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

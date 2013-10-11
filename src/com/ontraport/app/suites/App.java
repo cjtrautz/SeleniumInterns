@@ -19,6 +19,13 @@ import com.ontraport.app.tools.AbstractSuite;
 
 {     
     com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
+    com.ontraport.app.tests.EditPostcardLineSpacing.class,
+    com.ontraport.app.tests.EditPostcardAlignRight.class,
+    com.ontraport.app.tests.EditPostcardAlignCenter.class,
+    com.ontraport.app.tests.EditPostcardAlignLeft.class,
+    com.ontraport.app.tests.EditPostcardUnderline.class,
+    com.ontraport.app.tests.EditPostcardItalic.class,
     com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
     

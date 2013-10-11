@@ -139,24 +139,23 @@ public class Gmail extends AbstractPage
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             driver.navigate().refresh();
+            try
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(5, TimeUnit.SECONDS);
+                testEmail.click();
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            }
+            catch(NoSuchElementException e2){
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
         }
-        try
-        {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            testEmail.click();
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-            return null;
-        }
-        
         return this;
     }
     
