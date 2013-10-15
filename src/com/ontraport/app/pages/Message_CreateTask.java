@@ -19,6 +19,11 @@ public class Message_CreateTask extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-when ')]//input")
+    private WebElement taskWhenNotification;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target_name ')]//input")
     private WebElement taskSubject;
     
@@ -127,6 +132,16 @@ public class Message_CreateTask extends AbstractPage
             using = "//div/span[text()='Save']")
     private WebElement saveOutcome;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-pane-editor-back']")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[span[text()='Cancel']]")
+    private WebElement cancel;
+
     @FindBy(
             how = How.XPATH,
             using = "//button[span[text()='Save']]")
@@ -296,6 +311,28 @@ public class Message_CreateTask extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click(); 
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
+        return (Message_ListAll) new Message_ListAll().init();
+    }
+
+    public Message_CreateTask enterWhenDays ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        taskWhenNotification.clear();
+        taskWhenNotification.sendKeys(string);       
+        return this;
+    }
+
+    public Message_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        back.click(); 
+        return (Message_ListAll) new Message_ListAll().init();
+    }
+
+    public Message_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        cancel.click(); 
         return (Message_ListAll) new Message_ListAll().init();
     }
 

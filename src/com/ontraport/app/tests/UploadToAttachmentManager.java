@@ -22,6 +22,7 @@ public class UploadToAttachmentManager extends AbstractTest
         account_View.dialogBox.enterURL("http://images6.alphacoders.com/316/316963.jpg");
         account_View.dialogBox.clickGo();
         account_View.dialogBox.clickClose();
+        driver.navigate().refresh();
         account_View.clickAttachmentManager();
         account_View.dialogBox.clickBrowse();
         account_View.formSearch.find("http://images6.alphacoders.com/316/316963.jpg");

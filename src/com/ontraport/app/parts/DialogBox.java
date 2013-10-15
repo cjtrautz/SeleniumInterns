@@ -21,8 +21,20 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-delete-button ')]")
+    private WebElement deleteButton;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-cancel-button ')]")
+    private WebElement cancelButton;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-accept-button ')]")
+    private WebElement uiInsertImage;
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//input")
     private WebElement uiInput;
+    @FindBy(how = How.XPATH,
+            using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li/img")
+    private WebElement images;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='OK' or text()='Ok' or text()='ok']")
     private WebElement uiOk;
@@ -84,6 +96,12 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='create_button_class']//td[text()='Shape']")
     private WebElement shapeButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='create_button_class']//td[text()='Image']")
+    private WebElement imageButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='create_button_class']//td[text()='Gradient']")
+    private WebElement gradientButton;
     @FindBy(how = How.XPATH,
             using = "//div[@class='create_button_class']//td[text()='Text Area']")
     private WebElement textAreaButton;
@@ -545,6 +563,42 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         buttonAcceptColor.click();
+        return this;
+    }
+    public DialogBox clickGradient ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        gradientButton.click();
+        return this;
+    }
+    public DialogBox clickPicture ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        imageButton.click();
+        return this;
+    }
+    public DialogBox selectPicture ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        images.click();
+        return this;
+    }
+    public DialogBox insertSelectedImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        uiInsertImage.click();
+        return this;
+    }
+    public DialogBox clickDelete ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        deleteButton.click();
+        return this;
+    }
+    public DialogBox clickCancelPicture ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        cancelButton.click();
         return this;
     }
 }

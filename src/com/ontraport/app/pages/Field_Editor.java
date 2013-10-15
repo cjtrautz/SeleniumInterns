@@ -272,7 +272,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldCheckbox ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -298,7 +298,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteFieldCheckbox ( String string ) throws InterruptedException
     {
         AbstractPart.waitForAjax(driver, 20);
-      wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+      //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
       ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
       wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
       WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/a/span[@class='ussr-icon ussr-icon-checkbox-empty']"));
@@ -358,7 +358,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyNotField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -519,7 +519,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldDate ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -597,7 +597,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldList ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -676,7 +676,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldLongText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -754,7 +754,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldNumeric ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -832,7 +832,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldPrice ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -910,7 +910,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldState ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -988,7 +988,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {
@@ -1066,7 +1066,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor verifyFieldText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         try
         {

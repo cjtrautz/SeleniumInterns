@@ -20,13 +20,43 @@ public class Message_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-event ')]//input")
+    private WebElement eventWhenInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-when ')]//input")
+    private WebElement taskWhenNotification;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-recipient ')]//input")
+    private WebElement recipientDropDownInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-send-name ')]//input")
     private WebElement sendOutNameInput;
+
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@style), ' '),'http://i.ontraport.com') or div[contains(concat(' ', normalize-space(@style), ' '),'http://i.ontraport.com')]]")
+    private WebElement image;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//td[@id='property_cell']//input[@value='Select Image']")
+    private WebElement selectImage;
     
     @FindBy(
             how = How.XPATH,
             using = "//span[contains(concat(' ', @class, ' '),' ussr-icon-mail-closed-moving-2 ')]")
     private WebElement sendTestEmail;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='gradientBar']/following-sibling::div/center/div[contains(concat(' ', @style, ' '),' cursor: pointer; ')]")
+    private List<WebElement> gradientColor;
     
     @FindBy(
             how = How.XPATH,
@@ -47,6 +77,16 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement mailFromPane;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='inpt_button' and text()='Vertical']")
+    private WebElement verticalButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='inpt_button' and text()='Horizontal']")
+    private WebElement horizontalButton;
     
     @FindBy(
             how = How.XPATH,
@@ -78,12 +118,26 @@ public class Message_Edit extends AbstractPage
     private WebElement circleShape;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]//div[contains(concat(' ', normalize-space(@style), ' '),' left: 17.1443px; ')]")
+    private WebElement circleImage;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]//div[contains(concat(' ', normalize-space(@style), ' '),' left: 5px; ')]")
     private WebElement roundedShape;
     
     @FindBy(how = How.XPATH,
             using = "//tbody//tr[contains(concat(' ', normalize-space(@class), ' '),' outcome_rules ')]//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a")
     private WebElement taskOutcomes;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ') or contains(concat(' ', normalize-space(@style), ' '),' height: 200px; ')]")
+    private WebElement rectangleGradient;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ')]")
+    private WebElement rectangleGradientHorizontal;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' height: 200px; ')]")
+    private WebElement rectangleGradientVertical;
     
     @FindBy(
             how = How.XPATH,
@@ -142,6 +196,11 @@ public class Message_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//center[text()='Letter Spacing']/following-sibling::div/img")
     private WebElement letterSpacing;
+    
+    @FindBy(how = How.XPATH,
+            using = "//center[text()='Opacity']/following-sibling::div/img")
+    private WebElement opacity;
+    
     
     @FindBy(how = How.XPATH,
             using = "//textarea")
@@ -442,6 +501,34 @@ public class Message_Edit extends AbstractPage
     }
 
     public Message_Edit verifyShape ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!shapeClick.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Message_Edit verifyRectangle ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -843,6 +930,33 @@ public class Message_Edit extends AbstractPage
         }
         return this;
     }
+    public Message_Edit verifyCircleImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!circleImage.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
 
     public Message_Edit clickRounded ()
     {
@@ -878,7 +992,35 @@ public class Message_Edit extends AbstractPage
         }
         return this;
     }
-
+    
+    public Message_Edit verifyRoundedImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!roundedShape.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    
     public Message_Edit clickRectangle ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -902,6 +1044,309 @@ public class Message_Edit extends AbstractPage
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
             if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' rgb" + string + "; ') or div[contains(concat(' ', @style, ' '),' rgb" + string + "; ')]]")).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickMoveOpacity ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(opacity, -i, 0).build().perform();
+        return this;
+    }
+
+    public Message_Edit verifyOpacity ( double i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span[contains(concat(' ', normalize-space(@style), ' '),' opacity: " + i +"; ')]")).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyGradientRectangle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!rectangleGradient.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickGradient1 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.doubleClick(gradientColor.get(0)).build().perform();
+        return this;
+    }
+
+    public Message_Edit clickGradient2 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.doubleClick(gradientColor.get(1)).build().perform();
+        return this;
+    }
+
+    public Message_Edit clickVertical ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        verticalButton.click();
+        return this;
+    }
+
+    public Message_Edit clickHorizontal ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        horizontalButton.click();
+        return this;
+    }
+
+    public Message_Edit verifyVertical ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!rectangleGradientVertical.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyHorizontal ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!rectangleGradientHorizontal.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyImageRectangle ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]")).isDisplayed())
+            {
+                System.out.println("1");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("2");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]/div")).isDisplayed())
+            {
+                System.out.println("3");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return this;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("4");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        System.out.println("5");
+        return null;
+    }
+
+    public Message_Edit clickImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        image.click();
+        return this;
+    }
+
+    public Message_Edit clickSelectImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        selectImage.click();
+        return this;
+    }
+
+    public Message_Edit verifyOwner ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!recipientDropDownInput.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyWhenDays ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!taskWhenNotification.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyWhen ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!eventWhenInput.getAttribute("value").equals(string))
             {
                 driver.manage()
                 .timeouts()

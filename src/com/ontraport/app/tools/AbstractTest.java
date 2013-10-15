@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractTest
 {
+    public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
     public Screenshot          screenshotTestRule = new Screenshot();

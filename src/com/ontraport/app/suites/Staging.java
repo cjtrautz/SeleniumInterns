@@ -18,7 +18,41 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
+    com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,
+    
+    com.ontraport.app.tests.TaskMessageCancel.class,
+    
+    com.ontraport.app.tests.TaskMessageBack.class,
+    
+    com.ontraport.app.tests.CreateTaskWhoMessage.class,
+    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+    
+    com.ontraport.app.tests.CreateTaskMessage.class,
+    //relies on task message
+    com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
+    com.ontraport.app.tests.DeleteTaskMessage.class,
+    
+    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
+    com.ontraport.app.tests.EditPostcardPictureOpacity.class,
+    com.ontraport.app.tests.EditPostcardPictureCircle.class,
+    com.ontraport.app.tests.EditPostcardPictureRounded.class,
+    com.ontraport.app.tests.DeletePostcardPictureMessageAndCheckSelectImage.class,
+    
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+    
+    com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
+    com.ontraport.app.tests.EditPostcardGradientOpacity.class,
+    com.ontraport.app.tests.EditPostcardToggleVertAndHorz.class,
+    com.ontraport.app.tests.EditPostcardGradient.class,
+    com.ontraport.app.tests.EditPostcardGradientRounded.class,
+    com.ontraport.app.tests.EditPostcardGradientCircle.class,
+    com.ontraport.app.tests.DeletePostcardGradientMessage.class,
+    
     com.ontraport.app.tests.CreatePostcardMessage.class,
+    com.ontraport.app.tests.EditPostcardOpacity.class,
     com.ontraport.app.tests.EditPostcardColor.class,
     com.ontraport.app.tests.EditPostcardRounded.class,
     com.ontraport.app.tests.EditPostcardRectangle.class,
@@ -223,9 +257,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateDoubleOptinMessage.class,
     com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
     
-    com.ontraport.app.tests.UploadToAttachmentManager.class,
-    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
-    
     com.ontraport.app.tests.CreateAWordPressSite.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
@@ -236,12 +267,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
     
     com.ontraport.app.tests.CreateASmartForm.class,
-    
-    com.ontraport.app.tests.CreateTaskMessage.class,
-    //relies on task message
-    com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
-    com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
-    com.ontraport.app.tests.DeleteTaskMessage.class,
     
     com.ontraport.app.tests.CreateFulfillment.class, 
   //relies on a fulfillment

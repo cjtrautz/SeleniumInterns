@@ -15,11 +15,11 @@ public class Values
     {
         InputStream stream;
         List<String> files = new ArrayList<String>();
-        files.add("Users");
-        files.add("Contacts");
-        files.add("Sequences");
-        files.add("Rules");
-        files.add("SmartForms");
+        //files.add("Users");
+        //files.add("Contacts");
+        //files.add("Sequences");
+        //files.add("Rules");
+        //files.add("SmartForms");
         files.add("Messages");
         for ( String file : files )
         {
@@ -44,6 +44,7 @@ public class Values
         {
             output = map.get(group)
                         .getProperty(name, group + ":" + name + " could not be found.");
+            //
         }
         catch (Exception e)
         {
