@@ -15,7 +15,7 @@ public class DeleteTaskMessageBeforeDue extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
-        message_ListAll.formSearch.find(value.get("Messages", "task_message_before"));
+        message_ListAll.formSearch.find(value.get("Messages", "task_message_notifications"));
         message_ListAll.selectAllOnPage();
         message_ListAll.drawerActions.clickDeleteMessage();
         message_ListAll.dialogBox.clickOk();

@@ -22,7 +22,7 @@ public class Rule_Create extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//div[@id='ussr-chrome-panel-pane']/div[3]/div/div[3]/div/div/div/input")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
     private WebElement nameInput;
     
     @FindBy(how = How.XPATH,

@@ -21,7 +21,7 @@ public class CreateTaskMessageBeforeDue extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         Message_CreateTask message_CreateTask = message_TypeSelection.clickTaskCreate();
-        message_CreateTask.enterTaskName(value.get("Messages", "task_message_before"));
+        message_CreateTask.enterTaskName(value.get("Messages", "task_message_notifications"));
         message_CreateTask.enterTaskSubjectName("You need to do this");
         message_CreateTask.enterDueDate("1");
         message_CreateTask.clickAssigneeDropDown();
@@ -34,15 +34,15 @@ public class CreateTaskMessageBeforeDue extends AbstractTest
         message_CreateTask.clickWhenDropDown();
         message_CreateTask.selectDropDownOption("Before Task is Due");
         message_ListAll = message_CreateTask.clickSave();
-        message_ListAll.formSearch.find(value.get("Messages", "task_message_before"));
+        message_ListAll.formSearch.find(value.get("Messages", "task_message_notifications"));
         
         //verify that it exists
-        if(message_ListAll.verifyMessage(value.get("Messages", "task_message_before"))==null)
+        if(message_ListAll.verifyMessage(value.get("Messages", "task_message_notifications"))==null)
         {
             fail("couldn't find created message");
         }
 
-        Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "task_message_before"));
+        Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "task_message_notifications"));
         if(message_Edit.verifyWhen("Before Task is Due")==null)
         {
             fail("couldn't find Before Task is Due");

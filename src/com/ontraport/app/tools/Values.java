@@ -19,7 +19,7 @@ public class Values
         //files.add("Contacts");
         //files.add("Sequences");
         //files.add("Rules");
-        //files.add("SmartForms");
+        files.add("SmartForms");
         files.add("Messages");
         for ( String file : files )
         {

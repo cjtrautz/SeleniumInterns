@@ -20,6 +20,55 @@ public class Message_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//a[@title='Image']")
+    private WebElement ckImageButton;
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement dropDownCollection;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-event ')]//button")
+    private WebElement eventDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-target-task-form ')]//button")
+    private WebElement formDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-target-task-form ')]//input")
+    private WebElement formInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-how ')]//button")
+    private WebElement howDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-how ')]//input")
+    private WebElement howInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-number ')]//button")
+    private WebElement numberDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-number ')]//input")
+    private WebElement numberInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-event ')]//div[@class='ussr-component-drilldownselect-menu-wrapper']")
+    private WebElement eventDropDownPane;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-event ')]//input")
     private WebElement eventWhenInput;
     
@@ -210,6 +259,11 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
     private WebElement messageNameInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//p/img")
+    private WebElement mailImage;
     
     @FindBy(
             how = How.XPATH,
@@ -854,6 +908,16 @@ public class Message_Edit extends AbstractPage
         }
         return this;
     }
+    
+    public Message_Edit selectDropDownOption ( String option )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
+        dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
+        return this;
+        
+    }
 
     public Message_Edit clickMoveLetterSpacer ( int i )
     {
@@ -862,6 +926,16 @@ public class Message_Edit extends AbstractPage
         action.dragAndDropBy(letterSpacing, i, 0).build().perform();
 
         return this;
+    }
+    
+    public Message_Edit clickWhenDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(eventDropDown));
+        eventDropDown.click();
+        wait.until(ExpectedConditions.visibilityOf(eventDropDownPane));
+        return this;
+        
     }
 
     public Message_Edit verifyLetterSpacing ( double d, String string )
@@ -1363,6 +1437,136 @@ public class Message_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
+        return this;
+    }
+
+    public Message_Edit clickHowDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        howDropDown.click();
+        return this;
+    }
+
+    public Message_Edit clickNumberDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        numberDropDown.click();
+        return this;
+    }
+
+    public Message_Edit verifyHow ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!howInput.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyNumber ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!numberInput.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickTaskFormDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        formDropDown.click();
+        return this;
+    }
+
+    public Message_Edit verifyForm ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            System.out.println(formInput.getAttribute("value"));
+            if(!formInput.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit clickCKEditorImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ckImageButton.click();
+        return this;
+    }
+
+    public Message_Edit clickMailImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.switchTo().frame(iFrame2);
+        mailImage.click();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit typeDelete ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.BACK_SPACE).build().perform();
         return this;
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -135,8 +136,9 @@ public class Field_Editor extends AbstractPage
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")));
         //Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
+        AbstractPart.waitForAjax(driver, 20);
         //save.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
         return (Contact_Settings) new Contact_Settings().init();
     }
 
@@ -202,7 +204,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteSection (String title)
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         WebElement deleteSection = driver.findElement(By.xpath("//div[span[text()='" + title + "']]/following-sibling::div[@class='ussr-component-section-columns-wrapper']//button[span[text()='Delete Section']]"));
         deleteSection.click();
@@ -398,7 +400,7 @@ public class Field_Editor extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//li/a[contains(text(), 'Untitled')]"))));
         overflowList.findElement(By.xpath(".//li/a[contains(text(), 'Untitled')]")).click();
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
+        //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
 
         //driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a/input")).sendKeys(string);
         //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li[@style=' ']")));
@@ -406,13 +408,14 @@ public class Field_Editor extends AbstractPage
         //Thread.sleep(2000);
         wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//input"))));
         overflowList.findElement(By.xpath(".//input")).sendKeys(" ");
-        action.sendKeys(string).perform();
+        action.sendKeys("jimmyFive").perform();
         //action.sendKeys(Keys.ENTER).perform();
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
+        //Thread.sleep(6000);
         overflowList.click();
-        
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a[contains(text(), '" + string + "')]"))));
+        //Thread.sleep(20000);
+        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a[contains(text(), '" + string + "')]"))));
         //driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']")).click();
         //overflowList.click();
         //Thread.sleep(10000);
@@ -420,6 +423,8 @@ public class Field_Editor extends AbstractPage
         //toggleOverflowMenu.click();
         //wait.until(ExpectedConditions.visibilityOf(contactInformationTab));
         //contactInformationTab.click();
+        AbstractPart.waitForAjax(driver, 20);
+        toggleOverflowMenu.click();
     }
 
     public Field_Editor verifyOverflowTab ( String string )
@@ -427,6 +432,7 @@ public class Field_Editor extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleOverflowMenu));
         toggleOverflowMenu.click();
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowCollection));
         try
         {
@@ -485,12 +491,18 @@ public class Field_Editor extends AbstractPage
         try{
             driver.manage()
             .timeouts()
-            .implicitlyWait(0, TimeUnit.SECONDS);
+            .implicitlyWait(10, TimeUnit.SECONDS);
             //wait.until(ExpectedConditions.visibilityOf(toggleOverflowMenu));
             toggleOverflowMenu.click();
             wait.until(ExpectedConditions.visibilityOf(overflowCollection));
         }
         catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        catch(ElementNotVisibleException e2){
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -544,7 +556,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteFieldDate ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
@@ -622,7 +634,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteFieldList ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/div"));
@@ -701,7 +713,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteLongText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/textarea"));
@@ -779,7 +791,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteNumeric ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
@@ -857,7 +869,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteFieldPrice ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+       // wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
@@ -935,7 +947,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteStateField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
@@ -1013,7 +1025,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteFieldDropdown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));
@@ -1091,7 +1103,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickDeleteFieldText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
+        //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/preceding-sibling::a"))));
         WebElement moveTo = driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']/following-sibling::div/input"));

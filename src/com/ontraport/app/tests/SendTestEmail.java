@@ -42,7 +42,7 @@ public class SendTestEmail extends AbstractTest
         {
             fail("no notification of sent email");
         }
-
+        Thread.sleep(5000);
         driver.get("gmail.com");
         driver.navigate().refresh();
         Gmail gmail = (Gmail) new Gmail().init();

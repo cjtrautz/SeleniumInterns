@@ -12,6 +12,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.ontraport.app.parts.CKEditorDialogBox;
 import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.parts.DrawerActions;
 import com.ontraport.app.parts.DrawerManageGroups;
@@ -37,6 +38,7 @@ public abstract class AbstractPage
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------
+    public CKEditorDialogBox            ckEditorDialogBox           = (CKEditorDialogBox) new CKEditorDialogBox().init();
     public Pin                          pin                         = (Pin) new Pin().init();
     public MenuPrimary                  menuPrimary                 = (MenuPrimary) new MenuPrimary().init();
     public MenuUser                     menuUser                    = (MenuUser) new MenuUser().init();
