@@ -17,7 +17,7 @@ public class Values
         List<String> files = new ArrayList<String>();
         //files.add("Users");
         //files.add("Contacts");
-        //files.add("Sequences");
+        files.add("Sequences");
         //files.add("Rules");
         files.add("SmartForms");
         files.add("Messages");

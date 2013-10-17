@@ -135,8 +135,16 @@ public class DrawerActions extends AbstractPart
     private WebElement unsubcribeContactAfterLastStepEmptyCheckbox;
     
     @FindBy(how = How.XPATH,
+            using = "//label[text()='Show this sequence on the Subscription Management Page']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
+    private WebElement showSequenceOnSubscriptionManagmentPageEmptyCheckbox;
+    
+    @FindBy(how = How.XPATH,
             using = "//label[text()='Unsubscribe contact after last step']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
     private WebElement unsubcribeContactAfterLastStepCheckedCheckbox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Show this sequence on the Subscription Management Page']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
+    private WebElement showSequenceOnSubscriptionManagmentPageCheckedCheckbox;
     
     @FindBy(how = How.XPATH,
             using = "//div[@class='sequence_setting_controls']/button/span[text()='Save Settings']")
@@ -475,6 +483,47 @@ public class DrawerActions extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         uiDelete.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+    }
+    public DrawerActions checkShowSequenceOnSubscriptionManaementPage ()
+    {
+        waitForAjax(driver, 20);
+        showSequenceOnSubscriptionManagmentPageEmptyCheckbox.click();
+        return this;
+    }
+    public DrawerActions verifyShowSequenceOnSubscriptionManaementPageChecked ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(10, TimeUnit.SECONDS);
+            Point zero = new Point(0,0);
+            if(showSequenceOnSubscriptionManagmentPageCheckedCheckbox.getLocation()==zero)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public DrawerActions uncheckShowSequenceOnSubscriptionManaementPage ()
+    {
+        waitForAjax(driver, 20);
+        showSequenceOnSubscriptionManagmentPageCheckedCheckbox.click();
         return this;
     }
 }

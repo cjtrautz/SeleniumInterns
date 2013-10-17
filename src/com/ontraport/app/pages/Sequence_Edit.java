@@ -18,6 +18,40 @@ public class Sequence_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(concat(' ', @class, ' '),' ussr-component-send_from ')]//button")
+    private WebElement toggleSendFrom;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(concat(' ', @class, ' '),' ussr-component-form-control ')]//button")
+    private WebElement toggleEmailFrom;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement drillDownPane;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-component-drilldownselect-menu-wrapper']")
+    private WebElement drillDownPaneGone;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[@class='ussr-component-drilldownselect-menu-wrapper']")
+    private WebElement drillDownPaneWhole;
+    
+    @FindBy(
+    how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div/following-sibling::div[@class='ussr-component-drilldownselect-listview-bottom-padding ussr-corner-bottom']")
+    private WebElement drillDownPanePadding;
+
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-theme-sequence-email']//button")
+    private WebElement emailStep;
+    @FindBy(
+            how = How.XPATH,
             using = "//a[text()='subscribers (0)']")
     private WebElement subsicribers;
     
@@ -81,6 +115,11 @@ public class Sequence_Edit extends AbstractPage
             how = How.XPATH,
             using = "//div[@data-tabindex='status']//span[contains(concat(' ', @class, ' '),' ussr-component-section-title ')]")
     private WebElement statsTitle;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-message-selector ')]//button")
+    private WebElement toggleMessageSelector;
     
     @FindBy(
             how = How.XPATH,
@@ -553,12 +592,122 @@ public class Sequence_Edit extends AbstractPage
         return this;
         
     }
-    public Sequence_Edit clickSave ()
+    public Sequence_Edit clickAddEmailStep ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailStep));
+        emailStep.click();
+        //wait.until(ExpectedConditions.visibilityOf(emailBody));
+        return this;
+        
+    }
+
+    public Sequence_Edit openEmailNamePane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
+        toggleMessageSelector.click();
+        return this;
+        
+    }
+    public Sequence_Edit selectDrillDownEmailName ( String option )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        wait.until(ExpectedConditions.visibilityOf(drillDownPane));
+        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
+        drillDownPane.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        //wait.until(ExpectedConditions.stalenessOf(drillDownPane));
+        return this;
+        
+    }
+    public Sequence_Edit selectDrillDown ( String option )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        wait.until(ExpectedConditions.visibilityOf(drillDownPane));
+        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
+        drillDownPane.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        return this;
+        
+    }
+    public Sequence_Edit selectDrillDownByIndex ( int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPane));
+        List<WebElement> messages = drillDownPane.findElements(By.xpath(".//li"));
+        messages.get(index-1).click();
+        return this;
+        
+    }
+
+    public Sequence_Edit openEmailFromPane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleEmailFrom));
+        toggleEmailFrom.click();
+        return this;
+        
+    }
+
+    public Sequence_Edit openSendFromPane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleSendFrom));
+        toggleSendFrom.click();
+        return this;
+        
+    }
+
+    public Sequence_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
         save.click();
+        return (Sequence_ListAll) new Sequence_ListAll().init();
+
+    }
+    public Sequence_Edit verifySequenceStep ( String step, int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_steps ')]//div[contains(concat(' ', normalize-space(@class), ' '),' sequence_step ')]"))));
+        System.out.println("past the wait");
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
+        wait.until(ExpectedConditions.visibilityOf(subsicribers));
+        //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
+        wait.until(ExpectedConditions.visibilityOf(complaints));
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println(steps.size());
+            steps.get(index-1).findElement(By.xpath(".//div[normalize-space(.)='" + step + "']"));
+            System.out.println("found it");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(IndexOutOfBoundsException e1)
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;   
+        }
+        catch(NoSuchElementException e2){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
         return this;
-        
     }
 
 }

@@ -2,6 +2,7 @@ package com.ontraport.app.parts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -43,12 +44,18 @@ public class FormColumnManager extends AbstractPart
             using = "//tr[@class='sem-collection-header-display']//a[text()='Add Column']")
     private WebElement addColumn;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='jb-ace-scroll-track']/div")
+    private WebElement scroll;
+    
     public FormColumnManager open (String column) throws InterruptedException 
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addColumn);
-        
+        WebElement columnToEdit = driver.findElement(By.xpath("//tr[@class='sem-collection-header-display']//a[text()='" + column + "']"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", columnToEdit);
+        waitForAjax(driver, 20);
         //wait(1).until(ExpectedConditions.visibilityOf(columnToEdit));
         //WebElement pencil = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']/following-sibling::div/a[3]/span"));
         //Actions actions = new Actions(driver);
@@ -59,14 +66,24 @@ public class FormColumnManager extends AbstractPart
 //        actions.perform();
         //WebElement pencil = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"));
         Actions actions = new Actions(driver);
-        actions.moveToElement(zipCodeColumn).perform();
+        try{
+            wait(5).until(ExpectedConditions.visibilityOf(scroll));
+        }
+        catch(TimeoutException e)
+        {
+            System.out.println("no scroll");
+        }
+        actions.dragAndDropBy(scroll, 1000, 0).build().perform();
+        System.out.println("scrolled");
+        //Thread.sleep(3000);
+        actions.moveToElement(columnToEdit).build().perform();
         //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         //Thread.sleep(3000);
-        wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-        wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-        WebElement toDelete = driver.findElement(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
-        actions.clickAndHold(toDelete).perform();
-        actions.release(toDelete).perform();
+        //wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
+       // wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
+        WebElement toDelete = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
+        actions.clickAndHold(toDelete).build().perform();
+        actions.release(toDelete).build().perform();
         //wait(3).until(ExpectedConditions.visibilityOf(zipCodePencil2));
 //
       // zipCodePencil2.click();

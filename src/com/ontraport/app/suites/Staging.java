@@ -18,12 +18,19 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    //com.ontraport.app.tests.CreateTab.class,
-    //com.ontraport.app.tests.DeleteTab.class,
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
+    com.ontraport.app.tests.CreateMessage.class,
+    //com.ontraport.app.tests.CreateCopyOfStepSequence.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.EditEmailMessageAlignment.class,
+    com.ontraport.app.tests.EditEmailMessageLinkText.class,
+    com.ontraport.app.tests.EditEmailMessageSource.class,
     //relies on a message
-    //com.ontraport.app.tests.SendTestEmail.class,
+    com.ontraport.app.tests.SendTestEmail.class,
     com.ontraport.app.tests.EditEmailMessageInsertHostedImage.class,
     com.ontraport.app.tests.EditEmailMessageInsertImage.class,
     //relies on a message
@@ -203,6 +210,9 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,
+    //relies on a contact
+    com.ontraport.app.tests.AddColumn.class,
+    com.ontraport.app.tests.DeleteColumn.class,
     //relies on having contacts
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.EnsureRulesFire.class,
@@ -290,9 +300,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRule_AddContactToFulfillmentList.class,
     com.ontraport.app.tests.DeleteRule_AddContactToFulfillmentList.class,
     com.ontraport.app.tests.DeleteFulfillment.class,
-    
-    com.ontraport.app.tests.CreateRuleStepSequence.class,
-    com.ontraport.app.tests.DeleteRuleStepSequence.class,
     
     com.ontraport.app.tests.CreateAPIKeys.class, 
     com.ontraport.app.tests.DeleteAPIKeys.class,
@@ -402,10 +409,8 @@ import com.ontraport.app.tools.AbstractSuite;
     
   //com.ontraport.app.tests.CreateFacebook.class, 
     //com.ontraport.app.tests.DeleteFacebook.class,
-
-    
-  //com.ontraport.app.tests.AddColumn.class,
-    //com.ontraport.app.tests.DeleteColumn.class,
+  //com.ontraport.app.tests.CreateTab.class,
+    //com.ontraport.app.tests.DeleteTab.class,
 
     
 })

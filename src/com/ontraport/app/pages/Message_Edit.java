@@ -142,6 +142,11 @@ public class Message_Edit extends AbstractPage
             using = "//span[@class='ussr-message-notification']")
     private WebElement notification;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[@title='Source']")
+    private WebElement source;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' target-send-name ')]")
     private WebElement sendName;
@@ -231,6 +236,14 @@ public class Message_Edit extends AbstractPage
     private WebElement alignCenter;
     
     @FindBy(how = How.XPATH,
+            using = "//a[@title='Center']")
+    private WebElement alignCenterEmail;
+    
+    @FindBy(how = How.XPATH,
+            using = "//a[@title='Link']")
+    private WebElement linkText;
+    
+    @FindBy(how = How.XPATH,
             using = "//img[@title='Italic']")
     private WebElement italic;
     
@@ -250,9 +263,12 @@ public class Message_Edit extends AbstractPage
             using = "//center[text()='Opacity']/following-sibling::div/img")
     private WebElement opacity;
     
+    @FindBy(how = How.XPATH,
+            using = "//textarea[contains(concat(' ', normalize-space(@title), ' '),' Rich Text Editor,')]")
+    private WebElement sourceText;
     
     @FindBy(how = How.XPATH,
-            using = "//textarea")
+            using = "//textarea[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]")
     private WebElement textArea;
     
     @FindBy(
@@ -262,7 +278,7 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//p/img")
+            using = "//p//img")
     private WebElement mailImage;
     
     @FindBy(
@@ -645,7 +661,7 @@ public class Message_Edit extends AbstractPage
         return this;
     }
 
-    public Message_Edit highlightText ( String string )
+    public Message_Edit highlightText ( String string ) 
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.tagName("iframe"));
@@ -1567,6 +1583,170 @@ public class Message_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         Actions action = new Actions(driver);
         action.sendKeys(Keys.BACK_SPACE).build().perform();
+        return this;
+    }
+    public Message_Edit verifyCentered (String stuff)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            driver.switchTo().frame(iFrame);
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//p[contains(concat(' ', @style, ' '),' text-align: center; ') and .='" + stuff + "']"));
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickAlignCenterEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        alignCenterEmail.click();
+        return this;
+    }
+
+    public Message_Edit clickText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iFrame2);
+        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        text.click();
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.SHIFT).build().perform();
+        action.sendKeys(Keys.ARROW_LEFT).build().perform();
+        action.sendKeys(Keys.ARROW_RIGHT).build().perform();
+        action.keyUp(Keys.SHIFT).build().perform();
+        driver.switchTo().defaultContent();
+        return this;
+        
+    }
+
+    public Message_Edit clickLinkText ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        linkText.click();
+        return this;
+    }
+
+    public Message_Edit verifyLinkText ( String string, String string2 )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame2);
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            WebElement link = driver.findElement(By.xpath("//a[text()='" + string + "']"));
+            System.out.println(link.getAttribute("href"));
+            if(!link.getAttribute("href").contains(string2))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                driver.switchTo().defaultContent();
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit clickSource ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        source.click();
+        return this;
+    }
+
+    public Message_Edit verifySource ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!sourceText.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit enterTextArea ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sourceText.sendKeys(string);
+        return this;
+    }
+
+    public Message_Edit verifyUnderlinedIframe ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame2);
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//u[.='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        driver.switchTo().defaultContent();
         return this;
     }
 }
