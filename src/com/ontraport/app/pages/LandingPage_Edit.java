@@ -397,6 +397,8 @@ public class LandingPage_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         WebElement click = driver.findElement(By.xpath("//td[@id='property_cell']//tbody//select/option[text()='" + string + "']"));
+        click.click();
+        AbstractPart.waitForAjax(driver, 20);AbstractPart.waitForAjax(driver, 20);
         Actions actions = new Actions(driver);
         actions.clickAndHold(click).build().perform();
         actions.release().build().perform();

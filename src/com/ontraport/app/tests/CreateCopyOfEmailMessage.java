@@ -32,10 +32,6 @@ public class CreateCopyOfEmailMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("Copy of SelEmailMessage");
-        if(message_Edit.verifyBody("SelBody[First Name]")==null)
-        {
-            fail("couldn't find message body");
-        }
         if(message_Edit.verifyReplyTo("selenium@email.com")==null)
         {
             fail("couldn't find reply to");

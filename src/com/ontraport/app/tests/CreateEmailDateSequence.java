@@ -64,9 +64,5 @@ public class CreateEmailDateSequence extends AbstractTest
         {
             fail("couldn't find sequence email send from");
         }
-        if(sequence_Edit.verifyEmailMessage("SelBody[First Name]")==null)
-        {
-            fail("couldn't find sequence email message");
-        }
     }
 }

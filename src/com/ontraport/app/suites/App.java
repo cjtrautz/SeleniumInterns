@@ -19,6 +19,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
+    
     com.ontraport.app.tests.CreateLandingPageWithText.class,
     com.ontraport.app.tests.EditLandingPageUnderline.class,
     com.ontraport.app.tests.EditLandingPageItalic.class,
@@ -36,10 +39,7 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
-    com.ontraport.app.tests.CreateMessage.class,
-    
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
-    com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.EditEmailMessageAlignment.class,
@@ -266,9 +266,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EnsurePagination.class, 
     
     com.ontraport.app.tests.SetTimezone.class,
-    
-    com.ontraport.app.tests.CreateSMSMessage.class,
-    com.ontraport.app.tests.DeleteSMSMessage.class,
     
     com.ontraport.app.tests.UneditedWorkflow.class,
     com.ontraport.app.tests.PinnedItemsWorkflow.class,

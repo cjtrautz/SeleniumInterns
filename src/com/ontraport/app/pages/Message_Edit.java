@@ -272,6 +272,10 @@ public class Message_Edit extends AbstractPage
             using = "//textarea[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]")
     private WebElement textArea;
     
+    @FindBy(how = How.XPATH,
+            using = "//textarea")
+    private WebElement textArea2;
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
@@ -511,8 +515,8 @@ public class Message_Edit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            System.out.println(textArea.getAttribute("value"));
-            String compare = textArea.getAttribute("value");
+            System.out.println(textArea2.getAttribute("value"));
+            String compare = textArea2.getAttribute("value");
             if(compare.equals(name)!=true)
             {
                 driver.manage()

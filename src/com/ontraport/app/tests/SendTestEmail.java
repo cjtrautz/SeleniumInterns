@@ -36,20 +36,20 @@ public class SendTestEmail extends AbstractTest
         message_ListAll.formSearch.find("SelEmailMessage");
         Message_Edit message_Edit = message_ListAll.clickMessage("SelEmailMessage");
         message_Edit.clickSendTestEmail();
-        message_Edit.dialogBox.enterEmail("njcross1990@gmail.com");
+        message_Edit.dialogBox.enterEmail("seleniumontraport@gmail.com");
         message_Edit.dialogBox.clickSend();
         if(message_Edit.verifyEmailSent()==null)
         {
             fail("no notification of sent email");
         }
-        Thread.sleep(20000);
         driver.get("gmail.com");
         driver.navigate().refresh();
         Gmail gmail = (Gmail) new Gmail().init();
-        gmail.enterUserName("njcross1990@gmail.com");
-        gmail.enterPassword("Lughead1");
+        gmail.enterUserName("seleniumontraport@gmail.com");
+        gmail.enterPassword("Selenium123");
         gmail.clickSignIn();
         driver.navigate().refresh();
+        Thread.sleep(20000);
         if(gmail.clickMessageFrom()==null)
         {
             fail("couldnt find sent message");
