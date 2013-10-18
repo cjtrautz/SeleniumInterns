@@ -143,7 +143,6 @@ public class Message_ListAll extends AbstractPage
                 .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            emptyCell.isDisplayed();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

@@ -1,5 +1,6 @@
 package com.ontraport.app.parts;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -17,6 +18,9 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class DialogBox extends AbstractPart
 {
+    @FindBy(how = How.XPATH,
+            using = "//input[@value='Start with a blank page']")
+    private WebElement startWithBlankPage;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
@@ -92,7 +96,10 @@ public class DialogBox extends AbstractPart
     private WebElement buttonAccept;
     @FindBy(how = How.XPATH,
             using = "//input[@value='Accept' and @type='BUTTON']")
-    private WebElement buttonAcceptColor;
+    private List<WebElement> buttonAcceptColor;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='blue_box']/input")
+    private List<WebElement> widthAndHeight;
     @FindBy(how = How.XPATH,
             using = "//div[@class='create_button_class']//td[text()='Shape']")
     private WebElement shapeButton;
@@ -541,28 +548,40 @@ public class DialogBox extends AbstractPart
     public DialogBox enterRValue ( String i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        rInput.click();
         rInput.clear();
+        rInput.click();
         rInput.sendKeys(i);
         return this;
     }
     public DialogBox enterGValue ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        gInput.click();
         gInput.clear();
+        gInput.click();
         gInput.sendKeys(string);
         return this;
     }
     public DialogBox enterBValue ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        bInput.click();
         bInput.clear();
+        bInput.click();
         bInput.sendKeys(string);
         return this;
     }
     public DialogBox clickAcceptColor ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        buttonAcceptColor.click();
+        buttonAcceptColor.get(0).click();
+        return this;
+    }
+    public DialogBox clickAcceptColor (int index)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        buttonAcceptColor.get(index).click();
         return this;
     }
     public DialogBox clickGradient ()
@@ -599,6 +618,26 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         cancelButton.click();
+        return this;
+    }
+    public DialogBox enterHeight ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        widthAndHeight.get(1).clear();
+        widthAndHeight.get(1).sendKeys(string);
+        return this;
+    }
+    public DialogBox enterWidth ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        widthAndHeight.get(0).clear();
+        widthAndHeight.get(0).sendKeys(string);
+        return this;
+    }
+    public DialogBox clickStartWithBlankPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        startWithBlankPage.click();
         return this;
     }
 }

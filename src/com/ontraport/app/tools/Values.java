@@ -21,6 +21,7 @@ public class Values
         //files.add("Rules");
         files.add("SmartForms");
         files.add("Messages");
+        files.add("LandingPages");
         for ( String file : files )
         {
             try

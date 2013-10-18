@@ -19,10 +19,25 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateLandingPageWithText.class,
+    com.ontraport.app.tests.EditLandingPageUnderline.class,
+    com.ontraport.app.tests.EditLandingPageItalic.class,
+    com.ontraport.app.tests.EditLandingPageBold.class,
+    com.ontraport.app.tests.EditLandingPageFontSize.class,
+    com.ontraport.app.tests.EditLandingPageFont.class,
+    com.ontraport.app.tests.DeleteLandingPageWithText.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.EditLandingPageSplitTesting.class,
+    com.ontraport.app.tests.EditLandingPageRemoveSplitTesting.class,
+    com.ontraport.app.tests.EditLandingPagePageSize.class,
+    com.ontraport.app.tests.EditLandingPageBackground.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
     com.ontraport.app.tests.CreateMessage.class,
-    //com.ontraport.app.tests.CreateCopyOfStepSequence.class,
+    
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
     
@@ -276,9 +291,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateAWordPressSite.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
-    com.ontraport.app.tests.CreateLandingPage.class,
-    com.ontraport.app.tests.DeleteLandingPage.class,
-    
     //requires previously imported csv
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
     
@@ -402,6 +414,7 @@ import com.ontraport.app.tools.AbstractSuite;
     
     //failing
     
+  //com.ontraport.app.tests.CreateCopyOfStepSequence.class,
   //com.ontraport.app.tests.CreateFacebook.class, 
     //com.ontraport.app.tests.DeleteFacebook.class,
   //com.ontraport.app.tests.CreateTab.class,

@@ -1,7 +1,9 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,6 +13,15 @@ import com.ontraport.app.tools.AbstractPart;
 
 public class LandingPage_CreateType1 extends AbstractPage
 {
+    @FindBy(
+            how = How.TAG_NAME,
+            using = "iframe")
+    private WebElement iFrame;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),' font-family: Verdana,Geneva,sans-serif; ')]")
+    private WebElement textArea;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
     private WebElement landingPageName;
@@ -73,5 +84,24 @@ public class LandingPage_CreateType1 extends AbstractPage
         save.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
+
+    public LandingPage_CreateType1 doubleClickInsertText ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.doubleClick(textArea).build().perform();
+        return this; 
+    }
+
+    public LandingPage_CreateType1 enterText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.switchTo().frame(iFrame);
+        Actions action = new Actions(driver);
+        action.sendKeys(string).build().perform();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+    
     
 }

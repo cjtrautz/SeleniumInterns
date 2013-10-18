@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -929,6 +930,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
         dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
         return this;
