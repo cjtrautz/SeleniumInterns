@@ -42,30 +42,30 @@ public class SendTestEmail extends AbstractTest
         {
             fail("no notification of sent email");
         }
-        driver.get("gmail.com");
-        driver.navigate().refresh();
-        Gmail gmail = (Gmail) new Gmail().init();
-        gmail.enterUserName("seleniumontraport@gmail.com");
-        gmail.enterPassword("Selenium123");
-        gmail.clickSignIn();
-        driver.navigate().refresh();
-        Thread.sleep(20000);
-        if(gmail.clickMessageFrom()==null)
-        {
-            fail("couldnt find sent message");
-        }
-
-        gmail.clickDelete();
-        try{
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-        }
-        catch(NoAlertPresentException e)
-        {
-            
-        }
-        driver.get(AbstractPage.getUrl() + Contact_ListAll.url);
-        AbstractPart.waitForAjax(driver, 30);
+//        driver.get("gmail.com");
+//        driver.navigate().refresh();
+//        Gmail gmail = (Gmail) new Gmail().init();
+//        gmail.enterUserName("seleniumontraport@gmail.com");
+//        gmail.enterPassword("Selenium123");
+//        gmail.clickSignIn();
+//        driver.navigate().refresh();
+//        Thread.sleep(20000);
+//        if(gmail.clickMessageFrom()==null)
+//        {
+//            fail("couldnt find sent message");
+//        }
+//
+//        gmail.clickDelete();
+//        try{
+//            Alert alert = driver.switchTo().alert();
+//            alert.accept();
+//        }
+//        catch(NoAlertPresentException e)
+//        {
+//            
+//        }
+//        driver.get(AbstractPage.getUrl() + Contact_ListAll.url);
+//        AbstractPart.waitForAjax(driver, 30);
 //        contactListAll.menuUser.open();
 //        account_View = contactListAll.menuUser.clickAdmin();
 //        sender_View = account_View.clickSendFrom();
