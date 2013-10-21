@@ -63,8 +63,10 @@
     <mkdir dir="${screenshots}"/>
     <mkdir dir="${report}/selenium/xml/app"/>
     <mkdir dir="${report}/selenium/xml/staging"/>
+    <mkdir dir="${report}/selenium/xml/review"/>
     <mkdir dir="${report}/selenium/html/app"/>
     <mkdir dir="${report}/selenium/html/staging"/>
+    <mkdir dir="${report}/selenium/html/review"/>
   </target>
 
   <!--
