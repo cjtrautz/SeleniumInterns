@@ -18,16 +18,19 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    com.ontraport.app.tests.CreateSMSMessage.class,
-    com.ontraport.app.tests.DeleteSMSMessage.class,
-    
     com.ontraport.app.tests.CreateLandingPageWithText.class,
+    com.ontraport.app.tests.EditLandingPageRightAlign.class,
+    com.ontraport.app.tests.EditLandingPageCenter.class,
+    com.ontraport.app.tests.EditLandingPageLeftAlign.class,
     com.ontraport.app.tests.EditLandingPageUnderline.class,
     com.ontraport.app.tests.EditLandingPageItalic.class,
     com.ontraport.app.tests.EditLandingPageBold.class,
     com.ontraport.app.tests.EditLandingPageFontSize.class,
     com.ontraport.app.tests.EditLandingPageFont.class,
     com.ontraport.app.tests.DeleteLandingPageWithText.class,
+    
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.EditLandingPageSplitTesting.class,

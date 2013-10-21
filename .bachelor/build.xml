@@ -37,6 +37,10 @@
       <antcall target='prepare'/>
       <antcall target='staging'/>
     </target>
+    <target name="build-review" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='review'/>
+    </target>
 
   <!--
    =============================================================================
@@ -129,5 +133,26 @@
 	      <report format="frames" todir="${report}/selenium/html/staging"/>
 	    </junitreport>
 	  </target>
+
+    <target name="review" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.Review" haltonfailure="no" todir="${report}/selenium/xml/review" outfile="TEST-Review">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/review">
+        <fileset dir="${report}/selenium/xml/review">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/review"/>
+      </junitreport>
+    </target>
 
 </project>

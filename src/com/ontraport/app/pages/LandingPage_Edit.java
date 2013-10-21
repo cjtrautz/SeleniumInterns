@@ -17,6 +17,18 @@ import com.ontraport.app.tools.AbstractSuite;
 public class LandingPage_Edit extends AbstractPage
 {
     @FindBy(how = How.XPATH,
+            using = "//img[@title='Right']")
+    private WebElement rightAlign;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Left']")
+    private WebElement leftAlign;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Center']")
+    private WebElement center;
+    
+    @FindBy(how = How.XPATH,
             using = "//img[@title='Italic']")
     private WebElement italic;
     
@@ -552,6 +564,102 @@ public class LandingPage_Edit extends AbstractPage
             //System.out.println("here2");
             //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//u[.='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit clickCenter ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        center.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyCenter ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//div[@align='center' and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit clickLeftAlign ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        leftAlign.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyLeftAlign ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//div[@align='left' and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit clickRightAlign ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        rightAlign.click();
+        return this; 
+    }
+
+    public LandingPage_Edit verifyRightAlign ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//div[@align='right' and .='" + string + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
