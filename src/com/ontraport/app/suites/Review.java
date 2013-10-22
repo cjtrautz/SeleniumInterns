@@ -19,20 +19,20 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
-    //com.ontraport.app.tests.CreateSendFromAddress.class,
-    //com.ontraport.app.tests.DeleteSendFromAddress.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class,
+    com.ontraport.app.tests.DeleteSendFromAddress.class,
     
-    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
-    com.ontraport.app.tests.EditLandingPageCircleImage.class,
-    com.ontraport.app.tests.EditLandingPageImageTop.class,
-    com.ontraport.app.tests.EditLandingPageImageWidth.class,
-    com.ontraport.app.tests.EditLandingPageImageHeight.class,
-    com.ontraport.app.tests.EditLandingPageImageLeft.class,
-    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
-    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
-    com.ontraport.app.tests.EditLandingPageImageRounded.class,
-    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
-    com.ontraport.app.tests.DeleteLandingPageImage.class,
+//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
+//    com.ontraport.app.tests.EditLandingPageImageTop.class,
+//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
+//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
+//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
+//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
+//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
+//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
+//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
+//    com.ontraport.app.tests.DeleteLandingPageImage.class,
 }
 )
 public class Review extends AbstractSuite
