@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class UploadToAttachmentManager extends AbstractTest
 {
     @Test
-    public void testUploadToAttachmentManager ()
+    public void testUploadToAttachmentManager () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -23,6 +23,7 @@ public class UploadToAttachmentManager extends AbstractTest
         account_View.dialogBox.clickGo();
         account_View.dialogBox.clickClose();
         driver.navigate().refresh();
+        Thread.sleep(3000);
         account_View.clickAttachmentManager();
         account_View.dialogBox.clickBrowse();
         account_View.formSearch.find("http://images6.alphacoders.com/316/316963.jpg");

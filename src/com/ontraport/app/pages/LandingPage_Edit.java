@@ -27,6 +27,11 @@ public class LandingPage_Edit extends AbstractPage
             using = "//td[@id='property_cell']//input[@value='Select Image']")
     private WebElement selectImage;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//td[contains(text(), 'Links To:')]/following-sibling::td/input")
+    private WebElement linksTo;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ')]")
     private WebElement rectangleGradientHorizontal;
@@ -1429,6 +1434,36 @@ public class LandingPage_Edit extends AbstractPage
         System.out.println("5");
         return null;
     }
+    public LandingPage_Edit verifyImage ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"') or div[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]]")).isDisplayed())
+            {
+                System.out.println("1");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("2");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
     
     public LandingPage_Edit clickImage ()
     {
@@ -1441,6 +1476,47 @@ public class LandingPage_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         selectImage.click();
+        return this;
+    }
+
+    public LandingPage_Edit enterLinksTo ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        linksTo.click();
+        linksTo.clear();
+        linksTo.sendKeys(string);
+        return this;
+    }
+
+    public LandingPage_Edit verifyLinksTo ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            System.out.println(linksTo.getAttribute("value"));
+            if(!linksTo.getAttribute("value").equals(string))
+            {
+                System.out.println("1");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("2");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
         return this;
     }
 

@@ -18,10 +18,6 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    
-  com.ontraport.app.tests.CreateCopyOfStepSequence.class,
-  com.ontraport.app.tests.CreateFacebook.class, 
-  com.ontraport.app.tests.DeleteFacebook.class,
   com.ontraport.app.tests.CreateTab.class,
   com.ontraport.app.tests.DeleteTab.class,
 

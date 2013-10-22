@@ -5,14 +5,17 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
+import com.ontraport.app.pages.LandingPage_CreateType1;
 import com.ontraport.app.pages.LandingPage_Edit;
 import com.ontraport.app.pages.LandingPage_ListAll;
+import com.ontraport.app.pages.LandingPage_TypeSelection;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
-public class DeleteLandingPageImage extends AbstractTest
+public class EditLandingPageImageLeft extends AbstractTest
 {
     @Test
-    public void testDeleteLandingPageImage ()
+    public void testEditLandingPageImageLeft ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -20,26 +23,23 @@ public class DeleteLandingPageImage extends AbstractTest
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Image"));
         LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Image"));
         landingPage_Edit.clickImage();
-        landingPage_Edit.clickSelectImage();
-        landingPage_Edit.dialogBox.clickBrowse();
-        landingPage_Edit.dialogBox.selectPicture();
-        landingPage_Edit.dialogBox.clickDelete();
-        landingPage_Edit.dialogBox.clickBrowse();
-        landingPage_Edit.dialogBox.selectPicture();
-        landingPage_Edit.dialogBox.clickDelete();
-        landingPage_Edit.dialogBox.clickBrowse();
-        landingPage_Edit.dialogBox.clickCancelPicture();
+        landingPage_Edit.enterLeft("50");
         landingPage_ListAll = landingPage_Edit.clickSave();
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Image"));
-        landingPage_ListAll.selectLandingPage(value.get("LandingPages", "Easy_Landing_Page_Image"));
-        landingPage_ListAll.drawerActions.clickDeleteLandingPage();
-        landingPage_ListAll.dialogBox.clickOk();
-         
-         //verify
-         if(landingPage_ListAll.verifyNoLandingPage()==null)
-         {
-             fail("found delete lp");
-         }
+        
+        //verify product exists
+        if(landingPage_ListAll.verifyLandingPage(value.get("LandingPages", "Easy_Landing_Page_Image"))==null)
+        {
+            fail("couldnt find lp");
+        }
+
+        landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Image"));
+        
+        if(landingPage_Edit.verifyLeft( 50 )==null)
+        {
+            fail("couldnt find letter spacing");
+        }
+       
         
     }
 }

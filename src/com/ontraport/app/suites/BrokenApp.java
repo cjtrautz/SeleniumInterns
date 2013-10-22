@@ -18,18 +18,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{ 
-
-    
-  com.ontraport.app.tests.CreateCopyOfStepSequence.class,
-  com.ontraport.app.tests.CreateFacebook.class, 
-  com.ontraport.app.tests.DeleteFacebook.class,
-  com.ontraport.app.tests.CreateTab.class,
-  com.ontraport.app.tests.DeleteTab.class,
-  
-  com.ontraport.app.tests.AddColumn.class,
-  com.ontraport.app.tests.DeleteColumn.class,
-
+{
+    com.ontraport.app.tests.CreateTab.class,
+    com.ontraport.app.tests.DeleteTab.class,
     
 })
 public class BrokenApp extends AbstractSuite

@@ -22,6 +22,7 @@ public class Values
         files.add("SmartForms");
         files.add("Messages");
         files.add("LandingPages");
+        files.add("Sites");
         for ( String file : files )
         {
             try

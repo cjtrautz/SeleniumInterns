@@ -37,7 +37,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//input")
     private WebElement uiInput;
     @FindBy(how = How.XPATH,
-            using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li/img")
+            using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li")
     private WebElement images;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='OK' or text()='Ok' or text()='ok']")
@@ -644,7 +644,13 @@ public class DialogBox extends AbstractPart
     public DialogBox selectPicture ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        images.click();
+        images.findElement(By.xpath(".//img")).click();
+        return this;
+    }
+    public DialogBox selectPicture (String here)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li/img[contains(@src, '" + here + "')]")).click();
         return this;
     }
     public DialogBox insertSelectedImage ()

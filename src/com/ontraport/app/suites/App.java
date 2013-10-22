@@ -30,6 +30,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
     com.ontraport.app.tests.EditLandingPageImageRounded.class,
     com.ontraport.app.tests.EditLandingPageCircleImage.class,
+    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
     com.ontraport.app.tests.DeleteLandingPageImage.class,
     
     com.ontraport.app.tests.CreateLandingPageWithText.class,
@@ -64,6 +65,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLandingPage.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateCopyOfStepSequence.class,
+    com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
     com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
     
@@ -252,6 +257,9 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,
+    //relies on having at least one contact
+    com.ontraport.app.tests.AddColumn.class,
+    com.ontraport.app.tests.DeleteColumn.class,
     //relies on having contacts
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.EnsureRulesFire.class,
@@ -435,16 +443,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.Create1SCSync.class,
     com.ontraport.app.tests.AffiliateLink.class,
     
-    //failing
-    
-  //com.ontraport.app.tests.CreateCopyOfStepSequence.class,
-  //com.ontraport.app.tests.CreateFacebook.class, 
-    //com.ontraport.app.tests.DeleteFacebook.class,
-  //com.ontraport.app.tests.CreateTab.class,
-    //com.ontraport.app.tests.DeleteTab.class,
-  
-    //com.ontraport.app.tests.AddColumn.class,
-    //com.ontraport.app.tests.DeleteColumn.class,
+    com.ontraport.app.tests.CreateFacebook.class, 
+    com.ontraport.app.tests.DeleteFacebook.class,
 
     
 })
