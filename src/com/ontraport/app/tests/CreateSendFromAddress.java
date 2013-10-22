@@ -30,7 +30,7 @@ public class CreateSendFromAddress extends AbstractTest
         sender_View.clickAddEmail();
         sender_View.dialogBox.enterEmailAddress("njcross1990@gmail.com");
         sender_View.dialogBox.addEmail("njcross1990@gmail.com");
-        driver.get("gmail.com");
+        driver.get("mail.gmail.com");
         driver.navigate().refresh();
         Gmail gmail = (Gmail) new Gmail().init();
         gmail.enterUserName("njcross1990@gmail.com");
