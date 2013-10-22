@@ -179,7 +179,7 @@ public class Message_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]//div[contains(concat(' ', normalize-space(@style), ' '),' left: 5px; ')]")
     private WebElement roundedShape;
-    
+
     @FindBy(how = How.XPATH,
             using = "//tbody//tr[contains(concat(' ', normalize-space(@class), ' '),' outcome_rules ')]//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a")
     private WebElement taskOutcomes;
@@ -1062,34 +1062,6 @@ public class Message_Edit extends AbstractPage
     }
 
     public Message_Edit verifyRounded ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        try
-        {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            if(!roundedShape.isDisplayed())
-            {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-                return null;
-            }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-            return null;
-        }
-        return this;
-    }
-    
-    public Message_Edit verifyRoundedImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try

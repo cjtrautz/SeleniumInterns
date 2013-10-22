@@ -175,6 +175,18 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//td[contains(text(), 'B:')]/following-sibling::td/input")
     private WebElement bInput;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//td[contains(text(), 'R:')]/following-sibling::td/input")
+    private WebElement rInputLP;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//td[contains(text(), 'G:')]/following-sibling::td/input")
+    private WebElement gInputLP;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//td[contains(text(), 'B:')]/following-sibling::td/input")
+    private WebElement bInputLP;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//input[@value='Accept' and @type='BUTTON']")
+    private WebElement buttonAcceptColorLP;
     
     public DialogBox clickOk ()
     {
@@ -572,10 +584,43 @@ public class DialogBox extends AbstractPart
         bInput.sendKeys(string);
         return this;
     }
+    public DialogBox enterRValueLP ( String i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        rInputLP.click();
+        rInputLP.clear();
+        rInputLP.click();
+        rInputLP.sendKeys(i);
+        return this;
+    }
+    public DialogBox enterGValueLP ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        gInputLP.click();
+        gInputLP.clear();
+        gInputLP.click();
+        gInputLP.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterBValueLP ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        bInputLP.click();
+        bInputLP.clear();
+        bInputLP.click();
+        bInputLP.sendKeys(string);
+        return this;
+    }
     public DialogBox clickAcceptColor ()
     {
         AbstractPart.waitForAjax(driver, 20);
         buttonAcceptColor.get(0).click();
+        return this;
+    }
+    public DialogBox clickAcceptColorLP ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        buttonAcceptColorLP.click();
         return this;
     }
     public DialogBox clickAcceptColor (int index)

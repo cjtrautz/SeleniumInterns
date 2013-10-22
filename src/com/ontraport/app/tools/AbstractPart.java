@@ -16,6 +16,7 @@ public abstract class AbstractPart
     protected WebDriver     driver = AbstractSuite.getDriver();
     public static boolean waitForAjax ( WebDriver driver, int timeOutInSeconds )
     {
+        int trys = 0;
         boolean jQcondition = false;
         try
         {
@@ -37,6 +38,12 @@ public abstract class AbstractPart
         catch (Exception e)
         {
             e.printStackTrace();
+            driver.navigate().refresh();
+            if(trys==0)
+            {
+                trys=1;
+                waitForAjax(driver, 20);
+            }
         }
         return jQcondition;
     }

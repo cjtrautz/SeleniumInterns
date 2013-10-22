@@ -38,7 +38,7 @@ public class EditPostcardPictureRounded extends AbstractTest
         }
 
         message_Edit = message_ListAll.clickMessage(value.get("Messages", "gradient_picture"));
-        if(message_Edit.verifyRoundedImage()==null)
+        if(message_Edit.verifyRounded()==null)
         {
             fail("couldn't find rounded");
         }

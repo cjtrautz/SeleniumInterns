@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -15,7 +16,84 @@ import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class LandingPage_Edit extends AbstractPage
-{
+{ 
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@style), ' '),'http://i.ontraport.com') or div[contains(concat(' ', normalize-space(@style), ' '),'http://i.ontraport.com')]]")
+    private WebElement image;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//td[@id='property_cell']//input[@value='Select Image']")
+    private WebElement selectImage;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ')]")
+    private WebElement rectangleGradientHorizontal;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' height: 200px; ')]")
+    private WebElement rectangleGradientVertical;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='inpt_button' and text()='Vertical']")
+    private WebElement verticalButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='inpt_button' and text()='Horizontal']")
+    private WebElement horizontalButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='gradientBar']/following-sibling::div/center/div[contains(concat(' ', @style, ' '),' cursor: pointer; ')]")
+    private List<WebElement> gradientColor;
+    
+    @FindBy(how = How.XPATH,
+            using = "//center[text()='Opacity']/following-sibling::div/img")
+    private WebElement opacity;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='colorSelector']")
+    private WebElement color;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Rounded']")
+    private WebElement rounded;
+    
+    @FindBy(how = How.XPATH,
+            using = "//img[@title='Circle']")
+    private WebElement circle;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Height:')]/following-sibling::td/input")
+    private WebElement heightInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Width:')]/following-sibling::td/input")
+    private WebElement widthInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Top:')]/following-sibling::td/input")
+    private WebElement topInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Left:')]")
+    private WebElement left;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Left:')]/following-sibling::td/input")
+    private WebElement leftInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//center[text()='Line Spacing']/following-sibling::div/img")
+    private WebElement lineSpacing;
+    
+    @FindBy(how = How.XPATH,
+            using = "//center[text()='Letter Spacing']/following-sibling::div/img")
+    private WebElement letterSpacing;
+    
     @FindBy(how = How.XPATH,
             using = "//img[@title='Right']")
     private WebElement rightAlign;
@@ -84,8 +162,32 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement landingPageURL;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]")
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span")
     private WebElement box;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div")
+    private WebElement notRectangleBox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div[contains(concat(' ', normalize-space(@style), ' '),' width: 42.3202px; ')]")
+    private WebElement circleBox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div[contains(concat(' ', normalize-space(@style), ' '),' width: 13.7113px; ')]")
+    private WebElement circleImage;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div[contains(concat(' ', normalize-space(@style), ' '),' width: 290px; ')]")
+    private WebElement roundedBox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div[contains(concat(' ', normalize-space(@style), ' '),' left: 5px; ')]")
+    private WebElement roundedImage;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ')]")
+    private WebElement squareGradient;
     
     @FindBy(how = How.XPATH,
             using = "//td[contains(text(), 'Background:')]/following-sibling::td/div[@style='cursor: pointer;']")
@@ -184,6 +286,35 @@ public class LandingPage_Edit extends AbstractPage
         }
         
         return this;
+    }
+    
+    public LandingPage_Edit verifyLandingPageRectangleShape ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(notRectangleBox.isDisplayed()!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return this;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        
+        return null;
     }
 
     public LandingPage_Edit clickBackground ()
@@ -379,6 +510,14 @@ public class LandingPage_Edit extends AbstractPage
         action.doubleClick(text).build().perform();
         return this;
     }
+    
+    public LandingPage_Edit singleClickText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        WebElement text = driver.findElement(By.xpath("//div[contains(concat(' ', @style, ' '),' font-family: Verdana,Geneva,sans-serif; ') and .='" + string + "']"));
+        text.click();
+        return this;
+    }
 
     public LandingPage_Edit highlightTextRight ( String string )
     {
@@ -561,7 +700,7 @@ public class LandingPage_Edit extends AbstractPage
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
             //System.out.println("here");
-            //System.out.println("here2");
+            //System.out.println("here2");    com.ontraport.app.tests.EditLandingPageSplitTesting.class,
             //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//u[.='" + string + "']"));
             driver.manage()
@@ -672,5 +811,638 @@ public class LandingPage_Edit extends AbstractPage
         }
         return this;
     }
+    
+    public LandingPage_Edit clickMoveLetterSpacer ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(letterSpacing, i, 0).build().perform();
+
+        return this;
+    }
+    
+    public LandingPage_Edit verifyLetterSpacing ( double i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' letter-spacing: " + i +"px; ') and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    
+    public LandingPage_Edit clickMoveLineSpacer ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(lineSpacing, i, 0).build().perform();
+
+        return this;
+        
+    }
+
+    public LandingPage_Edit verifyLineSpacing ( double i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' line-height: " + i +"; ') and .='" + string + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit enterLeft ( String i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        leftInput.click();
+        leftInput.clear();
+        leftInput.sendKeys(i + Keys.ENTER);
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ENTER).build().perform();
+        action.sendKeys(leftInput, Keys.ENTER).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
+        action.sendKeys(leftInput, Keys.RETURN).build().perform();
+        return this;
+    }
+    
+    public LandingPage_Edit clickLeft ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        left.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyLeft ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' left: " + i +"px; ')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit enterTop ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        topInput.click();
+        topInput.clear();
+        topInput.sendKeys(string + Keys.ENTER);
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ENTER).build().perform();
+        action.sendKeys(topInput, Keys.ENTER).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
+        action.sendKeys(topInput, Keys.RETURN).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit verifyTop ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' top: " + i +"px; ')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit enterWidth ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        widthInput.click();
+        widthInput.clear();
+        widthInput.sendKeys(string + Keys.ENTER);
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ENTER).build().perform();
+        action.sendKeys(widthInput, Keys.ENTER).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
+        action.sendKeys(widthInput, Keys.RETURN).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit enterWidth ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' width: " + i +"px; ')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit enterHeight ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        heightInput.click();
+        heightInput.clear();
+        heightInput.sendKeys(string + Keys.ENTER);
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ENTER).build().perform();
+        action.sendKeys(heightInput, Keys.ENTER).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
+        action.sendKeys(heightInput, Keys.RETURN).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit verifyHeight ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' height: " + i +"px; ')]"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit clickCircle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        circle.click();
+        return this;
+    }
+    
+    public LandingPage_Edit verifyCircle ( )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            if(!circleBox.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null; 
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    
+    public LandingPage_Edit verifyCircleImage ( )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            if(!circleImage.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null; 
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit clickShape ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        box.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickRounded ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        rounded.click();
+        return this;
+    }
+    
+    public LandingPage_Edit clickGradient1 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.doubleClick(gradientColor.get(0)).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit clickGradient2 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.doubleClick(gradientColor.get(1)).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit verifyRounded ( )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            if(!roundedBox.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null; 
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    
+    public LandingPage_Edit verifyRoundedImage ( )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            //System.out.println("here");
+            //System.out.println("here2");
+            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
+            if(!roundedImage.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null; 
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    
+    public LandingPage_Edit clickColor ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        color.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyColor ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' rgb" + string + "; ') or div[contains(concat(' ', @style, ' '),' rgb" + string + "; ')]]")).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    public LandingPage_Edit clickMoveOpacity ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(opacity, -i, 0).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit verifyOpacity ( double i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span[contains(concat(' ', normalize-space(@style), ' '),' opacity: " + i +"; ')]")).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit verifyLandingPageSquareGradient ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!squareGradient.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    public LandingPage_Edit clickVertical ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        verticalButton.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickHorizontal ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        horizontalButton.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyVertical ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!rectangleGradientVertical.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit verifyHorizontal ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!rectangleGradientHorizontal.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    public LandingPage_Edit verifyImageRectangle ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]")).isDisplayed())
+            {
+                System.out.println("1");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("2");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]/div")).isDisplayed())
+            {
+                System.out.println("3");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return this;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("4");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        System.out.println("5");
+        return null;
+    }
+    
+    public LandingPage_Edit clickImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        image.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickSelectImage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        selectImage.click();
+        return this;
+    }
+
     
 }
