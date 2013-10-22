@@ -19,13 +19,20 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-    com.ontraport.app.tests.CreateSendFromAddress.class,
-    com.ontraport.app.tests.DeleteSendFromAddress.class,
+
     
+  com.ontraport.app.tests.CreateCopyOfStepSequence.class,
+  com.ontraport.app.tests.CreateFacebook.class, 
+  com.ontraport.app.tests.DeleteFacebook.class,
+  com.ontraport.app.tests.CreateTab.class,
+  com.ontraport.app.tests.DeleteTab.class,
+  
+  com.ontraport.app.tests.AddColumn.class,
+  com.ontraport.app.tests.DeleteColumn.class,
+
     
-}
-)
-public class Review extends AbstractSuite
+})
+public class BrokenApp extends AbstractSuite
 {
     @BeforeClass
     public static void beforeSuite () throws Exception

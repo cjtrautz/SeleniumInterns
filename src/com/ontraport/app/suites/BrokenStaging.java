@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -18,19 +17,22 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{ 
-    com.ontraport.app.tests.CreateSendFromAddress.class,
-    com.ontraport.app.tests.DeleteSendFromAddress.class,
+{
     
+  com.ontraport.app.tests.CreateCopyOfStepSequence.class,
+  com.ontraport.app.tests.CreateFacebook.class, 
+  com.ontraport.app.tests.DeleteFacebook.class,
+  com.ontraport.app.tests.CreateTab.class,
+  com.ontraport.app.tests.DeleteTab.class,
+
     
-}
-)
-public class Review extends AbstractSuite
+})
+public class BrokenStaging extends AbstractSuite
 {
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com");
+        AbstractPage.setUrl("https://staging.ontraport.com");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);
@@ -38,7 +40,6 @@ public class Review extends AbstractSuite
         profile.setPreference("browser.cache.offline.enable", false);
         profile.setPreference("network.http.use-cache", false);
         driver = new FirefoxDriver(profile);
-        //driver = new ChromeDriver();
         driver.manage()
               .timeouts()
               .implicitlyWait(DEFAULT_WAIT, TimeUnit.SECONDS);

@@ -18,7 +18,26 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateLandingPageWithGradient.class,
+    com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
+    com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
+    com.ontraport.app.tests.EditLandingPageGradientColors.class,
+    com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
+    com.ontraport.app.tests.EditLandingPageCircleGradient.class,
+    com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
+    
+    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+    com.ontraport.app.tests.EditLandingPageImageRounded.class,
+    com.ontraport.app.tests.EditLandingPageCircleImage.class,
+    com.ontraport.app.tests.DeleteLandingPageImage.class,
+    
     com.ontraport.app.tests.CreateLandingPageWithText.class,
+    com.ontraport.app.tests.EditLandingPageHeight.class,
+    com.ontraport.app.tests.EditLandingPageWidth.class,
+    com.ontraport.app.tests.EditLandingPageTop.class,
+    com.ontraport.app.tests.EditLandingPageLeft.class,
+    com.ontraport.app.tests.EditLandingPageLineSpacing.class,
+    com.ontraport.app.tests.EditLandingPageLetterSpacing.class,
     com.ontraport.app.tests.EditLandingPageRightAlign.class,
     com.ontraport.app.tests.EditLandingPageCenter.class,
     com.ontraport.app.tests.EditLandingPageLeftAlign.class,
@@ -33,6 +52,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSMSMessage.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.EditLandingPageOpacity.class,
+    com.ontraport.app.tests.EditLandingPageColor.class,
+    com.ontraport.app.tests.EditLandingPageRounded.class,
+    com.ontraport.app.tests.EditLandingPageCircle.class,
     com.ontraport.app.tests.EditLandingPageSplitTesting.class,
     com.ontraport.app.tests.EditLandingPageRemoveSplitTesting.class,
     com.ontraport.app.tests.EditLandingPagePageSize.class,
