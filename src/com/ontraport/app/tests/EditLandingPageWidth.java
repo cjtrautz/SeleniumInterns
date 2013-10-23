@@ -23,7 +23,7 @@ public class EditLandingPageWidth extends AbstractTest
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Text"));
         LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Text"));
         landingPage_Edit.singleClickText("test text");
-        landingPage_Edit.enterWidth("50");
+        landingPage_Edit.enterWidth("450");
         landingPage_ListAll = landingPage_Edit.clickSave();
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Text"));
         
@@ -35,7 +35,7 @@ public class EditLandingPageWidth extends AbstractTest
 
         landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Text"));
 
-        if(landingPage_Edit.enterWidth( 50 )==null)
+        if(landingPage_Edit.enterWidth( 450 )==null)
         {
             fail("couldnt find width");
         }
