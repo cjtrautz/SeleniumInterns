@@ -21,40 +21,40 @@ import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 import com.ontraport.app.tools.Values;
 
-public class CreateLandingPageWithHTML extends AbstractTest
+public class CreateLandingPageWithForm extends AbstractTest
 {
     @Test
-    public void testCreateLandingPageWithHTML ()
+    public void testCreateLandingPageWithForm ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
         LandingPage_ListAll landingPage_ListAll = contactListAll.menuPrimary.clickLandingPageListAll1();
         LandingPage_TypeSelection landingPage_TypeSelection = landingPage_ListAll.clickNewLandingPage();
         LandingPage_CreateType1 landingPage_CreateType1 = landingPage_TypeSelection.clickCreateEasyPages();
-        landingPage_CreateType1.enterLandingPageName(value.get("LandingPages", "Easy_Landing_Page_HTML"));
-        landingPage_CreateType1.enterLandingPageTitle(value.get("LandingPages", "Easy_Landing_Page_HTML"));
+        landingPage_CreateType1.enterLandingPageName(value.get("LandingPages", "Easy_Landing_Page_Form"));
+        landingPage_CreateType1.enterLandingPageTitle(value.get("LandingPages", "Easy_Landing_Page_Form"));
         landingPage_CreateType1.clickPageURL();
         landingPage_CreateType1.dialogBox.clickUseHostedDomain();
-        landingPage_CreateType1.dialogBox.enterHostedDomainName(value.get("LandingPages", "Easy_Landing_Page_HTML") + AbstractSuite.UNIQUE);
+        landingPage_CreateType1.dialogBox.enterHostedDomainName(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE);
         landingPage_CreateType1.dialogBox.clickAccept();
         landingPage_CreateType1.clickNewItem();
-        landingPage_CreateType1.dialogBox.clickHTML();
-        landingPage_CreateType1.clickEditHTML();
-        landingPage_CreateType1.dialogBox.enterHTML("<u>this is a test</u>");
-        landingPage_CreateType1.dialogBox.clickAcceptHTML();
+        landingPage_CreateType1.dialogBox.clickForm();
+        landingPage_CreateType1.clickFormDropDown();
+        landingPage_CreateType1.selectDrillDown("Smart Forms and Order Form");
+        landingPage_CreateType1.selectDrillDown(value.get("SmartForms", "orderForm"));
         landingPage_ListAll = landingPage_CreateType1.clickSave();
-        landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_HTML"));
+        landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Form"));
         
       //verify product exists
-        if(landingPage_ListAll.verifyLandingPage(value.get("LandingPages", "Easy_Landing_Page_HTML"))==null)
+        if(landingPage_ListAll.verifyLandingPage(value.get("LandingPages", "Easy_Landing_Page_Form"))==null)
         {
             fail("couldnt find lp");
         }
 
-        LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_HTML"));
-        if(landingPage_Edit.verifyUnderlined("this is a test")==null)
+        LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Form"));
+        if(landingPage_Edit.verifyForm()==null)
         {
-            fail("couldn't find undelrlined html");
+            fail("couldn't find form");
         }
 
 

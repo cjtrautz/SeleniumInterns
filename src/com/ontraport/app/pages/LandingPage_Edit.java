@@ -1520,5 +1520,43 @@ public class LandingPage_Edit extends AbstractPage
         return this;
     }
 
+    public LandingPage_Edit clickHTML ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.xpath("//div[contains(@style, '/js/ontraport/boxes/images/transp.png') and .='" + string + "']/span")).click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyForm ( )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!driver.findElement(By.xpath("//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span//link")).isEnabled())
+            {
+                System.out.println("1");
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            System.out.println("2");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+
     
 }

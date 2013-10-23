@@ -12,11 +12,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractPart
 {
+    protected static int trys = 0;
     protected final static int DEFAULT_WAIT = 10;
     protected WebDriver     driver = AbstractSuite.getDriver();
     public static boolean waitForAjax ( WebDriver driver, int timeOutInSeconds )
     {
-        int trys = 0;
+        AbstractPart.setTrys(0);
         boolean jQcondition = false;
         try
         {
@@ -39,10 +40,42 @@ public abstract class AbstractPart
         {
             e.printStackTrace();
             driver.navigate().refresh();
-            if(trys==0)
+            if(AbstractPart.getTrys()==0)
             {
-                trys=1;
-                waitForAjax(driver, 20);
+                AbstractPart.setTrys(1);
+                waitForAjax2(driver, 20);
+            }
+        }
+        return jQcondition;
+    }
+    public static boolean waitForAjax2 ( WebDriver driver, int timeOutInSeconds )
+    {
+        boolean jQcondition = false;
+        try
+        {
+            new WebDriverWait(driver, timeOutInSeconds){}
+            .until(new ExpectedCondition<Boolean>()
+            {
+                @Override
+                public Boolean apply ( WebDriver driverObject )
+                {
+                    return (Boolean) ( (JavascriptExecutor) driverObject ).executeScript("return ontraport.activeRequests === 0");
+                }
+            });
+            jQcondition = (Boolean) ( (JavascriptExecutor) driver )
+                        .executeScript( "return window.ontraport != undefined "
+                                      + "&& ontraport.activeRequests != undefined "
+                                      + "&& ontraport.activeRequests === 0" );
+            return jQcondition;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            driver.navigate().refresh();
+            if(AbstractPart.getTrys()==0)
+            {
+                AbstractPart.setTrys(1);
+                waitForAjax2(driver, 20);
             }
         }
         return jQcondition;
@@ -59,5 +92,13 @@ public abstract class AbstractPart
         ElementLocatorFactory finder =  new AjaxElementLocatorFactory(driver, AbstractSuite.DEFAULT_WAIT);
         PageFactory.initElements(finder, this);
         return this;
+    }
+    public static int getTrys ()
+    {
+        return trys;
+    }
+    public static void setTrys ( int trys )
+    {
+        AbstractPart.trys = trys;
     }
 }

@@ -34,7 +34,7 @@ public abstract class AbstractPage
     protected static String             password                    = "Lughead1";
     protected static String             login                       = "nick@ontraport.com";
     protected static String             url                         = "";
-    protected static String             latch                       = "?track_requests=1";
+    private static String             latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------
@@ -98,16 +98,16 @@ public abstract class AbstractPage
     protected WebElement      uiToggleDrilldownRecordsPerPage;
     public AbstractPage open ( String url )
     {
-        driver.get(AbstractPage.url + AbstractPage.latch + url);
+        driver.get(AbstractPage.url + AbstractPage.getLatch() + url);
         return null;
     }
     public AbstractPage open ( String url, Boolean login )
     {
         if (login == false)
         {
-            driver.get(AbstractPage.url + AbstractPage.latch + url);
+            driver.get(AbstractPage.url + AbstractPage.getLatch() + url);
         } else {
-            driver.get(AbstractPage.url + url + AbstractPage.latch);
+            driver.get(AbstractPage.url + url + AbstractPage.getLatch());
         }
         return null;
     }
@@ -132,6 +132,14 @@ public abstract class AbstractPage
     public static String getPassword ()
     {
         return AbstractPage.password;
+    }
+    public static String getLatch ()
+    {
+        return latch;
+    }
+    public static void setLatch ( String latch )
+    {
+        AbstractPage.latch = latch;
     }
 
 }

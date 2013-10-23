@@ -23,6 +23,18 @@ public class LandingPage_CreateType1 extends AbstractPage
     private WebElement textArea;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-landing-page-form-selector ')]//button")
+    private WebElement formDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement drillDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='inpt_button' and contains(text(), 'Edit HTML')]")
+    private WebElement editHTML;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
     private WebElement landingPageName;
 
@@ -100,6 +112,27 @@ public class LandingPage_CreateType1 extends AbstractPage
         Actions action = new Actions(driver);
         action.sendKeys(string).build().perform();
         driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public LandingPage_CreateType1 clickEditHTML ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        editHTML.click();
+        return this;
+    }
+
+    public LandingPage_CreateType1 clickFormDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        formDropDown.click();
+        return this;
+    }
+
+    public LandingPage_CreateType1 selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
     

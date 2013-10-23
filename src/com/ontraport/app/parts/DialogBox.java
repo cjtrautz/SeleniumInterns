@@ -19,6 +19,9 @@ import com.ontraport.app.tools.AbstractSuite;
 public class DialogBox extends AbstractPart
 {
     @FindBy(how = How.XPATH,
+            using = "//textarea")
+    private WebElement textarea;
+    @FindBy(how = How.XPATH,
             using = "//input[@value='Start with a blank page']")
     private WebElement startWithBlankPage;
     @FindBy(how = How.XPATH,
@@ -95,6 +98,9 @@ public class DialogBox extends AbstractPart
             using = "//input[@value='Accept' and @class='btn2']")
     private WebElement buttonAccept;
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//input[@type='BUTTON' and @value='Accept']")
+    private WebElement buttonAcceptHTML;
+    @FindBy(how = How.XPATH,
             using = "//input[@value='Accept' and @type='BUTTON']")
     private List<WebElement> buttonAcceptColor;
     @FindBy(how = How.XPATH,
@@ -112,6 +118,12 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='create_button_class']//td[text()='Text Area']")
     private WebElement textAreaButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='create_button_class']//td[text()='HTML']")
+    private WebElement htmlButton;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='create_button_class']//td[text()='Form']")
+    private WebElement formButton;
     @FindBy(how = How.XPATH,
             using = "//a[text()='Upload']")
     private WebElement uploadTab;
@@ -689,6 +701,30 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         startWithBlankPage.click();
+        return this;
+    }
+    public DialogBox clickHTML ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        htmlButton.click();
+        return this;
+    }
+    public DialogBox enterHTML ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        textarea.sendKeys(string);
+        return this;
+    }
+    public DialogBox clickAcceptHTML ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        buttonAcceptHTML.click();
+        return this;
+    }
+    public DialogBox clickForm ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        formButton.click();
         return this;
     }
 }
