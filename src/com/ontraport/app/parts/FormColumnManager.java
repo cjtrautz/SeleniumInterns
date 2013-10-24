@@ -29,6 +29,10 @@ public class FormColumnManager extends AbstractPart
             using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_collection_column_editor ')]//button")
     private WebElement fieldPaneDropDown;
     
+    @FindBy(how = How.XPATH,
+            using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_collection_column_editor ')]//input")
+    private WebElement fieldPaneInput;
+    
     @FindBy(
             how = How.XPATH,
             using = "//tr[@class='sem-collection-header-display']")
@@ -56,15 +60,6 @@ public class FormColumnManager extends AbstractPart
         WebElement columnToEdit = driver.findElement(By.xpath("//tr[@class='sem-collection-header-display']//a[text()='" + column + "']"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", columnToEdit);
         waitForAjax(driver, 20);
-        //wait(1).until(ExpectedConditions.visibilityOf(columnToEdit));
-        //WebElement pencil = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']/following-sibling::div/a[3]/span"));
-        //Actions actions = new Actions(driver);
-        //WebElement columnToEdit = headerColumns.findElement(By.xpath(".//a[text()='" + column + "']"));
-        //WebElement columnToMove = headerColumns.findElement(By.xpath(".//th"));
-        //actions.moveToElement(columnToMove);
-//        actions.moveToElement(columnToEdit);
-//        actions.perform();
-        //WebElement pencil = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"));
         Actions actions = new Actions(driver);
         try{
             wait(5).until(ExpectedConditions.visibilityOf(scroll));
@@ -75,31 +70,10 @@ public class FormColumnManager extends AbstractPart
         }
         actions.dragAndDropBy(scroll, 1000, 0).build().perform();
         System.out.println("scrolled");
-        //Thread.sleep(3000);
         actions.moveToElement(columnToEdit).build().perform();
-        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-        //Thread.sleep(3000);
-        //wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-       // wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Zip Code']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
         WebElement toDelete = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
         actions.clickAndHold(toDelete).build().perform();
         actions.release(toDelete).build().perform();
-        //wait(3).until(ExpectedConditions.visibilityOf(zipCodePencil2));
-//
-      // zipCodePencil2.click();
-       //zipCodePencil2.click();
-        //actions.moveToElement(pencil);
-        //actions.click();
-        //actions.perform();
-
-//        wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
-//        wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
-//        System.out.println("here2");
-//        //action.click(driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"))).perform();    
-//        columnToEdit.click();
-//        wait(3).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
-//        wait(3).until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
-        //driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @href='javascript://']/span")).click();
         System.out.println("here3");
         return this;
     }
@@ -128,8 +102,16 @@ public class FormColumnManager extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(fieldPaneDropDown)); 
         fieldPaneDropDown.click(); 
         return this;
-
     }
+    
+    public FormColumnManager enterFieldPaneInput (String string)
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(fieldPaneInput)); 
+        fieldPaneInput.sendKeys(string); 
+        return this;
+    }
+    
     public FormColumnManager clickCheckMark ()
     {
         waitForAjax(driver, 20);

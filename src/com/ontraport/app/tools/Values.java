@@ -23,6 +23,7 @@ public class Values
         files.add("Messages");
         files.add("LandingPages");
         files.add("Sites");
+        files.add("Fields");
         for ( String file : files )
         {
             try

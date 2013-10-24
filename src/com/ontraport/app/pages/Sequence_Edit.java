@@ -18,6 +18,56 @@ public class Sequence_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//div[@class='step_drop']")
+    private List<WebElement> expand;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='step_detail_delete']/button")
+    private WebElement deleteSplitTesting;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-component-sequence-split-list']/div")
+    private List<WebElement> versions;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' step_details_wait ')]//input")
+    private WebElement waitTime;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-sequence-target-split ')]")
+    private WebElement splitTestingToggle;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-icon-split-off ')]")
+    private WebElement splitTestingOff;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-icon-split-on ')]")
+    private WebElement splitTestingOn;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-sequence-add-version ')]")
+    private WebElement addNewSplitTest;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' step_details_time ')]//button")
+    private WebElement sendOutDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' step_details_time ')]//input")
+    private WebElement sendOutInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(concat(' ', @class, ' '),' ussr-component-send_from ')]//button")
     private WebElement toggleSendFrom;
     
@@ -707,6 +757,205 @@ public class Sequence_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
+        return this;
+    }
+    public Sequence_Edit enterWaitDays ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        waitTime.clear();
+        waitTime.sendKeys(string);
+        return this;
+    }
+    public Sequence_Edit expandStep ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        expand.get(i-1).click();
+        return this;
+    }
+    public Sequence_Edit verifyWait ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            System.out.println(waitTime.getAttribute("value"));
+            if(!waitTime.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit clickSendAtDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sendOutDropDown.click();
+        return this;
+    }
+    public Sequence_Edit verifySendAtTime ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            System.out.println(sendOutInput.getAttribute("value"));
+            if(!sendOutInput.getAttribute("value").equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit enterSendAtInput ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sendOutInput.clear();
+        sendOutInput.sendKeys(string);
+        return this;
+    }
+    public Sequence_Edit clickSplitTestingOn ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        splitTestingToggle.click();
+        return this;
+    }
+    public Sequence_Edit clickNewSplitTest ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        addNewSplitTest.click();
+        return this;
+    }
+    public Sequence_Edit verifyVersion ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            System.out.println(sendOutInput.getAttribute("value"));
+            if(!versions.get(i-1).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit clickVersion ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        versions.get(i-1).click();
+        return this;
+    }
+    public Sequence_Edit clickDeleteSplitTest ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        deleteSplitTesting.click();
+        return this;
+    }
+    public Sequence_Edit clickSplitTestingOff ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        splitTestingToggle.click();
+        return this;
+    }
+    public Sequence_Edit verifySplitTestOn ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!splitTestingOn.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit verifySplitTestOff ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!splitTestingOff.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
         return this;
     }
 
