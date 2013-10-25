@@ -24,6 +24,7 @@ public class Values
         files.add("LandingPages");
         files.add("Sites");
         files.add("Fields");
+        files.add("Admin");
         for ( String file : files )
         {
             try

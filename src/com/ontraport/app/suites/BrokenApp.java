@@ -19,6 +19,18 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateRuleStepSequence.class,//these are fine
+    com.ontraport.app.tests.CreateMessage.class,
+    
+    com.ontraport.app.tests.EditSequenceSplitB.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndC.class,
+    
+    com.ontraport.app.tests.DeleteMessage.class, //these are fine
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
+    
     com.ontraport.app.tests.CreateTab.class,
     com.ontraport.app.tests.DeleteTab.class,
     

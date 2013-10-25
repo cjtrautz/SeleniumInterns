@@ -1412,7 +1412,7 @@ public class LandingPage_Edit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]/div")).isDisplayed())
+            if(driver.findElements(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]/div")).size()==0)
             {
                 System.out.println("3");
                 driver.manage()

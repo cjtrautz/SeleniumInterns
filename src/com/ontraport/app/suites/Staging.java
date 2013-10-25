@@ -82,6 +82,14 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.CreateCopyOfStepSequence.class,
     com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
+    com.ontraport.app.tests.CreateSplitTestMessages.class,
+    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+    com.ontraport.app.tests.EditSequenceWait0Days.class,
+    com.ontraport.app.tests.EditSequenceWait1Days.class,
+    com.ontraport.app.tests.EditSequenceSendAt15Mins.class,
+    com.ontraport.app.tests.EditSequenceSendAtImmediate.class,
+    com.ontraport.app.tests.EditSequenceSendAt2Hours.class,
+    com.ontraport.app.tests.EditSequenceSendAt12PM.class,
     com.ontraport.app.tests.DeleteMessage.class,
     com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
@@ -198,18 +206,24 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
     //relies on text field
+      com.ontraport.app.tests.AddStateFieldColumn.class,
+      com.ontraport.app.tests.DeleteStateFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithStateField.class,
       com.ontraport.app.tests.DeleteStateGroup.class,
       com.ontraport.app.tests.DeleteStateField.class,
       //relies on section
       com.ontraport.app.tests.CreatePriceField.class,
     //relies on text field
+      com.ontraport.app.tests.AddPriceFieldColumn.class,
+      com.ontraport.app.tests.DeletePriceFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithPriceField.class,
       com.ontraport.app.tests.DeletePriceGroup.class,
       com.ontraport.app.tests.DeletePriceField.class,
     //relies on section
       com.ontraport.app.tests.CreateNumericField.class,
     //relies on text field
+      com.ontraport.app.tests.AddNumericFieldColumn.class,
+      com.ontraport.app.tests.DeleteNumericFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithNumericField.class,
       com.ontraport.app.tests.DeleteNumericGroup.class,
       com.ontraport.app.tests.DeleteNumericField.class,
@@ -228,24 +242,32 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreateDateField.class,
     //relies on text field
+      com.ontraport.app.tests.AddDateFieldColumn.class,
+      com.ontraport.app.tests.DeleteDateFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithDateField.class,
       com.ontraport.app.tests.DeleteDateGroup.class,
       com.ontraport.app.tests.DeleteDateField.class,
       //relies on section
       com.ontraport.app.tests.CreateCheckboxField.class,
     //relies on text field
+      com.ontraport.app.tests.AddCheckboxFieldColumn.class,
+      com.ontraport.app.tests.DeleteCheckboxFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithCheckboxField.class,
       com.ontraport.app.tests.DeleteCheckboxGroup.class,
       com.ontraport.app.tests.DeleteCheckBoxField.class,
     //relies on section
       com.ontraport.app.tests.CreateDropdownField.class,
     //relies on text field
+      com.ontraport.app.tests.AddDropDownFieldColumn.class,
+      com.ontraport.app.tests.DeleteDropDownFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithDropDownField.class,
       com.ontraport.app.tests.DeleteDropdownGroup.class,
       com.ontraport.app.tests.DeleteDropdownField.class,
     //relies on section
       com.ontraport.app.tests.CreateTextField.class,
     //relies on text field
+      com.ontraport.app.tests.AddTextFieldColumn.class,
+      com.ontraport.app.tests.DeleteTextFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithTextField.class,
       com.ontraport.app.tests.DeleteTextGroup.class,
       com.ontraport.app.tests.DeleteTextField.class,

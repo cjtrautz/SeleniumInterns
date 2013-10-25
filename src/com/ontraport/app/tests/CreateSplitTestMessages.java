@@ -34,9 +34,9 @@ public class CreateSplitTestMessages extends AbstractTest
         message_ListAll.formSearch.find("SelEmailMessage");
         
         //verify that it exists
-        if(message_ListAll.verifyMessage("SelEmailMessage")==null)
+        if(message_ListAll.verifyMessage(value.get("Messages", "email_messageB"))==null)
         {
-            fail("couldn't find created message");
+            fail("couldn't find created messageB");
         }
         
         message_TypeSelection = message_ListAll.clickNewMessage();
@@ -54,9 +54,9 @@ public class CreateSplitTestMessages extends AbstractTest
         message_ListAll.formSearch.find("SelEmailMessage");
         
         //verify that it exists
-        if(message_ListAll.verifyMessage("SelEmailMessage")==null)
+        if(message_ListAll.verifyMessage(value.get("Messages", "email_messageC"))==null)
         {
-            fail("couldn't find created message");
+            fail("couldn't find created messageC");
         }
         
         message_TypeSelection = message_ListAll.clickNewMessage();
@@ -74,9 +74,9 @@ public class CreateSplitTestMessages extends AbstractTest
         message_ListAll.formSearch.find("SelEmailMessage");
         
         //verify that it exists
-        if(message_ListAll.verifyMessage("SelEmailMessage")==null)
+        if(message_ListAll.verifyMessage(value.get("Messages", "email_messageD"))==null)
         {
-            fail("couldn't find created message");
+            fail("couldn't find created messageD");
         }
 
 

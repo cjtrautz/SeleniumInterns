@@ -130,7 +130,7 @@ public class Fulfillment_ListAll extends AbstractPage
         {
             driver.manage()
             .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            .implicitlyWait(25, TimeUnit.SECONDS);
             emptyCell.isDisplayed();
             driver.manage()
             .timeouts()

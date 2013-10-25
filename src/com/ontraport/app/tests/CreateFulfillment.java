@@ -40,13 +40,13 @@ public class CreateFulfillment extends AbstractTest
         {
             fail("didnt find fulfillment field vale");
         }
-        if(fulfillment_Edit.verifyFrequencyScheduler("12:00 AM")==null)
-        {
-            fail("didnt find fulfillment frequency scheduler");
-        }
         if(fulfillment_Edit.verifyFulfillmentName("SelFulfillment")==null)
         {
             fail("didnt find fulfillment list name");
+        }
+        if(fulfillment_Edit.verifySchedular("Daily")==null)
+        {
+            fail("didnt find fulfillment schedular");
         }
 
     }
