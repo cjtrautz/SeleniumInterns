@@ -202,6 +202,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateUserFieldEditor.class,
     com.ontraport.app.tests.DeleteUserFieldEditor.class,
     
+    com.ontraport.app.tests.CreateContact.class,
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
@@ -272,6 +273,7 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteTextGroup.class,
       com.ontraport.app.tests.DeleteTextField.class,
       com.ontraport.app.tests.DeleteSection.class,
+      com.ontraport.app.tests.DeleteContact.class,
       
     com.ontraport.app.tests.AddGroup.class,
     com.ontraport.app.tests.EditGroupPermission.class,
@@ -378,7 +380,23 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on a fulfillment
     com.ontraport.app.tests.CreateRule_AddContactToFulfillmentList.class,
     com.ontraport.app.tests.DeleteRule_AddContactToFulfillmentList.class,
+    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
+    com.ontraport.app.tests.EditFulfillmentWeekly.class,
+    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
+    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
+    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
+    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
+    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
+    com.ontraport.app.tests.CreateRole.class,
+    //relies on role
+    com.ontraport.app.tests.CreateUser.class,
+    com.ontraport.app.tests.EditFulfillmentOwner.class,
+    com.ontraport.app.tests.EditFulfillmentListFields.class,
+    com.ontraport.app.tests.EditFulfillmentClearField.class,
+    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
     com.ontraport.app.tests.DeleteFulfillment.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    com.ontraport.app.tests.DeleteRole.class,
     
     com.ontraport.app.tests.CreateAPIKeys.class, 
     com.ontraport.app.tests.DeleteAPIKeys.class,
@@ -494,7 +512,7 @@ public class Staging extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

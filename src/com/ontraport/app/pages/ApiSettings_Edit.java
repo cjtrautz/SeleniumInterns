@@ -42,6 +42,14 @@ public class ApiSettings_Edit extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-api-generate-target-api-key ')]")
     private WebElement apiKey; 
     
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-top ')]/div[@class='ussr-pane-editor-back']")
+    private WebElement back; 
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header ')]//button[contains(., 'Cancel')]")
+    private WebElement cancel; 
+    
     public ApiSettings_Edit verifyAPIOwner (String value)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -247,5 +255,19 @@ public class ApiSettings_Edit extends AbstractPage
         }
         
         return this;
+    }
+
+    public ApiSettings_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        back.click();
+        return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
+    }
+
+    public ApiSettings_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        cancel.click();
+        return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }
 }

@@ -165,6 +165,38 @@ public class ApiSettings_ListAll extends AbstractPage
         }
         return (ApiSettings_Edit) new ApiSettings_Edit().init();
     }
+
+    public ApiSettings_ListAll verifyPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(25, TimeUnit.SECONDS);
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/api_settings/listAll");
+            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/api_settings/listAll"))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null; 
+            }
+            collection.isDisplayed();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
     
 
 }

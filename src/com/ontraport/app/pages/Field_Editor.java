@@ -138,7 +138,7 @@ public class Field_Editor extends AbstractPage
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
         AbstractPart.waitForAjax(driver, 20);
         //save.click();
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
         return (Contact_Settings) new Contact_Settings().init();
     }
 

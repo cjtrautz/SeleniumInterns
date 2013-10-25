@@ -18,6 +18,11 @@ public class Fulfillment_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header ')]//div[@class='ussr-pane-editor-back']")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-fulfillment-target-fields ')]//button[span[text()='<br>']]")
     private WebElement toggleFieldSelector;
     
@@ -30,6 +35,11 @@ public class Fulfillment_Edit extends AbstractPage
             how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Save']")
     private WebElement save;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Cancel']")
+    private WebElement cancel;
     
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
@@ -632,6 +642,20 @@ public class Fulfillment_Edit extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldsButton.get(2))));
         fieldsButton.get(1).click();
         return this;
+    }
+
+    public Fulfillment_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        back.click();
+        return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
+    }
+
+    public Fulfillment_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        cancel.click();
+        return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
     }
 
   

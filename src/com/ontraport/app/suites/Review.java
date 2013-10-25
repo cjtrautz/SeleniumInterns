@@ -19,105 +19,15 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-    com.ontraport.app.tests.CreateFulfillment.class, 
-    //relies on a fulfillment
-    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
-    com.ontraport.app.tests.EditFulfillmentWeekly.class,
-    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
-    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
-    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
-    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
-    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.EditFulfillmentOwner.class,
-    com.ontraport.app.tests.EditFulfillmentListFields.class,
-    com.ontraport.app.tests.EditFulfillmentClearField.class,
-    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
-    com.ontraport.app.tests.DeleteFulfillment.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
+    com.ontraport.app.tests.CreateAPIKeys.class,
+    com.ontraport.app.tests.EditAPIKeysBack.class, 
+    com.ontraport.app.tests.EditAPIKeysCancel.class, 
+    com.ontraport.app.tests.DeleteAPIKeys.class,
     
     com.ontraport.app.tests.CreateFulfillment.class, 
-    //relies on a fulfillment
-    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
-    com.ontraport.app.tests.EditFulfillmentWeekly.class,
-    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
-    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
-    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
-    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
-    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.EditFulfillmentOwner.class,
-    com.ontraport.app.tests.EditFulfillmentListFields.class,
-    com.ontraport.app.tests.EditFulfillmentClearField.class,
-    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
+    com.ontraport.app.tests.EditFulfillmentBack.class,
+    com.ontraport.app.tests.EditFulfillmentCancel.class,
     com.ontraport.app.tests.DeleteFulfillment.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
-    
-    com.ontraport.app.tests.CreateFulfillment.class, 
-    //relies on a fulfillment
-    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
-    com.ontraport.app.tests.EditFulfillmentWeekly.class,
-    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
-    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
-    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
-    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
-    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.EditFulfillmentOwner.class,
-    com.ontraport.app.tests.EditFulfillmentListFields.class,
-    com.ontraport.app.tests.EditFulfillmentClearField.class,
-    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
-    com.ontraport.app.tests.DeleteFulfillment.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
-    
-    com.ontraport.app.tests.CreateFulfillment.class, 
-    //relies on a fulfillment
-    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
-    com.ontraport.app.tests.EditFulfillmentWeekly.class,
-    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
-    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
-    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
-    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
-    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.EditFulfillmentOwner.class,
-    com.ontraport.app.tests.EditFulfillmentListFields.class,
-    com.ontraport.app.tests.EditFulfillmentClearField.class,
-    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
-    com.ontraport.app.tests.DeleteFulfillment.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
-    
-    com.ontraport.app.tests.CreateFulfillment.class, 
-    //relies on a fulfillment
-    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
-    com.ontraport.app.tests.EditFulfillmentWeekly.class,
-    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
-    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
-    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
-    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
-    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.EditFulfillmentOwner.class,
-    com.ontraport.app.tests.EditFulfillmentListFields.class,
-    com.ontraport.app.tests.EditFulfillmentClearField.class,
-    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
-    com.ontraport.app.tests.DeleteFulfillment.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
 
 }
 )
@@ -126,7 +36,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

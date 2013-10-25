@@ -145,5 +145,36 @@ public class Fulfillment_ListAll extends AbstractPage
         
         return this;
     }
+    public Fulfillment_ListAll verifyPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(25, TimeUnit.SECONDS);
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/fulfillment/listAll");
+            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/fulfillment/listAll"))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null; 
+            }
+            uiCollectionBody.isDisplayed();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
     
 }

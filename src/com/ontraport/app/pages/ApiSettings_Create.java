@@ -57,6 +57,8 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_Create enterApiName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(apiName));
+        apiName.click();
         apiName.clear();
         apiName.sendKeys(name);
         return this;
@@ -66,6 +68,7 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_Create openContactOwnerPane ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleContactOwnerPane));
         toggleContactOwnerPane.click();
         return this;
         

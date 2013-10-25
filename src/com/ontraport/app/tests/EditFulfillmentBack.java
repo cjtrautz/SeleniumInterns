@@ -11,10 +11,10 @@ import com.ontraport.app.pages.Fulfillment_Edit;
 import com.ontraport.app.pages.Fulfillment_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class EditFulfillmentSelectAllField extends AbstractTest
+public class EditFulfillmentBack extends AbstractTest
 {
     @Test
-    public void testEditFulfillmentSelectAllField ()
+    public void testEditFulfillmentBack ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -22,19 +22,11 @@ public class EditFulfillmentSelectAllField extends AbstractTest
         Account_View account_View = contactListAll.menuUser.clickAdmin();
         Fulfillment_ListAll fulfillment_ListAll = account_View.clickFulfillmentManager();
         Fulfillment_Edit fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list"));
-        fulfillment_Edit.selectAllFields();
-        fulfillment_ListAll = fulfillment_Edit.clickSave();
-        fulfillment_ListAll.formSearch.find(value.get("Admin", "fulfillment_list"));
+        fulfillment_ListAll = fulfillment_Edit.clickBack();
         
-        //verify fulfillment exists
-        if(fulfillment_ListAll.verifyFulfillment(value.get("Admin", "fulfillment_list"))==null)
+        if(fulfillment_ListAll.verifyPage()==null)
         {
-            fail("didnt find fulfillment");
-        }
-        fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list"));
-        if(fulfillment_Edit.verifyNumberOfFields(48)==null)
-        {
-            fail("didnt find createATask checked");
+            fail("didnt find fulfillment list all");
         }
         
 
