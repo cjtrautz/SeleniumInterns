@@ -293,7 +293,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     
     com.ontraport.app.tests.CreateSendFromAddress.class,
-    com.ontraport.app.tests.DeleteSendFromAddress.class,
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,
@@ -505,6 +504,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateFacebook.class, 
     com.ontraport.app.tests.DeleteFacebook.class,
 
+    com.ontraport.app.tests.GmailConfirmations.class,
+    com.ontraport.app.tests.DeleteSendFromAddress.class,
     
 })
 public class Staging extends AbstractSuite

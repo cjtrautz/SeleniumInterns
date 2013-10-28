@@ -123,7 +123,6 @@ public class Gmail extends AbstractPage
 
     public Gmail clickMessageFrom ()
     {
-        AbstractPart.waitForAjax(driver, 20);
         try
         {
             driver.manage()

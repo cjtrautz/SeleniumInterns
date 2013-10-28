@@ -19,6 +19,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    //com.ontraport.app.tests.SendTestEmail.class,
+    com.ontraport.app.tests.GmailConfirmations.class,
+    
     com.ontraport.app.tests.CreateAPIKeys.class,
     com.ontraport.app.tests.EditAPIKeysBack.class, 
     com.ontraport.app.tests.EditAPIKeysCancel.class, 

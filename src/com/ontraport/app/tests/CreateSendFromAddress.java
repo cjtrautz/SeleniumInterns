@@ -30,39 +30,11 @@ public class CreateSendFromAddress extends AbstractTest
         sender_View.clickAddEmail();
         sender_View.dialogBox.enterEmailAddress("njcross1990@gmail.com");
         sender_View.dialogBox.addEmail("njcross1990@gmail.com");
-        driver.get("mail.google.com");
-        driver.navigate().refresh();
-        //driver.findElement(By.xpath("//*[text()='Sign in']")
-        Gmail gmail = (Gmail) new Gmail().init();
-        gmail.enterUserName("njcross1990@gmail.com");
-        gmail.enterPassword("Lughead1");
-        gmail.clickSignIn();
-        driver.navigate().refresh();
-        gmail.clickConfirmationEmail();
-        gmail.clickLink();
-        gmail.clickDelete();
-        try{
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        }
-        catch(Exception e)
-        {
-            
-        }
-        driver.get(AbstractPage.getUrl() + AbstractPage.getLatch() + Sender_View.url);
-        AbstractPart.waitForAjax(driver, 30);
-//        contactListAll.menuUser.open();
-//        account_View = contactListAll.menuUser.clickAdmin();
-//        sender_View = account_View.clickSendFrom();
-        //Thread.sleep(3000);
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='chrome-company-logo ussr-helper-position-reset']")));
-        //verify App Name, ID, Redirect, and Visits
-        if(sender_View.verifyConfirmed("njcross1990@gmail.com")==null)
+        if(sender_View.verifyUnConfirmed("njcross1990@gmail.com")==null)
         {
             fail("couldnt find send from address");
         }
+        
 
 
         
