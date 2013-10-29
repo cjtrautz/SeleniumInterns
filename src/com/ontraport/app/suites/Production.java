@@ -48,8 +48,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
     
     com.ontraport.app.tests.CreateContact.class,
-    com.ontraport.app.tests.CreateATag.class,
-    com.ontraport.app.tests.AddTagToContact.class,
+    com.ontraport.app.tests.CreateTagToAddToContact.class,
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.EnsureRulesFire.class,
     com.ontraport.app.tests.DeleteEnsureRulesFire.class,
@@ -58,7 +57,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateStateField.class,
     com.ontraport.app.tests.DeleteStateField.class,
     com.ontraport.app.tests.DeleteSection.class,
-    com.ontraport.app.tests.DeleteTag.class,
     com.ontraport.app.tests.DeleteContact.class,
       
     com.ontraport.app.tests.AddGroup.class,

@@ -16,7 +16,7 @@ public class Values
         InputStream stream;
         List<String> files = new ArrayList<String>();
         //files.add("Users");
-        //files.add("Contacts");
+        files.add("Contacts");
         files.add("Sequences");
         //files.add("Rules");
         files.add("SmartForms");

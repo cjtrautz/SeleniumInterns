@@ -27,6 +27,14 @@ public class DrawerActions extends AbstractPart
     private WebElement uiExportContacts;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
+    private WebElement quickCreaterNameInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-controls ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sad-button ')]")
+    private WebElement objectCreatorSave;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Contacts')]")
     private WebElement uiDeleteContacts;
     
@@ -109,6 +117,10 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
         private WebElement drillDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']/li[contains(concat(' ', normalize-space(@class), ' '), ' create-new ')]")
+        private WebElement drillDownCreateNew;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
@@ -524,6 +536,24 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         showSequenceOnSubscriptionManagmentPageCheckedCheckbox.click();
+        return this;
+    }
+    public DrawerActions clickCreateNew ()
+    {
+        waitForAjax(driver, 20);
+        drillDownCreateNew.click();
+        return this;
+    }
+    public DrawerActions enterName ( String string )
+    {
+        waitForAjax(driver, 20);
+        quickCreaterNameInput.sendKeys(string);
+        return this;
+    }
+    public DrawerActions clickSave ()
+    {
+        waitForAjax(driver, 20);
+        objectCreatorSave.click();
         return this;
     }
 }

@@ -19,6 +19,10 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
+    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.CreateTagToAddToContact.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.PreviewEmailMessage.class,
     com.ontraport.app.tests.DeleteMessage.class,

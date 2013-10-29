@@ -14,7 +14,7 @@ import com.ontraport.app.tools.AbstractSuite;
 public class Gmail extends AbstractPage
 {
     @FindBy(how = How.XPATH,
-            using = "//span[@name='nick' or @name='Selenium' or @email='nick@ontraport.com' or @email='njcross@umail.ucsb.edu']")
+            using = "//span[.='SelSubject']")
     private WebElement testEmail;
     
     @FindBy(how = How.XPATH,

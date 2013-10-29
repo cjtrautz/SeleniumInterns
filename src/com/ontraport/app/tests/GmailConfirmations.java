@@ -62,7 +62,6 @@ public class GmailConfirmations extends AbstractTest
             fail("couldnt find send from address");
         }
         driver.get("mail.google.com");
-      driver.findElement(By.xpath("//*[contains(text(), 'Sign in')]")).click();
           gmail = (Gmail) new Gmail().init();
           
           if(gmail.clickMessageFrom()==null)
