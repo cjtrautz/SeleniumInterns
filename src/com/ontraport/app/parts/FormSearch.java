@@ -29,7 +29,7 @@ public class FormSearch extends AbstractPart
     private WebElement firstCell;
     public FormSearch find ( String text )
     {
-        waitForAjax(driver, 20);
+        waitForAjax(driver, 45);
         try
         {
             wait(15).until(ExpectedConditions.visibilityOf(collection));

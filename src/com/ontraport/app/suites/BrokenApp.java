@@ -34,6 +34,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateTab.class,
     com.ontraport.app.tests.DeleteTab.class,
     
+    com.ontraport.app.tests.FieldEditorSectionPermissions.class,
+    
 })
 public class BrokenApp extends AbstractSuite
 {

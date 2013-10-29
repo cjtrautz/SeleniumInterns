@@ -368,7 +368,7 @@ public class DialogBox extends AbstractPart
     }
     public WordPress_ListAll clickClose2 ()
     {
-        waitForAjax(driver, 20);
+        waitForAjax(driver, 60);
         uiClose2.click();
         return (WordPress_ListAll) new WordPress_ListAll().init();
     }

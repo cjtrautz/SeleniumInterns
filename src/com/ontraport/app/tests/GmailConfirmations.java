@@ -26,14 +26,7 @@ public class GmailConfirmations extends AbstractTest
     @Test
     public void testGmailConfirmations () throws InterruptedException
     {
-        try
-        {
-            driver.findElement(By.xpath("//*[contains(text(), 'Sign in')]")).click();
-        }
-        catch(Exception e)
-        {
-            
-        }
+        driver.findElement(By.xpath("//*[contains(text(), 'Sign in')]")).click();
         driver.get("mail.google.com");
         Gmail gmail = (Gmail) new Gmail().init();
         gmail.enterUserName("njcross1990@gmail.com");
