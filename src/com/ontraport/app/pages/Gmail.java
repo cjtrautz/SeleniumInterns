@@ -40,6 +40,7 @@ public class Gmail extends AbstractPage
     @FindBy(how = How.XPATH,
         using = "//div[@class=' G-atb D E']//div[@class='ar9 T-I-J3 J-J5-Ji']")
     private WebElement delete;
+    
     @FindBy(how = How.XPATH,
             using = "//div[@id=':31']")
         private WebElement primary;
