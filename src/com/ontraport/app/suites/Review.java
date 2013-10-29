@@ -18,20 +18,94 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{ 
-    //com.ontraport.app.tests.SendTestEmail.class,
-    com.ontraport.app.tests.GmailConfirmations.class,
+{
+    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
+    com.ontraport.app.tests.RetryTransactionsDecimal.class,
+    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
     
-    com.ontraport.app.tests.CreateAPIKeys.class,
-    com.ontraport.app.tests.EditAPIKeysBack.class, 
-    com.ontraport.app.tests.EditAPIKeysCancel.class, 
-    com.ontraport.app.tests.DeleteAPIKeys.class,
+    com.ontraport.app.tests.FieldEditorSectionPermissions.class,
     
-    com.ontraport.app.tests.CreateFulfillment.class, 
-    com.ontraport.app.tests.EditFulfillmentBack.class,
-    com.ontraport.app.tests.EditFulfillmentCancel.class,
-    com.ontraport.app.tests.DeleteFulfillment.class,
-
+    com.ontraport.app.tests.ChangeUserInfo.class,
+    com.ontraport.app.tests.ChangeBusinessInformation.class,
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
+    
+    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
+    com.ontraport.app.tests.RetryTransactionsDecimal.class,
+    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
+    
+    com.ontraport.app.tests.FieldEditorSectionPermissions.class,
+    
+    com.ontraport.app.tests.ChangeUserInfo.class,
+    com.ontraport.app.tests.ChangeBusinessInformation.class,
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
+    
+    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
+    com.ontraport.app.tests.RetryTransactionsDecimal.class,
+    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
+    
+    com.ontraport.app.tests.FieldEditorSectionPermissions.class,
+    
+    com.ontraport.app.tests.ChangeUserInfo.class,
+    com.ontraport.app.tests.ChangeBusinessInformation.class,
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
+    
+    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
+    com.ontraport.app.tests.RetryTransactionsDecimal.class,
+    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
+    
+    com.ontraport.app.tests.FieldEditorSectionPermissions.class,
+    
+    com.ontraport.app.tests.ChangeUserInfo.class,
+    com.ontraport.app.tests.ChangeBusinessInformation.class,
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
+    
+    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
+    com.ontraport.app.tests.RetryTransactionsDecimal.class,
+    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
+    
+    com.ontraport.app.tests.FieldEditorSectionPermissions.class,
+    
+    com.ontraport.app.tests.ChangeUserInfo.class,
+    com.ontraport.app.tests.ChangeBusinessInformation.class,
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
+    
+    
+    
 }
 )
 public class Review extends AbstractSuite

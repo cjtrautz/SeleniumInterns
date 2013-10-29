@@ -27,6 +27,11 @@ public class Field_Editor extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-section-titlebar ')]/a[@href='javascript://']/span")
+    private WebElement permision;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//span[text()='User Permission Exceptions']")
     private WebElement userPermisionTitle;
     
@@ -1169,6 +1174,13 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         sectionTitle2.click();
+        return this;
+    }
+
+    public Field_Editor clickPermissions ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        permision.click();
         return this;
     }
     

@@ -384,6 +384,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
     com.ontraport.app.tests.EditFulfillmentCreateTask.class,
     com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
+    com.ontraport.app.tests.EditFulfillmentBack.class,
+    com.ontraport.app.tests.EditFulfillmentCancel.class,
     com.ontraport.app.tests.CreateRole.class,
     //relies on role
     com.ontraport.app.tests.CreateUser.class,
@@ -396,6 +398,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRole.class,
     
     com.ontraport.app.tests.CreateAPIKeys.class, 
+    com.ontraport.app.tests.EditAPIKeysBack.class, 
+    com.ontraport.app.tests.EditAPIKeysCancel.class, 
     com.ontraport.app.tests.DeleteAPIKeys.class,
     
     com.ontraport.app.tests.AddRoundRobin.class, 

@@ -15,12 +15,24 @@ public class SalesReport_Settings extends AbstractPage
             using = "//a[@href='#!/gateway/listAll']/div[contains(., 'Gateways')]")
     private WebElement gateway;
     
+    @FindBy(how = How.XPATH,
+            using = "//a[@href='#!/sales_report/recharge']")
+    private WebElement rechargeSettings;
+    
     public Gateway_ListAll clickGateways ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(gateway));
         gateway.click();
         return (Gateway_ListAll) new Gateway_ListAll().init();
+    }
+
+    public SalesReport_Recharge clickRechargeSettings ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rechargeSettings));
+        rechargeSettings.click();
+        return (SalesReport_Recharge) new SalesReport_Recharge().init();
     }
     
 }

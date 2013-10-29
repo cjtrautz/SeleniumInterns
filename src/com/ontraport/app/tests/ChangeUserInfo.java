@@ -35,6 +35,12 @@ public class ChangeUserInfo extends AbstractTest
         user_Edit.clickFax();
         user_Edit.enterFax("Selenium");
         user_Edit.clickFaxSave();
+        user_Edit.clickEmailFrom();
+        user_Edit.enterEmailFrom("Selenium");
+        user_Edit.clickEmailFromSave();
+        user_Edit.clicReplyTo();
+        user_Edit.enterReplyTo("Selenium@email.com");
+        user_Edit.clickReplyToSave();
         contactListAll = user_Edit.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         user_Edit = contactListAll.menuUser.clickPersonalSettings();
@@ -63,6 +69,14 @@ public class ChangeUserInfo extends AbstractTest
         {
             fail("couldn't find fax");
         }
+        if(user_Edit.verifyEmailFrom("Selenium")==null)
+        {
+            fail("couldn't find email from");
+        }
+        if(user_Edit.verifyReplyTo("Selenium@email.com")==null)
+        {
+            fail("couldn't find reply to");
+        }
         
         user_Edit.clickFirstName();
         user_Edit.enterFirstName("Nicholas");
@@ -82,6 +96,12 @@ public class ChangeUserInfo extends AbstractTest
         user_Edit.clickFax();
         user_Edit.enterFax("N/A");
         user_Edit.clickFaxSave();
+        user_Edit.clickEmailFrom();
+        user_Edit.enterEmailFrom("Nick");
+        user_Edit.clickEmailFromSave();
+        user_Edit.clicReplyTo();
+        user_Edit.enterReplyTo("njcross1990@gmail.com");
+        user_Edit.clickReplyToSave();
         contactListAll = user_Edit.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         user_Edit = contactListAll.menuUser.clickPersonalSettings();
@@ -110,6 +130,15 @@ public class ChangeUserInfo extends AbstractTest
         {
             fail("couldn't find fax");
         }
+        if(user_Edit.verifyEmailFrom("Nick")==null)
+        {
+            fail("couldn't find email from");
+        }
+        if(user_Edit.verifyReplyTo("njcross1990@gmail.com")==null)
+        {
+            fail("couldn't find reply to");
+        }
+        
 
         
     }

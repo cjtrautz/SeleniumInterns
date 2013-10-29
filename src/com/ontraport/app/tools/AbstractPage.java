@@ -19,6 +19,7 @@ import com.ontraport.app.parts.DrawerManageGroups;
 import com.ontraport.app.parts.DrawerPermissionException;
 import com.ontraport.app.parts.DrawerSimpleActions;
 import com.ontraport.app.parts.DrilldownGroup;
+import com.ontraport.app.parts.DropBox;
 import com.ontraport.app.parts.FormColumnManager;
 import com.ontraport.app.parts.FormSearch;
 import com.ontraport.app.parts.MenuHelp;
@@ -31,13 +32,14 @@ import com.ontraport.app.parts.Pin;
 public abstract class AbstractPage
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
-    protected static String             password                    = "test123";
-    protected static String             login                       = "selenium@ontraport.com";
+    protected static String             password                    = "Lughead1";
+    protected static String             login                       = "nick@ontraport.com";
     protected static String             url                         = "";
     private static String               latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
     // PARTS -----------------------------------------------------------------------------------------------------------
+    public DropBox                      dropBox                     = (DropBox) new DropBox().init();
     public CKEditorDialogBox            ckEditorDialogBox           = (CKEditorDialogBox) new CKEditorDialogBox().init();
     public Pin                          pin                         = (Pin) new Pin().init();
     public MenuPrimary                  menuPrimary                 = (MenuPrimary) new MenuPrimary().init();

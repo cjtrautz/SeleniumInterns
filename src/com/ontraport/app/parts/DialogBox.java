@@ -28,6 +28,12 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
     @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' target-edit ')]//a[@class='ussr-form-input ussr-form-input-type-checkbox-checked']")
+    private WebElement editChecked;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' target-edit ')]//a[@class='ussr-form-input']")
+    private WebElement editUnChecked;
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-delete-button ')]")
     private WebElement deleteButton;
     @FindBy(how = How.XPATH,
@@ -70,7 +76,7 @@ public class DialogBox extends AbstractPart
             using = "//div[@class='ussr-dialog-buttons']/button[span[contains(text(), 'Save')]]")
     private WebElement saveButton;
     @FindBy(how = How.XPATH,
-            using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'save')]]")
+            using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'save') or contains(text(), 'Save')]]")
     private WebElement saveButton2;
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
@@ -725,6 +731,50 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         formButton.click();
+        return this;
+    }
+    public DialogBox uncheckCanEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        editChecked.click();
+        return this;
+    }
+    public DialogBox verifyUncheckedCanEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!editUnChecked.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch (NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+    public DialogBox checkCanEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        editUnChecked.click();
+        return this;
+    }
+    public DialogBox verifyCheckedCanEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!editChecked.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch (NoSuchElementException e)
+        {
+            return null;
+        }
         return this;
     }
 }

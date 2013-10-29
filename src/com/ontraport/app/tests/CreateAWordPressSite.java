@@ -9,6 +9,7 @@ import com.ontraport.app.pages.WordPress_CreateType2;
 import com.ontraport.app.pages.WordPress_Edit;
 import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.pages.WordPress_TypeSelection;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateAWordPressSite extends AbstractTest
@@ -22,7 +23,7 @@ public class CreateAWordPressSite extends AbstractTest
         WordPress_TypeSelection wordPress_TypeSelection = wordPress_ListAll.clickNewWebsite();
         WordPress_CreateType2 wordPress_CreateType2 = wordPress_TypeSelection.clickCreateNewWordPressSite();
         wordPress_CreateType2.enterWordPressSiteName("SelWordPressSite");
-        wordPress_CreateType2.enterDomainName("seleniumwordpress2");
+        wordPress_CreateType2.enterDomainName("seleniumwordpress2" + AbstractSuite.UNIQUE);
         wordPress_CreateType2.enterMembershipLevel("Level1");
         wordPress_CreateType2.clickAddMembershipLevel();
         wordPress_CreateType2.clickSave();
@@ -41,7 +42,7 @@ public class CreateAWordPressSite extends AbstractTest
         {
             fail("couldnt find wp name");
         }
-        if(wordPress_Edit.verifyWordPressURL("seleniumwordpress2")==null)
+        if(wordPress_Edit.verifyWordPressURL("seleniumwordpress2" + AbstractSuite.UNIQUE)==null)
         {
             fail("couldnt find wp url");
         }

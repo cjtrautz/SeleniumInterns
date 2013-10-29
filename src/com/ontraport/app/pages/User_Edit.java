@@ -14,6 +14,77 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class User_Edit extends AbstractPage
 {
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Name']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement businessNameField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Name']/following-sibling::div/input")
+    private WebElement businessNameInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Name']/following-sibling::button")
+    private WebElement businessNameSave;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Address']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement businessAddressField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Address']/following-sibling::div/input")
+    private WebElement businessAddressInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Address']/following-sibling::button")
+    private WebElement businessAddressSave;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Address2']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement businessAddress2Field;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Address2']/following-sibling::div/input")
+    private WebElement businessAddress2Input;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Address2']/following-sibling::button")
+    private WebElement businessAddress2Save;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business City']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement cityField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business City']/following-sibling::div/input")
+    private WebElement cityInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business City']/following-sibling::button")
+    private WebElement citySave;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business State']/following-sibling::div/span[@class='ussr-section-data']")
+    private WebElement stateField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business State']/following-sibling::div/input")
+    private WebElement stateInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business State']/following-sibling::button")
+    private WebElement stateSave;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Zip/Postal']/following-sibling::div/div[@class='ussr-form-input']")
+    private WebElement zipField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Zip/Postal']/following-sibling::div/input")
+    private WebElement zipInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Business Zip/Postal']/following-sibling::button")
+    private WebElement zipSave;
 
     @FindBy(how=How.XPATH,
             using="//tbody[@class='ussr-component-collection-body']")
@@ -100,8 +171,36 @@ public class User_Edit extends AbstractPage
     private WebElement faxSave;
     
     @FindBy(how=How.XPATH,
+            using="//label[text()=\"Email 'From' Name\"]/following-sibling::div/div[contains(@class, 'ussr-form-input')]")
+    private WebElement emailFromField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()=\"Email 'From' Name\"]/following-sibling::div/input")
+    private WebElement emailFromInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()=\"Email 'From' Name\"]/following-sibling::button")
+    private WebElement emailFromSave;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Reply-To Email']/following-sibling::div/div[contains(@class, 'ussr-form-input')]")
+    private WebElement replyToField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Reply-To Email']/following-sibling::div/input")
+    private WebElement replyToInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Reply-To Email']/following-sibling::button")
+    private WebElement replyToSave;
+    
+    @FindBy(how=How.XPATH,
             using="//th[contains(concat(' ', @class, ' '),' ussr-component-collection-select-all-rows ')]")
     private WebElement selectAllEmptyCheckBox;
+    
+    @FindBy(how=How.XPATH,
+            using="//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement dropDown;
     
     public User_Edit verifyPermission (String permission)
     {
@@ -704,7 +803,7 @@ public class User_Edit extends AbstractPage
         return this;
     }
 
-    public Object verifyEnglishLanguage ()
+    public User_Edit verifyEnglishLanguage ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -734,6 +833,306 @@ public class User_Edit extends AbstractPage
                 return null;
             }
 
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit clickEmailFrom ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        emailFromField.click();
+        return this;
+    }
+
+    public User_Edit clickEmailFromSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        emailFromSave.click();
+        return this;
+    }
+
+    public User_Edit enterEmailFrom ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        emailFromInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clicReplyTo ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        replyToField.click();
+        return this;
+    }
+
+    public User_Edit enterReplyTo ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        replyToInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickReplyToSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        replyToSave.click();
+        return this;
+    }
+
+    public User_Edit verifyEmailFrom ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = emailFromField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyReplyTo ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = replyToField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit clickBusinessName ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessNameField.click();
+        return this;
+    }
+
+    public User_Edit enterBusinessName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessNameInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickBusinessNameSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessNameSave.click();
+        return this;
+    }
+
+    public User_Edit clickBusinessAddress ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessAddressField.click();
+        return this;
+    }
+
+    public User_Edit enterBusinessAddress ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessAddressInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickBusinessAddressSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessAddressSave.click();
+        return this;
+    }
+
+    public User_Edit clickBusinessAddress2 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessAddress2Field.click();
+        return this;
+    }
+
+    public User_Edit enterBusinessAddress2 ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessAddress2Input.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickBusinessAddress2Save ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        businessAddress2Save.click();
+        return this;
+    }
+
+    public User_Edit clickCity ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        cityField.click();
+        return this;
+    }
+
+    public User_Edit enterCity ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        cityInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickCitySave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        citySave.click();
+        return this;
+    }
+
+    public User_Edit clickState ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        stateField.click();
+        return this;
+    }
+
+    public User_Edit enterState ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        stateInput.sendKeys(string);
+        AbstractPart.waitForAjax(driver, 20);
+        dropDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return this;
+    }
+
+
+    public User_Edit clickZip ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        zipField.click();
+        return this;
+    }
+
+    public User_Edit enterZip ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        zipInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickZipSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        zipSave.click();
+        return this;
+    }
+
+    public User_Edit verifyBusinessName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = businessNameField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyBusinessAddress ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = businessAddressField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyBusinessAddress2 ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = businessAddress2Field.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyCity ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = cityField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyState ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = stateField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public User_Edit verifyZip ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = zipField.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
         }
         catch(NoSuchElementException e){
             return null;

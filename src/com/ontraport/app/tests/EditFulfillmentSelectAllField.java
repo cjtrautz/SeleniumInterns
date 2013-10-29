@@ -32,7 +32,7 @@ public class EditFulfillmentSelectAllField extends AbstractTest
             fail("didnt find fulfillment");
         }
         fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list"));
-        if(fulfillment_Edit.verifyNumberOfFields(48)==null)
+        if(fulfillment_Edit.verifyNumberOfFields(48)==null && fulfillment_Edit.verifyNumberOfFields(44)==null )
         {
             fail("didnt find createATask checked");
         }

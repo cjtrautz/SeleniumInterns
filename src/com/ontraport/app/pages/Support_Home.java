@@ -13,77 +13,24 @@ import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
-public class OPPackage_View extends AbstractPage
+public class Support_Home extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//a[@href='http://ontraport.com/legal/#terms-of-use']")
-    private WebElement terms;
+            using = "//h2[a[@href='/forums']]/following-sibling::form[@id='searchform']")
+    private WebElement featureRequest;
     
     @FindBy(
             how = How.XPATH,
-            using = "//a[@href='//ontraport.com/legal-abuse']")
-    private WebElement abuseDesk;
+            using = "//div[@id='solution_suggestion']//h2")
+    private WebElement solutionSuggestions;
     
     @FindBy(
             how = How.XPATH,
-            using = "//span[text()='(Add a package)']")
-    private WebElement addPackage;
-    
-    @FindBy(
-            how = How.XPATH,
-            using = "//a[contains(@href, '#!/contact/export')]")
-    private WebElement export;
-    
-    @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-export ')]")
-    private WebElement exportPage;
+            using = "//div[@class='side-box-content']/h3")
+    private WebElement aboutOntraport;
 
-    public OPPackage_View clickAddPackage ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        addPackage.click();
-        return this;
-        
-    }
-
-    public OPPackage_View clickExportItFirst ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        export.click();
-        return this;
-    }
-
-    public OPPackage_View verifyExport ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        try
-        {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            if(!exportPage.isDisplayed())
-            {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-                return null;
-            }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-            return null;
-        }
-        
-        return this;
-    }
-
-    public OPPackage_View verifyAbuseDesk ()
+    public Support_Home verifyPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
         String parentWindow = driver.getWindowHandle();
@@ -94,7 +41,7 @@ public class OPPackage_View extends AbstractPage
             {
                 try
                 {
-                    if(driver.switchTo().window(windowId).getTitle().contains("ONTRAPORT | Legal – Abuse Desk"))
+                    if(driver.switchTo().window(windowId).getTitle().contains("Ontraport"))
                     {
                         break;
                     }
@@ -111,7 +58,7 @@ public class OPPackage_View extends AbstractPage
             .timeouts()
             .implicitlyWait(25, TimeUnit.SECONDS);
             System.out.println(driver.getCurrentUrl());
-            if(!driver.getCurrentUrl().equals("http://ontraport.com/legal-abuse/#terms-of-use"))
+            if(!driver.getCurrentUrl().equals("https://support.ontraport.com/home"))
             {
                 driver.manage()
                 .timeouts()
@@ -119,7 +66,11 @@ public class OPPackage_View extends AbstractPage
                 driver.switchTo().window(parentWindow);
                 return null; 
             }
-            abuseDesk.isDisplayed();
+            System.out.println("before solution");
+            solutionSuggestions.isDisplayed();
+            System.out.println("after solution");
+            aboutOntraport.isDisplayed();
+            System.out.println("after about");
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -136,10 +87,57 @@ public class OPPackage_View extends AbstractPage
         return this;
     }
 
-    public OPPackage_View clickHere ()
+    public Support_Home verifyFeature ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        terms.click();
+        String parentWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        if(!allWindows.isEmpty())
+        {
+            for ( String windowId : allWindows)
+            {
+                try
+                {
+                    if(driver.switchTo().window(windowId).getTitle().contains("Ontraport : Feature Requests"))
+                    {
+                        break;
+                    }
+                }
+                catch(NoSuchWindowException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(25, TimeUnit.SECONDS);
+            System.out.println(driver.getCurrentUrl());
+            if(!driver.getCurrentUrl().contains("https://support.ontraport.com/forums"))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                driver.switchTo().window(parentWindow);
+                return null; 
+            }
+            System.out.println("here");
+            featureRequest.isDisplayed();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.switchTo().window(parentWindow);
+            return null;
+        }
+        driver.close();
+        driver.switchTo().window(parentWindow);
         return this;
     }
     

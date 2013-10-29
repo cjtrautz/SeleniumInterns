@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class EditPostcardGradient extends AbstractTest
 {
     @Test
-    public void testEditPostcardColor ()
+    public void testEditPostcardGradient ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

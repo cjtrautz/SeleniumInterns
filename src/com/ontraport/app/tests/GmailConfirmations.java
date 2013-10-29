@@ -26,6 +26,14 @@ public class GmailConfirmations extends AbstractTest
     @Test
     public void testGmailConfirmations () throws InterruptedException
     {
+        try
+        {
+            driver.findElement(By.xpath("//*[contains(text(), 'Sign in')]")).click();
+        }
+        catch(Exception e)
+        {
+            
+        }
         driver.get("mail.google.com");
         Gmail gmail = (Gmail) new Gmail().init();
         gmail.enterUserName("njcross1990@gmail.com");
@@ -55,9 +63,7 @@ public class GmailConfirmations extends AbstractTest
         }
           driver.get("gmail.com");
           gmail = (Gmail) new Gmail().init();
-          gmail.enterUserName("seleniumontraport@gmail.com");
-          gmail.enterPassword("Selenium123");
-          gmail.clickSignIn();
+          
           if(gmail.clickMessageFrom()==null)
           {
               fail("couldnt find sent message");
