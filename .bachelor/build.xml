@@ -43,7 +43,7 @@
     </target>
     <target name="build-production" description="Run tools in sequence.">
       <antcall target='prepare'/>
-      <antcall target='review'/>
+      <antcall target='production'/>
     </target>
 
   <!--
@@ -68,9 +68,11 @@
     <mkdir dir="${report}/selenium/xml/app"/>
     <mkdir dir="${report}/selenium/xml/staging"/>
     <mkdir dir="${report}/selenium/xml/review"/>
+    <mkdir dir="${report}/selenium/xml/production"/>
     <mkdir dir="${report}/selenium/html/app"/>
     <mkdir dir="${report}/selenium/html/staging"/>
     <mkdir dir="${report}/selenium/html/review"/>
+    <mkdir dir="${report}/selenium/html/production"/>
   </target>
 
   <!--
