@@ -41,6 +41,10 @@
       <antcall target='prepare'/>
       <antcall target='review'/>
     </target>
+    <target name="build-production" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='review'/>
+    </target>
 
   <!--
    =============================================================================
@@ -154,6 +158,27 @@
           <include name="TEST-*.xml"/>
         </fileset>
         <report format="frames" todir="${report}/selenium/html/review"/>
+      </junitreport>
+    </target>
+
+    <target name="production" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.Production" haltonfailure="no" todir="${report}/selenium/xml/production" outfile="TEST-production">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/production">
+        <fileset dir="${report}/selenium/xml/production">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/production"/>
       </junitreport>
     </target>
 
