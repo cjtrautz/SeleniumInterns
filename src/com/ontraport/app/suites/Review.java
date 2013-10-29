@@ -19,7 +19,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {   
-    com.ontraport.app.tests.GmailConfirmations.class,
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.PreviewEmailMessage.class,
+    com.ontraport.app.tests.DeleteMessage.class,
     
 }
 )

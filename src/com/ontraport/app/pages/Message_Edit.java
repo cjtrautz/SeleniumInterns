@@ -1,12 +1,14 @@
 package com.ontraport.app.pages;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -100,8 +102,13 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//span[contains(concat(' ', @class, ' '),' ussr-icon-mail-closed-moving-2 ')]")
+            using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]/span[contains(text(), 'Send Test Email')]")
     private WebElement sendTestEmail;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]/span[contains(text(), 'Preview')]")
+    private WebElement preview;
     
     @FindBy(
             how = How.XPATH,
@@ -1725,6 +1732,76 @@ public class Message_Edit extends AbstractPage
             return null;
         }
         driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit clickPreview ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        preview.click();
+        return this;
+    }
+
+    public Message_Edit verifyPreview ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        String parentWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        if(!allWindows.isEmpty())
+        {
+            for ( String windowId : allWindows)
+            {
+                try
+                {
+                    if(driver.switchTo().window(windowId).getTitle().contains("Preview"))
+                    {
+                        break;
+                    }
+                }
+                catch(NoSuchWindowException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(25, TimeUnit.SECONDS);
+            System.out.println(driver.getCurrentUrl());
+            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + "js/ckeditor/lib/plugins/preview/preview.html"))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                driver.switchTo().window(parentWindow);
+                return null; 
+            }
+            String compare = driver.findElement(By.xpath("//p")).getText();
+            System.out.println(compare);
+            if(!compare.equals(string))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                driver.switchTo().window(parentWindow);
+                return null; 
+            }
+           
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.switchTo().window(parentWindow);
+            return null;
+        }
+        driver.close();
+        driver.switchTo().window(parentWindow);
         return this;
     }
 }
