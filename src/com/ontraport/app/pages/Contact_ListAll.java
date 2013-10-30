@@ -19,6 +19,10 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_ListAll extends AbstractPage
 {
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
+    private WebElement notification;
+    
     public static String    url = "/#!/contact/listAll";
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']")
@@ -269,7 +273,7 @@ public class Contact_ListAll extends AbstractPage
         return this;
         
     }
-    public Object verifyNumberOfContactsPerPage ( int i )
+    public Contact_ListAll verifyNumberOfContactsPerPage ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -282,6 +286,34 @@ public class Contact_ListAll extends AbstractPage
             }
         }
         catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Contact_ListAll verifyQued ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            if(!notification.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         

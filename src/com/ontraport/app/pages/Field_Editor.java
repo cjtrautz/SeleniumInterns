@@ -117,6 +117,7 @@ public class Field_Editor extends AbstractPage
         input.sendKeys(newTitle+Keys.ENTER + Keys.TAB);
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).sendKeys(Keys.TAB).build().perform();
+        actions.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
 
@@ -131,6 +132,7 @@ public class Field_Editor extends AbstractPage
         input.sendKeys(newDescription+Keys.ENTER + Keys.TAB);
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).sendKeys(Keys.TAB).build().perform();
+        actions.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
 
@@ -263,6 +265,7 @@ public class Field_Editor extends AbstractPage
         userPermisionTitle.click();
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ENTER).sendKeys(Keys.TAB).build().perform();
+        actions.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
 

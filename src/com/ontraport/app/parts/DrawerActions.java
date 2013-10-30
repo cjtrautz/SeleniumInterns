@@ -1,12 +1,17 @@
 package com.ontraport.app.parts;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,8 +28,28 @@ public class DrawerActions extends AbstractPart
     protected WebElement      uiToggleDrawerActions;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-send-click ')]")
+    private WebElement sendButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-date-picker ')]//input")
+    private WebElement dateInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-time-picker ')]//input")
+    private WebElement timeDropDownInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-time-picker ')]//button")
+    private WebElement timeDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Export Contacts')]")
     private WebElement uiExportContacts;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-send_from ')]//button")
+    private WebElement sendFromDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
@@ -554,6 +579,54 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         objectCreatorSave.click();
+        return this;
+    }
+    public DrawerActions clickSendFromDropDown ()
+    {
+        waitForAjax(driver, 20);
+        sendFromDropDown.click();
+        return this;
+    }
+    public DrawerActions enterTodaysDate ()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        dateInput.sendKeys(name);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.RETURN).build().perform();
+        return this;
+    }
+    public DrawerActions clickAtDropDown ()
+    {
+        waitForAjax(driver, 20);
+        timeDropDown.click();
+        return this;
+    }
+    public DrawerActions selectFutureHour ()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("h");
+        DateFormat dateFormat2 = new SimpleDateFormat("mm");
+        DateFormat dateFormat3 = new SimpleDateFormat("a");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        String name2 = dateFormat2.format(date);
+        String name3 = dateFormat3.format(date);
+        int minutes = Integer.parseInt(name2);
+        minutes = (minutes + 5)/5 *5;
+        name2 = Integer.toString(minutes);
+        System.out.println(name + ":" + name2 + " " + name3);
+        timeDropDownInput.sendKeys(name + ":" + name2 + " " + name3);
+        selectDrillDown(name + ":" + name2 + " " + name3);
+        return this;
+        
+    }
+    public DrawerActions clickSend ()
+    {
+        waitForAjax(driver, 20);
+        sendButton.click();
         return this;
     }
 }

@@ -115,6 +115,7 @@ public class Message_CreatePostcard extends AbstractPage
         Actions action = new Actions(driver);
         action.sendKeys(string).build().perform();
         action.sendKeys(Keys.ENTER).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
 //        Select selecter = new Select(driver.findElement(By.xpath("//td[@id='property_cell']//tbody/tr/td[2]//select")));
 //        selecter.selectByValue(string);
         return this;

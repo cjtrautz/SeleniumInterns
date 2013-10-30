@@ -21,10 +21,15 @@ public class SalesReport_Recharge extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-controls ')]/button[span[contains(text(), 'Save')]]")
     private WebElement save;
+    
+    @FindBy(how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']")
+    private WebElement collectionBody;
 
     public SalesReport_Recharge enterRetryCreditCardsEvery ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(collectionBody));
         wait.until(ExpectedConditions.visibilityOf(retryInput));
         retryInput.clear();
         retryInput.sendKeys(string);
@@ -34,6 +39,7 @@ public class SalesReport_Recharge extends AbstractPage
     public SalesReport_Settings clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(collectionBody));
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (SalesReport_Settings) new SalesReport_Settings().init();
