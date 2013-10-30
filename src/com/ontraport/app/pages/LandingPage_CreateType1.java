@@ -63,6 +63,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(landingPageName));
+        landingPageName.click();
         landingPageName.sendKeys(string + Keys.RETURN);
         return this;
         
