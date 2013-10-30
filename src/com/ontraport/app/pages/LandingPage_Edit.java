@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
@@ -31,6 +33,11 @@ public class LandingPage_Edit extends AbstractPage
             how = How.XPATH,
             using = "//td[contains(text(), 'Links To:')]/following-sibling::td/input")
     private WebElement linksTo;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//td[contains(text(), 'Links To:')]/following-sibling::td/input[contains(concat(' ', normalize-space(@class), ' '),' inpt_text_focus ')]")
+    private WebElement linksToFocus;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ')]")
@@ -172,7 +179,7 @@ public class LandingPage_Edit extends AbstractPage
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div")
-    private WebElement notRectangleBox;
+    private List<WebElement> notRectangleBox;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span/div[contains(concat(' ', normalize-space(@style), ' '),' width: 42.3202px; ')]")
@@ -207,26 +214,15 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             String compare = landingPageNameTitle.getAttribute("value");
             System.out.println(compare);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        catch(NoSuchElementException e)
+        {
             return null;
         }
         
@@ -238,26 +234,14 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             String compare = landingPageURL.getText();
             System.out.println(compare);
             if(compare.equals("http://" + value + ".respond.ontraport.net")!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -269,24 +253,14 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(box.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        catch(NoSuchElementException e)
+        {
             return null;
         }
         
@@ -298,24 +272,14 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            if(notRectangleBox.isDisplayed()!=true)
+            if(notRectangleBox.size()==0)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return this;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
             return this;
         }
         
@@ -325,6 +289,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickBackground ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(background));  
         background.click();
         return this;
     }
@@ -332,6 +297,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));  
         save.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
@@ -341,24 +307,10 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            if(driver.findElement(By.xpath("//center[@class='box_canvas']//div[contains(concat(' ', normalize-space(@style), ' '),' rgb" + string +"; ')]")).isDisplayed()!=true)
-            {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-                return null;
-            }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//center[@class='box_canvas']//div[contains(concat(' ', normalize-space(@style), ' '),' rgb" + string +"; ')]")).isDisplayed();
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -368,6 +320,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickPageSize ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(pageSize));
         pageSize.click();
         return this;
     }
@@ -377,24 +330,13 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(driver.findElement(By.xpath("//center[@class='box_canvas']//div[contains(concat(' ', normalize-space(@style), ' '),' width: " + string +"px; height: " + string2 +"px; ')]")).isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -404,6 +346,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickNewSplitTestingVersion ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newVersion));
         newVersion.click();
         return this;
     }
@@ -413,24 +356,15 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+
             if(versionB.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
             return null;
         }
         
@@ -440,6 +374,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickDeleteSplitTestingVersionB ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(versionBDelete));
         versionBDelete.click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
@@ -452,25 +387,13 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(0, TimeUnit.SECONDS);
             if(versionB.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return this;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return this;
         }
         
@@ -482,26 +405,16 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             String compare = textBody.getText();
             System.out.println(compare);
             if(compare.equals(string)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
             return null;
         }
         return this;
@@ -511,6 +424,7 @@ public class LandingPage_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         WebElement text = driver.findElement(By.xpath("//div[contains(concat(' ', @style, ' '),' font-family: Verdana,Geneva,sans-serif; ') and .='" + string + "']"));
+        wait.until(ExpectedConditions.visibilityOf(text));
         Actions action = new Actions(driver);
         action.doubleClick(text).build().perform();
         return this;
@@ -520,6 +434,7 @@ public class LandingPage_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         WebElement text = driver.findElement(By.xpath("//div[contains(concat(' ', @style, ' '),' font-family: Verdana,Geneva,sans-serif; ') and .='" + string + "']"));
+        wait.until(ExpectedConditions.visibilityOf(text));
         text.click();
         return this;
     }
@@ -528,6 +443,7 @@ public class LandingPage_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         WebElement iframe = driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iframe));
         driver.switchTo().frame(iframe);
         WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
         text.click();
@@ -545,6 +461,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickFontDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fontDropDown));
         fontDropDown.click();
         return this;
     }
@@ -553,6 +470,7 @@ public class LandingPage_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         WebElement click = driver.findElement(By.xpath("//td[@id='property_cell']//tbody//select/option[text()='" + string + "']"));
+        wait.until(ExpectedConditions.visibilityOf(click));
         click.click();
         AbstractPart.waitForAjax(driver, 20);AbstractPart.waitForAjax(driver, 20);
         Actions actions = new Actions(driver);
@@ -566,25 +484,13 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(0, TimeUnit.SECONDS);
             if(driver.findElement(By.xpath("//font[contains(@face, '" + string2 + "') and .='" + string + "']")).isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
             return null;
         }
         return this;
@@ -593,6 +499,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickFontSizeDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fontSizeDropDown));
         fontSizeDropDown.click();
         return this;
     }
@@ -602,25 +509,14 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(0, TimeUnit.SECONDS);
             if(driver.findElement(By.xpath("//font[contains(@size, '" + string2 + "') and .='" + string + "']")).isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
-        catch(NoSuchElementException e){
-            
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        catch(NoSuchElementException e)
+        {
             return null;
         }
         return this;
@@ -629,6 +525,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickBold ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(bold));
         bold.click();
         return this;
     }
@@ -638,21 +535,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//b[.='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -660,6 +545,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickItalic ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(italic));
         italic.click();
         return this;
     }
@@ -669,21 +555,10 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//i[.='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        catch(NoSuchElementException e)
+        {
             return null;
         }
         return this;
@@ -692,6 +567,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickUnderline ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(underline));
         underline.click();
         return this;
     }
@@ -701,21 +577,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");    com.ontraport.app.tests.EditLandingPageSplitTesting.class,
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//u[.='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -724,6 +588,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickCenter ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(center));
         center.click();
         return this;
     }
@@ -733,21 +598,10 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//div[@align='center' and .='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
             return null;
         }
         return this;
@@ -756,6 +610,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickLeftAlign ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(leftAlign));
         leftAlign.click();
         return this;
     }
@@ -765,16 +620,8 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//div[@align='left' and .='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
             driver.manage()
@@ -788,6 +635,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickRightAlign ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rightAlign));
         rightAlign.click();
         return this; 
     }
@@ -797,21 +645,11 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//div[@align='right' and .='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        catch(NoSuchElementException e)
+        {
             return null;
         }
         return this;
@@ -820,6 +658,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickMoveLetterSpacer ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(letterSpacing));
         Actions action = new Actions(driver);
         action.dragAndDropBy(letterSpacing, i, 0).build().perform();
 
@@ -831,21 +670,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' letter-spacing: " + i +"px; ') and .='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -854,6 +681,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickMoveLineSpacer ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lineSpacing));
         Actions action = new Actions(driver);
         action.dragAndDropBy(lineSpacing, i, 0).build().perform();
 
@@ -866,21 +694,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' line-height: " + i +"; ') and .='" + string + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -889,6 +705,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit enterLeft ( String i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(leftInput));
         leftInput.click();
         leftInput.clear();
         leftInput.sendKeys(i + Keys.ENTER);
@@ -904,6 +721,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickLeft ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(left));
         left.click();
         return this;
     }
@@ -913,21 +731,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' left: " + i +"px; ')]"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -936,6 +742,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit enterTop ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(topInput));
         topInput.click();
         topInput.clear();
         topInput.sendKeys(string + Keys.ENTER);
@@ -953,21 +760,10 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' top: " + i +"px; ')]"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -976,6 +772,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit enterWidth ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(widthInput));
         widthInput.click();
         widthInput.clear();
         widthInput.sendKeys(string + Keys.ENTER);
@@ -993,21 +790,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' width: " + i +"px; ')]"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1016,6 +801,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit enterHeight ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(heightInput));
         heightInput.click();
         heightInput.clear();
         heightInput.sendKeys(string + Keys.ENTER);
@@ -1033,21 +819,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' height: " + i +"px; ')]"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1056,6 +830,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickCircle ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(circle));
         circle.click();
         return this;
     }
@@ -1065,27 +840,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             if(!circleBox.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null; 
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1096,27 +856,13 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             if(!circleImage.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null; 
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1125,6 +871,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickShape ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(box));
         box.click();
         return this;
     }
@@ -1132,6 +879,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickRounded ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rounded));
         rounded.click();
         return this;
     }
@@ -1139,6 +887,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickGradient1 ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(gradientColor.get(0)));
         Actions action = new Actions(driver);
         action.doubleClick(gradientColor.get(0)).build().perform();
         return this;
@@ -1147,6 +896,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickGradient2 ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(gradientColor.get(1)));
         Actions action = new Actions(driver);
         action.doubleClick(gradientColor.get(1)).build().perform();
         return this;
@@ -1157,27 +907,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             if(!roundedBox.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null; 
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1188,27 +923,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            //System.out.println("here");
-            //System.out.println("here2");
-            //System.out.println(driver.findElement(By.xpath("/html//body")).getText());
             if(!roundedImage.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null; 
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1217,6 +937,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickColor ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(color));
         color.click();
         return this;
     }
@@ -1226,24 +947,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
-            if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' rgb" + string + "; ') or div[contains(concat(' ', @style, ' '),' rgb" + string + "; ')]]")).isDisplayed())
-            {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-                return null;
-            }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' rgb" + string + "; ') or div[contains(concat(' ', @style, ' '),' rgb" + string + "; ')]]")).isDisplayed();
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1251,6 +957,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickMoveOpacity ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(opacity));
         Actions action = new Actions(driver);
         action.dragAndDropBy(opacity, -i, 0).build().perform();
         return this;
@@ -1261,24 +968,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span[contains(concat(' ', normalize-space(@style), ' '),' opacity: " + i +"; ')]")).isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1289,24 +984,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!squareGradient.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1314,6 +997,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickVertical ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(verticalButton));
         verticalButton.click();
         return this;
     }
@@ -1321,6 +1005,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickHorizontal ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(horizontalButton));
         horizontalButton.click();
         return this;
     }
@@ -1330,24 +1015,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!rectangleGradientVertical.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1358,24 +1031,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!rectangleGradientHorizontal.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;
@@ -1385,53 +1046,25 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]")).isDisplayed())
             {
-                System.out.println("1");
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            System.out.println("2");
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+
             if(driver.findElements(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]/div")).size()==0)
             {
-                System.out.println("3");
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return this;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            System.out.println("4");
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return this;
         }
-        System.out.println("5");
         return null;
     }
     public LandingPage_Edit verifyImage ( String string )
@@ -1439,26 +1072,12 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!driver.findElement(By.xpath("//span[contains(concat(' ', normalize-space(@style), ' '),'" + string +"') or div[contains(concat(' ', normalize-space(@style), ' '),'" + string +"')]]")).isDisplayed())
             {
-                System.out.println("1");
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            System.out.println("2");
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -1468,6 +1087,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(image));
         image.click();
         return this;
     }
@@ -1475,6 +1095,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickSelectImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(selectImage));
         selectImage.click();
         return this;
     }
@@ -1482,9 +1103,10 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit enterLinksTo ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(linksTo));
         linksTo.click();
-        linksTo.clear();
-        linksTo.sendKeys(string);
+        linksToFocus.clear();
+        linksToFocus.sendKeys(string);
         return this;
     }
 
@@ -1493,27 +1115,13 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             System.out.println(linksTo.getAttribute("value"));
             if(!linksTo.getAttribute("value").equals(string))
             {
-                System.out.println("1");
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            System.out.println("2");
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -1523,6 +1131,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickHTML ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[contains(@style, '/js/ontraport/boxes/images/transp.png') and .='" + string + "']/span"))));
         driver.findElement(By.xpath("//div[contains(@style, '/js/ontraport/boxes/images/transp.png') and .='" + string + "']/span")).click();
         return this;
     }
@@ -1532,26 +1141,14 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!driver.findElement(By.xpath("//div[contains(@style, '/js/ontraport/boxes/images/transp.png')]/span//link")).isEnabled())
             {
-                System.out.println("1");
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            System.out.println("2");
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
             return null;
         }
         

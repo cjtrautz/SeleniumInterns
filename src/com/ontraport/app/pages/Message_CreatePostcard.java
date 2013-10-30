@@ -60,6 +60,7 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_CreatePostcard clickNewItem ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newItem));  
         newItem.click();
         return this;
     }
@@ -67,6 +68,7 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));  
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
     }
@@ -74,6 +76,7 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_CreatePostcard doubleClickInsertText ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textArea));  
         Actions action = new Actions(driver);
         action.doubleClick(textArea).build().perform();
         return this;
@@ -83,6 +86,7 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_CreatePostcard enterText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));  
         driver.switchTo().frame(iFrame);
         Actions action = new Actions(driver);
         action.sendKeys(string).build().perform();
@@ -93,6 +97,7 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_CreatePostcard doubleClickText (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));
         driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(iFrame);
         WebElement text = driver.findElement(By.xpath("//body[text()='" + string + "']"));

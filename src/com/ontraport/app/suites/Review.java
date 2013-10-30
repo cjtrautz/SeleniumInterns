@@ -18,7 +18,64 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{   
+{
+    com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
+    com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
+    
+    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
+    com.ontraport.app.tests.EditPostcardLineSpacing.class,
+    com.ontraport.app.tests.EditPostcardAlignRight.class,
+    com.ontraport.app.tests.EditPostcardAlignCenter.class,
+    com.ontraport.app.tests.EditPostcardAlignLeft.class,
+    com.ontraport.app.tests.EditPostcardUnderline.class,
+    com.ontraport.app.tests.EditPostcardItalic.class,
+    com.ontraport.app.tests.EditPostcardBold.class,
+    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
+    
+    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
+    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
+    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
+    
+    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+    com.ontraport.app.tests.EditLandingPageCircleImage.class,
+    com.ontraport.app.tests.EditLandingPageImageTop.class,
+    com.ontraport.app.tests.EditLandingPageImageWidth.class,
+    com.ontraport.app.tests.EditLandingPageImageHeight.class,
+    com.ontraport.app.tests.EditLandingPageImageLeft.class,
+    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
+    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
+    com.ontraport.app.tests.EditLandingPageImageRounded.class,
+    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
+    com.ontraport.app.tests.DeleteLandingPageImage.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.EditLandingPageOpacity.class,
+    com.ontraport.app.tests.EditLandingPageColor.class,
+    com.ontraport.app.tests.EditLandingPageRounded.class,
+    com.ontraport.app.tests.EditLandingPageCircle.class,
+    com.ontraport.app.tests.EditLandingPageSplitTesting.class,
+    com.ontraport.app.tests.EditLandingPageRemoveSplitTesting.class,
+    com.ontraport.app.tests.EditLandingPagePageSize.class,
+    com.ontraport.app.tests.EditLandingPageBackground.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
+    com.ontraport.app.tests.CreateLandingPageWithGradient.class,
+    com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
+    com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
+    com.ontraport.app.tests.EditLandingPageGradientColors.class,
+    com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
+    com.ontraport.app.tests.EditLandingPageCircleGradient.class,
+    com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
+    
+    com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
     com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.CreateContact.class,
     com.ontraport.app.tests.CreateTagToAddToContact.class,

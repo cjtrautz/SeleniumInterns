@@ -164,7 +164,8 @@ public class Rule_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ifEvents));
         List<WebElement> ifInputs = ifEvents.findElements(By.xpath(".//input"));
-        ifInputs.get(index-1).click();
+        Actions action = new Actions(driver);
+        action.moveToElement(ifInputs.get(index-1)).click(ifInputs.get(index-1)).build().perform();
         driver.findElement(By.xpath("//tbody//tr//td/a[contains(concat(' ', normalize-space(@class), ' '),' ui-state-highlight ')]")).click();
         return this;
         

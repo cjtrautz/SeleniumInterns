@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class AbstractSuite
 {
     public final static long UNIQUE = System.nanoTime();
-    public final static int DEFAULT_WAIT = 15;
+    public final static int DEFAULT_WAIT = 30;
     protected static WebDriver driver;
     public static WebDriver getDriver ()
     {

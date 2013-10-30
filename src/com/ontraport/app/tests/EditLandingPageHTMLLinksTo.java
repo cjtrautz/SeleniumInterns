@@ -38,7 +38,7 @@ public class EditLandingPageHTMLLinksTo extends AbstractTest
         
         if(landingPage_Edit.verifyLinksTo("www.ontraport.com")==null)
         {
-            fail("couldn't find opacity");
+            fail("couldn't find link");
         }
        
         

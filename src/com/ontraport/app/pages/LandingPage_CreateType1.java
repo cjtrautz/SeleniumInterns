@@ -43,6 +43,10 @@ public class LandingPage_CreateType1 extends AbstractPage
     private WebElement landingPageNameTitle;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' menu_button_class ')]//input[contains(concat(' ', normalize-space(@class), ' '),' inpt_text_focus ')]")
+    private WebElement landingPageNameFocus;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' menu_button_class ') and @style='cursor: pointer;']")
     private WebElement pageUrl;
     
@@ -67,7 +71,10 @@ public class LandingPage_CreateType1 extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(landingPageNameTitle));
-        landingPageNameTitle.sendKeys(string);
+        landingPageNameTitle.click();
+        AbstractPart.waitForAjax(driver, 20);
+        landingPageNameFocus.clear();
+        landingPageNameFocus.sendKeys(string);
         return this;
         
     }
@@ -93,6 +100,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
@@ -100,6 +108,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 doubleClickInsertText ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textArea));
         Actions action = new Actions(driver);
         action.doubleClick(textArea).build().perform();
         return this; 
@@ -108,6 +117,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 enterText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));
         driver.switchTo().frame(iFrame);
         Actions action = new Actions(driver);
         action.sendKeys(string).build().perform();
@@ -118,6 +128,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 clickEditHTML ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(editHTML));
         editHTML.click();
         return this;
     }
@@ -125,6 +136,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 clickFormDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(formDropDown));
         formDropDown.click();
         return this;
     }
@@ -132,6 +144,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 selectDrillDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }

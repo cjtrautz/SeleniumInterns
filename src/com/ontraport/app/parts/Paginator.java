@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -90,6 +91,8 @@ public class Paginator extends AbstractPart
         waitForAjax(driver, 20);
         pageInput.sendKeys(Keys.BACK_SPACE + page);
         waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.RETURN).build().perform();
         paginatorlabel.click();
         return this;
     }
