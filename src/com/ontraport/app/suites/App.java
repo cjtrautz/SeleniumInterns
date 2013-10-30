@@ -18,21 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{ 
-    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
-    com.ontraport.app.tests.RetryTransactionsDecimal.class,
-    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
-    
-    com.ontraport.app.tests.ChangeBusinessInformation.class,
-    
-    com.ontraport.app.tests.AccountClickHere.class,
-    com.ontraport.app.tests.AccountExportItFirst.class,
-    
-    com.ontraport.app.tests.HelpOpenAndClose.class,
-    com.ontraport.app.tests.HelpFeedback.class,
-    com.ontraport.app.tests.HelpSendEmail.class,
-    com.ontraport.app.tests.HelpWatchVideos.class,
-    
+{   
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
     com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
     com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
@@ -516,6 +502,20 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateAffiliateTrackingPixel.class,
     com.ontraport.app.tests.Create1SCSync.class,
     com.ontraport.app.tests.AffiliateLink.class,
+    
+    com.ontraport.app.tests.RetryTransactionsNonNumbers.class,
+    com.ontraport.app.tests.RetryTransactionsDecimal.class,
+    com.ontraport.app.tests.RetryTransactionsWholeNumber.class,
+    
+    com.ontraport.app.tests.ChangeBusinessInformation.class,
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
     
     com.ontraport.app.tests.CreateFacebook.class, 
     com.ontraport.app.tests.DeleteFacebook.class,

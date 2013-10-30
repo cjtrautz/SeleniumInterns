@@ -19,6 +19,8 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateLandingPage.class,
+    
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
     com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
     com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
