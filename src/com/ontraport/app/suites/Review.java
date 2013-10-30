@@ -19,6 +19,15 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
+    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
+    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
+    
     com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
     com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
     
@@ -32,15 +41,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditPostcardItalic.class,
     com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
-    
-    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
-    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
-    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
     
     com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
     com.ontraport.app.tests.EditLandingPageCircleImage.class,

@@ -1155,5 +1155,24 @@ public class LandingPage_Edit extends AbstractPage
         return this;
     }
 
+    public LandingPage_Edit verifyLandingPageHosted ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.get(string + ".respond.ontraport.net");
+            if(!driver.findElement(By.xpath("//body//center//div[contains(concat(' ', normalize-space(@style), ' '),' rgb(127,127,127);')]")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+
+            return null;
+        }
+        return this;
+    }
+
     
 }

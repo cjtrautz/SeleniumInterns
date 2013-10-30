@@ -18,6 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.CreateSendFromAddress.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,

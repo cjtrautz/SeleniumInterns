@@ -75,7 +75,6 @@ public class LandingPage_CreateType1 extends AbstractPage
         landingPageNameTitle.click();
         Actions action = new Actions(driver);
         action.click(landingPageNameTitle).build().perform();
-        landingPageNameTitle.click();
         wait.until(ExpectedConditions.visibilityOf(landingPageNameFocus));
         landingPageNameTitle.sendKeys(string);
         return this;
