@@ -2,6 +2,7 @@ package com.ontraport.app.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -62,7 +63,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(landingPageName));
-        landingPageName.sendKeys(string);
+        landingPageName.sendKeys(string + Keys.RETURN);
         return this;
         
     }
@@ -72,9 +73,9 @@ public class LandingPage_CreateType1 extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(landingPageNameTitle));
         landingPageNameTitle.click();
-        AbstractPart.waitForAjax(driver, 20);
-        landingPageNameFocus.clear();
-        landingPageNameFocus.sendKeys(string);
+        landingPageNameTitle.click();
+        wait.until(ExpectedConditions.visibilityOf(landingPageNameFocus));
+        landingPageNameTitle.sendKeys(string);
         return this;
         
     }
