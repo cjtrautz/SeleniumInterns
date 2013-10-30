@@ -73,6 +73,8 @@ public class LandingPage_CreateType1 extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(landingPageNameTitle));
         landingPageNameTitle.click();
+        Actions action = new Actions(driver);
+        action.click(landingPageNameTitle).build().perform();
         landingPageNameTitle.click();
         wait.until(ExpectedConditions.visibilityOf(landingPageNameFocus));
         landingPageNameTitle.sendKeys(string);
