@@ -20,7 +20,7 @@ public class TryToFailUsageAgreementImport extends AbstractTest
         Contact_Import contact_Import = contact_Settings.clickImportContacts();
         contact_Import.clickFirstContactList();
         contact_Import.clickNext();
-        contact_Import.clickNextWithFail();
+        contact_Import.clickNextMerge();
         //verify new section is in the field editor
         if(contact_Import.dialogBox.verifyUsageAgreement()==null)
         {
