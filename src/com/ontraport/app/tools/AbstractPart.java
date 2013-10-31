@@ -76,7 +76,40 @@ public abstract class AbstractPart
             if(AbstractPart.getTrys()==0)
             {
                 AbstractPart.setTrys(1);
-                waitForAjax2(driver, 20);
+                waitForAjax3(driver, 20);
+            }
+        }
+        return jQcondition;
+    }
+    public static boolean waitForAjax3 ( WebDriver driver, int timeOutInSeconds )
+    {
+        
+        boolean jQcondition = false;
+        try
+        {
+            new WebDriverWait(driver, timeOutInSeconds){}
+            .until(new ExpectedCondition<Boolean>()
+            {
+                @Override
+                public Boolean apply ( WebDriver driverObject )
+                {
+                    return (Boolean) ( (JavascriptExecutor) driverObject ).executeScript("return ontraport.activeRequests === 0");
+                }
+            });
+            jQcondition = (Boolean) ( (JavascriptExecutor) driver )
+                        .executeScript( "return window.ontraport != undefined "
+                                      + "&& ontraport.activeRequests != undefined "
+                                      + "&& ontraport.activeRequests === 0" );
+            return jQcondition;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            driver.navigate().refresh();
+            if(AbstractPart.getTrys()==0)
+            {
+                AbstractPart.setTrys(1);
+                waitForAjax3(driver, 20);
             }
         }
         return jQcondition;

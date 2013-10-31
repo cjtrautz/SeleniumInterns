@@ -58,13 +58,13 @@ public class Contact_Import extends AbstractPage
         
     }
 
-    public DialogBox clickNextWithFail ()
+    public Contact_Import clickNextMerge ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(step3));
         wait.until(ExpectedConditions.visibilityOf(nextButtonMerge));
         nextButtonMerge.click();
-        return (DialogBox) new DialogBox().init();
+        return this;
     }
     
 }

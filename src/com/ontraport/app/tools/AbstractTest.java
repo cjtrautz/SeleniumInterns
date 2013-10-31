@@ -28,7 +28,7 @@ public abstract class AbstractTest
     @BeforeClass
     public static void beforeTest ()
     {
-        AbstractPart.waitForAjax2(driver, 30);
+        AbstractPart.waitForAjax(driver, 30);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         driver.navigate().refresh();
         AbstractPart.waitForAjax2(driver, 30);

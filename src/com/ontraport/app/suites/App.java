@@ -551,6 +551,7 @@ public class App extends AbstractSuite
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);
         //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
