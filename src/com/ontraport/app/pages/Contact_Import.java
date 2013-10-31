@@ -29,6 +29,30 @@ public class Contact_Import extends AbstractPage
     private WebElement nextButton;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-map-next-button ')]")
+    private WebElement nextMapButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-rule-next-button ')]")
+    private WebElement nextRuleButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' checkbox_confirm_1 ')]//span")
+    private WebElement checkBox1;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' checkbox_confirm_2 ')]//span")
+    private WebElement checkBox2;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' checkbox_confirm_3 ')]//span")
+    private WebElement checkBox3;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' checkbox_confirm_4 ')]//span")
+    private WebElement checkBox4;
+    
+    @FindBy(how = How.XPATH,
         using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-merge-next-button ')]")
     private WebElement nextButtonMerge;
     
@@ -65,6 +89,34 @@ public class Contact_Import extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(nextButtonMerge));
         nextButtonMerge.click();
         return this;
+    }
+
+    public Contact_Import checkUsageAgreement ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(checkBox1));
+        checkBox1.click();
+        wait.until(ExpectedConditions.visibilityOf(checkBox2));
+        checkBox2.click();
+        wait.until(ExpectedConditions.visibilityOf(checkBox3));
+        checkBox3.click();
+        wait.until(ExpectedConditions.visibilityOf(checkBox4));
+        checkBox4.click();
+        return this;
+    }
+
+    public Contact_Import clickNextAddRules ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        nextMapButton.click();
+        return this;
+    }
+
+    public Contact_ListAll clickFinish ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        nextRuleButton.click();
+        return (Contact_ListAll) new Contact_ListAll().init();
     }
     
 }

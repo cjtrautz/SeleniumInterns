@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class ImportContacts extends AbstractTest
 {
     @Test
-    public void testTryToFailUsageAgreementImport ()
+    public void testImportContacts ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -20,30 +20,34 @@ public class ImportContacts extends AbstractTest
         Contact_Import contact_Import = contact_Settings.clickImportContacts();
         contact_Import.clickFirstContactList();
         contact_Import.clickNext();
-        //contact_Import.checkUsageAgreement();
+        contact_Import.checkUsageAgreement();
         contact_Import.clickNextMerge();
-        //contact_Import.clickNextAddRules();
-        //contactListAll = contact_Import.clickFinish();
-//        if(contactListAll.verifyBeingImportedAndClose()==null)
-//        {
-//            fail("not importing");
-//        }
-//        if(contactListAll.verifyBeingProcessedAndClose()==null)
-//        {
-//            fail("not processing");
-//        }
-//        if(contactListAll.verifyDoneAndClick()==null)
-//        {
-//            fail("not done");
-//        }
-//        if(contactListAll.verifyContact("bart@thesimpsons.com")==null)
-//        {
-//            fail("not done");
-//        }
-//        if(contactListAll.verifyNumberOfContacts(7)==null)
-//        {
-//            fail("not done");
-//        }
+        contact_Import.clickNextAddRules();
+        contactListAll = contact_Import.clickFinish();
+        if(contactListAll.verifyBeingImportedAndClose()==null)
+        {
+            System.out.println("not importing notification");
+        }
+        if(contactListAll.verifyBeingImportedAndClose()==null)
+        {
+            System.out.println("not importing notification");
+        }
+        if(contactListAll.verifyBeingProcessedAndClose()==null)
+        {
+            System.out.println("not processing notification");
+        }
+        if(contactListAll.verifyDoneAndClick()==null)
+        {
+            System.out.println("not done notification");
+        }
+        if(contactListAll.verifyContact("bart@thesimpsons.com")==null)
+        {
+            fail("not contact");
+        }
+        if(contactListAll.verifyNumberOfContacts(7)==null)
+        {
+            fail("not number of contacts");
+        }
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
         contactListAll.dialogBox.clickOk();

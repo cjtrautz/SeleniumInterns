@@ -19,6 +19,13 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CreateRole.class,
+    com.ontraport.app.tests.CreateUser.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    com.ontraport.app.tests.DeleteRole.class,
+    
+    com.ontraport.app.tests.ImportContacts.class, 
+    
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.CreateLandingPageWithForm.class,

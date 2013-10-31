@@ -22,6 +22,12 @@ public class Contact_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification;
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-component-message-close ')]")
+    private WebElement notificationClose;
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@href), ' '), ' javascript:ontraport.Panes.Contact.goToHome(true) ')]")
+    private WebElement notificationGo;
     
     public static String    url = "/#!/contact/listAll";
     @FindBy(how = How.XPATH,
@@ -34,16 +40,19 @@ public class Contact_ListAll extends AbstractPage
             using = "//tbody[@class='ussr-component-collection-body']/tr")
     private WebElement uiCollectionBodyRow1;
     @FindBy(how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']/tr")
+    private List<WebElement> uiCollectionBodyRows;
+    @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll;
     @FindBy(how = How.XPATH,
             using = "//div[@id='ontraport_panel_action_new']")
     private WebElement uiNewContact;
     @FindBy(how = How.XPATH,
-            using = "//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]]]]]")
+            using = "//div[@id='ussr-chrome-panel-pane']//div[div[contains(concat(' ', normalize-space(@class), ' '), ' user-leading-container ')] or table[tbody[tr[td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]]]]]")
     private WebElement emptyCell;
     @FindBy(how = How.XPATH,
-            using = "//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")
+            using = "//div[@id='ussr-chrome-panel-pane']//div[div[contains(concat(' ', normalize-space(@class), ' '), ' user-leading-container ')] or table[tbody[tr[td[2]]]]]")
     private WebElement firstCellOrContactAddOptions;
 
     public Contact_Create clickNewContact ()
@@ -317,6 +326,81 @@ public class Contact_ListAll extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+    public Contact_ListAll verifyBeingImportedAndClose ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!notification.isDisplayed())
+            {
+                return null;
+            }
+            wait.until(ExpectedConditions.visibilityOf(notificationClose));
+            notificationClose.click();
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        return this;
+    }
+    public Contact_ListAll verifyBeingProcessedAndClose ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(notification));
+            if(!notification.isDisplayed())
+            {
+                return null;
+            }
+            wait.until(ExpectedConditions.visibilityOf(notificationClose));
+            notificationClose.click();
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        return this;
+    }
+    public Contact_ListAll verifyDoneAndClick ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+           
+            if(!notification.isDisplayed())
+            {
+                return null;
+            }
+            notificationGo.click();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        driver.navigate().refresh();
+        AbstractPart.waitForAjax(driver, 20);
+        return this;
+    }
+    public Contact_ListAll verifyNumberOfContacts ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(uiCollectionBodyRows.size()!=i)
+            {
+                return null;
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
         return this;
     }
     
