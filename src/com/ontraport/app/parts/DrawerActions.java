@@ -594,6 +594,7 @@ public class DrawerActions extends AbstractPart
         Date date = new Date();
         String name = dateFormat.format(date);
         dateInput.sendKeys(name);
+        driver.findElement(By.xpath("//tbody//tr//td/a[contains(concat(' ', normalize-space(@class), ' '),' ui-state-highlight ')]")).click();
         Actions action = new Actions(driver);
         action.sendKeys(Keys.RETURN).build().perform();
         return this;

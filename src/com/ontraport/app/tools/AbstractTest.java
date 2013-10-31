@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractTest
 {
+    protected static String wordpressPassword = "";
     public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
@@ -74,5 +75,13 @@ public abstract class AbstractTest
                 }
             };
         }
+    }
+    public static void setWPpass (String pass)
+    {
+        AbstractTest.wordpressPassword = pass;
+    }
+    public static String getWPpass ()
+    {
+        return AbstractTest.wordpressPassword;
     }
 }

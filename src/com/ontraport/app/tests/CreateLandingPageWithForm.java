@@ -56,6 +56,10 @@ public class CreateLandingPageWithForm extends AbstractTest
         {
             fail("couldn't find form");
         }
+        if(landingPage_Edit.verifyLandingPageHostedWithForm(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE)==null)
+        {
+            fail("didnt add item shape");
+        }
 
 
     }

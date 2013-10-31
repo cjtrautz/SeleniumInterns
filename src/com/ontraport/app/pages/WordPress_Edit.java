@@ -2,6 +2,7 @@ package com.ontraport.app.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -119,5 +120,30 @@ public class WordPress_Edit extends AbstractPage
         
         return this;
     }
+
+    public WordPress_Edit verifyHosted ( String string, String password )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.get(string + ".affcntr.com");
+        try
+        {
+         driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']")).click();
+         System.out.print("ya");
+         driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys("nick@ontraport.com");
+         driver.findElement(By.xpath("//label[@for='user_pass']/input")).sendKeys(password);
+         driver.findElement(By.xpath("//input[@id='wp-submit']")).click();
+         driver.findElement(By.xpath("//li[@id='menu-plugins']/a")).click();
+         if(!driver.findElement(By.xpath("//strong[text()='PilotPress']")).isDisplayed())
+         {
+             return null;
+         }
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        return this;
+    }
+
     
 }

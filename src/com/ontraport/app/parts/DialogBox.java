@@ -781,4 +781,13 @@ public class DialogBox extends AbstractPart
         }
         return this;
     }
+    public String getPasswordCredentials ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        String stuff = driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div")).getText();
+        String delims= "[ \n]+";
+        String[] tokens = stuff.split(delims);
+        System.out.println(tokens[33]);
+        return tokens[33];
+    }
 }

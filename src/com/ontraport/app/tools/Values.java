@@ -25,6 +25,7 @@ public class Values
         files.add("Sites");
         files.add("Fields");
         files.add("Admin");
+        files.add("WordPress");
         for ( String file : files )
         {
             try

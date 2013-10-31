@@ -27,6 +27,8 @@ public class CreateAWordPressSite extends AbstractTest
         wordPress_CreateType2.enterMembershipLevel("Level1");
         wordPress_CreateType2.clickAddMembershipLevel();
         wordPress_CreateType2.clickSave();
+        String password= wordPress_CreateType2.dialogBox.getPasswordCredentials();
+        AbstractTest.setWPpass(password);
         wordPress_ListAll = wordPress_CreateType2.dialogBox.clickClose2();
         wordPress_ListAll.formSearch.find("seleniumwordpress2");
         
@@ -47,6 +49,10 @@ public class CreateAWordPressSite extends AbstractTest
             fail("couldnt find wp url");
         }
         if(wordPress_Edit.verifyWordpressMembership("Level1")==null)
+        {
+            fail("couldnt find wp membership level");
+        }
+        if(wordPress_Edit.verifyHosted(value.get("WordPress", "wordpress_domain") + AbstractSuite.UNIQUE, password)==null)
         {
             fail("couldnt find wp membership level");
         }

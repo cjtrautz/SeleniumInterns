@@ -1174,5 +1174,24 @@ public class LandingPage_Edit extends AbstractPage
         return this;
     }
 
+    public LandingPage_Edit verifyLandingPageHostedWithForm ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.get(string + ".respond.ontraport.net");
+            if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form ')]")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+
+            return null;
+        }
+        return this;
+    }
+
     
 }
