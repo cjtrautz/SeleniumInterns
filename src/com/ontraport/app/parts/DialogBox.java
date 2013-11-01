@@ -21,6 +21,9 @@ import com.ontraport.app.tools.AbstractSuite;
 public class DialogBox extends AbstractPart
 {
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-package-manager-dialog ')]//div[@class='clearfix']")
+    private List<WebElement> packageOptions;
+    @FindBy(how = How.XPATH,
             using = "//textarea")
     private WebElement textarea;
     @FindBy(how = How.XPATH,
@@ -207,6 +210,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//input[@value='Accept' and @type='BUTTON']")
     private WebElement buttonAcceptColorLP;
+    @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement drillDownSelect;
     
     public DialogBox clickOk ()
     {
@@ -789,5 +795,35 @@ public class DialogBox extends AbstractPart
         String[] tokens = stuff.split(delims);
         System.out.println(tokens[33]);
         return tokens[33];
+    }
+    public DialogBox clickTagDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(0).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        drillDownSelect.findElement(By.xpath(".//li[.='" + string + "']")).click();
+        return this;
+    }
+    public DialogBox clickAddTag ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(0).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickMessageDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(1).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickAddMessage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(1).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
     }
 }

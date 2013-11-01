@@ -18,20 +18,15 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{
-    com.ontraport.app.tests.CreateRole.class,
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
-    
-    com.ontraport.app.tests.ImportContacts.class, 
-    
+{ 
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
     com.ontraport.app.tests.DeleteLandingPageWithForm.class,
     com.ontraport.app.tests.DeleteOrderForm.class,
     com.ontraport.app.tests.DeleteGateway.class,
+    
+    com.ontraport.app.tests.ImportContacts.class, 
     
     com.ontraport.app.tests.CreateAWordPressSite.class,
     //com.ontraport.app.tests.VerifyWordPress.class,

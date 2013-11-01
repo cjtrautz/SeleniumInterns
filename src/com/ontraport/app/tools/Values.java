@@ -18,7 +18,7 @@ public class Values
         //files.add("Users");
         files.add("Contacts");
         files.add("Sequences");
-        //files.add("Rules");
+        files.add("Rules");
         files.add("SmartForms");
         files.add("Messages");
         files.add("LandingPages");
@@ -26,6 +26,7 @@ public class Values
         files.add("Fields");
         files.add("Admin");
         files.add("WordPress");
+        files.add("Packages");
         for ( String file : files )
         {
             try

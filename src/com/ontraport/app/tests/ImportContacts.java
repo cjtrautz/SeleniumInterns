@@ -12,7 +12,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class ImportContacts extends AbstractTest
 {
     @Test
-    public void testImportContacts ()
+    public void testImportContacts () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -24,14 +24,12 @@ public class ImportContacts extends AbstractTest
         contact_Import.clickNextMerge();
         contact_Import.clickNextAddRules();
         contactListAll = contact_Import.clickFinish();
+        //Thread.sleep(5000);
         if(contactListAll.verifyBeingImportedAndClose()==null)
         {
             System.out.println("not importing notification");
         }
-        if(contactListAll.verifyBeingImportedAndClose()==null)
-        {
-            System.out.println("not importing notification");
-        }
+
         if(contactListAll.verifyBeingProcessedAndClose()==null)
         {
             System.out.println("not processing notification");

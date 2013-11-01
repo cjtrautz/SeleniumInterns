@@ -84,6 +84,11 @@ public class Account_View extends AbstractPage
             using = "//div[@class='ussr-settings']//div[.='User Field Editor']/span")
     private WebElement userFieldEditor;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @href, ' '),' #!/package/listAll ')]")
+    private WebElement packageManager;
+    
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -211,6 +216,16 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
         userFieldEditor.click();
         return (Field_Editor) new Field_Editor().init();
+    }
+
+    public Package_ListAll clickPackageManager ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
+        packageManager.click();
+        return (Package_ListAll) new Package_ListAll().init();
     }
     
 }

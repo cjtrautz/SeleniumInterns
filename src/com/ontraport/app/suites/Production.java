@@ -18,21 +18,40 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    com.ontraport.app.tests.CreateSendFromAddress.class,
+    //com.ontraport.app.tests.CreateSendFromAddress.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.SendTestEmail.class,
     com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
-    com.ontraport.app.tests.DeleteMessage.class,
-    com.ontraport.app.tests.DeleteRuleStepSequence.class,
-   
+    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.CreateTagToAddToContact.class,
+    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
+    com.ontraport.app.tests.EnsureRulesFire.class,
+    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
+    com.ontraport.app.tests.AddNewSection.class,
+    //relies on section
+    com.ontraport.app.tests.CreateStateField.class,
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.CreateRule_PingAUrl.class,
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.DeleteUserFieldEditor.class,
+    com.ontraport.app.tests.DeleteRule_PingAUrl.class,
+    com.ontraport.app.tests.DeleteTag.class,
     com.ontraport.app.tests.DeleteLandingPageWithForm.class,
     com.ontraport.app.tests.DeleteOrderForm.class,
     com.ontraport.app.tests.DeleteGateway.class,
+    com.ontraport.app.tests.DeleteStateField.class,
+    com.ontraport.app.tests.DeleteSection.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+   
+    com.ontraport.app.tests.ImportContacts.class,
+    
     
     com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
     com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,

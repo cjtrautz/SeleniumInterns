@@ -23,8 +23,17 @@ public class Contact_ListAll extends AbstractPage
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification;
     @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
+    private WebElement notification2;
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
+    private WebElement notification3;
+    @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-component-message-close ')]")
     private WebElement notificationClose;
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-component-message-close ')]")
+    private WebElement notificationClose2;
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@href), ' '), ' javascript:ontraport.Panes.Contact.goToHome(true) ')]")
     private WebElement notificationGo;
@@ -333,12 +342,14 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notification))); 
             if(!notification.isDisplayed())
             {
                 return null;
             }
             wait.until(ExpectedConditions.visibilityOf(notificationClose));
             notificationClose.click();
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.not(ExpectedConditions.visibilityOf(notification)))); 
         }
         catch(Exception e)
         {
@@ -351,13 +362,14 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(notification));
-            if(!notification.isDisplayed())
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notification2)));  
+            if(!notification2.isDisplayed())
             {
                 return null;
             }
-            wait.until(ExpectedConditions.visibilityOf(notificationClose));
-            notificationClose.click();
+            System.out.println("here");
+            wait.until(ExpectedConditions.visibilityOf(notificationClose2));
+            notificationClose2.click();
         }
         catch(Exception e)
         {
@@ -370,11 +382,12 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-           
-            if(!notification.isDisplayed())
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notification3)));  
+            if(!notification3.isDisplayed())
             {
                 return null;
             }
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notificationGo)));  
             notificationGo.click();
         }
         catch(Exception e)
