@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    //com.ontraport.app.tests.CreateSendFromAddress.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,
@@ -38,6 +38,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateRule_PingAUrl.class,
     com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.AddAPackageWithEverything.class,
+    com.ontraport.app.tests.DeletePackageWithAll.class,
     com.ontraport.app.tests.DeleteUserFieldEditor.class,
     com.ontraport.app.tests.DeleteRule_PingAUrl.class,
     com.ontraport.app.tests.DeleteTag.class,
@@ -66,18 +68,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.UploadToAttachmentManager.class,
     com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
     
-    com.ontraport.app.tests.CreateContact.class,
-    com.ontraport.app.tests.CreateTagToAddToContact.class,
-    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
-    com.ontraport.app.tests.EnsureRulesFire.class,
-    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
-    com.ontraport.app.tests.AddNewSection.class,
-    //relies on section
-    com.ontraport.app.tests.CreateStateField.class,
-    com.ontraport.app.tests.DeleteStateField.class,
-    com.ontraport.app.tests.DeleteSection.class,
-    com.ontraport.app.tests.DeleteContact.class,
-      
     com.ontraport.app.tests.AddGroup.class,
     com.ontraport.app.tests.DeleteGroup.class,
     

@@ -190,6 +190,9 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ui-button ')]/span[text()='Done']")
     private WebElement done;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ') and contains(., 'Done')]")
+    private WebElement done2;
+    @FindBy(how = How.XPATH,
             using = "//td[contains(text(), 'R:')]/following-sibling::td/input")
     private WebElement rInput;
     @FindBy(how = How.XPATH,
@@ -789,7 +792,7 @@ public class DialogBox extends AbstractPart
     }
     public String getPasswordCredentials ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 40);
         String stuff = driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div")).getText();
         String delims= "[ \n]+";
         String[] tokens = stuff.split(delims);
@@ -805,7 +808,8 @@ public class DialogBox extends AbstractPart
     public DialogBox selectDrillDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        drillDownSelect.findElement(By.xpath(".//li[.='" + string + "']")).click();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
+        drillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
     public DialogBox clickAddTag ()
@@ -826,4 +830,83 @@ public class DialogBox extends AbstractPart
         packageOptions.get(1).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
+    public DialogBox clickSequenceDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(2).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickAddSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(2).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickLandingPageDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(3).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickFormsDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(4).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickAddLandingPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(3).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickAddForms ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(4).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickRulesDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(5).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickAddRules ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(5).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickSectionDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(6).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickAddSections ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(6).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickStaffDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(7).findElement(By.xpath(".//button")).click();
+        return this;
+    }
+    public DialogBox clickAddStaff ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        packageOptions.get(7).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
+        return this;
+    }
+    public DialogBox clickDonePackage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        done2.click();
+        return this;
+    }
+
 }

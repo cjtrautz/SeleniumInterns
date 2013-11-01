@@ -64,6 +64,10 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteContacts;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Packages')]")
+    private WebElement uiDeletePackages;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Facebook App')]")
     private WebElement uiDeleteFacebookApp;
     
@@ -628,6 +632,12 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         sendButton.click();
+        return this;
+    }
+    public DrawerActions clickDeletePackages ()
+    {
+        waitForAjax(driver, 20);
+        uiDeletePackages.click();
         return this;
     }
 }

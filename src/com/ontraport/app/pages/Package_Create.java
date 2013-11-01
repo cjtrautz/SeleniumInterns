@@ -16,8 +16,13 @@ public class Package_Create extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
+            using = "//div[contains(concat(' ', @class, ' '),' package_manager_price ')]//input")
     private WebElement packageManagerPrice;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ') and contains(., 'Save')]")
+    private WebElement save;
     
     @FindBy(
             how = How.XPATH,
@@ -45,6 +50,13 @@ public class Package_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         addItem.click();
         return this;
+    }
+
+    public Package_ListAll clickSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        save.click();
+        return (Package_ListAll) new Package_ListAll().init();
     }
     
 }
