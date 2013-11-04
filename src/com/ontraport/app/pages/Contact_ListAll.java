@@ -49,6 +49,9 @@ public class Contact_ListAll extends AbstractPage
             using = "//tbody[@class='ussr-component-collection-body']/tr")
     private WebElement uiCollectionBodyRow1;
     @FindBy(how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']/tr/td[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell-type-text ')]/span/a")
+    private WebElement uiCollectionBodyFirstCell;
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr")
     private List<WebElement> uiCollectionBodyRows;
     @FindBy(how = How.XPATH,
@@ -416,5 +419,14 @@ public class Contact_ListAll extends AbstractPage
         }
         return this;
     }
+    public Contact_Edit clickFirstContact ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyFirstCell));
+        uiCollectionBodyFirstCell.click();
+        return (Contact_Edit) new Contact_Edit().init();
+    }
+
+
     
 }

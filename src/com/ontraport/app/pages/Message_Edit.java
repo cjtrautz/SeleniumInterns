@@ -1327,4 +1327,40 @@ public class Message_Edit extends AbstractPage
         driver.switchTo().window(parentWindow);
         return this;
     }
+
+    public Message_Edit verifySourceText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(sourceText.getAttribute("value"));
+            if(!sourceText.getAttribute("value").contains(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyBoldIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            driver.findElement(By.xpath("//b[.='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
 }

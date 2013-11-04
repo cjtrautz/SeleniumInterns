@@ -17,8 +17,23 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-
-{ 
+{
+    com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    com.ontraport.app.tests.DeleteEditableEmailMessage.class,
+    
+    com.ontraport.app.tests.CreateContact.class,
+    //relies on having at least one contact
+    com.ontraport.app.tests.AddColumn.class,
+    com.ontraport.app.tests.MoveColumn.class,
+    com.ontraport.app.tests.DeleteColumn.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    
+    com.ontraport.app.tests.SearchTest.class,
+    
+    com.ontraport.app.tests.CreateAWordPressSite.class,
+    //com.ontraport.app.tests.VerifyWordPress.class,
+    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
@@ -28,9 +43,7 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.ImportContacts.class, 
     
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    //com.ontraport.app.tests.VerifyWordPress.class,
-    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
     
 //    com.ontraport.app.tests.SendSingleEmailToContact.class,
 //    com.ontraport.app.tests.CreateContact.class,
@@ -74,4 +87,5 @@ public class Review extends AbstractSuite
         //WebDriverWait wait = new WebDriverWait(driver, 20);
         //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
     }
+
 }

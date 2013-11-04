@@ -19,6 +19,9 @@ public class FormSearch extends AbstractPart
             using = "//input[@type='search']/following-sibling::a")
     private WebElement       uiClear;
     @FindBy(how = How.XPATH,
+            using = "//input[@type='search']/preceding-sibling::span")
+    private WebElement       uiMagnifyingGlass;
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement collection;
     @FindBy(how = How.XPATH,
@@ -76,6 +79,83 @@ public class FormSearch extends AbstractPart
     {
         waitForAjax(driver, 20);
         uiClear.click();
+        return this;
+    }
+
+    public FormSearch verifyEmpty ()
+    {
+        waitForAjax(driver, 20);
+        wait(15).until(ExpectedConditions.visibilityOf(uiSearch));
+        System.out.println(uiSearch.getAttribute("value"));
+        if(uiSearch.getAttribute("value").equals(""))
+        {
+            return this;
+        }
+        return null;
+    }
+
+    public FormSearch findMagnifyingGlass ( String string )
+    {
+        waitForAjax(driver, 20);
+        try
+        {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
+        uiSearch.click();
+        uiSearch.sendKeys(string);
+        uiMagnifyingGlass.click();
+        waitForAjax(driver, 20);
+        try{
+            wait(4).until(ExpectedConditions.visibilityOf(firstCell));  
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(4).until(ExpectedConditions.visibilityOf(firstCell));
+        }
+        try{
+            wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + string + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + string + "')]]")));  
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + string + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + string + "')]]")));
+        }
+        return this;
+        
+    }
+
+    public FormSearch findClickingOff ( String string )
+    {
+        waitForAjax(driver, 20);
+        try
+        {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
+        uiSearch.click();
+        uiSearch.sendKeys(string);
+        title.click();
+        waitForAjax(driver, 20);
+        try{
+            wait(4).until(ExpectedConditions.visibilityOf(firstCell));  
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(4).until(ExpectedConditions.visibilityOf(firstCell));
+        }
+        try{
+            wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + string + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + string + "')]]")));  
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait(8).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tbody[@class='ussr-component-collection-body']/tr[1]/td[span[a[contains(text(), '" + string + "')]] or div[span[@class='ussr-state-empty']] or span[contains(text(), '" + string + "')]]")));
+        }
         return this;
     }
 }

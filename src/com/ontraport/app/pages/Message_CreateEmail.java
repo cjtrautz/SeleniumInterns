@@ -55,6 +55,11 @@ public class Message_CreateEmail extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__source ')]")
+    private WebElement sourceButton;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement mailFromPane;
     
@@ -62,6 +67,11 @@ public class Message_CreateEmail extends AbstractPage
             how = How.XPATH,
             using = "//button[span[text()='Save']]")
     private WebElement save;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//textarea[contains(concat(' ', @class, ' '),' cke_source ')]")
+    private WebElement textareaSource;
 
     public Message_CreateEmail enterMessageName ( String name )
     {
@@ -143,6 +153,21 @@ public class Message_CreateEmail extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
+    }
+
+    public Message_CreateEmail clickSource ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        sourceButton.click();
+        return this;
+    }
+
+    public Message_CreateEmail enterMessageBodySource ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textareaSource));
+        textareaSource.sendKeys(string);
+        return this;
     }
     
 }

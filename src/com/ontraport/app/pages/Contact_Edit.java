@@ -50,6 +50,11 @@ public class Contact_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH, 
+            using = "//div[normalize-space(@class)='ussr-chrome-panel-pane-header-back']")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH, 
             using = "//div[@class='ussr-component-sub-collection-add-new']/span[text()='NEW Note']")
     private WebElement newNote;
     
@@ -328,6 +333,14 @@ public class Contact_Edit extends AbstractPage
             return null;
         }
         return this;
+    }
+
+    public Contact_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (Contact_ListAll) new Contact_ListAll().init();
     }
     
 }

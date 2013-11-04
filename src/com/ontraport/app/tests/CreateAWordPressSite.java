@@ -22,7 +22,7 @@ public class CreateAWordPressSite extends AbstractTest
         WordPress_ListAll wordPress_ListAll = contactListAll.menuPrimary.clickWordPressListAll();
         WordPress_TypeSelection wordPress_TypeSelection = wordPress_ListAll.clickNewWebsite();
         WordPress_CreateType2 wordPress_CreateType2 = wordPress_TypeSelection.clickCreateNewWordPressSite();
-        wordPress_CreateType2.enterWordPressSiteName("SelWordPressSite");
+        wordPress_CreateType2.enterWordPressSiteName("SelWordPressSite"  + AbstractSuite.UNIQUE);
         wordPress_CreateType2.enterDomainName("seleniumwordpress2" + AbstractSuite.UNIQUE);
         wordPress_CreateType2.enterMembershipLevel("Level1");
         wordPress_CreateType2.clickAddMembershipLevel();
@@ -33,14 +33,14 @@ public class CreateAWordPressSite extends AbstractTest
         wordPress_ListAll.formSearch.find("seleniumwordpress2");
         
         //verify product exists
-        if(wordPress_ListAll.verifyLandingPage("SelWordPressSite")==null)
+        if(wordPress_ListAll.verifyLandingPage("SelWordPressSite"  + AbstractSuite.UNIQUE)==null)
         {
             fail("couldnt find wp");
         }
 
-        WordPress_Edit wordPress_Edit = wordPress_ListAll.clickPage("SelWordPressSite");
+        WordPress_Edit wordPress_Edit = wordPress_ListAll.clickPage("SelWordPressSite"  + AbstractSuite.UNIQUE);
         //not sure how to wait to see if website has been hosted yet efficiently
-        if(wordPress_Edit.verifyWordPressName("SelWordPressSite")==null)
+        if(wordPress_Edit.verifyWordPressName("SelWordPressSite"  + AbstractSuite.UNIQUE)==null)
         {
             fail("couldnt find wp name");
         }

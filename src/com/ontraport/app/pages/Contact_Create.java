@@ -23,6 +23,9 @@ public class Contact_Create extends AbstractPage
             using = "//label[text()='Email']/following-sibling::div/input")
     private WebElement uiEmail;
     @FindBy(how = How.XPATH,
+            using = "//label[text()='Title']/following-sibling::div/input")
+    private WebElement uiTitle;
+    @FindBy(how = How.XPATH,
             using = "//button/span[text()='Save']")
     private WebElement uiSave;
     public Contact_Create enterFirstName (String name)
@@ -53,5 +56,12 @@ public class Contact_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiSave));
         uiSave.click();
         return (Contact_ListAll) new Contact_ListAll().init();
+    }
+    public Contact_Create enterTitle ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(uiTitle));
+        uiTitle.sendKeys(string);
+        return this;
     }
 }

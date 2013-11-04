@@ -1,5 +1,7 @@
 package com.ontraport.app.parts;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -26,6 +28,10 @@ public class FormColumnManager extends AbstractPart
     private WebElement fieldPaneCollection;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-edit-colunm-header ')]")
+    private WebElement draggableColumn;
+    
+    @FindBy(how = How.XPATH,
             using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_collection_column_editor ')]//button")
     private WebElement fieldPaneDropDown;
     
@@ -37,6 +43,16 @@ public class FormColumnManager extends AbstractPart
             how = How.XPATH,
             using = "//tr[@class='sem-collection-header-display']")
     private WebElement headerColumns;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[@class='sem-collection-header-display']/th[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell ')]")
+    private List<WebElement> headerColumnCells;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[@class='sem-collection-header-display']/th[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell ')]")
+    private List<WebElement> headerColumnCells2;
   
     @FindBy(
             how = How.XPATH,
@@ -127,5 +143,50 @@ public class FormColumnManager extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(trashCan)); 
         trashCan.click();
         return this;
+    }
+    public int getColumnIndex ( String string )
+    {
+        waitForAjax(driver, 20);
+        int count = 1;
+        for(WebElement t : headerColumnCells)
+        {
+            System.out.println(t.findElement(By.xpath(".//a")).getText());
+            if(t.findElement(By.xpath(".//a")).getText().equals(string))
+            {
+                break;
+            }
+            count=count+1;
+        }
+        System.out.println(count);
+        return count;
+    }
+    public FormColumnManager clickColumnAndMove ( int i )
+    {
+        waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        wait(5).until(ExpectedConditions.visibilityOf(draggableColumn));  
+        action.dragAndDropBy(draggableColumn, i, 0).build().perform();
+        return this;
+    }
+    public FormColumnManager verifyColumnEarlier ( String string, int index )
+    {
+        waitForAjax(driver, 20);
+        int count = 1;
+        for(WebElement j : headerColumnCells2)
+        {
+            System.out.println(j.findElement(By.xpath(".//a")).getText());
+            if(j.findElement(By.xpath(".//a")).getText().equals(string))
+            {
+                System.out.println("break");
+                break;
+            }
+            count=count+1;
+        }
+        System.out.println(count);
+        if(count<index)
+        {
+            return this;
+        }
+        return null;
     }
 }

@@ -82,132 +82,33 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,
-    com.ontraport.app.tests.CreateCopyOfStepSequence.class,
-    com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
-    com.ontraport.app.tests.CreateSplitTestMessages.class,
-    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
-    com.ontraport.app.tests.EditSequenceWait0Days.class,
-    com.ontraport.app.tests.EditSequenceWait1Days.class,
-    com.ontraport.app.tests.EditSequenceSendAt15Mins.class,
-    com.ontraport.app.tests.EditSequenceSendAtImmediate.class,
-    com.ontraport.app.tests.EditSequenceSendAt2Hours.class,
-    com.ontraport.app.tests.EditSequenceSendAt12PM.class,
-    com.ontraport.app.tests.DeleteMessage.class,
-    com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
-    com.ontraport.app.tests.DeleteRuleStepSequence.class,
-    
-    com.ontraport.app.tests.CreateMessage.class,
-    com.ontraport.app.tests.EditEmailMessageAlignment.class,
-    com.ontraport.app.tests.EditEmailMessageLinkText.class,
-    com.ontraport.app.tests.EditEmailMessageSource.class,
-    //relies on a message
-    com.ontraport.app.tests.SendTestEmail.class,
-    com.ontraport.app.tests.EditEmailMessageInsertHostedImage.class,
-    com.ontraport.app.tests.EditEmailMessageInsertImage.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
-    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateEmailDateSequence.class,
-    com.ontraport.app.tests.DeleteEmailDateSequence.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
-    com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateEmailStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
-    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_PauseSubscriptionToStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_PauseSubscriptionToStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_RemoveContactFromStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_RemoveContactFromStepSequence.class,
-    //relies on a step sequence
-    com.ontraport.app.tests.CreateRule_AddContactToStepSequence.class,
-    com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
-    com.ontraport.app.tests.DeleteEmailStepSequence.class,
-    com.ontraport.app.tests.DeleteMessage.class,
-    
-    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
-    com.ontraport.app.tests.CreateGateway.class, 
-    com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
-    com.ontraport.app.tests.CreateTaskMessageIncludeForm.class,
-    com.ontraport.app.tests.CreateTaskMessageNoForm.class,
-    com.ontraport.app.tests.DeleteOrderForm.class,
-    com.ontraport.app.tests.DeleteGateway.class,
-    com.ontraport.app.tests.CreateTaskMessageSMS.class,
-    com.ontraport.app.tests.CreateTaskMessageEmail.class,
-    com.ontraport.app.tests.CreateTaskMessageAfterComplete.class,
-    com.ontraport.app.tests.CreateTaskMessageAfterAssigned.class,
-    com.ontraport.app.tests.CreateTaskMessageAfterDue.class,
-    com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,
-    
-    com.ontraport.app.tests.TaskMessageCancel.class,
-    
-    com.ontraport.app.tests.TaskMessageBack.class,
-    
-    com.ontraport.app.tests.CreateTaskWhoMessage.class,
-    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
-    
-    com.ontraport.app.tests.CreateTaskMessage.class,
-    //relies on task message
-    com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
-    com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
-    com.ontraport.app.tests.DeleteTaskMessage.class,
-    
-    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
-    com.ontraport.app.tests.EditPostcardPictureOpacity.class,
-    com.ontraport.app.tests.EditPostcardPictureCircle.class,
-    com.ontraport.app.tests.EditPostcardPictureRounded.class,
-    com.ontraport.app.tests.DeletePostcardPictureMessageAndCheckSelectImage.class,
-    
-    com.ontraport.app.tests.UploadToAttachmentManager.class,
-    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
-    
-    com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
-    com.ontraport.app.tests.EditPostcardGradientOpacity.class,
-    com.ontraport.app.tests.EditPostcardToggleVertAndHorz.class,
-    com.ontraport.app.tests.EditPostcardGradient.class,
-    com.ontraport.app.tests.EditPostcardGradientRounded.class,
-    com.ontraport.app.tests.EditPostcardGradientCircle.class,
-    com.ontraport.app.tests.DeletePostcardGradientMessage.class,
-    
-    com.ontraport.app.tests.CreatePostcardMessage.class,
-    com.ontraport.app.tests.EditPostcardOpacity.class,
-    com.ontraport.app.tests.EditPostcardColor.class,
-    com.ontraport.app.tests.EditPostcardRounded.class,
-    com.ontraport.app.tests.EditPostcardRectangle.class,
-    com.ontraport.app.tests.EditPostcardCircle.class,
-    //relies postcard message
-    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
-    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
-    com.ontraport.app.tests.DeletePostcardMessage.class,
-    
-    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
-    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
-    com.ontraport.app.tests.EditPostcardLineSpacing.class,
-    com.ontraport.app.tests.EditPostcardAlignRight.class,
-    com.ontraport.app.tests.EditPostcardAlignCenter.class,
-    com.ontraport.app.tests.EditPostcardAlignLeft.class,
-    com.ontraport.app.tests.EditPostcardUnderline.class,
-    com.ontraport.app.tests.EditPostcardItalic.class,
-    com.ontraport.app.tests.EditPostcardBold.class,
-    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
-    
-    com.ontraport.app.tests.CreateUserFieldEditor.class,
-    com.ontraport.app.tests.DeleteUserFieldEditor.class,
-    
     com.ontraport.app.tests.CreateContact.class,
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
+      com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
+      com.ontraport.app.tests.CreateGateway.class, 
+      com.ontraport.app.tests.CreateOrderform.class,
+      com.ontraport.app.tests.CreateLandingPageWithForm.class,
+      com.ontraport.app.tests.CreateUserFieldEditor.class,
+      com.ontraport.app.tests.CreateRule_PingAUrl.class,
+      com.ontraport.app.tests.CreateATag.class,
+      com.ontraport.app.tests.AddAPackageWithEverything.class,
+      com.ontraport.app.tests.DeletePackageWithAll.class,
+      com.ontraport.app.tests.DeleteTag.class,
+      com.ontraport.app.tests.DeleteRule_PingAUrl.class,
+      com.ontraport.app.tests.DeleteUserFieldEditor.class,
+      com.ontraport.app.tests.DeleteLandingPageWithForm.class,
+      com.ontraport.app.tests.CreateTaskMessageIncludeForm.class,
+      com.ontraport.app.tests.CreateTaskMessageNoForm.class,
+      com.ontraport.app.tests.DeleteOrderForm.class,
+      com.ontraport.app.tests.DeleteGateway.class,
+      com.ontraport.app.tests.CreateTaskMessageSMS.class,
+      com.ontraport.app.tests.CreateTaskMessageEmail.class,
+      com.ontraport.app.tests.CreateTaskMessageAfterComplete.class,
+      com.ontraport.app.tests.CreateTaskMessageAfterAssigned.class,
+      com.ontraport.app.tests.CreateTaskMessageAfterDue.class,
+      com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,
     //relies on text field
       com.ontraport.app.tests.AddStateFieldColumn.class,
       com.ontraport.app.tests.DeleteStateFieldColumn.class,
@@ -276,6 +177,109 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteTextField.class,
       com.ontraport.app.tests.DeleteSection.class,
       com.ontraport.app.tests.DeleteContact.class,
+    com.ontraport.app.tests.CreateTagToAddToContact.class,
+    com.ontraport.app.tests.CreateCopyOfStepSequence.class,
+    com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
+    com.ontraport.app.tests.CreateSplitTestMessages.class,
+    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+    com.ontraport.app.tests.EditSequenceWait0Days.class,
+    com.ontraport.app.tests.EditSequenceWait1Days.class,
+    com.ontraport.app.tests.EditSequenceSendAt15Mins.class,
+    com.ontraport.app.tests.EditSequenceSendAtImmediate.class,
+    com.ontraport.app.tests.EditSequenceSendAt2Hours.class,
+    com.ontraport.app.tests.EditSequenceSendAt12PM.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.EditEmailMessageAlignment.class,
+    com.ontraport.app.tests.EditEmailMessageLinkText.class,
+    com.ontraport.app.tests.EditEmailMessageSource.class,
+    //relies on a message
+    com.ontraport.app.tests.SendTestEmail.class,
+    com.ontraport.app.tests.EditEmailMessageInsertHostedImage.class,
+    com.ontraport.app.tests.EditEmailMessageInsertImage.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
+    com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_PauseSubscriptionToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_PauseSubscriptionToStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_RemoveContactFromStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_RemoveContactFromStepSequence.class,
+    //relies on a step sequence
+    com.ontraport.app.tests.CreateRule_AddContactToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
+    com.ontraport.app.tests.DeleteEmailStepSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.TaskMessageCancel.class,
+    
+    com.ontraport.app.tests.TaskMessageBack.class,
+    
+    com.ontraport.app.tests.CreateTaskWhoMessage.class,
+    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+    
+    com.ontraport.app.tests.CreateTaskMessage.class,
+    //relies on task message
+    com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
+    com.ontraport.app.tests.DeleteTaskMessage.class,
+    
+    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
+    com.ontraport.app.tests.EditPostcardPictureOpacity.class,
+    com.ontraport.app.tests.EditPostcardPictureCircle.class,
+    com.ontraport.app.tests.EditPostcardPictureRounded.class,
+    com.ontraport.app.tests.DeletePostcardPictureMessageAndCheckSelectImage.class,
+    
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+    
+    com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
+    com.ontraport.app.tests.EditPostcardGradientOpacity.class,
+    com.ontraport.app.tests.EditPostcardToggleVertAndHorz.class,
+    com.ontraport.app.tests.EditPostcardGradient.class,
+    com.ontraport.app.tests.EditPostcardGradientRounded.class,
+    com.ontraport.app.tests.EditPostcardGradientCircle.class,
+    com.ontraport.app.tests.DeletePostcardGradientMessage.class,
+    
+    com.ontraport.app.tests.CreatePostcardMessage.class,
+    com.ontraport.app.tests.EditPostcardOpacity.class,
+    com.ontraport.app.tests.EditPostcardColor.class,
+    com.ontraport.app.tests.EditPostcardRounded.class,
+    com.ontraport.app.tests.EditPostcardRectangle.class,
+    com.ontraport.app.tests.EditPostcardCircle.class,
+    //relies postcard message
+    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeletePostcardMessage.class,
+    
+    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
+    com.ontraport.app.tests.EditPostcardLineSpacing.class,
+    com.ontraport.app.tests.EditPostcardAlignRight.class,
+    com.ontraport.app.tests.EditPostcardAlignCenter.class,
+    com.ontraport.app.tests.EditPostcardAlignLeft.class,
+    com.ontraport.app.tests.EditPostcardUnderline.class,
+    com.ontraport.app.tests.EditPostcardItalic.class,
+    com.ontraport.app.tests.EditPostcardBold.class,
+    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
       
     com.ontraport.app.tests.AddGroup.class,
     com.ontraport.app.tests.EditGroupPermission.class,
@@ -421,8 +425,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteProduct.class,
     
     //rules that dont rely on anything
-    com.ontraport.app.tests.CreateRule_PingAUrl.class,
-    com.ontraport.app.tests.DeleteRule_PingAUrl.class,
+
     com.ontraport.app.tests.CreateRule_ContactIsCreated.class,
     com.ontraport.app.tests.DeleteRule_ContactIsCreated.class,
     com.ontraport.app.tests.CreateRule_RemoveFromAllSequences.class,
