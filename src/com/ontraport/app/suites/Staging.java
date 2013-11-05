@@ -176,7 +176,7 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteTextGroup.class,
       com.ontraport.app.tests.DeleteTextField.class,
       com.ontraport.app.tests.DeleteSection.class,
-      com.ontraport.app.tests.DeleteContact.class,
+      
     com.ontraport.app.tests.CreateTagToAddToContact.class,
     com.ontraport.app.tests.CreateCopyOfStepSequence.class,
     com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
@@ -191,6 +191,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteMessage.class,
     com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    com.ontraport.app.tests.DeleteContact.class,
     
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.EditEmailMessageAlignment.class,

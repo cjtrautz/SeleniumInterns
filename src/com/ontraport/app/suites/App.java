@@ -100,7 +100,6 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteUserFieldEditor.class,
       com.ontraport.app.tests.DeleteRule_PingAUrl.class,
       com.ontraport.app.tests.DeleteTag.class,
-      com.ontraport.app.tests.DeleteRuleStepSequence.class,
       com.ontraport.app.tests.DeleteLandingPageWithForm.class,
       com.ontraport.app.tests.CreateTaskMessageIncludeForm.class,
       com.ontraport.app.tests.CreateTaskMessageNoForm.class,
@@ -180,6 +179,7 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteTextField.class,
       com.ontraport.app.tests.DeleteSection.class,
       com.ontraport.app.tests.DeleteContact.class,
+      
     com.ontraport.app.tests.CreateCopyOfStepSequence.class,
     com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
     com.ontraport.app.tests.CreateSplitTestMessages.class,
