@@ -152,6 +152,21 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__numberedlist ')]")
+    private WebElement orderedList;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__bulletedlist ')]")
+    private WebElement unOrderedList;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__blockquote ')]")
+    private WebElement quote;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//a[contains(concat(' ', @class, ' '),' cke_button__removeformat ')]")
     private WebElement removeFormatting;
     
@@ -1556,6 +1571,87 @@ public class Message_Edit extends AbstractPage
             driver.switchTo().frame(iFrame);
             System.out.println("here");
             driver.findElement(By.xpath("//s[normalize-space(.)='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickOrderedList ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(orderedList));
+        orderedList.click();
+        return this;
+    }
+
+    public Message_Edit verifyOrderedListIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//ol[normalize-space(.)='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickUnOrderedList ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(unOrderedList));
+        unOrderedList.click();
+        return this;
+    }
+
+    public Message_Edit verifyUnOrderedListIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//ul[normalize-space(.)='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickQuote ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(quote));
+        quote.click();
+        return this;
+    }
+
+    public Message_Edit verifyQuoteIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//blockquote[normalize-space(.)='" + string + "']"));
             driver.switchTo().defaultContent();
         }
         catch(NoSuchElementException e){
