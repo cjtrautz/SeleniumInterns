@@ -39,7 +39,7 @@ public class CreateEditableEmailMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "editable_email_message"));
-        if(message_Edit.verifyBoldIFrame(value.get("Messages", "editable_email_body"))==null)
+        if(message_Edit.verifyBoldIFrame(value.get("Messages", "editable_email_body"))==null) 
         {
             fail("couldn't find message body");
         }

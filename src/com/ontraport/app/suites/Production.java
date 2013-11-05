@@ -18,11 +18,11 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    //com.ontraport.app.tests.CreateSendFromAddress.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,
-    //com.ontraport.app.tests.SendTestEmail.class,
+    com.ontraport.app.tests.SendTestEmail.class,
     com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
     com.ontraport.app.tests.CreateContact.class,
     com.ontraport.app.tests.CreateTagToAddToContact.class,

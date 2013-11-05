@@ -8,12 +8,23 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 public class CKEditorDialogBox extends AbstractPart
 {
+    @FindBy(
+            how = How.XPATH,
+            using = "//body")
+    private WebElement body;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//iframe[@class='cke_pasteframe']")
+    private WebElement iframe;
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[@name='info']//label[text()='URL']/following-sibling::div//input[@class='cke_dialog_ui_input_text']")
@@ -180,5 +191,15 @@ public class CKEditorDialogBox extends AbstractPart
         selectHostedImage.get(i).click();
         return this;
     }
+    public CKEditorDialogBox enterIframePasteBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(10).until(ExpectedConditions.visibilityOf(iframe));
+        driver.switchTo().frame(iframe);
+        body.sendKeys(string);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
     
 }

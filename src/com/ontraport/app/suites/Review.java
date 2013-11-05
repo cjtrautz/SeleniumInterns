@@ -19,6 +19,13 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    com.ontraport.app.tests.EditEmailMessagePreview.class,
+    com.ontraport.app.tests.EditEmailMessageBold.class,
+    com.ontraport.app.tests.EditEmailMessageItalicize.class,
+    com.ontraport.app.tests.EditEmailMessageStrikeThrough.class,
+    com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
+    com.ontraport.app.tests.EditEmailMessagePaste.class,
+    com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
     com.ontraport.app.tests.DeleteEditableEmailMessage.class,
     
     com.ontraport.app.tests.CreateContact.class,
@@ -30,29 +37,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.SearchTest.class,
     
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    //com.ontraport.app.tests.VerifyWordPress.class,
-    com.ontraport.app.tests.DeleteWordPressSite.class,
-    
-    com.ontraport.app.tests.CreateGateway.class, 
-    com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
-    com.ontraport.app.tests.DeleteOrderForm.class,
-    com.ontraport.app.tests.DeleteGateway.class,
-    
-    com.ontraport.app.tests.ImportContacts.class, 
-    
-    
-    
-//    com.ontraport.app.tests.SendSingleEmailToContact.class,
-//    com.ontraport.app.tests.CreateContact.class,
-//    com.ontraport.app.tests.CreateTagToAddToContact.class,
-//    com.ontraport.app.tests.DeleteContact.class,
-//    
-//    com.ontraport.app.tests.CreateMessage.class,
-//    com.ontraport.app.tests.PreviewEmailMessage.class,
-//    com.ontraport.app.tests.DeleteMessage.class,
     
 }
 )

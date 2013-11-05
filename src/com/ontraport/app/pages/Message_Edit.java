@@ -101,6 +101,11 @@ public class Message_Edit extends AbstractPage
     private WebElement selectImage;
     
     @FindBy(
+            how = How.CSS,
+            using = "body")
+    private WebElement body;
+    
+    @FindBy(
             how = How.XPATH,
             using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]/span[contains(text(), 'Send Test Email')]")
     private WebElement sendTestEmail;
@@ -109,6 +114,51 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]/span[contains(text(), 'Preview')]")
     private WebElement preview;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__preview ')]")
+    private WebElement preview2;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__pastetext ')]")
+    private WebElement pasteText;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__undo ')]")
+    private WebElement undo;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__redo ')]")
+    private WebElement redo;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__bold ')]")
+    private WebElement bold;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__italic ')]")
+    private WebElement italicize;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__strike ')]")
+    private WebElement strikeThrough;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__removeformat ')]")
+    private WebElement removeFormatting;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__paste ')]")
+    private WebElement paste;
     
     @FindBy(
             how = How.XPATH,
@@ -1352,6 +1402,160 @@ public class Message_Edit extends AbstractPage
         {
             driver.switchTo().frame(iFrame);
             driver.findElement(By.xpath("//b[.='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickCKEditorPreview ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(preview2));
+        preview2.click();
+        return this;
+    }
+
+    public Message_Edit clickPaste ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(paste));
+        paste.click();
+        return this;
+    }
+
+    public Message_Edit clickPlainPaste ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(pasteText));
+        pasteText.click();
+        return this;
+    }
+    public Message_Edit enterMessageBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.switchTo().frame(iFrame);
+        body.sendKeys(string);
+        driver.switchTo().defaultContent();
+        return this;
+        
+    }
+
+    public Message_Edit clickUndo ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(undo));
+        undo.click();
+        return this;
+    }
+
+    public Message_Edit clickRedo ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(redo));
+        redo.click();
+        return this;
+    }
+
+    public Message_Edit clickBoldEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(bold));
+        bold.click();
+        return this;
+    }
+
+    public Message_Edit verifyBoldButtonIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            driver.findElement(By.xpath("//strong[normalize-space(.)='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickItalicizeEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(italicize));
+        italicize.click();
+        return this;
+    }
+
+    public Message_Edit verifyItalicizeIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            driver.findElement(By.xpath("//em[normalize-space(.)='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickRemoveFormating ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(removeFormatting));
+        removeFormatting.click();
+        return this;
+    }
+
+    public Message_Edit verifyNoFormatIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            driver.findElement(By.xpath("//p[contains(text(), '" + string + "')]"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickStrikeThroughEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(strikeThrough));
+        strikeThrough.click();
+        return this;
+    }
+
+    public Message_Edit verifyStrikeThroughIFrame ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//s[normalize-space(.)='" + string + "']"));
             driver.switchTo().defaultContent();
         }
         catch(NoSuchElementException e){
