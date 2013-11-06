@@ -20,6 +20,22 @@ import com.ontraport.app.tools.AbstractSuite;
 
 { 
     com.ontraport.app.tests.ImportContacts.class,
+    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
+    
+    com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    com.ontraport.app.tests.EditEmailMessagePreview.class,
+    com.ontraport.app.tests.EditEmailMessageBold.class,
+    com.ontraport.app.tests.EditEmailMessageItalicize.class,
+    com.ontraport.app.tests.EditEmailMessageStrikeThrough.class,
+    com.ontraport.app.tests.EditEmailMessageOrderedList.class,
+    com.ontraport.app.tests.EditEmailMessageUnOrderedList.class,
+    com.ontraport.app.tests.EditEmailMessageQuote.class,
+    com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
+    com.ontraport.app.tests.EditEmailMessagePaste.class,
+    com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
+    com.ontraport.app.tests.DeleteEditableEmailMessage.class,
     
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
     com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
@@ -309,6 +325,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateContact.class,
     //relies on having at least one contact
     com.ontraport.app.tests.AddColumn.class,
+    com.ontraport.app.tests.MoveColumn.class,
     com.ontraport.app.tests.DeleteColumn.class,
     //relies on having contacts
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
@@ -531,6 +548,8 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.GmailConfirmations.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
+    com.ontraport.app.tests.DeleteBroadCastEmail.class,
+    com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
     
 })
 public class App extends AbstractSuite

@@ -18,7 +18,15 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.ImportContacts.class,
+    
+    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
+    
     com.ontraport.app.tests.CreateSendFromAddress.class,
+    
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,
@@ -51,9 +59,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteContact.class,
     com.ontraport.app.tests.DeleteMessage.class,
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
-   
-    com.ontraport.app.tests.ImportContacts.class,
-    
     
     com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
     com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,
@@ -94,6 +99,8 @@ import com.ontraport.app.tools.AbstractSuite;
  
     com.ontraport.app.tests.GmailConfirmations.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
+    com.ontraport.app.tests.DeleteBroadCastEmail.class,
+    com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
     
 })
 public class Production extends AbstractSuite

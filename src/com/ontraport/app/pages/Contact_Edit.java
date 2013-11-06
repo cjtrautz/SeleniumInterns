@@ -20,6 +20,10 @@ public class Contact_Edit extends AbstractPage
     private WebElement lastNameInput;
     
     @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', normalize-space(@class), ' '),' component-subscription-object-selector-target ')]//button")
+    private WebElement sequenceDropDown;
+    
+    @FindBy(how=How.XPATH,
             using="//label[text()='Last Name']/following-sibling::button")
     private WebElement lastNameSave;
     
@@ -70,6 +74,10 @@ public class Contact_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
+    
+    @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement drillDown;
   
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-component-tab-container']/div[2]/div[2]//table")
@@ -341,6 +349,22 @@ public class Contact_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (Contact_ListAll) new Contact_ListAll().init();
+    }
+
+    public Contact_Edit clickSequenceDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sequenceDropDown));
+        sequenceDropDown.click();
+        return this;
+    }
+
+    public Contact_Edit selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDown));
+        drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return this;
     }
     
 }

@@ -33,6 +33,11 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' step_details_time ')]//button")
+    private WebElement stepTimeDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-sequence-editor-rule-name ')]//input")
     private WebElement ruleName;
     
@@ -351,6 +356,14 @@ public class Sequence_CreateStep extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         saveAsDraft.click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickSendAtDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stepTimeDropDown));
+        stepTimeDropDown.click();
         return this;
     }
 

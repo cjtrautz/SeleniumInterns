@@ -39,6 +39,28 @@ public class GmailConfirmations extends AbstractTest
         gmail.enterUserName("njcross1990@gmail.com");
         gmail.enterPassword("Lughead1");
         gmail.clickSignIn();
+        if(gmail.clickOneOffEmail()==null)
+        {
+            fail("couldint find one of email");
+        }
+        gmail.clickDelete();
+        if(gmail.clickBroadcastEmails()==null)
+        {
+            fail("couldint find one of email");
+        }
+        gmail.clickDelete();
+        int time = 0;
+        time = gmail.getImmediateSubjectTime();
+        if(time==0)
+        {
+            fail("couldnt find immediate sequence email");
+        }
+        gmail.clickDelete();
+        if(gmail.clickDelayEmailAndVerifyTime(time)==null)
+        {
+            fail("couldnt verify delay sequence step");
+        }
+        gmail.clickDelete();
         gmail.clickConfirmationEmail();
         gmail.clickLink();
         gmail.clickDelete();
@@ -78,6 +100,7 @@ public class GmailConfirmations extends AbstractTest
           {
               
           }
+         
 
   
     }

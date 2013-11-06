@@ -39,6 +39,11 @@ public class Sequence_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' step_details_time ')]//input")
+    private WebElement timeWaitTime;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-sequence-target-split ')]")
     private WebElement splitTestingToggle;
     
@@ -955,6 +960,23 @@ public class Sequence_Edit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit verifyTimeWait ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(timeWaitTime.getAttribute("value"));
+            if(!timeWaitTime.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
             return null;
         }
         

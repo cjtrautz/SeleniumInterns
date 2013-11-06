@@ -16,7 +16,7 @@ import com.ontraport.app.pages.Sequence_ListAll;
 import com.ontraport.app.pages.Sequence_TypeSelection;
 import com.ontraport.app.tools.AbstractTest;
 
-public class EnsureStepSequenceImmedStep extends AbstractTest
+public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
 {
     @Test
     public void testSendSingleEmailToContact ()
@@ -30,7 +30,22 @@ public class EnsureStepSequenceImmedStep extends AbstractTest
         message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
-        message_CreateEmail.enterSubject(value.get("Messages", "email_subject"));
+        message_CreateEmail.enterSubject(value.get("Messages", "email_ensure"));
+        message_CreateEmail.enterMessageBody(value.get("Messages", "email_body"));
+        message_CreateEmail.openMergeFieldPane();
+        message_CreateEmail.selectMergeField("First Name");
+        message_ListAll = message_CreateEmail.clickSave();
+        contactListAll = message_ListAll.menuPrimary.clickContactListAll();
+        
+        message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
+        message_TypeSelection = message_ListAll.clickNewMessage();
+        message_CreateEmail = message_TypeSelection.clickEmailCreate();
+        message_CreateEmail.enterMessageName(value.get("Messages", "email_message_ensure_sequence2"));
+        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
+        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
+        message_CreateEmail.openMailFromPane();
+        message_CreateEmail.selectMailFrom(1);
+        message_CreateEmail.enterSubject(value.get("Messages", "email_ensure2"));
         message_CreateEmail.enterMessageBody(value.get("Messages", "email_body"));
         message_CreateEmail.openMergeFieldPane();
         message_CreateEmail.selectMergeField("First Name");
@@ -48,6 +63,15 @@ public class EnsureStepSequenceImmedStep extends AbstractTest
         sequence_CreateStep.selectDrillDownByIndex(1);
         sequence_CreateStep.openSendFromPane();
         sequence_CreateStep.selectDrillDown("Contact Owner");
+        sequence_CreateStep.clickAddEmailStep();
+        sequence_CreateStep.openEmailNamePane();
+        sequence_CreateStep.selectDrillDownEmailName(value.get("Messages", "email_message_ensure_sequence2"));
+        sequence_CreateStep.clickSendAtDropDown();
+        sequence_CreateStep.selectDrillDown("15 Minutes");
+        sequence_CreateStep.openEmailFromPane();
+        sequence_CreateStep.selectDrillDownByIndex(1);
+        sequence_CreateStep.openSendFromPane();
+        sequence_CreateStep.selectDrillDown("Contact Owner");
         sequence_ListAll = sequence_CreateStep.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "ensure_immediate_sequence_fires"));
         
@@ -61,7 +85,7 @@ public class EnsureStepSequenceImmedStep extends AbstractTest
         {
             fail("couldn't find sequence step");
         }
-        if(sequence_Edit.verifyEmailName(value.get("Sequences", "ensure_immediate_sequence_fires"))==null)
+        if(sequence_Edit.verifyEmailName(value.get("Messages", "email_message_ensure_sequence"))==null)
         {
             fail("couldn't find sequence email name");
         }
@@ -69,59 +93,57 @@ public class EnsureStepSequenceImmedStep extends AbstractTest
         {
             fail("couldn't find sequence email send from");
         }
+        sequence_Edit.expandStep(3);
+        if(sequence_Edit.verifySequenceStepAndExpand("EMAIL", 2)==null)
+        {
+            fail("couldn't find sequence step");
+        }
+        if(sequence_Edit.verifyEmailName(value.get("Messages", "email_message_ensure_sequence2"))==null)
+        {
+            fail("couldn't find sequence email name");
+        }
+        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        {
+            fail("couldn't find sequence email send from");
+        }
+        if(sequence_Edit.verifyTimeWait("15 Minutes")==null)
+        {
+            fail("couldn't find sequence email send from");
+        }
         
         contactListAll = sequence_Edit.menuPrimary.clickContactListAll();
         Contact_Create contact_Create = contactListAll.clickNewContact();
-        contact_Create.enterFirstName(value.get("Contacts", "my_first_name"));
-        contact_Create.enterLastName(value.get("Contacts", "my_last_name"));
-        contact_Create.enterEmail(value.get("Contacts", "my_email_adress"));
+        contact_Create.enterFirstName(value.get("Contacts", "ensure_sequence_first"));
+        contact_Create.enterLastName(value.get("Contacts", "ensure_sequence_last"));
+        contact_Create.enterEmail(value.get("Contacts", "ensure_sequence_email"));
         contactListAll = contact_Create.clickSave();
-        contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
+        contactListAll.formSearch.find(value.get("Contacts", "ensure_sequence_email"));
         
        //verify that the contact Exists
-        if(contactListAll.verifyContact(value.get("Contacts", "my_email_adress"))==null)
+        if(contactListAll.verifyContact(value.get("Contacts", "ensure_sequence_email"))==null)
         {
             fail("couldnt find created contact");
         }
-        Contact_Edit contact_Edit = contactListAll.clickContact(value.get("Contacts", "my_email_adress"));
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_email_adress"))==null)
+        Contact_Edit contact_Edit = contactListAll.clickContact(value.get("Contacts", "ensure_sequence_email"));
+        if(contact_Edit.verifyFieldValue(value.get("Contacts", "ensure_sequence_email"))==null)
         {
             fail("couldnt find contact email");
         }
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_first_name"))==null)
+        if(contact_Edit.verifyFieldValue(value.get("Contacts", "ensure_sequence_first"))==null)
         {
             fail("couldnt find contact first name");
         }
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_last_name"))==null)
+        if(contact_Edit.verifyFieldValue(value.get("Contacts", "ensure_sequence_last"))==null)
         {
             fail("couldnt find contact last name");
         }
+        contact_Edit.clickSequenceDropDown();
+        contact_Edit.selectDrillDown(value.get("Sequences", "ensure_immediate_sequence_fires"));
+        contactListAll = contact_Edit.clickBack();
         contactListAll = contact_Edit.menuPrimary.clickContactListAll();
         
-        contactListAll.formSearch.clear();
-        contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
-        contactListAll.selectAllOnPage();
-        contactListAll.drawerActions.clickDeleteContacts();
-        contactListAll.dialogBox.clickOk();
         
-        //verify its gone
-        if(contactListAll.verifyNoContact()==null)
-        {
-            fail("found deleted contatct");
-        }
 
-        contactListAll.formSearch.clear();
-        message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
-        message_ListAll.formSearch.find(value.get("Messages", "email_message_send"));
-        message_ListAll.selectAllOnPage();
-        message_ListAll.drawerActions.clickDeleteMessage();
-        message_ListAll.dialogBox.clickOk();
-        
-        //verify
-        if(message_ListAll.verifyNoMessage()==null)
-        {
-            fail("found deleted message");
-        }
 
 
     }
