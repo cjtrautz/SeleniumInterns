@@ -220,6 +220,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickOk ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiOk));
         uiOk.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
@@ -227,12 +228,14 @@ public class DialogBox extends AbstractPart
     public DialogBox clickCancel ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiCancel));
         uiCancel.click();
         return this;
     }
     public DialogBox clickClose ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiClose));
         uiClose.click();
         return this;
     }
@@ -258,7 +261,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterFieldName ( String string )
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(fieldName));
+        wait(30).until(ExpectedConditions.visibilityOf(fieldName));
         fieldName.sendKeys(string);
         return this;
         
@@ -266,26 +269,26 @@ public class DialogBox extends AbstractPart
     public DialogBox clickFieldTypeDropDown ()
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(fieldTypeDropDown));
+        wait(30).until(ExpectedConditions.visibilityOf(fieldTypeDropDown));
         fieldTypeDropDown.click();
-        wait(5).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
+        wait(30).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
         return this;
         
     }
     public DialogBox clickSave (String string)
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(saveButton));
+        wait(30).until(ExpectedConditions.visibilityOf(saveButton));
         saveButton.click();
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
-        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']"))));
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[normalize-space(text())='" + string + "']"))));
         return this;
         
     }
     public DialogBox clickSave ()
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(saveButton2));
+        wait(30).until(ExpectedConditions.visibilityOf(saveButton2));
         saveButton2.click();
         return this;
         
@@ -293,7 +296,7 @@ public class DialogBox extends AbstractPart
     public DialogBox selectField ( String string )
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
+        wait(30).until(ExpectedConditions.visibilityOf(fieldDropDownPane));
         wait(5).until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + string + "')]")));
         fieldDropDownPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
@@ -302,7 +305,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterAddOption ( String string )
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(addOptionInput));
+        wait(30).until(ExpectedConditions.visibilityOf(addOptionInput));
         addOptionInput.sendKeys(string);
         return this;
         
@@ -310,7 +313,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickAdd ()
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(addButton));
+        wait(30).until(ExpectedConditions.visibilityOf(addButton));
         addButton.click();
         return this;
         
@@ -352,6 +355,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickUseHostedDomain ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(hostedDomainRadioButton));
         hostedDomainRadioButton.click();
         return this;
         
@@ -359,6 +363,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterHostedDomainName ( String string )
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(hostedDomainInput));
         hostedDomainInput.sendKeys(string);
         return this;
         
@@ -366,6 +371,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickAccept ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(buttonAccept));
         buttonAccept.click();
         return this;
         
@@ -373,6 +379,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickShape ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(shapeButton));
         shapeButton.click();
         return this;
         
@@ -380,12 +387,14 @@ public class DialogBox extends AbstractPart
     public WordPress_ListAll clickClose2 ()
     {
         waitForAjax(driver, 60);
+        wait(30).until(ExpectedConditions.visibilityOf(uiClose2));
         uiClose2.click();
         return (WordPress_ListAll) new WordPress_ListAll().init();
     }
     public DialogBox clickUpload ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uploadTab));
         uploadTab.click();
         return this;
         
@@ -393,6 +402,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterURL ( String string )
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(urlInput));
         urlInput.click();
         urlInput.sendKeys(string);
         return this;
@@ -401,6 +411,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickGo ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uploadGo));
         uploadGo.click();
         return this;
         
@@ -408,6 +419,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickBrowse ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(browseTab));
         browseTab.click();
         return this;
         
@@ -438,6 +450,7 @@ public class DialogBox extends AbstractPart
     {
 
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiSelectAll));
         uiSelectAll.click();
         return this;
         
@@ -467,6 +480,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterEmailAddress ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(newEmailInput));
         newEmailInput.sendKeys(string);
         return this;
         
@@ -474,14 +488,16 @@ public class DialogBox extends AbstractPart
     public DialogBox addEmail (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(addEmail));
         addEmail.click();
-        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[text()='" + string + "']"))));
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[text()='" + string + "']"))));
         return this;
         
     }
     public User_Create clickAgree ()
     {
         waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiAgree));
         uiAgree.click();
         return (User_Create) new User_Create().init();
     }
@@ -523,6 +539,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(enterNameInput));
         enterNameInput.sendKeys(string);
         return this;
         
@@ -530,18 +547,21 @@ public class DialogBox extends AbstractPart
     public DialogBox clickProductName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(enterProduct));
         enterProduct.click();
         return this;
     }
     public DialogBox selectCreateNew ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(createNew));
         createNew.click();
         return this;
     }
     public DialogBox enterProductName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(createNewInput));
         createNewInput.sendKeys(string);
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.RETURN).build().perform();
@@ -550,6 +570,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickGrid ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(grid));
         grid.click();
         return this;
     }
@@ -557,6 +578,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterPrice ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(priceInput));
         priceInput.click();
         //priceInput.clear();
         priceInput.sendKeys(string);
@@ -565,6 +587,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickDone ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(done));
         done.click();
         return this;
         
@@ -572,18 +595,21 @@ public class DialogBox extends AbstractPart
     public DialogBox enterEmail ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiInput));
         uiInput.sendKeys(string);
         return this;
     }
     public DialogBox clickSend ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(sendButton));
         sendButton.click();
         return this;
     }
     public DialogBox clickTextArea ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(textAreaButton));
         textAreaButton.click();
         return this;
         
@@ -591,6 +617,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterRValue ( String i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(rInput));
         rInput.click();
         rInput.clear();
         rInput.click();
@@ -600,6 +627,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterGValue ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(gInput));
         gInput.click();
         gInput.clear();
         gInput.click();
@@ -609,6 +637,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterBValue ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(bInput));
         bInput.click();
         bInput.clear();
         bInput.click();
@@ -618,6 +647,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterRValueLP ( String i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(rInputLP));
         rInputLP.click();
         rInputLP.clear();
         rInputLP.click();
@@ -627,6 +657,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterGValueLP ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(gInputLP));
         gInputLP.click();
         gInputLP.clear();
         gInputLP.click();
@@ -636,6 +667,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterBValueLP ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(bInputLP));
         bInputLP.click();
         bInputLP.clear();
         bInputLP.click();
@@ -645,66 +677,77 @@ public class DialogBox extends AbstractPart
     public DialogBox clickAcceptColor ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(buttonAcceptColor.get(0)));
         buttonAcceptColor.get(0).click();
         return this;
     }
     public DialogBox clickAcceptColorLP ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(buttonAcceptColorLP));
         buttonAcceptColorLP.click();
         return this;
     }
     public DialogBox clickAcceptColor (int index)
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(buttonAcceptColor.get(index)));
         buttonAcceptColor.get(index).click();
         return this;
     }
     public DialogBox clickGradient ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(gradientButton));
         gradientButton.click();
         return this;
     }
     public DialogBox clickPicture ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(imageButton));
         imageButton.click();
         return this;
     }
     public DialogBox selectPicture ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(images));
         images.findElement(By.xpath(".//img")).click();
         return this;
     }
     public DialogBox selectPicture (String here)
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li/img[contains(@src, '" + here + "')]"))));
         driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li/img[contains(@src, '" + here + "')]")).click();
         return this;
     }
     public DialogBox insertSelectedImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiInsertImage));
         uiInsertImage.click();
         return this;
     }
     public DialogBox clickDelete ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(deleteButton));
         deleteButton.click();
         return this;
     }
     public DialogBox clickCancelPicture ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(cancelButton));
         cancelButton.click();
         return this;
     }
     public DialogBox enterHeight ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(widthAndHeight.get(1)));
         widthAndHeight.get(1).clear();
         widthAndHeight.get(1).sendKeys(string);
         return this;
@@ -712,6 +755,7 @@ public class DialogBox extends AbstractPart
     public DialogBox enterWidth ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(widthAndHeight.get(0)));
         widthAndHeight.get(0).clear();
         widthAndHeight.get(0).sendKeys(string);
         return this;
@@ -719,36 +763,42 @@ public class DialogBox extends AbstractPart
     public DialogBox clickStartWithBlankPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(startWithBlankPage));
         startWithBlankPage.click();
         return this;
     }
     public DialogBox clickHTML ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(htmlButton));
         htmlButton.click();
         return this;
     }
     public DialogBox enterHTML ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(textarea));
         textarea.sendKeys(string);
         return this;
     }
     public DialogBox clickAcceptHTML ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(buttonAcceptHTML));
         buttonAcceptHTML.click();
         return this;
     }
     public DialogBox clickForm ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(formButton));
         formButton.click();
         return this;
     }
     public DialogBox uncheckCanEdit ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(editChecked));
         editChecked.click();
         return this;
     }
@@ -771,6 +821,7 @@ public class DialogBox extends AbstractPart
     public DialogBox checkCanEdit ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(editUnChecked));
         editUnChecked.click();
         return this;
     }
@@ -793,6 +844,7 @@ public class DialogBox extends AbstractPart
     public String getPasswordCredentials ()
     {
         AbstractPart.waitForAjax(driver, 40);
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div"))));
         String stuff = driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div")).getText();
         String delims= "[ \n]+";
         String[] tokens = stuff.split(delims);
@@ -802,6 +854,7 @@ public class DialogBox extends AbstractPart
     public DialogBox clickTagDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(0)));
         packageOptions.get(0).findElement(By.xpath(".//button")).click();
         return this;
     }
@@ -815,96 +868,112 @@ public class DialogBox extends AbstractPart
     public DialogBox clickAddTag ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(0)));
         packageOptions.get(0).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickMessageDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(1)));
         packageOptions.get(1).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickAddMessage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(1)));
         packageOptions.get(1).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickSequenceDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(2)));
         packageOptions.get(2).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickAddSequence ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(2)));
         packageOptions.get(2).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickLandingPageDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(3)));
         packageOptions.get(3).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickFormsDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(4)));
         packageOptions.get(4).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickAddLandingPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(3)));
         packageOptions.get(3).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickAddForms ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(4)));
         packageOptions.get(4).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickRulesDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(5)));
         packageOptions.get(5).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickAddRules ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(5)));
         packageOptions.get(5).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickSectionDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(6)));
         packageOptions.get(6).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickAddSections ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(6)));
         packageOptions.get(6).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickStaffDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(7)));
         packageOptions.get(7).findElement(By.xpath(".//button")).click();
         return this;
     }
     public DialogBox clickAddStaff ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(packageOptions.get(7)));
         packageOptions.get(7).findElement(By.xpath(".//span[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")).click();
         return this;
     }
     public DialogBox clickDonePackage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(done2));
         done2.click();
         return this;
     }
