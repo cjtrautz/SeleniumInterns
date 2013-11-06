@@ -18,6 +18,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
+    com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
     com.ontraport.app.tests.ImportContacts.class,
     com.ontraport.app.tests.SendBroadcastEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
@@ -384,9 +387,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateDoubleOptinMessage.class,
     com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
-    
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    com.ontraport.app.tests.DeleteWordPressSite.class,
     
     //requires previously imported csv
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
