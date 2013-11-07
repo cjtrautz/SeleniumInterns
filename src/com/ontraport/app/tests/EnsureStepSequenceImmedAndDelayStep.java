@@ -19,7 +19,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
 {
     @Test
-    public void testSendSingleEmailToContact ()
+    public void testEnsureStepSequenceImmedAndDelayStep ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
@@ -141,6 +141,18 @@ public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
         contact_Edit.selectDrillDown(value.get("Sequences", "ensure_immediate_sequence_fires"));
         contactListAll = contact_Edit.clickBack();
         contactListAll = contact_Edit.menuPrimary.clickContactListAll();
+        contactListAll.formSearch.find(value.get("Contacts", "ensure_sequence_email"));
+        
+        //verify that the contact Exists
+         if(contactListAll.verifyContact(value.get("Contacts", "ensure_sequence_email"))==null)
+         {
+             fail("couldnt find created contact");
+         }
+         contact_Edit = contactListAll.clickContact(value.get("Contacts", "ensure_sequence_email"));
+         if(contact_Edit.verifySequence(value.get("Sequences", "ensure_immediate_sequence_fires"))==null)
+         {
+             fail("couldnt find contact email");
+         }
         
         
 

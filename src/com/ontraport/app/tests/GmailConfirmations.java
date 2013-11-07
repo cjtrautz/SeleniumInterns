@@ -41,12 +41,17 @@ public class GmailConfirmations extends AbstractTest
         gmail.clickSignIn();
         if(gmail.clickOneOffEmail()==null)
         {
-            fail("couldint find one of email");
+            fail("couldint find one ofr email");
         }
         gmail.clickDelete();
         if(gmail.clickBroadcastEmails()==null)
         {
-            fail("couldint find one of email");
+            fail("couldint find broadcast email");
+        }
+        gmail.clickDelete();
+        if(gmail.clickAndVerifyDateEmail()==null)
+        {
+            fail("couldint find Date email");
         }
         gmail.clickDelete();
         int time = 0;

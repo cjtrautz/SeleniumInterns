@@ -1,18 +1,40 @@
 package com.ontraport.app.pages;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.parts.DrawerActions;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractTest;
 
 public class Sequence_CreateDate extends AbstractPage
 {
+    @FindBy(
+            how = How.XPATH,
+            using = "//input[contains(concat(' ', @class, ' '),' hasDatepicker ')]")
+    private WebElement dateInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' step_details_time ')]//button")
+    private WebElement timeDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' step_details_time ')]//input")
+    private WebElement timeDropDownInput;
+    
     @FindBy(
             how = How.XPATH,
             using = "//span[@class='ussr-theme-sequence-rule']//button")
@@ -42,6 +64,10 @@ public class Sequence_CreateDate extends AbstractPage
             how = How.XPATH,
             using = "//label[text()='Specific Event']/preceding-sibling::div/a[contains(concat(' ', @class, ' '),' ussr-form-input-radiobutton ')]")
     private WebElement stepRadioButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+        private WebElement drillDown;
     
     @FindBy(
             how = How.XPATH,
@@ -306,6 +332,71 @@ public class Sequence_CreateDate extends AbstractPage
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()='" + string + "']]")));
         thenDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")).click();
+        return this;
+        
+    }
+
+    public Sequence_CreateDate enterTodaysDate ()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        wait.until(ExpectedConditions.visibilityOf(dateInput));
+        dateInput.sendKeys(name);
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody//tr//td/a[contains(concat(' ', normalize-space(@class), ' '),' ui-state-highlight ')]"))));
+        driver.findElement(By.xpath("//tbody//tr//td/a[contains(concat(' ', normalize-space(@class), ' '),' ui-state-highlight ')]")).click();
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.RETURN).build().perform();
+        return this;
+    }
+
+    public Sequence_CreateDate enterNextTime ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        DateFormat dateFormat = new SimpleDateFormat("h");
+        DateFormat dateFormat2 = new SimpleDateFormat("mm");
+        DateFormat dateFormat3 = new SimpleDateFormat("a");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        String name2 = dateFormat2.format(date);
+        String name3 = dateFormat3.format(date);
+        int minutes = Integer.parseInt(name2);
+        minutes = (minutes + 32)/30 *30;
+        if(minutes>=60)
+        {
+            minutes=minutes-60;
+            int hours= Integer.parseInt(name);
+            hours=hours+1;
+            name= Integer.toString(hours);
+        }
+        name2 = Integer.toString(minutes);
+        if(name2.equals("0"))
+        {
+            name2="00";
+        }
+        System.out.println(name + ":" + name2 + " " + name3);
+        AbstractTest.setDateTime(name + ":" + name2 + " " + name3);
+        timeDropDownInput.sendKeys(name + ":" + name2 + " " + name3);
+        selectDrillDown(name + ":" + name2 + " " + name3);
+        return this;
+    }
+
+    public Sequence_CreateDate clickTimeToSendDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(timeDropDown));
+        timeDropDown.click();
+        return this;
+    }
+    
+    public Sequence_CreateDate selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDown));
+        drillDown.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
         return this;
         
     }

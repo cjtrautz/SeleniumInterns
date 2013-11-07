@@ -1,5 +1,7 @@
 package com.ontraport.app.tests;
 
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
@@ -19,6 +21,11 @@ public class DeleteRuleStepSequence extends AbstractTest
         sequence_ListAll.drawerActions.clickDeleteSequences();
         sequence_ListAll.dialogBox.clickOk();
         //verify
+        if(sequence_ListAll.verifyNoSequence()==null)
+        {
+            fail("found deleted sequence");
+        }
+        
         
     }
 }

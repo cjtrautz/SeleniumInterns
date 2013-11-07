@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
+import com.ontraport.app.tools.AbstractTest;
 
 
 public class Gmail extends AbstractPage
@@ -35,6 +36,14 @@ public class Gmail extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//td[contains(., 'DelayedSubject')]/ancestor::tr/td[@class='xW xY ']/span")
     private WebElement delayedEmailTime;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[.='DelayedSubject']")
+    private WebElement dateEmail;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(., 'DelayedSubject')]/ancestor::tr/td[@class='xW xY ']/span")
+    private WebElement dateEmailTime;
     
     @FindBy(how = How.XPATH,
             using = "//span[.='SelSubject']")
@@ -304,12 +313,80 @@ public class Gmail extends AbstractPage
                 String finale = stuff[0] + stuff[1];
                 System.out.println(finale);
                 yep = Integer.parseInt(finale);
-                if((time+15) > yep | yep > (time+50))
+                int hours1 = yep/100; 
+                System.out.println(hours1);
+                int yep2 = (hours1*60) + (yep- (hours1*100));
+                int hours2 = time/100; 
+                System.out.println(hours2);
+                int time2 = (hours2*60) + (time- (hours2*100));
+                System.out.println(yep2 + "and" + time2);
+                if((time2+15) > yep2 | yep2 > (time2+45))
                 {
                     return null;
                 }
                 wait.until(ExpectedConditions.visibilityOf(delayedEmail));
                 delayedEmail.click();
+            }
+            catch(NoSuchElementException e2){
+                return null;
+            }
+        }
+        return this;
+    }
+
+    public Gmail clickAndVerifyDateEmail ()
+    {
+        int yep = 0;
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(dateEmailTime));
+            String parse = dateEmailTime.getText();
+            String delim = "[ :]";
+            String[] stuff = parse.split(delim);
+            String finale = stuff[0] + stuff[1];
+            System.out.println(finale);
+            yep = Integer.parseInt(finale);
+            int hours1 = yep/100; 
+            System.out.println(hours1);
+            int yep2 = (hours1*60) + (yep- (hours1*100));
+            int time = Integer.parseInt(AbstractTest.getDateTime());
+            int hours2 = time/100; 
+            System.out.println(hours2);
+            int time2 = (hours2*60) + (time- (hours2*100));
+            System.out.println(yep2 + "and" + time2);
+            if((time2) > yep2 | yep2 > (time2+5))
+            {
+                return null;
+            }
+            wait.until(ExpectedConditions.visibilityOf(dateEmail));
+            dateEmail.click();
+        }
+        catch(NoSuchElementException e){
+
+            driver.navigate().refresh();
+            try
+            {
+                wait.until(ExpectedConditions.visibilityOf(dateEmailTime));
+                String parse = dateEmailTime.getText();
+                String delim = "[ :]";
+                String[] stuff = parse.split(delim);
+                String finale = stuff[0] + stuff[1];
+                System.out.println(finale);
+                yep = Integer.parseInt(finale);
+                int hours1 = yep/100; 
+                System.out.println(hours1);
+                int yep2 = (hours1*60) + (yep- (hours1*100));
+                int time = Integer.parseInt(AbstractTest.getDateTime());
+                int hours2 = time/100; 
+                System.out.println(hours2);
+                int time2 = (hours2*60) + (time- (hours2*100));
+                System.out.println(yep2 + "and" + time2);
+                if((time2) > yep2 | yep2 > (time2+5))
+                {
+                    return null;
+                }
+                wait.until(ExpectedConditions.visibilityOf(dateEmail));
+                dateEmail.click();
             }
             catch(NoSuchElementException e2){
                 return null;

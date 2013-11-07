@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 public abstract class AbstractTest
 {
     protected static String wordpressPassword = "";
+    protected static String dateTime = "";
     public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
@@ -85,5 +86,14 @@ public abstract class AbstractTest
     public static String getWPpass ()
     {
         return AbstractTest.wordpressPassword;
+    }
+    
+    public static void setDateTime (String time)
+    {
+        AbstractTest.dateTime = time;
+    }
+    public static String getDateTime ()
+    {
+        return AbstractTest.dateTime;
     }
 }

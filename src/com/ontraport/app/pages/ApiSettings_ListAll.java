@@ -52,18 +52,9 @@ public class ApiSettings_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             collection.findElement(By.xpath(".//a[normalize-space(text())='" + api + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -75,18 +66,9 @@ public class ApiSettings_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(8, TimeUnit.SECONDS);
             collection.findElement(By.xpath(".//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -96,9 +78,6 @@ public class ApiSettings_ListAll extends AbstractPage
     public ApiSettings_ListAll selectAllOnPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(0, TimeUnit.SECONDS);
         try
         {
             wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
@@ -107,9 +86,6 @@ public class ApiSettings_ListAll extends AbstractPage
         {
             wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyRow1));
         }
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         try
         {
         selectAll.click();
@@ -126,9 +102,6 @@ public class ApiSettings_ListAll extends AbstractPage
     public ApiSettings_Edit clickAPI (String api)
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(0, TimeUnit.SECONDS);
         try
         {
             wait.until(ExpectedConditions.visibilityOf(apiTitle));
@@ -143,9 +116,6 @@ public class ApiSettings_ListAll extends AbstractPage
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(selectAll)));
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + api + "']"))));
         }
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         //wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a")));
         try
         {
@@ -171,27 +141,15 @@ public class ApiSettings_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(25, TimeUnit.SECONDS);
             System.out.println(driver.getCurrentUrl());
             System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/api_settings/listAll");
             if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/api_settings/listAll"))
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null; 
             }
             collection.isDisplayed();
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         

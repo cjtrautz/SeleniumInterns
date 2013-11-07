@@ -1,5 +1,8 @@
 package com.ontraport.app.pages;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -14,9 +17,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
+import com.ontraport.app.tools.AbstractTest;
 
 public class Sequence_Edit extends AbstractPage
 {
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' step_details_time ')]//input")
+    private WebElement timeDropDownInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//input[contains(concat(' ', @class, ' '),' hasDatepicker ')]")
+    private WebElement dateInput;
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[@class='step_drop']")
@@ -972,6 +986,44 @@ public class Sequence_Edit extends AbstractPage
         {
             System.out.println(timeWaitTime.getAttribute("value"));
             if(!timeWaitTime.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit verifyTodaysDate ()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(dateInput.getAttribute("value"));
+            if(!dateInput.getAttribute("value").equals(name))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Sequence_Edit verifyFutureTime ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(timeDropDownInput.getAttribute("value"));
+            if(!timeDropDownInput.getAttribute("value").equals(AbstractTest.getDateTime()))
             {
                 return null;
             }

@@ -55,28 +55,16 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(apiOwner));
             String compare = apiOwner.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -88,24 +76,13 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(apiAddCheckedBox.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -117,24 +94,12 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(apiSearchCheckedBox.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -146,24 +111,12 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(apiDeleteCheckedBox.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -175,24 +128,12 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(apiCreateKeyCheckedBox.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -204,24 +145,12 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(apiAppID.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -233,24 +162,12 @@ public class ApiSettings_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(apiKey.isDisplayed()!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -260,6 +177,7 @@ public class ApiSettings_Edit extends AbstractPage
     public ApiSettings_ListAll clickBack ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }
@@ -267,6 +185,7 @@ public class ApiSettings_Edit extends AbstractPage
     public ApiSettings_ListAll clickCancel ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
         return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }

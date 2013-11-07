@@ -88,6 +88,7 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_Create checkAddContacts ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addContactsCheckbox));
         addContactsCheckbox.click();
         return this;
         
@@ -96,6 +97,7 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_Create checkSearchContacts ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(searchContactsCheckbox));
         searchContactsCheckbox.click();
         return this;
         
@@ -104,6 +106,7 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_Create checkDeleteContacts ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(deleteContactsCheckbox));
         deleteContactsCheckbox.click();
         return this;
         
@@ -112,6 +115,7 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_Create checkCreateKey ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createKeyCheckbox));
         createKeyCheckbox.click();
         return this;
         
@@ -120,6 +124,7 @@ public class ApiSettings_Create extends AbstractPage
     public ApiSettings_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }

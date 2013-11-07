@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.SmartFormFe_Create;
 import com.ontraport.app.pages.SmartFormFe_ListAll;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateOrderform extends AbstractTest
@@ -25,7 +26,7 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.clickAddProduct();
         smartFormFe_Create.dialogBox.clickProductName();
         smartFormFe_Create.dialogBox.selectCreateNew();
-        smartFormFe_Create.dialogBox.enterProductName("Dollar");
+        smartFormFe_Create.dialogBox.enterProductName("Dollar" + AbstractSuite.UNIQUE);
         smartFormFe_Create.dialogBox.clickGrid();
         smartFormFe_Create.dialogBox.enterPrice("1");
         smartFormFe_Create.dialogBox.clickDone();

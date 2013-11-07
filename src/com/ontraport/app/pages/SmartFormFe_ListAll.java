@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -97,6 +99,42 @@ public class SmartFormFe_ListAll extends AbstractPage
         }
         
         return this;
+    }
+    
+    public SmartFormFe_Edit clickSmartform (String sequence)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(0, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']"))));
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a")));
+        try
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+        }
+        catch(TimeoutException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+        }
+        try
+        {
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
+        }
+        return (SmartFormFe_Edit) new SmartFormFe_Edit().init();
     }
     
 }

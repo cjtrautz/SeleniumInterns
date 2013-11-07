@@ -18,12 +18,25 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-//    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
-//    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
-//    com.ontraport.app.tests.SendSingleEmailToContact.class,
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.CreateGateway.class, 
+    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.DeleteTag.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    com.ontraport.app.tests.DeleteGateway.class,
+    
+    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.EnsureDateSequence.class,
+    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
 //    com.ontraport.app.tests.GmailConfirmations.class,
 //    com.ontraport.app.tests.DeleteBroadCastEmail.class,
 //    com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
+//    com.ontraport.app.tests.DeleteEnsureDateSequence.class,
 
 //    com.ontraport.app.tests.SearchTest.class,
     

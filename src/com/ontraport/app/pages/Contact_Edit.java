@@ -239,7 +239,7 @@ public class Contact_Edit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(8, TimeUnit.SECONDS);
-            driver.findElement(By.xpath(".//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]"));
+            driver.findElement(By.xpath("//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
@@ -364,6 +364,20 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDown));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return this;
+    }
+
+    public Contact_Edit verifySequence ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.findElement(By.xpath("//label[normalize-space(text())='Sequences']/following-sibling::div//ul//li[contains(., '" + string + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
         return this;
     }
     
