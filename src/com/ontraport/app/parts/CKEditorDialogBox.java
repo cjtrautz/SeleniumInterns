@@ -27,6 +27,11 @@ public class CKEditorDialogBox extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[@title='Almost equal to']")
+    private WebElement almostEqual;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@name='info']//label[text()='URL']/following-sibling::div//input[@class='cke_dialog_ui_input_text']")
     private List<WebElement> urlInput;
     
@@ -198,6 +203,13 @@ public class CKEditorDialogBox extends AbstractPart
         driver.switchTo().frame(iframe);
         body.sendKeys(string);
         driver.switchTo().defaultContent();
+        return this;
+    }
+    public CKEditorDialogBox clickAlmostEqualTo ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(almostEqual));
+        almostEqual.click();
         return this;
     }
 

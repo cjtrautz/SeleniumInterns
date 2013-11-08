@@ -25,6 +25,16 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//a[@title='Image']")
     private WebElement ckImageButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//iframe[@class='cke_panel_frame']")
+    private WebElement iframePanel;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//ul[@class='cke_panel_list']/li/a/h2")
+    private WebElement firstStyle;
     @FindBy(
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")
@@ -122,8 +132,33 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__maximize ')]")
+    private WebElement maximize;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__specialchar ')]")
+    private WebElement specialCharacter;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_combo_button ')]")
+    private WebElement stylesDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//a[contains(concat(' ', @class, ' '),' cke_button__pastetext ')]")
     private WebElement pasteText;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__justifyblock ')]")
+    private WebElement justify;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__unlink ')]")
+    private WebElement unlink;
     
     @FindBy(
             how = How.XPATH,
@@ -164,6 +199,26 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//a[contains(concat(' ', @class, ' '),' cke_button__blockquote ')]")
     private WebElement quote;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__justifyright ')]")
+    private WebElement rightAlign;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__table ')]")
+    private WebElement table;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__horizontalrule ')]")
+    private WebElement horizontalLine;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @class, ' '),' cke_button__justifyleft ')]")
+    private WebElement leftAlign;
     
     @FindBy(
             how = How.XPATH,
@@ -507,7 +562,9 @@ public class Message_Edit extends AbstractPage
     }
     public Message_ListAll clickSave ()
     {
+        driver.switchTo().defaultContent();
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
     }
@@ -1276,7 +1333,7 @@ public class Message_Edit extends AbstractPage
         try
         {
             driver.switchTo().frame(iFrame2);
-            WebElement link = driver.findElement(By.xpath("//a[text()='" + string + "']"));
+            WebElement link = driver.findElement(By.xpath("//a[.='" + string + "']"));
             System.out.println(link.getAttribute("href"));
             if(!link.getAttribute("href").contains(string2))
             {
@@ -1290,6 +1347,40 @@ public class Message_Edit extends AbstractPage
         }
         driver.switchTo().defaultContent();
         return this;
+    }
+    
+    public Message_Edit verifyUnLinkText ( String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            driver.switchTo().frame(iFrame2);
+            WebElement link = driver.findElement(By.xpath("//a[text()='" + string + "']"));
+            System.out.println(link.getAttribute("href"));
+            if(link.getAttribute("href")==null)
+            {
+                driver.switchTo().defaultContent();
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return this;
+            }
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        driver.switchTo().defaultContent();
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        return null;
     }
 
     public Message_Edit clickSource ()
@@ -1662,5 +1753,260 @@ public class Message_Edit extends AbstractPage
         
         return this;
     }
+
+    public Message_Edit clickAlignRightEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rightAlign));
+        rightAlign.click();
+        return this;
+    }
+
+    public Message_Edit verifyRightAligned ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//p[normalize-space(.)='" + string + "' and @style='text-align: right;']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickAlignLeftEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(leftAlign));
+        leftAlign.click();
+        return this;
+    }
+
+    public Message_Edit verifyLeftAligned ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//p[normalize-space(.)='" + string + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here2");
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//p[@style]"));
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        
+        
+        return null;
+    }
+
+    public Message_Edit clickAlignJustifyEmail ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(justify));
+        justify.click();
+        return this;
+    }
+
+    public Message_Edit verifyJustifiedAligned ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//p[normalize-space(.)='" + string + "' and @style='text-align: justify;']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickUnLinkText ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(unlink));
+        unlink.click();
+        return this;
+    }
+
+    public Message_Edit clickTable ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(table));
+        table.click();
+        return this;
+    }
+
+    public Message_Edit verifyTable ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//table/tbody"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickHorizontalLine ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(horizontalLine));
+        horizontalLine.click();
+        return this;
+    }
+
+    public Message_Edit verifyLine ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//hr"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickInsertSpecialCharacter ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(specialCharacter));
+        specialCharacter.click();
+        return this;
+    }
+
+    public Message_Edit verifySpecialCharacterAlmostEqual ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//p[contains(., '≈')]"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickStylesDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stylesDropDown));
+        stylesDropDown.click();
+        return this;
+    }
+
+    public Message_Edit clickFirstStyle (String window)
+    {
+        AbstractPart.waitForAjax(driver, 20);  
+        driver.switchTo().frame(iframePanel);
+        wait.until(ExpectedConditions.visibilityOf(firstStyle));
+        firstStyle.click();
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.TAB);
+        driver.switchTo().window(window);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit verifyStyle ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            System.out.println("here");
+            driver.findElement(By.xpath("//body[normalize-space(.)='" + string + "']/h2[@style]"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit clickMaximize ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(maximize));
+        maximize.click();
+        return this;
+    }
+
+    public Object verifyMaximize ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            driver.findElement(By.xpath("//body[contains(concat(' ', normalize-space(@style), ' '),' hidden; z-index: 9995; ')]"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        
+        return this;
+    }
+
 
 }

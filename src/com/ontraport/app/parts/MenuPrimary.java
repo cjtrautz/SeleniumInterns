@@ -242,8 +242,8 @@ public class MenuPrimary extends AbstractPart
         Actions action = new Actions(driver);
         action.moveToElement(uiPurchaseListAll)
             .perform();
-        wait(15).until(ExpectedConditions.visibilityOf(uiProductListAll));
-        uiProductListAll.click();
+        wait(15).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
+        uiPurchaseListAll.click();
         return (SalesReport_ListAll) new SalesReport_ListAll().init();
     }
     public SalesReport_Settings clickSalesReportSettings ()

@@ -60,75 +60,103 @@ public class SubmitOrderForm extends AbstractTest
         {
             fail("couldn't find tag");
         }
-//        if(smartFormFe_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
-//        {
-//            fail("couldn't find sequence");
-//        }
-//        if(smartFormFe_Edit.verifyRule(value.get("Sequences", "step_rule_sequence"))==null)
-//        {
-//            fail("couldn't find sequence");
-//        }
-//        smartFormFe_Edit.clickRule();
-//        if(smartFormFe_Edit.verifyIfDropDown(value.get("Contacts", "tag"))==null)
-//        {
-//            fail("couldn't find sequence");
-//        }
-//        if(smartFormFe_Edit.verifyThenInput("First Name", 1)==null)
-//        {
-//            fail("couldn't find sequence");
-//        }
-//        if(smartFormFe_Edit.verifyThenInput(value.get("SmartForms", "change"), 2)==null)
-//        {
-//            fail("couldn't find sequence");
-//        }
-//        driver.get(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE + ".respond.ontraport.net");
-//        
-//        Order_Form order_Form = (Order_Form) new Order_Form().init();
-//        order_Form.enterFirstName(value.get("SmartForms", "order_first_name"));
-//        order_Form.enterBillingAddress(value.get("SmartForms", "order_billing_address"));
-//        order_Form.enterBillingCity(value.get("SmartForms", "order_billing_city"));
-//        order_Form.enterBillingZip(value.get("SmartForms", "order_billing_zip"));
-//        order_Form.clickState();
-//        order_Form.enterState("C");
-//        order_Form.clickCountry();
-//        order_Form.enterCountry("U");
-//        order_Form.enterCardNumber(value.get("SmartForms", "order_billing_card"));
-//        order_Form.enterCVCNumber(value.get("SmartForms", "order_billing_cvc"));
-//        order_Form.clickMonth();
-//        order_Form.enterMonth("1");
-//        order_Form.clickYear();
-//        order_Form.enterYear("2");
-//        order_Form.enterYear("2");
-//        order_Form.clickSubmit();
-//        if(order_Form.verifyPage()==null)
-//        {
-//            fail("did not submit");
-//        }
-//        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
-//        contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-//        contactListAll.formSearch.find(value.get("SmartForms", "change"));
-//        if(contactListAll.verifyContact(value.get("SmartForms", "change"))==null)
-//        {
-//            fail("Contact not added to records");
-//        }
-//        Contact_Edit contact_Edit = contactListAll.clickContact(value.get("SmartForms", "change"));
-//        if(contact_Edit.verifyFirstName(value.get("SmartForms", "change"))==null)
-//        {
-//            fail("couldnt find first name");
-//        }
-//        if(contact_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
-//        {
-//            fail("couldnt find sequence");
-//        }
-//        if(contact_Edit.verifyTag(value.get("Contacts", "tag"))==null)
-//        {
-//            fail("couldnt find tag");
-//        }
-//        SalesReport_ListAll salesReport_ListAll = contact_Edit.menuPrimary.clickSalesReportView();
-//        if(salesReport_ListAll.verifyPurchase(value.get("SmartForms", "product") + AbstractSuite.UNIQUE)==null)
-//        {
-//            fail("couldnt find tag");
-//        }
+        if(smartFormFe_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
+        {
+            fail("couldn't find sequence");
+        }
+        if(smartFormFe_Edit.verifyRule(value.get("SmartForms", "rule_name"))==null)
+        {
+            fail("couldn't find rule");
+        }
+        smartFormFe_Edit.clickRule(value.get("SmartForms", "rule_name"));
+        if(smartFormFe_Edit.verifyIfDropDown(value.get("Contacts", "tag"))==null)
+        {
+            fail("couldn't find if");
+        }
+        if(smartFormFe_Edit.verifyThenInput("First Name", 1)==null)
+        {
+            fail("couldn't find then");
+        }
+        if(smartFormFe_Edit.verifyThenInput(value.get("SmartForms", "change"), 2)==null)
+        {
+            fail("couldn't find then 2");
+        }
+        driver.get(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE + ".respond.ontraport.net");
+        
+        Order_Form order_Form = (Order_Form) new Order_Form().init();
+        order_Form.enterFirstName(value.get("SmartForms", "order_first_name"));
+        order_Form.enterEmail(value.get("SmartForms", "order_email"));
+        order_Form.enterBillingAddress(value.get("SmartForms", "order_billing_address"));
+        order_Form.enterBillingCity(value.get("SmartForms", "order_billing_city"));
+        order_Form.enterBillingZip(value.get("SmartForms", "order_billing_zip"));
+        order_Form.clickState();
+        order_Form.enterState("C");
+        order_Form.clickCountry();
+        order_Form.enterCountry("U");
+        order_Form.enterCardNumber(value.get("SmartForms", "order_billing_card"));
+        order_Form.enterCVCNumber(value.get("SmartForms", "order_billing_cvc"));
+        order_Form.clickMonth();
+        order_Form.enterMonth("1");
+        order_Form.clickYear();
+        order_Form.enterYear("2");
+        order_Form.enterYear("2");
+        order_Form.clickSubmit();
+        if(order_Form.verifyPage()==null)
+        {
+            fail("did not submit");
+        }
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
+        contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+        contactListAll.formSearch.find(value.get("SmartForms", "change"));
+        if(contactListAll.verifyContact(value.get("SmartForms", "change"))==null)
+        {
+            fail("Contact not added to records");
+        }
+        Contact_Edit contact_Edit = contactListAll.clickContact(value.get("SmartForms", "change"));
+        if(contact_Edit.verifyFirstName(value.get("SmartForms", "change"))==null)
+        {
+            fail("couldnt find first name");
+        }
+        if(contact_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
+        {
+            fail("couldnt find sequence");
+        }
+        if(contact_Edit.verifyTag(value.get("Contacts", "tag"))==null)
+        {
+            fail("couldnt find tag");
+        }
+        SalesReport_ListAll salesReport_ListAll = contact_Edit.menuPrimary.clickSalesReportView();
+        if(salesReport_ListAll.verifyPurchase(value.get("SmartForms", "product") + AbstractSuite.UNIQUE)==null)
+        {
+            fail("couldnt find tag");
+        }
+        contactListAll = salesReport_ListAll.menuPrimary.clickContactListAll();
+        contactListAll.formSearch.clear();
+        contactListAll.formSearch.find(value.get("SmartForms", "change"));
+        contactListAll.selectAllOnPage();
+        contactListAll.drawerActions.clickDeleteContacts();
+        contactListAll.dialogBox.clickOk();
+        
+        //verify its gone
+        if(contactListAll.verifyNoContact()==null)
+        {
+            fail("found deleted contatct");
+        }
+
+        contactListAll.formSearch.clear();
+        contactListAll.formSearch.clear();
+        contactListAll.formSearch.find(value.get("SmartForms", "order_first_name"));
+        contactListAll.selectAllOnPage();
+        contactListAll.drawerActions.clickDeleteContacts();
+        contactListAll.dialogBox.clickOk();
+        
+        //verify its gone
+        if(contactListAll.verifyNoContact()==null)
+        {
+            fail("found deleted contatct");
+        }
+
+        contactListAll.formSearch.clear();
         
     }
 }

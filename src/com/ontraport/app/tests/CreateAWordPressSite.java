@@ -33,7 +33,7 @@ public class CreateAWordPressSite extends AbstractTest
         wordPress_ListAll.formSearch.find("seleniumwordpress2");
         
         //verify product exists
-        if(wordPress_ListAll.verifyLandingPage("SelWordPressSite"  + AbstractSuite.UNIQUE)==null)
+        if(wordPress_ListAll.verifyLandingPage("seleniumwordpress2"  + AbstractSuite.UNIQUE)==null)
         {
             fail("couldnt find wp");
         }

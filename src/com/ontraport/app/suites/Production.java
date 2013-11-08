@@ -44,6 +44,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
     com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.SubmitOrderForm.class,
     com.ontraport.app.tests.CreateRule_PingAUrl.class,
     com.ontraport.app.tests.CreateUserFieldEditor.class,
     com.ontraport.app.tests.AddAPackageWithEverything.class,
