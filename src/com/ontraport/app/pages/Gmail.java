@@ -38,11 +38,11 @@ public class Gmail extends AbstractPage
     private WebElement delayedEmailTime;
     
     @FindBy(how = How.XPATH,
-            using = "//span[.='DelayedSubject']")
+            using = "//span[.='DateSubject']")
     private WebElement dateEmail;
     
     @FindBy(how = How.XPATH,
-            using = "//td[contains(., 'DelayedSubject')]/ancestor::tr/td[@class='xW xY ']/span")
+            using = "//td[contains(., 'DateSubject')]/ancestor::tr/td[@class='xW xY ']/span")
     private WebElement dateEmailTime;
     
     @FindBy(how = How.XPATH,

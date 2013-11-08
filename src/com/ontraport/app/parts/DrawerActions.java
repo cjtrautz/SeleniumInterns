@@ -164,7 +164,7 @@ public class DrawerActions extends AbstractPart
         private WebElement submitButton;
     
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]/button")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]//button")
         private WebElement reassignDropDown;
     
     @FindBy(how = How.XPATH,

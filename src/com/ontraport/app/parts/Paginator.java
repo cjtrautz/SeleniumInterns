@@ -124,7 +124,7 @@ public class Paginator extends AbstractPart
     public String getPages ()
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(pageCount));
+        wait(20).until(ExpectedConditions.visibilityOf(pageCount));
         String text = pageCount.getText();
         return text;
     }

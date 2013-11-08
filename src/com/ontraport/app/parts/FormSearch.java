@@ -3,6 +3,7 @@ package com.ontraport.app.parts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,6 +40,12 @@ public class FormSearch extends AbstractPart
         }
         catch(StaleElementReferenceException e)
         {
+            wait(15).until(ExpectedConditions.visibilityOf(collection));
+        }
+        catch(NoSuchElementException e2)
+        {
+            driver.navigate().refresh();
+            waitForAjax(driver, 30);
             wait(15).until(ExpectedConditions.visibilityOf(collection));
         }
         uiSearch.click();

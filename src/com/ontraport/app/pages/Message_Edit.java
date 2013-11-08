@@ -1932,7 +1932,7 @@ public class Message_Edit extends AbstractPage
         {
             driver.switchTo().frame(iFrame);
             System.out.println("here");
-            driver.findElement(By.xpath("//p[contains(., '≈')]"));
+            driver.findElement(By.xpath("//body[contains(., '≈')]"));
             driver.switchTo().defaultContent();
         }
         catch(NoSuchElementException e){
