@@ -48,7 +48,7 @@ public class WordPress_ListAll extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"));
+            uiCollectionBody.findElement(By.xpath(".//a[contains(normalize-space(text()), '" + string + "')]"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

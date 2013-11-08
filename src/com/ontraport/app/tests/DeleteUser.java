@@ -19,6 +19,8 @@ public class DeleteUser extends AbstractTest
         user_ListAll.formSearch.find("FirstSelenium");
         user_ListAll.selectAllOnPage();
         user_ListAll.drawerActions.clickDeleteUser();
+        user_ListAll.drawerActions.clickReassignContacts();
+        user_ListAll.drawerActions.selectDropDown(1);
         user_ListAll.drawerActions.clickDelete();
         
         //verify

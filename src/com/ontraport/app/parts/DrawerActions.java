@@ -164,6 +164,10 @@ public class DrawerActions extends AbstractPart
         private WebElement submitButton;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]/button")
+        private WebElement reassignDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//label[text()='Run this sequence only on weekends']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
     private WebElement onWeekendsEmptyCheckbox;
     
@@ -638,6 +642,13 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         uiDeletePackages.click();
+        return this;
+    }
+    public DrawerActions clickReassignContacts ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(reassignDropDown));
+        reassignDropDown.click();
         return this;
     }
 }

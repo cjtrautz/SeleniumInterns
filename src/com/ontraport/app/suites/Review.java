@@ -17,7 +17,13 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{
+{   
+    com.ontraport.app.tests.CreateRole.class,
+    //relies on role
+    com.ontraport.app.tests.CreateUser.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    com.ontraport.app.tests.DeleteRole.class,
+    
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
     com.ontraport.app.tests.EditEmailMessageMaximize.class,
     //com.ontraport.app.tests.EditEmailMessageStyles.class,
@@ -71,7 +77,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com/");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

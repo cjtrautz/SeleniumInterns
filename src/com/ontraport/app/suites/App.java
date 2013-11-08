@@ -26,6 +26,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.SendBroadcastEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
     com.ontraport.app.tests.SendSingleEmailToContact.class,
+    com.ontraport.app.tests.EnsureDateSequence.class,
     
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
     com.ontraport.app.tests.EditEmailMessagePreview.class,
@@ -547,6 +548,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteFacebook.class,
     
     com.ontraport.app.tests.GmailConfirmations.class,
+    com.ontraport.app.tests.DeleteEnsureDateSequence.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     com.ontraport.app.tests.DeleteBroadCastEmail.class,
     com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,

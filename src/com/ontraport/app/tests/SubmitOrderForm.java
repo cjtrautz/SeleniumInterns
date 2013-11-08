@@ -143,20 +143,6 @@ public class SubmitOrderForm extends AbstractTest
             fail("found deleted contatct");
         }
 
-        contactListAll.formSearch.clear();
-        contactListAll.formSearch.clear();
-        contactListAll.formSearch.find(value.get("SmartForms", "order_first_name"));
-        contactListAll.selectAllOnPage();
-        contactListAll.drawerActions.clickDeleteContacts();
-        contactListAll.dialogBox.clickOk();
-        
-        //verify its gone
-        if(contactListAll.verifyNoContact()==null)
-        {
-            fail("found deleted contatct");
-        }
-
-        contactListAll.formSearch.clear();
         
     }
 }
