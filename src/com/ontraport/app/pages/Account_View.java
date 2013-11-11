@@ -10,10 +10,6 @@ import com.ontraport.app.tools.AbstractPart;
 
 public class Account_View extends AbstractPage
 {
-    @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/sequence/listAll']")
-    private WebElement uiSequenceListAll;
-
     @FindBy(
             how = How.XPATH,
             using = "//div[@class='ussr-settings']//div[.='SOFTWARE AFFILIATE LINKS']/span")
@@ -140,7 +136,6 @@ public class Account_View extends AbstractPage
     public Facebook_ListAll clickFacebook ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(facebook)));
         facebook.click();
@@ -150,7 +145,6 @@ public class Account_View extends AbstractPage
     public Fulfillment_ListAll clickFulfillmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentManager)));
         fulfillmentManager.click();
@@ -160,7 +154,6 @@ public class Account_View extends AbstractPage
     public Account_View clickAttachmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(attachmentManager)));
         attachmentManager.click();
@@ -171,7 +164,6 @@ public class Account_View extends AbstractPage
     public Sender_View clickSendFrom ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(sendFromAddress)));
         sendFromAddress.click();
@@ -181,7 +173,6 @@ public class Account_View extends AbstractPage
     public MessageTemplate_ListAll clickDoubleOptInOrInvoiceManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doubleOptInInvoice)));
         doubleOptInInvoice.click();
@@ -191,7 +182,6 @@ public class Account_View extends AbstractPage
     public UltraCart_View clickUCConfig ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(ultraCart)));
         ultraCart.click();
@@ -201,7 +191,6 @@ public class Account_View extends AbstractPage
     public Role_ListAll clickTeamRolesAndPermissionManagement ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(roles)));
         roles.click();
@@ -211,7 +200,6 @@ public class Account_View extends AbstractPage
     public Field_Editor clickUserFieldEditor ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
         userFieldEditor.click();
@@ -221,7 +209,6 @@ public class Account_View extends AbstractPage
     public Package_ListAll clickPackageManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiSequenceListAll)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
         packageManager.click();

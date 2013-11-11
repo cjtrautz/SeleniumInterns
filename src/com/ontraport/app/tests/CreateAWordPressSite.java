@@ -38,7 +38,7 @@ public class CreateAWordPressSite extends AbstractTest
             fail("couldnt find wp");
         }
 
-        WordPress_Edit wordPress_Edit = wordPress_ListAll.clickPage("SelWordPressSite"  + AbstractSuite.UNIQUE);
+        WordPress_Edit wordPress_Edit = wordPress_ListAll.clickPage("seleniumwordpress2"  + AbstractSuite.UNIQUE);
         //not sure how to wait to see if website has been hosted yet efficiently
         if(wordPress_Edit.verifyWordPressName("SelWordPressSite"  + AbstractSuite.UNIQUE)==null)
         {

@@ -73,8 +73,8 @@ public class WordPress_ListAll extends AbstractPage
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + string + "']")));
-        uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[contains(normalize-space(text()), '" + string + "')]")));
+        uiCollectionBody.findElement(By.xpath(".//a[contains(normalize-space(text()), '" + string + "')]")).click();
         return (WordPress_Edit) new WordPress_Edit().init();
     }
 
