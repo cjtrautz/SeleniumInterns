@@ -114,9 +114,9 @@ public class Field_Editor extends AbstractPage
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
         WebElement titleToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + oldTitle + "']"));
         titleToEdit.click();
-        input.sendKeys(newTitle+Keys.ENTER + Keys.TAB);
+        input.sendKeys(newTitle+Keys.ENTER);
         Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.ENTER).sendKeys(Keys.TAB).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();
         actions.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
@@ -129,9 +129,9 @@ public class Field_Editor extends AbstractPage
         WebElement descriptionToEdit = driver.findElement(By.xpath("//span[normalize-space(text())='" + title + "']/ancestor::div/following-sibling::div[text()='" + oldDescription + "']"));
         descriptionToEdit.click();
         AbstractPart.waitForAjax(driver, 20);
-        input.sendKeys(newDescription+Keys.ENTER + Keys.TAB);
+        input.sendKeys(newDescription+Keys.ENTER);
         Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.ENTER).sendKeys(Keys.TAB).build().perform();
+        actions.sendKeys(Keys.ENTER).build().perform();
         actions.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
