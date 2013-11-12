@@ -7,6 +7,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
@@ -127,11 +129,16 @@ public class WordPress_Edit extends AbstractPage
         driver.get(string + ".affcntr.com");
         try
         {
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']"))));
          driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']")).click();
          System.out.print("ya");
+         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[@for='user_login']/input"))));
          driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys("nick@ontraport.com");
+         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[@for='user_pass']/input"))));
          driver.findElement(By.xpath("//label[@for='user_pass']/input")).sendKeys(password);
+         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//input[@id='wp-submit']"))));
          driver.findElement(By.xpath("//input[@id='wp-submit']")).click();
+         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[@id='menu-plugins']/a"))));
          driver.findElement(By.xpath("//li[@id='menu-plugins']/a")).click();
          if(!driver.findElement(By.xpath("//strong[text()='PilotPress']")).isDisplayed())
          {

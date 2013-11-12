@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -21,6 +22,56 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Message_Edit extends AbstractPage
 {
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='layer_box']//div[@class='side_prop_label']")
+    private WebElement newItem;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//td[@id='property_cell']//input")
+    private List<WebElement> shapeInputs;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='layer_box']//div[@class='item_label']")
+    private WebElement firstItem;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='layer_box']//div[@class='item_label']//input")
+    private List<WebElement> layersInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[td[img[@src='/js/ontraport/boxes/images/create_text.jpg']]]/following-sibling::tr//img[@src='/js/ontraport/boxes/images/trash.png']")
+    private WebElement deleteTextLayer;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[td[img[@src='/js/ontraport/boxes/images/create_text.jpg']]]/following-sibling::tr//img[@src='/js/ontraport/boxes/images/copy.png']")
+    private WebElement copyTextLayer;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[td[img[@src='/js/ontraport/boxes/images/create_text.jpg']]]/following-sibling::tr//img[@src='/js/ontraport/boxes/images/visible.png']")
+    private WebElement visible;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[td[img[@src='/js/ontraport/boxes/images/create_text.jpg']]]/following-sibling::tr//img[@src='/js/ontraport/boxes/images/invisible.png']")
+    private WebElement invisible;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tr[td[img[@src='/js/ontraport/boxes/images/create_text.jpg']]]//img[@src='/js/ontraport/boxes/images/layer_move.png']")
+    private WebElement moveLayer;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@id='Menu_Bar']//td[normalize-space(text())='Back']")
+    private WebElement backView;
+    
     @FindBy(
             how = How.XPATH,
             using = "//a[@title='Image']")
@@ -44,6 +95,13 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-event ')]//button")
     private WebElement eventDropDown;
+    
+    
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-location-editor-plaintext-editor ')]//textarea")
+    private WebElement plainTextArea;
     
     @FindBy(
             how = How.XPATH,
@@ -400,6 +458,10 @@ public class Message_Edit extends AbstractPage
     private WebElement textArea;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@style), ' '),' font-family: Verdana,Geneva,sans-serif; ')]")
+    private List<WebElement> textAreaPostcard;
+    
+    @FindBy(how = How.XPATH,
             using = "//textarea")
     private WebElement textArea2;
     
@@ -490,6 +552,24 @@ public class Message_Edit extends AbstractPage
         {
             driver.switchTo().frame(iFrame);
             driver.findElement(By.xpath("/html//body[normalize-space(.)='" + stuff + "']"));
+            driver.switchTo().defaultContent();
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        
+        
+        return this;
+    }
+    
+    public Message_Edit verifyBodyContains (String stuff)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.switchTo().frame(iFrame);
+            driver.findElement(By.xpath("/html//body[contains(normalize-space(.), '" + stuff + "')]"));
             driver.switchTo().defaultContent();
         }
         catch(NoSuchElementException e){
@@ -1992,7 +2072,7 @@ public class Message_Edit extends AbstractPage
         return this;
     }
 
-    public Object verifyMaximize ()
+    public Message_Edit verifyMaximize ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -2005,6 +2085,308 @@ public class Message_Edit extends AbstractPage
         }
         
         
+        return this;
+    }
+
+    public Message_Edit verifyPlainTextBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(plainTextArea.getAttribute("value"));
+            if(!plainTextArea.getAttribute("value").contains(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+    
+    public Message_Edit clickNewItem ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newItem));  
+        newItem.click();
+        return this;
+    }
+
+    public Message_Edit doubleClickInsertText (int i)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textAreaPostcard.get(i-1)));  
+        Actions action = new Actions(driver);
+        action.doubleClick(textAreaPostcard.get(i-1)).build().perform();
+        return this;
+        
+    }
+
+    public Message_Edit enterText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame2));  
+        driver.switchTo().frame(iFrame2);
+        Actions action = new Actions(driver);
+        action.sendKeys(string).build().perform();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Message_Edit clickBackView ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(backView));  
+        backView.click();
+        return this;
+    }
+
+    public Message_Edit verifyBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//center[@class='box_canvas']//div[contains(normalize-space(text()),'Reserved for Address')]")).isDisplayed())
+            {
+                System.out.println("here");
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit verifyPostcardText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!driver.findElement(By.xpath("//center[@class='box_canvas']//div[normalize-space(text())='" + string + "']")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        
+        return this;
+    }
+    
+    public Message_Edit verifyNoPostcardText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            System.out.println("here");
+            if(!driver.findElement(By.xpath("//center[@class='box_canvas']//div[normalize-space(text())='" + string + "']")).isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return this;
+            }
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        return null;
+    }
+
+    public Message_Edit clickDeleteTextLayer ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(deleteTextLayer));  
+        deleteTextLayer.click();
+        Alert alerts = driver.switchTo().alert();
+        alerts.accept();
+        return this;
+    }
+
+    public Message_Edit clickCopyText ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(copyTextLayer));  
+        copyTextLayer.click();
+        return this;
+    }
+
+    public Message_Edit clickHideTextLayer ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(visible));  
+        visible.click();
+        return this;
+    }
+
+    public Message_Edit clickShowTextLayer ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(invisible));  
+        invisible.click();
+        return this;
+    }
+
+    public Message_Edit clickFirstLayer ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstItem));  
+        firstItem.click();
+        return this;
+    }
+
+    public Message_Edit clickMoveTextLayer ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(moveLayer));  
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(moveLayer, 0, i).build().perform();
+        return this;
+    }
+
+    public Message_Edit verifyOrderLayer ( int i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(layersInput.get(i-1).getAttribute("value"));
+            if(!layersInput.get(i-1).getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        
+        return this;
+    }
+
+    public Message_Edit enterLeft ( String i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(shapeInputs.get(0)));  
+        shapeInputs.get(0).click();
+        shapeInputs.get(0).clear();
+        shapeInputs.get(0).sendKeys(i + Keys.RETURN);
+        return this;
+    }
+
+    public Object verifyLeft ( int i )
+    {
+    AbstractPart.waitForAjax(driver, 20);
+    try
+    {
+        System.out.println("here");
+        if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' left: " + i + "px; ')]")).isDisplayed())
+        {
+            return null;
+        }
+    }
+    catch(NoSuchElementException e){
+        return null;
+    }
+    
+    
+    return this;
+    }
+
+    public Message_Edit enterTop ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(shapeInputs.get(1)));  
+        shapeInputs.get(1).click();
+        shapeInputs.get(1).clear();
+        shapeInputs.get(1).sendKeys(string + Keys.RETURN);
+        return this;
+    }
+
+    public Message_Edit verifyTop ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' top: " + i + "px; ')]")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit enterWidth ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(shapeInputs.get(2)));  
+        shapeInputs.get(2).click();
+        shapeInputs.get(2).clear();
+        shapeInputs.get(2).sendKeys(string + Keys.RETURN);
+        return this;
+    }
+
+    public Message_Edit verifyWidth ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' width: " + i + "px; ')]")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit enterHeight ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(shapeInputs.get(3)));  
+        shapeInputs.get(3).click();
+        shapeInputs.get(3).clear();
+        shapeInputs.get(3).sendKeys(string + Keys.RETURN);
+        return this;
+    }
+
+    public Message_Edit verifyHeight ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!driver.findElement(By.xpath("//span[contains(concat(' ', @style, ' '),' height: " + i + "px; ')]")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
         return this;
     }
 

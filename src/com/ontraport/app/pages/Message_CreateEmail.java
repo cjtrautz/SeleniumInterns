@@ -30,6 +30,11 @@ public class Message_CreateEmail extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' plaintext-copy-from ')]")
+    private WebElement copyFromHTML;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-send-name ')]//input")
     private WebElement sendOutNameInput;
     
@@ -52,6 +57,11 @@ public class Message_CreateEmail extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-editor-merge ')]//button")
     private WebElement toggleMergeFieldPane;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-editor-merge ')]//input")
+    private WebElement mergeFieldPaneInput;
     
     @FindBy(
             how = How.XPATH,
@@ -167,6 +177,22 @@ public class Message_CreateEmail extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(textareaSource));
         textareaSource.sendKeys(string);
+        return this;
+    }
+
+    public Message_CreateEmail enterMergeFieldPane ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeFieldPaneInput));
+        mergeFieldPaneInput.sendKeys(string);
+        return this;
+    }
+
+    public Message_CreateEmail clickCopyFromHTML ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(copyFromHTML));
+        copyFromHTML.click();
         return this;
     }
     

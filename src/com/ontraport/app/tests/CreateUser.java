@@ -22,9 +22,9 @@ public class CreateUser extends AbstractTest
         User_Create user_Create = user_ListAll.dialogBox.clickAgree();
         user_Create.enterFirstName("FirstSelenium");
         user_Create.enterLastName("LastSelenium");
-        user_Create.enterEmail("Selenium@email.com");
-        user_Create.enterEmailFromName("Selenium@email.com");
-        user_Create.enterReplyToName("Selenium@email.com");
+        user_Create.enterEmail("Selenium123@email.com");
+        user_Create.enterEmailFromName("Selenium123@email.com");
+        user_Create.enterReplyToName("Selenium123@email.com");
         user_Create.clickRoleDropDown();
         user_Create.selectDropDown("SeleniumRole");
         user_Create.clickLanguageDropDown();

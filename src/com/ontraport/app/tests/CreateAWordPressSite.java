@@ -54,7 +54,7 @@ public class CreateAWordPressSite extends AbstractTest
         }
         if(wordPress_Edit.verifyHosted(value.get("WordPress", "wordpress_domain") + AbstractSuite.UNIQUE, password)==null)
         {
-            fail("couldnt find wp membership level");
+            fail("couldnt find wp membership hosted");
         }
 
         

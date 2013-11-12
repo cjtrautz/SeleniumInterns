@@ -3,6 +3,7 @@ package com.ontraport.app.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.openqa.selenium.Alert;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Message_CreateEmail;
@@ -30,6 +31,9 @@ public class CreateMessage extends AbstractTest
         message_CreateEmail.enterMessageBody("SelBody");
         message_CreateEmail.openMergeFieldPane();
         message_CreateEmail.selectMergeField("First Name");
+        message_CreateEmail.clickCopyFromHTML();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
         message_ListAll = message_CreateEmail.clickSave();
         message_ListAll.formSearch.find("SelEmailMessage");
         
@@ -41,6 +45,10 @@ public class CreateMessage extends AbstractTest
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelEmailMessage");
         if(message_Edit.verifyBody("SelBody[First Name]")==null)
+        {
+            fail("couldn't find message body");
+        }
+        if(message_Edit.verifyPlainTextBody("SelBody[First Name]")==null)
         {
             fail("couldn't find message body");
         }

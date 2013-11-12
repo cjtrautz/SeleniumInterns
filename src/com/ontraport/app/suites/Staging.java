@@ -28,6 +28,11 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EnsureDateSequence.class,
     
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    com.ontraport.app.tests.EditEmailMessageMaximize.class,
+    com.ontraport.app.tests.EditEmailMessageLinkAndUnlink.class,
+    com.ontraport.app.tests.EditEmailMessageAlignmentRight.class,
+    com.ontraport.app.tests.EditEmailMessageAlignmentJustify.class,
+    com.ontraport.app.tests.EditEmailMessageAlignmentLeft.class,
     com.ontraport.app.tests.EditEmailMessagePreview.class,
     com.ontraport.app.tests.EditEmailMessageBold.class,
     com.ontraport.app.tests.EditEmailMessageItalicize.class,
@@ -38,6 +43,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
     com.ontraport.app.tests.EditEmailMessagePaste.class,
     com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
+    com.ontraport.app.tests.EditEmailMessageInsertTable.class,
+    com.ontraport.app.tests.EditEmailMessageInsertHorizontalLine.class,
+    com.ontraport.app.tests.EditEmailMessageInsertSpecialCharacter.class,
     com.ontraport.app.tests.DeleteEditableEmailMessage.class,
     
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,

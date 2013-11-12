@@ -17,61 +17,39 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{   
+{  
+    com.ontraport.app.tests.CreatePostcardMessage.class,
+    com.ontraport.app.tests.EditPostcardShapeHeight.class,
+    com.ontraport.app.tests.EditPostcardShapeWidth.class,
+    com.ontraport.app.tests.EditPostcardShapeLeft.class,
+    com.ontraport.app.tests.EditPostcardShapeTop.class,
+    com.ontraport.app.tests.EditPostcardFrontAndBackWithText.class,
+    com.ontraport.app.tests.EditPostcardCopyLayer.class,
+    com.ontraport.app.tests.EditPostcardHiddenLayer.class,
+    com.ontraport.app.tests.EditPostcardMoveLayer.class,
+    com.ontraport.app.tests.EditPostcardDeleteLayer.class,
+    com.ontraport.app.tests.DeletePostcardMessage.class,
+    
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.AddNewSection.class,
+    com.ontraport.app.tests.CreatePriceField.class,
+    com.ontraport.app.tests.CreateEmailMessageCustomFields.class,
+    com.ontraport.app.tests.DeleteEmailCustomMessage.class,
+    com.ontraport.app.tests.DeletePriceField.class,
+    com.ontraport.app.tests.DeleteSection.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.CreateEmailMessageLPFields.class,
+    com.ontraport.app.tests.DeleteEmailLPMessage.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
     com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
+    com.ontraport.app.tests.DeleteEmailWPMessage.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
-    
-    com.ontraport.app.tests.CreateRole.class,
-    //relies on role
-    com.ontraport.app.tests.CreateUser.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    com.ontraport.app.tests.DeleteRole.class,
-    
-    com.ontraport.app.tests.CreateEditableEmailMessage.class,
-    com.ontraport.app.tests.EditEmailMessageMaximize.class,
-    //com.ontraport.app.tests.EditEmailMessageStyles.class,
-    com.ontraport.app.tests.EditEmailMessageLinkAndUnlink.class,
-    com.ontraport.app.tests.EditEmailMessageAlignmentRight.class,
-    com.ontraport.app.tests.EditEmailMessageAlignmentJustify.class,
-    com.ontraport.app.tests.EditEmailMessageAlignmentLeft.class,
-    com.ontraport.app.tests.EditEmailMessagePreview.class,
-    com.ontraport.app.tests.EditEmailMessageBold.class,
-    com.ontraport.app.tests.EditEmailMessageItalicize.class,
-    com.ontraport.app.tests.EditEmailMessageStrikeThrough.class,
-    com.ontraport.app.tests.EditEmailMessageOrderedList.class,
-    com.ontraport.app.tests.EditEmailMessageUnOrderedList.class,
-    com.ontraport.app.tests.EditEmailMessageQuote.class,
-    com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
-    com.ontraport.app.tests.EditEmailMessagePaste.class,
-    com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
-    com.ontraport.app.tests.EditEmailMessageInsertTable.class,
-    com.ontraport.app.tests.EditEmailMessageInsertHorizontalLine.class,
-    com.ontraport.app.tests.EditEmailMessageInsertSpecialCharacter.class,
-    com.ontraport.app.tests.DeleteEditableEmailMessage.class,
-    
-    com.ontraport.app.tests.CreateRuleStepSequence.class,
-    com.ontraport.app.tests.CreateGateway.class, 
-    com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    com.ontraport.app.tests.CreateATag.class,
-    com.ontraport.app.tests.SubmitOrderForm.class,
-    com.ontraport.app.tests.DeleteTag.class,
-    com.ontraport.app.tests.DeleteRuleStepSequence.class,
-    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
-    com.ontraport.app.tests.DeleteOrderForm.class,
-    com.ontraport.app.tests.DeleteGateway.class,
-    
-//    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
-//    com.ontraport.app.tests.EnsureDateSequence.class,
-//    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
-//    com.ontraport.app.tests.SendSingleEmailToContact.class,
-//    com.ontraport.app.tests.GmailConfirmations.class,
-//    com.ontraport.app.tests.DeleteBroadCastEmail.class,
-//    com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
-//    com.ontraport.app.tests.DeleteEnsureDateSequence.class,
 
-//    com.ontraport.app.tests.SearchTest.class,
-    
     
 }
 )
