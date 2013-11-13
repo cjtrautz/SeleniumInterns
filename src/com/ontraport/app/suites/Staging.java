@@ -19,6 +19,8 @@ import com.ontraport.app.tools.AbstractSuite;
 
 {  
     com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
+    com.ontraport.app.tests.DeleteEmailWPMessage.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
     com.ontraport.app.tests.ImportContacts.class,
@@ -106,6 +108,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageRemoveSplitTesting.class,
     com.ontraport.app.tests.EditLandingPagePageSize.class,
     com.ontraport.app.tests.EditLandingPageBackground.class,
+    com.ontraport.app.tests.CreateEmailMessageLPFields.class,
+    com.ontraport.app.tests.DeleteEmailLPMessage.class,
     com.ontraport.app.tests.DeleteLandingPage.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
@@ -146,6 +150,8 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreatePriceField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateEmailMessageCustomFields.class,
+      com.ontraport.app.tests.DeleteEmailCustomMessage.class,
       com.ontraport.app.tests.AddPriceFieldColumn.class,
       com.ontraport.app.tests.DeletePriceFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithPriceField.class,
@@ -294,6 +300,15 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditPostcardRounded.class,
     com.ontraport.app.tests.EditPostcardRectangle.class,
     com.ontraport.app.tests.EditPostcardCircle.class,
+    com.ontraport.app.tests.EditPostcardShapeHeight.class,
+    com.ontraport.app.tests.EditPostcardShapeWidth.class,
+    com.ontraport.app.tests.EditPostcardShapeLeft.class,
+    com.ontraport.app.tests.EditPostcardShapeTop.class,
+    com.ontraport.app.tests.EditPostcardFrontAndBackWithText.class,
+    com.ontraport.app.tests.EditPostcardCopyLayer.class,
+    com.ontraport.app.tests.EditPostcardHiddenLayer.class,
+    com.ontraport.app.tests.EditPostcardMoveLayer.class,
+    com.ontraport.app.tests.EditPostcardDeleteLayer.class,
     //relies postcard message
     com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
     com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,

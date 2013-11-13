@@ -9,10 +9,10 @@ import com.ontraport.app.pages.Contact_ScoreEdit;
 import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.tools.AbstractTest;
 
-public class DeleteLeadScoring_ContactSubscribedToStepSequence extends AbstractTest
+public class DeleteLeadScoring_ContactSubscribedToDateSequence extends AbstractTest
 {
     @Test
-    public void testDeleteLeadScoring_ContactSubscribedToStepSequence ()
+    public void testDeleteLeadScoring_ContactSubscribedToDateSequence ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

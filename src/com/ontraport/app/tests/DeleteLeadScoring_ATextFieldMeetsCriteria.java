@@ -9,10 +9,10 @@ import com.ontraport.app.pages.Contact_ScoreEdit;
 import com.ontraport.app.pages.Contact_Settings;
 import com.ontraport.app.tools.AbstractTest;
 
-public class DeleteLeadScoring_ContactSubscribedToStepSequence extends AbstractTest
+public class DeleteLeadScoring_ATextFieldMeetsCriteria extends AbstractTest
 {
     @Test
-    public void testDeleteLeadScoring_ContactSubscribedToStepSequence ()
+    public void testDeleteLeadScoring_ATextFieldMeetsCriteria ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -24,9 +24,9 @@ public class DeleteLeadScoring_ContactSubscribedToStepSequence extends AbstractT
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         contact_ScoreEdit = contact_Settings.clickLeadScoring();
         //verify new section is in the field editor
-        if(contact_ScoreEdit.verifyNoText("If Contact is subscribed to Sequence:")==null)
+        if(contact_ScoreEdit.verifyNoDropDowns()==null)
         {
-            fail("didnt delet If Contact is subscribed to Sequence");
+            fail("didnt delete a state field meets criteria");
         }
         if(contact_ScoreEdit.verifyDegradationPercent("0")==null)
         {

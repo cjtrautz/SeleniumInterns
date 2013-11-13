@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -22,8 +23,28 @@ public class Contact_ScoreEdit extends AbstractPage
     private WebElement addNewCondition;
     
     @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-component ussr-component-form_control_input_checkbox ')]//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-checkbox-empty ')]")
+    private WebElement emptyCheckBox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-component ussr-component-form_control_input_checkbox ')]//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-checkbox-checked ')]")
+    private WebElement checkedCheckBox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//textarea")
+    private WebElement textarea;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button")
     private WebElement dropDownButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button")
+    private List<WebElement> dropDownButtons;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//input")
+    private List<WebElement> dropDownInputs;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]")
@@ -89,6 +110,15 @@ public class Contact_ScoreEdit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(drillDownList));
         wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
         drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
+        return this;
+        
+    }
+    public Contact_ScoreEdit selectDrillDown2 ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDownList));
+        wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/span[contains(text(), '" + string + "')]"))));
+        drillDownList.findElement(By.xpath(".//li/span[contains(text(), '" + string + "')]")).click();
         return this;
         
     }
@@ -283,6 +313,181 @@ public class Contact_ScoreEdit extends AbstractPage
         }
         
         return null;
+    }
+
+    public Contact_ScoreEdit clickDropDownCondition ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDownButtons.get(i-1)));
+        dropDownButtons.get(i-1).click();
+        return this;
+    }
+
+    public Contact_ScoreEdit enterDropDownCondition ( int i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDownInputs.get(i-1)));
+        dropDownInputs.get(i-1).sendKeys(string);
+        return this;
+    }
+
+    public Contact_ScoreEdit verifyConditionDrillDown ( String string, int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(dropDownInputs.get(i-1)));
+            String compare = dropDownInputs.get(i-1).getAttribute("value");
+            System.out.println(compare);
+            if(compare.equals(string)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Contact_ScoreEdit verifyConditionInput ( String string, int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(dropDownInputs.get(i-1)));
+            String compare = dropDownInputs.get(i-1).getAttribute("value");
+            System.out.println(compare);
+            if(compare.equals(string)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Contact_ScoreEdit verifyNoDropDowns ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            if(dropDownInputs.size()>0)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        return this;
+    }
+
+    public Contact_ScoreEdit enterDropDownConditionTextArea ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textarea));
+        textarea.sendKeys(string);
+        return this;
+    }
+
+    public Contact_ScoreEdit verifyConditionDrillDownTextarea ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(textarea));
+            String compare = textarea.getAttribute("value");
+            System.out.println(compare);
+            if(compare.equals(string)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Contact_ScoreEdit clickCheckBox ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emptyCheckBox));
+        emptyCheckBox.click();
+        return this;
+    }
+
+    public Contact_ScoreEdit verifyCheckbox ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
+        try
+        {
+
+            if(!checkedCheckBox.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Contact_ScoreEdit verifyConditionDrillDownContains ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(contactScoringCondition));
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait.until(ExpectedConditions.visibilityOf(conditions));
+            String compare = conditions.findElement(By.xpath(".//input")).getAttribute("value");
+            System.out.println(compare);
+            if(compare.contains(string)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
     }
     
 }

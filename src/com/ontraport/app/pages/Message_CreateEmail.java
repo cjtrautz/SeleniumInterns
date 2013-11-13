@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -154,6 +155,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail selectMergeField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
     }
