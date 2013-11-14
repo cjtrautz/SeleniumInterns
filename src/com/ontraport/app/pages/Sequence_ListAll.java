@@ -22,6 +22,10 @@ public class Sequence_ListAll extends AbstractPage
     private WebElement emptyCell;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()='Sequences']")
+    private WebElement title;
+    
+    @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll;
     
@@ -165,6 +169,28 @@ public class Sequence_ListAll extends AbstractPage
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
         }
         return (Sequence_Edit) new Sequence_Edit().init();
+    }
+
+    public Sequence_ListAll verifyPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!uiCollectionBody.isDisplayed())
+            {
+                return null;
+            }
+            if(!title.isDisplayed())
+            {
+                return null;
+            }
+            
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
     }
 
 }

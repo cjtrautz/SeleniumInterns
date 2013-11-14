@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Contact_Export;
 import com.ontraport.app.pages.Message_Edit;
+import com.ontraport.app.pages.Sequence_Edit;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
@@ -38,6 +39,10 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-date-picker ')]//input")
     private WebElement dateInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' usser-targert-drawer-action-1 ')]//a")
+    private WebElement copySequence;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-time-picker ')]//input")
@@ -661,5 +666,12 @@ public class DrawerActions extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
         return this;
+    }
+    public Sequence_Edit clickCopySequence ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(copySequence));
+        copySequence.click();
+        return (Sequence_Edit) new Sequence_Edit().init();
     }
 }

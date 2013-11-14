@@ -49,6 +49,11 @@ public class Message_CreateTask extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_merge ')]//input")
+    private WebElement mergeDropDownInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target_merge ')]//div[@class='ussr-component-drilldownselect-menu-wrapper']")
     private WebElement mergeDropDownPane;
     
@@ -334,6 +339,14 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         cancel.click(); 
         return (Message_ListAll) new Message_ListAll().init();
+    }
+
+    public Message_CreateTask enterMergeFieldPane ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeDropDownInput));
+        mergeDropDownInput.sendKeys(string);
+        return this;
     }
 
     

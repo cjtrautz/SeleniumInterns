@@ -24,16 +24,16 @@ public class UneditedWorkflow extends AbstractTest
         sequence_CreateStep.clickAddEmailStep();
         sequence_CreateStep.openEmailNamePane();
         sequence_CreateStep.selectDrillDownByIndex(1);
-        sequence_CreateStep.enterMessageName("SelUnedittedWorkflow");
+        sequence_CreateStep.enterMessageName("SelUnedittedWorkflowTime");
         sequence_CreateStep.clickSaveAsDraft();
         sequence_ListAll = sequence_CreateStep.clickBack();
         sequence_ListAll.menuWorkflow.open();
         
-        if(sequence_ListAll.menuWorkflow.verifyUneditedWorkflow("Message: SelUnedittedWorkflow")==null)
+        if(sequence_ListAll.menuWorkflow.verifyUneditedWorkflow("Message: SelUnedittedWorkflowTime")==null)
         {
             fail("couldnt find unedited message");
         }
-        Message_Edit message_Edit = sequence_ListAll.menuWorkflow.clickUneditedWorkflow("Message: SelUnedittedWorkflow");
+        Message_Edit message_Edit = sequence_ListAll.menuWorkflow.clickUneditedWorkflow("Message: SelUnedittedWorkflowTime");
         message_Edit.enterSendOutName("Selenium");
         message_Edit.enterReplyToEmail("selenium@email.com");
         message_Edit.openMailFromPane();
