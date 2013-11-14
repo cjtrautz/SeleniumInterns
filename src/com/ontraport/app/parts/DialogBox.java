@@ -843,7 +843,7 @@ public class DialogBox extends AbstractPart
     }
     public String getPasswordCredentials ()
     {
-        wait(30).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='ussr-state-loading green']")));
+        wait(40).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='ussr-state-loading green']")));
         AbstractPart.waitForAjax(driver, 40);
         wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div"))));
         String stuff = driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div")).getText();

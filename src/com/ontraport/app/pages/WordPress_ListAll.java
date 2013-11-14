@@ -36,6 +36,7 @@ public class WordPress_ListAll extends AbstractPage
     public WordPress_TypeSelection clickNewWebsite ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWebsite));
         newWebsite.click();
         return (WordPress_TypeSelection) new WordPress_TypeSelection().init();
     }
