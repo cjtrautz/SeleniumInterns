@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_Create;
 import com.ontraport.app.pages.Contact_ListAll;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractTest;
 
 public class EnsurePagination extends AbstractTest
@@ -21,6 +22,8 @@ public class EnsurePagination extends AbstractTest
         contactListAll = contact_Create.clickSave();
         i++;
         }
+        AbstractPart.waitForAjax(driver, 20);
+        driver.navigate().refresh();
         String pages = contactListAll.paginator.getPages();
         System.out.println(pages);
         contactListAll.paginator.clickLastPage();

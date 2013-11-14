@@ -1,6 +1,10 @@
 package com.ontraport.app.pages;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -18,6 +22,11 @@ public class Message_CreateSMS extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//span[@class='ussr-component-quickstats-values']")
+    private WebElement dateAdded;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_field_selector_merge_field_inserter ')]//button")
     private WebElement toggleMergeFieldPane;
     
@@ -25,6 +34,16 @@ public class Message_CreateSMS extends AbstractPage
             how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement mailFromPane;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-pane-editor-back']")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[contains(., 'Cancel')]")
+    private WebElement cancel;
 
     @FindBy(
             how = How.XPATH,
@@ -66,13 +85,49 @@ public class Message_CreateSMS extends AbstractPage
     public Message_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
     }
     public Message_CreateSMS enterMessageText ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textarea));
         textarea.sendKeys(string);
+        return this;
+    }
+    public Message_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (Message_ListAll) new Message_ListAll().init();
+    }
+    public Message_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
+        return (Message_ListAll) new Message_ListAll().init();
+    }
+    public Message_CreateSMS verifyStats ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+        Date dNow = new Date();
+        String now = ft.format(dNow);
+        try
+        {
+            System.out.println(dateAdded.getText());
+            if(!now.equals(dateAdded.getText()))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
         return this;
     }
 }

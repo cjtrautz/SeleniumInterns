@@ -35,6 +35,14 @@ public class Contact_ScoreEdit extends AbstractPage
     private WebElement textarea;
     
     @FindBy(how = How.XPATH,
+            using = "//div[@class='ussr-pane-editor-back']")
+    private WebElement back;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(., 'Cancel')]")
+    private WebElement cancel;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button")
     private WebElement dropDownButton;
     
@@ -488,6 +496,22 @@ public class Contact_ScoreEdit extends AbstractPage
         }
         
         return this;
+    }
+
+    public Contact_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (Contact_ListAll) new Contact_ListAll().init();
+    }
+
+    public Contact_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
+        return (Contact_ListAll) new Contact_ListAll().init();
     }
     
 }

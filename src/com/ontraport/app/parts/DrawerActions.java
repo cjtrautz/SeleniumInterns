@@ -28,6 +28,10 @@ public class DrawerActions extends AbstractPart
     protected WebElement      uiToggleDrawerActions;
     
     @FindBy(how = How.XPATH,
+            using = "//div[@id='ussr-chrome-panel-pane']//ul/li[contains(concat(' ', normalize-space(@class), ' '), ' ussr-target-drawer-action ')]/a")
+    protected WebElement cancel;
+    
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-send-click ')]")
     private WebElement sendButton;
     
@@ -649,6 +653,13 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(reassignDropDown));
         reassignDropDown.click();
+        return this;
+    }
+    public DrawerActions clickCancel ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
         return this;
     }
 }

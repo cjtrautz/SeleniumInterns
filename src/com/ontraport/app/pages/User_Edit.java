@@ -8,6 +8,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
@@ -252,6 +254,7 @@ public class User_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.stalenessOf(selectAllEmptyCheckBox));
+        wait.until(ExpectedConditions.visibilityOf(selectAllEmptyCheckBox));
         selectAllEmptyCheckBox.click();
         return this;
         
@@ -372,6 +375,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickFirstName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameField));
         firstNameField.click();
         return this;
         
@@ -380,6 +384,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterFirstName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameInput));
         firstNameInput.sendKeys(string);
         return this;
         
@@ -388,6 +393,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickFirstNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameSave));
         firstNameSave.click();
         return this;
         
@@ -396,6 +402,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickLastName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField));
         lastNameField.click();
         return this;
         
@@ -404,6 +411,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterLastName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameInput));
         lastNameInput.sendKeys(string);
         return this;
         
@@ -412,6 +420,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickLastNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameSave));
         lastNameSave.click();
         return this;
         
@@ -420,6 +429,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickEmail ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailField));
         emailField.click();
         return this;
         
@@ -428,6 +438,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterEmail ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailInput));
         emailInput.sendKeys(string);
         return this;
         
@@ -436,6 +447,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickEmailSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailSave));
         emailSave.click();
         return this;
         
@@ -444,6 +456,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickTelephone ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(telephoneField));
         telephoneField.click();
         return this;
         
@@ -452,6 +465,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterTelephone ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(telephoneInput));
         telephoneInput.sendKeys(string);
         return this;
         
@@ -460,6 +474,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickTelephoneSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(telephoneSave));
         telephoneSave.click();
         return this;
         
@@ -468,6 +483,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickCellPhone ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cellPhoneField));
         cellPhoneField.click();
         return this;
         
@@ -476,6 +492,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterCellPhone ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cellPhoneInput));
         cellPhoneInput.sendKeys(string);
         return this;
         
@@ -484,6 +501,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickCellPhoneSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cellPhoneSave));
         cellPhoneSave.click();
         return this;
         
@@ -492,6 +510,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickFax ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(faxField));
         faxField.click();
         return this;
         
@@ -500,6 +519,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterFax ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(faxInput));
         faxInput.sendKeys(string);
         return this;
         
@@ -508,6 +528,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickFaxSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(faxSave));
         faxSave.click();
         return this;
         
@@ -626,6 +647,7 @@ public class User_Edit extends AbstractPage
     public User_Edit selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[text()='" + string + "']"))));
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[text()='" + string + "']")).click();
         return this;
         
@@ -651,6 +673,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickLanguage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(languageField));
         languageField.click();
         return this;
     }
@@ -843,6 +866,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickEmailFrom ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailFromField));
         emailFromField.click();
         return this;
     }
@@ -850,6 +874,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickEmailFromSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailFromSave));
         emailFromSave.click();
         return this;
     }
@@ -857,6 +882,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterEmailFrom ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailFromInput));
         emailFromInput.sendKeys(string);
         return this;
     }
@@ -864,6 +890,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clicReplyTo ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(replyToField));
         replyToField.click();
         return this;
     }
@@ -871,6 +898,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterReplyTo ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(replyToInput));
         replyToInput.sendKeys(string);
         return this;
     }
@@ -878,6 +906,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickReplyToSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(replyToSave));
         replyToSave.click();
         return this;
     }
@@ -919,6 +948,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessNameField));
         businessNameField.click();
         return this;
     }
@@ -926,6 +956,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterBusinessName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessNameInput));
         businessNameInput.sendKeys(string);
         return this;
     }
@@ -933,6 +964,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessNameSave));
         businessNameSave.click();
         return this;
     }
@@ -940,6 +972,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessAddress ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessAddressField));
         businessAddressField.click();
         return this;
     }
@@ -947,6 +980,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterBusinessAddress ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessAddressInput));
         businessAddressInput.sendKeys(string);
         return this;
     }
@@ -954,6 +988,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessAddressSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessAddressSave));
         businessAddressSave.click();
         return this;
     }
@@ -961,6 +996,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessAddress2 ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessAddress2Field));
         businessAddress2Field.click();
         return this;
     }
@@ -968,6 +1004,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterBusinessAddress2 ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessAddress2Input));
         businessAddress2Input.sendKeys(string);
         return this;
     }
@@ -975,6 +1012,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessAddress2Save ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(businessAddress2Save));
         businessAddress2Save.click();
         return this;
     }
@@ -982,6 +1020,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickCity ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cityField));
         cityField.click();
         return this;
     }
@@ -989,6 +1028,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterCity ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cityInput));
         cityInput.sendKeys(string);
         return this;
     }
@@ -996,6 +1036,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickCitySave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(citySave));
         citySave.click();
         return this;
     }
@@ -1003,6 +1044,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickState ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stateField));
         stateField.click();
         return this;
     }
@@ -1010,8 +1052,10 @@ public class User_Edit extends AbstractPage
     public User_Edit enterState ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stateInput));
         stateInput.sendKeys(string);
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         dropDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
@@ -1020,6 +1064,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickZip ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(zipField));
         zipField.click();
         return this;
     }
@@ -1027,6 +1072,7 @@ public class User_Edit extends AbstractPage
     public User_Edit enterZip ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(zipInput));
         zipInput.sendKeys(string);
         return this;
     }
@@ -1034,6 +1080,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickZipSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(zipSave));
         zipSave.click();
         return this;
     }

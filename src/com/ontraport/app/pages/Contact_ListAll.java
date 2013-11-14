@@ -426,6 +426,26 @@ public class Contact_ListAll extends AbstractPage
         uiCollectionBodyFirstCell.click();
         return (Contact_Edit) new Contact_Edit().init();
     }
+    public Contact_ListAll verifyPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()=\"No contacts yet... let's create some!\" or text()='Contacts']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!firstCellOrContactAddOptions.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
 
 
     

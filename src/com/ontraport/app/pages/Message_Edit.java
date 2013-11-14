@@ -24,6 +24,11 @@ public class Message_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//textarea[contains(concat(' ', @class, ' '),' cke_source ')]")
+    private WebElement textareaSource;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@id='layer_box']//div[@class='side_prop_label']")
     private WebElement newItem;
     
@@ -90,6 +95,11 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement dropDownCollection;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
+    private WebElement name;
     
     @FindBy(
             how = How.XPATH,
@@ -603,6 +613,9 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterSendOutName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sendOutNameInput));  
+        sendOutNameInput.click();
+        sendOutNameInput.clear();
         sendOutNameInput.sendKeys(name);
         return this;
         
@@ -611,6 +624,9 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterReplyToEmail ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(replyToEmailInput));  
+        replyToEmailInput.click();
+        replyToEmailInput.clear();
         replyToEmailInput.sendKeys(name);
         return this;
         
@@ -619,6 +635,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit openMailFromPane ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMailFromPane)); 
         toggleMailFromPane.click();
         return this;
         
@@ -628,6 +645,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         List<WebElement> selectionOptions = mailFromPane.findElements(By.xpath(".//li/div"));
+        wait.until(ExpectedConditions.visibilityOf(selectionOptions.get(i-1))); 
         selectionOptions.get(i-1).click();
         return this;
         
@@ -636,10 +654,24 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterSubject ( String subject )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(subjectInput)); 
+        subjectInput.click();
+        subjectInput.clear();
         subjectInput.sendKeys(subject);
         return this;
         
     }
+    
+    public Message_Edit enterMessageBodySource ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textareaSource));
+        textareaSource.click();
+        textareaSource.clear();
+        textareaSource.sendKeys(string);
+        return this;
+    }
+    
     public Message_ListAll clickSave ()
     {
         driver.switchTo().defaultContent();
@@ -652,6 +684,7 @@ public class Message_Edit extends AbstractPage
     public Contact_ListAll clickSave2 ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save)); 
         save.click();
         return (Contact_ListAll) new Contact_ListAll().init();
     }
@@ -678,6 +711,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickSendTestEmail ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sendTestEmail)); 
         sendTestEmail.click();
         return this;
         
@@ -750,6 +784,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         WebElement text = driver.findElement(By.xpath("//div[contains(concat(' ', @style, ' '),' font-family: Verdana,Geneva,sans-serif; ') and .='" + string + "']"));
+        wait.until(ExpectedConditions.visibilityOf(text)); 
         Actions action = new Actions(driver);
         action.doubleClick(text).build().perform();
         return this;
@@ -759,6 +794,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iFrame2)); 
         driver.switchTo().frame(iFrame2);
         WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
         text.click();
@@ -776,6 +812,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickBold ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(boldButton)); 
         boldButton.click();
         return this;
     }
@@ -796,6 +833,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickItalic ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(italic)); 
         italic.click();
         return this;
     }
@@ -816,6 +854,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickUnderline ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(underline)); 
         underline.click();
         return this;
     }
@@ -836,6 +875,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickAlignCenter ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(alignCenter)); 
         alignCenter.click();
         return this;
         
@@ -857,6 +897,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickAlignLeft ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(alignLeft)); 
         alignLeft.click();
         return this;
     }
@@ -878,6 +919,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iFrame2)); 
         driver.switchTo().frame(iFrame2);
         WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
         text.click();
@@ -895,6 +937,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickAlignRight ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(alignRight)); 
         alignRight.click();
         return this;
     }
@@ -916,6 +959,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         Actions action = new Actions(driver);
+        wait.until(ExpectedConditions.visibilityOf(lineSpacing)); 
         action.dragAndDropBy(lineSpacing, i, 0).build().perform();
 
         return this;
@@ -950,6 +994,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         Actions action = new Actions(driver);
+        wait.until(ExpectedConditions.visibilityOf(letterSpacing)); 
         action.dragAndDropBy(letterSpacing, i, 0).build().perform();
 
         return this;
@@ -981,6 +1026,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickShape ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(shapeClick)); 
         shapeClick.click();
         return this;
     }
@@ -988,6 +1034,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickCircle ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(circle)); 
         circle.click();
         return this;
     }
@@ -1026,6 +1073,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickRounded ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rounded)); 
         rounded.click();
         return this;
     }
@@ -1049,6 +1097,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickRectangle ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rectangle)); 
         rectangle.click();
         return this;
     }
@@ -1056,6 +1105,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickColor ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(color)); 
         color.click();
         return this;
     }
@@ -1076,6 +1126,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickMoveOpacity ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(opacity)); 
         Actions action = new Actions(driver);
         action.dragAndDropBy(opacity, -i, 0).build().perform();
         return this;
@@ -1117,6 +1168,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickGradient1 ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(gradientColor.get(0))); 
         Actions action = new Actions(driver);
         action.doubleClick(gradientColor.get(0)).build().perform();
         return this;
@@ -1125,6 +1177,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickGradient2 ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(gradientColor.get(1))); 
         Actions action = new Actions(driver);
         action.doubleClick(gradientColor.get(1)).build().perform();
         return this;
@@ -1133,6 +1186,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickVertical ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(verticalButton)); 
         verticalButton.click();
         return this;
     }
@@ -1140,6 +1194,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickHorizontal ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(horizontalButton));
         horizontalButton.click();
         return this;
     }
@@ -1205,6 +1260,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(image));
         image.click();
         return this;
     }
@@ -1212,6 +1268,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickSelectImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(selectImage));
         selectImage.click();
         return this;
     }
@@ -1268,6 +1325,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickHowDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(howDropDown));
         howDropDown.click();
         return this;
     }
@@ -1275,6 +1333,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickNumberDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(numberDropDown));
         numberDropDown.click();
         return this;
     }
@@ -1314,6 +1373,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickTaskFormDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(formDropDown));
         formDropDown.click();
         return this;
     }
@@ -1338,6 +1398,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickCKEditorImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ckImageButton));
         ckImageButton.click();
         return this;
     }
@@ -1345,6 +1406,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickMailImage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame2));
         driver.switchTo().frame(iFrame2);
         mailImage.click();
         driver.switchTo().defaultContent();
@@ -1379,6 +1441,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickAlignCenterEmail ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(alignCenterEmail));
         alignCenterEmail.click();
         return this;
     }
@@ -1387,6 +1450,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iFrame2));
         driver.switchTo().frame(iFrame2);
         WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
         text.click();
@@ -1403,6 +1467,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickLinkText ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(linkText));
         linkText.click();
         return this;
     }
@@ -1466,6 +1531,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickSource ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(source));
         source.click();
         return this;
     }
@@ -1489,6 +1555,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterTextArea ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sourceText));
         sourceText.sendKeys(string);
         return this;
     }
@@ -1512,6 +1579,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickPreview ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(preview));
         preview.click();
         return this;
     }
@@ -1625,7 +1693,10 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterMessageBody ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));
         driver.switchTo().frame(iFrame);
+        body.click();
+        body.clear();
         body.sendKeys(string);
         driver.switchTo().defaultContent();
         return this;
@@ -2035,6 +2106,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickFirstStyle (String window)
     {
         AbstractPart.waitForAjax(driver, 20);  
+        wait.until(ExpectedConditions.visibilityOf(iframePanel));
         driver.switchTo().frame(iframePanel);
         wait.until(ExpectedConditions.visibilityOf(firstStyle));
         firstStyle.click();
@@ -2388,6 +2460,39 @@ public class Message_Edit extends AbstractPage
             return null;
         }
         return this;
+    }
+
+    public Message_Edit enterName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(name));
+        name.click();
+        name.clear();
+        name.sendKeys(string +Keys.RETURN);
+        return this;
+    }
+
+    public Message_Edit verifyName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!name.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Object verifySendOutName ( String string )
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 

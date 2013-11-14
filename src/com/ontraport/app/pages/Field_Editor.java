@@ -37,6 +37,11 @@ public class Field_Editor extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[@class='ussr-pane-editor-back']")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-section-titlebar ')]")
     private WebElement sectionTitle;
     
@@ -1176,6 +1181,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickUserTitle ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sectionTitle2));
         sectionTitle2.click();
         return this;
     }
@@ -1183,8 +1189,17 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickPermissions ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(permision));
         permision.click();
         return this;
+    }
+
+    public Contact_Settings clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (Contact_Settings) new Contact_Settings().init();
     }
     
 }

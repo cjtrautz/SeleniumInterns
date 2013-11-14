@@ -116,7 +116,7 @@ public class Paginator extends AbstractPart
     public Paginator clickRecordsPerPage (int count)
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList));
+        wait(20).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList));
         uiToggleRecordsPerPageList.findElement(By.xpath(".//li[@data-val='"+count+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList)));
         return this;

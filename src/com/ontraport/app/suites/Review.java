@@ -18,6 +18,24 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    com.ontraport.app.tests.EditEmailMessageBody.class,
+    com.ontraport.app.tests.EditEmailMessageSubject.class,
+    com.ontraport.app.tests.EditEmailMessageReplyToName.class,
+    com.ontraport.app.tests.EditEmailMessageSendOutName.class,
+    com.ontraport.app.tests.EditEmailMessageName.class,
+    com.ontraport.app.tests.DeleteEditableEmailMessage.class,
+    
+    com.ontraport.app.tests.CancelBroadCast.class,
+    com.ontraport.app.tests.DeleteCancelBroadCast.class,
+    com.ontraport.app.tests.LeadScoringCancel.class,
+    com.ontraport.app.tests.LeadScoringBack.class,
+    com.ontraport.app.tests.FieldEditorCancel.class,
+    com.ontraport.app.tests.FieldEditorBack.class,
+    com.ontraport.app.tests.SMSStats.class,
+    com.ontraport.app.tests.SMSCancel.class,
+    com.ontraport.app.tests.SMSBack.class,
+    
     com.ontraport.app.tests.CreateLeadScoring_SMSDoesntContainText.class,
     com.ontraport.app.tests.DeleteLeadScoring_SMSDoesntContainText.class,
     

@@ -114,7 +114,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickNotesAndTasksTab ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(contactInformationTitle)));
+        wait.until(ExpectedConditions.visibilityOf(notesAndTasksTab));
         notesAndTasksTab.click();
         return this;
         
@@ -124,6 +124,7 @@ public class Contact_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody)));
+        wait.until(ExpectedConditions.visibilityOf(newNote));
         newNote.click();
         return this;
         
