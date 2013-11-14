@@ -22,6 +22,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateAWordPressSite.class,
     com.ontraport.app.tests.CreateEmailMessageWPFields.class,
     com.ontraport.app.tests.DeleteEmailWPMessage.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
     com.ontraport.app.tests.ImportContacts.class,
@@ -30,7 +34,47 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
     
+    com.ontraport.app.tests.CancelBroadCast.class,
+    com.ontraport.app.tests.DeleteCancelBroadCast.class,
+    com.ontraport.app.tests.LeadScoringCancel.class,
+    com.ontraport.app.tests.LeadScoringBack.class,
+    com.ontraport.app.tests.FieldEditorCancel.class,
+    com.ontraport.app.tests.FieldEditorBack.class,
+    com.ontraport.app.tests.SMSStats.class,
+    com.ontraport.app.tests.SMSCancel.class,
+    com.ontraport.app.tests.SMSBack.class,
+    
+    com.ontraport.app.tests.CreateLeadScoring_SMSDoesntContainText.class,
+    com.ontraport.app.tests.DeleteLeadScoring_SMSDoesntContainText.class,
+    com.ontraport.app.tests.CreateLeadScoring_SMSContainsText.class,
+    com.ontraport.app.tests.DeleteLeadScoring_SMSContainsText.class,
+    com.ontraport.app.tests.CreateLeadScoring_SMSDoesntContainsAnEmailAddress.class,
+    com.ontraport.app.tests.DeleteLeadScoring_SMSDoesntContainsAnEmailAddress.class,
+    com.ontraport.app.tests.CreateLeadScoring_SMSContainsAnEmailAddress.class,
+    com.ontraport.app.tests.DeleteLeadScoring_SMSContainsAnEmailAddress.class,
+    com.ontraport.app.tests.CreateLeadScoring_IsNotSubscribedToFulfillment.class,
+    com.ontraport.app.tests.DeleteLeadScoring_IsNotSubscribedToFulfillment.class,
+    com.ontraport.app.tests.CreateLeadScoring_IsSubscribedToFulfillment.class,
+    com.ontraport.app.tests.DeleteLeadScoring_IsSubscribedToFulfillment.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasBeenSubscribedToProductCertainAmountOfTime.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasBeenSubscribedToProductCertainAmountOfTime.class,   
+    com.ontraport.app.tests.CreateLeadScoring_IsSubscribedToProduct.class,
+    com.ontraport.app.tests.DeleteLeadScoring_IsSubscribedToProduct.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasOrderedACertainAmountOnProduct.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasOrderedACertainAmountOnProduct.class,   
+    com.ontraport.app.tests.CreateLeadScoring_HasSpentACertainAmountOnProduct.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasSpentACertainAmountOnProduct.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasOpenedEmailNumberOfTimes.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasOpenedEmailNumberOfTimes.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasVisitedWebsiteNumberOfTimes.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasVisitedWebsiteNumberOfTimes.class,
+    
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    com.ontraport.app.tests.EditEmailMessageBody.class,
+    com.ontraport.app.tests.EditEmailMessageSubject.class,
+    com.ontraport.app.tests.EditEmailMessageReplyToName.class,
+    com.ontraport.app.tests.EditEmailMessageSendOutName.class,
+    com.ontraport.app.tests.EditEmailMessageName.class,
     com.ontraport.app.tests.EditEmailMessageMaximize.class,
     com.ontraport.app.tests.EditEmailMessageLinkAndUnlink.class,
     com.ontraport.app.tests.EditEmailMessageAlignmentRight.class,
@@ -101,6 +145,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSMSMessage.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
     com.ontraport.app.tests.EditLandingPageOpacity.class,
     com.ontraport.app.tests.EditLandingPageColor.class,
     com.ontraport.app.tests.EditLandingPageRounded.class,
@@ -120,6 +166,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
+      com.ontraport.app.tests.CreateLeadScoring_AStateFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_AStateFieldMeetsCriteria.class,
       com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
       com.ontraport.app.tests.CreateGateway.class, 
       com.ontraport.app.tests.CreateOrderform.class,
@@ -151,6 +199,8 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteStateField.class,
       //relies on section
       com.ontraport.app.tests.CreatePriceField.class,
+      com.ontraport.app.tests.CreateLeadScoring_APriceFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_APriceFieldMeetsCriteria.class,
     //relies on text field
       com.ontraport.app.tests.CreateEmailMessageCustomFields.class,
       com.ontraport.app.tests.DeleteEmailCustomMessage.class,
@@ -162,6 +212,8 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on section
       com.ontraport.app.tests.CreateNumericField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateLeadScoring_ANumericFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_ANumericFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddNumericFieldColumn.class,
       com.ontraport.app.tests.DeleteNumericFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithNumericField.class,
@@ -170,6 +222,8 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreateLongTextField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateLeadScoring_ALongTextFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_ALongTextFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddGroupWithLongTextField.class,
       com.ontraport.app.tests.DeleteLongTextGroup.class,
       com.ontraport.app.tests.DeleteLongTextField.class,
@@ -182,6 +236,8 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreateDateField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateLeadScoring_ADateFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_ADateFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddDateFieldColumn.class,
       com.ontraport.app.tests.DeleteDateFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithDateField.class,
@@ -190,6 +246,8 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreateCheckboxField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateLeadScoring_ACheckboxFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_ACheckboxFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddCheckboxFieldColumn.class,
       com.ontraport.app.tests.DeleteCheckboxFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithCheckboxField.class,
@@ -198,6 +256,8 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on section
       com.ontraport.app.tests.CreateDropdownField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateLeadScoring_ADropDownFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_ADropDownFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddDropDownFieldColumn.class,
       com.ontraport.app.tests.DeleteDropDownFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithDropDownField.class,
@@ -206,6 +266,8 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on section
       com.ontraport.app.tests.CreateTextField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateLeadScoring_ATextFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_ATextFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddTextFieldColumn.class,
       com.ontraport.app.tests.DeleteTextFieldColumn.class,
       com.ontraport.app.tests.AddGroupWithTextField.class,
@@ -250,6 +312,12 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on a step sequence
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedStepSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToUnPausedStepSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToPausedStepSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToPausedStepSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactNotSubscribedToStepSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToStepSequence.class,
     //relies on a step sequence
     com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
     com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,
@@ -338,6 +406,14 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CheckLogOut.class,
     
     com.ontraport.app.tests.CreateRuleDateSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToPausedDateSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToPausedDateSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactNotSubscribedToDateSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToDateSequence.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToDateSequence.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToDateSequence.class,
   //relies on sequence
     com.ontraport.app.tests.UnsubscribeContactAfterLastStep.class,
   //relies on sequence
@@ -388,6 +464,10 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on a tag
     com.ontraport.app.tests.CreateRule_ContactAddedToTag.class,
     com.ontraport.app.tests.DeleteRule_ContactAddedToTag.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactNotSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToTag.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToTag.class,
     com.ontraport.app.tests.DeleteTag.class,
     com.ontraport.app.tests.DeleteContact.class,
     

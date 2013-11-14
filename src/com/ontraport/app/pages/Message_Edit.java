@@ -2489,10 +2489,12 @@ public class Message_Edit extends AbstractPage
         return this;
     }
 
-    public Object verifySendOutName ( String string )
+    public Message_Edit enterMessageBodyMore ( String string )
     {
-        // TODO Auto-generated method stub
-        return null;
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textareaSource));
+        textareaSource.sendKeys(string);
+        return this;
     }
 
 
