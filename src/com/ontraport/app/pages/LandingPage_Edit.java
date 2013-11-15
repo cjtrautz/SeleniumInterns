@@ -272,17 +272,28 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
             if(notRectangleBox.size()==0)
             {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return this;
             }
 
         }
-        catch(NoSuchElementException e){
-
+        catch(NoSuchElementException e)
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return this;
         }
-        
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         return null;
     }
 

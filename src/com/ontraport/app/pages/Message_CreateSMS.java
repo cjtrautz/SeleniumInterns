@@ -32,6 +32,11 @@ public class Message_CreateSMS extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_field_selector_merge_field_inserter ')]//input")
+    private WebElement mergeFieldInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement mailFromPane;
     
@@ -81,6 +86,12 @@ public class Message_CreateSMS extends AbstractPage
         driver.findElement(By.xpath("//textarea")).sendKeys("Sel");
         return this;
     }
+    public Message_CreateSMS selectMergeField2 ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
+        return this;
+    }
 
     public Message_ListAll clickSave ()
     {
@@ -128,6 +139,13 @@ public class Message_CreateSMS extends AbstractPage
         {
             return null;
         }
+        return this;
+    }
+    public Message_CreateSMS enterMergeFieldInput ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeFieldInput));
+        mergeFieldInput.sendKeys(string);
         return this;
     }
 }

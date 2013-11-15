@@ -49,14 +49,17 @@ public class CreateLandingPage extends AbstractTest
         {
             fail("couldnt find lp url");
         }
+        System.out.println("o ya");
         if(landingPage_Edit.verifyLandingPageShape()==null)
         {
             fail("didnt add item shape");
         }
+        System.out.println("o g");
         if(landingPage_Edit.verifyLandingPageRectangleShape()==null)
         {
             fail("didnt add item shape");
         }
+        System.out.println("uh oh");
         if(landingPage_Edit.verifyLandingPageHosted(value.get("LandingPages", "Easy_Landing_Page") + AbstractSuite.UNIQUE)==null)
         {
             fail("didnt add item shape");

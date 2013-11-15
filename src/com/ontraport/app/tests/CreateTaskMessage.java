@@ -55,7 +55,38 @@ public class CreateTaskMessage extends AbstractTest
         {
             fail("couldn't find SelOutcome");
         }
-       
+        if(message_Edit.verifySubjectTask("You need to do this")==null) 
+        {
+            fail("couldn't find subject");
+        }
+        if(message_Edit.verifyDueDate("1")==null)
+        {
+            fail("couldn't find due Date");
+        }
+        if(message_Edit.verifyTaskOwner("Contact's Owner")==null)
+        {
+            fail("couldn't find SelOutcome");
+        }
+        if(message_Edit.verifyWho("Contact Owner")==null)
+        {
+            fail("couldn't find SelOutcome");
+        }
+        if(message_Edit.verifyWhenDays("0")==null)
+        {
+            fail("couldn't find SelOutcome");
+        }
+        if(message_Edit.verifyWhen("After Task is Due")==null)
+        {
+            fail("couldn't find SelOutcome");
+        }
+        if(message_Edit.verifyHow("Email")==null)
+        {
+            fail("couldn't find SelOutcome");
+        }
+        if(message_Edit.verifyTextArea("[First Name]")==null)
+        {
+            fail("couldn't find SelOutcome");
+        }
 
     }
 }

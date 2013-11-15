@@ -17,6 +17,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Contact_Export;
+import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Sequence_Edit;
 import com.ontraport.app.tools.AbstractPart;
@@ -29,12 +30,20 @@ public class DrawerActions extends AbstractPart
     protected WebElement      uiToggleDrawerActions;
     
     @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', (@class), ' '), ' create-new ')]")
+    protected WebElement createNew;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//ul/li[contains(concat(' ', normalize-space(@class), ' '), ' ussr-target-drawer-action ')]/a")
     protected WebElement cancel;
     
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-send-click ')]")
     private WebElement sendButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-message-selector ')]//button")
+    private WebElement taskNameDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-date-picker ')]//input")
@@ -673,5 +682,19 @@ public class DrawerActions extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(copySequence));
         copySequence.click();
         return (Sequence_Edit) new Sequence_Edit().init();
+    }
+    public DrawerActions clickTaskNameDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(taskNameDropDown));
+        taskNameDropDown.click();
+        return this;
+    }
+    public Message_CreateTask createNewTask ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(createNew));
+        createNew.click();
+        return (Message_CreateTask) new Message_CreateTask().init();
     }
 }

@@ -16,8 +16,23 @@ public class Message_CreatePostcard extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//ul[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-ul ')]")
+    private WebElement drillDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
     private WebElement messageNameInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ontraport_components_form_control_drill_down_select_field_selector_merge_field_inserter ')]//button")
+    private WebElement mergeFieldDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ontraport_components_form_control_drill_down_select_field_selector_merge_field_inserter ')]//input")
+    private WebElement mergeFieldDropDownInput;
     
     @FindBy(
             how = How.XPATH,
@@ -130,9 +145,34 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_CreatePostcard clickFontDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(selectFontSize));  
         selectFontSize.click();
         return this;
         
+    }
+
+    public Message_CreatePostcard clickMergeFieldDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeFieldDropDown));  
+        mergeFieldDropDown.click();
+        return this;
+    }
+
+    public Message_CreatePostcard enterMergeFieldPane ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeFieldDropDownInput));  
+        mergeFieldDropDownInput.sendKeys(string);
+        return this;
+    }
+
+    public Message_CreatePostcard selectDropDownOption ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDown));  
+        drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return this;
     }
     
 }

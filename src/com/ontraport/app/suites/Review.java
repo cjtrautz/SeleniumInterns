@@ -18,18 +18,47 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 { 
+    com.ontraport.app.tests.CreateContact.class,
+    //relies on having at least one contact
+    com.ontraport.app.tests.AddTaskToContact.class,
+    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    
+    com.ontraport.app.tests.AddNewSection.class,
+    //relies on section
+    com.ontraport.app.tests.CreateLongTextField.class,
+    com.ontraport.app.tests.CreateSMSCustomFieldMessage.class,
+    com.ontraport.app.tests.DeleteSMSCustomFieldMessage.class,
+    com.ontraport.app.tests.CreateCustomFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteCustomFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteLongTextField.class,
+    com.ontraport.app.tests.DeleteSection.class,
+      
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.CreateSMSLPFieldMessage.class,
+    com.ontraport.app.tests.DeleteSMSLPFieldMessage.class,
+    com.ontraport.app.tests.CreateLPFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteLPFieldsTaskMessage.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
     com.ontraport.app.tests.CreateAWordPressSite.class,
+    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
+    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
+    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
-//    com.ontraport.app.tests.CreateRuleDateSequence.class,
-//    com.ontraport.app.tests.CopyDateSequence.class,
-//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-//    
-//    com.ontraport.app.tests.StepSequenceBack.class,
-//    
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    com.ontraport.app.tests.CopyStepSequence.class,
-//    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    com.ontraport.app.tests.CreateRuleDateSequence.class,
+    com.ontraport.app.tests.CopyDateSequence.class,
+    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+    
+    com.ontraport.app.tests.StepSequenceBack.class,
+    
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.CopyStepSequence.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
 }
 )
 public class Review extends AbstractSuite

@@ -24,8 +24,33 @@ public class Message_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//center[contains(concat(' ', @class, ' '),' box_canvas ')]//div[contains(concat(' ', @style, ' '),' font-family: ')]")
+    private WebElement postcardTextArea;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//textarea[contains(concat(' ', @class, ' '),' cke_source ')]")
     private WebElement textareaSource;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_date ')]//input")
+    private WebElement dueDateInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_owner ')]//input")
+    private WebElement taskOwnerInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_name ')]//input")
+    private WebElement subjectTaskInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-who ')]//input")
+    private WebElement whoInput;
     
     @FindBy(
             how = How.XPATH,
@@ -2494,6 +2519,111 @@ public class Message_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(textareaSource));
         textareaSource.sendKeys(string);
+        return this;
+    }
+
+    public Message_Edit verifyDueDate ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            
+            System.out.println("here");
+            if(!dueDateInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyWho ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!whoInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifySubjectTask ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!subjectTaskInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyTaskOwner ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!taskOwnerInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Message_Edit verifyTextAreaContains ( String dateTime )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("here");
+            if(!textArea2.getAttribute("value").contains(dateTime))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+    public Message_Edit verifyPostcardTextAreaContains ( String sting )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println("yeah");
+            if(!postcardTextArea.getText().contains(sting))
+            {
+                System.out.println("no");
+                return null;
+            }
+        }
+        catch(Exception e){
+            System.out.println("uh oh");
+            e.printStackTrace();
+            return null;
+        }
         return this;
     }
 

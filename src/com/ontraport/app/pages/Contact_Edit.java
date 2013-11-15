@@ -24,6 +24,14 @@ public class Contact_Edit extends AbstractPage
     private WebElement sequenceDropDown;
     
     @FindBy(how=How.XPATH,
+            using="//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]//a")
+    private WebElement subjectTask;
+    
+    @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_section ')][2]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
+    private WebElement newTask;
+    
+    @FindBy(how=How.XPATH,
             using="//label[text()='Last Name']/following-sibling::button")
     private WebElement lastNameSave;
     
@@ -82,6 +90,10 @@ public class Contact_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-component-tab-container']/div[2]/div[2]//table")
     private WebElement taskBody;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_section ')][2]//thead//th/a")
+    private WebElement taskSelectAll;
     
     @FindBy(how = How.XPATH,
             using = "//span[text()='Contact Information']")
@@ -379,6 +391,39 @@ public class Contact_Edit extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+
+    public Contact_Edit clickNewTask ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newTask));
+        newTask.click();
+        return this;
+    }
+
+    public Contact_Edit verifyTask ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+        String compare = subjectTask.getText();
+        if(compare.equals(string)!=true)
+        {
+            return null;
+        }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Contact_Edit selectTask ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskSelectAll));
+        taskSelectAll.click();
         return this;
     }
     
