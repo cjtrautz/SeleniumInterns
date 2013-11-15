@@ -18,11 +18,11 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 { 
-    com.ontraport.app.tests.CreateContact.class,
-    //relies on having at least one contact
-    com.ontraport.app.tests.AddTaskToContact.class,
-    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
-    com.ontraport.app.tests.DeleteContact.class,
+//    com.ontraport.app.tests.CreateContact.class,
+//    //relies on having at least one contact
+//    com.ontraport.app.tests.AddTaskToContact.class,
+//    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
+//    com.ontraport.app.tests.DeleteContact.class,
     
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
