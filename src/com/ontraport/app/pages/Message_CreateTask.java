@@ -156,7 +156,7 @@ public class Message_CreateTask extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(concat(' ', @class, ' '),' ussr-collection-empty ')]//div[contains(., 'There are no items to display')]")));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//td[contains(concat(' ', @class, ' '),' ussr-collection-empty ')]//div[contains(., 'There are no items to display')]")));
         wait.until(ExpectedConditions.visibilityOf(taskNameInput));
         taskNameInput.click();
         taskNameInput.sendKeys(string);

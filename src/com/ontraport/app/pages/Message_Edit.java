@@ -2517,8 +2517,10 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterMessageBodyMore ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(textareaSource));
-        textareaSource.sendKeys(string);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));
+        driver.switchTo().frame(iFrame);
+        body.sendKeys(string);
+        driver.switchTo().defaultContent();
         return this;
     }
 

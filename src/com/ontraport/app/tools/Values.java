@@ -27,6 +27,7 @@ public class Values
         files.add("Admin");
         files.add("WordPress");
         files.add("Packages");
+        files.add("Sales");
         for ( String file : files )
         {
             try

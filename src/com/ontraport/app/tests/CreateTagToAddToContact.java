@@ -23,8 +23,8 @@ public class CreateTagToAddToContact extends AbstractTest
         contactListAll.drawerActions.clickCreateNew();
         contactListAll.drawerActions.enterName(value.get("Contacts", "contact_tag"));
         contactListAll.drawerActions.clickSave();
-        contactListAll.drawerActions.clickTagDropDown();
-        contactListAll.drawerActions.selectDrillDown(value.get("Contacts", "contact_tag"));
+//        contactListAll.drawerActions.clickTagDropDown();
+//        contactListAll.drawerActions.selectDrillDown(value.get("Contacts", "contact_tag"));
         contactListAll.drawerActions.clickSubmit();
         Contact_Edit contact_Edit = contactListAll.clickContact(1);
         driver.navigate().refresh();

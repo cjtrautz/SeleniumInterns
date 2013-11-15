@@ -25,6 +25,12 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
+    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
+    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
     com.ontraport.app.tests.ImportContacts.class,
@@ -144,6 +150,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSMSMessage.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.CreateSMSLPFieldMessage.class,
+    com.ontraport.app.tests.DeleteSMSLPFieldMessage.class,
+    com.ontraport.app.tests.CreateLPFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteLPFieldsTaskMessage.class,
     com.ontraport.app.tests.CreateLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
     com.ontraport.app.tests.DeleteLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
     com.ontraport.app.tests.EditLandingPageOpacity.class,
@@ -158,7 +168,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteEmailLPMessage.class,
     com.ontraport.app.tests.DeleteLandingPage.class,
     
+    com.ontraport.app.tests.StepSequenceBack.class,
+    
     com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.CopyStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.CreateContact.class,
     com.ontraport.app.tests.AddNewSection.class,
@@ -220,6 +233,10 @@ import com.ontraport.app.tools.AbstractSuite;
       //relies on section
       com.ontraport.app.tests.CreateLongTextField.class,
     //relies on text field
+      com.ontraport.app.tests.CreateSMSCustomFieldMessage.class,
+      com.ontraport.app.tests.DeleteSMSCustomFieldMessage.class,
+      com.ontraport.app.tests.CreateCustomFieldTaskMessage.class,
+      com.ontraport.app.tests.DeleteCustomFieldTaskMessage.class,
       com.ontraport.app.tests.CreateLeadScoring_ALongTextFieldMeetsCriteria.class,
       com.ontraport.app.tests.DeleteLeadScoring_ALongTextFieldMeetsCriteria.class,
       com.ontraport.app.tests.AddGroupWithLongTextField.class,
@@ -402,6 +419,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CheckLogOut.class,
     
     com.ontraport.app.tests.CreateRuleDateSequence.class,
+    com.ontraport.app.tests.CopyDateSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToPausedDateSequence.class,
