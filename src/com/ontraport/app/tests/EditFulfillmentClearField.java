@@ -23,6 +23,7 @@ public class EditFulfillmentClearField extends AbstractTest
         Fulfillment_ListAll fulfillment_ListAll = account_View.clickFulfillmentManager();
         Fulfillment_Edit fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list"));
         fulfillment_Edit.clearAllFields();
+        fulfillment_Edit.dialogBox.clickYesClearAll();
         
         if(fulfillment_Edit.verifyNumberOfFields(0)==null)
         {

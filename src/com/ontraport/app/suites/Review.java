@@ -17,46 +17,12 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{
-    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
+{  
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.EditSMSMessageName.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
     
-    com.ontraport.app.tests.CreateGatewayUSAePayToken.class,
-    com.ontraport.app.tests.DeleteGatewayUSAePayToken.class,
-    
-    com.ontraport.app.tests.CreateGatewayUSAePay.class,
-    com.ontraport.app.tests.DeleteGatewayUSAePay.class,
-    
-    com.ontraport.app.tests.CreateGatewayQuickBooks.class,
-    com.ontraport.app.tests.DeleteGatewayQuickBooks.class,
-    
-    com.ontraport.app.tests.CreateGatewayPayPal.class,
-    com.ontraport.app.tests.DeleteGatewayPayPal.class,
-    
-    com.ontraport.app.tests.CreateGatewayPayLeap.class,
-    com.ontraport.app.tests.DeleteGatewayPayLeap.class,
-    
-    com.ontraport.app.tests.CreateGatewayPayJunction.class,
-    com.ontraport.app.tests.DeleteGatewayPayJunction.class,
-    
-    com.ontraport.app.tests.CreateGatewayPayflowPro.class,
-    com.ontraport.app.tests.DeleteGatewayPayflowPro.class,
-    
-    com.ontraport.app.tests.CreateGatewayNetworkMerchantsInc.class,
-    com.ontraport.app.tests.DeleteGatewayNetworkMerchantsInc.class,
-    
-    com.ontraport.app.tests.CreateGatewayeWay.class,
-    com.ontraport.app.tests.DeleteGatewayeWay.class,
-    
-    com.ontraport.app.tests.CreateGatewayElavon.class,
-    com.ontraport.app.tests.DeleteGatewayElavon.class,
-    
-  com.ontraport.app.tests.CreateGatewayAuthorizeNet.class,
-  com.ontraport.app.tests.DeleteGatewayAuthorizeNet.class,
-  
-  com.ontraport.app.tests.CreateGatewayAuthorizeNetCIM.class,
-  com.ontraport.app.tests.DeleteGatewayAuthorizeNetCIM.class,
-
+    com.ontraport.app.tests.CreateMessageCancel.class,
     
 //    com.ontraport.app.tests.CreateContact.class,
 //    //relies on having at least one contact
@@ -71,7 +37,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com/");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

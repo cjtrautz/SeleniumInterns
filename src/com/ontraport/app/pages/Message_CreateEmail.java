@@ -81,6 +81,11 @@ public class Message_CreateEmail extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//button[contains(., 'Cancel')]")
+    private WebElement cancel;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//textarea[contains(concat(' ', @class, ' '),' cke_source ')]")
     private WebElement textareaSource;
 
@@ -196,6 +201,14 @@ public class Message_CreateEmail extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(copyFromHTML));
         copyFromHTML.click();
         return this;
+    }
+
+    public Message_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
+        return (Message_ListAll) new Message_ListAll().init();
     }
     
 }

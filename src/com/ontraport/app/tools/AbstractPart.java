@@ -2,12 +2,14 @@ package com.ontraport.app.tools;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractPart
@@ -34,6 +36,10 @@ public abstract class AbstractPart
                         .executeScript( "return window.ontraport != undefined "
                                       + "&& ontraport.activeRequests != undefined "
                                       + "&& ontraport.activeRequests === 0" );
+            driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            WebDriverWait wait = new WebDriverWait(AbstractSuite.getDriver(), 30);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-state-loading ')]")));
+            driver.manage().timeouts().implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return jQcondition;
         }
         catch (Exception e)

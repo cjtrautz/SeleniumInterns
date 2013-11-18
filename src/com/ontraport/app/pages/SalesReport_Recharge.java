@@ -29,7 +29,7 @@ public class SalesReport_Recharge extends AbstractPage
     public SalesReport_Recharge enterRetryCreditCardsEvery ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(collectionBody));
+        //wait.until(ExpectedConditions.visibilityOf(collectionBody));
         wait.until(ExpectedConditions.visibilityOf(retryInput));
         retryInput.clear();
         retryInput.sendKeys(string);
