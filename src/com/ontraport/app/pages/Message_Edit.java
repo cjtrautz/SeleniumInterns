@@ -2629,5 +2629,12 @@ public class Message_Edit extends AbstractPage
         return this;
     }
 
+    public Message_Edit enterMessageSMSBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.xpath("//textarea")).sendKeys(string);
+        return this;
+    }
+
 
 }

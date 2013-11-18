@@ -23,18 +23,7 @@ public class EditSMSMessageBody extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "sms_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "sms_message"));
-        //message_Edit.enterMessageSMSBody("test");
-        message_ListAll = message_Edit.clickSave();
-        message_ListAll.formSearch.find(value.get("Messages", "sms_message"));
-        
-        //verify that it exists
-        if(message_ListAll.verifyMessage(value.get("Messages", "sms_message") + " 2")==null)
-        {
-            fail("couldn't find created message");
-        }
-
-        message_Edit = message_ListAll.clickMessage(value.get("Messages", "sms_message") + " 2");
-        message_Edit.enterMessageName(value.get("Messages", "sms_message"));
+        message_Edit.enterMessageSMSBody("test");
         message_ListAll = message_Edit.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "sms_message"));
         
@@ -43,6 +32,8 @@ public class EditSMSMessageBody extends AbstractTest
         {
             fail("couldn't find created message");
         }
+
+        message_Edit = message_ListAll.clickMessage(value.get("Messages", "sms_message"));
 
     }
 }
