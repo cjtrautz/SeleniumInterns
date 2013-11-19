@@ -14,16 +14,17 @@ import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class EditSMSMessageBody extends AbstractTest
+public class EditSMSMessageMergeField extends AbstractTest
 {
     @Test
-    public void testEditSMSMessageBody () throws InterruptedException
+    public void testEditSMSMessageMergeField () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "sms_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "sms_message"));
-        message_Edit.enterMessageSMSBody("test");
+        message_Edit.clickMergeFieldDropDown();
+        message_Edit.selectDropDownOption("Last Name");
         message_ListAll = message_Edit.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "sms_message"));
         
@@ -34,7 +35,7 @@ public class EditSMSMessageBody extends AbstractTest
         }
 
         message_Edit = message_ListAll.clickMessage(value.get("Messages", "sms_message"));
-        if(message_Edit.verifyTextArea("[First Name]Seltest")==null)
+        if(message_Edit.verifyTextArea("[Last Name][First Name]Seltest")==null)
         {
             fail("couldn't find message body");
         }

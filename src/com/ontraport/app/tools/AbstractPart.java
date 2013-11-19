@@ -73,6 +73,10 @@ public abstract class AbstractPart
                         .executeScript( "return window.ontraport != undefined "
                                       + "&& ontraport.activeRequests != undefined "
                                       + "&& ontraport.activeRequests === 0" );
+            driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            WebDriverWait wait = new WebDriverWait(AbstractSuite.getDriver(), 30);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-state-loading ')]")));
+            driver.manage().timeouts().implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return jQcondition;
         }
         catch (Exception e)
@@ -106,6 +110,10 @@ public abstract class AbstractPart
                         .executeScript( "return window.ontraport != undefined "
                                       + "&& ontraport.activeRequests != undefined "
                                       + "&& ontraport.activeRequests === 0" );
+            driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            WebDriverWait wait = new WebDriverWait(AbstractSuite.getDriver(), 30);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-state-loading ')]")));
+            driver.manage().timeouts().implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return jQcondition;
         }
         catch (Exception e)

@@ -29,8 +29,18 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]//span[contains(text(),'Cancel')]")
+    private WebElement cancel;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//textarea[contains(concat(' ', @class, ' '),' cke_source ')]")
     private WebElement textareaSource;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-plaintext-merge ')]//button")
+    private WebElement mergeDropDown;
     
     @FindBy(
             how = How.XPATH,
@@ -2634,6 +2644,31 @@ public class Message_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.xpath("//textarea")).sendKeys(string);
         return this;
+    }
+
+    public Message_Edit clickMergeFieldDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeDropDown));  
+        mergeDropDown.click();
+        return this;
+    }
+
+    public Message_Edit enterNewMessageSMSBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.findElement(By.xpath("//textarea")).click();
+        driver.findElement(By.xpath("//textarea")).clear();
+        driver.findElement(By.xpath("//textarea")).sendKeys(string);
+        return this;
+    }
+
+    public Message_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));  
+        cancel.click();
+        return (Message_ListAll) new Message_ListAll().init();
     }
 
 
