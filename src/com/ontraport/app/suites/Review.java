@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    //com.ontraport.app.tests.CreateLandingPageCodeMode.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.EditLandingPageAlignment.class,

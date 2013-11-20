@@ -41,7 +41,7 @@ public class CreateLandingPageCodeMode extends AbstractTest
 
         LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Code_Mode"));
         //not sure how to wait to see if website has been hosted yet efficiently
-        if(landingPage_Edit.verifyLinksTo(value.get("LandingPages", "Easy_Landing_Page_Code_Mode"))==null)
+        if(landingPage_Edit.verifyName(value.get("LandingPages", "Easy_Landing_Page_Code_Mode"))==null)
         {
             fail("couldnt find lp titile");
         }

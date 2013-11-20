@@ -93,6 +93,7 @@ public class LandingPage_CreateType0 extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(iFrame));
         driver.switchTo().frame(iFrame);
         body.click();
+        body.sendKeys(string);
         Actions action = new Actions(driver);
         action.sendKeys(string).build().perform();
         driver.switchTo().defaultContent();
