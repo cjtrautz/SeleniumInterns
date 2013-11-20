@@ -367,6 +367,8 @@ public class DialogBox extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(hostedDomainInput));
+        hostedDomainInput.click();
+        hostedDomainInput.clear();
         hostedDomainInput.sendKeys(string);
         return this;
         
@@ -984,8 +986,8 @@ public class DialogBox extends AbstractPart
     public DialogBox clickYesClearAll ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait(30).until(ExpectedConditions.visibilityOf(done2));
-        done2.click();
+        wait(30).until(ExpectedConditions.visibilityOf(yesClearAll));
+        yesClearAll.click();
         return this;
     }
 

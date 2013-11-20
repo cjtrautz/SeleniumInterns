@@ -33,6 +33,16 @@ public class AffiliateProgram_Create extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//label[contains(text(), 'Show affiliates information on declined charges')]/following-sibling::div/a")
+    private WebElement declinedCheckbox; 
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//label[contains(text(), 'Show affiliates complete purchase history for each referred client')]/following-sibling::div/a")
+    private WebElement purchaseCheckbox; 
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//li[@data-val='custom_val']")
     private WebElement customEmail;
     
@@ -55,6 +65,16 @@ public class AffiliateProgram_Create extends AbstractPage
             how = How.XPATH,
             using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]//span[contains(text(), 'Save')]")
     private WebElement save;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]//span[contains(text(), 'Cancel')]")
+    private WebElement cancel;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-back ')]")
+    private WebElement back;
 
     public AffiliateProgram_Create enterProgramName ( String string )
     {
@@ -126,6 +146,38 @@ public class AffiliateProgram_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
+        return (AffiliateProgram_ListAll) new AffiliateProgram_ListAll().init();
+    }
+
+    public AffiliateProgram_Create clickShowAffiliateInfoOnDelinedCharges ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(declinedCheckbox));
+        declinedCheckbox.click();
+        return this;
+    }
+
+    public AffiliateProgram_Create clickShowAffiliatePurchaseHistory ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(purchaseCheckbox));
+        purchaseCheckbox.click();
+        return this;
+    }
+
+    public AffiliateProgram_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
+        return (AffiliateProgram_ListAll) new AffiliateProgram_ListAll().init();
+    }
+
+    public AffiliateProgram_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
         return (AffiliateProgram_ListAll) new AffiliateProgram_ListAll().init();
     }
     

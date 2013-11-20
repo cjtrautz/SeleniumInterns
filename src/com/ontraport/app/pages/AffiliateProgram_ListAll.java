@@ -15,6 +15,14 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class AffiliateProgram_ListAll extends AbstractPage
 {
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
+    private WebElement emptyCell;
+    
+    @FindBy(how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']/tr/td/a")
+    private WebElement uiSelectAll;
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[@id='ontraport_panel_action_new']")
@@ -52,6 +60,48 @@ public class AffiliateProgram_ListAll extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"))));
         uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
         return (AffiliateProgram_Edit) new AffiliateProgram_Edit().init();
+    }
+
+    public AffiliateProgram_ListAll selectAllOnPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        uiSelectAll.click();
+        return this;
+    }
+
+    public AffiliateProgram_ListAll verifyNoProgram ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            emptyCell.isDisplayed();
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public AffiliateProgram_ListAll verifyPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/affiliate_program/listAll");
+            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/affiliate_program/listAll"))
+            {
+                return null; 
+            }
+            uiCollectionBody.isDisplayed();
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
     }
 
 }

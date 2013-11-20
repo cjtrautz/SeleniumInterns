@@ -294,7 +294,7 @@ public class Gmail extends AbstractPage
             System.out.println(hours2);
             int time2 = (hours2*60) + (time- (hours2*100));
             System.out.println(yep2 + "and" + time2);
-            if((time2+15) > yep2 | yep2 > (time2+45))
+            if((time2+13) > yep2 | yep2 > (time2+45))
             {
                 return null;
             }

@@ -170,6 +170,10 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement landingPageNameTitle;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
+    private WebElement landingPageName;
+    
+    @FindBy(how = How.XPATH,
             using = "//td[@id='Menu_Bar']/div/div/table/tbody/tr[3]/td/div[contains(concat(' ', normalize-space(@class), ' '),' menu_button_class ')]/table/tbody/tr/td[2]")
     private WebElement landingPageURL;
     
@@ -206,6 +210,10 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement background;
     
     @FindBy(how = How.XPATH,
+            using = "//select")
+    private WebElement select;
+    
+    @FindBy(how = How.XPATH,
             using = "//td[contains(text(), 'Page Size:')]/following-sibling::td/div[contains(concat(' ', normalize-space(@style), ' '),' cursor: pointer; ')]")
     private WebElement pageSize;
 
@@ -236,6 +244,7 @@ public class LandingPage_Edit extends AbstractPage
         {
             String compare = landingPageURL.getText();
             System.out.println(compare);
+            System.out.println("http://" + value + ".respond.ontraport.net");
             if(compare.equals("http://" + value + ".respond.ontraport.net")!=true)
             {
                 return null;
@@ -1201,6 +1210,108 @@ public class LandingPage_Edit extends AbstractPage
 
             return null;
         }
+        return this;
+    }
+
+    public LandingPage_Edit enterName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(landingPageName));
+        landingPageName.click();
+        landingPageName.clear();
+        landingPageName.sendKeys(string);
+        return this;
+    }
+
+    public LandingPage_Edit verifyName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(landingPageName.getAttribute("value"));
+            if(!landingPageName.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public LandingPage_Edit enterTitle ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(landingPageNameTitle));
+        landingPageNameTitle.click();
+        landingPageNameTitle.clear();
+        landingPageNameTitle.sendKeys(string);
+        return this;
+    }
+
+    public LandingPage_Edit clickPageURL ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(landingPageURL));
+        landingPageURL.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickPageAlignment ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(select));
+        select.click();
+        return this;
+    }
+
+    public LandingPage_Edit selectPageAlignment ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(select.findElement(By.xpath(".//option[@value='" + string + "']"))));
+        select.findElement(By.xpath(".//option[@value='" + string + "']")).click();
+        Actions action = new Actions(driver);
+        action.clickAndHold(select.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
+        action.release(select.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit verifyPageAlignment ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(select.getAttribute("value"));
+            if(!select.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public LandingPage_Edit verifyText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        WebElement iframe = driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iframe));
+        driver.switchTo().frame(iframe);
+        try
+        {
+        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        }
+        catch(Exception e)
+        {
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        driver.switchTo().defaultContent();
         return this;
     }
 

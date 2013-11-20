@@ -17,8 +17,38 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{  
+{
+    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.EditLandingPageAlignment.class,
+    com.ontraport.app.tests.EditLandingPageURL.class,
+    com.ontraport.app.tests.EditLandingPageTitle.class,
+    com.ontraport.app.tests.EditLandingPageName.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
+    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
+    com.ontraport.app.tests.GlobalSettingsClickBack.class,
+    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
+    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
+    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
+    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
+    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
+    
+    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
+    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
+    
+    com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
+    
+    com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
+    
     com.ontraport.app.tests.CreateAffilatesProgram.class,
+    com.ontraport.app.tests.DeleteAffiliateProgram.class,
     
     com.ontraport.app.tests.CreateSMSMessage.class,
     com.ontraport.app.tests.EditSMSMessageName.class,

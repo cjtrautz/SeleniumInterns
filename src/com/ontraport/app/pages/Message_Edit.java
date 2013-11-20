@@ -22,6 +22,12 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Message_Edit extends AbstractPage
 {
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//th[contains(concat(' ', @class, ' '),' ussr-component-collection-cell-type-text ') and @data-header='name']/a")
+    private WebElement nameColumn;
+    
     @FindBy(
             how = How.XPATH,
             using = "//center[contains(concat(' ', @class, ' '),' box_canvas ')]//div[contains(concat(' ', @style, ' '),' font-family: ')]")
@@ -628,6 +634,9 @@ public class Message_Edit extends AbstractPage
 
     public Message_Edit verifyOutcome ( String name )
     {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nameColumn));  
+        nameColumn.click();
         AbstractPart.waitForAjax(driver, 20);
             try
             {

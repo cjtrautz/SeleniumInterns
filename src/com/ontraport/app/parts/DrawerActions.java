@@ -17,6 +17,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Contact_Export;
+import com.ontraport.app.pages.LandingPage_Edit;
 import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Sequence_Edit;
@@ -52,6 +53,10 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' usser-targert-drawer-action-1 ')]//a")
     private WebElement copySequence;
+    
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' usser-targert-drawer-action-0 ')]//a")
+    private WebElement copyLandingPage;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-time-picker ')]//input")
@@ -696,5 +701,19 @@ public class DrawerActions extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(createNew));
         createNew.click();
         return (Message_CreateTask) new Message_CreateTask().init();
+    }
+    public DrawerActions clickDeleteProgram ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiDelete));
+        uiDelete.click();
+        return this;
+    }
+    public LandingPage_Edit clickCopyLandingPage ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(copyLandingPage));
+        copyLandingPage.click();
+        return (LandingPage_Edit) new LandingPage_Edit().init();
     }
 }
