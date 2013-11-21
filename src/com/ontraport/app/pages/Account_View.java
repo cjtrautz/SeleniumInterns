@@ -85,6 +85,11 @@ public class Account_View extends AbstractPage
             using = "//a[contains(concat(' ', @href, ' '),' #!/package/listAll ')]")
     private WebElement packageManager;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[contains(concat(' ', @href, ' '),' #!/zencoder_video/listAll ')]")
+    private WebElement videoManager;
+    
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -213,6 +218,15 @@ public class Account_View extends AbstractPage
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
         packageManager.click();
         return (Package_ListAll) new Package_ListAll().init();
+    }
+
+    public ZencoderVideo_ListAll clickVideoManager ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
+        videoManager.click();
+        return (ZencoderVideo_ListAll) new ZencoderVideo_ListAll().init();
     }
     
 }

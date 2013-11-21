@@ -19,6 +19,14 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class LandingPage_Edit extends AbstractPage
 { 
+    @FindBy(how = How.XPATH,
+            using = "//body")
+    private WebElement body;
+    
+    @FindBy(how = How.XPATH,
+            using = "//textarea")
+    private WebElement textarea;
+    
     @FindBy(
             how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@style), ' '),'http://i.ontraport.com') or div[contains(concat(' ', normalize-space(@style), ' '),'http://i.ontraport.com')]]")
@@ -28,6 +36,11 @@ public class LandingPage_Edit extends AbstractPage
             how = How.XPATH,
             using = "//td[@id='property_cell']//input[@value='Select Image']")
     private WebElement selectImage;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//td[contains(text(),'Page URL:')]/following-sibling::td/following-sibling::td")
+    private WebElement codeModeURL;
     
     @FindBy(
             how = How.XPATH,
@@ -71,8 +84,16 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement color;
     
     @FindBy(how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement drillDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//img[@title='Rounded']")
     private WebElement rounded;
+    
+    @FindBy(how = How.XPATH,
+            using = "//a[@title='Source']")
+    private WebElement source;
     
     @FindBy(how = How.XPATH,
             using = "//img[@title='Circle']")
@@ -166,12 +187,24 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement save;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_drill_down_select_field_selector_merge_field_inserter ')]//button")
+    private WebElement fieldDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_drill_down_select ')]//button")
+    private WebElement formDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' menu_button_class ')]//input[@type='TEXT']")
     private WebElement landingPageNameTitle;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
     private WebElement landingPageName;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form ')]")
+    private WebElement form;
     
     @FindBy(how = How.XPATH,
             using = "//td[@id='Menu_Bar']/div/div/table/tbody/tr[3]/td/div[contains(concat(' ', normalize-space(@class), ' '),' menu_button_class ')]/table/tbody/tr/td[2]")
@@ -210,8 +243,24 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement background;
     
     @FindBy(how = How.XPATH,
+            using = "//div[@class='colorSelector']")
+    private WebElement backgroundCodeMode;
+    
+    @FindBy(how = How.XPATH,
             using = "//select")
     private WebElement select;
+    
+    @FindBy(how = How.XPATH,
+            using = "//input[@class='inpt_checkbox standard_input']")
+    private WebElement splitTestCheckbox;
+
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Page Alignment:')]/following-sibling::td//select")
+    private WebElement codeModePageAlignmentSelect;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(text(), 'Switch View:')]/following-sibling::td//select")
+    private WebElement codeModeSplitTestSelect;
     
     @FindBy(how = How.XPATH,
             using = "//td[contains(text(), 'Page Size:')]/following-sibling::td/div[contains(concat(' ', normalize-space(@style), ' '),' cursor: pointer; ')]")
@@ -1277,6 +1326,17 @@ public class LandingPage_Edit extends AbstractPage
         action.release(select.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
         return this;
     }
+    
+    public LandingPage_Edit selectPageAlignmentCodeMode ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(codeModePageAlignmentSelect.findElement(By.xpath(".//option[@value='" + string + "']"))));
+        codeModePageAlignmentSelect.findElement(By.xpath(".//option[@value='" + string + "']")).click();
+        Actions action = new Actions(driver);
+        action.clickAndHold(codeModePageAlignmentSelect.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
+        action.release(codeModePageAlignmentSelect.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
+        return this;
+    }
 
     public LandingPage_Edit verifyPageAlignment ( String string )
     {
@@ -1285,6 +1345,24 @@ public class LandingPage_Edit extends AbstractPage
         {
             System.out.println(select.getAttribute("value"));
             if(!select.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public LandingPage_Edit verifyPageAlignmentCodeMode ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(codeModePageAlignmentSelect.getAttribute("value"));
+            if(!codeModePageAlignmentSelect.getAttribute("value").equals(string))
             {
                 return null;
             }
@@ -1312,6 +1390,188 @@ public class LandingPage_Edit extends AbstractPage
             return null;
         }
         driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public LandingPage_Edit verifyLandingPageURLCodeMode ( String value )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            String compare = codeModeURL.getText();
+            System.out.println(compare);
+            System.out.println(value + ".respond.ontraport.net");
+            if(compare.equals(value + ".respond.ontraport.net")!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public LandingPage_Edit clickPageURLCodeMode ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(codeModeURL));
+        codeModeURL.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickBackgroundCodeMode ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(backgroundCodeMode));
+        backgroundCodeMode.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickPageAlignmentCodeMode ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(codeModePageAlignmentSelect));
+        codeModePageAlignmentSelect.click();
+        return this;
+    }
+
+    public LandingPage_Edit clickSplitTestDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(codeModeSplitTestSelect));
+        codeModeSplitTestSelect.click();
+        return this;
+    }
+
+    public LandingPage_Edit selectSplitTestDropDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(codeModeSplitTestSelect.findElement(By.xpath(".//option[@value='" + string + "']"))));
+        codeModeSplitTestSelect.findElement(By.xpath(".//option[@value='" + string + "']")).click();
+        Actions action = new Actions(driver);
+        action.clickAndHold(codeModeSplitTestSelect.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
+        action.release(codeModeSplitTestSelect.findElement(By.xpath(".//option[@value='" + string + "']"))).build().perform();
+        return this;
+    }
+
+    public LandingPage_Edit verifySplitTestCodeMode ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(codeModeSplitTestSelect.getAttribute("value"));
+            if(!codeModeSplitTestSelect.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public LandingPage_Edit ucheckIncludePageSplitTesting ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(splitTestCheckbox));
+        splitTestCheckbox.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifySplitTestUnchecked ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(codeModeSplitTestSelect.isSelected());
+            if(splitTestCheckbox.isSelected())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public LandingPage_Edit clickFieldDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fieldDropDown));
+        fieldDropDown.click();
+        return this;
+    }
+
+    public LandingPage_Edit selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDown));
+        drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return this;
+    }
+
+    public LandingPage_Edit clickFormDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(formDropDown));
+        formDropDown.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifySmartForm ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        WebElement iframe = driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iframe));
+        driver.switchTo().frame(iframe);
+        try
+        {
+        if(!form.isDisplayed())
+        {
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        }
+        catch(Exception e)
+        {
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public LandingPage_Edit enterMoreText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame));
+        driver.switchTo().frame(iFrame);
+        body.click();
+        body.sendKeys(string);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public LandingPage_Edit clickSource ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(source));
+        source.click();
+        return this;
+    }
+
+    public LandingPage_Edit enterTextArea ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        textarea.click();
+        textarea.clear();
+        textarea.sendKeys(string);
         return this;
     }
 

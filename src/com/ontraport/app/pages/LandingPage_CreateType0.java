@@ -94,8 +94,6 @@ public class LandingPage_CreateType0 extends AbstractPage
         driver.switchTo().frame(iFrame);
         body.click();
         body.sendKeys(string);
-        Actions action = new Actions(driver);
-        action.sendKeys(string).build().perform();
         driver.switchTo().defaultContent();
         return this;
     }

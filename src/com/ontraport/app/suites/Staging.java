@@ -334,6 +334,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteContact.class,
     
     com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.PreviewEmailMessage.class,
     com.ontraport.app.tests.EditEmailMessageAlignment.class,
     com.ontraport.app.tests.EditEmailMessageLinkText.class,
     com.ontraport.app.tests.EditEmailMessageSource.class,

@@ -2680,5 +2680,25 @@ public class Message_Edit extends AbstractPage
         return (Message_ListAll) new Message_ListAll().init();
     }
 
+    public Sequence_CreateStep clickSaveToStep ()
+    {
+        driver.switchTo().defaultContent();
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        return (Sequence_CreateStep) new Sequence_CreateStep().init();
+    }
+
+    public Message_Edit enterTextWithClear ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(iFrame2));  
+        driver.switchTo().frame(iFrame2);
+        body.click();
+        body.clear();
+        body.sendKeys(string);
+        return this;
+    }
+
 
 }

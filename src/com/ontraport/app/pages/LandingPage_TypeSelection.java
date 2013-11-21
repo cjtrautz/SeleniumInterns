@@ -17,7 +17,15 @@ public class LandingPage_TypeSelection extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//a[@href='#!/landing_page/create&type=0']/button[contains(concat(' ', normalize-space(@class), ' '),' type-selection-create-button ')]")
     private WebElement creatCodeMode;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' type-selection-cancel-button ')]")
+    private WebElement cancel;
 
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-back ')]")
+    private WebElement back;
+    
     public LandingPage_CreateType1 clickCreateEasyPages ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -32,6 +40,22 @@ public class LandingPage_TypeSelection extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(creatCodeMode));
         creatCodeMode.click();
         return (LandingPage_CreateType0) new LandingPage_CreateType0().init();
+    }
+
+    public LandingPage_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
+        return (LandingPage_ListAll) new LandingPage_ListAll().init();
+    }
+
+    public LandingPage_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
     
 }

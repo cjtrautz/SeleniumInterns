@@ -87,7 +87,7 @@ public class LandingPage_ListAll extends AbstractPage
         
     }
 
-    public Object verifyNoLandingPage ()
+    public LandingPage_ListAll verifyNoLandingPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -115,5 +115,27 @@ public class LandingPage_ListAll extends AbstractPage
         
         return this;
     }
+
+    public LandingPage_ListAll verifyThisPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()='Landing Pages']")).isDisplayed())
+            {
+                return null;
+            }
+            if(!uiCollectionBody.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
     
 }

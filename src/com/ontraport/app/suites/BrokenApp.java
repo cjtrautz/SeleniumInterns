@@ -18,7 +18,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{    
+{   
+    com.ontraport.app.tests.EditLandingPageCodeModeBackground.class,
+    
     com.ontraport.app.tests.CreateRuleStepSequence.class,//these are fine
     com.ontraport.app.tests.CreateMessage.class,
     

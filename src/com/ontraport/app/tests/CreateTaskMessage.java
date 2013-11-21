@@ -9,6 +9,7 @@ import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Message_TypeSelection;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateTaskMessage extends AbstractTest
@@ -36,7 +37,7 @@ public class CreateTaskMessage extends AbstractTest
         message_CreateTask.clickAddNewOutcome();
         message_CreateTask.clickOutcomeNameDropDown();
         message_CreateTask.selectCreateNewOutcome();
-        message_CreateTask.enterOutcomeName("SelOutcome");
+        message_CreateTask.enterOutcomeName("SelOutcome" + AbstractSuite.UNIQUE);
         message_CreateTask.clickSelect();
         message_CreateTask.clickOutcomeThenDropDown();
         message_CreateTask.selectDropDownOption("Recharge all declined transactions");
@@ -51,7 +52,7 @@ public class CreateTaskMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelTaskMessage");
-        if(message_Edit.verifyOutcome("SelOutcome")==null)
+        if(message_Edit.verifyOutcome("SelOutcome"  + AbstractSuite.UNIQUE)==null)
         {
             fail("couldn't find SelOutcome");
         }

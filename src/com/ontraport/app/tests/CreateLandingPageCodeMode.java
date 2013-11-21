@@ -49,7 +49,11 @@ public class CreateLandingPageCodeMode extends AbstractTest
         {
             fail("couldnt find lp titile");
         }
-        if(landingPage_Edit.verifyLandingPageURL(value.get("LandingPages", "Easy_Landing_Page_Code_Mode") + AbstractSuite.UNIQUE)==null)
+        if(landingPage_Edit.verifyLandingPageURLCodeMode(value.get("LandingPages", "Easy_Landing_Page_Code_Mode") + AbstractSuite.UNIQUE)==null)
+        {
+            fail("couldnt find lp url");
+        }
+        if(landingPage_Edit.verifyText("test")==null)
         {
             fail("couldnt find lp url");
         }

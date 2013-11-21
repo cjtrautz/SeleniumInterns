@@ -17,8 +17,38 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{
-    //com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+{ 
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.CreateStepSequenceBack.class,
+    
+    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
+    
+    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestDropDown.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAlignment.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAlignmentCenter.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeURL.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeTitle.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeName.class,
+    com.ontraport.app.tests.CreateGateway.class,
+    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    com.ontraport.app.tests.DeleteGateway.class,
+    com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
+    
+    com.ontraport.app.tests.VideoManagerCancel.class,
+    
+    com.ontraport.app.tests.CreateLandingPageBack.class,
+    
+    com.ontraport.app.tests.CreateLandingPageCancel.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.EditLandingPageAlignment.class,

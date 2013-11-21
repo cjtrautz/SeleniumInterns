@@ -155,7 +155,7 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteUser;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send E-Mail')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send E')]")
     private WebElement uiSendEmail;
     
     @FindBy(how = How.XPATH,

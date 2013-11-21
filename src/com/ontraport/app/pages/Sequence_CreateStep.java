@@ -1,18 +1,26 @@
 package com.ontraport.app.pages;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class Sequence_CreateStep extends AbstractPage
 {
+    @FindBy(how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']")
+    private WebElement uiCollectionBody;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-menu ') and div[ul[@class='ussr-component-drilldownselect-ul']]]")
     private WebElement drillDownMenuIf;
@@ -28,8 +36,43 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//iframe")
+    private WebElement iframe;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//p")
+    private WebElement paragraph;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='step_bar']")
+    private WebElement stepBar;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
     private WebElement sequenceNameInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
+    private List<WebElement> steps;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-message-edit-button ')]")
+    private WebElement messageEdit;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' preview_data_subject ')]")
+    private WebElement messageSubject;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-message-selector ')]//input")
+    private WebElement emailNameInput;
     
     @FindBy(
             how = How.XPATH,
@@ -78,6 +121,11 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+                    using = "//span[@class='ussr-component-quick-object-creator-target-sae-button']")
+            private WebElement saveAndEdit;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@class='ussr-component-drilldownselect-menu-wrapper']")
     private WebElement drillDownPaneGone;
     
@@ -95,6 +143,16 @@ public class Sequence_CreateStep extends AbstractPage
             how = How.XPATH,
             using = "//div[@class='ussr-pane-editor-back']")
     private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='step_handle']")
+    private List<WebElement> stepDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='step_handle']")
+    private List<WebElement> stepMove;
     
     @FindBy(
             how = How.XPATH,
@@ -366,6 +424,140 @@ public class Sequence_CreateStep extends AbstractPage
         stepTimeDropDown.click();
         return this;
     }
+
+    public Message_Edit clickSaveAndEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveAndEdit));
+        saveAndEdit.click();
+        return (Message_Edit) new Message_Edit().init();
+    }
+
+    public Sequence_CreateStep verifyPage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create&type=step");
+            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create&type=step"))
+            {
+                return null; 
+            }
+
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Sequence_CreateStep verifyEmailName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!emailNameInput.getAttribute("value").equals(string))
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Sequence_CreateStep verifyPageFromStepCreate ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create&type=step");
+            if(!driver.getCurrentUrl().contains(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create&workHash"))
+            {
+                System.out.println("here1");
+                return null; 
+            }
+            if(!driver.getCurrentUrl().contains("&type=step"))
+            {
+                System.out.println("here2");
+                return null; 
+            }
+        }
+        catch(Exception e){
+            System.out.println("here4");
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Message_Edit clickEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(messageEdit));
+        messageEdit.click();
+        return (Message_Edit) new Message_Edit().init();
+    }
+
+    public Sequence_CreateStep verifyEmailSubject ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(messageSubject.getText());
+            if(!messageSubject.getText().contains(string))
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Sequence_CreateStep verifyEmailBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.switchTo().frame(iframe);
+        try
+        {
+            if(!paragraph.getText().contains(string))
+            {
+                driver.switchTo().defaultContent();
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            driver.switchTo().defaultContent();
+            return null;
+        }
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    public Sequence_CreateStep clickStepDropDown ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stepDropDown.get(i-1)));
+        stepDropDown.get(i-1).click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickStepHandleAndMove ( int i, int j )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(stepMove.get(i-1), 0, -j).build().perform();
+        return this;
+    }
+
 
     
 }

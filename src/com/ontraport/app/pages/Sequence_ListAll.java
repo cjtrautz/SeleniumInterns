@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -24,6 +25,10 @@ public class Sequence_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()='Sequences']")
     private WebElement title;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-theme-sequence-email ')]/following-sibling::div[contains(concat(' ', normalize-space(@class), ' '),' step_details ')]")
+    private WebElement sequenceEmailDetail;
     
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
@@ -176,6 +181,12 @@ public class Sequence_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            System.out.println(driver.getCurrentUrl());
+            System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/listAll");
+            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/listAll"))
+            {
+                return null; 
+            }
             if(!uiCollectionBody.isDisplayed())
             {
                 return null;
@@ -190,6 +201,52 @@ public class Sequence_ListAll extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+
+    public Sequence_ListAll verifyEmailStepMinimized ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            if(sequenceEmailDetail.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        return this;
+    }
+
+    public Sequence_ListAll verifyEmailStepMaximized ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!sequenceEmailDetail.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
         return this;
     }
 
