@@ -89,7 +89,7 @@ public class Message_CreateTask extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'OUTCOME NAME')]/following-sibling::div//button")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-quick-view-object-rules-target-name ')]//input")
     private WebElement outcomeNameDropDown;
     
     @FindBy(

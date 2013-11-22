@@ -437,10 +437,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditPostcardUnderline.class,
     com.ontraport.app.tests.EditPostcardItalic.class,
     com.ontraport.app.tests.EditPostcardBold.class,
-    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
-    
-    
-    
+    com.ontraport.app.tests.DeleteTestingPostcardMessage.class, 
       
     com.ontraport.app.tests.AddGroup.class,
     com.ontraport.app.tests.EditGroupPermission.class,

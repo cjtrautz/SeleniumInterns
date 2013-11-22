@@ -18,6 +18,10 @@ import com.ontraport.app.tools.AbstractSuite;
 public class Sequence_CreateStep extends AbstractPage
 {
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-theme-sequence-email ')]/following-sibling::div[contains(concat(' ', normalize-space(@class), ' '),' step_details ')]")
+    private WebElement sequenceEmailDetail;
+    
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
     
@@ -56,7 +60,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
+            using = "//div[contains(concat(' ', @class, ' '),' sequence_steps ')]/div")
     private List<WebElement> steps;
     
     @FindBy(
@@ -148,6 +152,11 @@ public class Sequence_CreateStep extends AbstractPage
             how = How.XPATH,
             using = "//div[@class='step_handle']")
     private List<WebElement> stepDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' step_delete ')]")
+    private List<WebElement> stepDelete;
     
     @FindBy(
             how = How.XPATH,
@@ -554,7 +563,99 @@ public class Sequence_CreateStep extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         Actions action = new Actions(driver);
-        action.dragAndDropBy(stepMove.get(i-1), 0, -j).build().perform();
+        action.clickAndHold(stepMove.get(i-1)).build().perform();
+        action.moveByOffset(j, j).build().perform();
+        action.release().build().perform();
+        return this;
+    }
+
+    public Sequence_CreateStep verifyEmailStepNumber ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(steps.get(i-1).getAttribute("class"));
+            if(!steps.get(i-1).getAttribute("class").contains("ussr-theme-sequence-email"))
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Sequence_CreateStep clickStepDelete ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stepDelete.get(i-1)));
+        stepDelete.get(i-1).click();
+        return this;
+    }
+
+    public Sequence_CreateStep verifySteps (int i)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(steps.size());
+            if(steps.size()!=i)
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Sequence_CreateStep verifyEmailStepMinimized ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(0, TimeUnit.SECONDS);
+            if(sequenceEmailDetail.isDisplayed())
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return this;
+        }
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        return null;
+    }
+
+    public Sequence_CreateStep verifyEmailStepMaximized ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!sequenceEmailDetail.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
         return this;
     }
 

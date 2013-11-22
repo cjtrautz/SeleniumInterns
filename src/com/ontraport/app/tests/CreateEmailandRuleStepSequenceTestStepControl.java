@@ -32,28 +32,38 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         sequence_CreateStep.openSendFromPane();
         sequence_CreateStep.selectDrillDown("Contact Owner");
         sequence_CreateStep.clickStepDropDown(2);
-        if(sequence_ListAll.verifyEmailStepMinimized()==null)
+        if(sequence_CreateStep.verifyEmailStepMinimized()==null)
         {
             fail("couldn't find minimized step");
         }
         sequence_CreateStep.clickStepDropDown(1);
-        if(sequence_ListAll.verifyEmailStepMaximized()==null)
+        if(sequence_CreateStep.verifyEmailStepMaximized()==null)
         {
             fail("couldn't find maximized step");
         }
         sequence_CreateStep.clickAddRuleStep();
         sequence_CreateStep.enterRuleName("Something");
         sequence_CreateStep.clickStepDropDown(3);
-        sequence_CreateStep.clickStepHandleAndMove(1, 100);
-//        if(sequence_CreateStep.verifyEmailStepNumber(2)==null)
-//        {
-//            fail("couldn't find maximized step");
-//        }
-//        sequence_CreateStep.clickStepDelete(2);
-//        if(sequence_CreateStep.verifyNoEmailStep()==null)
-//        {
-//            fail("couldn't find maximized step");
-//        }
+        sequence_CreateStep.clickStepHandleAndMove(1, 60);
+        try
+        {
+            Thread.sleep(10000);
+        }
+        catch (InterruptedException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if(sequence_CreateStep.verifyEmailStepNumber(2)==null)
+        {
+            fail("couldn't find step number");
+        }
+        sequence_CreateStep.clickStepDelete(2);
+        sequence_CreateStep.dialogBox.clickYes();
+        if(sequence_CreateStep.verifySteps(1)==null)
+        {
+            fail("couldn't find maximized step");
+        }
         
         
     }

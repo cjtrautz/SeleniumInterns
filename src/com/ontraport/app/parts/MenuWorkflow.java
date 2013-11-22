@@ -19,6 +19,10 @@ public class MenuWorkflow extends AbstractPart
     protected WebElement workflowOpen;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' pinned-paginator ')]//span[@class='ussr-component-paginator-page-span']")
+    protected WebElement pageSpan;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-workflow-menu-close position-absolute-zero']//a[@class='ussr-icon ussr-icon-circle-file']")
     protected WebElement workflowClose;
     
@@ -245,6 +249,33 @@ public class MenuWorkflow extends AbstractPart
             
         }
         return null;
+    }
+
+    public MenuWorkflow verifyPagination ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        System.out.println(pageSpan.getText());
+        if(!pageSpan.getText().equals("1-9"))
+        {
+            return null;
+        }
+        AbstractPart.waitForAjax(driver, 20);
+        pinPaginator.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-seek-next']")).click();
+        AbstractPart.waitForAjax(driver, 20);
+        System.out.println(pageSpan.getText());
+        if(!pageSpan.getText().equals("10-18"))
+        {
+            return null;
+        }
+        AbstractPart.waitForAjax(driver, 20);
+        pinPaginator.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-seek-next']")).click();
+        AbstractPart.waitForAjax(driver, 20);
+        System.out.println(pageSpan.getText());
+        if(!pageSpan.getText().equals("19-20"))
+        {
+            return null;
+        }
+        return this;
     }
 
 }

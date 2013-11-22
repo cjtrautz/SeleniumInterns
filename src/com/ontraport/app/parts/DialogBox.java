@@ -42,6 +42,9 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes clear all')]")
     private WebElement yesClearAll;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
+    private WebElement yes;
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-delete-button ')]")
     private WebElement deleteButton;
     @FindBy(how = How.XPATH,
@@ -988,6 +991,13 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(yesClearAll));
         yesClearAll.click();
+        return this;
+    }
+    public DialogBox clickYes ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(yes));
+        yes.click();
         return this;
     }
 

@@ -18,7 +18,20 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 { 
+    com.ontraport.app.tests.CreateWordPressBack.class,
+    com.ontraport.app.tests.CreateWordPressCancel.class,
+    
+    com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
+    com.ontraport.app.tests.DeleteExistingWordPressSite.class,
+    
+    com.ontraport.app.tests.WorkflowPagination.class,
+    
+    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
+    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+    
     com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
     com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
     com.ontraport.app.tests.DeleteMessage.class,
     

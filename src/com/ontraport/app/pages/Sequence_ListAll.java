@@ -27,10 +27,6 @@ public class Sequence_ListAll extends AbstractPage
     private WebElement title;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-theme-sequence-email ')]/following-sibling::div[contains(concat(' ', normalize-space(@class), ' '),' step_details ')]")
-    private WebElement sequenceEmailDetail;
-    
-    @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll;
     
@@ -204,50 +200,6 @@ public class Sequence_ListAll extends AbstractPage
         return this;
     }
 
-    public Sequence_ListAll verifyEmailStepMinimized ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        try
-        {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(0, TimeUnit.SECONDS);
-            if(sequenceEmailDetail.isDisplayed())
-            {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-                return null;
-            }
-        }
-        catch(NoSuchElementException e)
-        {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-            return null;
-        }
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        return this;
-    }
-
-    public Sequence_ListAll verifyEmailStepMaximized ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        try
-        {
-            if(!sequenceEmailDetail.isDisplayed())
-            {
-                return null;
-            }
-        }
-        catch(NoSuchElementException e)
-        {
-            return null;
-        }
-        return this;
-    }
+    
 
 }

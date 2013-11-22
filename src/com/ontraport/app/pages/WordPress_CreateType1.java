@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 
-public class WordPress_CreateType2 extends AbstractPage
+public class WordPress_CreateType1 extends AbstractPage
 {
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-name ')]//input")
     private WebElement websiteName;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-hosted-domain-selector-subdomain ')]//input")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-hosted-domain-target-component ')]//input")
     private WebElement domainName;
     
     @FindBy(how = How.XPATH,
@@ -27,19 +27,10 @@ public class WordPress_CreateType2 extends AbstractPage
     private WebElement addMembershipButton;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
-    private WebElement back;
-    
-    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]//span[.='Save']")
     private WebElement saveButton;
-    
-    @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]//span[.='Cancel']")
-    private WebElement cancelButton;
 
-
-    public WordPress_CreateType2 enterWordPressSiteName ( String string )
+    public WordPress_CreateType1 enterWordPressSiteName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(websiteName));
@@ -49,7 +40,7 @@ public class WordPress_CreateType2 extends AbstractPage
     }
 
 
-    public WordPress_CreateType2 enterDomainName ( String string )
+    public WordPress_CreateType1 enterDomainName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(domainName));
@@ -59,7 +50,7 @@ public class WordPress_CreateType2 extends AbstractPage
     }
 
 
-    public WordPress_CreateType2 enterMembershipLevel ( String string )
+    public WordPress_CreateType1 enterMembershipLevel ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(membershipName));
@@ -69,7 +60,7 @@ public class WordPress_CreateType2 extends AbstractPage
     }
 
 
-    public WordPress_CreateType2 clickAddMembershipLevel ()
+    public WordPress_CreateType1 clickAddMembershipLevel ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addMembershipButton));
@@ -79,31 +70,13 @@ public class WordPress_CreateType2 extends AbstractPage
     }
 
 
-    public WordPress_CreateType2 clickSave ()
+    public WordPress_CreateType1 clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(saveButton));
         saveButton.click();
         return this;
         
-    }
-
-
-    public WordPress_ListAll clickCancel ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(cancelButton));
-        cancelButton.click();
-        return (WordPress_ListAll) new WordPress_ListAll().init();
-    }
-
-
-    public WordPress_ListAll clickBack ()
-    {
-        AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(back));
-        back.click();
-        return (WordPress_ListAll) new WordPress_ListAll().init();
     }
 
     

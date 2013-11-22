@@ -79,7 +79,7 @@ public class MenuPrimary extends AbstractPart
             using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/affiliate_program/listAll']")
     private WebElement uiAffiliateProgramListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/affiliate_view/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/affiliate/view']")
     private WebElement uiAffiliateView;
     @FindBy(how = How.XPATH,
             using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/affiliate/settings']")
@@ -94,31 +94,31 @@ public class MenuPrimary extends AbstractPart
             using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/wordpress/listAll']")
     private WebElement uiWordPressListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracked_domain/listAll']")
     private WebElement uiTrackedDomainListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_campaign/listAll']")
     private WebElement uiTrackingCampaignListAll1;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//nav//nav//a[@href='#!/tracking_campaign/listAll']")
     private WebElement uiTrackingCampaignListAll2;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_lead_source/listAll']")
     private WebElement uiTrackingLeadSourceListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_medium/listAll']")
     private WebElement uiTrackingMediumListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_content/listAll']")
     private WebElement uiTrackingContentListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_term/listAll']")
     private WebElement uiTrackingTermListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_url_history/listAll']")
     private WebElement uiTrackingUrlHistoryListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/tracking_links/listAll']")
     private WebElement uiTrackingLinksListAll;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header-title ')]//span[text()='Sequences']")
@@ -242,8 +242,8 @@ public class MenuPrimary extends AbstractPart
         Actions action = new Actions(driver);
         action.moveToElement(uiPurchaseListAll)
             .perform();
-        wait(15).until(ExpectedConditions.visibilityOf(uiPurchaseListAll));
-        uiPurchaseListAll.click();
+        wait(15).until(ExpectedConditions.visibilityOf(uiSalesReportView));
+        uiSalesReportView.click();
         return (SalesReport_ListAll) new SalesReport_ListAll().init();
     }
     public SalesReport_Settings clickSalesReportSettings ()

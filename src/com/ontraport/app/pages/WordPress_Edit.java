@@ -24,6 +24,10 @@ public class WordPress_Edit extends AbstractPage
     private WebElement domainName;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-hosted-domain-target-component ')]//input")
+    private WebElement existingDomainName;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sortablelist-options ')]/div")
     private WebElement membershipLevel;
 
@@ -91,6 +95,37 @@ public class WordPress_Edit extends AbstractPage
         return this;
     }
 
+    public WordPress_Edit verifyExistingWordPressURL ( String value )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            String compare = existingDomainName.getAttribute("value");
+            System.out.println(compare);
+            //System.out.println(value);
+            if(compare.equals(value)!=true)
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return null;
+            }
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
     public WordPress_Edit verifyWordpressMembership ( String value )
     {
         AbstractPart.waitForAjax(driver, 20);

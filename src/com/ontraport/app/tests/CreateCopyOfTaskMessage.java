@@ -9,6 +9,7 @@ import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Message_TypeSelection;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateCopyOfTaskMessage extends AbstractTest
@@ -32,7 +33,7 @@ public class CreateCopyOfTaskMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("Copy of SelTaskMessage");
-        if(message_Edit.verifyOutcome("SelOutcome")==null)
+        if(message_Edit.verifyOutcome("SelOutcome" + AbstractSuite.UNIQUE)==null)
         {
             fail("couldn't find SelOutcome");
         }
