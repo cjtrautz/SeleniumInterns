@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -590,6 +591,7 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_CreateStep clickStepDelete ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", stepDelete.get(i-1));
         wait.until(ExpectedConditions.visibilityOf(stepDelete.get(i-1)));
         stepDelete.get(i-1).click();
         return this;

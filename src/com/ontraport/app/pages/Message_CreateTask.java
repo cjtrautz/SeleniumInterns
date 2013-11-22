@@ -255,7 +255,6 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(outcomeNameDropDown));
         outcomeNameDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(outcomeNameDropDownPane));
         return this;
         
     }
