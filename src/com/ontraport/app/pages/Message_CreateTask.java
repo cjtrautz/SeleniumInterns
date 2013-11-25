@@ -99,17 +99,17 @@ public class Message_CreateTask extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'OUTCOME NAME')]/following-sibling::div//div[@class='ussr-component-drilldownselect-menu-wrapper']//li[contains(., 'Create New Outcome')]")
+            using = "//li[contains(concat(' ', @class, ' '),' create-new ')]")
     private WebElement createNewOutcomeOption;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' component-custom-value-creator-target-component ')]//input")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-quick-object-creator-target-sub-comp ')]//input")
     private WebElement outcomeNameInput;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' component-custom-value-creator-target-save-button ')]//span")
+            using = "//span[contains(concat(' ', @class, ' '),' ussr-component-quick-object-creator-target-sad-button ')]//button")
     private WebElement selectOutcomeName;
     
     @FindBy(
@@ -263,6 +263,7 @@ public class Message_CreateTask extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", createNewOutcomeOption);
         wait.until(ExpectedConditions.visibilityOf(createNewOutcomeOption));
         createNewOutcomeOption.click();
         return this;

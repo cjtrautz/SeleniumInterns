@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -37,7 +38,22 @@ public class WordPress_CreateType2 extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]//span[.='Cancel']")
     private WebElement cancelButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//input[@value='theirs']")
+    private WebElement ownDomain;
+    
+    @FindBy(how = How.XPATH,
+            using = "//input[@value='ours']")
+    private WebElement ourDomain;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='http://']")
+    private WebElement ownDomainLabel;
 
+    @FindBy(how = How.XPATH,
+            using = "//span[text()='affcntr.com']")
+    private WebElement ourDomainLabel;
 
     public WordPress_CreateType2 enterWordPressSiteName ( String string )
     {
@@ -104,6 +120,60 @@ public class WordPress_CreateType2 extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (WordPress_ListAll) new WordPress_ListAll().init();
+    }
+
+
+    public WordPress_CreateType2 clickUseYourOwnDomain ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ownDomain));
+        ownDomain.click();
+        return this;
+    }
+
+
+    public WordPress_CreateType2 verifyOwnDomain ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!ownDomainLabel.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+
+
+    public WordPress_CreateType2 clickUseOurDomain ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ourDomain));
+        ourDomain.click();
+        return this;
+    }
+
+
+    public WordPress_CreateType2 verifyOurDomain ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!ourDomainLabel.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
     }
 
     

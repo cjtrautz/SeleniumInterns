@@ -31,7 +31,7 @@ public class Sequence_TypeSelection extends AbstractPage
 
     public Sequence_CreateStep clickStepSequenceCreate ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         stepSequenceCreate.click();
         return (Sequence_CreateStep) new Sequence_CreateStep().init();
 
@@ -39,14 +39,14 @@ public class Sequence_TypeSelection extends AbstractPage
 
     public Sequence_CreateDate clickDateSequenceCreate ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         dateSequenceCreate.click();
         return (Sequence_CreateDate) new Sequence_CreateDate().init();
     }
 
     public Sequence_TypeSelection clickStepSequenceDropDown ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         stepDropDown.click();
         return this;
     }

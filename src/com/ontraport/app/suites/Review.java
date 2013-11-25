@@ -17,12 +17,15 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{ 
-    com.ontraport.app.tests.CreateWordPressBack.class,
-    com.ontraport.app.tests.CreateWordPressCancel.class,
+{     
+    com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
     
     com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
+    com.ontraport.app.tests.ExistingWordPressSiteTryPilotPress.class,
     com.ontraport.app.tests.DeleteExistingWordPressSite.class,
+    
+    com.ontraport.app.tests.CreateWordPressBack.class,
+    com.ontraport.app.tests.CreateWordPressCancel.class,
     
     com.ontraport.app.tests.WorkflowPagination.class,
     
@@ -115,7 +118,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com/");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);
