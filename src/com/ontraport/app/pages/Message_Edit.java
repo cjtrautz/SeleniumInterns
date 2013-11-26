@@ -638,6 +638,7 @@ public class Message_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(nameColumn));  
         nameColumn.click();
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskOutcomes));  
             try
             {
                 System.out.println(taskOutcomes.getText());

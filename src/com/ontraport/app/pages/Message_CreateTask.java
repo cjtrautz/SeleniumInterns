@@ -274,6 +274,8 @@ public class Message_CreateTask extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(outcomeNameInput));
+        outcomeNameInput.click();
+        outcomeNameInput.clear();
         outcomeNameInput.sendKeys(string);
         return this;
         

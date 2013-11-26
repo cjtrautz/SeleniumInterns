@@ -17,101 +17,103 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{ 
-    com.ontraport.app.tests.CreateAffilatesProgram.class,
-    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
-    com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
-    com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
-    com.ontraport.app.tests.EditAffilatesProgramInformation.class,
-    com.ontraport.app.tests.EditAffilatesProgramType.class,
-    com.ontraport.app.tests.EditAffilatesProgramName.class,
-    com.ontraport.app.tests.DeleteAffiliateProgram.class,
+{
+    com.ontraport.app.tests.CreateTaskMessage.class,
     
-    com.ontraport.app.tests.VideoManagerBack.class,
-    
-    com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
-    
-    com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
-    com.ontraport.app.tests.ExistingWordPressSiteTryPilotPress.class,
-    com.ontraport.app.tests.DeleteExistingWordPressSite.class,
-    
-    com.ontraport.app.tests.CreateWordPressBack.class,
-    com.ontraport.app.tests.CreateWordPressCancel.class,
-    
-    com.ontraport.app.tests.WorkflowPagination.class,
-    
-    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
-    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
-    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
-    
-    com.ontraport.app.tests.CreateMessage.class,
-    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
-    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
-    com.ontraport.app.tests.DeleteMessage.class,
-    
-    com.ontraport.app.tests.CreateStepSequenceBack.class,
-    
-    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
-    
-    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestDropDown.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeAlignment.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeAlignmentCenter.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeURL.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeTitle.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeName.class,
-    com.ontraport.app.tests.CreateGateway.class,
-    com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
-    com.ontraport.app.tests.DeleteOrderForm.class,
-    com.ontraport.app.tests.DeleteGateway.class,
-    com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
-    
-    com.ontraport.app.tests.VideoManagerCancel.class,
-    
-    com.ontraport.app.tests.CreateLandingPageBack.class,
-    
-    com.ontraport.app.tests.CreateLandingPageCancel.class,
-    
-    com.ontraport.app.tests.CreateLandingPage.class,
-    com.ontraport.app.tests.EditLandingPageAlignment.class,
-    com.ontraport.app.tests.EditLandingPageURL.class,
-    com.ontraport.app.tests.EditLandingPageTitle.class,
-    com.ontraport.app.tests.EditLandingPageName.class,
-    com.ontraport.app.tests.DeleteLandingPage.class,
-    
-    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
-    com.ontraport.app.tests.GlobalSettingsClickBack.class,
-    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
-    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
-    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
-    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
-    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
-    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
-    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
-    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
-    
-    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
-    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
-    
-    com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
-    com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
-    
-    com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
-    com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
-    
-    com.ontraport.app.tests.CreateSMSMessage.class,
-    com.ontraport.app.tests.EditSMSMessageName.class,
-    com.ontraport.app.tests.EditSMSMessageBody.class,
-    com.ontraport.app.tests.EditSMSMessageMergeField.class,
-    com.ontraport.app.tests.EditSMSMessageCancel.class,
-    com.ontraport.app.tests.DeleteSMSMessage.class,
-    
-    com.ontraport.app.tests.CreateMessageCancel.class,
+//    com.ontraport.app.tests.CreateAffilatesProgram.class,
+//    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
+//    com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
+//    com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
+//    com.ontraport.app.tests.EditAffilatesProgramInformation.class,
+//    com.ontraport.app.tests.EditAffilatesProgramType.class,
+//    com.ontraport.app.tests.EditAffilatesProgramName.class,
+//    com.ontraport.app.tests.DeleteAffiliateProgram.class,
+//    
+//    com.ontraport.app.tests.VideoManagerBack.class,
+//    
+//    com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
+//    
+//    com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
+//    com.ontraport.app.tests.ExistingWordPressSiteTryPilotPress.class,
+//    com.ontraport.app.tests.DeleteExistingWordPressSite.class,
+//    
+//    com.ontraport.app.tests.CreateWordPressBack.class,
+//    com.ontraport.app.tests.CreateWordPressCancel.class,
+//    
+//    com.ontraport.app.tests.WorkflowPagination.class,
+//    
+//    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+//    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
+//    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+//    
+//    com.ontraport.app.tests.CreateMessage.class,
+//    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
+//    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
+//    com.ontraport.app.tests.DeleteMessage.class,
+//    
+//    com.ontraport.app.tests.CreateStepSequenceBack.class,
+//    
+//    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
+//    
+//    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestDropDown.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeAlignment.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeAlignmentCenter.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeURL.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeTitle.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeName.class,
+//    com.ontraport.app.tests.CreateGateway.class,
+//    com.ontraport.app.tests.CreateOrderform.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
+//    com.ontraport.app.tests.DeleteOrderForm.class,
+//    com.ontraport.app.tests.DeleteGateway.class,
+//    com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
+//    
+//    com.ontraport.app.tests.VideoManagerCancel.class,
+//    
+//    com.ontraport.app.tests.CreateLandingPageBack.class,
+//    
+//    com.ontraport.app.tests.CreateLandingPageCancel.class,
+//    
+//    com.ontraport.app.tests.CreateLandingPage.class,
+//    com.ontraport.app.tests.EditLandingPageAlignment.class,
+//    com.ontraport.app.tests.EditLandingPageURL.class,
+//    com.ontraport.app.tests.EditLandingPageTitle.class,
+//    com.ontraport.app.tests.EditLandingPageName.class,
+//    com.ontraport.app.tests.DeleteLandingPage.class,
+//    
+//    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
+//    com.ontraport.app.tests.GlobalSettingsClickBack.class,
+//    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
+//    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
+//    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
+//    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
+//    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
+//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
+//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
+//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
+//    
+//    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
+//    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
+//    
+//    com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
+//    com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
+//    
+//    com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
+//    com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
+//    
+//    com.ontraport.app.tests.CreateSMSMessage.class,
+//    com.ontraport.app.tests.EditSMSMessageName.class,
+//    com.ontraport.app.tests.EditSMSMessageBody.class,
+//    com.ontraport.app.tests.EditSMSMessageMergeField.class,
+//    com.ontraport.app.tests.EditSMSMessageCancel.class,
+//    com.ontraport.app.tests.DeleteSMSMessage.class,
+//    
+//    com.ontraport.app.tests.CreateMessageCancel.class,
     
 //    com.ontraport.app.tests.CreateContact.class,
 //    //relies on having at least one contact
@@ -126,7 +128,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com/");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

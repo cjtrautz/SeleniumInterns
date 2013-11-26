@@ -50,14 +50,6 @@ public class SendBroadcastEmailToContact extends AbstractTest
         {
             fail("couldnt find contact email");
         }
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_first_name3"))==null)
-        {
-            fail("couldnt find contact first name");
-        }
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_last_name3"))==null)
-        {
-            fail("couldnt find contact last name");
-        }
         contactListAll = message_ListAll.menuPrimary.clickContactListAll();
         contact_Create = contactListAll.clickNewContact();
         contact_Create.enterFirstName(value.get("Contacts", "my_first_name2"));
@@ -75,14 +67,6 @@ public class SendBroadcastEmailToContact extends AbstractTest
         if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_email_adress2"))==null)
         {
             fail("couldnt find contact email");
-        }
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_first_name2"))==null)
-        {
-            fail("couldnt find contact first name");
-        }
-        if(contact_Edit.verifyFieldValue(value.get("Contacts", "my_last_name2"))==null)
-        {
-            fail("couldnt find contact last name");
         }
         contactListAll = contact_Edit.menuPrimary.clickContactListAll();
         contactListAll.selectAllOnPage();
