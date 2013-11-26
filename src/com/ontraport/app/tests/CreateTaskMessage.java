@@ -37,7 +37,7 @@ public class CreateTaskMessage extends AbstractTest
         message_CreateTask.clickAddNewOutcome();
         message_CreateTask.clickOutcomeNameDropDown();
         message_CreateTask.selectCreateNewOutcome();
-        message_CreateTask.enterOutcomeName("SelOutcome" + AbstractSuite.UNIQUE);
+        message_CreateTask.enterOutcomeName("SelOutcomeOriginal" + AbstractSuite.UNIQUE);
         message_CreateTask.clickSelect();
         message_CreateTask.clickOutcomeThenDropDown();
         message_CreateTask.selectDropDownOption("Recharge all declined transactions");
@@ -52,7 +52,7 @@ public class CreateTaskMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelTaskMessage");
-        if(message_Edit.verifyOutcome("SelOutcome"  + AbstractSuite.UNIQUE)==null)
+        if(message_Edit.verifyOutcome("SelOutcomeOriginal"  + AbstractSuite.UNIQUE)==null)
         {
             fail("couldn't find SelOutcome");
         }
