@@ -14,6 +14,10 @@ public class ZencoderVideo_Create extends AbstractPage
             how = How.XPATH,
             using = "//div[@class='ussr-pane-editor-back']")
     private WebElement back;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]//span[text()='Cancel']")
+    private WebElement cancel;
 
 
     public ZencoderVideo_ListAll clickBack ()
@@ -21,6 +25,15 @@ public class ZencoderVideo_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
+        return (ZencoderVideo_ListAll) new ZencoderVideo_ListAll().init();
+    }
+
+
+    public ZencoderVideo_ListAll clickCancel ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
+        cancel.click();
         return (ZencoderVideo_ListAll) new ZencoderVideo_ListAll().init();
     }
     

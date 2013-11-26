@@ -54,9 +54,9 @@ public class GmailConfirmations extends AbstractTest
             fail("couldint find Date email");
         }
         gmail.clickDelete();
-        int time = 0;
+        String time = null;
         time = gmail.getImmediateSubjectTime();
-        if(time==0)
+        if(time==null)
         {
             fail("couldnt find immediate sequence email");
         }

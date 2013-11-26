@@ -15,17 +15,17 @@ import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class VideoManagerCancel extends AbstractTest
+public class VideoManagerBack extends AbstractTest
 {
     @Test
-    public void testVideoManagerCancel () throws InterruptedException
+    public void testVideoManagerBack () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.menuUser.open();
         Account_View account_View = contactListAll.menuUser.clickAdmin();
         ZencoderVideo_ListAll zencoderVideo_ListAll =account_View.clickVideoManager();
         ZencoderVideo_Create zencoderVideo_Create = zencoderVideo_ListAll.clickNewVideo();
-        zencoderVideo_ListAll = zencoderVideo_Create.clickCancel();
+        zencoderVideo_ListAll = zencoderVideo_Create.clickBack();
         
         if(zencoderVideo_ListAll.verifyPage()==null)
         {

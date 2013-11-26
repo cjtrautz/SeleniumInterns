@@ -23,17 +23,17 @@ public class ManageDomainsCreateTrackedDomain extends AbstractTest
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         TrackedDomain_ListAll trackedDomain_ListAll = contactListAll.menuPrimary.clickTrackedDomainListAll();
         TrackedDomain_Create trackedDomain_Create = trackedDomain_ListAll.clickNewTrackedDomain();
-//        trackedDomain_Create.enterURL(AbstractSuite.UNIQUE + ".com");
-//        trackedDomain_ListAll = trackedDomain_Create.clickSave();
-//        trackedDomain_ListAll.formSearch.find(AbstractSuite.UNIQUE + ".com");
-//        if(trackedDomain_ListAll.verifyDomain(AbstractSuite.UNIQUE + ".com")==null)
-//        {
-//            fail("couldnt find domain");
-//        }
-//        TrackedDomain_Edit trackedDomain_Edit = trackedDomain_ListAll.clickDomain(AbstractSuite.UNIQUE + ".com");
-//        if(trackedDomain_Edit.verifyURL(AbstractSuite.UNIQUE + ".com")==null)
-//        {
-//            fail("couldnt find url");
-//        }
+        trackedDomain_Create.enterURL(AbstractSuite.UNIQUE + ".com");
+        trackedDomain_ListAll = trackedDomain_Create.clickSave();
+        trackedDomain_ListAll.formSearch.find(AbstractSuite.UNIQUE + ".com");
+        if(trackedDomain_ListAll.verifyDomain(AbstractSuite.UNIQUE + ".com")==null)
+        {
+            fail("couldnt find domain");
+        }
+        TrackedDomain_Edit trackedDomain_Edit = trackedDomain_ListAll.clickDomain(AbstractSuite.UNIQUE + ".com");
+        if(trackedDomain_Edit.verifyURL(AbstractSuite.UNIQUE + ".com")==null)
+        {
+            fail("couldnt find url");
+        }
     }
 }

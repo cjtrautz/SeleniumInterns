@@ -11,26 +11,5 @@ import com.ontraport.app.tools.AbstractPart;
 
 public class SalesReport_ListAll extends AbstractPage
 {
-    @FindBy(how = How.XPATH,
-            using = "//tbody[@class='ussr-component-collection-body']")
-    private WebElement uiCollectionBody;
-
-    public SalesReport_ListAll verifyPurchase ( String string )
-    {
-        AbstractPart.waitForAjax(driver, 30);
-        try
-        {
-            wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
-            if(!uiCollectionBody.findElement(By.xpath(".//td[contains(., '" + string + "')]")).isDisplayed())
-            {
-                return null;
-            } 
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-            return null;
-        }
-        return this;
-    }
+    
 }

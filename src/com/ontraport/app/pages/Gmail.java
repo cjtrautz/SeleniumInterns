@@ -239,8 +239,9 @@ public class Gmail extends AbstractPage
         return this;
     }
 
-    public int getImmediateSubjectTime ()
+    public String getImmediateSubjectTime ()
     {
+        String finale = null;
         int yep = 0;
         try
         {
@@ -248,7 +249,7 @@ public class Gmail extends AbstractPage
             String parse = immedEmailTime.getText();
             String delim = "[ :]";
             String[] stuff = parse.split(delim);
-            String finale = stuff[0] + stuff[1];
+            finale = stuff[0] + stuff[1] + stuff[2];
             System.out.println(finale);
             yep = Integer.parseInt(finale);
             wait.until(ExpectedConditions.visibilityOf(immedEmail));
@@ -263,19 +264,20 @@ public class Gmail extends AbstractPage
                 String parse = immedEmailTime.getText();
                 String delim = "[ :]";
                 String[] stuff = parse.split(delim);
-                String finale = stuff[0] + stuff[1];
+                finale = stuff[0] + stuff[1] + stuff[2];
+                System.out.println(finale);
                 yep = Integer.parseInt(finale);
                 wait.until(ExpectedConditions.visibilityOf(immedEmail));
                 immedEmail.click();
             }
             catch(NoSuchElementException e2){
-                return 0;
+                return null;
             }
         }
-        return yep;
+        return finale;
     }
 
-    public Gmail clickDelayEmailAndVerifyTime ( int time )
+    public Gmail clickDelayEmailAndVerifyTime ( String time )
     {
         int yep = 0;
         try
@@ -290,9 +292,22 @@ public class Gmail extends AbstractPage
             int hours1 = yep/100; 
             System.out.println(hours1);
             int yep2 = (hours1*60) + (yep- (hours1*100));
-            int hours2 = time/100; 
+            if(stuff[2].equals("pm"))
+            {
+                yep2=yep2+720;
+            }
+            String delim2 = "[ :]";
+            String[] stuff2 = parse.split(delim2);
+            String finale2 = stuff2[0] + stuff2[1];
+            System.out.println(finale2);
+            int newTime = Integer.parseInt(finale2);
+            int hours2 = newTime/100; 
             System.out.println(hours2);
-            int time2 = (hours2*60) + (time- (hours2*100));
+            int time2 = (hours2*60) + (newTime- (hours2*100));
+            if(stuff2[2].equals("PM"))
+            {
+                time2=time2+720;
+            }
             System.out.println(yep2 + "and" + time2);
             if((time2+10) > yep2 | yep2 > (time2+45))
             {
@@ -316,9 +331,22 @@ public class Gmail extends AbstractPage
                 int hours1 = yep/100; 
                 System.out.println(hours1);
                 int yep2 = (hours1*60) + (yep- (hours1*100));
-                int hours2 = time/100; 
+                if(stuff[2].equals("pm"))
+                {
+                    yep2=yep2+720;
+                }
+                String delim2 = "[ :]";
+                String[] stuff2 = parse.split(delim2);
+                String finale2 = stuff2[0] + stuff2[1];
+                System.out.println(finale2);
+                int newTime = Integer.parseInt(finale2);
+                int hours2 = newTime/100; 
                 System.out.println(hours2);
-                int time2 = (hours2*60) + (time- (hours2*100));
+                int time2 = (hours2*60) + (newTime- (hours2*100));
+                if(stuff2[2].equals("PM"))
+                {
+                    time2=time2+720;
+                }
                 System.out.println(yep2 + "and" + time2);
                 if((time2+10) > yep2 | yep2 > (time2+45))
                 {
@@ -385,10 +413,19 @@ public class Gmail extends AbstractPage
                 int hours1 = yep/100; 
                 System.out.println(hours1);
                 int yep2 = (hours1*60) + (yep- (hours1*100));
-                int time = Integer.parseInt(AbstractTest.getDateTime());
+                if(stuff[2].equals("pm"))
+                {
+                    yep2=yep2+720;
+                }
+                String[] stuff2 = AbstractTest.getDateTime().split(delim);
+                int time = Integer.parseInt(stuff2[0] + stuff2[1]);
                 int hours2 = time/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + (time- (hours2*100));
+                if(stuff2[2].equals("PM"))
+                {
+                    time2=time2+720;
+                }
                 System.out.println(yep2 + "and" + time2);
                 if((time2) > yep2 | yep2 > (time2+10))
                 {

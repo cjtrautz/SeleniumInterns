@@ -17,7 +17,18 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{     
+{ 
+    com.ontraport.app.tests.CreateAffilatesProgram.class,
+    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
+    com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
+    com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
+    com.ontraport.app.tests.EditAffilatesProgramInformation.class,
+    com.ontraport.app.tests.EditAffilatesProgramType.class,
+    com.ontraport.app.tests.EditAffilatesProgramName.class,
+    com.ontraport.app.tests.DeleteAffiliateProgram.class,
+    
+    com.ontraport.app.tests.VideoManagerBack.class,
+    
     com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
     
     com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
@@ -92,9 +103,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
     com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
-    
-    com.ontraport.app.tests.CreateAffilatesProgram.class,
-    com.ontraport.app.tests.DeleteAffiliateProgram.class,
     
     com.ontraport.app.tests.CreateSMSMessage.class,
     com.ontraport.app.tests.EditSMSMessageName.class,

@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Order_Form;
+import com.ontraport.app.pages.Purchase_ListAll;
 import com.ontraport.app.pages.SalesReport_ListAll;
 import com.ontraport.app.pages.SmartFormFe_Edit;
 import com.ontraport.app.pages.SmartFormFe_ListAll;
@@ -125,12 +126,12 @@ public class SubmitOrderForm extends AbstractTest
         {
             fail("couldnt find tag");
         }
-        SalesReport_ListAll salesReport_ListAll = contact_Edit.menuPrimary.clickSalesReportView();
-        if(salesReport_ListAll.verifyPurchase(value.get("SmartForms", "product") + AbstractSuite.UNIQUE)==null)
+        Purchase_ListAll purchase_ListAll = contact_Edit.menuPrimary.clickPurchaseListAll();
+        if(purchase_ListAll.verifyPurchase(value.get("SmartForms", "product") + AbstractSuite.UNIQUE)==null)
         {
             fail("couldnt find tag");
         }
-        contactListAll = salesReport_ListAll.menuPrimary.clickContactListAll();
+        contactListAll = purchase_ListAll.menuPrimary.clickContactListAll();
         contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("SmartForms", "change"));
         contactListAll.selectAllOnPage();
