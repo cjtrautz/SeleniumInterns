@@ -18,7 +18,14 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateTaskWhoMessage.class,
+    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+    
     com.ontraport.app.tests.CreateTaskMessage.class,
+    //relies on task message
+    com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
+    com.ontraport.app.tests.DeleteTaskMessage.class,
     
 //    com.ontraport.app.tests.CreateAffilatesProgram.class,
 //    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
