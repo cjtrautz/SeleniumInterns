@@ -96,6 +96,16 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[@class='component-target-send-fields']//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_object_selector ')]//button")
+    private WebElement assigneeDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-scheduled-date-input ')]//input")
+    private WebElement taskDueDate;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(concat(' ', @class, ' '),' ussr-component-form-control ')]//button")
     private WebElement toggleEmailFrom;
     
@@ -108,6 +118,16 @@ public class Sequence_CreateStep extends AbstractPage
             how = How.XPATH,
             using = "//span[@class='ussr-theme-sequence-email']//button")
     private WebElement emailStep;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-theme-sequence-task']//button")
+    private WebElement taskStep;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-theme-sequence-postcard']//button")
+    private WebElement postcardStep;
     
     @FindBy(
             how = How.XPATH,
@@ -279,8 +299,8 @@ public class Sequence_CreateStep extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
-        drillDownPane.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")));
+        drillDownPane.findElement(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")).click();
         wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
         return this;
         
@@ -658,6 +678,56 @@ public class Sequence_CreateStep extends AbstractPage
         {
             return null;
         }
+        return this;
+    }
+
+    public Sequence_CreateStep clickAddTaskStep ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskStep));
+        taskStep.click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickTaskNameDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
+        toggleMessageSelector.click();
+        return this;
+    }
+
+    public Sequence_CreateStep enterDueDateTask ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskDueDate));
+        taskDueDate.click();
+        taskDueDate.clear();
+        taskDueDate.sendKeys(string);
+        return this;
+    }
+
+    public Sequence_CreateStep openAssigneePane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(assigneeDropDown));
+        assigneeDropDown.click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickAddPostcardStep ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(postcardStep));
+        postcardStep.click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickPostcardNameDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
+        toggleMessageSelector.click();
         return this;
     }
 

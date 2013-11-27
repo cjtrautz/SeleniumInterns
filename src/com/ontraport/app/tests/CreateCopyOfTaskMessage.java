@@ -33,7 +33,7 @@ public class CreateCopyOfTaskMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("Copy of SelTaskMessage");
-        if(message_Edit.verifyOutcome("SelOutcome" + AbstractSuite.UNIQUE)==null)
+        if(message_Edit.verifyOutcome("SelOutcomeOriginal" + AbstractSuite.UNIQUE)==null)
         {
             fail("couldn't find SelOutcome");
         }
