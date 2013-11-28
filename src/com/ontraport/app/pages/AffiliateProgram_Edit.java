@@ -326,6 +326,8 @@ public class AffiliateProgram_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(customEmailInput));
+        customEmailInput.click();
+        customEmailInput.clear();
         customEmailInput.sendKeys(string);
         return this;
     }

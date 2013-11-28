@@ -48,6 +48,11 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][4]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
+    private WebElement smsDropDownButton;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]")
     private WebElement taskDropDownPane;
     
@@ -136,6 +141,21 @@ public class Message_TypeSelection extends AbstractPage
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + string + "')]")));
         dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
         return (Message_CreatePostcard) new Message_CreatePostcard().init();
+    }
+    public Message_TypeSelection clickSMSDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smsDropDownButton));
+        smsDropDownButton.click();
+        return this;
+    }
+    public Message_Edit selectSMSCopyOption ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + string + "')]")));
+        dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
+        return (Message_Edit) new Message_Edit().init();
     }
     
 }

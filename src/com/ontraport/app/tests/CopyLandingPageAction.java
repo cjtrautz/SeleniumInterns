@@ -32,7 +32,6 @@ public class CopyLandingPageAction extends AbstractTest
             fail("couldnt find copy of landing page");
         }
         
-        landingPage_ListAll.formSearch.find(value.get("LandingPages", "Copy_Of_Easy_Landing_Page"));
         landingPage_ListAll.selectLandingPage(value.get("LandingPages", "Copy_Of_Easy_Landing_Page"));
         landingPage_ListAll.drawerActions.clickDeleteLandingPage();
         landingPage_ListAll.dialogBox.clickOk();

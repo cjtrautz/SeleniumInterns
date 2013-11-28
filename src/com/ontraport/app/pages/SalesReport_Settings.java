@@ -19,6 +19,10 @@ public class SalesReport_Settings extends AbstractPage
             using = "//a[@href='#!/sales_report/recharge']")
     private WebElement rechargeSettings;
     
+    @FindBy(how = How.XPATH,
+            using = "//a[@href='#!/message_template/listAll']")
+    private WebElement doubleOptInInvoice;
+    
     public Gateway_ListAll clickGateways ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -33,6 +37,14 @@ public class SalesReport_Settings extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(rechargeSettings));
         rechargeSettings.click();
         return (SalesReport_Recharge) new SalesReport_Recharge().init();
+    }
+
+    public MessageTemplate_ListAll clickDoubleOptInInvoiceManager ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(doubleOptInInvoice));
+        doubleOptInInvoice.click();
+        return (MessageTemplate_ListAll) new MessageTemplate_ListAll().init();
     }
     
 }

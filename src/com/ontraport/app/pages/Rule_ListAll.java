@@ -248,6 +248,44 @@ public class Rule_ListAll extends AbstractPage
         
         return this;
     }
+    public Rule_ListAll verifyRulePaused ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+
+            if(!driver.findElement(By.xpath("//a[contains(text(), '" + string + "')]/ancestor::tr//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-drop ')]//a[contains(text(), 'Paused')]")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+
+            return null;
+        }
+        
+        return this;
+    }
+    public Rule_ListAll verifyRulUnpaused ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+
+            if(!driver.findElement(By.xpath("//a[contains(text(), '" + string + "')]/ancestor::tr//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-drop ')]//a[contains(text(), 'Live')]")).isDisplayed())
+            {
+                return null;
+            }
+
+        }
+        catch(NoSuchElementException e){
+
+            return null;
+        }
+        
+        return this;
+    }
     
     
 }

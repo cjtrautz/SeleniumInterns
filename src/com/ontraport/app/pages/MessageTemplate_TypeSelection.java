@@ -23,6 +23,11 @@ public class MessageTemplate_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[@href='#!/message_template/create&type=2']/button")
+    private WebElement createInvoice;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//a[@href='#!/message_template/create&type=1']/following-sibling::div[contains(concat(' ', @class, ' '),' ussr-type-sel-copy ')]//button")
     private WebElement createDoubleOptInCopyDropDown;
 
@@ -48,6 +53,14 @@ public class MessageTemplate_TypeSelection extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(createDoubleOptInCopyDropDown));
         createDoubleOptInCopyDropDown.click();
         return this;
+    }
+
+    public MessageTemplate_CreateType2 clickCreateInvoice ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createInvoice));
+        createInvoice.click();
+        return (MessageTemplate_CreateType2) new MessageTemplate_CreateType2().init();
     }
     
 }

@@ -376,6 +376,7 @@ public class Contact_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDown));
+        wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }

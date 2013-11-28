@@ -37,7 +37,7 @@ public class AddTaskToContact extends AbstractTest
         message_CreateTask.clickAddNewOutcome();
         message_CreateTask.clickOutcomeNameDropDown();
         message_CreateTask.selectCreateNewOutcome();
-        message_CreateTask.enterOutcomeName("SelOutcome");
+        message_CreateTask.enterOutcomeName("SelOutcomeForContactThatsAdded");
         message_CreateTask.clickSelect();
         message_CreateTask.clickOutcomeThenDropDown();
         message_CreateTask.selectDropDownOption("Recharge all declined transactions");

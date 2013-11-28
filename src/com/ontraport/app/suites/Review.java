@@ -18,6 +18,36 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.CopyLandingPageAction.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.CreateMessage.class,  
+    com.ontraport.app.tests.CreateSplitTestMessages.class,
+    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+    com.ontraport.app.tests.EditSequenceSplitB.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndCAndD.class,
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class, 
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    
+    com.ontraport.app.tests.CreateRule_ContactIsCreated.class,
+    com.ontraport.app.tests.PauseRule.class,
+    com.ontraport.app.tests.UnpauseRule.class,
+    com.ontraport.app.tests.DeleteRule_ContactIsCreated.class,
+    
+    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+    
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
+    
+    com.ontraport.app.tests.CreateInvoiceMessage.class,
+    com.ontraport.app.tests.DeleteInvoiceMessage.class,
+    
     com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
     com.ontraport.app.tests.CreatePostcardStepSequence.class,
     com.ontraport.app.tests.DeletePostcardStepSequence.class,

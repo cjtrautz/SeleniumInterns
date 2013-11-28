@@ -87,6 +87,14 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteContacts;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Pause Rule')]")
+    private WebElement pauseRule;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Unpause Rule')]")
+    private WebElement unpauseRule;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Packages')]")
     private WebElement uiDeletePackages;
     
@@ -715,5 +723,19 @@ public class DrawerActions extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(copyLandingPage));
         copyLandingPage.click();
         return (LandingPage_Edit) new LandingPage_Edit().init();
+    }
+    public DrawerActions clickPauseRule ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(pauseRule));
+        pauseRule.click();
+        return this;
+    }
+    public DrawerActions clickUnpauseRule ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(unpauseRule));
+        unpauseRule.click();
+        return this;
     }
 }
