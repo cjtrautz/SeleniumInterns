@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -174,8 +173,18 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageFont.class,
     com.ontraport.app.tests.DeleteLandingPageWithText.class,
     
+    com.ontraport.app.tests.CreateInvoiceMessage.class,
+    com.ontraport.app.tests.DeleteInvoiceMessage.class,
+    
     com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.EditSMSMessageName.class,
+    com.ontraport.app.tests.EditSMSMessageBody.class,
+    com.ontraport.app.tests.EditSMSMessageMergeField.class,
+    com.ontraport.app.tests.EditSMSMessageCancel.class,
+    com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
     com.ontraport.app.tests.DeleteSMSMessage.class,
+    
+    com.ontraport.app.tests.CreateMessageCancel.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
     com.ontraport.app.tests.CreateSMSLPFieldMessage.class,
@@ -194,9 +203,34 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageBackground.class,
     com.ontraport.app.tests.CreateEmailMessageLPFields.class,
     com.ontraport.app.tests.DeleteEmailLPMessage.class,
+    com.ontraport.app.tests.EditLandingPageAlignment.class,
+    com.ontraport.app.tests.EditLandingPageURL.class,
+    com.ontraport.app.tests.EditLandingPageTitle.class,
+    com.ontraport.app.tests.EditLandingPageName.class,
+    com.ontraport.app.tests.CopyLandingPageAction.class,
     com.ontraport.app.tests.DeleteLandingPage.class,
     
     com.ontraport.app.tests.StepSequenceBack.class,
+    
+    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
+    com.ontraport.app.tests.GlobalSettingsClickBack.class,
+    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
+    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
+    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
+    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
+    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
+    
+    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
+    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
+    
+    com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
+    
+    com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CopyStepSequence.class,
@@ -324,6 +358,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteCopyOfRuleStepSequence.class,
     com.ontraport.app.tests.CreateSplitTestMessages.class,
     com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+    com.ontraport.app.tests.EditSequenceSplitB.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndCAndD.class,
     com.ontraport.app.tests.EditSequenceWait0Days.class,
     com.ontraport.app.tests.EditSequenceWait1Days.class,
     com.ontraport.app.tests.EditSequenceSendAt15Mins.class,
@@ -334,7 +371,37 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
     
+    com.ontraport.app.tests.CreateStepSequenceBack.class,
+    
+    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
+    
+    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestDropDown.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAlignment.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAlignmentCenter.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeURL.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeTitle.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeName.class,
+    com.ontraport.app.tests.CreateGateway.class,
+    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    com.ontraport.app.tests.DeleteGateway.class,
+    com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
+    
+    com.ontraport.app.tests.VideoManagerCancel.class,
+    
+    com.ontraport.app.tests.CreateLandingPageBack.class,
+    
+    com.ontraport.app.tests.CreateLandingPageCancel.class,
+    
     com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
+    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
     com.ontraport.app.tests.PreviewEmailMessage.class,
     com.ontraport.app.tests.EditEmailMessageAlignment.class,
     com.ontraport.app.tests.EditEmailMessageLinkText.class,
@@ -383,7 +450,31 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.TaskMessageBack.class,
     
     com.ontraport.app.tests.CreateTaskWhoMessage.class,
+    com.ontraport.app.tests.CreateTaskStepSequence.class,
+    com.ontraport.app.tests.DeleteTaskStepSequence.class,
     com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+    
+    com.ontraport.app.tests.CreateAffilatesProgram.class,
+    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
+    com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
+    com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
+    com.ontraport.app.tests.EditAffilatesProgramInformation.class,
+    com.ontraport.app.tests.EditAffilatesProgramType.class,
+    com.ontraport.app.tests.EditAffilatesProgramName.class,
+    com.ontraport.app.tests.DeleteAffiliateProgram.class,
+    
+    com.ontraport.app.tests.VideoManagerBack.class,
+    
+    com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
+    
+    com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
+    com.ontraport.app.tests.ExistingWordPressSiteTryPilotPress.class,
+    com.ontraport.app.tests.DeleteExistingWordPressSite.class,
+    
+    com.ontraport.app.tests.CreateWordPressBack.class,
+    com.ontraport.app.tests.CreateWordPressCancel.class,
+    
+    com.ontraport.app.tests.WorkflowPagination.class,
     
     com.ontraport.app.tests.CreateTaskMessage.class,
     //relies on task message
@@ -406,6 +497,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditPostcardGradient.class,
     com.ontraport.app.tests.EditPostcardGradientRounded.class,
     com.ontraport.app.tests.EditPostcardGradientCircle.class,
+    com.ontraport.app.tests.CreatePostcardStepSequence.class,
+    com.ontraport.app.tests.DeletePostcardStepSequence.class,
     com.ontraport.app.tests.DeletePostcardGradientMessage.class,
     
     com.ontraport.app.tests.CreatePostcardMessage.class,
@@ -469,6 +562,8 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.AddTaskToContact.class,
+    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
     //relies on having at least one contact
     com.ontraport.app.tests.AddColumn.class,
     com.ontraport.app.tests.MoveColumn.class,
@@ -534,6 +629,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateUCConfig.class,
     
     com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
     com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
     
     //requires previously imported csv
@@ -592,6 +688,8 @@ import com.ontraport.app.tools.AbstractSuite;
     
     //rules that dont rely on anything
     com.ontraport.app.tests.CreateRule_ContactIsCreated.class,
+    com.ontraport.app.tests.PauseRule.class,
+    com.ontraport.app.tests.UnpauseRule.class,
     com.ontraport.app.tests.DeleteRule_ContactIsCreated.class,
     com.ontraport.app.tests.CreateRule_RemoveFromAllSequences.class,
     com.ontraport.app.tests.DeleteRule_RemoveFromAllSequences.class,

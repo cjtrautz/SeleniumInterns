@@ -10,6 +10,7 @@ import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Task_ListAll;
 import com.ontraport.app.tools.AbstractTest;
+import com.ontraport.app.tools.bb.AbstractSuite;
 
 public class AddTaskToContact extends AbstractTest
 {
@@ -37,7 +38,7 @@ public class AddTaskToContact extends AbstractTest
         message_CreateTask.clickAddNewOutcome();
         message_CreateTask.clickOutcomeNameDropDown();
         message_CreateTask.selectCreateNewOutcome();
-        message_CreateTask.enterOutcomeName("SelOutcomeForContactThatsAdded");
+        message_CreateTask.enterOutcomeName("SelOutcomeForContactThatsAdded" + AbstractSuite.UNIQUE);
         message_CreateTask.clickSelect();
         message_CreateTask.clickOutcomeThenDropDown();
         message_CreateTask.selectDropDownOption("Recharge all declined transactions");
