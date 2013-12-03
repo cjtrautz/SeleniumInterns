@@ -421,7 +421,8 @@ public class Field_Editor extends AbstractPage
         //Thread.sleep(2000);
         wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//input"))));
         overflowList.findElement(By.xpath(".//input")).sendKeys(" ");
-        action.sendKeys("jimmyFive").perform();
+        AbstractPart.waitForAjax(driver, 20);
+        action.sendKeys(string).perform();
         //action.sendKeys(Keys.ENTER).perform();
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));

@@ -50,6 +50,10 @@ public class Rule_Create extends AbstractPage
     private WebElement ifDrillDownSelectPaneWait;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-checkbox-empty ')]")
+    private WebElement emptyIfCheckBox;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement ifDrillDownSelectPane;
     
@@ -60,6 +64,10 @@ public class Rule_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement thenDrillDownSelectPane;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-checkbox-empty ')]")
+    private WebElement emptyThenCheckBox;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-menu ') and div[ul[@class='ussr-component-drilldownselect-ul']]]")
@@ -128,6 +136,15 @@ public class Rule_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(ifEvents.findElement(By.xpath(".//button"))));
         List<WebElement> ifDropDowns = ifEvents.findElements(By.xpath(".//button"));
         ifDropDowns.get(index-1).click();
+        return this;
+        
+    }
+    public Rule_Create enterIfTextArea ( String value, int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        List<WebElement> thenInputs = ifEvents.findElements(By.xpath(".//textarea"));
+        thenInputs.get(index-1).sendKeys(value);
         return this;
         
     }
@@ -393,6 +410,22 @@ public class Rule_Create extends AbstractPage
            return this; 
         }
         return null;
+    }
+
+    public Rule_Create clickIfCheckBox ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emptyIfCheckBox));
+        emptyIfCheckBox.click();
+        return this;
+    }
+
+    public Rule_Create clickThenCheckbox ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emptyThenCheckBox));
+        emptyThenCheckBox.click();
+        return this;
     }
 
     

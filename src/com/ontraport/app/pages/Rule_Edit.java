@@ -17,6 +17,10 @@ import com.ontraport.app.tools.AbstractSuite;
 public class Rule_Edit extends AbstractPage
 {
     @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-checkbox-checked ')]")
+    private WebElement checkedCheckBox;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]")
     private WebElement whenEvents;
     
@@ -27,6 +31,29 @@ public class Rule_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]")
     private WebElement thenEvents;
+    
+    public Rule_Edit verifyIfTextArea (int index, String value)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(ifEvents));
+            List<WebElement> thenTextAreas= ifEvents.findElements(By.xpath(".//textarea"));
+            String compare = thenTextAreas.get(index-1).getAttribute("value");
+            System.out.println(compare);
+            //System.out.println(value);
+            if(compare.equals(value)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
     public Rule_Edit verifyTextLabel (String text)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -281,6 +308,42 @@ public class Rule_Edit extends AbstractPage
         
         return this;
 
+    }
+    public Rule_Edit verifyChecked ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            if(!checkedCheckBox.isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Rule_Edit verifyThenInput ( int i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            List<WebElement> stuff = thenEvents.findElements(By.xpath(".//input"));
+            System.out.println(stuff.get(i-1).getAttribute("value"));
+            if(!stuff.get(i-1).getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
     } 
 
 }

@@ -17,25 +17,35 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{     
+{   
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaState.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaState.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedState.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedState.class,
       com.ontraport.app.tests.DeleteStateField.class,
       //relies on section
       com.ontraport.app.tests.CreatePriceField.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaPrice.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaPrice.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedPrice.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedPrice.class,
       com.ontraport.app.tests.DeletePriceField.class,
     //relies on section
       com.ontraport.app.tests.CreateNumericField.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaNumeric.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaNumeric.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedNumeric.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedNumeric.class,
       com.ontraport.app.tests.DeleteNumericField.class,
       //relies on section
       com.ontraport.app.tests.CreateLongTextField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldLongText.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldLongText.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaLongText.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaLongText.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedLongText.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedLongText.class,
       com.ontraport.app.tests.DeleteLongTextField.class,
@@ -43,22 +53,38 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.CreateListSelectionField.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedListSelection.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedListSelection.class,
+      com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedListSelection.class,
+      com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedListSelection.class,
       com.ontraport.app.tests.DeleteListSelectionField.class,
       //relies on section
       com.ontraport.app.tests.CreateDateField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldDate.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldDate.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaDate.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaDate.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedDate.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedDate.class,
       com.ontraport.app.tests.DeleteDateField.class,
       //relies on section
       com.ontraport.app.tests.CreateCheckboxField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldCheckbox.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldCheckBox.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedCheckBox.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedCheckBox.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaCheckBox.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaCheckBox.class,
       com.ontraport.app.tests.DeleteCheckBoxField.class,
     //relies on section
       com.ontraport.app.tests.CreateDropdownField.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaDropDown.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaDropDown.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedDropDown.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedDropDown.class,
       com.ontraport.app.tests.DeleteDropdownField.class,
+      com.ontraport.app.tests.CreateTextField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldText.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldText.class,
+      com.ontraport.app.tests.DeleteTextField.class,
       com.ontraport.app.tests.DeleteSection.class,
     
 }
