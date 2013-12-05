@@ -35,7 +35,7 @@ public class EditLandingPageImageWidth extends AbstractTest
 
         landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Image"));
         
-        if(landingPage_Edit.enterWidth( 50 )==null)
+        if(landingPage_Edit.verifyWidth( 50 )==null)
         {
             fail("couldnt find width");
         }

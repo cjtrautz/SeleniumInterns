@@ -17,10 +17,66 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{   
+{
+    com.ontraport.app.tests.CreateAWordPressSite.class, 
+    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteWordPressSite.class,
+    
+    com.ontraport.app.tests.CreateTaskWhoMessage.class,
+    com.ontraport.app.tests.CreateRule_AddATask.class,
+    com.ontraport.app.tests.DeleteRule_AddATask.class,
+    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+    
+    com.ontraport.app.tests.CreateRule_SMSContainsText.class,
+    com.ontraport.app.tests.DeleteRule_SMSContainsText.class,
+    com.ontraport.app.tests.CreateRule_SMSDoesntContainAnEmailAddress.class,
+    com.ontraport.app.tests.DeleteRule_SMSDoesntContainAnEmailAddress.class,
+    com.ontraport.app.tests.CreateRule_SMSDoesNotContainText.class,
+    com.ontraport.app.tests.DeleteRule_SMSDoesNotContainText.class,
+    com.ontraport.app.tests.CreateRule_SMSContainsAnEmailAddress.class,
+    com.ontraport.app.tests.DeleteRule_SMSContainsAnEmailAddress.class,
+    
+    com.ontraport.app.tests.CreateRule_SMSRecievedFromContact.class,
+    com.ontraport.app.tests.DeleteRule_SMSRecievedFromContact.class,
+    
+    com.ontraport.app.tests.CreateGateway.class, 
+    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    com.ontraport.app.tests.EditLandingPageFormWidth.class,
+    com.ontraport.app.tests.EditLandingPageFormOpacity.class,
+    com.ontraport.app.tests.EditLandingPageFormColor.class,
+    com.ontraport.app.tests.EditLandingPageFormSize.class,
+    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    com.ontraport.app.tests.DeleteGateway.class,
+    
+    com.ontraport.app.tests.AddDateModifiedColumn.class,
+    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
+    com.ontraport.app.tests.AddDateCreatedColumn.class,
+    com.ontraport.app.tests.DeleteDateCreatedColumn.class,
+    com.ontraport.app.tests.AddQuantityPurchasedColumn.class,
+    com.ontraport.app.tests.DeleteQuantityPurchasedColumn.class,
+    com.ontraport.app.tests.AddRevenueColumn.class,
+    com.ontraport.app.tests.DeleteRevenueColumn.class,
+    com.ontraport.app.tests.AddPriceColumn.class,
+    com.ontraport.app.tests.DeletePriceColumn.class,
+    com.ontraport.app.tests.AddProductIDColumn.class,
+    com.ontraport.app.tests.DeleteProductIDColumn.class,
+
     com.ontraport.app.tests.AddNewSection.class,
     //relies on section
       com.ontraport.app.tests.CreateStateField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldState.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldState.class,
       com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaState.class,
       com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaState.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedState.class,
@@ -28,6 +84,8 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteStateField.class,
       //relies on section
       com.ontraport.app.tests.CreatePriceField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldPrice.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldPrice.class,
       com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaPrice.class,
       com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaPrice.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedPrice.class,
@@ -35,6 +93,8 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeletePriceField.class,
     //relies on section
       com.ontraport.app.tests.CreateNumericField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldNumeric.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldNumeric.class,
       com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaNumeric.class,
       com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaNumeric.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedNumeric.class,
@@ -51,8 +111,10 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteLongTextField.class,
       //relies on section
       com.ontraport.app.tests.CreateListSelectionField.class,
-      com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedListSelection.class,
-      com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedListSelection.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldListSelection.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldListSelection.class,
+      com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaListSelection.class,
+      com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaListSelection.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedListSelection.class,
       com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedListSelection.class,
       com.ontraport.app.tests.DeleteListSelectionField.class,
@@ -76,6 +138,8 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteCheckBoxField.class,
     //relies on section
       com.ontraport.app.tests.CreateDropdownField.class,
+      com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldDropDown.class,
+      com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldDropDown.class,
       com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaDropDown.class,
       com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaDropDown.class,
       com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedDropDown.class,

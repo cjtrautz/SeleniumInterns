@@ -13,7 +13,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class DeleteRule_AFieldMeetsGivenCriteriaListSelection extends AbstractTest
 {
     @Test
-    public void testDeleteRule_AFieldMeetsGivenCriteriaLongText ()
+    public void testDeleteRule_AFieldMeetsGivenCriteriaListSelection ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

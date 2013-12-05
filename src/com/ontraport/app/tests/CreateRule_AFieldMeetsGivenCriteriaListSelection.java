@@ -13,7 +13,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateRule_AFieldMeetsGivenCriteriaListSelection extends AbstractTest
 {
     @Test
-    public void testCreateRule_AFieldMeetsGivenCriteriaState ()
+    public void testCreateRule_AFieldMeetsGivenCriteriaListSelection ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

@@ -18,6 +18,8 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.EditLandingPageFormLeft.class,
+    
     com.ontraport.app.tests.ManageDomainsCreateTrackedDomain.class,
     
     com.ontraport.app.tests.EditLandingPageCodeModeBackground.class,

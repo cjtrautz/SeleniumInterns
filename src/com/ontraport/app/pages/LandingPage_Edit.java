@@ -167,6 +167,10 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement versionB;
     
     @FindBy(how = How.XPATH,
+            using = "//td[@id='property_cell']//tbody/tr/td[3]//select")
+    private WebElement formFontSizeDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//td[@id='property_cell']//tbody/tr/td[2]//select")
     private WebElement fontSizeDropDown;
     
@@ -205,6 +209,10 @@ public class LandingPage_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form ')]")
     private WebElement form;
+    
+    @FindBy(how = How.XPATH,
+            using = "//form[contains(concat(' ', normalize-space(@class), ' '),' moonray-form-clearfix ')]")
+    private WebElement smartform;
     
     @FindBy(how = How.XPATH,
             using = "//td[@id='Menu_Bar']/div/div/table/tbody/tr[3]/td/div[contains(concat(' ', normalize-space(@class), ' '),' menu_button_class ')]/table/tbody/tr/td[2]")
@@ -538,7 +546,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit selectFontDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        WebElement click = driver.findElement(By.xpath("//td[@id='property_cell']//tbody//select/option[text()='" + string + "']"));
+        WebElement click = driver.findElement(By.xpath("//td[@id='property_cell']//tbody//select//option[text()='" + string + "']"));
         wait.until(ExpectedConditions.visibilityOf(click));
         click.click();
         AbstractPart.waitForAjax(driver, 20);AbstractPart.waitForAjax(driver, 20);
@@ -854,7 +862,7 @@ public class LandingPage_Edit extends AbstractPage
         return this;
     }
 
-    public LandingPage_Edit enterWidth ( int i )
+    public LandingPage_Edit verifyWidth ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -1572,6 +1580,53 @@ public class LandingPage_Edit extends AbstractPage
         textarea.click();
         textarea.clear();
         textarea.sendKeys(string);
+        return this;
+    }
+
+    public LandingPage_Edit clickForm ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smartform));
+        smartform.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyFormSize ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!smartform.findElement(By.xpath(".//label[contains(concat(' ', normalize-space(@style), ' '),' font-size: " + string + "px; ')]")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public LandingPage_Edit clickFormFontSizeDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(formFontSizeDropDown));
+        formFontSizeDropDown.click();
+        return this;
+    }
+
+    public LandingPage_Edit verifyFormColor ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.findElement(By.xpath("//label[contains(concat(' ', @style, ' '),' rgb" + string + "; ')]")).isDisplayed();
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
         return this;
     }
 

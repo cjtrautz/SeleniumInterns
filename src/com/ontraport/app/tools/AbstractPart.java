@@ -45,12 +45,6 @@ public abstract class AbstractPart
         catch (Exception e)
         {
             e.printStackTrace();
-//            driver.navigate().refresh();
-//            if(AbstractPart.getTrys()==0)
-//            {
-//                AbstractPart.setTrys(1);
-//                waitForAjax2(driver, 20);
-//            }
         }
         return jQcondition;
     }

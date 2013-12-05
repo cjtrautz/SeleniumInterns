@@ -262,7 +262,7 @@ public class Message_CreateTask extends AbstractPage
     public Message_CreateTask selectCreateNewOutcome ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", createNewOutcomeOption);
         wait.until(ExpectedConditions.visibilityOf(createNewOutcomeOption));
         createNewOutcomeOption.click();

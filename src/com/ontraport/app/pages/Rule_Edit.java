@@ -344,6 +344,72 @@ public class Rule_Edit extends AbstractPage
         }
         
         return this;
+    }
+    public Rule_Edit verifyWhenDropDownInputTextContains ( int index, String value )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(whenEvents));
+            List<WebElement> whenDropDowns = whenEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
+            String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
+            System.out.println(compare);
+            if(compare.contains(value)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        
+        return this;
+    }
+    public Rule_Edit verifyIfDropDownInputTextContains ( int index, String value )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(whenEvents));
+            List<WebElement> whenDropDowns = ifEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
+            String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
+            System.out.println(compare);
+            if(compare.contains(value)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Rule_Edit verifyThenDropDownInputTextContains ( int index, String value )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(whenEvents));
+            List<WebElement> whenDropDowns = thenEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
+            String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
+            System.out.println(compare);
+            if(compare.contains(value)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
     } 
 
 }

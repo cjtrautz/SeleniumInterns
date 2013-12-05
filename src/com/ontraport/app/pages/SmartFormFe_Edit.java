@@ -66,7 +66,7 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Tags')]/following-sibling::div//button")
+            using = "//label[contains(text(),'Tags')]/following-sibling::div//input")
     private WebElement tagDropDown;
     
     @FindBy(
@@ -76,7 +76,7 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Sequences')]/following-sibling::div//button")
+            using = "//label[contains(text(),'Sequences')]/following-sibling::div//input")
     private WebElement sequenceDropDown;
     
     @FindBy(
@@ -100,23 +100,28 @@ public class SmartFormFe_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 30);
         //wait.until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='ussr-dialog-title ussr-helper-font-weight-bold h1']"))));
+        System.out.println("here3");
         wait.until(ExpectedConditions.visibilityOf(form));
         wait.until(ExpectedConditions.visibilityOf(settings));
         settings.click();
+        System.out.println("here4");
         return this;
     }
 
     public SmartFormFe_Edit clickTagDropDown ()
     {
         AbstractPart.waitForAjax(driver, 30);
+        System.out.println("here");
         wait.until(ExpectedConditions.visibilityOf(tagDropDown));
         tagDropDown.click();
+        System.out.println("here5");
         return this;
     }
 
     public SmartFormFe_Edit selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 30);
+        System.out.println("here2");
         wait.until(ExpectedConditions.visibilityOf(drillDown));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();

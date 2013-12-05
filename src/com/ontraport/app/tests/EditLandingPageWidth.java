@@ -35,7 +35,7 @@ public class EditLandingPageWidth extends AbstractTest
 
         landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Text"));
 
-        if(landingPage_Edit.enterWidth( 450 )==null)
+        if(landingPage_Edit.verifyWidth( 450 )==null)
         {
             fail("couldnt find width");
         }
