@@ -35,6 +35,18 @@ public class DrawerActions extends AbstractPart
     protected WebElement createNew;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', (@class), ' '), ' component-task-reschedule-target-date ')]//input")
+    protected WebElement datePickerInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', (@class), ' '), ' ussr-cancel-click ')]")
+    protected WebElement cancelButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', (@class), ' '), ' component-task-reassign-target-user ')]//button")
+    protected WebElement userDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//ul/li[contains(concat(' ', normalize-space(@class), ' '), ' ussr-target-drawer-action ')]/a")
     protected WebElement cancel;
     
@@ -79,6 +91,10 @@ public class DrawerActions extends AbstractPart
     private WebElement quickCreaterNameInput;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-reassign-click ')]")
+    private WebElement saveReAssign;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-controls ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sad-button ')]")
     private WebElement objectCreatorSave;
     
@@ -93,6 +109,18 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Unpause Rule')]")
     private WebElement unpauseRule;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Re-Assign')]")
+    private WebElement reassign;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Reschedule')]")
+    private WebElement reschedule;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Cancel')]")
+    private WebElement cancelTask;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Packages')]")
@@ -238,7 +266,7 @@ public class DrawerActions extends AbstractPart
     public DrawerActions open ()
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        wait(5).until(ExpectedConditions.visibilityOf(uiToggleDrawerActions));
         uiToggleDrawerActions.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
@@ -414,6 +442,7 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        wait(5).until(ExpectedConditions.visibilityOf(uiSendEmail));
         uiSendEmail.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
@@ -738,4 +767,55 @@ public class DrawerActions extends AbstractPart
         unpauseRule.click();
         return this;
     }
+    public DrawerActions clickReAssign ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(reassign));
+        reassign.click();
+        return this;
+    }
+    public DrawerActions clickUserDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(userDropDown));
+        userDropDown.click();
+        return this;
+    }
+    public DrawerActions clickReschedule ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(reschedule));
+        reschedule.click();
+        return this;
+    }
+    public DrawerActions clickDateSelectorInput ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(datePickerInput));
+        datePickerInput.click();
+        return this;
+    }
+    public DrawerActions clickCancelSendEmail ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(cancelButton));
+        cancelButton.click();
+        return this;
+    }
+    public DrawerActions clickSaveReAssign ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(saveReAssign));
+        saveReAssign.click();
+        return this;
+    }
+    public DrawerActions clickCancelTask ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(cancelTask));
+        cancelTask.click();
+        return this;
+    }
+
+
 }

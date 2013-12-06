@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.User_Create;
 import com.ontraport.app.pages.User_ListAll;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateUser extends AbstractTest
@@ -22,9 +23,9 @@ public class CreateUser extends AbstractTest
         User_Create user_Create = user_ListAll.dialogBox.clickAgree();
         user_Create.enterFirstName("FirstSelenium");
         user_Create.enterLastName("LastSelenium");
-        user_Create.enterEmail("Selenium123@email.com");
-        user_Create.enterEmailFromName("Selenium123@email.com");
-        user_Create.enterReplyToName("Selenium123@email.com");
+        user_Create.enterEmail("Selenium" + AbstractSuite.UNIQUE + "@email.com");
+        user_Create.enterEmailFromName("Selenium" + AbstractSuite.UNIQUE + "@email.com");
+        user_Create.enterReplyToName("Selenium" + AbstractSuite.UNIQUE + "@email.com");
         user_Create.clickRoleDropDown();
         user_Create.selectDropDown("SeleniumRole");
         user_Create.clickLanguageDropDown();

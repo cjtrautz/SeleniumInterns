@@ -18,14 +18,14 @@ public class AddTaskToContact extends AbstractTest
     public void testAddTaskToContact ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
         Contact_Edit contact_edit = contactListAll.clickContact(1);
         contact_edit.clickNotesAndTasksTab();
         contact_edit.clickNewTask();
         contact_edit.drawerActions.clickTaskNameDropDown();
         Message_CreateTask message_CreateTask = contact_edit.drawerActions.createNewTask();
         message_CreateTask.enterTaskName(value.get("Messages", "task_message_add_to_contact"));
-        message_CreateTask.enterTaskSubjectName(value.get("Messages", "task_subject"));
+        message_CreateTask.enterTaskSubjectName(value.get("Messages", "task_subject_new"));
         message_CreateTask.enterDueDate("1");
         message_CreateTask.clickAssigneeDropDown();
         message_CreateTask.selectDropDownOption("Contact");
@@ -46,12 +46,12 @@ public class AddTaskToContact extends AbstractTest
         message_CreateTask.clickSave();
         contact_edit.drawerActions.clickSend();
         //verify Sel Tag exists
-        if(contact_edit.verifyTask(value.get("Messages", "task_subject"))==null)
+        if(contact_edit.verifyTask(value.get("Messages", "task_subject_new"))==null)
         {
             fail("couldn't find task");
         }
         Task_ListAll task_ListAll = contact_edit.menuPrimary.clickTaskListAll();
-        if(task_ListAll.verifyTask(value.get("Messages", "task_subject"))==null)
+        if(task_ListAll.verifyTask(value.get("Messages", "task_subject_new"))==null)
         {
             fail("couldn't find task");
         }

@@ -317,7 +317,7 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click(); 
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
+        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
         return (Message_ListAll) new Message_ListAll().init();
     }
 

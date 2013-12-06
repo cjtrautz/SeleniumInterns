@@ -18,7 +18,18 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.AddRoundRobin.class, 
+    com.ontraport.app.tests.CopyRoundRobin.class, 
+    com.ontraport.app.tests.DeleteRoundRobin.class,
+    com.ontraport.app.tests.AddWeightedRandom.class, 
+    com.ontraport.app.tests.CopyWeightedRandom.class, 
+    com.ontraport.app.tests.DeleteWeightedRandom.class,
+    
     com.ontraport.app.tests.CreateAWordPressSite.class, 
+    com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
+    com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
+    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
@@ -30,6 +41,17 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteWordPressSite.class,
+    
+    com.ontraport.app.tests.CreateRole.class,
+    //relies on role
+    com.ontraport.app.tests.CreateUser.class,
+    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.AddTaskToContact.class,
+    com.ontraport.app.tests.TaskActions.class,
+    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    com.ontraport.app.tests.DeleteRole.class,
     
     com.ontraport.app.tests.CreateTaskWhoMessage.class,
     com.ontraport.app.tests.CreateRule_AddATask.class,
@@ -111,6 +133,8 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.DeleteLongTextField.class,
       //relies on section
       com.ontraport.app.tests.CreateListSelectionField.class,
+      com.ontraport.app.tests.CreateLeadScoring_AListSelectionFieldMeetsCriteria.class,
+      com.ontraport.app.tests.DeleteLeadScoring_AListSelectionFieldMeetsCriteria.class,
       com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldListSelection.class,
       com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldListSelection.class,
       com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaListSelection.class,
@@ -158,7 +182,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com/");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);
