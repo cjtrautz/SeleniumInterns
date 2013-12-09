@@ -21,7 +21,7 @@ public class Contact_Import extends AbstractPage
     private WebElement table;
     
     @FindBy(how = How.XPATH,
-            using = "//tbody[@class='ussr-component-collection-body']/tr//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a[@class='ussr-component-collection-cell-data']")
+            using = "//tbody[@class='ussr-component-collection-body']//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-data ')]")
     private WebElement firstContact;
     
     @FindBy(how = How.XPATH,

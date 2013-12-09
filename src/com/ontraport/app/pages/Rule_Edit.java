@@ -32,6 +32,10 @@ public class Rule_Edit extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]")
     private WebElement thenEvents;
     
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//ul[contains(concat(' ', normalize-space(@class), ' '),' component-simple-list-target-ul ')]")
+    private WebElement thenEventsList;
+    
     public Rule_Edit verifyIfTextArea (int index, String value)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -329,7 +333,7 @@ public class Rule_Edit extends AbstractPage
     public Rule_Edit verifyThenInput ( int i, String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        wait.until(ExpectedConditions.visibilityOf(thenEvents));
         try
         {
             List<WebElement> stuff = thenEvents.findElements(By.xpath(".//input"));
@@ -393,13 +397,54 @@ public class Rule_Edit extends AbstractPage
     public Rule_Edit verifyThenDropDownInputTextContains ( int index, String value )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        wait.until(ExpectedConditions.visibilityOf(thenEvents));
         try
         {
             wait.until(ExpectedConditions.visibilityOf(whenEvents));
             List<WebElement> whenDropDowns = thenEvents.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-type-drilldownselect ')]"));
             String compare = whenDropDowns.get(index-1).findElement(By.xpath(".//input")).getAttribute("value");
             System.out.println(compare);
+            if(compare.contains(value)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Rule_Edit verifyIfInput ( int i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            List<WebElement> stuff = ifEvents.findElements(By.xpath(".//input"));
+            System.out.println(stuff.get(i-1).getAttribute("value"));
+            if(!stuff.get(i-1).getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Rule_Edit verifyThenList ( int i, String value )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(ifEvents));
+            List<WebElement> thenTextAreas= thenEventsList.findElements(By.xpath(".//li"));
+            String compare = thenTextAreas.get(i-1).getText();
+            System.out.println(compare);
+            //System.out.println(value);
             if(compare.contains(value)!=true)
             {
                 return null;

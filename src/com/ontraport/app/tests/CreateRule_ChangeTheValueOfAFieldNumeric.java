@@ -26,9 +26,9 @@ public class CreateRule_ChangeTheValueOfAFieldNumeric extends AbstractTest
         rule_Create.enterThenInput("change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("text", 1);
+        rule_Create.enterThenInput("num", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "Numeric_Field"));
-        rule_Create.enterThenInput("1", 3);
+        rule_Create.enterThenInput("1", 2);
         rule_ListAll = rule_Create.clickSave();
         rule_ListAll.formSearch.find(value.get("Rules", "change_the_value_of_numeric_field"));
         
@@ -51,7 +51,7 @@ public class CreateRule_ChangeTheValueOfAFieldNumeric extends AbstractTest
         {
             fail("didnt type url right");
         }
-        if(rule_Edit.verifyThenInput(3, "1")==null)
+        if(rule_Edit.verifyThenInput(2, "1")==null)
         {
             fail("didn't add post data right");
         }

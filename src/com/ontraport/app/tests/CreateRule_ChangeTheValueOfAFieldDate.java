@@ -26,7 +26,7 @@ public class CreateRule_ChangeTheValueOfAFieldDate extends AbstractTest
         rule_Create.enterThenInput("change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("check", 1);
+        rule_Create.enterThenInput("date", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "Date_Field"));
         rule_Create.clickThenCheckbox();
         rule_ListAll = rule_Create.clickSave();

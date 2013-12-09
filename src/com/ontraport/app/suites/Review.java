@@ -18,6 +18,9 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateTrackedLink.class, 
+    com.ontraport.app.tests.DeleteTrackedLink.class, 
+    
     com.ontraport.app.tests.AddRoundRobin.class, 
     com.ontraport.app.tests.CopyRoundRobin.class, 
     com.ontraport.app.tests.DeleteRoundRobin.class,
@@ -73,7 +76,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateGateway.class, 
     com.ontraport.app.tests.CreateOrderform.class,
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    com.ontraport.app.tests.EditLandingPageFormWidth.class,
     com.ontraport.app.tests.EditLandingPageFormOpacity.class,
     com.ontraport.app.tests.EditLandingPageFormColor.class,
     com.ontraport.app.tests.EditLandingPageFormSize.class,

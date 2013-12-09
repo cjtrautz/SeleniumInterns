@@ -658,7 +658,6 @@ public class DialogBox extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(rInputLP));
         rInputLP.click();
         rInputLP.clear();
-        rInputLP.click();
         rInputLP.sendKeys(i);
         return this;
     }
@@ -668,7 +667,6 @@ public class DialogBox extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(gInputLP));
         gInputLP.click();
         gInputLP.clear();
-        gInputLP.click();
         gInputLP.sendKeys(string);
         return this;
     }
@@ -678,7 +676,6 @@ public class DialogBox extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(bInputLP));
         bInputLP.click();
         bInputLP.clear();
-        bInputLP.click();
         bInputLP.sendKeys(string);
         return this;
     }

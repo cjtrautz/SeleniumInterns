@@ -199,7 +199,7 @@ public class DrawerActions extends AbstractPart
         private WebElement uiReassignDelete;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='E-mail Name']/following-sibling::div/button")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-message-selector ')]//button")
         private WebElement emailNameDropDown;
     
     @FindBy(how = How.XPATH,
@@ -814,6 +814,13 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(cancelTask));
         cancelTask.click();
+        return this;
+    }
+    public DrawerActions clickDeleteTrackedLink ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiDelete));
+        uiDelete.click();
         return this;
     }
 

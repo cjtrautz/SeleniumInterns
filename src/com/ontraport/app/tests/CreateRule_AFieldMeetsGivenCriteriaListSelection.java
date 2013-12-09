@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaListSelection extends AbstractTe
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("check", 1);
+        rule_Create.enterIfInput("list", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "List_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");
@@ -58,7 +58,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaListSelection extends AbstractTe
         {
             fail("didnt select first name");
         }
-        if(rule_Edit.verifyIfTextArea(1, "test")==null)
+        if(rule_Edit.verifyIfDropDownInputText(3, value.get("Fields", "list_selection_first_option"))==null)
         {
             fail("didn't select recharge all declined transactions");
         }

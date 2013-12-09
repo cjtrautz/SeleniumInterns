@@ -26,7 +26,7 @@ public class CreateRule_ChangeTheValueOfAFieldListSelection extends AbstractTest
         rule_Create.enterThenInput("change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("text", 1);
+        rule_Create.enterThenInput("list", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "List_Field"));
         rule_Create.openThenActionPane(2);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "list_selection_first_option"));
@@ -52,7 +52,7 @@ public class CreateRule_ChangeTheValueOfAFieldListSelection extends AbstractTest
         {
             fail("didnt type url right");
         }
-        if(rule_Edit.verifyThenDropDownInputText(2, value.get("Fields", "list_selection_first_option"))==null)
+        if(rule_Edit.verifyThenList(1, value.get("Fields", "list_selection_first_option"))==null)
         {
             fail("didnt type url right");
         }

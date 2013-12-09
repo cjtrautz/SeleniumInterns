@@ -28,7 +28,7 @@ public class CreateRule_ChangeTheValueOfAFieldLongText extends AbstractTest
         rule_Create.openThenActionPane(1);
         rule_Create.enterThenInput("text", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "Long_Text_Field"));
-        rule_Create.enterThenInput("test", 2);
+        rule_Create.enterThenTextArea("test", 1);
         rule_ListAll = rule_Create.clickSave();
         rule_ListAll.formSearch.find(value.get("Rules", "change_the_value_of_long_text_field"));
         
@@ -51,7 +51,7 @@ public class CreateRule_ChangeTheValueOfAFieldLongText extends AbstractTest
         {
             fail("didnt type url right");
         }
-        if(rule_Edit.verifyThenInput(2, "test")==null)
+        if(rule_Edit.verifyThenTextArea(1, "test")==null)
         {
             fail("didn't add post data right");
         }

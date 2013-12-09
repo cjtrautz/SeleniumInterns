@@ -26,7 +26,7 @@ public class CreateRule_ChangeTheValueOfAFieldState extends AbstractTest
         rule_Create.enterThenInput("change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("text", 1);
+        rule_Create.enterThenInput("state", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "State_Field"));
         rule_Create.openThenActionPane(2);
         rule_Create.selectThenDrillDownPaneOption("California");

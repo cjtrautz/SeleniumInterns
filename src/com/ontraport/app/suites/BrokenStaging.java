@@ -19,6 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 
 {
     com.ontraport.app.tests.EditLandingPageFormLeft.class,
+    com.ontraport.app.tests.EditLandingPageFormWidth.class,
     
     com.ontraport.app.tests.ManageDomainsCreateTrackedDomain.class,
     

@@ -41,11 +41,11 @@ public class ImportContacts extends AbstractTest
         }
         driver.navigate().refresh();
         AbstractPart.waitForAjax(driver, 30);
-        if(contactListAll.verifyContact("bart@thesimpsons.com")==null)
+        if(contactListAll.verifyContact("Bart Simpson")==null)
         {
             fail("not contact");
         }
-        if(contactListAll.verifyNumberOfContacts(7)==null)
+        if(contactListAll.verifyNumberOfContacts(8)==null)
         {
             fail("not number of contacts");
         }

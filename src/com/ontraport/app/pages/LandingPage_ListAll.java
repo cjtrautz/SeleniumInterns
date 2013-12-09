@@ -71,18 +71,7 @@ public class LandingPage_ListAll extends AbstractPage
     public LandingPage_ListAll selectLandingPage ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(0, TimeUnit.SECONDS);
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBody.findElement(By.xpath(".//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a/span")))));
-        //uiCollectionBody.findElement(By.xpath(".//tr//td[span[contains(., '" + rule + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a/span")).click();
         return this;
         
     }

@@ -26,7 +26,7 @@ public class CreateRule_ChangeTheValueOfAFieldDropDown extends AbstractTest
         rule_Create.enterThenInput("change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("text", 1);
+        rule_Create.enterThenInput("drop", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "Drop_Down_Field"));
         rule_Create.openThenActionPane(2);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "drop_down_first_option"));

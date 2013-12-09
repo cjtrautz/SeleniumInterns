@@ -46,11 +46,11 @@ public class User_Create extends AbstractPage
     private WebElement managerDropDown;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='New Password']/following-sibling::div/input")
+            using = "//div[contains(concat(' ', (@class), ' '), ' password_target ')]//input")
     private WebElement newPasswordInput;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Password Confirm']/following-sibling::div/input")
+            using = "//div[contains(concat(' ', (@class), ' '), ' password_confirm ')]//input")
     private WebElement confirmPasswordInput;
     
     @FindBy(
@@ -133,6 +133,9 @@ public class User_Create extends AbstractPage
     public User_Create enterNewPassword ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newPasswordInput));
+        newPasswordInput.click();
+        newPasswordInput.clear();
         newPasswordInput.sendKeys(string);
         return this;
         
@@ -141,6 +144,9 @@ public class User_Create extends AbstractPage
     public User_Create enterConfirmPassword ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(confirmPasswordInput));
+        confirmPasswordInput.click();
+        confirmPasswordInput.clear();
         confirmPasswordInput.sendKeys(string);
         return this;
         

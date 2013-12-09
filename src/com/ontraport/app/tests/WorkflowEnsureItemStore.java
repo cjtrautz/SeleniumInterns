@@ -20,8 +20,8 @@ public class WorkflowEnsureItemStore extends AbstractTest
         contactListAll.drawerActions.clickEmailNameDropDown();
         Message_Edit message_Edit = contactListAll.drawerActions.selectDropDown(1);
         message_Edit.enterMessageName("SeleniumWorkflowItem");
-        message_Edit.enterSendOutName("Selenium");
-        message_Edit.enterReplyToEmail("selenium@email.com");
+//        message_Edit.enterSendOutName("Selenium");
+//        message_Edit.enterReplyToEmail("selenium@email.com");
         message_Edit.openMailFromPane();
         message_Edit.selectMailFrom(1);
         message_Edit.enterSubject("SelSubject");

@@ -23,8 +23,8 @@ public class CreateMessage extends AbstractTest
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         Message_CreateEmail message_CreateEmail = message_TypeSelection.clickEmailCreate();
         message_CreateEmail.enterMessageName("SelEmailMessage");
-        message_CreateEmail.enterSendOutName("Selenium");
-        message_CreateEmail.enterReplyToEmail("selenium@email.com");
+//        message_CreateEmail.enterSendOutName("Selenium");
+//        message_CreateEmail.enterReplyToEmail("selenium@email.com");
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
         message_CreateEmail.enterSubject("SelSubject");
@@ -52,14 +52,14 @@ public class CreateMessage extends AbstractTest
         {
             fail("couldn't find message body");
         }
-        if(message_Edit.verifyReplyTo("selenium@email.com")==null)
-        {
-            fail("couldn't find reply to");
-        }
-        if(message_Edit.verifySendName("Selenium")==null)
-        {
-            fail("couldn't find send name");
-        }
+//        if(message_Edit.verifyReplyTo("selenium@email.com")==null)
+//        {
+//            fail("couldn't find reply to");
+//        }
+//        if(message_Edit.verifySendName("Selenium")==null)
+//        {
+//            fail("couldn't find send name");
+//        }
         if(message_Edit.verifySubject("SelSubject")==null)
         {
             fail("couldn't find subject");

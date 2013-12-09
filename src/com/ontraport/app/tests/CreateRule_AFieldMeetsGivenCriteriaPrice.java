@@ -49,11 +49,15 @@ public class CreateRule_AFieldMeetsGivenCriteriaPrice extends AbstractTest
         {
             fail("didnt select Field is this value");
         }
+        if(rule_Edit.verifyIfInput(4, "1.00")==null)
+        {
+            fail("didnt select equal to");
+        }
         if(rule_Edit.verifyIfDropDownInputText(2, "Equal To")==null)
         {
             fail("didnt select equal to");
         }
-        if(rule_Edit.verifyIfDropDownInputText(1, value.get("Fields", "if_price_meets_criteria"))==null)
+        if(rule_Edit.verifyIfDropDownInputText(1, value.get("Fields", "Price_Field"))==null)
         {
             fail("didnt select first name");
         }
