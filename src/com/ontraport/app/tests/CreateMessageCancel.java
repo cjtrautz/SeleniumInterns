@@ -23,8 +23,8 @@ public class CreateMessageCancel extends AbstractTest
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         Message_CreateEmail message_CreateEmail = message_TypeSelection.clickEmailCreate();
         message_CreateEmail.enterMessageName("DontShow");
-        message_CreateEmail.enterSendOutName("DontShow");
-        message_CreateEmail.enterReplyToEmail("DontShow@email.com");
+//        message_CreateEmail.enterSendOutName("DontShow");
+//        message_CreateEmail.enterReplyToEmail("DontShow@email.com");
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
         message_CreateEmail.enterSubject("DontShow");

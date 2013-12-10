@@ -107,7 +107,7 @@ public class DrawerActions extends AbstractPart
     private WebElement pauseRule;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Unpause Rule')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Un-pause Rule')]")
     private WebElement unpauseRule;
     
     @FindBy(how = How.XPATH,

@@ -273,6 +273,11 @@ public class LandingPage_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//td[contains(text(), 'Page Size:')]/following-sibling::td/div[contains(concat(' ', normalize-space(@style), ' '),' cursor: pointer; ')]")
     private WebElement pageSize;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-hosted-domain-target-component ')]//input")
+    private WebElement redirectURL;
 
     public LandingPage_Edit verifyLandingPageTitle ( String value )
     {
@@ -1627,6 +1632,25 @@ public class LandingPage_Edit extends AbstractPage
         catch(NoSuchElementException e){
             return null;
         }
+        return this;
+    }
+
+    public LandingPage_Edit verifyRedirectURL ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(string);
+            System.out.println(redirectURL.getAttribute("value"));
+            if(!redirectURL.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
         return this;
     }
 

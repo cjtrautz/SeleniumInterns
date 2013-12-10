@@ -21,7 +21,7 @@ public class MenuHelp extends AbstractPart
     private WebElement helpButton;
     
     @FindBy(how = How.XPATH,
-            using = "//a[@href='http://support.ontraport.com']/span")
+            using = "//a[@href='/Zendesk/redirect?redirect_to=http%3A%2F%2Fsupport.ontraport.com']/span")
     private WebElement support;
     
     @FindBy(how = How.XPATH,

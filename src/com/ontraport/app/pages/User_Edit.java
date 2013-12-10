@@ -639,6 +639,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickTimezone ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(timezoneField));
         timezoneField.click();
         return this;
         
@@ -906,6 +907,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickReplyToSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", replyToSave);
         wait.until(ExpectedConditions.visibilityOf(replyToSave));
         replyToSave.click();
         return this;
@@ -964,6 +966,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", businessNameSave);
         wait.until(ExpectedConditions.visibilityOf(businessNameSave));
         businessNameSave.click();
         return this;
@@ -988,6 +991,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessAddressSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", businessAddressSave);
         wait.until(ExpectedConditions.visibilityOf(businessAddressSave));
         businessAddressSave.click();
         return this;
@@ -1012,6 +1016,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickBusinessAddress2Save ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", businessAddress2Save);
         wait.until(ExpectedConditions.visibilityOf(businessAddress2Save));
         businessAddress2Save.click();
         return this;
@@ -1036,6 +1041,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickCitySave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", citySave);
         wait.until(ExpectedConditions.visibilityOf(citySave));
         citySave.click();
         return this;
@@ -1080,6 +1086,7 @@ public class User_Edit extends AbstractPage
     public User_Edit clickZipSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", zipSave);
         wait.until(ExpectedConditions.visibilityOf(zipSave));
         zipSave.click();
         return this;

@@ -18,6 +18,8 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    com.ontraport.app.tests.CopyLandingPageAction.class,
+    
     com.ontraport.app.tests.EditLandingPageFormLeft.class,
     com.ontraport.app.tests.EditLandingPageFormWidth.class,
     

@@ -22,8 +22,8 @@ public class CreateSplitTestMessages extends AbstractTest
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         Message_CreateEmail message_CreateEmail = message_TypeSelection.clickEmailCreate();
         message_CreateEmail.enterMessageName(value.get("Messages", "email_messageB"));
-        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
-        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
+//        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
+//        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
         message_CreateEmail.enterSubject(value.get("Messages", "email_subject"));
@@ -42,8 +42,8 @@ public class CreateSplitTestMessages extends AbstractTest
         message_TypeSelection = message_ListAll.clickNewMessage();
         message_CreateEmail = message_TypeSelection.clickEmailCreate();
         message_CreateEmail.enterMessageName(value.get("Messages", "email_messageC"));
-        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
-        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
+//        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
+//        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
         message_CreateEmail.enterSubject(value.get("Messages", "email_subject"));
@@ -62,8 +62,8 @@ public class CreateSplitTestMessages extends AbstractTest
         message_TypeSelection = message_ListAll.clickNewMessage();
         message_CreateEmail = message_TypeSelection.clickEmailCreate();
         message_CreateEmail.enterMessageName(value.get("Messages", "email_messageD"));
-        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
-        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
+//        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
+//        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
         message_CreateEmail.enterSubject(value.get("Messages", "email_subject"));

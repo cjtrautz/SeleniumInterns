@@ -124,7 +124,7 @@ public class Message_CreateSMS extends AbstractPage
     public Message_CreateSMS verifyStats ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-M-d");
         Date dNow = new Date();
         String now = ft.format(dNow);
         try

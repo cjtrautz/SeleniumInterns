@@ -32,14 +32,14 @@ public class CreateCopyOfEmailMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("Copy of SelEmailMessage");
-        if(message_Edit.verifyReplyTo("selenium@email.com")==null)
-        {
-            fail("couldn't find reply to");
-        }
-        if(message_Edit.verifySendName("Selenium")==null)
-        {
-            fail("couldn't find send name");
-        }
+//        if(message_Edit.verifyReplyTo("selenium@email.com")==null)
+//        {
+//            fail("couldn't find reply to");
+//        }
+//        if(message_Edit.verifySendName("Selenium")==null)
+//        {
+//            fail("couldn't find send name");
+//        }
         if(message_Edit.verifySubject("SelSubject")==null)
         {
             fail("couldn't find subject");

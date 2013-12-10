@@ -28,6 +28,11 @@ public class TrackingLinks_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' uid_editor_component__pane_nav_tabs__tab_0__203_editor_component__pane_nav_tabs__tab_0__203__name_TYPE_ontraport_components_form_control_input_text_NAME_name ')]//button")
+    private WebElement nameSave;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' uid_editor_component__pane_nav_tabs__tab_0__203_editor_component__pane_nav_tabs__tab_0__203__url_TYPE_ontraport_components_form_control_input_text_NAME_url ')]//input")
     private WebElement urlInput;
     
@@ -38,8 +43,13 @@ public class TrackingLinks_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]//span[contains(text(), 'Save')]")
-    private WebElement save;
+            using = "//div[contains(concat(' ', @class, ' '),' uid_editor_component__pane_nav_tabs__tab_0__203_editor_component__pane_nav_tabs__tab_0__203__url_TYPE_ontraport_components_form_control_input_text_NAME_url ')]//button")
+    private WebElement urlSave;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header-back ')]")
+    private WebElement back;
 
     public TrackingLinks_Edit enterName ( String string )
     {
@@ -59,14 +69,6 @@ public class TrackingLinks_Edit extends AbstractPage
         urlInput.clear();
         urlInput.sendKeys(string);
         return this;
-    }
-
-    public TrackingLinks_ListAll clickSave ()
-    {
-        AbstractPart.waitForAjax(driver, 30);
-        wait.until(ExpectedConditions.visibilityOf(save));
-        save.click();
-        return (TrackingLinks_ListAll) new TrackingLinks_ListAll().init();
     }
 
     public TrackingLinks_Edit verifyName ( String string )
@@ -104,6 +106,46 @@ public class TrackingLinks_Edit extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+
+    public TrackingLinks_Edit clickName ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nameDisplayed));
+        nameDisplayed.click();
+        return this;
+    }
+
+    public TrackingLinks_Edit clickSaveName ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nameSave));
+        nameSave.click();
+        return this;
+    }
+
+    public TrackingLinks_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (TrackingLinks_ListAll) new TrackingLinks_ListAll().init();
+    }
+
+    public TrackingLinks_Edit clickDestinationURL ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(urlDisplayed));
+        urlDisplayed.click();
+        return this;
+    }
+
+    public TrackingLinks_Edit clickSaveDestinationURL ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(urlSave));
+        urlSave.click();
         return this;
     }
     

@@ -207,7 +207,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageURL.class,
     com.ontraport.app.tests.EditLandingPageTitle.class,
     com.ontraport.app.tests.EditLandingPageName.class,
-    com.ontraport.app.tests.CopyLandingPageAction.class,
     com.ontraport.app.tests.DeleteLandingPage.class,
     
     com.ontraport.app.tests.StepSequenceBack.class,

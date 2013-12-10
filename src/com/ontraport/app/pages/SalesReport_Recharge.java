@@ -39,7 +39,7 @@ public class SalesReport_Recharge extends AbstractPage
     public SalesReport_Settings clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(collectionBody));
+        //wait.until(ExpectedConditions.visibilityOf(collectionBody));
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (SalesReport_Settings) new SalesReport_Settings().init();

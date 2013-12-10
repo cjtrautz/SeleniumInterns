@@ -251,7 +251,7 @@ public class Gmail extends AbstractPage
             String[] stuff = parse.split(delim);
             finale = stuff[0] + stuff[1] + stuff[2];
             System.out.println(finale);
-            yep = Integer.parseInt(finale);
+            //yep = Integer.parseInt(finale);
             wait.until(ExpectedConditions.visibilityOf(immedEmail));
             immedEmail.click();
         }
@@ -266,7 +266,7 @@ public class Gmail extends AbstractPage
                 String[] stuff = parse.split(delim);
                 finale = stuff[0] + stuff[1] + stuff[2];
                 System.out.println(finale);
-                yep = Integer.parseInt(finale);
+                //yep = Integer.parseInt(finale);
                 wait.until(ExpectedConditions.visibilityOf(immedEmail));
                 immedEmail.click();
             }

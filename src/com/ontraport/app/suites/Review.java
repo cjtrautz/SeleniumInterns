@@ -18,7 +18,12 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateRedirectLandingPage.class, 
+    com.ontraport.app.tests.DeleteLandingPageRedirect.class, 
+    
     com.ontraport.app.tests.CreateTrackedLink.class, 
+    com.ontraport.app.tests.EditTrackedLinkName.class, 
+    com.ontraport.app.tests.EditTrackedDestinationLink.class, 
     com.ontraport.app.tests.DeleteTrackedLink.class, 
     
     com.ontraport.app.tests.AddRoundRobin.class, 

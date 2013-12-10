@@ -38,7 +38,7 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][2]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
     private WebElement taskDropDownButton;
     
     @FindBy(
@@ -48,12 +48,12 @@ public class Message_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][4]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-button-menu-toggle ')]")
     private WebElement smsDropDownButton;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][3]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-type-selection-type ')][2]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]")
     private WebElement taskDropDownPane;
     
     @FindBy(
