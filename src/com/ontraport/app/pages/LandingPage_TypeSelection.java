@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -15,8 +16,16 @@ public class LandingPage_TypeSelection extends AbstractPage
     private WebElement creatEasyPages;
     
     @FindBy(how = How.XPATH,
+            using = "//a[@href='#!/landing_page/create&type=1']/following-sibling::div//button")
+    private WebElement easyPagesDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//a[@href='#!/landing_page/create&type=0']/button[contains(concat(' ', normalize-space(@class), ' '),' type-selection-create-button ')]")
     private WebElement creatCodeMode;
+    
+    @FindBy(how = How.XPATH,
+            using = "//a[@href='#!/landing_page/create&type=0']/following-sibling::div//button")
+    private WebElement codeModeDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//a[@href='#!/landing_page/create&type=2']/button[contains(concat(' ', normalize-space(@class), ' '),' type-selection-create-button ')]")
@@ -29,6 +38,10 @@ public class LandingPage_TypeSelection extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-back ')]")
     private WebElement back;
+    
+    @FindBy(how = How.XPATH,
+            using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]")
+    private WebElement drilldown;
     
     public LandingPage_CreateType1 clickCreateEasyPages ()
     {
@@ -68,6 +81,30 @@ public class LandingPage_TypeSelection extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(creatRedirectMode));
         creatRedirectMode.click();
         return (LandingPage_CreateType2) new LandingPage_CreateType2().init();
+    }
+
+    public LandingPage_TypeSelection clickEasyPageDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(easyPagesDropDown));
+        easyPagesDropDown.click();
+        return this;
+    }
+
+    public LandingPage_Edit selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drilldown));
+        drilldown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return (LandingPage_Edit) new LandingPage_Edit().init();
+    }
+
+    public LandingPage_TypeSelection clickCodeModePageDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(codeModeDropDown));
+        codeModeDropDown.click();
+        return this;
     }
     
 }

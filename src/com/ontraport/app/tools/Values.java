@@ -30,6 +30,7 @@ public class Values
         files.add("Sales");
         files.add("Partners");
         files.add("Tracking");
+        files.add("SignUp");
         for ( String file : files )
         {
             try

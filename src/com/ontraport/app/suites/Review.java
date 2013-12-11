@@ -18,6 +18,17 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    com.ontraport.app.tests.CreateCodeModeLandingPageFromExisting.class,
+    com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
+    
+    com.ontraport.app.tests.CreateLandingPage.class,
+    com.ontraport.app.tests.CreateEasyLandingPageFromExisting.class,
+    com.ontraport.app.tests.CopyLandingPageAction.class,
+    com.ontraport.app.tests.DeleteLandingPage.class,
+    
+    com.ontraport.app.tests.SignUp.class, 
+    
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
     com.ontraport.app.tests.DeleteLandingPageRedirect.class, 
     
@@ -197,7 +208,7 @@ public class Review extends AbstractSuite
         profile.setPreference("browser.cache.offline.enable", false);
         profile.setPreference("network.http.use-cache", false);
         driver = new FirefoxDriver(profile);
-        //driver = new ChromeDriver();
+//        driver = new ChromeDriver();
         driver.manage()
               .timeouts()
               .implicitlyWait(DEFAULT_WAIT, TimeUnit.SECONDS);

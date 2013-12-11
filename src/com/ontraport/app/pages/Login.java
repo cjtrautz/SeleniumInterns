@@ -40,4 +40,21 @@ public class Login extends AbstractPage
         );
         return (Contact_ListAll) new Contact_ListAll().init();
     }
+    public Object verifyPage ()
+    {
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(loginInputUsername));
+            String url = driver.getCurrentUrl();
+            if(!url.equals("https://app.ontraport.com/login.php"))
+            {
+                return null;
+            }
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        return this;
+    }
 }

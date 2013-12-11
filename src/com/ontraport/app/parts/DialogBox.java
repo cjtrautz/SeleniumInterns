@@ -13,6 +13,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.pages.Contact_ListAll;
+import com.ontraport.app.pages.Contact_Settings;
+import com.ontraport.app.pages.Login;
 import com.ontraport.app.pages.User_Create;
 import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.tools.AbstractPart;
@@ -20,6 +23,9 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class DialogBox extends AbstractPart
 {
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' confirmation ')]")
+    private List<WebElement> confirmationBoxes;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-package-manager-dialog ')]//div[@class='clearfix']")
     private List<WebElement> packageOptions;
@@ -222,6 +228,30 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement drillDownSelect;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='domain']")
+    private WebElement subdomainInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='reply_to']")
+    private WebElement repyToInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='bussname']")
+    private WebElement businessNameInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='buss_add']")
+    private WebElement businessAddressInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='buss_city']")
+    private WebElement businessCityInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='buss_zip']")
+    private WebElement businessZipInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@value='Submit']")
+    private WebElement submitAccount;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(., 'Cancel Account')]")
+    private WebElement cancelAccount;
     
     public DialogBox clickOk ()
     {
@@ -996,6 +1026,89 @@ public class DialogBox extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(yes));
         yes.click();
         return this;
+    }
+    public DialogBox enterSubDomain ( String string )
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(subdomainInput));
+        subdomainInput.click();
+        subdomainInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterReplyToName ( String string )
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(repyToInput));
+        repyToInput.click();
+        repyToInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterBusinessName ( String string )
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(businessNameInput));
+        businessNameInput.click();
+        businessNameInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterBusinessAddress ( String string )
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(businessAddressInput));
+        businessAddressInput.click();
+        businessAddressInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterBusinessCity ( String string )
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(businessCityInput));
+        businessCityInput.click();
+        businessCityInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox enterBusinessZip ( String string )
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(businessZipInput));
+        businessZipInput.click();
+        businessZipInput.sendKeys(string);
+        return this;
+    }
+    public Contact_ListAll clickSubmit ()
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(submitAccount));
+        submitAccount.click();
+        return (Contact_ListAll) new Contact_ListAll().init();
+    }
+    public DialogBox checkIKnowDeleted ()
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(confirmationBoxes.get(0)));
+        confirmationBoxes.get(0).click();
+        return this;
+    }
+    public DialogBox checkIKnowNoRecovery ()
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(confirmationBoxes.get(1)));
+        confirmationBoxes.get(1).click();
+        return this;
+    }
+    public DialogBox checkIKnowStopWorking ()
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(confirmationBoxes.get(2)));
+        confirmationBoxes.get(2).click();
+        return this;
+    }
+    public Login clickCancelAccount ()
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(cancelAccount));
+        cancelAccount.click();
+        return (Login) new Login().init();
     }
 
 }

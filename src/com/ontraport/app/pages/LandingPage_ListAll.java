@@ -64,13 +64,15 @@ public class LandingPage_ListAll extends AbstractPage
     public LandingPage_Edit clickPage ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"))));
+        driver.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
         return (LandingPage_Edit) new LandingPage_Edit().init();
     }
 
     public LandingPage_ListAll selectLandingPage ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a"))));
         driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
         return this;
         

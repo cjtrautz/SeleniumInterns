@@ -8,6 +8,7 @@ import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
@@ -38,6 +39,10 @@ public class OPPackage_View extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-export ')]")
     private WebElement exportPage;
+    
+    @FindBy(how = How.XPATH,
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' oap_cancellation ')]")
+    private WebElement cancelAccount;
 
     public OPPackage_View clickAddPackage ()
     {
@@ -139,7 +144,16 @@ public class OPPackage_View extends AbstractPage
     public OPPackage_View clickHere ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(terms));
         terms.click();
+        return this;
+    }
+
+    public OPPackage_View clickCancelAccount ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancelAccount));
+        cancelAccount.click();
         return this;
     }
     
