@@ -44,11 +44,11 @@ public class CreateMessage extends AbstractTest
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelEmailMessage");
-        if(message_Edit.verifyBody("SelBody[First Name]")==null)
+        if(message_Edit.verifyBody("[First Name]SelBody")==null)
         {
             fail("couldn't find message body");
         }
-        if(message_Edit.verifyPlainTextBody("SelBody[First Name]")==null)
+        if(message_Edit.verifyPlainTextBody("[First Name]SelBody")==null)
         {
             fail("couldn't find message body");
         }

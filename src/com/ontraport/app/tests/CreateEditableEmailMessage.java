@@ -48,14 +48,14 @@ public class CreateEditableEmailMessage extends AbstractTest
         {
             fail("couldn't find message body");
         }
-        if(message_Edit.verifyReplyTo(value.get("Messages", "email_reply_to"))==null)
-        {
-            fail("couldn't find reply to");
-        }
-        if(message_Edit.verifySendName(value.get("Messages", "email_send_out"))==null)
-        {
-            fail("couldn't find send name");
-        }
+//        if(message_Edit.verifyReplyTo(value.get("Messages", "email_reply_to"))==null)
+//        {
+//            fail("couldn't find reply to");
+//        }
+//        if(message_Edit.verifySendName(value.get("Messages", "email_send_out"))==null)
+//        {
+//            fail("couldn't find send name");
+//        }
         if(message_Edit.verifySubject(value.get("Messages", "email_subject"))==null)
         {
             fail("couldn't find subject");

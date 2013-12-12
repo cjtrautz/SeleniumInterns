@@ -26,6 +26,11 @@ public class Sequence_TypeSelection extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[@type='date']//button")
+    private WebElement dateDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement dropDownList;
 
@@ -56,6 +61,13 @@ public class Sequence_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         dropDownList.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
         return (Sequence_Edit) new Sequence_Edit().init();
+    }
+
+    public Sequence_TypeSelection clickDateSequenceDropDown ()
+    {
+        AbstractPart.waitForAjax2(driver, 20);
+        dateDropDown.click();
+        return this;
     }
     
 }

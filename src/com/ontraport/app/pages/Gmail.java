@@ -46,7 +46,7 @@ public class Gmail extends AbstractPage
     private WebElement dateEmailTime;
     
     @FindBy(how = How.XPATH,
-            using = "//span[.='SelSubject']")
+            using = "//span[.='New Subject123']")
     private WebElement testEmail;
     
     @FindBy(how = How.XPATH,

@@ -21,6 +21,7 @@ import com.ontraport.app.pages.LandingPage_Edit;
 import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Sequence_Edit;
+import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
@@ -33,6 +34,10 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//li[contains(concat(' ', (@class), ' '), ' create-new ')]")
     protected WebElement createNew;
+    
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', (@class), ' '), ' ussr-component-tracking_script ')]")
+    protected WebElement trackingDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', (@class), ' '), ' component-task-reschedule-target-date ')]//input")
@@ -101,6 +106,10 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Contacts')]")
     private WebElement uiDeleteContacts;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'View Tracking Script')]")
+    private WebElement uiViewTrackingScript;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Pause Rule')]")
@@ -821,6 +830,29 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(uiDelete));
         uiDelete.click();
+        return this;
+    }
+    public DrawerActions clickViewTrackingScript ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiViewTrackingScript));
+        uiViewTrackingScript.click();
+        return this;
+    }
+    public DrawerActions verifyTrackingScript ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!trackingDropDown.isDisplayed())
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
         return this;
     }
 

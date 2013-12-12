@@ -104,8 +104,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
     com.ontraport.app.tests.EditEmailMessageBody.class,
     com.ontraport.app.tests.EditEmailMessageSubject.class,
-    com.ontraport.app.tests.EditEmailMessageReplyToName.class,
-    com.ontraport.app.tests.EditEmailMessageSendOutName.class,
+//    com.ontraport.app.tests.EditEmailMessageReplyToName.class,
+//    com.ontraport.app.tests.EditEmailMessageSendOutName.class,
     com.ontraport.app.tests.EditEmailMessageName.class,
     com.ontraport.app.tests.EditEmailMessageMaximize.class,
     com.ontraport.app.tests.EditEmailMessageLinkAndUnlink.class,
@@ -360,6 +360,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditSequenceSplitB.class,
     com.ontraport.app.tests.EditSequenceSplitBAndC.class,
     com.ontraport.app.tests.EditSequenceSplitBAndCAndD.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
     com.ontraport.app.tests.EditSequenceWait0Days.class,
     com.ontraport.app.tests.EditSequenceWait1Days.class,
     com.ontraport.app.tests.EditSequenceSendAt15Mins.class,
@@ -412,9 +415,6 @@ import com.ontraport.app.tools.AbstractSuite;
     //relies on a message
     com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
     com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateEmailDateSequence.class,
-    com.ontraport.app.tests.DeleteEmailDateSequence.class,
     //relies on a message
     com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
     com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,

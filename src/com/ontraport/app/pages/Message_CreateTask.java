@@ -99,17 +99,17 @@ public class Message_CreateTask extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//li[contains(concat(' ', @class, ' '),' create-new ')]")
+            using = "//ul[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-ul ')]//li[1]")
     private WebElement createNewOutcomeOption;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-quick-object-creator-target-sub-comp ')]//input")
+            using = "//div[contains(concat(' ', @class, ' '),' component-custom-value-creator-target-component ')]//input")
     private WebElement outcomeNameInput;
     
     @FindBy(
             how = How.XPATH,
-            using = "//span[contains(concat(' ', @class, ' '),' ussr-component-quick-object-creator-target-sad-button ')]//button")
+            using = "//div[contains(concat(' ', @class, ' '),' component-custom-value-creator-target-save-button ')]")
     private WebElement selectOutcomeName;
     
     @FindBy(

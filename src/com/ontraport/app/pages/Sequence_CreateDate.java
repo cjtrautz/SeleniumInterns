@@ -22,6 +22,36 @@ public class Sequence_CreateDate extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//label[text()='Fulfillment Name']/following-sibling::div//button")
+    private WebElement fulfillmentDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-theme-sequence-fulfillment']//button")
+    private WebElement fulfillmentStep;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' sequence_step_editor_shell ')]//div[contains(concat(' ', @class, ' '),' ussr-theme-sequence-fulfillment ')]")
+    private WebElement fulfillmentBody;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='component-target-send-fields']//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_object_selector ')]//button")
+    private WebElement assigneeDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-scheduled-date-input ')]//input")
+    private WebElement taskDueDate;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-theme-sequence-task']//button")
+    private WebElement taskStep;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//input[contains(concat(' ', @class, ' '),' hasDatepicker ')]")
     private WebElement dateInput;
     
@@ -391,13 +421,69 @@ public class Sequence_CreateDate extends AbstractPage
         return this;
     }
     
-    public Sequence_CreateDate selectDrillDown ( String string )
+    public Sequence_CreateDate selectDrillDown ( String option )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(drillDown));
-        drillDown.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
+        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        wait.until(ExpectedConditions.visibilityOf(drillDownPane));
+        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")));
+        drillDownPane.findElement(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")).click();
+        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        return this;
+    }
+
+    public Sequence_CreateDate clickAddTaskStep ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskStep));
+        taskStep.click();
+        return this;
+    }
+
+    public Sequence_CreateDate clickTaskNameDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
+        toggleMessageSelector.click();
+        return this;
+    }
+
+    public Sequence_CreateDate enterDueDateTask ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskDueDate));
+        taskDueDate.click();
+        taskDueDate.clear();
+        taskDueDate.sendKeys(string);
+        return this;
+    }
+
+    public Sequence_CreateDate openAssigneePane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(assigneeDropDown));
+        assigneeDropDown.click();
+        return this;
+    }
+    
+    public Sequence_CreateDate clickAddFulfillmentStep ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fulfillmentStep));
+        fulfillmentStep.click();
+        wait.until(ExpectedConditions.visibilityOf(fulfillmentBody));
         return this;
         
+    }
+    
+    public Sequence_CreateDate openFulfillmentDropDownPane ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fulfillmentDropDown));
+        fulfillmentDropDown.click();
+        return this;
     }
 
 }

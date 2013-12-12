@@ -15,25 +15,20 @@ import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class ManageDomainsCreateTrackedDomain extends AbstractTest
+public class ViewTrackingScript extends AbstractTest
 {
     @Test
-    public void testManageDomainsCreateTrackedDomain () throws InterruptedException
+    public void testCreateTrackedDomain () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         TrackedDomain_ListAll trackedDomain_ListAll = contactListAll.menuPrimary.clickTrackedDomainListAll();
-        TrackedDomain_Create trackedDomain_Create = trackedDomain_ListAll.clickNewTrackedDomain();
-        trackedDomain_Create.enterURL(AbstractSuite.UNIQUE + ".com");
-        trackedDomain_ListAll = trackedDomain_Create.clickSave();
         trackedDomain_ListAll.formSearch.find(AbstractSuite.UNIQUE + ".com");
-        if(trackedDomain_ListAll.verifyDomain(AbstractSuite.UNIQUE + ".com")==null)
+        trackedDomain_ListAll.selectAll();
+        trackedDomain_ListAll.drawerActions.clickViewTrackingScript();
+        
+        if(trackedDomain_ListAll.drawerActions.verifyTrackingScript()==null)
         {
             fail("couldnt find domain");
-        }
-        TrackedDomain_Edit trackedDomain_Edit = trackedDomain_ListAll.clickDomain(AbstractSuite.UNIQUE + ".com");
-        if(trackedDomain_Edit.verifyURL(AbstractSuite.UNIQUE + ".com")==null)
-        {
-            fail("couldnt find url");
         }
     }
 }

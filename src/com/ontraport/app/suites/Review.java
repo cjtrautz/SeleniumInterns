@@ -17,7 +17,60 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{
+{   
+    com.ontraport.app.tests.CreateFulfillment.class, 
+    com.ontraport.app.tests.CreateFulfillmentDateSequence.class, 
+    com.ontraport.app.tests.DeleteFulfillmentDateSequence.class,
+    com.ontraport.app.tests.DeleteFulfillment.class,
+    
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateSplitTestMessages.class,
+    //relies on a message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.EditDateSequenceSplitB.class,
+    com.ontraport.app.tests.EditDateSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditDateSequenceSplitBAndCAndD.class,
+    com.ontraport.app.tests.CreateDateSequenceFromExisting.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
+    
+    com.ontraport.app.tests.CreateTaskWhoMessage.class,
+    com.ontraport.app.tests.CreateTaskStepSequence.class,
+    com.ontraport.app.tests.CreateRule_IfSubscribedToStepSequenceIsUnPaused.class,
+    com.ontraport.app.tests.DeleteRule_IfSubscribedToStepSequenceIsUnPaused.class,
+    com.ontraport.app.tests.CreateRule_IfSubscribedToStepSequenceIsPaused.class,
+    com.ontraport.app.tests.DeleteRule_IfSubscribedToStepSequenceIsPaused.class,
+    com.ontraport.app.tests.CreateRule_IfSubscribedToStepSequence.class,
+    com.ontraport.app.tests.DeleteRule_IfSubscribedToStepSequence.class,
+    com.ontraport.app.tests.DeleteTaskStepSequence.class,
+    com.ontraport.app.tests.CreateTaskDateSequence.class,
+    com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToDateSequence.class,
+    com.ontraport.app.tests.CreateRule_PauseSubscriptionToDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_PauseSubscriptionToDateSequence.class,
+    com.ontraport.app.tests.CreateRule_RemoveContactFromDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_RemoveContactFromDateSequence.class,
+    com.ontraport.app.tests.CreateRule_AddContactToDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_AddContactToDateSequence.class,
+    com.ontraport.app.tests.CreateRule_IfSubscribedToDateSequenceIsUnPaused.class,
+    com.ontraport.app.tests.DeleteRule_IfSubscribedToDateSequenceIsUnPaused.class,
+    com.ontraport.app.tests.CreateRule_IfSubscribedToDateSequenceIsPaused.class,
+    com.ontraport.app.tests.DeleteRule_IfSubscribedToDateSequenceIsPaused.class,
+    com.ontraport.app.tests.CreateRule_IfNotSubscribedToDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_IfNotSubscribedToDateSequence.class,
+    com.ontraport.app.tests.CreateRule_IfSubscribedToDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_IfSubscribedToDateSequence.class,
+    com.ontraport.app.tests.CreateRule_WhenSubscriptionToDateSequenceUnPaused.class,
+    com.ontraport.app.tests.DeleteRule_WhenSubscriptionToDateSequenceUnPaused.class,
+    com.ontraport.app.tests.CreateRule_WhenSubscriptionToDateSequencePaused.class,
+    com.ontraport.app.tests.DeleteRule_WhenSubscriptionToDateSequencePaused.class,
+    com.ontraport.app.tests.CreateRule_WhenContactIsRemovedFromDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_WhenContactIsRemovedFromDateSequence.class,
+    com.ontraport.app.tests.CreateRule_WhenContactIsAddedToDateSequence.class,
+    com.ontraport.app.tests.DeleteRule_WhenContactIsAddedToDateSequence.class,
+    com.ontraport.app.tests.DeleteTaskDateSequence.class,
+    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+    
     com.ontraport.app.tests.CreateLandingPageCodeMode.class,
     com.ontraport.app.tests.CreateCodeModeLandingPageFromExisting.class,
     com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
@@ -202,7 +255,7 @@ public class Review extends AbstractSuite
     {
         AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
-        profile.setEnableNativeEvents(true);
+        profile.setEnableNativeEvents(false);
         profile.setPreference("browser.cache.disk.enable", false);
         profile.setPreference("browser.cache.memory.enable", false);
         profile.setPreference("browser.cache.offline.enable", false);

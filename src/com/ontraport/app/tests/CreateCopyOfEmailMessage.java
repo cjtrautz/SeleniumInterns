@@ -40,7 +40,7 @@ public class CreateCopyOfEmailMessage extends AbstractTest
 //        {
 //            fail("couldn't find send name");
 //        }
-        if(message_Edit.verifySubject("SelSubject")==null)
+        if(message_Edit.verifySubject(value.get("Messages", "edited_message_subject"))==null)
         {
             fail("couldn't find subject");
         }

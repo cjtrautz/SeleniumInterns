@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,14 +16,19 @@ import com.ontraport.app.tools.AbstractPart;
 public class Message_CreateEmail extends AbstractPage
 {
     @FindBy(
-            how = How.CSS,
-            using = "body")
+            how = How.XPATH,
+            using = "//body//p")
     private WebElement body;
     
     @FindBy(
             how = How.TAG_NAME,
             using = "iframe")
     private WebElement iFrame;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//iframe[@class='cke_wysiwyg_frame cke_reset']")
+    private WebElement iFrameMessage;
     
     @FindBy(
             how = How.XPATH,
@@ -142,8 +148,9 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail enterMessageBody ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.switchTo().frame(iFrame);
+        driver.switchTo().frame(iFrameMessage);
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
         

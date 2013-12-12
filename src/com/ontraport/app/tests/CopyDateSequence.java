@@ -37,7 +37,7 @@ public class CopyDateSequence extends AbstractTest
         sequence_ListAll.dialogBox.clickOk();
         if(sequence_ListAll.verifyNoSequence()==null)
         {
-            fail("didnt copy sequence");
+            fail("didnt delete sequence");
         }
     }
 }

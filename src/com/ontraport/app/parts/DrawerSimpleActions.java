@@ -1,5 +1,6 @@
 package com.ontraport.app.parts;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -36,8 +37,9 @@ public class DrawerSimpleActions extends AbstractPart
     public DrawerSimpleActions open () 
     { 
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(collection));
-        wait(3).until(ExpectedConditions.visibilityOf(toggleActionsPane));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", toggleActionsPane);
+        wait(10).until(ExpectedConditions.visibilityOf(collection));
+        wait(10).until(ExpectedConditions.visibilityOf(toggleActionsPane));
         toggleActionsPane.click();
         return this; 
     }
@@ -45,7 +47,8 @@ public class DrawerSimpleActions extends AbstractPart
     public DrawerSimpleActions clickAddPermissionException ()
     {
         waitForAjax(driver, 20);
-        wait(3).until(ExpectedConditions.visibilityOf(deleteException));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", deleteException);
+        wait(10).until(ExpectedConditions.visibilityOf(deleteException));
         addPermissionException.click();
         return this; 
         
