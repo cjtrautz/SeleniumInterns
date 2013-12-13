@@ -304,7 +304,7 @@ public class Gmail extends AbstractPage
             int hours2 = newTime/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + (newTime- (hours2*100));
-            if(stuff2[2].equals("PM"))
+            if(stuff2[2].equals("pm"))
             {
                 time2=time2+720;
             }
@@ -343,7 +343,7 @@ public class Gmail extends AbstractPage
                 int hours2 = newTime/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + (newTime- (hours2*100));
-                if(stuff2[2].equals("PM"))
+                if(stuff2[2].equals("pm"))
                 {
                     time2=time2+720;
                 }
@@ -386,7 +386,7 @@ public class Gmail extends AbstractPage
             int hours2 = time/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + (time- (hours2*100));
-            if(stuff2[2].equals("PM"))
+            if(stuff2[2].equals("pm"))
             {
                 time2=time2+720;
             }
@@ -422,7 +422,7 @@ public class Gmail extends AbstractPage
                 int hours2 = time/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + (time- (hours2*100));
-                if(stuff2[2].equals("PM"))
+                if(stuff2[2].equals("pm"))
                 {
                     time2=time2+720;
                 }

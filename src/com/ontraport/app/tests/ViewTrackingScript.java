@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class ViewTrackingScript extends AbstractTest
 {
     @Test
-    public void testCreateTrackedDomain () throws InterruptedException
+    public void testViewTrackingScript () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         TrackedDomain_ListAll trackedDomain_ListAll = contactListAll.menuPrimary.clickTrackedDomainListAll();

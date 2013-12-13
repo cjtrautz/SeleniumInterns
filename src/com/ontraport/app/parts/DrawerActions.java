@@ -36,7 +36,7 @@ public class DrawerActions extends AbstractPart
     protected WebElement createNew;
     
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', (@class), ' '), ' ussr-component-tracking_script ')]")
+            using = "//div[contains(concat(' ', (@class), ' '), ' ussr-component-tracking_script ')]")
     protected WebElement trackingDropDown;
     
     @FindBy(how = How.XPATH,
@@ -844,6 +844,7 @@ public class DrawerActions extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            wait(5).until(ExpectedConditions.visibilityOf(trackingDropDown));
             if(!trackingDropDown.isDisplayed())
             {
                 return null; 

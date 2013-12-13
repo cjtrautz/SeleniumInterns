@@ -35,7 +35,7 @@ public class EditEmailMessageLinkText extends AbstractTest
         }
 
         message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
-        if(message_Edit.verifyLinkText(value.get("Messages", "email_message_body"), "www.ontraport.com")==null)
+        if(message_Edit.verifyLinkText(value.get("Messages", "edited_message_body"), "www.ontraport.com")==null)
         {
             fail("couldn't find link text");
         }

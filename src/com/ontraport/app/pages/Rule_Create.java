@@ -183,6 +183,7 @@ public class Rule_Create extends AbstractPage
         List<WebElement> ifInputs = ifEvents.findElements(By.xpath(".//input"));
         Actions action = new Actions(driver);
         action.moveToElement(ifInputs.get(index-1)).click(ifInputs.get(index-1)).build().perform();
+        ifInputs.get(index-1).click();
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.xpath("//tbody//tr//td/a[contains(concat(' ', normalize-space(@class), ' '),' ui-state-highlight ')]")).click();
         return this;

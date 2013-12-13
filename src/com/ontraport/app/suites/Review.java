@@ -17,7 +17,18 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{   
+{
+    com.ontraport.app.tests.CreateTrackedDomain.class, 
+    com.ontraport.app.tests.ViewTrackingScript.class, 
+    
+    com.ontraport.app.tests.AccountClickHere.class,
+    com.ontraport.app.tests.AccountExportItFirst.class,
+    
+    com.ontraport.app.tests.HelpOpenAndClose.class,
+    com.ontraport.app.tests.HelpFeedback.class,
+    com.ontraport.app.tests.HelpSendEmail.class,
+    com.ontraport.app.tests.HelpWatchVideos.class,
+    
     com.ontraport.app.tests.CreateFulfillment.class, 
     com.ontraport.app.tests.CreateFulfillmentDateSequence.class, 
     com.ontraport.app.tests.DeleteFulfillmentDateSequence.class,

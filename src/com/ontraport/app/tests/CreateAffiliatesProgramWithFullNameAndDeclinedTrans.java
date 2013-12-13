@@ -48,7 +48,7 @@ public class CreateAffiliatesProgramWithFullNameAndDeclinedTrans extends Abstrac
         {
             fail("couldnt find program type");
         }
-        if(affiliateProgram_Edit.verifyInformation("Share full name and email address")==null)
+        if(affiliateProgram_Edit.verifyInformation("Share full name")==null)
         {
             fail("couldnt find program information");
         }

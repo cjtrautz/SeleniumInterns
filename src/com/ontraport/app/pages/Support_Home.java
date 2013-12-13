@@ -15,20 +15,20 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Support_Home extends AbstractPage
 {
-    @FindBy(
-            how = How.XPATH,
-            using = "//h2[a[@href='/forums']]/following-sibling::form[@id='searchform']")
-    private WebElement featureRequest;
-    
-    @FindBy(
-            how = How.XPATH,
-            using = "//div[@id='solution_suggestion']//h2")
-    private WebElement solutionSuggestions;
-    
-    @FindBy(
-            how = How.XPATH,
-            using = "//div[@class='side-box-content']/h3")
-    private WebElement aboutOntraport;
+//    @FindBy(
+//            how = How.XPATH,
+//            using = "//h2[a[@href='/forums']]/following-sibling::form[@id='searchform']")
+//    private WebElement featureRequest;
+//    
+//    @FindBy(
+//            how = How.XPATH,
+//            using = "//div[@id='solution_suggestion']//h2")
+//    private WebElement solutionSuggestions;
+//    
+//    @FindBy(
+//            how = How.XPATH,
+//            using = "//div[@class='side-box-content']/h3")
+//    private WebElement aboutOntraport;
 
     public Support_Home verifyPage ()
     {
@@ -58,7 +58,7 @@ public class Support_Home extends AbstractPage
             .timeouts()
             .implicitlyWait(25, TimeUnit.SECONDS);
             System.out.println(driver.getCurrentUrl());
-            if(!driver.getCurrentUrl().equals("https://support.ontraport.com/home"))
+            if(!driver.getCurrentUrl().contains("https://support.ontraport.com"))
             {
                 driver.manage()
                 .timeouts()
@@ -67,9 +67,9 @@ public class Support_Home extends AbstractPage
                 return null; 
             }
             System.out.println("before solution");
-            solutionSuggestions.isDisplayed();
+//            solutionSuggestions.isDisplayed();
             System.out.println("after solution");
-            aboutOntraport.isDisplayed();
+//            aboutOntraport.isDisplayed();
             System.out.println("after about");
             driver.manage()
             .timeouts()
@@ -98,7 +98,7 @@ public class Support_Home extends AbstractPage
             {
                 try
                 {
-                    if(driver.switchTo().window(windowId).getTitle().contains("Ontraport : Feature Requests"))
+                    if(driver.switchTo().window(windowId).getTitle().contains("Ontraport"))
                     {
                         break;
                     }
@@ -115,7 +115,15 @@ public class Support_Home extends AbstractPage
             .timeouts()
             .implicitlyWait(25, TimeUnit.SECONDS);
             System.out.println(driver.getCurrentUrl());
-            if(!driver.getCurrentUrl().contains("https://support.ontraport.com/forums"))
+            if(!driver.getCurrentUrl().contains("https://support.ontraport.com"))
+            {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                driver.switchTo().window(parentWindow);
+                return null; 
+            }
+            if(!driver.getCurrentUrl().contains("Feature-Requests"))
             {
                 driver.manage()
                 .timeouts()
@@ -124,7 +132,7 @@ public class Support_Home extends AbstractPage
                 return null; 
             }
             System.out.println("here");
-            featureRequest.isDisplayed();
+//            featureRequest.isDisplayed();
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
