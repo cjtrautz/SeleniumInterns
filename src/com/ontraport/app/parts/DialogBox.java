@@ -33,6 +33,12 @@ public class DialogBox extends AbstractPart
             using = "//textarea")
     private WebElement textarea;
     @FindBy(how = How.XPATH,
+            using = "//tbody/tr/td[contains(concat(' ', normalize-space(@class), ' '), ' fb_fieldeditor_checkbox ')]/input[@type='checkbox']")
+    private WebElement firstCheckBox;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ui-dialog-buttonset']//button")
+    private WebElement insertFields;
+    @FindBy(how = How.XPATH,
             using = "//input[@value='Start with a blank page']")
     private WebElement startWithBlankPage;
     @FindBy(how = How.XPATH,
@@ -1109,6 +1115,20 @@ public class DialogBox extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(cancelAccount));
         cancelAccount.click();
         return (Login) new Login().init();
+    }
+    public DialogBox checkTitle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(firstCheckBox));
+        firstCheckBox.click();
+        return this;
+    }
+    public DialogBox clickInsertField ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(insertFields));
+        insertFields.click();
+        return this;
     }
 
 }

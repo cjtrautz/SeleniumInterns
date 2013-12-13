@@ -30,9 +30,9 @@ public class CreateAffiliatesProgramWithContactIDAndPurchaseHistory extends Abst
         affiliateProgram_Create.selectDrillDown("Contact Id");
         affiliateProgram_Create.clickShowAffiliatePurchaseHistory();
         affiliateProgram_Create.clickNotifySomeoneDropDown();
-        affiliateProgram_Create.createCustomEmail();
-        affiliateProgram_Create.enterCustomEmail(value.get("Partners", "partner_email"));
-        affiliateProgram_Create.clickSelect();
+        affiliateProgram_Create.selectDrillDown("Send Email Notification");
+        //affiliateProgram_Create.enterCustomEmail(value.get("Partners", "partner_email"));
+        //affiliateProgram_Create.clickSelect();
         affiliateProgram_ListAll = affiliateProgram_Create.clickSave();
         affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_name_contact_id_purchase_history"));
         if(affiliateProgram_ListAll.verifyProgram(value.get("Partners", "affiliate_program_name_contact_id_purchase_history"))==null)
@@ -60,7 +60,7 @@ public class CreateAffiliatesProgramWithContactIDAndPurchaseHistory extends Abst
         {
             fail("couldnt find program purchase history");
         }
-        if(affiliateProgram_Edit.verifyNotify(value.get("Partners", "partner_email"))==null)
+        if(affiliateProgram_Edit.verifyNotify("Send Email Notification")==null)
         {
             fail("couldnt find program notify");
         }

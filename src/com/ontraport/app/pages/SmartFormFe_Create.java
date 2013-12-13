@@ -37,6 +37,12 @@ public class SmartFormFe_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-save ')]")
     private WebElement save;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Add Field']")
+    private WebElement addField;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Add Content']")
+    private WebElement addContent;
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -113,6 +119,22 @@ public class SmartFormFe_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         save.click();
         return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
+    }
+
+    public SmartFormFe_Create clickAddField ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addField));
+        addField.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickAddContent ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addContent));
+        addContent.click();
+        return this;
     }
 
 }

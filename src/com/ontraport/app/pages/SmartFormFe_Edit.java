@@ -61,6 +61,16 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//input[@name='title']")
+    private WebElement titleField;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//p[text()='double click to edit']")
+    private WebElement doubleClickToEdit;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement drillDown;
     
@@ -293,6 +303,44 @@ public class SmartFormFe_Edit extends AbstractPage
         {
             wait.until(ExpectedConditions.visibilityOf(thenInput.get(i-1)));
             if(!thenInput.get(i-1).getAttribute("value").equals(string))
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyTitleField ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(titleField));
+            if(!titleField.isDisplayed())
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyAddContent ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(doubleClickToEdit));
+            if(!doubleClickToEdit.isDisplayed())
             {
                 return null;
             } 

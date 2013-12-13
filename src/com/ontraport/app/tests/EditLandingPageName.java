@@ -38,6 +38,8 @@ public class EditLandingPageName extends AbstractTest
         {
             fail("couldnt find name");
         }
+        landingPage_Edit.enterName(value.get("LandingPages", "Easy_Landing_Page"));
+        landingPage_ListAll = landingPage_Edit.clickSave();
        
         
     }

@@ -46,7 +46,7 @@ public class EnsureDateSequence extends AbstractTest
         //sequence_CreateStep = sequence_TypeSelection.clickStepSequenceCreate();
         sequence_CreateDate.enterSequenceName(value.get("Sequences", "ensure_date_sequence_fires"));
         sequence_CreateDate.clickAddEmailStep();
-        sequence_CreateDate.enterTodaysDate();
+        //sequence_CreateDate.enterTodaysDate();
         sequence_CreateDate.clickTimeToSendDropDown();
         sequence_CreateDate.enterNextTime();
         sequence_CreateDate.openEmailNamePane();
