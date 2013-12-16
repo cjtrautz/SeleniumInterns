@@ -297,7 +297,7 @@ public class Gmail extends AbstractPage
                 yep2=yep2+720;
             }
             String delim2 = "[ :]";
-            String[] stuff2 = parse.split(delim2);
+            String[] stuff2 = time.split(delim2);
             String finale2 = stuff2[0] + stuff2[1];
             System.out.println(finale2);
             int newTime = Integer.parseInt(finale2);
@@ -336,7 +336,7 @@ public class Gmail extends AbstractPage
                     yep2=yep2+720;
                 }
                 String delim2 = "[ :]";
-                String[] stuff2 = parse.split(delim2);
+                String[] stuff2 = time.split(delim2);
                 String finale2 = stuff2[0] + stuff2[1];
                 System.out.println(finale2);
                 int newTime = Integer.parseInt(finale2);

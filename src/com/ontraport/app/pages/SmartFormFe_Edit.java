@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -66,8 +67,13 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//p[text()='double click to edit']")
+            using = "//div[@class='moonray-form-element-html']/p")
     private WebElement doubleClickToEdit;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//img[@class='fe-poweredby-placeholder']")
+    private WebElement getPaidImage;
     
     @FindBy(
             how = How.XPATH,
@@ -104,8 +110,16 @@ public class SmartFormFe_Edit extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form ')]/ul/li")
     private WebElement form;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//iframe")
+    private WebElement iframe;
     
-
+    @FindBy(
+            how = How.XPATH,
+            using = "//body[contains(concat(' ', normalize-space(@class), ' '),' cke_editable ')]/p")
+    private WebElement editableBody;
+    
     public SmartFormFe_Edit clickSettings ()
     {
         AbstractPart.waitForAjax(driver, 30);
@@ -352,6 +366,29 @@ public class SmartFormFe_Edit extends AbstractPage
         }
         return this;
     }
+
+    public SmartFormFe_Edit verifyGetPaid ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(doubleClickToEdit));
+            System.out.println(getPaidImage.isDisplayed());
+            System.out.println(getPaidImage.isEnabled());
+            System.out.println(getPaidImage.isSelected());
+            if(!getPaidImage.isDisplayed())
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
     
 
     

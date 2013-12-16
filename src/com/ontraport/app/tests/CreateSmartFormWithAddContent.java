@@ -41,5 +41,6 @@ public class CreateSmartFormWithAddContent extends AbstractTest
         {
             fail("couldnt find title field");
         }
+
     }
 }

@@ -43,6 +43,9 @@ public class SmartFormFe_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Add Content']")
     private WebElement addContent;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Get Paid']")
+    private WebElement getPaid;
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -134,6 +137,14 @@ public class SmartFormFe_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addContent));
         addContent.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickGetPaid ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(getPaid));
+        getPaid.click();
         return this;
     }
 
