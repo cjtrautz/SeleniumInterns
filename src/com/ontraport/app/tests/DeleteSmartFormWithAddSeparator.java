@@ -11,15 +11,15 @@ import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.pages.Tag_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class DeleteSmartFormWithGetPaid  extends AbstractTest
+public class DeleteSmartFormWithAddSeparator  extends AbstractTest
 {
     @Test
-    public void testDeleteSmartFormWithGetPaid ()
+    public void testDeleteSmartFormWithAddSeparator ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
         SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
-        smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "get_paid"));
+        smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "add_separator"));
         smartFormFe_ListAll.selectAllOnPage();
         smartFormFe_ListAll.drawerActions.clickDeleteSmartForm();
         smartFormFe_ListAll.dialogBox.clickOk();

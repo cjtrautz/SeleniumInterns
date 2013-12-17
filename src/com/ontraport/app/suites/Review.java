@@ -18,6 +18,14 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateSmartFormWithTemplate.class,
+    com.ontraport.app.tests.DeleteSmartFormWithTemplate.class,
+    com.ontraport.app.tests.CreateSmartFormWithConditions.class,
+    com.ontraport.app.tests.DeleteSmartFormWithConditions.class,
+    com.ontraport.app.tests.CreateSmartFormWithAddSeparator.class,
+    com.ontraport.app.tests.DeleteSmartFormWithAddSeparator.class,
+    com.ontraport.app.tests.CreateSmartFormWithCaptcha.class,
+    com.ontraport.app.tests.DeleteSmartFormWithCaptcha.class,
     com.ontraport.app.tests.CreateSmartFormWithGetPaid.class,
     com.ontraport.app.tests.DeleteSmartFormWithGetPaid.class,
     com.ontraport.app.tests.CreateSmartFormWithAddContent.class,

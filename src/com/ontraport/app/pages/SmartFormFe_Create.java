@@ -46,6 +46,24 @@ public class SmartFormFe_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Get Paid']")
     private WebElement getPaid;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Captcha']")
+    private WebElement captcha;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Add Separator']")
+    private WebElement addSeparator;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Conditions']")
+    private WebElement conditions;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Templates']")
+    private WebElement template;
+    @FindBy(how = How.XPATH,
+            using = "//a[@href='#fe-mode-settings']")
+    private WebElement settings;
+    @FindBy(how = How.XPATH,
+            using = "//input[@value='single']")
+    private WebElement singlOptIn;
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -145,6 +163,54 @@ public class SmartFormFe_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getPaid));
         getPaid.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickCaptcha ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(captcha));
+        captcha.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickAddSeparator ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addSeparator));
+        addSeparator.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickConditions ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(conditions));
+        conditions.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickTemplates ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(template));
+        template.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickSettings ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(settings));
+        settings.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickSingle ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(singlOptIn));
+        singlOptIn.click();
         return this;
     }
 

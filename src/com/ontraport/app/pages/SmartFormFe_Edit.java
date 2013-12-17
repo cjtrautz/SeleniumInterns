@@ -77,6 +77,21 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//img[@class='fe-captcha-placeholder']")
+    private WebElement captcha;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='moonray-form-element-separator']")
+    private WebElement separator;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//li[@class='ui-sortable-item']//div[@class='moonray-form-element-html']")
+    private WebElement template;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement drillDown;
     
@@ -372,11 +387,66 @@ public class SmartFormFe_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 30);
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(doubleClickToEdit));
+            wait.until(ExpectedConditions.visibilityOf(getPaidImage));
             System.out.println(getPaidImage.isDisplayed());
-            System.out.println(getPaidImage.isEnabled());
-            System.out.println(getPaidImage.isSelected());
             if(!getPaidImage.isDisplayed())
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyCaptcha ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(captcha));
+            if(!captcha.isDisplayed())
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyAddSeparator ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(separator));
+            if(!separator.isDisplayed())
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyTemplate ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(template));
+            if(!template.isDisplayed())
             {
                 return null;
             } 

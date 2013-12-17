@@ -3,6 +3,7 @@ package com.ontraport.app.parts;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -24,6 +25,12 @@ import com.ontraport.app.tools.AbstractSuite;
 public class DialogBox extends AbstractPart
 {
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-plugin-template ')]")
+    private WebElement template;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button ')]//span[text()='Use this Template']")
+    private WebElement useThisTemplate;
+    @FindBy(how = How.XPATH,
             using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' confirmation ')]")
     private List<WebElement> confirmationBoxes;
     @FindBy(how = How.XPATH,
@@ -32,6 +39,18 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//textarea")
     private WebElement textarea;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-form-conditions-list-actions ')]")
+    private WebElement conditionActions;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-form-conditions-list-conditions ')]")
+    private WebElement conditionIf;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-list-conditions ')]")
+    private WebElement redirectIf;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-list-actions ')]")
+    private WebElement redirectThen;
     @FindBy(how = How.XPATH,
             using = "//tbody/tr/td[contains(concat(' ', normalize-space(@class), ' '), ' fb_fieldeditor_checkbox ')]/input[@type='checkbox']")
     private WebElement firstCheckBox;
@@ -44,6 +63,36 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-form-conditions-add ')]")
+    private WebElement addFormConditions;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-redirect-conditions-add ')]")
+    private WebElement addRedirect;
+    @FindBy(how = How.XPATH,
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '), ' redirect-url ')]")
+    private WebElement redirectInput;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-field ')]//select")
+    private WebElement ifFieldDropDown;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-opertator ')]//select")
+    private WebElement ifOperatorDropDown;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-outcome-action ')]//select")
+    private WebElement thenOutcomeActionDropDown;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-outcome-field ')]//select")
+    private WebElement thenOutcomeFieldDropDown;
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-value ')]//input")
+    private WebElement ifValueInput;
+    @FindBy(how = How.XPATH,
+            using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition ')]")
+    private WebElement ifEvents;
+    @FindBy(how = How.XPATH,
+            using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-outcome ')]")
+    private WebElement thenEvents;
     @FindBy(how = How.XPATH,
             using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' target-edit ')]//a[@class='ussr-form-input ussr-form-input-type-checkbox-checked']")
     private WebElement editChecked;
@@ -101,6 +150,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'save') or contains(text(), 'Save')]]")
     private WebElement saveButton2;
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ui-dialog-buttonset']//button[span[contains(text(), 'save') or contains(text(), 'Save')]]")
+    private WebElement saveButton3;
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
     private WebElement sendButton;
@@ -1130,5 +1182,153 @@ public class DialogBox extends AbstractPart
         insertFields.click();
         return this;
     }
+    public DialogBox clickAddRuleFields ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(addFormConditions));
+        addFormConditions.click();
+        return this;
+    }
+    public DialogBox clickIfConditionDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(ifFieldDropDown));
+        ifFieldDropDown.click();
+        return this;
+    }
+    public DialogBox selectIfOption ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(ifEvents));
+        ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
+        Actions action = new Actions(driver);
+        action.clickAndHold(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        action.release().build().perform();
+        return this;
+    }
+    public DialogBox clickIfConditionOperatorDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(ifOperatorDropDown));
+        ifOperatorDropDown.click();
+        return this;
+    }
+    public DialogBox enterIfValue ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(ifValueInput));
+        ifValueInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox clickOutcomeActionDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(thenOutcomeActionDropDown));
+        thenOutcomeActionDropDown.click();
+        return this;
+    }
+    public DialogBox selectThenOption ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(thenEvents));
+        thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
+        Actions action = new Actions(driver);
+        action.clickAndHold(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        action.release().build().perform();
+        return this;
+    }
+    public DialogBox clickOutcomeFieldDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(thenOutcomeFieldDropDown));
+        thenOutcomeFieldDropDown.click();
+        return this;
+    }
+    public DialogBox clickAddRuleRedirect ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(addRedirect));
+        addRedirect.click();
+        return this;
+    }
+    public DialogBox enterRedirectSite ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(redirectInput));
+        redirectInput.sendKeys(string);
+        return this;
+    }
+    public DialogBox verifyShowOrHideFields ( String thenAction, String thenField, String ifField, String ifOperator, String ifValue )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(conditionActions.getText());
+            System.out.println(thenAction + " \"" + thenField + "\"");
+            String compare1 = conditionActions.getText();
+            if(!compare1.equals(thenAction + " \"" + thenField + "\""))
+            {
+                return null;
+            }
+            System.out.println(conditionIf.getText());
+            System.out.println("When \"" + ifField + "\" " + ifOperator + " \" " + ifValue + " \"");
+            String compare2 = conditionIf.getText();
+            if(!compare2.equals("When \"" + ifField + "\" " + ifOperator + " \" " + ifValue + " \""))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+    public DialogBox verifyRedirectOnSubmitRule ( String ifField, String ifOperator, String ifValue, String redirect )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(redirectIf.getText());
+            System.out.println("When \"" + ifField + "\" " + ifOperator + " \"" + ifValue + "\"");
+            String compare1 = redirectIf.getText();
+            if(!compare1.equals("When \"" + ifField + "\" " + ifOperator + " \"" + ifValue + "\""))
+            {
+                return null;
+            }
+            System.out.println(redirectThen.getText());
+            System.out.println("Redirect the user to " + redirect);
+            String compare2 = redirectThen.getText();
+            if(!compare2.equals("Redirect the user to " + redirect))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+    public DialogBox clickSaveCondition ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(saveButton3));
+        saveButton3.click();
+        return this;
+    }
+    public DialogBox clickUseThisTemplate ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(template));
+        template.click();
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(useThisTemplate));
+        useThisTemplate.click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        return this;
+    }
+
 
 }
