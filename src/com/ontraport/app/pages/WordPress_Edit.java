@@ -174,7 +174,8 @@ public class WordPress_Edit extends AbstractPage
          driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']")).click();
          System.out.print("ya");
          wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[@for='user_login']/input"))));
-         driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys("nick@ontraport.com");
+         String[] login = AbstractPage.getLogin().split("\\+");
+         driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys(login[0] + login[1]);
          wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[@for='user_pass']/input"))));
          driver.findElement(By.xpath("//label[@for='user_pass']/input")).sendKeys(password);
          wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//input[@id='wp-submit']"))));

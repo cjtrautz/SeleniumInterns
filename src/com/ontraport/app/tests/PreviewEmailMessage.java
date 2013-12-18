@@ -37,7 +37,7 @@ public class PreviewEmailMessage extends AbstractTest
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
         message_Edit.clickPreview();
 
-        if(message_Edit.verifyPreview(value.get("Messages", "email_message_body"))==null)
+        if(message_Edit.verifyPreview(value.get("Messages", "edited_message_body"))==null)
         {
             fail("no preview");
         }

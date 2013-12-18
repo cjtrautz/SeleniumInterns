@@ -34,10 +34,13 @@ public class EditLandingPageCodeModeAddText extends AbstractTest
 
         landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Code_Mode"));
 
-        if(landingPage_Edit.verifyText("testmore[First Name]test")==null)
+        if(landingPage_Edit.verifyText("testmore")==null)
         {
             fail("couldnt find text");
         }
+        landingPage_Edit.enterMoreText("[First Name]test");
+        landingPage_ListAll = landingPage_Edit.clickSave();
+        landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Code_Mode"));
        
         
     }

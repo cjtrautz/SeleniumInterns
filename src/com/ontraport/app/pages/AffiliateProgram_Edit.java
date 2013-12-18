@@ -340,4 +340,12 @@ public class AffiliateProgram_Edit extends AbstractPage
         return this;
     }
 
+    public AffiliateProgram_Edit selectDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDown));
+        drillDown.findElement(By.xpath(".//li[contains(., '" + string +"')]")).click();
+        return this;
+    }
+
 }

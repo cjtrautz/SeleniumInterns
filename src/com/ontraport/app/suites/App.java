@@ -268,6 +268,7 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.CreateOrderform.class,
       com.ontraport.app.tests.CreateLandingPageWithForm.class,
       com.ontraport.app.tests.CreateATag.class,
+      com.ontraport.app.tests.SubmitOrderForm.class,
       com.ontraport.app.tests.CreateRule_PingAUrl.class,
       com.ontraport.app.tests.CreateUserFieldEditor.class,
       com.ontraport.app.tests.AddAPackageWithEverything.class,
@@ -565,6 +566,7 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateTrackedDomain.class, 
     com.ontraport.app.tests.ViewTrackingScript.class, 
+    com.ontraport.app.tests.DeleteTrackedDomain.class, 
     com.ontraport.app.tests.SignUp.class, 
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
     com.ontraport.app.tests.DeleteLandingPageRedirect.class, 

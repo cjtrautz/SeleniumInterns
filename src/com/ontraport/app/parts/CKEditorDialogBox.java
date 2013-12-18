@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -202,6 +203,7 @@ public class CKEditorDialogBox extends AbstractPart
         wait(10).until(ExpectedConditions.visibilityOf(iframe));
         driver.switchTo().frame(iframe);
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
     }

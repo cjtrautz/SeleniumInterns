@@ -34,6 +34,10 @@ public class Gateway_Create extends AbstractPage
     private List<WebElement> components;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-targets ')]//input")
+    private WebElement component;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-controls ')]/button//span[text()='Save']")
     private WebElement save;
 
@@ -68,6 +72,7 @@ public class Gateway_Create extends AbstractPage
     public Gateway_Create enterGatewayNickName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(component));
         wait.until(ExpectedConditions.visibilityOf(components.get(0)));
         components.get(0).sendKeys(string);
         return this;

@@ -45,6 +45,26 @@
       <antcall target='prepare'/>
       <antcall target='production'/>
     </target>
+    <target name="build-adminsuite" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='adminsuite'/>
+    </target>
+    <target name="build-fieldeditorsuite" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='fieldeditorsuite'/>
+    </target>
+    <target name="build-gmailsuite" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='gmailsuite'/>
+    </target>
+    <target name="build-messagessuite" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='messagessuite'/>
+    </target>
+    <target name="build-sitessuite" description="Run tools in sequence.">
+      <antcall target='prepare'/>
+      <antcall target='sitessuite'/>
+    </target>
 
   <!--
    =============================================================================
@@ -68,11 +88,21 @@
     <mkdir dir="${report}/selenium/xml/app"/>
     <mkdir dir="${report}/selenium/xml/staging"/>
     <mkdir dir="${report}/selenium/xml/review"/>
-    <mkdir dir="${report}/selenium/xml/production"/>
+    <mkdir dir="${report}/selenium/xml/adminsuite"/>
+    <mkdir dir="${report}/selenium/xml/fieldeditorsuite"/>
+    <mkdir dir="${report}/selenium/xml/gmailsuite"/>
+    <mkdir dir="${report}/selenium/xml/messagessuite"/>
+    <mkdir dir="${report}/selenium/xml/sitessuite"/>
+    <mkdir dir="${report}/selenium/xml/production"/>    
     <mkdir dir="${report}/selenium/html/app"/>
     <mkdir dir="${report}/selenium/html/staging"/>
     <mkdir dir="${report}/selenium/html/review"/>
     <mkdir dir="${report}/selenium/html/production"/>
+    <mkdir dir="${report}/selenium/html/adminsuite"/>
+    <mkdir dir="${report}/selenium/html/fieldeditorsuite"/>
+    <mkdir dir="${report}/selenium/html/gmailsuite"/>
+    <mkdir dir="${report}/selenium/html/messagessuite"/>
+    <mkdir dir="${report}/selenium/html/sitessuite"/>
   </target>
 
   <!--
@@ -181,6 +211,111 @@
           <include name="TEST-*.xml"/>
         </fileset>
         <report format="frames" todir="${report}/selenium/html/production"/>
+      </junitreport>
+    </target>
+
+    <target name="adminsuite" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.AdminSuite" haltonfailure="no" todir="${report}/selenium/xml/adminsuite" outfile="TEST-adminsuite">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/adminsuite">
+        <fileset dir="${report}/selenium/xml/adminsuite">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/adminsuite"/>
+      </junitreport>
+    </target>
+
+    <target name="fieldeditorsuite" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.FieldEditorSuite" haltonfailure="no" todir="${report}/selenium/xml/fieldeditorsuite" outfile="TEST-fieldeditorsuite">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/fieldeditorsuite">
+        <fileset dir="${report}/selenium/xml/fieldeditorsuite">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/fieldeditorsuite"/>
+      </junitreport>
+    </target>
+
+    <target name="gmailsuite" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.GmailSuite" haltonfailure="no" todir="${report}/selenium/xml/gmailsuite" outfile="TEST-gmailsuite">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/gmailsuite">
+        <fileset dir="${report}/selenium/xml/gmailsuite">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/gmailsuite"/>
+      </junitreport>
+    </target>
+
+    <target name="messagessuite" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.MessagesSuite" haltonfailure="no" todir="${report}/selenium/xml/messagessuite" outfile="TEST-messagessuite">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/messagessuite">
+        <fileset dir="${report}/selenium/xml/messagessuite">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/messagessuite"/>
+      </junitreport>
+    </target>
+
+    <target name="sitessuite" depends="compile">
+      <junit printsummary="yes" haltonfailure="no">
+        <classpath>
+          <pathelement location="${basedir}/bin"/>
+          <pathelement location="${basedir}/etc"/>
+          <fileset dir="${basedir}/lib">
+            <include name="**/*.jar"/>
+          </fileset>
+        </classpath>
+        <test name="com.ontraport.app.suites.SitesSuite" haltonfailure="no" todir="${report}/selenium/xml/sitessuite" outfile="TEST-sitessuite">
+          <formatter type="xml"/>
+        </test>
+      </junit>
+      <junitreport todir="${report}/selenium/xml/sitessuite">
+        <fileset dir="${report}/selenium/xml/sitessuite">
+          <include name="TEST-*.xml"/>
+        </fileset>
+        <report format="frames" todir="${report}/selenium/html/sitessuite"/>
       </junitreport>
     </target>
 

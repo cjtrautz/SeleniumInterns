@@ -27,7 +27,7 @@ public class CreateAffiliatesProgramWithFullNameAndDeclinedTrans extends Abstrac
         affiliateProgram_Create.clickProgramTypeDropDown();
         affiliateProgram_Create.selectDrillDown("1 Tier");
         affiliateProgram_Create.clickInfoGiveDropDown();
-        affiliateProgram_Create.selectDrillDown("Share full name");
+        affiliateProgram_Create.selectDrillDown("Share full name and email address");
         affiliateProgram_Create.clickShowAffiliateInfoOnDelinedCharges();
         affiliateProgram_Create.clickNotifySomeoneDropDown();
         affiliateProgram_Create.selectDrillDown("Send Email Notification");
@@ -48,7 +48,7 @@ public class CreateAffiliatesProgramWithFullNameAndDeclinedTrans extends Abstrac
         {
             fail("couldnt find program type");
         }
-        if(affiliateProgram_Edit.verifyInformation("Share full name")==null)
+        if(affiliateProgram_Edit.verifyInformation("Share full name and email address")==null)
         {
             fail("couldnt find program information");
         }

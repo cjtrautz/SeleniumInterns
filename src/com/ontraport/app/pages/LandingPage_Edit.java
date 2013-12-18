@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -1567,6 +1568,7 @@ public class LandingPage_Edit extends AbstractPage
         driver.switchTo().frame(iFrame);
         body.click();
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
     }

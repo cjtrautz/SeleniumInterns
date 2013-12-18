@@ -1743,6 +1743,7 @@ public class Message_Edit extends AbstractPage
         body.click();
         body.clear();
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
         
@@ -2540,6 +2541,7 @@ public class Message_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(iFrame));
         driver.switchTo().frame(iFrame);
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
     }
@@ -2698,6 +2700,8 @@ public class Message_Edit extends AbstractPage
         body.click();
         body.clear();
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
+        driver.switchTo().defaultContent();
         return this;
     }
 

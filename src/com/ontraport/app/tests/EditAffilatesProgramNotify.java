@@ -29,8 +29,9 @@ public class EditAffilatesProgramNotify extends AbstractTest
         }
         AffiliateProgram_Edit affiliateProgram_Edit = affiliateProgram_ListAll.clickProgram(value.get("Partners", "affiliate_program_name"));
         affiliateProgram_Edit.clickNotify();
-        affiliateProgram_Edit.createCustomEmail();
-        affiliateProgram_Edit.enterCustomEmail(value.get("Partners", "partner_email2"));
+        affiliateProgram_Edit.selectDrillDown("Do Not Notify");
+//        affiliateProgram_Edit.createCustomEmail();
+//        affiliateProgram_Edit.enterCustomEmail(value.get("Partners", "partner_email2"));
         affiliateProgram_Edit.clickSelect();
         affiliateProgram_ListAll = affiliateProgram_Edit.clickBack();
         affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_name"));
@@ -39,7 +40,7 @@ public class EditAffilatesProgramNotify extends AbstractTest
             fail("couldnt find program");
         }
         affiliateProgram_Edit = affiliateProgram_ListAll.clickProgram(value.get("Partners", "affiliate_program_name"));
-        if(affiliateProgram_Edit.verifyNotify(value.get("Partners", "partner_email2"))==null)
+        if(affiliateProgram_Edit.verifyNotify("Do Not Notify")==null)
         {
             fail("couldnt find program name");
         }

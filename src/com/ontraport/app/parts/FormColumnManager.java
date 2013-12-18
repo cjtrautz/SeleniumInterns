@@ -84,7 +84,14 @@ public class FormColumnManager extends AbstractPart
         {
             System.out.println("no scroll");
         }
+        try
+        {
         actions.dragAndDropBy(scroll, 1000, 0).build().perform();
+        }
+        catch(Exception e1)
+        {
+            
+        }
         System.out.println("scrolled");
         actions.moveToElement(columnToEdit).build().perform();
         WebElement toDelete = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));

@@ -28,7 +28,7 @@ public class CreateCodeModeLandingPageFromExisting extends AbstractTest
         LandingPage_Edit landingPage_Edit = landingPage_TypeSelection.selectDrillDown(value.get("LandingPages", "Easy_Landing_Page_Code_Mode"));
         landingPage_Edit.clickPageURLCodeMode();
         landingPage_Edit.dialogBox.clickUseHostedDomain();
-        landingPage_Edit.dialogBox.enterHostedDomainName(value.get("LandingPages", "Easy_Landing_Page_Code_Mode2") + AbstractSuite.UNIQUE);
+        landingPage_Edit.dialogBox.enterHostedDomainName(value.get("LandingPages", "Easy_Landing_Page_Code_Mode3") + AbstractSuite.UNIQUE);
         landingPage_Edit.dialogBox.clickAccept();
         landingPage_ListAll = landingPage_Edit.clickSave();
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Copy_Of_Easy_Landing_Page_Code_Mode"));

@@ -29,6 +29,11 @@ public class Field_Editor extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-section-titlebar ')]/a[@href='javascript://']/span")
     private WebElement permision;
+
+    @FindBy(
+        how = How.XPATH,
+        using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-primary ')]")
+    private WebElement primaryTabs;
     
     @FindBy(
             how = How.XPATH,
@@ -42,7 +47,7 @@ public class Field_Editor extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-section-titlebar ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-pane-header-title ')]")
     private WebElement sectionTitle;
     
     @FindBy(
@@ -261,6 +266,7 @@ public class Field_Editor extends AbstractPage
     public Field_Editor clickTitle ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         sectionTitle.click();
         return this;
     }
@@ -1201,6 +1207,47 @@ public class Field_Editor extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (Contact_Settings) new Contact_Settings().init();
+    }
+
+    public Field_Editor clickTab ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(primaryTabs));
+        primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']/a")).click();
+        return this;
+    }
+
+    public Field_Editor enterTabName ( int i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input"))));
+        primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).click();
+        primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).sendKeys(string);
+        return this;
+    }
+
+    public Field_Editor verifyTab ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(primaryTabs));
+        try
+        {
+            primaryTabs.findElement(By.xpath(".//li/a[contains(text(), '" + string + "')]")).isDisplayed();
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public Field_Editor moveTab ( int tab, int distance )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(primaryTabs));
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")), distance, 0).build().perform();
+        return this;
     }
     
 }

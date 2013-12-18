@@ -17,6 +17,10 @@ import com.ontraport.app.tools.AbstractSuite;
 public class TrackedDomain_ListAll extends AbstractPage
 {
     @FindBy(how = How.XPATH,
+            using = "//div[@id='ussr-chrome-panel-pane']//div[div[contains(concat(' ', normalize-space(@class), ' '), ' user-leading-container ')] or table[tbody[tr[td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]]]]]")
+    private WebElement emptyCell;
+    
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr/td[2]//span")
     private WebElement uiCollectionBodyRow1;
     
@@ -75,12 +79,26 @@ public class TrackedDomain_ListAll extends AbstractPage
         }
         try
         {
-        selectAll.click();
+            selectAll.click();
         }
         catch(StaleElementReferenceException e)
         {
             selectAll.click();
         }
+        return this;
+    }
+
+    public TrackedDomain_ListAll verifyNoDomain ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            emptyCell.isDisplayed();
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
         return this;
     }
     

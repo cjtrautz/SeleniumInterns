@@ -124,6 +124,7 @@ public class MessageTemplate_CreateType2 extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         driver.switchTo().frame(iFrame);
         body.sendKeys(string);
+        ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
         

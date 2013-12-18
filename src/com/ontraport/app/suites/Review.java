@@ -18,6 +18,15 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    //com.ontraport.app.tests.MoveATab.class,
+    com.ontraport.app.tests.NameATab.class,
+    
+    com.ontraport.app.tests.CreateTab.class,
+    com.ontraport.app.tests.DeleteTab.class,
+    
+    com.ontraport.app.tests.CreateTrackingURL.class,
+    com.ontraport.app.tests.DeleteTrackingURL.class,
+    
     com.ontraport.app.tests.CreateSmartFormWithTemplate.class,
     com.ontraport.app.tests.DeleteSmartFormWithTemplate.class,
     com.ontraport.app.tests.CreateSmartFormWithConditions.class,

@@ -108,6 +108,10 @@ public class DrawerActions extends AbstractPart
     private WebElement uiDeleteContacts;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Tracked Domains')]")
+    private WebElement uiDeleteTrackedDomain;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'View Tracking Script')]")
     private WebElement uiViewTrackingScript;
     
@@ -234,6 +238,38 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]//button")
         private WebElement reassignDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-destination-url ')]//input")
+        private WebElement destinationURLInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
+        private WebElement objectCreaterInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-campaign ')]//button")
+        private WebElement campaignDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-lead-source ')]//button")
+        private WebElement leadSourceDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-medium ')]//button")
+        private WebElement mediumDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-content ')]//button")
+        private WebElement contentDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-term ')]//button")
+        private WebElement termDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-action-create-url ')]")
+        private WebElement createURL;
     
     @FindBy(how = How.XPATH,
             using = "//label[text()='Run this sequence only on weekends']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
@@ -854,6 +890,85 @@ public class DrawerActions extends AbstractPart
             return null;
         }
         
+        return this;
+    }
+    public DrawerActions clickDeleteTrackedDomain ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiDeleteTrackedDomain));
+        uiDeleteTrackedDomain.click();
+        return this;
+    }
+    public DrawerActions enterURL (String string)
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(destinationURLInput));
+        destinationURLInput.click();
+        destinationURLInput.sendKeys(string);
+        return this;
+    }
+    public DrawerActions clickCampaignDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(campaignDropDown));
+        campaignDropDown.click();
+        return this;
+    }
+    public DrawerActions selectCreateNew ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(createNew));
+        createNew.click();
+        return this;
+    }
+    public DrawerActions enterObjectCreater (String string)
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(objectCreaterInput));
+        objectCreaterInput.click();
+        objectCreaterInput.sendKeys(string);
+        return this;
+    }
+    public DrawerActions clickLeadSourceDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(leadSourceDropDown));
+        leadSourceDropDown.click();
+        return this;
+    }
+    public DrawerActions clickMediumDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(mediumDropDown));
+        mediumDropDown.click();
+        return this;
+    }
+    public DrawerActions clickContentDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(contentDropDown));
+        contentDropDown.click();
+        return this;
+    }
+    public DrawerActions clickTermDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(termDropDown));
+        termDropDown.click();
+        return this;
+    }
+    public DrawerActions clickCreateURL ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(createURL));
+        createURL.click();
+        return this;
+    }
+    public DrawerActions clickDeleteURLHistory ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiDelete));
+        uiDelete.click();
         return this;
     }
 

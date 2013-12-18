@@ -21,8 +21,8 @@ public class EditEmailMessageUndoAndRedo extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "editable_email_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "editable_email_message"));
-        message_Edit.enterMessageBodyMore(value.get("Messages", "editable_email_message"));
-        if(message_Edit.verifyBody(value.get("Messages", "editable_email_message") + value.get("Messages", "editable_email_body"))==null)
+        message_Edit.enterMessageBodyMore(value.get("Messages", "editable_email_message2"));
+        if(message_Edit.verifyBody(value.get("Messages", "editable_email_message2"))==null)
         {
             fail("couldn't find message body1");
         }
@@ -32,7 +32,7 @@ public class EditEmailMessageUndoAndRedo extends AbstractTest
             fail("couldn't find message body2");
         }
         message_Edit.clickRedo();
-        if(message_Edit.verifyBody(value.get("Messages", "editable_email_message") + value.get("Messages", "editable_email_body"))==null)
+        if(message_Edit.verifyBody(value.get("Messages", "editable_email_message2"))==null)
         {
             fail("couldn't find message body3");
         }

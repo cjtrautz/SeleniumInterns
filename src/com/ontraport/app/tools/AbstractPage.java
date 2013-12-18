@@ -34,7 +34,7 @@ public abstract class AbstractPage
     // GENERAL ---------------------------------------------------------------------------------------------------------
     protected static String             password                    = "Lughead1";
     protected static String             login                       = "nick@ontraport.com";
-    protected static String             url                         = "";
+    protected static String             url                         = "https://app.ontraport.com/";
     private static String               latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
@@ -127,9 +127,17 @@ public abstract class AbstractPage
     {
         return AbstractPage.url;
     }
+    public static void setLogin (String login)
+    {
+        AbstractPage.login = login;
+    }
     public static String getLogin ()
     {
         return AbstractPage.login;
+    }
+    public static void setPassword (String pass)
+    {
+        AbstractPage.password = pass;
     }
     public static String getPassword ()
     {

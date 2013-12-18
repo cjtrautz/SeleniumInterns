@@ -8,6 +8,7 @@ import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Login;
 import com.ontraport.app.pages.OPPackage_View;
 import com.ontraport.app.pages.Ontraport_SignUp;
+import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.Sequence_ListAll;
 //import com.ontraport.app.pages.Rule_ListAll;
@@ -56,5 +57,8 @@ public class SignUp extends AbstractTest
         {
             fail("couldnt cancel account");
         }
+        login.open(Login.url, true);
+        login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
     }
 }
