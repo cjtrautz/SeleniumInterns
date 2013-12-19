@@ -33,6 +33,7 @@ public class TaskActions extends AbstractTest
         task_ListAll.drawerActions.clickUserDropDown();
         task_ListAll.drawerActions.selectDrillDown(value.get("Admin", "user"));
         task_ListAll.drawerActions.clickSaveReAssign();
+        task_ListAll.formSearch.clear();
         task_ListAll.formSearch.find(value.get("Messages", "task_subject_new"));
         if(task_ListAll.verifyAssignee(value.get("Admin", "user"))==null)
         {
@@ -49,6 +50,7 @@ public class TaskActions extends AbstractTest
         task_ListAll.selectAll();
         task_ListAll.drawerActions.clickCancelTask();
         task_ListAll.dialogBox.clickOk();
+        task_ListAll.formSearch.clear();
         task_ListAll.formSearch.find(value.get("Messages", "task_subject_new"));
         if(task_ListAll.verifyNoTasks()==null)
         {
