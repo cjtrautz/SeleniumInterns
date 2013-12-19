@@ -44,7 +44,7 @@ public class CreateInvoiceMessage extends AbstractTest
         }
 
         MessageTemplate_Edit messageTemplate_Edit = messageTemplate_ListAll.clickMessage(value.get("Sales", "invoice_message"));
-        if(messageTemplate_Edit.verifyBody(value.get("Sales", "stuff") + "[First Name]")==null)
+        if(messageTemplate_Edit.verifyBody("[First Name]" + value.get("Sales", "stuff"))==null)
         {
             fail("couldn't find message body");
         }
