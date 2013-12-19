@@ -34,7 +34,7 @@ public class CreateCopyOfDoubleOptinMessage extends AbstractTest
         }
 
         MessageTemplate_Edit messageTemplate_Edit = messageTemplate_ListAll.clickMessage("Copy of " + value.get("Messages", "sel_double_opt_in"));
-        if(messageTemplate_Edit.verifyBody("SelBody[First Name]")==null)
+        if(messageTemplate_Edit.verifyBody("[First Name]SelBody")==null)
         {
             fail("couldn't find message body");
         }
