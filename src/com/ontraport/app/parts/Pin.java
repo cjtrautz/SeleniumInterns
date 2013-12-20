@@ -9,11 +9,11 @@ import com.ontraport.app.tools.AbstractPart;
 public class Pin extends AbstractPart
 {
     @FindBy(how = How.XPATH,
-            using = "//span[@class='ussr-icon ussr-icon-circle-pin-s']")
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-circle-pin-s ')]")
     protected WebElement unPinned;
     
     @FindBy(how = How.XPATH,
-            using = "//span[@class='ussr-icon ussr-icon-circle-pin-n']")
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-circle-pin-n ')]")
     protected WebElement pinned;
 
     public Pin pin ()

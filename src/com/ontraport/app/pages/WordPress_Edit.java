@@ -22,7 +22,7 @@ public class WordPress_Edit extends AbstractPage
     private WebElement websiteName;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-hosted-domain-selector-subdomain ')]//input")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-hosted-domain-selector-subdomain ')]//div[@class='ussr-form-input']")
     private WebElement domainName;
     
     @FindBy(how = How.XPATH,

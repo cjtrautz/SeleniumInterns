@@ -138,6 +138,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", save);
         save.click();
         return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
     }

@@ -239,7 +239,7 @@ public class Sequence_Edit extends AbstractPage
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
-        wait.until(ExpectedConditions.visibilityOf(complaints));
+        //wait.until(ExpectedConditions.visibilityOf(complaints));
         try
         {
             driver.manage()

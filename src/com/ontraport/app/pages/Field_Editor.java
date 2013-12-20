@@ -223,7 +223,7 @@ public class Field_Editor extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(sectionTitle));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", newSectionButton);
-        WebElement deleteSection = driver.findElement(By.xpath("//div[span[text()='" + title + "']]/following-sibling::div[@class='ussr-component-section-columns-wrapper']//button[span[text()='Delete Section']]"));
+        WebElement deleteSection = driver.findElement(By.xpath("//div[span[contains(text(), '" + title + "')]]/following-sibling::div[@class='ussr-component-section-columns-wrapper']//button[span[text()='Delete Section']]"));
         deleteSection.click();
         new WebDriverWait (driver, 15){}.until(new ExpectedCondition<Boolean>(){
             @Override

@@ -17,7 +17,7 @@ public class SmartFormFe_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' rules_transaction_success ')]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-rule-add-button ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-rule-add-button ')]")
     private WebElement addRuleOnSuccess;
     
     @FindBy(
