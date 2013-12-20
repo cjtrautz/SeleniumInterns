@@ -247,7 +247,6 @@ public class MessagesSuite extends AbstractSuite
     public static void beforeSuite () throws Exception
     {
         AbstractPage.setLogin("ontraportselenium+3@gmail.com");
-        //AbstractPage.setLogin("nick@ontraport.com");
         AbstractPage.setPassword("test123");
         //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
