@@ -838,6 +838,8 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(datePickerInput));
         datePickerInput.click();
+        Actions action = new Actions(driver);
+        action.click(datePickerInput).build().perform();
         return this;
     }
     public DrawerActions clickCancelSendEmail ()

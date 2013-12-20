@@ -32,7 +32,7 @@ public class EditAffilatesProgramNotify extends AbstractTest
         affiliateProgram_Edit.selectDrillDown("Do Not Notify");
 //        affiliateProgram_Edit.createCustomEmail();
 //        affiliateProgram_Edit.enterCustomEmail(value.get("Partners", "partner_email2"));
-        affiliateProgram_Edit.clickSelect();
+//        affiliateProgram_Edit.clickSelect();
         affiliateProgram_ListAll = affiliateProgram_Edit.clickBack();
         affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_name"));
         if(affiliateProgram_ListAll.verifyProgram(value.get("Partners", "affiliate_program_name"))==null)

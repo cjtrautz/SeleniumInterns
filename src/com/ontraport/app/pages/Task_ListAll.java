@@ -118,6 +118,7 @@ public class Task_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            wait.until(ExpectedConditions.visibilityOf(datePicker));
         if(!datePicker.isDisplayed())
         {
             return null;

@@ -67,10 +67,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateTrackingURL.class,
     com.ontraport.app.tests.DeleteTrackingURL.class,
     
-    com.ontraport.app.tests.CreateSmartFormWithTemplate.class,
-    com.ontraport.app.tests.DeleteSmartFormWithTemplate.class,
     com.ontraport.app.tests.CreateSmartFormWithConditions.class,
     com.ontraport.app.tests.DeleteSmartFormWithConditions.class,
+    com.ontraport.app.tests.CreateSmartFormWithTemplate.class,
+    com.ontraport.app.tests.DeleteSmartFormWithTemplate.class,
     com.ontraport.app.tests.CreateSmartFormWithAddSeparator.class,
     com.ontraport.app.tests.DeleteSmartFormWithAddSeparator.class,
     com.ontraport.app.tests.CreateSmartFormWithCaptcha.class,
@@ -81,7 +81,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSmartFormWithAddContent.class,
     com.ontraport.app.tests.CreateSmartFormWithAddField.class,
     com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
-//  
+  
 //  com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
 //  com.ontraport.app.tests.EditPostcardPictureOpacity.class,
 //  com.ontraport.app.tests.EditPostcardPictureCircle.class,
@@ -136,7 +136,7 @@ public class AdminSuite extends AbstractSuite
     {
         AbstractPage.setLogin("ontraportselenium+4@gmail.com");
         AbstractPage.setPassword("test123");
-        //AbstractPage.setUrl("https://app.ontraport.com/");
+        //AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

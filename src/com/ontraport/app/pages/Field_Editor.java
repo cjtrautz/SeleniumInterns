@@ -176,8 +176,8 @@ public class Field_Editor extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(0, TimeUnit.SECONDS);
-            driver.findElement(By.xpath("//span[normalize-space(text())='" + title + "']"));
-            driver.findElement(By.xpath("//span[normalize-space(text())='" + title + "']/ancestor::div/following-sibling::div[text()='" + description + "']"));
+            driver.findElement(By.xpath("//span[contains(normalize-space(text()), '" + title + "')]"));
+            driver.findElement(By.xpath("//span[contains(normalize-space(text()), '" + title + "')]/ancestor::div/following-sibling::div[text()='" + description + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
