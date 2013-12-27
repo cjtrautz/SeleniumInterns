@@ -1200,10 +1200,10 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(ifEvents));
-        ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
+        //ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
         Actions action = new Actions(driver);
-        action.clickAndHold(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
-        action.release().build().perform();
+        action.click(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        //action.release().build().perform();
         return this;
     }
     public DialogBox clickIfConditionOperatorDropDown ()
@@ -1231,10 +1231,10 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(thenEvents));
-        thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
+        //thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
         Actions action = new Actions(driver);
-        action.clickAndHold(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
-        action.release().build().perform();
+        action.click(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        //action.release().build().perform();
         return this;
     }
     public DialogBox clickOutcomeFieldDropDown ()

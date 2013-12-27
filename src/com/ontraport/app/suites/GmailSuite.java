@@ -19,8 +19,8 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
     com.ontraport.app.tests.CreateSendFromAddress.class,
@@ -48,7 +48,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
     //relies on a message
     com.ontraport.app.tests.CreateEmailStepSequence.class,
-    //relies on a step sequence
+    //relies on a step sequencehttp://ontraport.com/
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedStepSequence.class,
@@ -207,7 +207,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditEmailMessageOrderedList.class,
     com.ontraport.app.tests.EditEmailMessageUnOrderedList.class,
     com.ontraport.app.tests.EditEmailMessageQuote.class,
-    com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
+    //com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
     com.ontraport.app.tests.EditEmailMessagePaste.class,
     com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
     com.ontraport.app.tests.EditEmailMessageInsertTable.class,

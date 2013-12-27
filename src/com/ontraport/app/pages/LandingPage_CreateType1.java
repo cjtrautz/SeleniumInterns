@@ -131,6 +131,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 clickEditHTML ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", editHTML);
         wait.until(ExpectedConditions.visibilityOf(editHTML));
         editHTML.click();
         return this;
@@ -139,6 +140,7 @@ public class LandingPage_CreateType1 extends AbstractPage
     public LandingPage_CreateType1 clickFormDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", formDropDown);
         wait.until(ExpectedConditions.visibilityOf(formDropDown));
         formDropDown.click();
         return this;

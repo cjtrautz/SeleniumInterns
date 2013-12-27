@@ -241,15 +241,15 @@ public class Gmail extends AbstractPage
 
     public String getImmediateSubjectTime ()
     {
-        String finale = null;
+        String parse = null;
         int yep = 0;
         try
         {
             wait.until(ExpectedConditions.visibilityOf(immedEmailTime));
-            String parse = immedEmailTime.getText();
+            parse = immedEmailTime.getText();
             String delim = "[ :]";
             String[] stuff = parse.split(delim);
-            finale = stuff[0] + stuff[1] + stuff[2];
+            String finale = stuff[0] + stuff[1] + stuff[2];
             System.out.println(finale);
             //yep = Integer.parseInt(finale);
             wait.until(ExpectedConditions.visibilityOf(immedEmail));
@@ -261,10 +261,10 @@ public class Gmail extends AbstractPage
             try
             {
                 wait.until(ExpectedConditions.visibilityOf(immedEmailTime));
-                String parse = immedEmailTime.getText();
+                parse = immedEmailTime.getText();
                 String delim = "[ :]";
                 String[] stuff = parse.split(delim);
-                finale = stuff[0] + stuff[1] + stuff[2];
+                String finale = stuff[0] + stuff[1] + stuff[2];
                 System.out.println(finale);
                 //yep = Integer.parseInt(finale);
                 wait.until(ExpectedConditions.visibilityOf(immedEmail));
@@ -274,7 +274,7 @@ public class Gmail extends AbstractPage
                 return null;
             }
         }
-        return finale;
+        return parse;
     }
 
     public Gmail clickDelayEmailAndVerifyTime ( String time )
