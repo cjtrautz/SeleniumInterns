@@ -19,36 +19,40 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
+    //these are all verified in GmailConfirmations
     com.ontraport.app.tests.SendBroadcastEmailToContact.class,
     com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
-    com.ontraport.app.tests.CreateSendFromAddress.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class, 
+    //wait a little before deleting contact and message for one off to ensure email is sent
     com.ontraport.app.tests.DeleteSendSingleEmailToContact.class,
     
-    com.ontraport.app.tests.CreateMessage.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateMessage.class,                         
+    //sends CreateMessage message 
     com.ontraport.app.tests.SendTestEmail.class,
+    //uses CreateMessage message
     com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
+    //edits CreateMessage message
     com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
     com.ontraport.app.tests.PreviewEmailMessage.class,
     com.ontraport.app.tests.EditEmailMessageAlignment.class,
     com.ontraport.app.tests.EditEmailMessageLinkText.class,
     com.ontraport.app.tests.EditEmailMessageSource.class,
-    //relies on a message
     com.ontraport.app.tests.EditEmailMessageInsertHostedImage.class,
     com.ontraport.app.tests.EditEmailMessageInsertImage.class,
-    //relies on a message
+    //copies CreateMessage message
     com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
     com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
-    //relies on a message
+    //uses CreateMessage message
     com.ontraport.app.tests.CreateEmailDateSequence.class,
     com.ontraport.app.tests.DeleteEmailDateSequence.class,
-    //relies on a message
     com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
     com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
-    //relies on a message
-    com.ontraport.app.tests.CreateEmailStepSequence.class,
-    //relies on a step sequencehttp://ontraport.com/
+    //used in following tests and uses CreateMessage message
+    com.ontraport.app.tests.CreateEmailStepSequence.class,                  
+    //uses CreateEmailStepSequence sequence
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToStepSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedStepSequence.class,
@@ -57,21 +61,19 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToPausedStepSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactNotSubscribedToStepSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToStepSequence.class,
-    //relies on a step sequence
     com.ontraport.app.tests.CreateRule_UnPauseSubscriptionToStepSequence.class,
     com.ontraport.app.tests.DeleteRule_UnPauseSubscriptionToStepSequence.class,
-    //relies on a step sequence
     com.ontraport.app.tests.CreateRule_PauseSubscriptionToStepSequence.class,
     com.ontraport.app.tests.DeleteRule_PauseSubscriptionToStepSequence.class,
-    //relies on a step sequence
     com.ontraport.app.tests.CreateRule_RemoveContactFromStepSequence.class,
     com.ontraport.app.tests.DeleteRule_RemoveContactFromStepSequence.class,
-    //relies on a step sequence
     com.ontraport.app.tests.CreateRule_AddContactToStepSequence.class,
     com.ontraport.app.tests.DeleteRule_AddContactToStepSequence.class,
+    //ends the use of CreateEmailStepSequence sequence and CreateMessage message
     com.ontraport.app.tests.DeleteEmailStepSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
     
+    //testing navigation
     com.ontraport.app.tests.CancelBroadCast.class,
     com.ontraport.app.tests.DeleteCancelBroadCast.class,
     com.ontraport.app.tests.LeadScoringCancel.class,
@@ -82,10 +84,15 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.SMSCancel.class,
     com.ontraport.app.tests.SMSBack.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateRule_ContactIsCreated.class,
+    //uses CreateRule_ContactIsCreated rule
     com.ontraport.app.tests.PauseRule.class,
     com.ontraport.app.tests.UnpauseRule.class,
+    //end use of CreateRule_ContactIsCreated rule
     com.ontraport.app.tests.DeleteRule_ContactIsCreated.class,
+    
+    //testing rule creation
     com.ontraport.app.tests.CreateRule_RemoveFromAllSequences.class,
     com.ontraport.app.tests.DeleteRule_RemoveFromAllSequences.class,
     com.ontraport.app.tests.CreateRule_TestAddAndTrash.class,
@@ -164,6 +171,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
     com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
     
+    //testing LeadScoring creation
     com.ontraport.app.tests.CreateLeadScoring_SMSDoesntContainText.class,
     com.ontraport.app.tests.DeleteLeadScoring_SMSDoesntContainText.class,
     com.ontraport.app.tests.CreateLeadScoring_SMSContainsText.class,
@@ -189,11 +197,13 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateLeadScoring_HasVisitedWebsiteNumberOfTimes.class,
     com.ontraport.app.tests.DeleteLeadScoring_HasVisitedWebsiteNumberOfTimes.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    //edits CreateEditableEmailMessage message
     com.ontraport.app.tests.EditEmailMessageBody.class,
     com.ontraport.app.tests.EditEmailMessageSubject.class,
 //    com.ontraport.app.tests.EditEmailMessageReplyToName.class,
-//    com.ontraport.app.tests.EditEmailMessageSendOutName.class,
+//    com.ontraport.app.tests.EditEmailMessageSendOutName.class,   
     com.ontraport.app.tests.EditEmailMessageName.class,
     com.ontraport.app.tests.EditEmailMessageMaximize.class,
     com.ontraport.app.tests.EditEmailMessageLinkAndUnlink.class,
@@ -207,15 +217,17 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditEmailMessageOrderedList.class,
     com.ontraport.app.tests.EditEmailMessageUnOrderedList.class,
     com.ontraport.app.tests.EditEmailMessageQuote.class,
-    //com.ontraport.app.tests.EditEmailMessageUndoAndRedo.class,
     com.ontraport.app.tests.EditEmailMessagePaste.class,
     com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
     com.ontraport.app.tests.EditEmailMessageInsertTable.class,
     com.ontraport.app.tests.EditEmailMessageInsertHorizontalLine.class,
     com.ontraport.app.tests.EditEmailMessageInsertSpecialCharacter.class,
+    //ends use of CreateEditableEmailMessage message
     com.ontraport.app.tests.DeleteEditableEmailMessage.class,
     
+    //verifies first tests fired emails
     com.ontraport.app.tests.GmailConfirmations.class,
+    //deletes all of the email verification objects
     com.ontraport.app.tests.DeleteEnsureDateSequence.class,
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     com.ontraport.app.tests.DeleteBroadCastEmail.class,
