@@ -21,7 +21,9 @@ import com.ontraport.app.tools.AbstractSuite;
 {  
     com.ontraport.app.tests.ImportContacts.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateAWordPressSite.class,
+    //uses CreateAWordPressSite wordpress site
     com.ontraport.app.tests.CreateEmailMessageWPFields.class,
     com.ontraport.app.tests.DeleteEmailWPMessage.class,
     com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
@@ -48,26 +50,35 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
+    //end use of CreateAWordPressSite site
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
+    //uses CreateLandingPageWithHTML landing page
     com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
     com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
     com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
     com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
     com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
     com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
+    //end use of CreateLandingPageWithHTML landing page
     com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithGradient.class,
+    //uses CreateLandingPageWithGradient landing page
     com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
     com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
     com.ontraport.app.tests.EditLandingPageGradientColors.class,
     com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
     com.ontraport.app.tests.EditLandingPageCircleGradient.class,
+    //end use of CreateLandingPageWithGradient landing page
     com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+    //uses CreateLandingPagePictureWithRectangle landing page
     com.ontraport.app.tests.EditLandingPageCircleImage.class,
     com.ontraport.app.tests.EditLandingPageImageTop.class,
     com.ontraport.app.tests.EditLandingPageImageWidth.class,
@@ -77,9 +88,12 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageImageOpacity.class,
     com.ontraport.app.tests.EditLandingPageImageRounded.class,
     com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
+    //end use of CreateLandingPagePictureWithRectangle landing page
     com.ontraport.app.tests.DeleteLandingPageImage.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithText.class,
+    //uses CreateLandingPageWithText landing page
     com.ontraport.app.tests.EditLandingPageHeight.class,
     com.ontraport.app.tests.EditLandingPageWidth.class,
     com.ontraport.app.tests.EditLandingPageTop.class,
@@ -94,9 +108,12 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageBold.class,
     com.ontraport.app.tests.EditLandingPageFontSize.class,
     com.ontraport.app.tests.EditLandingPageFont.class,
+    //end use of CreateLandingPageWithText landing page
     com.ontraport.app.tests.DeleteLandingPageWithText.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateLandingPage.class,
+    //uses CreateLandingPage landing page
     com.ontraport.app.tests.CreateSMSLPFieldMessage.class,
     com.ontraport.app.tests.DeleteSMSLPFieldMessage.class,
     com.ontraport.app.tests.CreateLPFieldTaskMessage.class,
@@ -119,13 +136,16 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageName.class,
     com.ontraport.app.tests.CreateEasyLandingPageFromExisting.class,
     com.ontraport.app.tests.CopyLandingPageAction.class,
+    //end use of CreateLandingPage landing page
     com.ontraport.app.tests.DeleteLandingPage.class,
     
     com.ontraport.app.tests.CreateStepSequenceBack.class,
     
     com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    //uses CreateLandingPageCodeMode landing page
     com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
     com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
     com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
@@ -136,29 +156,43 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageCodeModeURL.class,
     com.ontraport.app.tests.EditLandingPageCodeModeTitle.class,
     com.ontraport.app.tests.EditLandingPageCodeModeName.class,
+    //used in following tests
     com.ontraport.app.tests.CreateGateway.class,
+    //used in following tests and uses CreateGateway gateway
     com.ontraport.app.tests.CreateOrderform.class,
+    //uses CreateOrderform orderform
     com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
+    //end use of CreateOrderform orderform
     com.ontraport.app.tests.DeleteOrderForm.class,
+    //end use of CreateGateway gateway
     com.ontraport.app.tests.DeleteGateway.class,
     com.ontraport.app.tests.CreateCodeModeLandingPageFromExisting.class,
+    //end use of CreateLandingPageCodeMode landing page
     com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
     
     com.ontraport.app.tests.VideoManagerCancel.class,
-    
     com.ontraport.app.tests.CreateLandingPageBack.class,
-    
     com.ontraport.app.tests.CreateLandingPageCancel.class,
+    
+    //used in following tests
     com.ontraport.app.tests.CreateTrackedDomain.class, 
-    com.ontraport.app.tests.ViewTrackingScript.class, 
-    //com.ontraport.app.tests.DeleteTrackedDomain.class, 
+    //uses CreateTrackedDomain tracked domain
+    com.ontraport.app.tests.ViewTrackingScript.class,
+    //end use of CreateTrackedDomain tracked domain
+    com.ontraport.app.tests.DeleteTrackedDomain.class, 
+    
     com.ontraport.app.tests.SignUp.class, 
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
-    com.ontraport.app.tests.DeleteLandingPageRedirect.class, 
+    com.ontraport.app.tests.DeleteLandingPageRedirect.class,
+    
+    //used in following tests
     com.ontraport.app.tests.CreateTrackedLink.class, 
+    //uses CreateTrackedLink tracked link
     com.ontraport.app.tests.EditTrackedLinkName.class, 
     com.ontraport.app.tests.EditTrackedDestinationLink.class, 
+    //end use of CreateTrackedLink tracked link
     com.ontraport.app.tests.DeleteTrackedLink.class, 
+    
     com.ontraport.app.tests.CreateRule_SMSContainsText.class,
     com.ontraport.app.tests.DeleteRule_SMSContainsText.class,
     com.ontraport.app.tests.CreateRule_SMSDoesntContainAnEmailAddress.class,
@@ -169,6 +203,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_SMSContainsAnEmailAddress.class,  
     com.ontraport.app.tests.CreateRule_SMSRecievedFromContact.class,
     com.ontraport.app.tests.DeleteRule_SMSRecievedFromContact.class,
+    
     com.ontraport.app.tests.AddDateModifiedColumn.class,
     com.ontraport.app.tests.DeleteDateModifiedColumn.class,
     com.ontraport.app.tests.AddDateCreatedColumn.class,
@@ -184,8 +219,11 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
+    //uses CreateAnExistingWordPressSite wordpress site
     com.ontraport.app.tests.ExistingWordPressSiteTryPilotPress.class,
+    //end use of CreateAnExistingWordPressSite wordpress site
     com.ontraport.app.tests.DeleteExistingWordPressSite.class,
     
     com.ontraport.app.tests.CreateWordPressBack.class,
@@ -218,7 +256,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateGatewayAuthorizeNetCIM.class,
     com.ontraport.app.tests.DeleteGatewayAuthorizeNetCIM.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateRuleDateSequence.class,
+    //uses CreateRuleDateSequence sequence
     com.ontraport.app.tests.CopyDateSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
@@ -228,12 +268,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToDateSequence.class,
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToDateSequence.class,
     com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToDateSequence.class,
-  //relies on sequence
     com.ontraport.app.tests.UnsubscribeContactAfterLastStep.class,
-  //relies on sequence
     com.ontraport.app.tests.RunSequenceOnlyOnWeekends.class,
-    //relies on sequence
     com.ontraport.app.tests.VerifySequenceEditSteps.class,
+    //end use of CreateRuleDateSequence sequence
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     
 })

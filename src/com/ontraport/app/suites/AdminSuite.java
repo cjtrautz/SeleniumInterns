@@ -45,13 +45,16 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
     com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
     
+    //used in following tests
     com.ontraport.app.tests.CreateAffilatesProgram.class,
+    //uses CreateAffilatesProgram program
     com.ontraport.app.tests.EditAffilatesProgramNotify.class,
     com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
     com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
     com.ontraport.app.tests.EditAffilatesProgramInformation.class,
     com.ontraport.app.tests.EditAffilatesProgramType.class,
     com.ontraport.app.tests.EditAffilatesProgramName.class,
+    //end use of CreateAffilatesProgram program
     com.ontraport.app.tests.DeleteAffiliateProgram.class,
     
     com.ontraport.app.tests.VideoManagerBack.class,
@@ -87,7 +90,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //  com.ontraport.app.tests.EditPostcardPictureCircle.class,
 //  com.ontraport.app.tests.EditPostcardPictureRounded.class,
 //  com.ontraport.app.tests.DeletePostcardPictureMessageAndCheckSelectImage.class,
-////
+//
 //com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
 //com.ontraport.app.tests.EditPostcardGradientOpacity.class,
 //com.ontraport.app.tests.EditPostcardToggleVertAndHorz.class,

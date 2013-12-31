@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.User_Edit;
+import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractTest;
 
 public class ChangeUserInfo extends AbstractTest
@@ -85,7 +86,7 @@ public class ChangeUserInfo extends AbstractTest
         user_Edit.enterLastName("Cross");
         user_Edit.clickLastNameSave();
         user_Edit.clickEmail();
-        user_Edit.enterEmail("nick@ontraport.com");
+        user_Edit.enterEmail(AbstractPage.getLogin());
         user_Edit.clickEmailSave();
         user_Edit.clickTelephone();
         user_Edit.enterTelephone("6082980004");
@@ -100,7 +101,7 @@ public class ChangeUserInfo extends AbstractTest
         user_Edit.enterEmailFrom("Nick");
         user_Edit.clickEmailFromSave();
         user_Edit.clicReplyTo();
-        user_Edit.enterReplyTo("njcross1990@gmail.com");
+        user_Edit.enterReplyTo(AbstractPage.getLogin());
         user_Edit.clickReplyToSave();
         contactListAll = user_Edit.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
@@ -114,7 +115,7 @@ public class ChangeUserInfo extends AbstractTest
         {
             fail("couldn't find real last Name");
         }
-        if(user_Edit.verifyEmail("nick@ontraport.com")==null)
+        if(user_Edit.verifyEmail(AbstractPage.getLogin())==null)
         {
             fail("couldn't find email");
         }
@@ -134,7 +135,7 @@ public class ChangeUserInfo extends AbstractTest
         {
             fail("couldn't find email from");
         }
-        if(user_Edit.verifyReplyTo("njcross1990@gmail.com")==null)
+        if(user_Edit.verifyReplyTo(AbstractPage.getLogin())==null)
         {
             fail("couldn't find reply to");
         }
