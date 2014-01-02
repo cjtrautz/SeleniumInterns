@@ -214,7 +214,7 @@ public class WordPress_Edit extends AbstractPage
                             System.out.println(driver.getCurrentUrl());
                             if(driver.getCurrentUrl().equals("http://wordpress.org/plugins/pilotpress/"))
                             {
-                                driver.close();
+                                //driver.close();
                                 driver.switchTo().window(parentWindow);
                                 return this;
                             }

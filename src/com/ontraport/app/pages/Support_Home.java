@@ -144,7 +144,7 @@ public class Support_Home extends AbstractPage
             driver.switchTo().window(parentWindow);
             return null;
         }
-        driver.close();
+        //driver.close();
         driver.switchTo().window(parentWindow);
         return this;
     }
