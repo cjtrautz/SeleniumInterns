@@ -38,6 +38,7 @@ public class SignUp extends AbstractTest
         ontraport_SignUp.enterPasswordAgain(value.get("SignUp", "pass"));
         ontraport_SignUp.checkAgreeToTerms();
         ontraport_SignUp.clickCreateMyAccount();
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         ontraport_SignUp.dialogBox.enterSubDomain(value.get("SignUp", "first_name") + AbstractSuite.UNIQUE);
         ontraport_SignUp.dialogBox.enterReplyToName(value.get("SignUp", "email"));
         ontraport_SignUp.dialogBox.enterBusinessName(value.get("SignUp", "business"));

@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebElement;
@@ -200,6 +201,7 @@ public class WordPress_Edit extends AbstractPage
         String parentWindow = driver.getWindowHandle();
         try
         {
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", pilotPressLink);
             pilotPressLink.click();
             Set<String> allWindows = driver.getWindowHandles();
             if(!allWindows.isEmpty())
