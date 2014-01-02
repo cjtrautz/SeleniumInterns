@@ -22,7 +22,7 @@ public class WordPress_Edit extends AbstractPage
     private WebElement websiteName;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-hosted-domain-selector-subdomain ')]//input[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-hosted-domain-selector-subdomain ')]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input ')]")
     private WebElement domainName;
     
     @FindBy(how = How.XPATH,
@@ -77,7 +77,7 @@ public class WordPress_Edit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            String compare = domainName.getAttribute("value");
+            String compare = domainName.getText();
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)

@@ -31,8 +31,14 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button ')]//span[text()='Use this Template']")
     private WebElement useThisTemplate;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' confirmation ')]")
-    private List<WebElement> confirmationBoxes;
+            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation1 ')]")
+    private WebElement confirmationBox1;
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation2 ')]")
+    private WebElement confirmationBox2;
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation3 ')]")
+    private WebElement confirmationBox3;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-package-manager-dialog ')]//div[@class='clearfix']")
     private List<WebElement> packageOptions;
@@ -179,7 +185,7 @@ public class DialogBox extends AbstractPart
             using = "//input[@value='Accept' and @class='btn2']")
     private WebElement buttonAccept;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//input[@type='BUTTON' and @value='Accept']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ') and not(contains(concat(' ', normalize-space(@style), ' '), ' display: none; '))]//input[@type='BUTTON' and @value='Accept' and not(contains(concat(' ', normalize-space(@class), ' '), ' btn2 '))]")
     private WebElement buttonAcceptHTML;
     @FindBy(how = How.XPATH,
             using = "//input[@value='Accept' and @type='BUTTON']")
@@ -1143,22 +1149,22 @@ public class DialogBox extends AbstractPart
     public DialogBox checkIKnowDeleted ()
     {
         //AbstractPart.waitForAjax(driver, 20);
-        wait(30).until(ExpectedConditions.visibilityOf(confirmationBoxes.get(0)));
-        confirmationBoxes.get(0).click();
+        wait(30).until(ExpectedConditions.visibilityOf(confirmationBox1));
+        confirmationBox1.click();
         return this;
     }
     public DialogBox checkIKnowNoRecovery ()
     {
         //AbstractPart.waitForAjax(driver, 20);
-        wait(30).until(ExpectedConditions.visibilityOf(confirmationBoxes.get(1)));
-        confirmationBoxes.get(1).click();
+        wait(30).until(ExpectedConditions.visibilityOf(confirmationBox2));
+        confirmationBox2.click();
         return this;
     }
     public DialogBox checkIKnowStopWorking ()
     {
         //AbstractPart.waitForAjax(driver, 20);
-        wait(30).until(ExpectedConditions.visibilityOf(confirmationBoxes.get(2)));
-        confirmationBoxes.get(2).click();
+        wait(30).until(ExpectedConditions.visibilityOf(confirmationBox3));
+        confirmationBox3.click();
         return this;
     }
     public Login clickCancelAccount ()

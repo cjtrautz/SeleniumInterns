@@ -37,6 +37,7 @@ public class CreateLandingPageWithHTML extends AbstractTest
         landingPage_CreateType1.dialogBox.clickUseHostedDomain();
         landingPage_CreateType1.dialogBox.enterHostedDomainName(value.get("LandingPages", "Easy_Landing_Page_HTML") + AbstractSuite.UNIQUE);
         landingPage_CreateType1.dialogBox.clickAccept();
+        //landingPage_CreateType1.dialogBox.clickCancel();
         landingPage_CreateType1.clickNewItem();
         landingPage_CreateType1.dialogBox.clickHTML();
         landingPage_CreateType1.clickEditHTML();

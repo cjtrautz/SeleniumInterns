@@ -345,19 +345,31 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notification))); 
             if(!notification.isDisplayed())
             {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
             wait.until(ExpectedConditions.visibilityOf(notificationClose));
             notificationClose.click();
-            wait.until(ExpectedConditions.refreshed(ExpectedConditions.not(ExpectedConditions.visibilityOf(notification)))); 
+            //wait.until(ExpectedConditions.refreshed(ExpectedConditions.not(ExpectedConditions.visibilityOf(notification)))); 
         }
         catch(Exception e)
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         return this;
     }
     public Contact_ListAll verifyBeingProcessedAndClose ()
@@ -365,9 +377,15 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notification2)));  
             if(!notification2.isDisplayed())
             {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
             System.out.println("here");
@@ -376,8 +394,14 @@ public class Contact_ListAll extends AbstractPage
         }
         catch(Exception e)
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         return this;
     }
     public Contact_ListAll verifyDoneAndClick ()
@@ -385,9 +409,15 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notification3)));  
             if(!notification3.isDisplayed())
             {
+                driver.manage()
+                .timeouts()
+                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
             wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(notificationGo)));  
@@ -395,9 +425,15 @@ public class Contact_ListAll extends AbstractPage
         }
         catch(Exception e)
         {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             e.printStackTrace();
             return null;
         }
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         driver.navigate().refresh();
         AbstractPart.waitForAjax(driver, 20);
         return this;

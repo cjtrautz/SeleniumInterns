@@ -25,6 +25,7 @@ public class DeleteTrackedDomain extends AbstractTest
         trackedDomain_ListAll.formSearch.find(AbstractSuite.UNIQUE + ".com");
         trackedDomain_ListAll.selectAll();
         trackedDomain_ListAll.drawerActions.clickDeleteTrackedDomain();
+        trackedDomain_ListAll.dialogBox.clickOk();
         
         if(trackedDomain_ListAll.verifyNoDomain()==null)
         {
