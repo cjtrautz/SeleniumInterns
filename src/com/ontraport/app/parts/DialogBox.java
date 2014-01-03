@@ -173,6 +173,9 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-custom-value-creator-target-save-button ')]/span[contains(text(), 'Add')]")
     private WebElement addButton;
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-buttons ')]//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]")
+    private WebElement acceptButton;
+    @FindBy(how = How.XPATH,
             using = "//div[text()='Errors have prevented you from advancing to the next step. Please make sure you have accepted (checked) all the terms of the Usage Agreement']")
     private WebElement usageAgreement;
     @FindBy(how = How.XPATH,

@@ -28,7 +28,7 @@ public class OPPackage_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//span[text()='(Add a package)']")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' add_package ')]")
     private WebElement addPackage;
     
     @FindBy(
@@ -47,6 +47,7 @@ public class OPPackage_View extends AbstractPage
     public OPPackage_View clickAddPackage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addPackage));
         addPackage.click();
         return this;
         

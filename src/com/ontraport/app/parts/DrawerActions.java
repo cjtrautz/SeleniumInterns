@@ -268,6 +268,26 @@ public class DrawerActions extends AbstractPart
         private WebElement termDropDown;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-campaign ')]//input")
+        private WebElement campaignDropDownInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-lead-source ')]//input")
+        private WebElement leadSourceDropDownInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-medium ')]//input")
+        private WebElement mediumDropDownInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-content ')]//input")
+        private WebElement contentDropDownInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-term ')]//input")
+        private WebElement termDropDownInput;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-action-create-url ')]")
         private WebElement createURL;
     
@@ -972,6 +992,41 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(uiDelete));
         uiDelete.click();
+        return this;
+    }
+    public DrawerActions enterCampaignDropDown ( String unique )
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(campaignDropDownInput));
+        campaignDropDownInput.sendKeys(unique);
+        return this;
+    }
+    public DrawerActions enterLeadSourceDropDown ( String valueOf )
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(leadSourceDropDownInput));
+        leadSourceDropDownInput.sendKeys(valueOf);
+        return this;
+    }
+    public DrawerActions enterMediumDropDown ( String valueOf )
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(mediumDropDownInput));
+        mediumDropDownInput.sendKeys(valueOf);
+        return this;
+    }
+    public DrawerActions enterContentDropDown ( String valueOf )
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(contentDropDownInput));
+        contentDropDownInput.sendKeys(valueOf);
+        return this;
+    }
+    public DrawerActions enterTermDropDown ( String valueOf )
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(termDropDownInput));
+        termDropDownInput.sendKeys(valueOf);
         return this;
     }
 

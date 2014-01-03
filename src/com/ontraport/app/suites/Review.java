@@ -21,7 +21,7 @@ import com.ontraport.app.tools.AbstractSuite;
     //com.ontraport.app.tests.MoveATab.class,
 //    com.ontraport.app.tests.NameATab.class,
 //    
-    com.ontraport.app.tests.CreateTab.class,
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
     com.ontraport.app.tests.DeleteTab.class,
 //    
 //    com.ontraport.app.tests.CreateTrackingURL.class,

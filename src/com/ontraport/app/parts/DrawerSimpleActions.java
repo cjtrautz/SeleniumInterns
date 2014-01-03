@@ -22,7 +22,7 @@ public class DrawerSimpleActions extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[a[span[text()='Actions']]]/descendant::a/span[@class='ussr-icon ussr-icon-mail-closed']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
     private WebElement addPermissionException;
     
     @FindBy(
@@ -47,8 +47,8 @@ public class DrawerSimpleActions extends AbstractPart
     public DrawerSimpleActions clickAddPermissionException ()
     {
         waitForAjax(driver, 20);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", deleteException);
-        wait(10).until(ExpectedConditions.visibilityOf(deleteException));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addPermissionException);
+        wait(10).until(ExpectedConditions.visibilityOf(addPermissionException));
         addPermissionException.click();
         return this; 
         
