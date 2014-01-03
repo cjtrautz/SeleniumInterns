@@ -239,7 +239,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' sender_new_email ')]//input")
     private WebElement newEmailInput;
     @FindBy(how = How.XPATH,
-            using = "//div[@class='ussr-dialog-buttons']//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]/span[text()='Add E-Mail']")
+            using = "//div[@class='ussr-dialog-buttons']//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]/span[text()='Add Email']")
     private WebElement addEmail;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Agree']")

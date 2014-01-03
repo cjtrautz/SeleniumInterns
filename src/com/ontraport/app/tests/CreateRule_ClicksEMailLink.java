@@ -21,9 +21,9 @@ public class CreateRule_ClicksEMailLink extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleClicksEmailLink");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Clicks an E-mail link");
+        rule_Create.selectWhenDrillDownPaneOption("Clicks an Email link");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Any E-Mail");
+        rule_Create.selectWhenDrillDownPaneOption("Any Email");
         rule_Create.enterWhenInput("0", 2);
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");
@@ -44,7 +44,7 @@ public class CreateRule_ClicksEMailLink extends AbstractTest
         {
             fail("didnt select email links");
         }
-        if(rule_Edit.verifyWhenDropDownInputText(1, "Any E-Mail")==null)
+        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Email")==null)
         {
             fail("didnt select any email link");
         }

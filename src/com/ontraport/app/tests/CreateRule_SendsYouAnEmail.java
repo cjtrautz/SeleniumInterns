@@ -21,7 +21,7 @@ public class CreateRule_SendsYouAnEmail extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleSendsYouAnEmail");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Sends you an E-mail");
+        rule_Create.selectWhenDrillDownPaneOption("Sends you an Email");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");
         rule_ListAll = rule_Create.clickSave();
@@ -33,7 +33,7 @@ public class CreateRule_SendsYouAnEmail extends AbstractTest
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule("SelRuleSendsYouAnEmail");
-        if(rule_Edit.verifyText("Sends you an E-mail")==null)
+        if(rule_Edit.verifyText("Sends you an Email")==null)
         {
             fail("didnt select sends you an email");
         }

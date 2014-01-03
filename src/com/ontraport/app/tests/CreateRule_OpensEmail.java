@@ -21,9 +21,9 @@ public class CreateRule_OpensEmail extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleOpensEmail");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Opens E-mail");
+        rule_Create.selectWhenDrillDownPaneOption("Opens Email");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Any E-Mail");
+        rule_Create.selectWhenDrillDownPaneOption("Any Email");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");
         rule_ListAll = rule_Create.clickSave();
@@ -39,7 +39,7 @@ public class CreateRule_OpensEmail extends AbstractTest
         {
             fail("didnt select opens email");
         }
-        if(rule_Edit.verifyWhenDropDownInputText(1, "Any E-Mail")==null)
+        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Email")==null)
         {
             fail("didnt select any email");
         }
