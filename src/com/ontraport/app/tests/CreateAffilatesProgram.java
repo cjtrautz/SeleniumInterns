@@ -31,6 +31,8 @@ public class CreateAffilatesProgram extends AbstractTest
         affiliateProgram_Create.clickNotifySomeoneDropDown();
 //        affiliateProgram_Create.createCustomEmail();
         affiliateProgram_Create.selectDrillDown("Send Email Notification");
+        affiliateProgram_Create.clickEmailDropDown();
+        affiliateProgram_Create.selectDrillDown(value.get("Messages", "email_message"));
 //        affiliateProgram_Create.clickSelect();
         affiliateProgram_ListAll = affiliateProgram_Create.clickSave();
         affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_name"));

@@ -31,6 +31,8 @@ public class CreateAffiliatesProgramWithFullNameAndDeclinedTrans extends Abstrac
         affiliateProgram_Create.clickShowAffiliateInfoOnDelinedCharges();
         affiliateProgram_Create.clickNotifySomeoneDropDown();
         affiliateProgram_Create.selectDrillDown("Send Email Notification");
+        affiliateProgram_Create.clickEmailDropDown();
+        affiliateProgram_Create.selectDrillDown(value.get("Messages", "email_message"));
 //        affiliateProgram_Create.enterCustomEmail(value.get("Partners", "partner_email"));
 //        affiliateProgram_Create.clickSelect();
         affiliateProgram_ListAll = affiliateProgram_Create.clickSave();

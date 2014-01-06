@@ -19,7 +19,7 @@ public class CreateLandingPage extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
-        LandingPage_ListAll landingPage_ListAll = contactListAll.menuPrimary.clickLandingPageListAll1();
+        LandingPage_ListAll landingPage_ListAll = contactListAll.menuPrimary.clickLandingPageListAll2();
         LandingPage_TypeSelection landingPage_TypeSelection = landingPage_ListAll.clickNewLandingPage();
         LandingPage_CreateType1 landingPage_CreateType1 = landingPage_TypeSelection.clickCreateEasyPages();
         landingPage_CreateType1.enterLandingPageName(value.get("LandingPages", "Easy_Landing_Page"));

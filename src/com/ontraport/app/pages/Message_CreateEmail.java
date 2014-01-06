@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -159,6 +160,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail openMergeFieldPane ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMergeFieldPane));
         toggleMergeFieldPane.click();
         return this;
         
@@ -167,7 +169,8 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail selectMergeField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")));
+        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")));
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']"))));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
     }

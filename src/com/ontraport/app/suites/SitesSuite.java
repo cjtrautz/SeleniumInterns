@@ -19,7 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
-    com.ontraport.app.tests.ImportContacts.class,
+    //com.ontraport.app.tests.ImportContacts.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateAWordPressSite.class,

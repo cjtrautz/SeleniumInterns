@@ -1548,7 +1548,7 @@ public class Message_Edit extends AbstractPage
             .timeouts()
             .implicitlyWait(0, TimeUnit.SECONDS);
             driver.switchTo().frame(iFrame2);
-            WebElement link = driver.findElement(By.xpath("//a[text()='" + string + "']"));
+            WebElement link = driver.findElement(By.xpath("//a[contains(text(), '" + string + "')]"));
             System.out.println(link.getAttribute("href"));
             if(link.getAttribute("href")==null)
             {

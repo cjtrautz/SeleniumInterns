@@ -476,8 +476,8 @@ public class DialogBox extends AbstractPart
     public DialogBox clickAccept ()
     {
         waitForAjax(driver, 20);
-        wait(30).until(ExpectedConditions.visibilityOf(buttonAccept));
-        buttonAccept.click();
+        wait(30).until(ExpectedConditions.visibilityOf(acceptButton));
+        acceptButton.click();
         return this;
         
     }
@@ -1209,9 +1209,11 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(ifEvents));
-        //ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
+        ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
         Actions action = new Actions(driver);
-        action.click(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        wait(30).until(ExpectedConditions.visibilityOf(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))));
+        //action.click(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        action.sendKeys(Keys.ENTER).build().perform();
         //action.release().build().perform();
         return this;
     }
@@ -1240,9 +1242,11 @@ public class DialogBox extends AbstractPart
     {
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(thenEvents));
-        //thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
+        thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
         Actions action = new Actions(driver);
-        action.click(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        wait(30).until(ExpectedConditions.visibilityOf(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))));
+        //action.click(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        action.sendKeys(Keys.ENTER).build().perform();
         //action.release().build().perform();
         return this;
     }

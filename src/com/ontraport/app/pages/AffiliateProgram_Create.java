@@ -68,6 +68,11 @@ public class AffiliateProgram_Create extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_object_selector ')]//button")
+    private WebElement emailSendDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//button[contains(concat(' ', @class, ' '),' ontraport_components_button ')]//span[contains(text(), 'Cancel')]")
     private WebElement cancel;
     
@@ -179,6 +184,14 @@ public class AffiliateProgram_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (AffiliateProgram_ListAll) new AffiliateProgram_ListAll().init();
+    }
+
+    public AffiliateProgram_Create clickEmailDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailSendDropDown));
+        emailSendDropDown.click();
+        return this;
     }
     
 }
