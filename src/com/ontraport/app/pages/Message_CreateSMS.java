@@ -65,6 +65,7 @@ public class Message_CreateSMS extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
+        wait.until(ExpectedConditions.visibilityOf(messageNameInput));
         messageNameInput.click();
         messageNameInput.sendKeys(name); 
         return this;
@@ -72,6 +73,7 @@ public class Message_CreateSMS extends AbstractPage
     public Message_CreateSMS openMergeFieldPane ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMergeFieldPane));
         toggleMergeFieldPane.click();
         return this;
         
@@ -80,15 +82,18 @@ public class Message_CreateSMS extends AbstractPage
     public Message_CreateSMS selectMergeField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']"))));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[text()='[Warning! This message contains merge fields; it could produce very large output.]']")));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//textarea"))));
         driver.findElement(By.xpath("//textarea")).sendKeys("Sel");
         return this;
     }
     public Message_CreateSMS selectMergeField2 ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']"))));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
     }

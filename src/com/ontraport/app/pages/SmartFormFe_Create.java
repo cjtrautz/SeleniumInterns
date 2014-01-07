@@ -92,6 +92,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create clickSmartFormName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smartFormName));
         smartFormName.click();
         return this;
         
@@ -100,6 +101,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create clickSellProducts ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sellProducts));
         sellProducts.click();
         return this;
     }
@@ -108,6 +110,7 @@ public class SmartFormFe_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addProducts);
+        wait.until(ExpectedConditions.visibilityOf(addProducts));
         addProducts.click();
         return this;
     }
@@ -115,6 +118,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create clickAddPaymentMethod ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addPayment));
         addPayment.click();
         return this;
     }
@@ -122,6 +126,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create clickGatewayDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(gatewayDropDown));
         gatewayDropDown.click();
         return this;
     }
@@ -129,6 +134,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//li/div[contains(text(), '" + string +"')]"))));
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']//li/div[contains(text(), '" + string +"')]")).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[contains(concat(' ', normalize-space(@class), ' '),' paymentgateway ') and contains(text(), '" + string + "')]"))));
         return this;
@@ -139,6 +145,7 @@ public class SmartFormFe_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", save);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
     }

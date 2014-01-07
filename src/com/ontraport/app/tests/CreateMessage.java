@@ -48,7 +48,11 @@ public class CreateMessage extends AbstractTest
         {
             fail("couldn't find message body");
         }
-        if(message_Edit.verifyPlainTextBody("[First Name]SelBody")==null)
+        if(message_Edit.verifyPlainTextBody("[First Name]")==null)
+        {
+            fail("couldn't find message body");
+        }
+        if(message_Edit.verifyPlainTextBody("SelBody")==null)
         {
             fail("couldn't find message body");
         }

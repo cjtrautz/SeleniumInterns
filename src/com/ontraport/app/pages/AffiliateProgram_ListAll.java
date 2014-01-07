@@ -66,6 +66,7 @@ public class AffiliateProgram_ListAll extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
         uiSelectAll.click();
         return this;
     }

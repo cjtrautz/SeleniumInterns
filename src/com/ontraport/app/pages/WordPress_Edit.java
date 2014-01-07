@@ -168,7 +168,7 @@ public class WordPress_Edit extends AbstractPage
     public WordPress_Edit verifyHosted ( String string, String password )
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.get(string + ".affcntr.com");
+        driver.get("http://" + string + ".affcntr.com");
         try
         {
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']"))));

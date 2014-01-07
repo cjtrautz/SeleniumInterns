@@ -26,7 +26,7 @@ public class GmailConfirmations extends AbstractTest
     @Test
     public void testGmailConfirmations () throws InterruptedException
     {
-        driver.get("mail.google.com");
+        driver.get("https://mail.google.com");
         try
         {
         driver.findElement(By.xpath("//*[contains(text(), 'Sign in')]")).click();

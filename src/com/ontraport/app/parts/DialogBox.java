@@ -1207,6 +1207,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox selectIfOption ( String string )
     {
+        //struggling with selecting this drop down so combined click which highlighted option and then used the enter key to select
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(ifEvents));
         ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
@@ -1240,6 +1241,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox selectThenOption ( String string )
     {
+      //struggling with selecting this drop down so combined click which highlighted option and then used the enter key to select
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(thenEvents));
         thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();

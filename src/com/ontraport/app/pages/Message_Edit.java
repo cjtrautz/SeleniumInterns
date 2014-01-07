@@ -837,6 +837,8 @@ public class Message_Edit extends AbstractPage
 
     public Message_Edit highlightText ( String string ) 
     {
+        //this works by clicking the text and highlighting by holding shift 
+        //and hitting the arrow key as many times as the length of the string
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.tagName("iframe"));
         wait.until(ExpectedConditions.visibilityOf(iFrame2)); 
@@ -966,7 +968,7 @@ public class Message_Edit extends AbstractPage
         driver.findElement(By.tagName("iframe"));
         wait.until(ExpectedConditions.visibilityOf(iFrame2)); 
         driver.switchTo().frame(iFrame2);
-        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        WebElement text = driver.findElement(By.xpath("//body[contains(., '" + string + "')]"));
         text.click();
         Actions action = new Actions(driver);
         action.keyDown(Keys.SHIFT).build().perform();
@@ -1493,11 +1495,12 @@ public class Message_Edit extends AbstractPage
 
     public Message_Edit clickText ( String string )
     {
+        //this highlights the message's text by clicking and holding shift while u
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.tagName("iframe"));
         wait.until(ExpectedConditions.visibilityOf(iFrame2));
         driver.switchTo().frame(iFrame2);
-        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        WebElement text = driver.findElement(By.xpath("//body[contains(., '" + string + "')]"));
         text.click();
         Actions action = new Actions(driver);
         action.keyDown(Keys.SHIFT).build().perform();
@@ -1654,11 +1657,6 @@ public class Message_Edit extends AbstractPage
         try
         {
             System.out.println(driver.getCurrentUrl());
-            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + "js/ckeditor/lib/plugins/preview/preview.html"))
-            {
-                driver.switchTo().window(parentWindow);
-                return null; 
-            }
             String compare = driver.findElement(By.xpath("//p")).getText();
             System.out.println(compare);
             if(!compare.equals(string))
@@ -2196,7 +2194,7 @@ public class Message_Edit extends AbstractPage
         try
         {
             System.out.println("here");
-            driver.findElement(By.xpath("//body[contains(concat(' ', normalize-space(@style), ' '),' hidden; z-index: 9995; ')]"));
+            driver.findElement(By.xpath("//body[contains(concat(' ', normalize-space(@style), ' '),' z-index: 9995; ')]"));
         }
         catch(NoSuchElementException e){
             return null;

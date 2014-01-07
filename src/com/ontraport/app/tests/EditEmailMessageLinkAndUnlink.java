@@ -21,7 +21,7 @@ public class EditEmailMessageLinkAndUnlink extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "editable_email_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "editable_email_message"));
-        message_Edit.clickText(value.get("Messages", "editable_email_body"));
+        message_Edit.highlightText(value.get("Messages", "editable_email_body"));
         message_Edit.clickLinkText();
         message_Edit.ckEditorDialogBox.enterURL("www.ontraport.com");
         message_Edit.ckEditorDialogBox.clickOk(0);

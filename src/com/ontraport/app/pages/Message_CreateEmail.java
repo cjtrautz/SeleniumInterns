@@ -100,6 +100,7 @@ public class Message_CreateEmail extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
+        wait.until(ExpectedConditions.visibilityOf(messageNameInput));
         messageNameInput.click();
         messageNameInput.sendKeys(name); 
         return this;
@@ -108,6 +109,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail enterSendOutName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sendOutNameInput));
         sendOutNameInput.sendKeys(name);
         return this;
         
@@ -116,6 +118,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail enterReplyToEmail ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(replyToEmailInput));
         replyToEmailInput.sendKeys(name);
         return this;
         
@@ -124,6 +127,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail openMailFromPane ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(toggleMailFromPane));
         toggleMailFromPane.click();
         return this;
         
@@ -132,7 +136,9 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail selectMailFrom ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane));
         List<WebElement> selectionOptions = mailFromPane.findElements(By.xpath(".//li/div"));
+        wait.until(ExpectedConditions.visibilityOf(selectionOptions.get(i-1)));
         selectionOptions.get(i-1).click();
         return this;
         
@@ -141,6 +147,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail enterSubject ( String subject )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(subjectInput));
         subjectInput.sendKeys(subject);
         return this;
         
@@ -150,7 +157,7 @@ public class Message_CreateEmail extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.switchTo().frame(iFrameMessage);
-        body.sendKeys(string);
+        //body.sendKeys(string);
         ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
@@ -169,7 +176,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail selectMergeField ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")));
         wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']"))));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
         return this;
@@ -178,6 +185,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (Message_ListAll) new Message_ListAll().init();
     }
@@ -185,6 +193,7 @@ public class Message_CreateEmail extends AbstractPage
     public Message_CreateEmail clickSource ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sourceButton));
         sourceButton.click();
         return this;
     }

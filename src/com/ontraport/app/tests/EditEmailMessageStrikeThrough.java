@@ -21,7 +21,7 @@ public class EditEmailMessageStrikeThrough extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "editable_email_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "editable_email_message"));
-        message_Edit.highlightTextRight(value.get("Messages", "editable_email_body"));
+        message_Edit.highlightText(value.get("Messages", "editable_email_body"));
         message_Edit.clickStrikeThroughEmail();
         message_Edit.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "editable_email_message"));

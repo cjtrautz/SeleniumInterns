@@ -36,7 +36,7 @@ public class EditEmailMessageInsertImage extends AbstractTest
         message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
         message_Edit.clickMailImage();
         message_Edit.clickCKEditorImage();
-        if(message_Edit.ckEditorDialogBox.verifyURL("https://lh3.googleusercontent.com/-5L0rfiolByw/AAAAAAAAAAI/AAAAAAAAAAA/i9lUvSgKLDM/s48-c-k/photo.jpg")==null)
+        if(message_Edit.ckEditorDialogBox.verifyURL("https://lh3.googleusercontent.com/-5L0rfiolByw/AAAAAAAAAAI/AAAAAAAAAAA/i9lUvSgKLDM/s48-c-k/photo.jpg", 1)==null)
         {
             fail("couldn't find url of picture");
         }

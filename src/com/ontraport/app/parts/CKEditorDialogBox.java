@@ -49,12 +49,14 @@ public class CKEditorDialogBox extends AbstractPart
     public CKEditorDialogBox enterURL ( String string, int index )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(urlInput.get(index)));
         urlInput.get(index).sendKeys(string);
         return this;
     }
     public CKEditorDialogBox enterURL ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(urlInput.get(0)));
         urlInput.get(0).sendKeys(string);
         return this;
     }
@@ -62,6 +64,7 @@ public class CKEditorDialogBox extends AbstractPart
     public CKEditorDialogBox clickOk (int i)
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(ok.get(i)));
         ok.get(i).click();
         return this;
     }
@@ -71,26 +74,15 @@ public class CKEditorDialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(30).until(ExpectedConditions.visibilityOf(urlInput.get(0)));
             System.out.println(urlInput.get(0).getAttribute("value"));
             String compare = urlInput.get(0).getAttribute("value");
             if(compare.equals(string)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -102,26 +94,15 @@ public class CKEditorDialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(30).until(ExpectedConditions.visibilityOf(urlInput.get(0)));
             System.out.println(urlInput.get(0).getAttribute("value"));
             String compare = urlInput.get(0).getAttribute("value");
             if(compare.contains(string)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -132,28 +113,17 @@ public class CKEditorDialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(10).until(ExpectedConditions.visibilityOf(urlInput.get(index)));
             System.out.println(urlInput.get(index).getAttribute("value"));
             String compare = urlInput.get(index).getAttribute("value");
-            if(compare.equals(string)!=true)
+            if(compare.contains(string)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 System.out.println("here4");
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
             System.out.println("here5");
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -165,26 +135,15 @@ public class CKEditorDialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            wait(30).until(ExpectedConditions.visibilityOf(urlInput.get(index)));
             System.out.println(urlInput.get(index).getAttribute("value"));
             String compare = urlInput.get(index).getAttribute("value");
             if(compare.contains(string)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -194,6 +153,7 @@ public class CKEditorDialogBox extends AbstractPart
     public CKEditorDialogBox clickSelectHostedImage (int i)
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(selectHostedImage.get(i)));
         selectHostedImage.get(i).click();
         return this;
     }

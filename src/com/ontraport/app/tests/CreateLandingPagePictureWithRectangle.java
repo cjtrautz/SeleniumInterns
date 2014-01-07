@@ -24,7 +24,7 @@ import com.ontraport.app.tools.Values;
 public class CreateLandingPagePictureWithRectangle extends AbstractTest
 {
     @Test
-    public void testCreatePostcardPictureWithRectangle ()
+    public void testCreateLandingPagePictureWithRectangle ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

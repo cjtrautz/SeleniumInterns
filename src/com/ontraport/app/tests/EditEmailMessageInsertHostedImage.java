@@ -41,7 +41,7 @@ public class EditEmailMessageInsertHostedImage extends AbstractTest
         message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
         message_Edit.clickMailImage();
         message_Edit.clickCKEditorImage();
-        if(message_Edit.ckEditorDialogBox.verifyURLContains("http://i.ontraport.com")==null)
+        if(message_Edit.ckEditorDialogBox.verifyURLContains("http://i.ontraport.com", 1)==null)
         {
             fail("couldn't find url of picture");
         }

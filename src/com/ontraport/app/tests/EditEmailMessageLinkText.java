@@ -21,7 +21,7 @@ public class EditEmailMessageLinkText extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "email_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
-        message_Edit.clickText(value.get("Messages", "edited_message_body"));
+        message_Edit.highlightText(value.get("Messages", "edited_message_body"));
         message_Edit.clickLinkText();
         message_Edit.ckEditorDialogBox.enterURL("www.ontraport.com");
         message_Edit.ckEditorDialogBox.clickOk(0);
@@ -35,12 +35,13 @@ public class EditEmailMessageLinkText extends AbstractTest
         }
 
         message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
-        if(message_Edit.verifyLinkText(value.get("Messages", "edited_message_body"), "www.ontraport.com")==null)
+        if(message_Edit.verifyLinkText(value.get("Messages", "edited_message_body"), "http://www.ontraport.com")==null)
         {
             fail("couldn't find link text");
         }
-        message_Edit.clickText(value.get("Messages", "edited_message_body"));
+        message_Edit.highlightText(value.get("Messages", "edited_message_body"));
         message_Edit.clickLinkText();
+        //Thread.sleep(4000);
         if(message_Edit.ckEditorDialogBox.verifyURL("www.ontraport.com", 1)==null)
         {
             fail("couldn't find filled out link");

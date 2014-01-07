@@ -69,7 +69,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSMSMessage.class,
     
     com.ontraport.app.tests.CreateLandingPage.class,
-
     com.ontraport.app.tests.DeleteLandingPage.class,
     
     com.ontraport.app.tests.UploadToAttachmentManager.class,
@@ -108,7 +107,7 @@ public class Production extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com/");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

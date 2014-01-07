@@ -21,7 +21,7 @@ public class EditEmailMessageAlignment extends AbstractTest
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find(value.get("Messages", "email_message"));
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "email_message"));
-        message_Edit.clickText(value.get("Messages", "edited_message_body"));
+        message_Edit.highlightText(value.get("Messages", "edited_message_body"));
         message_Edit.clickAlignCenterEmail();
         message_ListAll = message_Edit.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "email_message"));
@@ -37,6 +37,10 @@ public class EditEmailMessageAlignment extends AbstractTest
         {
             fail("couldn't find centered text");
         }
+        message_Edit.clickText(value.get("Messages", "edited_message_body"));
+        message_Edit.clickAlignLeftEmail();
+        message_ListAll = message_Edit.clickSave();
+        message_ListAll.formSearch.find(value.get("Messages", "email_message"));
 
 
     }
