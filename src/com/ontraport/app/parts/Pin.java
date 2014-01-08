@@ -3,6 +3,7 @@ package com.ontraport.app.parts;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPart;
 
@@ -19,6 +20,7 @@ public class Pin extends AbstractPart
     public Pin pin ()
     {
         waitForAjax(driver, 20);
+        wait(10).until(ExpectedConditions.visibilityOf(unPinned));
         unPinned.click();
         return this;
         
@@ -27,6 +29,7 @@ public class Pin extends AbstractPart
     public Pin unPin ()
     {
         waitForAjax(driver, 20);
+        wait(10).until(ExpectedConditions.visibilityOf(pinned));
         pinned.click();
         return this;
         

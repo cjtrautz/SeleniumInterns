@@ -6,8 +6,10 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.tools.AbstractPart;
@@ -23,7 +25,7 @@ public class MenuWorkflow extends AbstractPart
     protected WebElement pageSpan;
     
     @FindBy(how = How.XPATH,
-            using = "//div[@class='ussr-workflow-menu-close position-absolute-zero']//a[@class='ussr-icon ussr-icon-circle-file']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-workflow-menu-close ')]//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon ')]")
     protected WebElement workflowClose;
     
     @FindBy(how = How.XPATH,
@@ -50,16 +52,22 @@ public class MenuWorkflow extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' workflow-paginator ')]")
     private WebElement workflowPaginator;
     
-    public MenuWorkflow open () { 
+    public MenuWorkflow open () 
+    { 
         waitForAjax(driver, 20);
+        wait(10).until(ExpectedConditions.visibilityOf(workflowOpen));
         workflowOpen.click();
         return this; 
-        }
+        
+    }
 
     public MenuWorkflow close ()
     {
         waitForAjax(driver, 20);
-        workflowClose.click();
+        wait(10).until(ExpectedConditions.visibilityOf(workflowClose));
+        //workflowClose.click();
+        Actions action = new Actions(driver);
+        action.click(workflowClose).build().perform();
         return this; 
         
     }

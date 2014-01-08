@@ -26,6 +26,8 @@ public class EditFulfillmentWeekly extends AbstractTest
         fulfillment_Edit.selectDrillDown("Weekly");
         fulfillment_Edit.openSchedularPaneAuxilary();
         fulfillment_Edit.selectDrillDown("Sunday");
+        fulfillment_Edit.openTimeDropDown();
+        fulfillment_Edit.selectDrillDown("12:00 AM");
         fulfillment_Edit.enterEmailAddress(1, value.get("Admin", "test_email"));
         fulfillment_Edit.enterEmailSubject(1, value.get("Admin", "test"));
         fulfillment_Edit.enterEmailMessage(1, value.get("Admin", "test"));

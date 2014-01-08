@@ -536,6 +536,7 @@ public class Message_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
         messageNameInput.click();
+        messageNameInput.clear();
         messageNameInput.sendKeys(name); 
         return this;
     }

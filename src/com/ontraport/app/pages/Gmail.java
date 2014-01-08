@@ -291,7 +291,7 @@ public class Gmail extends AbstractPage
             yep = Integer.parseInt(finale);
             int hours1 = yep/100; 
             System.out.println(hours1);
-            int yep2 = (hours1*60) + (yep- (hours1*100));
+            int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
             if(stuff[2].equals("pm"))
             {
                 yep2=yep2+720;
@@ -303,7 +303,7 @@ public class Gmail extends AbstractPage
             int newTime = Integer.parseInt(finale2);
             int hours2 = newTime/100; 
             System.out.println(hours2);
-            int time2 = (hours2*60) + (newTime- (hours2*100));
+            int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
             if(stuff2[2].equals("pm"))
             {
                 time2=time2+720;
@@ -330,7 +330,7 @@ public class Gmail extends AbstractPage
                 yep = Integer.parseInt(finale);
                 int hours1 = yep/100; 
                 System.out.println(hours1);
-                int yep2 = (hours1*60) + (yep- (hours1*100));
+                int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
                 if(stuff[2].equals("pm"))
                 {
                     yep2=yep2+720;
@@ -342,7 +342,7 @@ public class Gmail extends AbstractPage
                 int newTime = Integer.parseInt(finale2);
                 int hours2 = newTime/100; 
                 System.out.println(hours2);
-                int time2 = (hours2*60) + (newTime- (hours2*100));
+                int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
                 if(stuff2[2].equals("pm"))
                 {
                     time2=time2+720;
@@ -376,7 +376,7 @@ public class Gmail extends AbstractPage
             yep = Integer.parseInt(finale);
             int hours1 = yep/100; 
             System.out.println(hours1);
-            int yep2 = (hours1*60) + (yep- (hours1*100));
+            int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
             if(stuff[2].equals("pm"))
             {
                 yep2=yep2+720;
@@ -385,7 +385,7 @@ public class Gmail extends AbstractPage
             int time = Integer.parseInt(stuff2[0] + stuff2[1]);
             int hours2 = time/100; 
             System.out.println(hours2);
-            int time2 = (hours2*60) + (time- (hours2*100));
+            int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
             if(stuff2[2].equals("PM"))
             {
                 time2=time2+720;
@@ -412,7 +412,7 @@ public class Gmail extends AbstractPage
                 yep = Integer.parseInt(finale);
                 int hours1 = yep/100; 
                 System.out.println(hours1);
-                int yep2 = (hours1*60) + (yep- (hours1*100));
+                int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
                 if(stuff[2].equals("pm"))
                 {
                     yep2=yep2+720;
@@ -421,7 +421,7 @@ public class Gmail extends AbstractPage
                 int time = Integer.parseInt(stuff2[0] + stuff2[1]);
                 int hours2 = time/100; 
                 System.out.println(hours2);
-                int time2 = (hours2*60) + (time- (hours2*100));
+                int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
                 if(stuff2[2].equals("PM"))
                 {
                     time2=time2+720;

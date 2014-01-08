@@ -23,6 +23,11 @@ public class Fulfillment_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' ussr-component-frequency-scheduler-target-time ')]//button")
+    private WebElement timeDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-fulfillment-target-fields ')]//button[span[text()='<br>']]")
     private WebElement toggleFieldSelector;
     
@@ -126,28 +131,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(fulfillmentListNameInput));
             String compare = fulfillmentListNameInput.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -159,28 +152,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(frequencySchedulerTimeInput));
             String compare = frequencySchedulerTimeInput.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -191,9 +172,6 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(fulfillmentTargetFields));
             List<WebElement> fulfillmentFieldAreas= fulfillmentTargetFields.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sortablelist-option ')]/span"));
             String compare = fulfillmentFieldAreas.get(index-1).getText();
@@ -201,19 +179,10 @@ public class Fulfillment_Edit extends AbstractPage
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -223,6 +192,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit openSchedularPanePrimary ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(frequencySchedulerButton));
         frequencySchedulerButton.click();
         return this;
     }
@@ -230,6 +200,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit selectDrillDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(drillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         drillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
@@ -237,6 +208,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit openSchedularPaneAuxilary ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(frequencyAuxilarySchedulerButton));
         frequencyAuxilarySchedulerButton.click();
         return this;
     }
@@ -252,6 +224,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit enterEmailAddress ( int i, String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(emailAddressInput.get(i-1)));
         emailAddressInput.get(i-1).clear();
         emailAddressInput.get(i-1).sendKeys(string);
         return this;
@@ -260,6 +233,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit enterEmailSubject ( int i, String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(subjectInput.get(i-1)));
         subjectInput.get(i-1).clear();
         subjectInput.get(i-1).sendKeys(string);
         return this;
@@ -268,6 +242,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit enterEmailMessage ( int i, String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(messageInput.get(i-1)));
         messageInput.get(i-1).clear();
         messageInput.get(i-1).sendKeys(string);
         return this;
@@ -278,28 +253,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(frequencySchedulerInput));
             String compare = frequencySchedulerInput.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -311,28 +274,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(frequencyAuxilarySchedulerInput));
             String compare = frequencyAuxilarySchedulerInput.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -344,28 +295,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(subjectInput.get(i-1)));
             String compare = subjectInput.get(i-1).getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -377,28 +316,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(subjectInput.get(i-1)));
             String compare = emailAddressInput.get(i-1).getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -410,28 +337,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(subjectInput.get(i-1)));
             String compare = messageInput.get(i-1).getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -443,6 +358,7 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         if(i>subjectInput.size())
         {
+            wait.until(ExpectedConditions.visibilityOf(addRecipient));
             addRecipient.click();
             return this;
         }
@@ -452,6 +368,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit deleteSendNotification ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(deleteNotification.get(i-1)));
         deleteNotification.get(i-1).click();
         return this;
     }
@@ -459,6 +376,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit verifyNoFulfillment ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-recipient-message-target-message-topic-box ')]")));
         System.out.println(driver.findElements(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-recipient-message-target-message-topic-box ')]")).size());
         if(i>=subjectInput.size())
         {
@@ -472,7 +390,8 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         if(!checkedUnsubscribeContacts.get(0).isDisplayed())
         {
-        emptyUnsubscribeContacts.click();
+            wait.until(ExpectedConditions.visibilityOf(emptyUnsubscribeContacts));
+            emptyUnsubscribeContacts.click();
         }
         return this;
     }
@@ -494,6 +413,7 @@ public class Fulfillment_Edit extends AbstractPage
         {
             return this;
         }
+        wait.until(ExpectedConditions.visibilityOf(emptyCreateATask));
         emptyCreateATask.click();
         return this;
     }
@@ -511,6 +431,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit enterDueDateBox ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dueDateBox));
         dueDateBox.sendKeys(string);
         return this;
     }
@@ -520,28 +441,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(dueDateBox));
             String compare = dueDateBox.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -551,6 +460,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit clickOwnerDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ownerDropDownButton));
         ownerDropDownButton.click();
         return this;
     }
@@ -560,28 +470,16 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(ownerDropDownInput));
             String compare = ownerDropDownInput.getAttribute("value");
             System.out.println(compare);
             //System.out.println(value);
             if(compare.equals(value)!=true)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -609,27 +507,15 @@ public class Fulfillment_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(fulfillmentTargetFields));
             List<WebElement> fulfillmentFieldAreas= fulfillmentTargetFields.findElements(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sortablelist-option ')]/span"));
             System.out.println(fulfillmentFieldAreas.size());
             if(fulfillmentFieldAreas.size()==i)
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return this;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         
@@ -647,6 +533,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_ListAll clickBack ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
     }
@@ -654,8 +541,17 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_ListAll clickCancel ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
         return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
+    }
+
+    public Fulfillment_Edit openTimeDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(timeDropDown));
+        timeDropDown.click();
+        return this;
     }
 
   

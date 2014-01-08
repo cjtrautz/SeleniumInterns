@@ -283,14 +283,14 @@ public class SitesSuite extends AbstractSuite
         AbstractPage.setLogin("ontraportselenium+1@gmail.com");
         AbstractPage.setPassword("test123");
         //AbstractPage.setUrl("https://staging.ontraport.com/");
-//        FirefoxProfile profile = new FirefoxProfile();
-//        profile.setEnableNativeEvents(true);
-//        profile.setPreference("browser.cache.disk.enable", false);
-//        profile.setPreference("browser.cache.memory.enable", false);
-//        profile.setPreference("browser.cache.offline.enable", false);
-//        profile.setPreference("network.http.use-cache", false);
-//        driver = new FirefoxDriver(profile);
-        driver = new ChromeDriver();
+        FirefoxProfile profile = new FirefoxProfile();
+        profile.setEnableNativeEvents(true);
+        profile.setPreference("browser.cache.disk.enable", false);
+        profile.setPreference("browser.cache.memory.enable", false);
+        profile.setPreference("browser.cache.offline.enable", false);
+        profile.setPreference("network.http.use-cache", false);
+        driver = new FirefoxDriver(profile);
+        //driver = new ChromeDriver();
         driver.manage()
               .timeouts()
               .implicitlyWait(DEFAULT_WAIT, TimeUnit.SECONDS);

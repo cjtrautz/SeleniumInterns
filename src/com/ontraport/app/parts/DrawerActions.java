@@ -369,7 +369,7 @@ public class DrawerActions extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
-        wait(5).until(ExpectedConditions.visibilityOf(uiDeleteAPI));
+        wait(5).until(ExpectedConditions.visibilityOf(uiDeleteTag));
         uiDeleteTag.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;

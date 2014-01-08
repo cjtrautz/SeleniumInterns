@@ -27,6 +27,9 @@ public class CreateFulfillment extends AbstractTest
         fulfillment_Create.selectTime("12:00 AM");
         fulfillment_Create.openFieldPane();
         fulfillment_Create.selectField("First Name");
+        fulfillment_Create.enterEmailNotification("sel@email.com");
+        fulfillment_Create.enterEmailSubject("selSubject");
+        fulfillment_Create.enterEmailMessage("SelMessage");
         fulfillment_ListAll = fulfillment_Create.clickSave();
         fulfillment_ListAll.formSearch.find("SelFulfillment");
         
