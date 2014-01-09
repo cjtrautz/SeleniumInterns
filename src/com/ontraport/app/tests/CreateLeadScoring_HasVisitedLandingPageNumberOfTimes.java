@@ -20,12 +20,13 @@ public class CreateLeadScoring_HasVisitedLandingPageNumberOfTimes extends Abstra
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
+        contact_ScoreEdit.enterDropDownCondition(1, "visited a landing page");
         contact_ScoreEdit.selectDrillDown("Has visited a landing page a certain number of times");
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.selectDrillDown(value.get("LandingPages", "Easy_Landing_Page"));
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Equal To");
-        contact_ScoreEdit.enterDropDownCondition(3, "1");
+        contact_ScoreEdit.enterDropDownConditionInput(3, "1");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

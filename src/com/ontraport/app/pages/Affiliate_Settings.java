@@ -34,6 +34,26 @@ public class Affiliate_Settings extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[@value='1']//span[contains(concat(' ', @class, ' '),' ussr-icon-radiobutton ')]")
+    private WebElement cookiesTimeRadioButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[@value='0']//span[contains(concat(' ', @class, ' '),' ussr-icon-radiobutton ')]")
+    private WebElement cookiesNeverRadioButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[@value='0']//span[contains(concat(' ', @class, ' '),' ussr-icon-radiobutton-selected ')]")
+    private WebElement cookiesNeverSelectedRadioButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' duration-value ')]//input")
+    private WebElement durationValueInput;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//label[contains(text(), 'Commission is paid to')]/following-sibling::div//input")
     private WebElement commisionPaidToDropDownInput;
     
@@ -195,6 +215,62 @@ public class Affiliate_Settings extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
         return (Affiliate_ListAll) new Affiliate_ListAll().init();
+    }
+
+    public Affiliate_Settings clickInASetTime ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cookiesTimeRadioButton));
+        cookiesTimeRadioButton.click();
+        return this;
+    }
+
+    public Affiliate_Settings enterCookiesInput ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(durationValueInput));
+        durationValueInput.sendKeys(string);
+        return this;
+    }
+
+    public Affiliate_Settings verifyCookiesWillExpireInput ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!durationValueInput.getAttribute("value").equals(string))
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+
+    public Affiliate_Settings clickCookiesWillExpireNever ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(cookiesNeverRadioButton));
+        cookiesNeverRadioButton.click();
+        return this;
+    }
+
+    public Object verifyCookiesWillExpireNever ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!durationValueInput.isDisplayed())
+            {
+                return null; 
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
     }
     
 }

@@ -20,7 +20,7 @@ public class CreateLeadScoring_SMSDoesntContainsAnEmailAddress extends AbstractT
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
-        contact_ScoreEdit.enterDropDownCondition(1, "sms");
+        contact_ScoreEdit.enterDropDownCondition(1, "SMS");
         contact_ScoreEdit.selectDrillDown("SMS does not contain an Email address");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");

@@ -22,7 +22,7 @@ public class CreateSMSWPFieldMessage extends AbstractTest
         Message_TypeSelection message_TypeSelection = message_ListAll.clickNewMessage();
         Message_CreateSMS message_CreateSMS = message_TypeSelection.clickSMSCreate();
         message_CreateSMS.openMergeFieldPane();
-        message_CreateSMS.enterMergeFieldInput("user");
+        message_CreateSMS.enterMergeFieldInput("User");
         message_CreateSMS.selectMergeField2("User Name");
         message_CreateSMS.openMergeFieldPane();
         message_CreateSMS.enterMergeFieldInput("pass");

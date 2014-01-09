@@ -23,6 +23,7 @@ public class CreateGatewayPayPal extends AbstractTest
         Gateway_Create gateway_Create = gateway_ListAll.clickNewGateway();
         gateway_Create.enterGatewayName(value.get("Sales", "gateway_paypal"));
         gateway_Create.clickGatewayTypeDropdown();
+        gateway_Create.enterGatewayType("PayPal");
         gateway_Create.selectDrilldownOption("PayPal");
         gateway_Create.enterlogin(value.get("Sales", "loginemail"));
         gateway_ListAll = gateway_Create.clickSave();

@@ -25,7 +25,7 @@ public class CreateLeadScoring_HasVisitedWebsiteNumberOfTimes extends AbstractTe
         contact_ScoreEdit.selectDrillDown("Any Website");
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Equal To");
-        contact_ScoreEdit.enterDropDownCondition(3, "1");
+        contact_ScoreEdit.enterDropDownConditionInput(3, "1");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

@@ -1666,5 +1666,24 @@ public class LandingPage_Edit extends AbstractPage
         return this;
     }
 
+    public LandingPage_Edit highlightText ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        WebElement iframe = driver.findElement(By.tagName("iframe"));
+        wait.until(ExpectedConditions.visibilityOf(iframe));
+        driver.switchTo().frame(iframe);
+        WebElement text = driver.findElement(By.xpath("//body[.='" + string + "']"));
+        text.click();
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.SHIFT).build().perform();
+        for(int i = 0; i<string.length(); i++)
+        {
+            action.sendKeys(Keys.ARROW_LEFT).build().perform();
+        }
+        action.keyUp(Keys.SHIFT).build().perform();
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
     
 }

@@ -23,6 +23,7 @@ public class CreateRule_HasVisitedLPNumberTimes extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
+        rule_Create.enterIfInput("landing", 1);
         rule_Create.selectIfDrillDownPaneOption("Has visited a landing page a certain number of times");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Any Landing Page");

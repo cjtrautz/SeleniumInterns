@@ -21,6 +21,7 @@ public class CreateRule_PurchasesProduct extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRulePurchasesProduct");
         rule_Create.openWhenTriggerPane(1);
+        rule_Create.enterWhenInput("Product", 1);
         rule_Create.selectWhenDrillDownPaneOption("Purchases Product");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Product");

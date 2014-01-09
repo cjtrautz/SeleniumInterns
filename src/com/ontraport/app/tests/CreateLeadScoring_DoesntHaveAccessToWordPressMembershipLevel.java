@@ -20,7 +20,7 @@ public class CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel extend
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
-        contact_ScoreEdit.enterDropDownCondition(1, "word");
+        contact_ScoreEdit.enterDropDownCondition(1, "WordPress");
         contact_ScoreEdit.selectDrillDown("Does not have access to WordPress Membership Level");
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.selectDrillDown2(value.get("WordPress", "wordpress_domain"));

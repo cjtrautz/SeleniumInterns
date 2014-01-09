@@ -20,13 +20,13 @@ public class CreateLeadScoring_HasOpenedEmailNumberOfTimes extends AbstractTest
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
-        contact_ScoreEdit.enterDropDownCondition(1, "email");
+        contact_ScoreEdit.enterDropDownCondition(1, "Email");
         contact_ScoreEdit.selectDrillDown("Has opened an Email a certain number of times");
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.selectDrillDown("Any Email");
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Equal To");
-        contact_ScoreEdit.enterDropDownCondition(3, "1");
+        contact_ScoreEdit.enterDropDownConditionInput(3, "1");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -117,6 +118,8 @@ public class Contact_ScoreEdit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownList));
         wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
+        wait.until(ExpectedConditions.elementToBeClickable(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")));
         drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
         return this;
         
@@ -336,7 +339,15 @@ public class Contact_ScoreEdit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDownInputs.get(i-1)));
         dropDownInputs.get(i-1).sendKeys(string);
-        wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")))));
+        return this;
+    }
+    
+    public Contact_ScoreEdit enterDropDownConditionInput ( int i, String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDownInputs.get(i-1)));
+        dropDownInputs.get(i-1).sendKeys(string);
         return this;
     }
 

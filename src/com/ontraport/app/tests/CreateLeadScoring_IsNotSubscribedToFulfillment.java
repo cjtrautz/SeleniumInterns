@@ -20,7 +20,7 @@ public class CreateLeadScoring_IsNotSubscribedToFulfillment extends AbstractTest
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
-        contact_ScoreEdit.enterDropDownCondition(1, "fulfillment");
+        contact_ScoreEdit.enterDropDownCondition(1, "Fulfillment");
         contact_ScoreEdit.selectDrillDown("If Contact is not subscribed to Fulfillment List");
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.selectDrillDown("Any Fulfillment List");

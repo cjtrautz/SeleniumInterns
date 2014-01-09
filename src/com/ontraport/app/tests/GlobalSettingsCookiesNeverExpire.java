@@ -22,11 +22,10 @@ public class GlobalSettingsCookiesNeverExpire extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Affiliate_Settings affiliate_Settings = contactListAll.menuPrimary.clickAffiliateSettings();
-        affiliate_Settings.clickCookiesWillExpireDropDown();
-        affiliate_Settings.selectDrillDown("Never");
+        affiliate_Settings.clickCookiesWillExpireNever();
         Affiliate_ListAll affiliate_ListAll = affiliate_Settings.clickSave();
         affiliate_Settings = affiliate_ListAll.menuPrimary.clickAffiliateSettings();
-        if(affiliate_Settings.verifyCookiesWillExpire("Never")==null)
+        if(affiliate_Settings.verifyCookiesWillExpireNever()==null)
         {
             fail("couldnt find pay affiliates by");
         }

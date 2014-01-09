@@ -23,7 +23,7 @@ public class EditLandingPageBold extends AbstractTest
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Text"));
         LandingPage_Edit landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Text"));
         landingPage_Edit.doubleClickText("test text");
-        landingPage_Edit.highlightTextRight("test text");
+        landingPage_Edit.highlightText("test text");
         landingPage_Edit.clickBold();
         landingPage_ListAll = landingPage_Edit.clickSave();
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Text"));

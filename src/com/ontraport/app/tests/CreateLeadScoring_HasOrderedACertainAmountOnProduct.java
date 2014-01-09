@@ -26,7 +26,7 @@ public class CreateLeadScoring_HasOrderedACertainAmountOnProduct extends Abstrac
         contact_ScoreEdit.selectDrillDown("Equal To");
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Any Product");
-        contact_ScoreEdit.enterDropDownCondition(2, "1");
+        contact_ScoreEdit.enterDropDownConditionInput(2, "1");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

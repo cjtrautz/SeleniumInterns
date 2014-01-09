@@ -26,7 +26,7 @@ Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contact_ScoreEdit.selectDrillDown("Any Subscription Product");
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Days");
-        contact_ScoreEdit.enterDropDownCondition(2, "1");
+        contact_ScoreEdit.enterDropDownConditionInput(2, "1");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

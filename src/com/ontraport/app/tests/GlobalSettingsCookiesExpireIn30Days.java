@@ -22,11 +22,17 @@ public class GlobalSettingsCookiesExpireIn30Days extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Affiliate_Settings affiliate_Settings = contactListAll.menuPrimary.clickAffiliateSettings();
+        affiliate_Settings.clickInASetTime();
         affiliate_Settings.clickCookiesWillExpireDropDown();
-        affiliate_Settings.selectDrillDown("30 days");
+        affiliate_Settings.selectDrillDown("Months");
+        affiliate_Settings.enterCookiesInput("30");
         Affiliate_ListAll affiliate_ListAll = affiliate_Settings.clickSave();
         affiliate_Settings = affiliate_ListAll.menuPrimary.clickAffiliateSettings();
-        if(affiliate_Settings.verifyCookiesWillExpire("30 days")==null)
+        if(affiliate_Settings.verifyCookiesWillExpireInput("30")==null)
+        {
+            fail("couldnt find pay affiliates by");
+        }
+        if(affiliate_Settings.verifyCookiesWillExpire("Months")==null)
         {
             fail("couldnt find pay affiliates by");
         }
