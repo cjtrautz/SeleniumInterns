@@ -22,7 +22,7 @@ public class AddGroup extends AbstractTest
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.clickField("First Name", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
-        contactListAll.drawerManageGroups.clickCondition("equals", 0);
+        contactListAll.drawerManageGroups.clickCondition("Equal To", 0);
         contactListAll.drawerManageGroups.enterValue("Everybody", 0, 0);
         contactListAll.drawerManageGroups.clickSave();
 

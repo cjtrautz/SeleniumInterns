@@ -21,7 +21,7 @@ public class CreateRule_VisitsALandingPage extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleVisitsLandingPage");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("landing", 1);
+        rule_Create.enterWhenInputDropDown("landing", 1);
         rule_Create.selectWhenDrillDownPaneOption("Visits a landing page");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Landing Page");

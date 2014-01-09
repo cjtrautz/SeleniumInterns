@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaLongText extends AbstractTest
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("long", 1);
+        rule_Create.enterIfInputDropDown("Long", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "Long_Text_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

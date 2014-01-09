@@ -23,7 +23,7 @@ public class CreateRule_HasOpenedEmailNumberTimes extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("opened", 1);
+        rule_Create.enterIfInputDropDown("opened", 1);
         rule_Create.selectIfDrillDownPaneOption("Has opened an Email a certain number of times");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Any Email");

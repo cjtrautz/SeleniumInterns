@@ -138,6 +138,7 @@ public class FormColumnManager extends AbstractPart
     public FormColumnManager clickCheckMark ()
     {
         waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(checkMark))); 
         checkMark.click();
         return this;
 
@@ -172,7 +173,20 @@ public class FormColumnManager extends AbstractPart
         waitForAjax(driver, 20);
         Actions action = new Actions(driver);
         wait(5).until(ExpectedConditions.visibilityOf(draggableColumn));  
-        action.dragAndDropBy(draggableColumn, i, 0).build().perform();
+        action.clickAndHold(draggableColumn );
+        action.moveByOffset(i, 0);
+        action.release(draggableColumn );
+        action.build().perform();
+        wait(5).until(ExpectedConditions.visibilityOf(draggableColumn));
+        //need to wait for column editor to settle into a place
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
         return this;
     }
     public FormColumnManager verifyColumnEarlier ( String string, int index )

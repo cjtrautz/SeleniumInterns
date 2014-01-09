@@ -22,7 +22,7 @@ public class CreateRule_LosesAccessToWordPressMembershipLevel extends AbstractTe
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "loses_acces_to_wordpress_membership_level"));
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("word", 1);
+        rule_Create.enterWhenInput("WordPress", 1);
         rule_Create.selectWhenDrillDownPaneOption("Loses access to WordPress Membership Level");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOptionContains(value.get("WordPress", "wordpress_domain") + AbstractSuite.UNIQUE + ".affcntr.com");

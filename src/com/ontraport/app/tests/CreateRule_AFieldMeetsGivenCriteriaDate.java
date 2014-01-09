@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaDate extends AbstractTest
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("date", 1);
+        rule_Create.enterIfInputDropDown("Date", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "Date_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

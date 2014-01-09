@@ -26,7 +26,7 @@ public class EnsureRulesFire extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("First Name");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("change", 1);
+        rule_Create.enterThenInputDropDown("Change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Last Name");

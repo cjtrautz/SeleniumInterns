@@ -22,7 +22,7 @@ public class CreateRule_VisitsAWPWebsite extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "visits_wp_site"));
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("si", 1);
+        rule_Create.enterWhenInputDropDown("website", 1);
         rule_Create.selectWhenDrillDownPaneOption("Visits website");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption(value.get("WordPress", "wordpress_site") + AbstractSuite.UNIQUE);

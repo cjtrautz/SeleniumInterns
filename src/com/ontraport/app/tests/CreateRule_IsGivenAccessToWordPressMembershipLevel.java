@@ -22,7 +22,7 @@ public class CreateRule_IsGivenAccessToWordPressMembershipLevel extends Abstract
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "is_given_acces_to_wordpress_membership_level"));
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("word", 1);
+        rule_Create.enterWhenInputDropDown("WordPress", 1);
         rule_Create.selectWhenDrillDownPaneOption("Is given access to WordPress Membership Level");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOptionContains(value.get("WordPress", "wordpress_domain") + AbstractSuite.UNIQUE + ".affcntr.com");

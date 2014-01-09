@@ -12,6 +12,7 @@ import com.ontraport.app.pages.SalesReport_ListAll;
 import com.ontraport.app.pages.SmartFormFe_Edit;
 import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.Sequence_ListAll;
 //import com.ontraport.app.pages.Rule_ListAll;
@@ -40,7 +41,7 @@ public class SubmitOrderForm extends AbstractTest
         smartFormFe_Edit.clickIfDropDown();
         smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
         smartFormFe_Edit.clickThenDropDown();
-        smartFormFe_Edit.enterThenInput("change", 1);
+        smartFormFe_Edit.enterThenInputForDropDown("Change", 1);
         smartFormFe_Edit.selectDropDown("Change the value of a field");
         smartFormFe_Edit.clickThenDropDown();
         smartFormFe_Edit.selectDropDown("First Name");
@@ -82,6 +83,8 @@ public class SubmitOrderForm extends AbstractTest
         {
             fail("couldn't find then 2");
         }
+        driver.navigate().refresh();
+        AbstractPart.waitForAjax(driver, 20);
         driver.get(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE + ".respond.ontraport.net");
         
         Order_Form order_Form = (Order_Form) new Order_Form().init();
@@ -107,6 +110,8 @@ public class SubmitOrderForm extends AbstractTest
             fail("did not submit");
         }
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
+        driver.navigate().refresh();
+        AbstractPart.waitForAjax(driver, 20);
         contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.formSearch.find(value.get("SmartForms", "change"));
         if(contactListAll.verifyContact(value.get("SmartForms", "change"))==null)

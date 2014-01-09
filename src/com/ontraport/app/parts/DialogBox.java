@@ -685,8 +685,19 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(priceInput));
         priceInput.click();
-        //priceInput.clear();
-        priceInput.sendKeys(string);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.SHIFT).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
+        action.sendKeys(Keys.LEFT).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
+        action.sendKeys(Keys.LEFT).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
+        action.sendKeys(Keys.LEFT).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
+        action.sendKeys(Keys.LEFT).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
+        action.keyUp(Keys.SHIFT).build().perform();
+        priceInput.sendKeys(Keys.BACK_SPACE + string);
         return this;
     }
     public DialogBox clickDone ()

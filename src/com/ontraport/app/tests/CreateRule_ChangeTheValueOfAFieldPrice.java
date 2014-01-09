@@ -23,10 +23,10 @@ public class CreateRule_ChangeTheValueOfAFieldPrice extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("change", 1);
+        rule_Create.enterThenInputDropDown("Change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("price", 1);
+        rule_Create.enterThenInputDropDown("Price", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "Price_Field"));
         rule_Create.enterThenInput("1", 2);
         rule_ListAll = rule_Create.clickSave();

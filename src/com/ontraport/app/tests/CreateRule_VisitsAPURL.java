@@ -21,7 +21,7 @@ public class CreateRule_VisitsAPURL extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleVisitsPURL");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("PURL", 1);
+        rule_Create.enterWhenInputDropDown("PURL", 1);
         rule_Create.selectWhenDrillDownPaneOption("Visits a PURL");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any PURL");

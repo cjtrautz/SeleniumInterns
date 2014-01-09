@@ -23,7 +23,7 @@ public class CreateRule_RemoveContactFromFulfillmentList extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("fulfillment", 1);
+        rule_Create.enterThenInputDropDown("Fulfillment", 1);
         rule_Create.selectThenDrillDownPaneOption("Remove Contact from Fulfillment List");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("SelFulfillment");

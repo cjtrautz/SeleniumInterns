@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,7 +43,9 @@ public class TrackingUrlHistory_ListAll extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
-        uiSelectAll.click();
+        wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
+        Actions action = new Actions(driver);
+        action.click(uiSelectAll).build().perform();
         return this;
     }
 

@@ -21,7 +21,7 @@ public class CreateRule_VisitsAURL extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleVisitsURL");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("URL", 1);
+        rule_Create.enterWhenInputDropDown("URL", 1);
         rule_Create.selectWhenDrillDownPaneOption("Contact visits URL");
         rule_Create.enterWhenInput("www.google.com", 1);
         rule_Create.openThenActionPane(1);

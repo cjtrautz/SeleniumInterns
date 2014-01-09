@@ -23,10 +23,10 @@ public class CreateWPFieldTaskMessage extends AbstractTest
         Message_CreateTask message_CreateTask = message_TypeSelection.clickTaskCreate();
         message_CreateTask.enterTaskName(value.get("Messages", "wp_task_message"));
         message_CreateTask.clickMergeFieldsDropDown();
-        message_CreateTask.enterMergeFieldPane("user");
+        message_CreateTask.enterMergeFieldPane("User");
         message_CreateTask.selectDropDownOption("User Name");
         message_CreateTask.clickMergeFieldsDropDown();
-        message_CreateTask.enterMergeFieldPane("pass");
+        message_CreateTask.enterMergeFieldPane("Pass");
         message_CreateTask.selectDropDownOption("Password");
         message_ListAll = message_CreateTask.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "wp_task_message"));

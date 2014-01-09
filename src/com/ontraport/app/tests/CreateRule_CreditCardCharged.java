@@ -21,7 +21,7 @@ public class CreateRule_CreditCardCharged extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleCreditCardCharged");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("Credit", 1);
+        rule_Create.enterWhenInputDropDown("Credit", 1);
         rule_Create.selectWhenDrillDownPaneOption("Credit card is charged or declined");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Charged");

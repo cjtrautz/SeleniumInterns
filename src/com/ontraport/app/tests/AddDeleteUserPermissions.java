@@ -22,7 +22,7 @@ public class AddDeleteUserPermissions extends AbstractTest
         user_Edit.drawerPermissionException.openPermissionExceptionPane();
         user_Edit.drawerPermissionException.clickPermissionException("Can View Contacts");
         user_Edit.drawerPermissionException.openPermissionFeaturesPane();
-        user_Edit.drawerPermissionException.clickCanViewContacts("All)");
+        user_Edit.drawerPermissionException.clickCanViewContacts("Visible");
         user_Edit.drawerPermissionException.clickAddException();
         
         //verify Permission

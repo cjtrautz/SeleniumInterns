@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaCheckBox extends AbstractTest
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("check", 1);
+        rule_Create.enterIfInputDropDown("Check", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "Checkbox_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

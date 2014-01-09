@@ -23,7 +23,7 @@ public class CreateRule_ACertainFieldIsUpdatedListSelection extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("A Certain field is updated");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("list", 1);
+        rule_Create.enterWhenInputDropDown("List", 1);
         rule_Create.selectWhenDrillDownPaneOption(value.get("Fields", "List_Field"));
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");

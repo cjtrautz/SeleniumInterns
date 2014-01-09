@@ -23,7 +23,7 @@ public class CreateRule_ACertainFieldIsUpdatedDropDown extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("A Certain field is updated");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("drop", 1);
+        rule_Create.enterWhenInputDropDown("Drop", 1);
         rule_Create.selectWhenDrillDownPaneOption(value.get("Fields", "Drop_Down_Field"));
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");

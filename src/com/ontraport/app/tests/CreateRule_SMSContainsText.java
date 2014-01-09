@@ -22,7 +22,7 @@ public class CreateRule_SMSContainsText extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "sms_contains_text"));
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("sms", 1);
+        rule_Create.enterIfInputDropDown("SMS", 1);
         rule_Create.selectIfDrillDownPaneOption("SMS Contains Text");
         rule_Create.enterIfInput("test", 1);
         rule_Create.openThenActionPane(1);

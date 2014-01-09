@@ -23,7 +23,7 @@ public class CreateRule_PingAUrl extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("url", 1);
+        rule_Create.enterThenInputDropDown("URL", 1);
         rule_Create.selectThenDrillDownPaneOption("Ping a URL");
         rule_Create.enterThenTextArea("www.google.com", 1);
         rule_Create.openThenActionPane(1);

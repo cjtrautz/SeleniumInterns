@@ -23,7 +23,7 @@ public class CreateRule_IfSubscribedToDateSequenceIsPaused extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("sequence", 1);
+        rule_Create.enterIfInputDropDown("sequence", 1);
         rule_Create.selectIfDrillDownPaneOption("Subscription to a sequence is paused");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Sequences", "date_task_sequence"));

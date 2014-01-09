@@ -23,7 +23,7 @@ public class CreateRule_ACertainFieldIsUpdatedNumeric extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("A Certain field is updated");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("numer", 1);
+        rule_Create.enterWhenInputDropDown("Numer", 1);
         rule_Create.selectWhenDrillDownPaneOption(value.get("Fields", "Numeric_Field"));
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");

@@ -211,6 +211,7 @@ public class Message_CreateEmail extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(mergeFieldPaneInput));
         mergeFieldPaneInput.sendKeys(string);
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
         return this;
     }
 

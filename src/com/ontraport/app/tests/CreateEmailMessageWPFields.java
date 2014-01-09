@@ -29,10 +29,10 @@ public class CreateEmailMessageWPFields extends AbstractTest
         message_CreateEmail.enterSubject(value.get("Messages", "email_subject"));
         message_CreateEmail.enterMessageBody(value.get("Messages", "email_body"));
         message_CreateEmail.openMergeFieldPane();
-        message_CreateEmail.enterMergeFieldPane("user");
+        message_CreateEmail.enterMergeFieldPane("User");
         message_CreateEmail.selectMergeField("User Name");
         message_CreateEmail.openMergeFieldPane();
-        message_CreateEmail.enterMergeFieldPane("pass");
+        message_CreateEmail.enterMergeFieldPane("Pass");
         message_CreateEmail.selectMergeField("Password");
         message_ListAll = message_CreateEmail.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "wp_email_message"));

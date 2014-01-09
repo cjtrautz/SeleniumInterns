@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaState extends AbstractTest
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("state", 1);
+        rule_Create.enterIfInputDropDown("State", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "State_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

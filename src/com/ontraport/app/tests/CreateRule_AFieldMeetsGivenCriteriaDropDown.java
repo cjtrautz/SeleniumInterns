@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaDropDown extends AbstractTest
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("drop", 1);
+        rule_Create.enterIfInputDropDown("Drop", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "Drop_Down_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

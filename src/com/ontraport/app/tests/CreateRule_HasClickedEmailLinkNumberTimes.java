@@ -23,7 +23,7 @@ public class CreateRule_HasClickedEmailLinkNumberTimes extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("clicked", 1);
+        rule_Create.enterIfInputDropDown("clicked", 1);
         rule_Create.selectIfDrillDownPaneOption("Has clicked an Email link a certain number of times");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Any Email");

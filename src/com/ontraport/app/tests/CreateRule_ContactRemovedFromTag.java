@@ -21,7 +21,7 @@ public class CreateRule_ContactRemovedFromTag extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleContactRemovedFromTag");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("tag", 1);
+        rule_Create.enterWhenInputDropDown("Tag", 1);
         rule_Create.selectWhenDrillDownPaneOption("When Contact is removed from Tag");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("SelTag");

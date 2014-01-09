@@ -23,7 +23,7 @@ public class CreateRule_HasSpentAmountOnProduct extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("spent", 1);
+        rule_Create.enterIfInputDropDown("spent", 1);
         rule_Create.selectIfDrillDownPaneOption("Has spent a certain amount on a product");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

@@ -23,7 +23,7 @@ public class CreateRule_AddToLeadRouter extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("router", 1);
+        rule_Create.enterThenInputDropDown("Router", 1);
         rule_Create.selectThenDrillDownPaneOption("Add to Lead Router");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("SelRoundRobin");

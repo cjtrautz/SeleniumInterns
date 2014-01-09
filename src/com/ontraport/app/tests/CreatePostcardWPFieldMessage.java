@@ -30,10 +30,10 @@ public class CreatePostcardWPFieldMessage extends AbstractTest
         message_CreatePostcard.dialogBox.clickTextArea();
         message_CreatePostcard.doubleClickInsertText();
         message_CreatePostcard.clickMergeFieldDropDown();
-        message_CreatePostcard.enterMergeFieldPane("user");
+        message_CreatePostcard.enterMergeFieldPane("User");
         message_CreatePostcard.selectDropDownOption("User Name");
         message_CreatePostcard.clickMergeFieldDropDown();
-        message_CreatePostcard.enterMergeFieldPane("pass");
+        message_CreatePostcard.enterMergeFieldPane("Pass");
         message_CreatePostcard.selectDropDownOption("Password");
         message_ListAll = message_CreatePostcard.clickSave();
         message_ListAll.formSearch.find(value.get("Messages", "wp_postcard_message"));

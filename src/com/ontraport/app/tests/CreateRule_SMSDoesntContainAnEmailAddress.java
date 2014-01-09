@@ -22,7 +22,7 @@ public class CreateRule_SMSDoesntContainAnEmailAddress extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "sms_doesnt_contain_email"));
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("sms", 1);
+        rule_Create.enterIfInputDropDown("SMS", 1);
         rule_Create.selectIfDrillDownPaneOption("SMS does not contain an E-mail address");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");

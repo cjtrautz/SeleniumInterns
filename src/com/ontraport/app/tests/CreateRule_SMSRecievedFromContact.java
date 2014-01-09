@@ -22,7 +22,7 @@ public class CreateRule_SMSRecievedFromContact extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "sms_recieved_by_contact"));
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("sms", 1);
+        rule_Create.enterWhenInputDropDown("SMS", 1);
         rule_Create.selectWhenDrillDownPaneOption("SMS Received from contact");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOptionContains("Any Number");

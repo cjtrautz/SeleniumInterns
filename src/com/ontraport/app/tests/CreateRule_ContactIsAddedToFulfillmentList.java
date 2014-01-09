@@ -21,7 +21,7 @@ public class CreateRule_ContactIsAddedToFulfillmentList extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleContactAddedToFulfillment");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("Fulfillment", 1);
+        rule_Create.enterWhenInputDropDown("Fulfillment", 1);
         rule_Create.selectWhenDrillDownPaneOption("When Contact is added to Fulfillment List");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Fulfillment List");

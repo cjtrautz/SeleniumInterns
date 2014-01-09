@@ -22,7 +22,7 @@ public class CreateRule_RemoveAccessToWordPressMembershipLevel extends AbstractT
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "remove_access_to_wordpress_membership_level"));
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("word", 1);
+        rule_Create.enterThenInputDropDown("WordPress", 1);
         rule_Create.selectThenDrillDownPaneOption("Remove access to WordPress Membership Level");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOptionContains(value.get("WordPress", "wordpress_domain") + AbstractSuite.UNIQUE + ".affcntr.com");

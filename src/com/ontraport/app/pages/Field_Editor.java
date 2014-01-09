@@ -426,9 +426,9 @@ public class Field_Editor extends AbstractPage
         Actions action = new Actions(driver);
         //Thread.sleep(2000);
         wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//input"))));
-        overflowList.findElement(By.xpath(".//input")).sendKeys(" ");
+        overflowList.findElement(By.xpath(".//input")).clear();
         AbstractPart.waitForAjax(driver, 20);
-        action.sendKeys(string).perform();
+        action.sendKeys(Keys.BACK_SPACE + string).perform();
         //action.sendKeys(Keys.ENTER).perform();
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
@@ -1213,6 +1213,7 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(primaryTabs));
+        wait.until(ExpectedConditions.visibilityOf(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']/a"))));
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']/a")).click();
         return this;
     }
@@ -1222,6 +1223,7 @@ public class Field_Editor extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input"))));
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).click();
+        primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).clear();
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).sendKeys(string);
         return this;
     }

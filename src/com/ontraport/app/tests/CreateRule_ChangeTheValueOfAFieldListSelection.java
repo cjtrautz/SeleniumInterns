@@ -23,10 +23,10 @@ public class CreateRule_ChangeTheValueOfAFieldListSelection extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("change", 1);
+        rule_Create.enterThenInputDropDown("Change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("list", 1);
+        rule_Create.enterThenInputDropDown("List", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "List_Field"));
         rule_Create.openThenActionPane(2);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "list_selection_first_option"));

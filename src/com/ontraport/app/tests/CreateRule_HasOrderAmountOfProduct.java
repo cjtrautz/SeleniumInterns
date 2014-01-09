@@ -23,7 +23,7 @@ public class CreateRule_HasOrderAmountOfProduct extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("order", 1);
+        rule_Create.enterIfInputDropDown("order", 1);
         rule_Create.selectIfDrillDownPaneOption("Has order a certain amount of a product");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

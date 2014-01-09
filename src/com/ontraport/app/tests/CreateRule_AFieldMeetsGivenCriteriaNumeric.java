@@ -25,7 +25,7 @@ public class CreateRule_AFieldMeetsGivenCriteriaNumeric extends AbstractTest
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Field is this value");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("num", 1);
+        rule_Create.enterIfInputDropDown("Num", 1);
         rule_Create.selectIfDrillDownPaneOption(value.get("Fields", "Numeric_Field"));
         rule_Create.openIfConditionPane(2);
         rule_Create.selectIfDrillDownPaneOption("Equal To");

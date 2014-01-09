@@ -23,7 +23,7 @@ public class CreateRule_HasSubscribedToProductForTime extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("product", 1);
+        rule_Create.enterIfInputDropDown("product", 1);
         rule_Create.selectIfDrillDownPaneOption("Has been subscribed to a product for a certain amount of time");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("Any Subscription Product");

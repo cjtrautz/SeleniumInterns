@@ -266,8 +266,8 @@ public class User_Edit extends AbstractPage
         WebElement title = null;
         try
         {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[normalize-space(text())='" + string + "']")));
-            title = driver.findElement(By.xpath("//span[normalize-space(text())='" + string + "']"));
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[contains(text(), '" + string + "')]")));
+            title = driver.findElement(By.xpath("//span[contains(text(), '" + string + "')]"));
         }
         catch(NoSuchElementException e){
             return null;
@@ -280,9 +280,9 @@ public class User_Edit extends AbstractPage
             {
                 return null; 
             }
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//span[normalize-space(text())='" + string + "']/ancestor::div/following-sibling::div[text()='" + string2 + "']")));
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[normalize-space(text())='" + string + "']/ancestor::div/following-sibling::div[text()='" + string2 + "']"))));
-            if(driver.findElement(By.xpath("//span[normalize-space(text())='" + string + "']/ancestor::div/following-sibling::div[text()='" + string2 + "']")).isDisplayed()!=true)
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//span[contains(text(), '" + string + "')]/ancestor::div/following-sibling::div[text()='" + string2 + "']")));
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(), '" + string + "')]/ancestor::div/following-sibling::div[text()='" + string2 + "']"))));
+            if(driver.findElement(By.xpath("//span[contains(text(), '" + string + "')]/ancestor::div/following-sibling::div[text()='" + string2 + "']")).isDisplayed()!=true)
             {
                 return null; 
             }

@@ -21,7 +21,7 @@ public class CreateRule_SubscriptionCancelled extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleSubscriptionCancelled");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("charged", 1);
+        rule_Create.enterWhenInputDropDown("Charged", 1);
         rule_Create.selectWhenDrillDownPaneOption("Subscription to product is Charged, Cancelled, or Completed");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Subscription Product");

@@ -163,6 +163,7 @@ public class SmartFormFe_Edit extends AbstractPage
         System.out.println("here2");
         wait.until(ExpectedConditions.visibilityOf(drillDown));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
+        wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
@@ -218,6 +219,16 @@ public class SmartFormFe_Edit extends AbstractPage
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenInput.get(i-1));
         wait.until(ExpectedConditions.visibilityOf(thenInput.get(i-1)));
         thenInput.get(i-1).sendKeys(string);
+        return this;
+    }
+    
+    public SmartFormFe_Edit enterThenInputForDropDown ( String string, int i )
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenInput.get(i-1));
+        wait.until(ExpectedConditions.visibilityOf(thenInput.get(i-1)));
+        thenInput.get(i-1).sendKeys(string);
+        wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         return this;
     }
 

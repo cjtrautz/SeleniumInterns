@@ -23,7 +23,7 @@ public class CreateRule_AddATask extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("task", 1);
+        rule_Create.enterThenInputDropDown("Task", 1);
         rule_Create.selectThenDrillDownPaneOption("Add Task");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Messages", "task_message_who"));

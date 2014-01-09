@@ -161,6 +161,17 @@ public class Rule_Create extends AbstractPage
         return this;
         
     }
+    public Rule_Create enterThenInputDropDown ( String value, int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(thenEvents));
+        List<WebElement> thenInputs = thenEvents.findElements(By.xpath(".//input"));
+        wait.until(ExpectedConditions.visibilityOf(thenInputs.get(index-1)));
+        thenInputs.get(index-1).sendKeys(value);
+        wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(), '" + value + "')]]"))));
+        return this;
+        
+    }
     public Rule_Create enterThenTextArea ( String value, int index )
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -179,6 +190,18 @@ public class Rule_Create extends AbstractPage
         List<WebElement> ifInputs = ifEvents.findElements(By.xpath(".//input"));
         wait.until(ExpectedConditions.visibilityOf(ifInputs.get(index-1)));
         ifInputs.get(index-1).sendKeys(value);
+        return this;
+        
+    }
+    
+    public Rule_Create enterIfInputDropDown ( String value, int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ifEvents));
+        List<WebElement> ifInputs = ifEvents.findElements(By.xpath(".//input"));
+        wait.until(ExpectedConditions.visibilityOf(ifInputs.get(index-1)));
+        ifInputs.get(index-1).sendKeys(value);
+        wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane.findElement(By.xpath(".//li[contains(., '" + value + "')]"))));
         return this;
         
     }
@@ -209,6 +232,19 @@ public class Rule_Create extends AbstractPage
         List<WebElement> whenInputs = whenEvents.findElements(By.xpath(".//input"));
         wait.until(ExpectedConditions.visibilityOf(whenInputs.get(index-1)));
         whenInputs.get(index-1).sendKeys(value);
+        return this;
+        
+    }
+    
+    public Rule_Create enterWhenInputDropDown ( String value, int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(whenEvents));
+        wait.until(ExpectedConditions.visibilityOf(whenEvents.findElement(By.xpath(".//input"))));
+        List<WebElement> whenInputs = whenEvents.findElements(By.xpath(".//input"));
+        wait.until(ExpectedConditions.visibilityOf(whenInputs.get(index-1)));
+        whenInputs.get(index-1).sendKeys(value);
+        wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(), '" + value + "')]]"))));
         return this;
         
     }

@@ -22,7 +22,7 @@ public class CreateRule_DoesntHaveAccessToWordPressMembershipLevel extends Abstr
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "doesnt_have_access_to_wordpress_membership_level"));
         rule_Create.openIfConditionPane(1);
-        rule_Create.enterIfInput("word", 1);
+        rule_Create.enterIfInputDropDown("WordPress", 1);
         rule_Create.selectIfDrillDownPaneOption("Does not have access to WordPress Membership Level");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOptionContains(value.get("WordPress", "wordpress_domain") + AbstractSuite.UNIQUE + ".affcntr.com");

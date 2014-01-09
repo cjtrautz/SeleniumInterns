@@ -21,7 +21,7 @@ public class CreateRule_GetsRefundOnProduct extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleGetsRefundOnProduct");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("refund", 1);
+        rule_Create.enterWhenInputDropDown("refund", 1);
         rule_Create.selectWhenDrillDownPaneOption("Gets a refund on a Product");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Product");

@@ -23,10 +23,10 @@ public class CreateRule_ChangeTheValueOfAFieldState extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("change", 1);
+        rule_Create.enterThenInputDropDown("Change", 1);
         rule_Create.selectThenDrillDownPaneOption("Change the value of a field");
         rule_Create.openThenActionPane(1);
-        rule_Create.enterThenInput("state", 1);
+        rule_Create.enterThenInputDropDown("State", 1);
         rule_Create.selectThenDrillDownPaneOption(value.get("Fields", "State_Field"));
         rule_Create.openThenActionPane(2);
         rule_Create.selectThenDrillDownPaneOption("California");

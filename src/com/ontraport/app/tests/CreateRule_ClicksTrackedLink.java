@@ -21,7 +21,7 @@ public class CreateRule_ClicksTrackedLink extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleClicksTrackedLink");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("tracked", 1);
+        rule_Create.enterWhenInputDropDown("tracked", 1);
         rule_Create.selectWhenDrillDownPaneOption("Clicks tracked link");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Tracked Link");

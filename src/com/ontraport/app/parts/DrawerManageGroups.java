@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -131,22 +132,24 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups openGroupPermissionsPane ()
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiToggleGroupPermissionsPane));
+        wait(5).until(ExpectedConditions.visibilityOf(uiToggleGroupPermissionsPane));
         uiToggleGroupPermissionsPane.click();
         return this;
     }
     public DrawerManageGroups clickPermissions ( String permissions )
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList));
-        uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']")).click();
-        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiGroupPermissionsList)));
+        wait(5).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList));
+        wait(5).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']"))));
+        Actions action = new Actions(driver);
+        action.click(uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']"))).build().perform();
+        wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiGroupPermissionsList)));
         return this;
     }
     public DrawerManageGroups openFieldPane (int row)
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
+        wait(5).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
         uiToggleFieldPane.get(row).click();
         return this;
     }
@@ -154,7 +157,7 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups enterFieldPaneInput (String string, int row)
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
+        wait(5).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
         uiFieldPaneInput.get(row).sendKeys(string);
         return this;
     }

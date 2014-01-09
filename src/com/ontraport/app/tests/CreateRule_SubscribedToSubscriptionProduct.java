@@ -21,7 +21,7 @@ public class CreateRule_SubscribedToSubscriptionProduct extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleSubscribedToSubscriptionProduct");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInput("product", 1);
+        rule_Create.enterWhenInputDropDown("product", 1);
         rule_Create.selectWhenDrillDownPaneOption("Is subscribed to subscription product");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Any Subscription Product");
