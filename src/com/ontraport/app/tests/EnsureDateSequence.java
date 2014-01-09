@@ -82,7 +82,7 @@ public class EnsureDateSequence extends AbstractTest
         }
         if(sequence_Edit.verifyFutureTime()==null)
         {
-            fail("couldn't find todays date");
+            fail("couldn't find future date");
         }
         
         contactListAll = sequence_Edit.menuPrimary.clickContactListAll();

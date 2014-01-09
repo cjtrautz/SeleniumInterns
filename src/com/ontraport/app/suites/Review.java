@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    com.ontraport.app.tests.EnsureDateSequence.class,
 }
 )
 public class Review extends AbstractSuite

@@ -336,6 +336,7 @@ public class Contact_ScoreEdit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDownInputs.get(i-1)));
         dropDownInputs.get(i-1).sendKeys(string);
+        wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
         return this;
     }
 
