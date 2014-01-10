@@ -340,6 +340,7 @@ public class Rule_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 40);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']")));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenDrillDownSelectPanePaddingWait);
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPanePaddingWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuThen));

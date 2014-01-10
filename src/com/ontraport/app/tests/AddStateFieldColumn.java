@@ -18,6 +18,10 @@ public class AddStateFieldColumn extends AbstractTest
         contactListAll.formColumnManager.openFieldPane();
         contactListAll.formColumnManager.enterFieldPaneInput(value.get("Fields", "State_Field"));
         contactListAll.formColumnManager.clickField(value.get("Fields", "State_Field"));
+        if (contactListAll.formColumnManager.verifyColumn(value.get("Fields", "State_Field"))==null)
+        {
+            fail("couldn't find column");
+        }
         contactListAll.formColumnManager.clickCheckMark();
         
         //verify its there

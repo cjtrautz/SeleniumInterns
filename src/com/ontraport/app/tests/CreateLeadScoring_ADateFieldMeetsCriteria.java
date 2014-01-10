@@ -26,7 +26,7 @@ public class CreateLeadScoring_ADateFieldMeetsCriteria extends AbstractTest
         contact_ScoreEdit.selectDrillDown(value.get("Fields", "Date_Field"));
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Equal To");
-        contact_ScoreEdit.enterDropDownCondition(3, "1/1/2014");
+        contact_ScoreEdit.enterDropDownConditionInput(3, "1/1/2016");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();
@@ -41,7 +41,7 @@ public class CreateLeadScoring_ADateFieldMeetsCriteria extends AbstractTest
         {
             fail("didnt Select date sequence");
         }
-        if(contact_ScoreEdit.verifyConditionDrillDown("01/01/2014", 3)==null)
+        if(contact_ScoreEdit.verifyConditionDrillDown("01/01/2016", 3)==null)
         {
             fail("didnt Select date sequence");
         }

@@ -92,6 +92,7 @@ public class FormColumnManager extends AbstractPart
         {
             
         }
+        wait(5).until(ExpectedConditions.visibilityOf(columnToEdit));
         System.out.println("scrolled");
         actions.moveToElement(columnToEdit).build().perform();
         WebElement toDelete = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
@@ -113,9 +114,11 @@ public class FormColumnManager extends AbstractPart
     public FormColumnManager clickField ( String field )
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(fieldPaneCollection)); 
-        WebElement fieldToChoose = fieldPaneCollection.findElement(By.xpath(".//div[text()='" + field + "']"));
-        fieldToChoose.click();
+        wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldPaneCollection))); 
+        wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + field + "')]"))))); 
+        wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + field + "')]"))))); 
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath(".//div[text()='" + field + "']")));
+        driver.findElement(By.xpath(".//div[text()='" + field + "']")).click();
         return this;
 
     }
@@ -132,6 +135,8 @@ public class FormColumnManager extends AbstractPart
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldPaneInput)); 
         fieldPaneInput.sendKeys(string); 
+        wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + string + "')]"))))); 
+        wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + string + "')]"))))); 
         return this;
     }
     
@@ -209,5 +214,21 @@ public class FormColumnManager extends AbstractPart
             return this;
         }
         return null;
+    }
+    public FormColumnManager verifyColumn ( String string )
+    {
+        waitForAjax(driver, 20);
+        try
+        {
+            if(!fieldPaneDropDown.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        return this;
     }
 }

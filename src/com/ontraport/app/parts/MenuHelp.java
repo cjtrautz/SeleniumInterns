@@ -53,7 +53,7 @@ public class MenuHelp extends AbstractPart
     public MenuHelp close () 
     { 
         AbstractPart.waitForAjax(driver, 20);
-        wait(10).until(ExpectedConditions.visibilityOf(helpButton));
+        wait(10).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(helpButton)));
         Actions actions = new Actions(driver);
         actions.click(helpButton).build().perform();
         return this;  

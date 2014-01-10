@@ -554,6 +554,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickFontDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", fontDropDown);
         wait.until(ExpectedConditions.visibilityOf(fontDropDown));
         fontDropDown.click();
         return this;
@@ -592,6 +593,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickFontSizeDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", fontSizeDropDown);
         wait.until(ExpectedConditions.visibilityOf(fontSizeDropDown));
         fontSizeDropDown.click();
         return this;
@@ -618,6 +620,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickBold ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", bold);
         wait.until(ExpectedConditions.visibilityOf(bold));
         bold.click();
         return this;
@@ -638,6 +641,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickItalic ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", italic);
         wait.until(ExpectedConditions.visibilityOf(italic));
         italic.click();
         return this;
@@ -660,6 +664,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickUnderline ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", underline);
         wait.until(ExpectedConditions.visibilityOf(underline));
         underline.click();
         return this;
@@ -681,6 +686,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickCenter ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", center);
         wait.until(ExpectedConditions.visibilityOf(center));
         center.click();
         return this;
@@ -703,6 +709,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickLeftAlign ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", leftAlign);
         wait.until(ExpectedConditions.visibilityOf(leftAlign));
         leftAlign.click();
         return this;
@@ -728,6 +735,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickRightAlign ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", rightAlign);
         wait.until(ExpectedConditions.visibilityOf(rightAlign));
         rightAlign.click();
         return this; 
@@ -751,6 +759,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickMoveLetterSpacer ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", letterSpacing);
         wait.until(ExpectedConditions.visibilityOf(letterSpacing));
         Actions action = new Actions(driver);
         action.dragAndDropBy(letterSpacing, i, 0).build().perform();
@@ -774,6 +783,7 @@ public class LandingPage_Edit extends AbstractPage
     public LandingPage_Edit clickMoveLineSpacer ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", lineSpacing);
         wait.until(ExpectedConditions.visibilityOf(lineSpacing));
         Actions action = new Actions(driver);
         action.dragAndDropBy(lineSpacing, i, 0).build().perform();

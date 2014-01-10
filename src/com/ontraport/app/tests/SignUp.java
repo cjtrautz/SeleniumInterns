@@ -3,6 +3,7 @@ package com.ontraport.app.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Login;
@@ -39,6 +40,17 @@ public class SignUp extends AbstractTest
         ontraport_SignUp.checkAgreeToTerms();
         ontraport_SignUp.clickCreateMyAccount();
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
+        Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+        contactListAll.menuUser.open();
+        contactListAll.menuUser.clickLogOut();
+        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
+        {
+            fail("Can't find Affiliates page");
+        }
+        Login login = (Login) new Login().init();
+        login.open(Login.url);
+        login.as(value.get("SignUp", "email"), value.get("SignUp", "pass"));
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         ontraport_SignUp.dialogBox.enterSubDomain(value.get("SignUp", "first_name") + AbstractSuite.UNIQUE);
         ontraport_SignUp.dialogBox.enterReplyToName(value.get("SignUp", "email"));
         ontraport_SignUp.dialogBox.enterBusinessName(value.get("SignUp", "business"));
@@ -52,11 +64,11 @@ public class SignUp extends AbstractTest
         oPPackage_View.dialogBox.checkIKnowDeleted();
         oPPackage_View.dialogBox.checkIKnowNoRecovery();
         oPPackage_View.dialogBox.checkIKnowStopWorking();
-        Login login = oPPackage_View.dialogBox.clickCancelAccount();
+        login = oPPackage_View.dialogBox.clickCancelAccount();
         
-        if(login.verifyPage()==null)
+        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
         {
-            fail("couldnt cancel account");
+            fail("Can't find Affiliates page");
         }
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());

@@ -1671,7 +1671,7 @@ public class Message_Edit extends AbstractPage
             driver.switchTo().window(parentWindow);
             return null;
         }
-        //driver.close();
+        driver.close();
         driver.switchTo().window(parentWindow);
         return this;
     }

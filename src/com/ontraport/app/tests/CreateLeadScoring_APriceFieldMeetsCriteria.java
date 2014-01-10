@@ -26,7 +26,7 @@ public class CreateLeadScoring_APriceFieldMeetsCriteria extends AbstractTest
         contact_ScoreEdit.selectDrillDown(value.get("Fields", "Price_Field"));
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Equal To");
-        contact_ScoreEdit.enterDropDownCondition(4, "1");
+        contact_ScoreEdit.enterDropDownConditionInput(4, "1");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

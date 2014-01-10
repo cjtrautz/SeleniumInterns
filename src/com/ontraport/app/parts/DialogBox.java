@@ -31,13 +31,13 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button ')]//span[text()='Use this Template']")
     private WebElement useThisTemplate;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation1 ')]")
+            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation1 ')]//span")
     private WebElement confirmationBox1;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation2 ')]")
+            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation2 ')]//span")
     private WebElement confirmationBox2;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation3 ')]")
+            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation3 ')]//span")
     private WebElement confirmationBox3;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-package-manager-dialog ')]//div[@class='clearfix']")
@@ -1107,7 +1107,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterSubDomain ( String string )
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(subdomainInput));
         subdomainInput.click();
         subdomainInput.sendKeys(string);
@@ -1115,7 +1115,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterReplyToName ( String string )
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(repyToInput));
         repyToInput.click();
         repyToInput.sendKeys(string);
@@ -1123,7 +1123,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterBusinessName ( String string )
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(businessNameInput));
         businessNameInput.click();
         businessNameInput.sendKeys(string);
@@ -1131,7 +1131,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterBusinessAddress ( String string )
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(businessAddressInput));
         businessAddressInput.click();
         businessAddressInput.sendKeys(string);
@@ -1139,7 +1139,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterBusinessCity ( String string )
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(businessCityInput));
         businessCityInput.click();
         businessCityInput.sendKeys(string);
@@ -1147,7 +1147,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterBusinessZip ( String string )
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(businessZipInput));
         businessZipInput.click();
         businessZipInput.sendKeys(string);
@@ -1155,35 +1155,35 @@ public class DialogBox extends AbstractPart
     }
     public Contact_ListAll clickSubmit ()
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(submitAccount));
         submitAccount.click();
         return (Contact_ListAll) new Contact_ListAll().init();
     }
     public DialogBox checkIKnowDeleted ()
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(confirmationBox1));
         confirmationBox1.click();
         return this;
     }
     public DialogBox checkIKnowNoRecovery ()
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(confirmationBox2));
         confirmationBox2.click();
         return this;
     }
     public DialogBox checkIKnowStopWorking ()
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(confirmationBox3));
         confirmationBox3.click();
         return this;
     }
     public Login clickCancelAccount ()
     {
-        //AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(cancelAccount));
         cancelAccount.click();
         return (Login) new Login().init();

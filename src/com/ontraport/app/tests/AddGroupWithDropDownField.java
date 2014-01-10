@@ -23,7 +23,7 @@ public class AddGroupWithDropDownField extends AbstractTest
         contactListAll.drawerManageGroups.enterFieldPaneInput("dropdown", 0);
         contactListAll.drawerManageGroups.clickField("SelDropdown", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
-        contactListAll.drawerManageGroups.clickCondition("equals", 0);
+        contactListAll.drawerManageGroups.clickCondition("Equal To", 0);
         contactListAll.drawerManageGroups.openValuePane(0);
         contactListAll.drawerManageGroups.clickValue("a", 0);
         contactListAll.drawerManageGroups.clickSave();
@@ -42,7 +42,7 @@ public class AddGroupWithDropDownField extends AbstractTest
         {
             fail("couldnt find field group");
         }
-        if (contactListAll.drawerManageGroups.verifyConditionDropDown("equals", 0) == null)
+        if (contactListAll.drawerManageGroups.verifyConditionDropDown("Equal To", 0) == null)
         {
             fail("couldnt find condition group");
         }

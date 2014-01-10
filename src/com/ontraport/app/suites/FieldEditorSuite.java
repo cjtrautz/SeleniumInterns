@@ -284,10 +284,10 @@ public class FieldEditorSuite extends AbstractSuite
         //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
-        profile.setPreference("browser.cache.disk.enable", false);
-        profile.setPreference("browser.cache.memory.enable", false);
-        profile.setPreference("browser.cache.offline.enable", false);
-        profile.setPreference("network.http.use-cache", false);
+        profile.setPreference("browser.cache.disk.enable", true);
+        profile.setPreference("browser.cache.memory.enable", true);
+        profile.setPreference("browser.cache.offline.enable", true);
+        profile.setPreference("network.http.use-cache", true);
         driver = new FirefoxDriver(profile);
         //driver = new ChromeDriver();
         driver.manage()

@@ -229,6 +229,8 @@ public class Affiliate_Settings extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(durationValueInput));
+        durationValueInput.click();
+        durationValueInput.clear();
         durationValueInput.sendKeys(string);
         return this;
     }

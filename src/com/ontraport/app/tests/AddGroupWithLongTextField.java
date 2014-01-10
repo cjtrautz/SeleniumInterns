@@ -23,7 +23,7 @@ public class AddGroupWithLongTextField extends AbstractTest
         contactListAll.drawerManageGroups.enterFieldPaneInput("longtext", 0);
         contactListAll.drawerManageGroups.clickField("SelLongText", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
-        contactListAll.drawerManageGroups.clickCondition("equals", 0);
+        contactListAll.drawerManageGroups.clickCondition("Equal To", 0);
         contactListAll.drawerManageGroups.enterValueTextArea("test", 0, 0);
         contactListAll.drawerManageGroups.clickSave();
 
@@ -41,7 +41,7 @@ public class AddGroupWithLongTextField extends AbstractTest
         {
             fail("couldnt find field group");
         }
-        if (contactListAll.drawerManageGroups.verifyConditionDropDown("equals", 0) == null)
+        if (contactListAll.drawerManageGroups.verifyConditionDropDown("Equal To", 0) == null)
         {
             fail("couldnt find condition group");
         }

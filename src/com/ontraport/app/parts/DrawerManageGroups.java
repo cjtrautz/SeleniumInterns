@@ -260,8 +260,10 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups clickValue ( String string, int i )
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiValueList.get(i).findElement(By.xpath(".//div[text()='"+string+"']"))));
-        uiValueList.get(i).findElement(By.xpath(".//div[text()='"+string+"']")).click();
+        wait(1).until(ExpectedConditions.visibilityOf(uiValueList.get(i).findElement(By.xpath(".//div[@title='"+string+"']"))));
+        wait(1).until(ExpectedConditions.elementToBeClickable(uiValueList.get(i).findElement(By.xpath(".//div[@title='"+string+"']"))));
+        Actions action = new Actions(driver);
+        action.click(uiValueList.get(i).findElement(By.xpath(".//div[@title='"+string+"']"))).build().perform();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiValueList.get(i))));
         return this;
         

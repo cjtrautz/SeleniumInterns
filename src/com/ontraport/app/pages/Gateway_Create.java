@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -64,6 +65,7 @@ public class Gateway_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownCollection));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']")));
         drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
         return this;
         
@@ -221,6 +223,7 @@ public class Gateway_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(gatewayInput));
         gatewayInput.sendKeys(string);
+        wait.until(ExpectedConditions.visibilityOf(drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
         return this;
     }
 

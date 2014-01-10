@@ -26,7 +26,7 @@ public class CreateLeadScoring_ATextFieldMeetsCriteria extends AbstractTest
         contact_ScoreEdit.selectDrillDown(value.get("Fields", "Text_Field"));
         contact_ScoreEdit.clickDropDownCondition(2);
         contact_ScoreEdit.selectDrillDown("Equal To");
-        contact_ScoreEdit.enterDropDownCondition(3, "test");
+        contact_ScoreEdit.enterDropDownConditionInput(3, "test");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

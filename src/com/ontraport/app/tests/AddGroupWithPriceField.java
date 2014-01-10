@@ -23,7 +23,7 @@ public class AddGroupWithPriceField extends AbstractTest
         contactListAll.drawerManageGroups.enterFieldPaneInput("price", 0);
         contactListAll.drawerManageGroups.clickField("SelPrice", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
-        contactListAll.drawerManageGroups.clickCondition("equals", 0);
+        contactListAll.drawerManageGroups.clickCondition("Equal To", 0);
         contactListAll.drawerManageGroups.enterValue("1", 0, 1);
         contactListAll.drawerManageGroups.clickSave();
 
@@ -41,7 +41,7 @@ public class AddGroupWithPriceField extends AbstractTest
         {
             fail("couldnt find field group");
         }
-        if (contactListAll.drawerManageGroups.verifyConditionDropDown("equals", 0) == null)
+        if (contactListAll.drawerManageGroups.verifyConditionDropDown("Equal To", 0) == null)
         {
             fail("couldnt find condition group");
         }

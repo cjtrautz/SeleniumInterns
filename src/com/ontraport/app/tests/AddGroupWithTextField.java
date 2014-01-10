@@ -23,7 +23,7 @@ public class AddGroupWithTextField extends AbstractTest
         contactListAll.drawerManageGroups.enterFieldPaneInput("text", 0);
         contactListAll.drawerManageGroups.clickField("SelText", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
-        contactListAll.drawerManageGroups.clickCondition("equals", 0);
+        contactListAll.drawerManageGroups.clickCondition("Equal To", 0);
         contactListAll.drawerManageGroups.enterValue("Everybody", 0, 0);
         contactListAll.drawerManageGroups.clickSave();
 
@@ -41,7 +41,7 @@ public class AddGroupWithTextField extends AbstractTest
         {
             fail("couldnt find field group");
         }
-        if (contactListAll.drawerManageGroups.verifyConditionDropDown("equals", 0) == null)
+        if (contactListAll.drawerManageGroups.verifyConditionDropDown("Equal To", 0) == null)
         {
             fail("couldnt find condition group");
         }
