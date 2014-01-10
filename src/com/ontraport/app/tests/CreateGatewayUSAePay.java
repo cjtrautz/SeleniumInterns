@@ -23,7 +23,7 @@ public class CreateGatewayUSAePay extends AbstractTest
         Gateway_Create gateway_Create = gateway_ListAll.clickNewGateway();
         gateway_Create.enterGatewayName(value.get("Sales", "gateway_usaepay"));
         gateway_Create.clickGatewayTypeDropdown();
-        gateway_Create.enterGatewayType("usa");
+        gateway_Create.enterGatewayType("USA");
         gateway_Create.selectDrilldownOption("USAePay");
         gateway_Create.enterUMkey(value.get("Sales", "login"));
         gateway_Create.enterUMpin(value.get("Sales", "login1"));

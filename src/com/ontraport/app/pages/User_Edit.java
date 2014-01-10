@@ -1048,6 +1048,7 @@ public class User_Edit extends AbstractPage
         stateInput.sendKeys(string);
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(dropDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
+        wait.until(ExpectedConditions.elementToBeClickable(dropDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         dropDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }

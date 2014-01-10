@@ -21,7 +21,7 @@ import com.ontraport.app.tools.AbstractSuite;
 { 
     com.ontraport.app.tests.SetLanguage.class, 
     
-    com.ontraport.app.tests.EnsurePagination.class, 
+    //com.ontraport.app.tests.EnsurePagination.class, 
     
     com.ontraport.app.tests.SetTimezone.class,
     
@@ -142,11 +142,11 @@ public class AdminSuite extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setLogin("ontraportselenium+4@gmail.com");
-        AbstractPage.setPassword("test123");
+        AbstractPage.setLogin("nick@ontraport.com");
+        AbstractPage.setPassword("Lughead1");
         //AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
-        profile.setEnableNativeEvents(true);
+        profile.setEnableNativeEvents(false);
         profile.setPreference("browser.cache.disk.enable", true);
         profile.setPreference("browser.cache.memory.enable", true);
         profile.setPreference("browser.cache.offline.enable", true);

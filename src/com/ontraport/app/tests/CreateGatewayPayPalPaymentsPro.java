@@ -23,7 +23,7 @@ public class CreateGatewayPayPalPaymentsPro extends AbstractTest
         Gateway_Create gateway_Create = gateway_ListAll.clickNewGateway();
         gateway_Create.enterGatewayName(value.get("Sales", "gateway_paypal_payments_pro"));
         gateway_Create.clickGatewayTypeDropdown();
-        gateway_Create.enterGatewayType("paypal");
+        gateway_Create.enterGatewayType("PayPal");
         gateway_Create.selectDrilldownOption("PayPal Payments Pro");
         gateway_Create.enterPayPalUser(value.get("Sales", "login"));
         gateway_Create.enterPayPalPWD(value.get("Sales", "login1"));

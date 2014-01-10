@@ -66,6 +66,7 @@ public class Gateway_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownCollection));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']")));
+        wait.until(ExpectedConditions.visibilityOf(drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
         drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
         return this;
         
@@ -223,7 +224,7 @@ public class Gateway_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(gatewayInput));
         gatewayInput.sendKeys(string);
-        wait.until(ExpectedConditions.visibilityOf(drillDownCollection.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
+        wait.until(ExpectedConditions.visibilityOf(drillDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
         return this;
     }
 

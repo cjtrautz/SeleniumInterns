@@ -25,7 +25,7 @@ public class CreateRule_NotifySomeoneWithEmail extends AbstractTest
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Notify someone with an Email");
         rule_Create.openThenActionPane(1);
-        rule_Create.selectThenDrillDownPaneOption("Contact");
+        rule_Create.selectThenDrillDownPaneOptionContains("Contact");
         rule_Create.openThenActionPane(2);
         rule_Create.selectThenDrillDownPaneOption("SelEmailMessage");
         rule_ListAll = rule_Create.clickSave();

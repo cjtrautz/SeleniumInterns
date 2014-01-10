@@ -190,7 +190,8 @@ public class Affiliate_Settings extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            if(!cookiesExpireDropDownInput.getAttribute("value").equals(string))
+            System.out.println(cookiesExpireDropDown.getAttribute("value"));
+            if(!cookiesExpireDropDown.getAttribute("value").equals(string))
             {
                 return null; 
             }
@@ -259,12 +260,13 @@ public class Affiliate_Settings extends AbstractPage
         return this;
     }
 
-    public Object verifyCookiesWillExpireNever ()
+    public Affiliate_Settings verifyCookiesWillExpireNever ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            if(!durationValueInput.isDisplayed())
+            System.out.println(cookiesNeverSelectedRadioButton.isDisplayed());
+            if(!cookiesNeverSelectedRadioButton.isDisplayed())
             {
                 return null; 
             }

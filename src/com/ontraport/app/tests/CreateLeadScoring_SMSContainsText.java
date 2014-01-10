@@ -22,7 +22,7 @@ public class CreateLeadScoring_SMSContainsText extends AbstractTest
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.enterDropDownCondition(1, "SMS");
         contact_ScoreEdit.selectDrillDown("SMS Contains Text");
-        contact_ScoreEdit.enterDropDownCondition(1, "test");
+        contact_ScoreEdit.enterDropDownConditionInput(1, "test");
         contact_ScoreEdit.enterPointScore("25");
         contact_ScoreEdit.enterDegradationPercent("10");
         contactListAll = contact_ScoreEdit.clickSave();

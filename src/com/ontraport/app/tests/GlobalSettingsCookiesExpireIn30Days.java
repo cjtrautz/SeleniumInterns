@@ -32,7 +32,7 @@ public class GlobalSettingsCookiesExpireIn30Days extends AbstractTest
         {
             fail("couldnt find pay affiliates by");
         }
-        if(affiliate_Settings.verifyCookiesWillExpire("Months")==null)
+        if(affiliate_Settings.verifyCookiesWillExpire("month")==null)
         {
             fail("couldnt find pay affiliates by");
         }

@@ -22,8 +22,6 @@ public class EnsurePagination extends AbstractTest
         contactListAll = contact_Create.clickSave();
         i++;
         }
-        AbstractPart.waitForAjax(driver, 20);
-        driver.navigate().refresh();
         String pages = contactListAll.paginator.getPages();
         System.out.println(pages);
         contactListAll.paginator.clickLastPage();

@@ -284,7 +284,7 @@ public class SitesSuite extends AbstractSuite
         AbstractPage.setPassword("test123");
         //AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
-        profile.setEnableNativeEvents(true);
+        profile.setEnableNativeEvents(false);
         profile.setPreference("browser.cache.disk.enable", true);
         profile.setPreference("browser.cache.memory.enable", true);
         profile.setPreference("browser.cache.offline.enable", true);
