@@ -18,7 +18,68 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.SignUp.class, 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+//    //uses CreateLandingPagePictureWithRectangle landing page
+//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
+//    com.ontraport.app.tests.EditLandingPageImageTop.class,
+//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
+//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
+//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
+//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
+//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
+//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
+//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
+//    //end use of CreateLandingPagePictureWithRectangle landing page
+//    com.ontraport.app.tests.DeleteLandingPageImage.class,
+    
+    //used in following tests
+    com.ontraport.app.tests.CreateLandingPageWithText.class,
+    //uses CreateLandingPageWithText landing page
+    com.ontraport.app.tests.EditLandingPageHeight.class,
+    com.ontraport.app.tests.EditLandingPageWidth.class,
+    com.ontraport.app.tests.EditLandingPageTop.class,
+    com.ontraport.app.tests.EditLandingPageLeft.class,
+    com.ontraport.app.tests.EditLandingPageLineSpacing.class,
+    com.ontraport.app.tests.EditLandingPageLetterSpacing.class,
+    com.ontraport.app.tests.EditLandingPageRightAlign.class,
+    com.ontraport.app.tests.EditLandingPageCenter.class,
+    com.ontraport.app.tests.EditLandingPageLeftAlign.class,
+    com.ontraport.app.tests.EditLandingPageUnderline.class,
+    com.ontraport.app.tests.EditLandingPageItalic.class,
+    com.ontraport.app.tests.EditLandingPageBold.class,
+    com.ontraport.app.tests.EditLandingPageFontSize.class,
+    com.ontraport.app.tests.EditLandingPageFont.class,
+    //end use of CreateLandingPageWithText landing page
+    com.ontraport.app.tests.DeleteLandingPageWithText.class,
+    
+    //used in following tests
+    com.ontraport.app.tests.CreateEditableEmailMessage.class,
+    //edits CreateEditableEmailMessage message
+    com.ontraport.app.tests.EditEmailMessageBody.class,
+    com.ontraport.app.tests.EditEmailMessageSubject.class,
+//    com.ontraport.app.tests.EditEmailMessageReplyToName.class,
+//    com.ontraport.app.tests.EditEmailMessageSendOutName.class,   
+    com.ontraport.app.tests.EditEmailMessageName.class,
+    com.ontraport.app.tests.EditEmailMessageMaximize.class,
+    com.ontraport.app.tests.EditEmailMessageLinkAndUnlink.class,
+    com.ontraport.app.tests.EditEmailMessageAlignmentRight.class,
+    com.ontraport.app.tests.EditEmailMessageAlignmentJustify.class,
+    com.ontraport.app.tests.EditEmailMessageAlignmentLeft.class,
+    com.ontraport.app.tests.EditEmailMessagePreview.class,
+    com.ontraport.app.tests.EditEmailMessageBold.class,
+    com.ontraport.app.tests.EditEmailMessageItalicize.class,
+    com.ontraport.app.tests.EditEmailMessageStrikeThrough.class,
+    com.ontraport.app.tests.EditEmailMessageOrderedList.class,
+    com.ontraport.app.tests.EditEmailMessageUnOrderedList.class,
+    com.ontraport.app.tests.EditEmailMessageQuote.class,
+    com.ontraport.app.tests.EditEmailMessagePaste.class,
+    com.ontraport.app.tests.EditEmailMessagePlainPaste.class,
+    com.ontraport.app.tests.EditEmailMessageInsertTable.class,
+    com.ontraport.app.tests.EditEmailMessageInsertHorizontalLine.class,
+    com.ontraport.app.tests.EditEmailMessageInsertSpecialCharacter.class,
+    //ends use of CreateEditableEmailMessage message
+    com.ontraport.app.tests.DeleteEditableEmailMessage.class,
 }
 )
 public class Review extends AbstractSuite

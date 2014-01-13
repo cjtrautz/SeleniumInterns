@@ -20,6 +20,7 @@ public class NameATab extends AbstractTest
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
         field_Editor.clickTab(2);
         field_Editor.enterTabName(2, "New Named Tab");
+        field_Editor.clickTitle();
         contact_Settings = field_Editor.clickSave();
         field_Editor = contact_Settings.clickFieldEditor();
         
@@ -30,6 +31,7 @@ public class NameATab extends AbstractTest
         }
         field_Editor.clickTab(2);
         field_Editor.enterTabName(2, "Contact History");
+        field_Editor.clickTitle();
         contact_Settings = field_Editor.clickSave();
         contact_Settings.menuPrimary.clickContactListAll();
         
