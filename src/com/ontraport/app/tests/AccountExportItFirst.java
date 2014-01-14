@@ -7,7 +7,12 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.OPPackage_View;
 import com.ontraport.app.tools.AbstractTest;
-
+/**
+  @brief Check Exporting page
+  @return fails no export if cant verify page
+  @author nickdaquick
+ 
+ */
 public class AccountExportItFirst extends AbstractTest
 {
     @Test

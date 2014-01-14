@@ -65,24 +65,12 @@ public class OPPackage_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
             if(!exportPage.isDisplayed())
             {
-                driver.manage()
-                .timeouts()
-                .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
                 return null;
             }
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         

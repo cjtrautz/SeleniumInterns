@@ -18,9 +18,9 @@ public class DeleteSendFromAddress extends AbstractTest
         contactListAll.menuUser.open();
         Account_View account_View = contactListAll.menuUser.clickAdmin();
         Sender_View sender_View = account_View.clickSendFrom();
-        sender_View.clickRemove("njcross1990@gmail.com");
+        sender_View.clickRemove("seleniumontraport@gmail.com");
         
-        if(sender_View.verifyNoSendFrom("njcross1990@gmail.com")==null)
+        if(sender_View.verifyNoSendFrom("seleniumontraport@gmail.com")==null)
         {
             fail("couldnt find Facebook app");
         }

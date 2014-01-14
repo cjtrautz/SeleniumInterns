@@ -28,9 +28,9 @@ public class CreateSendFromAddress extends AbstractTest
         Account_View account_View = contactListAll.menuUser.clickAdmin();
         Sender_View sender_View = account_View.clickSendFrom();
         sender_View.clickAddEmail();
-        sender_View.dialogBox.enterEmailAddress("njcross1990@gmail.com");
-        sender_View.dialogBox.addEmail("njcross1990@gmail.com");
-        if(sender_View.verifyUnConfirmed("njcross1990@gmail.com")==null)
+        sender_View.dialogBox.enterEmailAddress("seleniumontraport@gmail.com");
+        sender_View.dialogBox.addEmail("seleniumontraport@gmail.com");
+        if(sender_View.verifyUnConfirmed("seleniumontraport@gmail.com")==null)
         {
             fail("couldnt find send from address");
         }

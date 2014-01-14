@@ -36,7 +36,7 @@ public class GmailConfirmations extends AbstractTest
             
         }
         Gmail gmail = (Gmail) new Gmail().init();
-        gmail.enterUserName("njcross1990@gmail.com");
+        gmail.enterUserName("seleniumontraport@gmail.com");
         gmail.enterPassword("Lughead1");
         gmail.clickSignIn();
         if(gmail.clickOneOffEmail()==null)
@@ -84,7 +84,7 @@ public class GmailConfirmations extends AbstractTest
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='chrome-company-logo ussr-helper-position-reset']")));
         //verify App Name, ID, Redirect, and Visits
         Sender_View sender_View = (Sender_View) new Sender_View().init();
-        if(sender_View.verifyConfirmed("njcross1990@gmail.com")==null)
+        if(sender_View.verifyConfirmed("seleniumontraport@gmail.com")==null)
         {
             fail("couldnt find send from address");
         }

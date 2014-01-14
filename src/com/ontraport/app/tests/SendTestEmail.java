@@ -36,7 +36,7 @@ public class SendTestEmail extends AbstractTest
         message_ListAll.formSearch.find("SelEmailMessage");
         Message_Edit message_Edit = message_ListAll.clickMessage("SelEmailMessage");
         message_Edit.clickSendTestEmail();
-        message_Edit.dialogBox.enterEmail("njcross1990@gmail.com");
+        message_Edit.dialogBox.enterEmail("seleniumontraport@gmail.com");
         message_Edit.dialogBox.clickSend();
         if(message_Edit.verifyEmailSent()==null)
         {
