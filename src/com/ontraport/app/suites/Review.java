@@ -32,26 +32,26 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
 //    //end use of CreateLandingPagePictureWithRectangle landing page
 //    com.ontraport.app.tests.DeleteLandingPageImage.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPageWithText.class,
-    //uses CreateLandingPageWithText landing page
-    com.ontraport.app.tests.EditLandingPageHeight.class,
-    com.ontraport.app.tests.EditLandingPageWidth.class,
-    com.ontraport.app.tests.EditLandingPageTop.class,
-    com.ontraport.app.tests.EditLandingPageLeft.class,
-    com.ontraport.app.tests.EditLandingPageLineSpacing.class,
-    com.ontraport.app.tests.EditLandingPageLetterSpacing.class,
-    com.ontraport.app.tests.EditLandingPageRightAlign.class,
-    com.ontraport.app.tests.EditLandingPageCenter.class,
-    com.ontraport.app.tests.EditLandingPageLeftAlign.class,
-    com.ontraport.app.tests.EditLandingPageUnderline.class,
-    com.ontraport.app.tests.EditLandingPageItalic.class,
-    com.ontraport.app.tests.EditLandingPageBold.class,
-    com.ontraport.app.tests.EditLandingPageFontSize.class,
-    com.ontraport.app.tests.EditLandingPageFont.class,
-    //end use of CreateLandingPageWithText landing page
-    com.ontraport.app.tests.DeleteLandingPageWithText.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPageWithText.class,
+//    //uses CreateLandingPageWithText landing page
+//    com.ontraport.app.tests.EditLandingPageHeight.class,
+//    com.ontraport.app.tests.EditLandingPageWidth.class,
+//    com.ontraport.app.tests.EditLandingPageTop.class,
+//    com.ontraport.app.tests.EditLandingPageLeft.class,
+//    com.ontraport.app.tests.EditLandingPageLineSpacing.class,
+//    com.ontraport.app.tests.EditLandingPageLetterSpacing.class,
+//    com.ontraport.app.tests.EditLandingPageRightAlign.class,
+//    com.ontraport.app.tests.EditLandingPageCenter.class,
+//    com.ontraport.app.tests.EditLandingPageLeftAlign.class,
+//    com.ontraport.app.tests.EditLandingPageUnderline.class,
+//    com.ontraport.app.tests.EditLandingPageItalic.class,
+//    com.ontraport.app.tests.EditLandingPageBold.class,
+//    com.ontraport.app.tests.EditLandingPageFontSize.class,
+//    com.ontraport.app.tests.EditLandingPageFont.class,
+//    //end use of CreateLandingPageWithText landing page
+//    com.ontraport.app.tests.DeleteLandingPageWithText.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateEditableEmailMessage.class,
