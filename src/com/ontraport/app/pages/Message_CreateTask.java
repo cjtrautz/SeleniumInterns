@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -319,6 +320,17 @@ public class Message_CreateTask extends AbstractPage
         save.click(); 
         //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
         return (Message_ListAll) new Message_ListAll().init();
+    }
+    
+    public Contact_Edit clickSave2 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        Actions act = new Actions(driver);
+        act.click(save).build().perform();
+        //save.click(); 
+        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
+        return (Contact_Edit) new Contact_Edit().init();
     }
 
     public Message_CreateTask enterWhenDays ( String string )

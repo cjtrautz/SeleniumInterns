@@ -9,6 +9,7 @@ import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Task_ListAll;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractTest;
 import com.ontraport.app.tools.bb.AbstractSuite;
 
@@ -24,6 +25,7 @@ public class AddTaskToContact extends AbstractTest
         contact_edit.clickNewTask();
         contact_edit.drawerActions.clickTaskNameDropDown();
         Message_CreateTask message_CreateTask = contact_edit.drawerActions.createNewTask();
+        AbstractPart.waitForAjax2(driver, 20);
         message_CreateTask.enterTaskName(value.get("Messages", "task_message_add_to_contact"));
         message_CreateTask.enterTaskSubjectName(value.get("Messages", "task_subject_new"));
         message_CreateTask.enterDueDate("1");
@@ -43,7 +45,7 @@ public class AddTaskToContact extends AbstractTest
         message_CreateTask.clickOutcomeThenDropDown();
         message_CreateTask.selectDropDownOption("Recharge all declined transactions");
         message_CreateTask.clickSaveOutcome();
-        message_CreateTask.clickSave();
+        contact_edit = message_CreateTask.clickSave2();
         contact_edit.drawerActions.clickSend();
         //verify Sel Tag exists
         if(contact_edit.verifyTask(value.get("Messages", "task_subject_new"))==null)

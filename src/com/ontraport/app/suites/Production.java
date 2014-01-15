@@ -77,7 +77,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.AddGroup.class,
     com.ontraport.app.tests.DeleteGroup.class,
     
-    com.ontraport.app.tests.EnsurePagination.class, 
+    //com.ontraport.app.tests.EnsurePagination.class, 
     
     com.ontraport.app.tests.UneditedWorkflow.class,
     com.ontraport.app.tests.PinnedItemsWorkflow.class,

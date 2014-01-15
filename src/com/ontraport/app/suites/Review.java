@@ -17,7 +17,11 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{
+{ 
+    com.ontraport.app.tests.CreateContact.class,
+    //used in following tests and uses CreateContact contact
+    com.ontraport.app.tests.AddTaskToContact.class,
+    
     com.ontraport.app.tests.CreateMessage.class,  
     com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
 }
@@ -29,11 +33,11 @@ public class Review extends AbstractSuite
     {
         AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
-        profile.setEnableNativeEvents(false);
-        profile.setPreference("browser.cache.disk.enable", false);
-        profile.setPreference("browser.cache.memory.enable", false);
-        profile.setPreference("browser.cache.offline.enable", false);
-        profile.setPreference("network.http.use-cache", false);
+        profile.setEnableNativeEvents(true);
+        profile.setPreference("browser.cache.disk.enable", true);
+        profile.setPreference("browser.cache.memory.enable", true);
+        profile.setPreference("browser.cache.offline.enable", true);
+        profile.setPreference("network.http.use-cache", true);
         driver = new FirefoxDriver(profile);
 //        driver = new ChromeDriver();
         driver.manage()
