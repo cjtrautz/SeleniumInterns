@@ -256,7 +256,7 @@ public class GmailSuite extends AbstractSuite
         driver.manage()
               .window()
               .setPosition(new Point(0, 0));
-        driver.manage()http://ontraport.com/
+        driver.manage()
               .window()
               .maximize();
         Login login = (Login) new Login().init();
