@@ -26,6 +26,7 @@ public class AddTaskToContact extends AbstractTest
         contact_edit.drawerActions.clickTaskNameDropDown();
         Message_CreateTask message_CreateTask = contact_edit.drawerActions.createNewTask();
         AbstractPart.waitForAjax2(driver, 20);
+        System.out.println(driver.getCurrentUrl());
         message_CreateTask.enterTaskName(value.get("Messages", "task_message_add_to_contact"));
         message_CreateTask.enterTaskSubjectName(value.get("Messages", "task_subject_new"));
         message_CreateTask.enterDueDate("1");
