@@ -10,7 +10,7 @@ import com.ontraport.app.tools.AbstractTest;
 /**
   @brief Check Exporting page
   @return fails no export if cant verify page
-  @author nickdaquick
+  @author Nick Cross <nick@ontraport.com>
  
  */
 public class AccountExportItFirst extends AbstractTest

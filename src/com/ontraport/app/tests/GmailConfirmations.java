@@ -37,7 +37,7 @@ public class GmailConfirmations extends AbstractTest
         }
         Gmail gmail = (Gmail) new Gmail().init();
         gmail.enterUserName("seleniumontraport@gmail.com");
-        gmail.enterPassword("Lughead1");
+        gmail.enterPassword("Test12345");
         gmail.clickSignIn();
         if(gmail.clickOneOffEmail()==null)
         {
