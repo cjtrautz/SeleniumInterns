@@ -183,7 +183,7 @@ public class Order_Form extends AbstractPage
 
     public Order_Form verifyPage ()
     {
-        AbstractPart.waitForAjax(driver, 30);
+        //AbstractPart.waitForAjax(driver, 30);
         try
         {
             wait.until(ExpectedConditions.visibilityOf(thanks));

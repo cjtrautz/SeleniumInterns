@@ -44,13 +44,13 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
     //used in following tests
     com.ontraport.app.tests.CreateGateway.class, 
-    //used in following tests and uses CreateGateway gateway
+    //used in following tests
+    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
     com.ontraport.app.tests.CreateOrderform.class,
     //used in following tests and uses CreateOrderform orderform
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateATag.class,
-    //used in following tests and uses CreateATag tag and uses CreateRuleStepSequence sequence and uses CreateOrderform orderform
+    //used in following tests and uses CreateOrderform orderform
     com.ontraport.app.tests.SubmitOrderForm.class,
     //used in following tests
     com.ontraport.app.tests.CreateUserFieldEditor.class,

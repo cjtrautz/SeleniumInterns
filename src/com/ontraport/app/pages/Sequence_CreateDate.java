@@ -399,6 +399,18 @@ public class Sequence_CreateDate extends AbstractPage
             minutes=minutes-60;
             int hours= Integer.parseInt(name);
             hours=hours+1;
+            if(hours == 13)
+            {
+                hours = 1;
+                if(name3 == "PM")
+                {
+                    name3 = "AM";
+                }
+                else
+                {
+                    name3= "PM";
+                }
+            }
             name= Integer.toString(hours);
         }
         name2 = Integer.toString(minutes);

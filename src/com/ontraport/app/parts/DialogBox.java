@@ -242,7 +242,7 @@ public class DialogBox extends AbstractPart
             using = "//div[@class='ussr-dialog-buttons']//button[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_button ')]/span[text()='Add Email']")
     private WebElement addEmail;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Agree']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//button[span[text()='Agree']]")
     private WebElement uiAgree;
     @FindBy(how = How.XPATH,
             using = "//label[text()='Package Code']/following-sibling::div/input")
@@ -604,6 +604,18 @@ public class DialogBox extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(uiAgree));
         uiAgree.click();
+        return (User_Create) new User_Create().init();
+    }
+    public User_Create clickAgreeUser ()
+    {
+        waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(uiAgree));
+        Actions action = new Actions(driver);
+        action.click(uiAgree).build().perform();
+        action.clickAndHold(uiAgree).build().perform();
+        action.release(uiAgree).build().perform();
+        uiAgree.click();
+        action.doubleClick(uiAgree).build().perform();
         return (User_Create) new User_Create().init();
     }
     public DialogBox verifyPopUpAddPackage ()

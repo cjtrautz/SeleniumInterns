@@ -17,7 +17,20 @@ import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
-{ 
+{
+//    //com.ontraport.app.tests.EnsurePagination.class,
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateGateway.class, 
+//    com.ontraport.app.tests.CreateATag.class,
+//    com.ontraport.app.tests.CreateOrderform.class,
+//    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+//    com.ontraport.app.tests.SubmitOrderForm.class,
+//    
+//    com.ontraport.app.tests.CreateRole.class,
+//    com.ontraport.app.tests.CreateUser.class,
+//    com.ontraport.app.tests.DeleteUser.class,
+//    com.ontraport.app.tests.DeleteRole.class,
+//    
     com.ontraport.app.tests.CreateContact.class,
     //used in following tests and uses CreateContact contact
     com.ontraport.app.tests.AddTaskToContact.class,
@@ -39,7 +52,7 @@ public class Review extends AbstractSuite
         profile.setPreference("browser.cache.offline.enable", true);
         profile.setPreference("network.http.use-cache", true);
         driver = new FirefoxDriver(profile);
-//        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
         driver.manage()
               .timeouts()
               .implicitlyWait(DEFAULT_WAIT, TimeUnit.SECONDS);

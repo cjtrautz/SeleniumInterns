@@ -26,65 +26,6 @@ public class SubmitOrderForm extends AbstractTest
     public void testSubmitOrderForm () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
-        SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
-        SmartFormFe_Edit smartFormFe_Edit = smartFormFe_ListAll.clickSmartform(value.get("SmartForms", "orderForm"));
-        smartFormFe_Edit.clickSettings();
-        smartFormFe_Edit.clickTagDropDown();
-        smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
-        smartFormFe_Edit.clickSequenceDropDown();
-        smartFormFe_Edit.selectDropDown(value.get("Sequences", "step_rule_sequence"));
-        smartFormFe_Edit.clickAddRule();
-        smartFormFe_Edit.enterRuleName(value.get("SmartForms", "rule_name"));
-        smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown("If Contact is subscribed to Tag");
-        smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
-        smartFormFe_Edit.clickThenDropDown();
-        smartFormFe_Edit.enterThenInputForDropDown("Change", 1);
-        smartFormFe_Edit.selectDropDown("Change the value of a field");
-        smartFormFe_Edit.clickThenDropDown();
-        smartFormFe_Edit.selectDropDown("First Name");
-        smartFormFe_Edit.enterThenInput(value.get("SmartForms", "change"), 2);
-        smartFormFe_Edit.clickRuleSave();
-        smartFormFe_Edit.clickSave();  
-        smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
-        smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "orderForm"));
-
-        //verify Sel Tag exists
-        if(smartFormFe_ListAll.verifySmartForm(value.get("SmartForms", "orderForm"))==null)
-        {
-            fail("couldn't find smartform");
-        }
-        smartFormFe_Edit = smartFormFe_ListAll.clickSmartform(value.get("SmartForms", "orderForm"));
-        smartFormFe_Edit.clickSettings();
-        if(smartFormFe_Edit.verifyTag(value.get("Contacts", "tag"))==null)
-        {
-            fail("couldn't find tag");
-        }
-        if(smartFormFe_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
-        {
-            fail("couldn't find sequence");
-        }
-        if(smartFormFe_Edit.verifyRule(value.get("SmartForms", "rule_name"))==null)
-        {
-            fail("couldn't find rule");
-        }
-        smartFormFe_Edit.clickRule(value.get("SmartForms", "rule_name"));
-        if(smartFormFe_Edit.verifyIfDropDown(value.get("Contacts", "tag"))==null)
-        {
-            fail("couldn't find if");
-        }
-        if(smartFormFe_Edit.verifyThenInput("First Name", 1)==null)
-        {
-            fail("couldn't find then");
-        }
-        if(smartFormFe_Edit.verifyThenInput(value.get("SmartForms", "change"), 2)==null)
-        {
-            fail("couldn't find then 2");
-        }
-        driver.navigate().refresh();
-        AbstractPart.waitForAjax(driver, 20);
         driver.get(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE + ".respond.ontraport.net");
         
         Order_Form order_Form = (Order_Form) new Order_Form().init();
