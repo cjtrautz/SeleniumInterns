@@ -29,6 +29,10 @@ public class Contact_Import extends AbstractPage
     private WebElement nextButton;
     
     @FindBy(how = How.XPATH,
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-input-radiobutton ') and @value='2']")
+    private WebElement createNewEntryRadioButton;
+    
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-map-next-button ')]")
     private WebElement nextMapButton;
     
@@ -108,6 +112,7 @@ public class Contact_Import extends AbstractPage
     public Contact_Import clickNextAddRules ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nextMapButton));
         nextMapButton.click();
         return this;
     }
@@ -115,8 +120,18 @@ public class Contact_Import extends AbstractPage
     public Contact_ListAll clickFinish ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nextRuleButton));
         nextRuleButton.click();
         return (Contact_ListAll) new Contact_ListAll().init();
+    }
+
+    public Contact_Import clickCreateNewEntry ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNewEntryRadioButton));
+        createNewEntryRadioButton.click();
+        return this;
+        
     }
     
 }

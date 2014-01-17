@@ -18,25 +18,18 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-//    //com.ontraport.app.tests.EnsurePagination.class,
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    com.ontraport.app.tests.CreateGateway.class, 
-//    com.ontraport.app.tests.CreateATag.class,
-//    com.ontraport.app.tests.CreateOrderform.class,
-//    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-//    com.ontraport.app.tests.SubmitOrderForm.class,
-//    
-//    com.ontraport.app.tests.CreateRole.class,
-//    com.ontraport.app.tests.CreateUser.class,
-//    com.ontraport.app.tests.DeleteUser.class,
-//    com.ontraport.app.tests.DeleteRole.class,
-//    
-    com.ontraport.app.tests.CreateContact.class,
-    //used in following tests and uses CreateContact contact
-    com.ontraport.app.tests.AddTaskToContact.class,
+    com.ontraport.app.tests.CreateSmartFormWithAddField.class,
+    com.ontraport.app.tests.DeleteSmartFormField.class,
+    com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
     
-    com.ontraport.app.tests.CreateMessage.class,  
-    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
+    com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
+    com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
+    
+    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    
+    com.ontraport.app.tests.CreateProduct.class,
+    com.ontraport.app.tests.DeleteProduct.class,
 }
 )
 public class Review extends AbstractSuite
@@ -44,7 +37,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com/");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", true);

@@ -32,7 +32,7 @@ public class AffiliateLink extends AbstractTest
         driver.navigate().back();
         
         //wait for app to load
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         
     }
 }

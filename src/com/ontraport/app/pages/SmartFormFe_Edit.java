@@ -1,9 +1,11 @@
 package com.ontraport.app.pages;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -12,9 +14,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class SmartFormFe_Edit extends AbstractPage
 {
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '),' fe-state-active ')]//a[@data-action='remove']")
+    private WebElement activeDeleteField;
+    
+    @FindBy(how = How.XPATH,
+            using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' fe-design-element-list ')]")
+    private WebElement fields;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-design-form-wrapper ')]")
+    private WebElement smartForm;
     @FindBy(
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' rules_transaction_success ')]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-import-wizard-target-rule-add-button ')]")
@@ -467,6 +481,58 @@ public class SmartFormFe_Edit extends AbstractPage
             e.printStackTrace();
             return null;
         }
+        return this;
+    }
+
+    public SmartFormFe_Edit verifySubmitButton ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smartForm));
+        try
+        {
+            if(!driver.findElement(By.xpath("//input[@name='submit-button']")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public SmartFormFe_Edit clickField ( String fieldName )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fields));
+        fields.findElement(By.xpath(".//input[@name='" + fieldName + "']")).click();
+        return this;
+    }
+
+    public SmartFormFe_Edit deleteActiveField ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(activeDeleteField));
+        activeDeleteField.click();
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyField ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(fields.findElements(By.xpath(".//li")).size());
+            if(fields.findElements(By.xpath(".//li")).size()!=i)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
         return this;
     }
 

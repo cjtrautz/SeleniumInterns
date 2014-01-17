@@ -88,6 +88,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSmartFormWithAddContent.class,
     com.ontraport.app.tests.CreateSmartFormWithAddField.class,
     com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
+    com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
+    com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
 //  
 //    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
 //    com.ontraport.app.tests.EditPostcardPictureOpacity.class,

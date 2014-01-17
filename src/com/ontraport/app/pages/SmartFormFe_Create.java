@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -64,6 +65,9 @@ public class SmartFormFe_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//input[@value='single']")
     private WebElement singlOptIn;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='submit-button']")
+    private WebElement submitButton;
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -219,6 +223,15 @@ public class SmartFormFe_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(singlOptIn));
         singlOptIn.click();
+        return this;
+    }
+
+    public SmartFormFe_Create dragAndDropSubmit ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(submitButton));
+        Actions action = new Actions(driver);
+        action.dragAndDropBy(submitButton, 0, i).build().perform();
         return this;
     }
 

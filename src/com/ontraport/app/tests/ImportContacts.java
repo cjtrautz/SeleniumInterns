@@ -21,6 +21,7 @@ public class ImportContacts extends AbstractTest
         Contact_Import contact_Import = contact_Settings.clickImportContacts();
         contact_Import.clickFirstContactList();
         contact_Import.clickNext();
+        contact_Import.clickCreateNewEntry();
         contact_Import.checkUsageAgreement();
         contact_Import.clickNextMerge();
         contact_Import.clickNextAddRules();

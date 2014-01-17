@@ -158,7 +158,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditLandingPageCodeModeName.class,
     //used in following tests
     com.ontraport.app.tests.CreateGateway.class,
-    //used in following tests and uses CreateGateway gateway
+    //used in following tests
+    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag
     com.ontraport.app.tests.CreateOrderform.class,
     //uses CreateOrderform orderform
     com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,

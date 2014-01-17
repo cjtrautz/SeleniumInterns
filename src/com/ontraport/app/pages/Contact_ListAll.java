@@ -341,7 +341,7 @@ public class Contact_ListAll extends AbstractPage
         return this;
     }
     public Contact_ListAll verifyBeingImportedAndClose ()
-    {
+    {  
         AbstractPart.waitForAjax(driver, 20);
         try
         {

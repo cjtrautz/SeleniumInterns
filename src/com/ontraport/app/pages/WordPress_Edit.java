@@ -173,10 +173,28 @@ public class WordPress_Edit extends AbstractPage
         {
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']"))));
          driver.findElement(By.xpath("//a[@href='http://" + string + ".affcntr.com/wp-login.php']")).click();
-         System.out.print("ya");
          wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[@for='user_login']/input"))));
-         String[] login = AbstractPage.getLogin().split("\\+");
-         driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys(login[0] + login[1]);
+         String[] login = null;
+         try{
+             login = AbstractPage.getLogin().split("\\+");
+         }
+         catch(Exception e)
+         {
+             login[0] = AbstractPage.getLogin();
+             login[1] = "";
+             e.printStackTrace();
+         }
+         System.out.println(login.length);
+         if(login.length<=1)
+         {
+             System.out.println("1");
+             driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys(login[0]);
+         }
+         else
+         {
+             System.out.println("2");
+             driver.findElement(By.xpath("//label[@for='user_login']/input")).sendKeys(login[0] + login[1]);
+         }
          wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//label[@for='user_pass']/input"))));
          driver.findElement(By.xpath("//label[@for='user_pass']/input")).sendKeys(password);
          wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//input[@id='wp-submit']"))));
@@ -190,6 +208,7 @@ public class WordPress_Edit extends AbstractPage
         }
         catch(Exception e)
         {
+            e.printStackTrace();
             return null;
         }
         return this;
