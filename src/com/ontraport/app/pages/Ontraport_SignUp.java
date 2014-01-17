@@ -75,7 +75,7 @@ public class Ontraport_SignUp extends AbstractPage
     
     public Ontraport_SignUp enterFirstName ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", firstnameInput);
         wait.until(ExpectedConditions.visibilityOf(firstnameInput));
         firstnameInput.click();
@@ -85,7 +85,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterLastName ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", lastnameInput);
         wait.until(ExpectedConditions.visibilityOf(lastnameInput));
         lastnameInput.click();
@@ -95,7 +95,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterBusinessName ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", companyInput);
         wait.until(ExpectedConditions.visibilityOf(companyInput));
         companyInput.click();
@@ -105,7 +105,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterPhoneNumber ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", officePhoneInput);
         wait.until(ExpectedConditions.visibilityOf(officePhoneInput));
         officePhoneInput.click();
@@ -115,7 +115,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterAddress ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addressInput);
         wait.until(ExpectedConditions.visibilityOf(addressInput));
         addressInput.click();
@@ -125,7 +125,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterCity ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", cityInput);
         wait.until(ExpectedConditions.visibilityOf(cityInput));
         cityInput.click();
@@ -135,7 +135,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterState ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", stateInput);
         wait.until(ExpectedConditions.visibilityOf(stateInput));
         stateInput.click();
@@ -146,7 +146,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterZip ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", zipInput);
         wait.until(ExpectedConditions.visibilityOf(zipInput));
         zipInput.click();
@@ -156,7 +156,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterCountry ( String string ) throws InterruptedException
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", countryInput);
         wait.until(ExpectedConditions.visibilityOf(countryInput));
         countryInput.click();
@@ -167,7 +167,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterEmailAddressAgain ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", email2Input);
         wait.until(ExpectedConditions.visibilityOf(email2Input));
         email2Input.click();
@@ -177,7 +177,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterEmailAddress ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", emailInput);
         wait.until(ExpectedConditions.visibilityOf(emailInput));
         emailInput.click();
@@ -187,7 +187,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterPassword ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", passInput);
         wait.until(ExpectedConditions.visibilityOf(passInput));
         passInput.click();
@@ -197,7 +197,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp enterPasswordAgain ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", pass2Input);
         wait.until(ExpectedConditions.visibilityOf(pass2Input));
         pass2Input.click();
@@ -207,7 +207,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp checkAgreeToTerms ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", agreeInput);
         wait.until(ExpectedConditions.visibilityOf(agreeInput));
         agreeInput.click();
@@ -216,7 +216,7 @@ public class Ontraport_SignUp extends AbstractPage
 
     public Ontraport_SignUp clickCreateMyAccount ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        //AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", agreeInput);
         wait.until(ExpectedConditions.visibilityOf(createAccount));
         createAccount.click();
