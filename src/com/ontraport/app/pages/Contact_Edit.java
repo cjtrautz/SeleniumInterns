@@ -62,6 +62,11 @@ public class Contact_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH, 
+            using = "//a[normalize-space(text())='Referral Info']")
+    private WebElement referralInfoTab;
+    
+    @FindBy(
+            how = How.XPATH, 
             using = "//div[normalize-space(@class)='ussr-chrome-panel-pane-header-back']")
     private WebElement back;
     
@@ -128,6 +133,15 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(notesAndTasksTab));
         notesAndTasksTab.click();
+        return this;
+        
+    }
+    
+    public Contact_Edit clickReferralInfoTab ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(referralInfoTab));
+        referralInfoTab.click();
         return this;
         
     }
