@@ -1119,7 +1119,7 @@ public class DialogBox extends AbstractPart
     }
     public DialogBox enterSubDomain ( String string )
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(subdomainInput));
         subdomainInput.click();
         subdomainInput.sendKeys(string);

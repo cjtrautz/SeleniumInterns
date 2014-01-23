@@ -44,7 +44,7 @@ public abstract class AbstractPart
         }
         catch (Exception e)
         {
-            System.out.println( ( (JavascriptExecutor) driver ).executeScript("return ontraport.activeRequests"));
+            //System.out.println( ( (JavascriptExecutor) driver ).executeScript("return ontraport.activeRequests"));
             e.printStackTrace();
         }
         return jQcondition;
