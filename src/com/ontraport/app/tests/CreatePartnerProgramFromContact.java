@@ -22,8 +22,10 @@ public class CreatePartnerProgramFromContact extends AbstractTest
         contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
         
         Contact_Edit contactEdit = contactListAll.clickContact(value.get("Contacts", "selenium_email"));
-        
         contactEdit.clickReferralInfoTab();
-        
+        contactEdit.clickAffiliateProgram();
+        contactEdit.selectDrillDown("Create New Partner Program");
+        contactEdit.enterNewAffiliateProgramName(value.get("Partners", "affiliate_program_name"));
+        contactEdit.clickAffiliateProgramSave();
     }
 }

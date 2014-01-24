@@ -65,6 +65,18 @@ public class Contact_Edit extends AbstractPage
             using = "//a[normalize-space(text())='Referral Info']")
     private WebElement referralInfoTab;
     
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Affiliate Program']/following-sibling::div[@class='ussr-form-input-wrapper']")
+    private WebElement affiliateProgramField;
+    
+    @FindBy(how=How.XPATH,
+            using="//label[text()='Affiliate Program']/following-sibling::button")
+    private WebElement affiliateProgramSave;
+    
+    @FindBy(how=How.XPATH,
+            using="//span[@class='ussr-component-quick-object-creator-target-sad-button']/following-sibling::button")
+    private WebElement affiliateProgramNameInput;
+    
     @FindBy(
             how = How.XPATH, 
             using = "//div[normalize-space(@class)='ussr-chrome-panel-pane-header-back']")
@@ -441,5 +453,30 @@ public class Contact_Edit extends AbstractPage
         taskSelectAll.click();
         return this;
     }
+
+    public Contact_Edit clickAffiliateProgram ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramField));
+        affiliateProgramField.click();
+        return this;
+    }
     
+    public Contact_Edit enterNewAffiliateProgramName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        affiliateProgramNameInput.sendKeys(string);
+        return this;
+        
+    }
+    
+    public Contact_Edit clickAffiliateProgramSave ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        affiliateProgramSave.click();
+        return this;
+        
+    }
+
 }
+
