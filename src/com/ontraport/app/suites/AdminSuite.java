@@ -21,7 +21,7 @@ import com.ontraport.app.tools.AbstractSuite;
 { 
     com.ontraport.app.tests.SetLanguage.class, 
     
-    //com.ontraport.app.tests.EnsurePagination.class, 
+    com.ontraport.app.tests.EnsurePagination.class, 
     
     com.ontraport.app.tests.SetTimezone.class,
     
@@ -87,6 +87,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateSmartFormWithAddContent.class,
     com.ontraport.app.tests.DeleteSmartFormWithAddContent.class,
     com.ontraport.app.tests.CreateSmartFormWithAddField.class,
+    com.ontraport.app.tests.DeleteSmartFormField.class,
     com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
     com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
     com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
