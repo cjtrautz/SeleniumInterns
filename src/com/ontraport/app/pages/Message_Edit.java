@@ -1421,6 +1421,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit clickTaskFormDropDown ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", formDropDown);
         wait.until(ExpectedConditions.visibilityOf(formDropDown));
         formDropDown.click();
         return this;

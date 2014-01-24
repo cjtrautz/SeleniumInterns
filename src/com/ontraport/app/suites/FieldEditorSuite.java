@@ -69,8 +69,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteUserFieldEditor.class,
     //uses CreateLandingPageWithForm landing page
     com.ontraport.app.tests.EditLandingPageFormOpacity.class,
-    com.ontraport.app.tests.EditLandingPageFormColor.class,
-    com.ontraport.app.tests.EditLandingPageFormSize.class,
+    //com.ontraport.app.tests.EditLandingPageFormColor.class,
+    //com.ontraport.app.tests.EditLandingPageFormSize.class,
     //end use of CreateLandingPageWithForm landing page
     com.ontraport.app.tests.DeleteLandingPageWithForm.class,
     //uses CreateOrderform orderform
