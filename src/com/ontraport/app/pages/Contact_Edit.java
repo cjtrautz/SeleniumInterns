@@ -70,11 +70,11 @@ public class Contact_Edit extends AbstractPage
     private WebElement affiliateProgramField;
     
     @FindBy(how=How.XPATH,
-            using="//label[text()='Affiliate Program']/following-sibling::button")
-    private WebElement affiliateProgramSave;
+            using="//span[normalize-space(text())='Save and Edit']")
+    private WebElement affiliateProgramSaveAndEdit;
     
     @FindBy(how=How.XPATH,
-            using="//span[@class='ussr-component-quick-object-creator-target-sad-button']/following-sibling::button")
+            using="//label[text()='Partner Program Program Name']/following-sibling::div/input")
     private WebElement affiliateProgramNameInput;
     
     @FindBy(
@@ -243,7 +243,6 @@ public class Contact_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
     
@@ -266,7 +265,6 @@ public class Contact_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
 
@@ -289,7 +287,6 @@ public class Contact_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
 
@@ -298,7 +295,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.xpath(".//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]/a/span")).click();
         return this;
-        
     }
 
     public Contact_Edit verifyNoTag ( String string )
@@ -329,7 +325,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         firstNameField.click();
         return this;
-        
     }
 
     public Contact_Edit enterFirstName ( String string )
@@ -337,7 +332,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         firstNameInput.sendKeys(string);
         return this;
-        
     }
 
     public Contact_Edit clickFirstNameSave ()
@@ -345,7 +339,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         firstNameSave.click();
         return this;
-        
     }
 
     public Contact_Edit verifyFirstName ( String string )
@@ -467,15 +460,13 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         affiliateProgramNameInput.sendKeys(string);
         return this;
-        
     }
     
-    public Contact_Edit clickAffiliateProgramSave ()
+    public AffiliateProgram_Create clickAffiliateProgramSaveAndEdit ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        affiliateProgramSave.click();
-        return this;
-        
+        affiliateProgramSaveAndEdit.click();
+        return (AffiliateProgram_Create) new AffiliateProgram_Create().init();
     }
 
 }

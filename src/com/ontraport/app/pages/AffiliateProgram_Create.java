@@ -194,4 +194,12 @@ public class AffiliateProgram_Create extends AbstractPage
         return this;
     }
     
+    public Contact_Edit clickSaveToContact ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        return (Contact_Edit) new Contact_Edit().init();
+    }
+    
 }
