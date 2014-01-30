@@ -73,17 +73,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteEmailStepSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
     
-    //testing navigation
-    com.ontraport.app.tests.CancelBroadCast.class,
-    com.ontraport.app.tests.DeleteCancelBroadCast.class,
-    com.ontraport.app.tests.LeadScoringCancel.class,
-    com.ontraport.app.tests.LeadScoringBack.class,
-    com.ontraport.app.tests.FieldEditorCancel.class,
-    com.ontraport.app.tests.FieldEditorBack.class,
-    com.ontraport.app.tests.SMSStats.class,
-    com.ontraport.app.tests.SMSCancel.class,
-    com.ontraport.app.tests.SMSBack.class,
-    
     //used in following tests
     com.ontraport.app.tests.CreateRule_ContactIsCreated.class,
     //uses CreateRule_ContactIsCreated rule
@@ -170,6 +159,17 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdated.class,
     com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
     com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
+    
+    //testing navigation
+    com.ontraport.app.tests.CancelBroadCast.class,
+    com.ontraport.app.tests.DeleteCancelBroadCast.class,
+    com.ontraport.app.tests.LeadScoringCancel.class,
+    com.ontraport.app.tests.LeadScoringBack.class,
+    com.ontraport.app.tests.FieldEditorCancel.class,
+    com.ontraport.app.tests.FieldEditorBack.class,
+    com.ontraport.app.tests.SMSStats.class,
+    com.ontraport.app.tests.SMSCancel.class,
+    com.ontraport.app.tests.SMSBack.class,
     
     //testing LeadScoring creation
     com.ontraport.app.tests.CreateLeadScoring_SMSDoesntContainText.class,
