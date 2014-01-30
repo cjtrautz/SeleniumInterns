@@ -19,7 +19,7 @@ public class CreateTab extends AbstractTest
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
         field_Editor.clickAddNewTab();
-        field_Editor.enterNewTabName("SelTab", 8);
+        field_Editor.enterNewTabName("SelTab", 6);
         //field_Editor.clickTitle();
         contact_Settings = field_Editor.clickSave();
         field_Editor = contact_Settings.clickFieldEditor();
