@@ -25,8 +25,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
     com.ontraport.app.tests.CreateSendFromAddress.class, 
-    //wait a little before deleting contact and message for one off to ensure email is sent
-    com.ontraport.app.tests.DeleteSendSingleEmailToContact.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateMessage.class,                         
@@ -159,6 +157,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdated.class,
     com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
     com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
+    
+    //wait a little before deleting contact and message for one off to ensure email is sent
+    com.ontraport.app.tests.DeleteSendSingleEmailToContact.class,
     
     //testing navigation
     com.ontraport.app.tests.CancelBroadCast.class,
