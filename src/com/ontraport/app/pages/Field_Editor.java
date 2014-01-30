@@ -414,37 +414,20 @@ public class Field_Editor extends AbstractPage
     public void enterNewTabName ( String string, int i ) throws InterruptedException
     {
         AbstractPart.waitForAjax(driver, 20);
-        //wait.until(ExpectedConditions.visibilityOf(overflowList));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a[contains(text(), 'Untitled')]")));
         wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//li/a[contains(text(), 'Untitled')]"))));
         overflowList.findElement(By.xpath(".//li/a[contains(text(), 'Untitled')]")).click();
         AbstractPart.waitForAjax(driver, 20);
-        //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
-
-        //driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a/input")).sendKeys(string);
-        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li[@style=' ']")));
         Actions action = new Actions(driver);
-        //Thread.sleep(2000);
         wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//input"))));
         overflowList.findElement(By.xpath(".//input")).clear();
         AbstractPart.waitForAjax(driver, 20);
-        action.sendKeys(Keys.BACK_SPACE + string).perform();
-        //action.sendKeys(Keys.ENTER).perform();
+        action.sendKeys(string).perform();
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(overflowList));
-        //Thread.sleep(6000);
-        overflowList.click();
-        //Thread.sleep(20000);
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a[contains(text(), '" + string + "')]"))));
-        //driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']")).click();
+        //wait.until(ExpectedConditions.visibilityOf(overflowList));
         //overflowList.click();
-        //Thread.sleep(10000);
-        //wait.until(ExpectedConditions.visibilityOf(toggleOverflowMenu));
+        //AbstractPart.waitForAjax(driver, 20);
         //toggleOverflowMenu.click();
-        //wait.until(ExpectedConditions.visibilityOf(contactInformationTab));
-        //contactInformationTab.click();
-        AbstractPart.waitForAjax(driver, 20);
-        toggleOverflowMenu.click();
     }
 
     public Field_Editor verifyOverflowTab ( String string )
@@ -516,13 +499,7 @@ public class Field_Editor extends AbstractPage
             toggleOverflowMenu.click();
             wait.until(ExpectedConditions.visibilityOf(overflowCollection));
         }
-        catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
-            return this;
-        }
-        catch(ElementNotVisibleException e2){
+        catch(Exception e){
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
