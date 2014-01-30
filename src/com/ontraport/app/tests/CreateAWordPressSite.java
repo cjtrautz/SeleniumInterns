@@ -27,6 +27,16 @@ public class CreateAWordPressSite extends AbstractTest
         wordPress_CreateType2.enterMembershipLevel("Level1");
         wordPress_CreateType2.clickAddMembershipLevel();
         wordPress_CreateType2.clickSave();
+        //cant get this to work in jenkins without it
+        try
+        {
+            Thread.sleep(3000);
+        }
+        catch (InterruptedException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         String password= wordPress_CreateType2.dialogBox.getPasswordCredentials();
         AbstractTest.setWPpass(password);
         wordPress_ListAll = wordPress_CreateType2.dialogBox.clickClose2();
