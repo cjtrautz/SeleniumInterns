@@ -1688,7 +1688,8 @@ public class LandingPage_Edit extends AbstractPage
         action.keyDown(Keys.SHIFT).build().perform();
         for(int i = 0; i<string.length(); i++)
         {
-            action.sendKeys(Keys.ARROW_LEFT).build().perform();
+            //needs to be changed randomly from right to left or vice versa
+            action.sendKeys(Keys.ARROW_RIGHT).build().perform();
         }
         action.keyUp(Keys.SHIFT).build().perform();
         driver.switchTo().defaultContent();
