@@ -131,8 +131,9 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_SendsYouAnEmail.class,
     com.ontraport.app.tests.CreateRule_OpensEmail.class,
     com.ontraport.app.tests.DeleteRule_OpensEmail.class,
-    com.ontraport.app.tests.CreateRule_WhenVisitsNonWpWebsite.class,
-    com.ontraport.app.tests.DeleteRule_WhenVisitsNonWpWebsite.class,
+    //no longer part of the system
+//    com.ontraport.app.tests.CreateRule_WhenVisitsNonWpWebsite.class,
+//    com.ontraport.app.tests.DeleteRule_WhenVisitsNonWpWebsite.class,
     com.ontraport.app.tests.CreateRule_WhenSubscriptionToAnySequenceUnPaused.class,
     com.ontraport.app.tests.DeleteRule_WhenSubscriptionToAnySequenceUnPaused.class,
     com.ontraport.app.tests.CreateRule_WhenSubscriptionToAnySequencePaused.class,

@@ -60,9 +60,10 @@ public class WorkflowPagination extends AbstractTest
         landingPage_ListAll.pin.pin();
         WordPress_ListAll wordPress_ListAll = landingPage_ListAll.menuPrimary.clickWordPressListAll();
         wordPress_ListAll.pin.pin();
-        TrackedDomain_ListAll trackeDomain_ListAll = wordPress_ListAll.menuPrimary.clickTrackedDomainListAll();
-        trackeDomain_ListAll.pin.pin();
-        TrackingCampaign_ListAll trackingCampaign_ListAll = trackeDomain_ListAll.menuPrimary.clickTrackingCampaignListAll2();
+        //no longer part of the system
+        //TrackedDomain_ListAll trackeDomain_ListAll = wordPress_ListAll.menuPrimary.clickTrackedDomainListAll();
+        //trackeDomain_ListAll.pin.pin();
+        TrackingCampaign_ListAll trackingCampaign_ListAll = wordPress_ListAll.menuPrimary.clickTrackingCampaignListAll2();
         trackingCampaign_ListAll.pin.pin();
         TrackingLeadSource_ListAll trackingLeadSource_ListAll = trackingCampaign_ListAll.menuPrimary.clickTrackingLeadSourceListAll();
         trackingLeadSource_ListAll.pin.pin();
@@ -109,9 +110,9 @@ public class WorkflowPagination extends AbstractTest
         landingPage_ListAll.pin.unPin();
         wordPress_ListAll = landingPage_ListAll.menuPrimary.clickWordPressListAll();
         wordPress_ListAll.pin.unPin();
-        trackeDomain_ListAll = wordPress_ListAll.menuPrimary.clickTrackedDomainListAll();
-        trackeDomain_ListAll.pin.unPin();
-        trackingCampaign_ListAll = trackeDomain_ListAll.menuPrimary.clickTrackingCampaignListAll2();
+       // trackeDomain_ListAll = wordPress_ListAll.menuPrimary.clickTrackedDomainListAll();
+        //trackeDomain_ListAll.pin.unPin();
+        trackingCampaign_ListAll = wordPress_ListAll.menuPrimary.clickTrackingCampaignListAll2();
         trackingCampaign_ListAll.pin.unPin();
         trackingLeadSource_ListAll = trackingCampaign_ListAll.menuPrimary.clickTrackingLeadSourceListAll();
         trackingLeadSource_ListAll.pin.unPin();

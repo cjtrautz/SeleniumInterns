@@ -30,7 +30,7 @@ public class CreateAWordPressSite extends AbstractTest
         //cant get this to work in jenkins without it
         try
         {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         }
         catch (InterruptedException e)
         {

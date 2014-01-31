@@ -279,7 +279,7 @@ public class MenuWorkflow extends AbstractPart
         pinPaginator.findElement(By.xpath(".//span[@class='ussr-icon ussr-icon-seek-next']")).click();
         AbstractPart.waitForAjax(driver, 20);
         System.out.println(pageSpan.getText());
-        if(!pageSpan.getText().equals("19-20"))
+        if(!pageSpan.getText().equals("19-19"))
         {
             return null;
         }

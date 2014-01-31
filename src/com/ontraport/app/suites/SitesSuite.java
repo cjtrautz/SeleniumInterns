@@ -36,8 +36,9 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
     com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
     com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
-    com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
-    com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
+    //no longer part of rules
+    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
+    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
     com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
@@ -178,12 +179,13 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateLandingPageBack.class,
     com.ontraport.app.tests.CreateLandingPageCancel.class,
     
-    //used in following tests
-    com.ontraport.app.tests.CreateTrackedDomain.class, 
-    //uses CreateTrackedDomain tracked domain
-    com.ontraport.app.tests.ViewTrackingScript.class,
-    //end use of CreateTrackedDomain tracked domain
-    com.ontraport.app.tests.DeleteTrackedDomain.class, 
+    //no longer part of system
+//    //used in following tests
+//    com.ontraport.app.tests.CreateTrackedDomain.class, 
+//    //uses CreateTrackedDomain tracked domain
+//    com.ontraport.app.tests.ViewTrackingScript.class,
+//    //end use of CreateTrackedDomain tracked domain
+//    com.ontraport.app.tests.DeleteTrackedDomain.class, 
     
     com.ontraport.app.tests.SignUp.class, 
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
