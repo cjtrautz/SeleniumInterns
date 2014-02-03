@@ -458,6 +458,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterNewAffiliateProgramName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramNameInput));
         affiliateProgramNameInput.sendKeys(string);
         return this;
     }
@@ -465,6 +466,7 @@ public class Contact_Edit extends AbstractPage
     public AffiliateProgram_Create clickAffiliateProgramSaveAndEdit ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramSaveAndEdit));
         affiliateProgramSaveAndEdit.click();
         return (AffiliateProgram_Create) new AffiliateProgram_Create().init();
     }

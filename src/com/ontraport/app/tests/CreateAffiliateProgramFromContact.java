@@ -45,6 +45,34 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         
         contactEdit = affiliateProgram_Create.clickSaveToContact();
         
+        if(contactEdit.verifyFieldValue(value.get("Partners", "affiliate_program_name"))==null)
+        {
+            fail("affiliate program not set");
+        }
         
+        AffiliateProgram_ListAll affiliateProgram_ListAll = contactListAll.menuPrimary.clickAffiliateProgramListAll();
+        
+        affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_name"));
+        if(affiliateProgram_ListAll.verifyProgram(value.get("Partners", "affiliate_program_name"))==null)
+        {
+            fail("couldnt find program");
+        }
+        AffiliateProgram_Edit affiliateProgram_Edit = affiliateProgram_ListAll.clickProgram(value.get("Partners", "affiliate_program_name"));
+        if(affiliateProgram_Edit.verifyName(value.get("Partners", "affiliate_program_name"))==null)
+        {
+            fail("couldnt find program name");
+        }
+        if(affiliateProgram_Edit.verifyType("1 Tier")==null)
+        {
+            fail("couldnt find program type");
+        }
+        if(affiliateProgram_Edit.verifyInformation("Share first name and last initial")==null)
+        {
+            fail("couldnt find program information");
+        }
+        if(affiliateProgram_Edit.verifyNotify("Send Email Notification")==null)
+        {
+            fail("couldnt find program notify");
+        }
     }
 }
