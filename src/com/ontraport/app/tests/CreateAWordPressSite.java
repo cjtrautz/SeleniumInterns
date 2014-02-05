@@ -30,11 +30,10 @@ public class CreateAWordPressSite extends AbstractTest
         //cant get this to work in jenkins without it
         try
         {
-            Thread.sleep(5000);
+            Thread.sleep(8000);
         }
         catch (InterruptedException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         String password= wordPress_CreateType2.dialogBox.getPasswordCredentials();
