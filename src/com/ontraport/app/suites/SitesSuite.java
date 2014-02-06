@@ -18,9 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{  
-    com.ontraport.app.tests.ImportContacts.class,
-    
+{    
     //used in following tests
     com.ontraport.app.tests.CreateAWordPressSite.class,
     //uses CreateAWordPressSite wordpress site
@@ -53,6 +51,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
     //end use of CreateAWordPressSite site
     com.ontraport.app.tests.DeleteWordPressSite.class,
+    
+    com.ontraport.app.tests.ImportContacts.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
