@@ -18,8 +18,6 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateContact.class,
-    com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
 }
 )

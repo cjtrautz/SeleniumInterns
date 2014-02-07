@@ -65,16 +65,17 @@ public class Contact_Edit extends AbstractPage
             using = "//a[normalize-space(text())='Referral Info']")
     private WebElement referralInfoTab;
     
+    //NEED TO FIX
     @FindBy(how=How.XPATH,
-            using="//label[text()='Affiliate Program']/following-sibling::div[@class='ussr-form-input-wrapper']")
+            using="//label[text()='Affiliate Program']/following-sibling::span")
     private WebElement affiliateProgramField;
     
     @FindBy(how=How.XPATH,
-            using="//span[normalize-space(text())='Save and Edit']")
+            using="//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-quick-object-creator-target-sae-button ')]//button")
     private WebElement affiliateProgramSaveAndEdit;
     
     @FindBy(how=How.XPATH,
-            using="//label[text()='Partner Program Program Name']/following-sibling::div/input")
+            using="//div[contains(concat(' ', normalize-space(@class), ' '),' create-new-form ')]//input")
     private WebElement affiliateProgramNameInput;
     
     @FindBy(
@@ -255,6 +256,28 @@ public class Contact_Edit extends AbstractPage
             .timeouts()
             .implicitlyWait(8, TimeUnit.SECONDS);
             driver.findElement(By.xpath(".//div[normalize-space(text())='" + value + "']"));
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(NoSuchElementException e){
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return null;
+        }
+        return this;
+    }
+    
+    public Contact_Edit verifyDrilldownValue (String value)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(8, TimeUnit.SECONDS);
+            driver.findElement(By.xpath(".//span[normalize-space(text())='" + value + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

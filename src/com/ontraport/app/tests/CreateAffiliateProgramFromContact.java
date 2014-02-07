@@ -45,7 +45,11 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         
         contactEdit = affiliateProgram_Create.clickSaveToContact();
         
-        if(contactEdit.verifyFieldValue(value.get("Partners", "affiliate_program_name"))==null)
+        contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
+        contactListAll.clickContact(value.get("Contacts", "selenium_email"));
+        contactEdit.clickReferralInfoTab();        
+        
+        if(contactEdit.verifyDrilldownValue(value.get("Partners", "affiliate_program_name"))==null)
         {
             fail("affiliate program not set");
         }
