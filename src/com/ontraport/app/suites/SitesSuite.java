@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{    
+{ 
     //used in following tests
     com.ontraport.app.tests.CreateAWordPressSite.class,
     //uses CreateAWordPressSite wordpress site
@@ -187,7 +187,6 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //end use of CreateTrackedDomain tracked domain
 //    com.ontraport.app.tests.DeleteTrackedDomain.class, 
     
-    com.ontraport.app.tests.SignUp.class, 
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
     com.ontraport.app.tests.DeleteLandingPageRedirect.class,
     
@@ -279,6 +278,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.VerifySequenceEditSteps.class,
     //end use of CreateRuleDateSequence sequence
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
+    
+    com.ontraport.app.tests.SignUp.class, 
     
 })
 public class SitesSuite extends AbstractSuite

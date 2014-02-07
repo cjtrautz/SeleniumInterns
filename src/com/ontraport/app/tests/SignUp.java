@@ -22,6 +22,13 @@ public class SignUp extends AbstractTest
     @Test
     public void testSignUp () throws InterruptedException
     {
+        Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+        contactListAll.menuUser.open();
+        contactListAll.menuUser.clickLogOut();
+        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
+        {
+            fail("Can't find Affiliates page");
+        }
         driver.get("https://signup.ontraport.com/ontraport-beta-signup.php");
         Ontraport_SignUp ontraport_SignUp = (Ontraport_SignUp) new Ontraport_SignUp().init();
         ontraport_SignUp.enterFirstName(value.get("SignUp", "first_name"));
@@ -40,13 +47,6 @@ public class SignUp extends AbstractTest
         ontraport_SignUp.checkAgreeToTerms();
         ontraport_SignUp.clickCreateMyAccount();
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
-        Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        contactListAll.menuUser.open();
-        contactListAll.menuUser.clickLogOut();
-        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
-        {
-            fail("Can't find Affiliates page");
-        }
         Login login = (Login) new Login().init();
         login.open(Login.url);
         login.as(value.get("SignUp", "email"), value.get("SignUp", "pass"));
