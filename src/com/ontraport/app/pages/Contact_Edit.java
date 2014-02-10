@@ -67,7 +67,7 @@ public class Contact_Edit extends AbstractPage
     
     //NEED TO FIX
     @FindBy(how=How.XPATH,
-            using="//label[text()='Affiliate Program']/following-sibling::span")
+            using="//label[text()='Affiliate Program']/following-sibling::div//span")
     private WebElement affiliateProgramField;
     
     @FindBy(how=How.XPATH,
