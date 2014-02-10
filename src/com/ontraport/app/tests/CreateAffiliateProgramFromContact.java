@@ -38,9 +38,7 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         affiliateProgram_Create.clickInfoGiveDropDown();
         affiliateProgram_Create.selectDrillDown("Share first name and last initial");
         affiliateProgram_Create.clickNotifySomeoneDropDown();
-        affiliateProgram_Create.selectDrillDown("Send Email Notification");
-        affiliateProgram_Create.clickEmailDropDown();
-        affiliateProgram_Create.selectDrillDown(value.get("Messages", "email_message"));
+        affiliateProgram_Create.selectDrillDown("Do Not Notify");
         
         contactEdit = affiliateProgram_Create.clickSaveToContact();
         
@@ -73,7 +71,7 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         {
             fail("couldnt find program information");
         }
-        if(affiliateProgram_Edit.verifyNotify("Send Email Notification")==null)
+        if(affiliateProgram_Edit.verifyNotify("Do Not Notify")==null)
         {
             fail("couldnt find program notify");
         }
