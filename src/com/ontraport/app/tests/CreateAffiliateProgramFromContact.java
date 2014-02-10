@@ -29,11 +29,10 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         contactEdit.clickReferralInfoTab();
         contactEdit.clickAffiliateProgram();
         contactEdit.selectDrillDown("Create New Partner Program");
-        contactEdit.enterNewAffiliateProgramName(value.get("Partners", "affiliate_program_name"));
+        contactEdit.enterNewAffiliateProgramName(value.get("Partners", "affiliate_program_from_contact_name"));
         
         AffiliateProgram_Create affiliateProgram_Create = contactEdit.clickAffiliateProgramSaveAndEdit();
         
-        affiliateProgram_Create.enterProgramName(value.get("Partners", "affiliate_program_name"));
         affiliateProgram_Create.clickProgramTypeDropDown();
         affiliateProgram_Create.selectDrillDown("1 Tier");
         affiliateProgram_Create.clickInfoGiveDropDown();
@@ -49,20 +48,20 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         contactListAll.clickContact(value.get("Contacts", "selenium_email"));
         contactEdit.clickReferralInfoTab();        
         
-        if(contactEdit.verifyDrilldownValue(value.get("Partners", "affiliate_program_name"))==null)
+        if(contactEdit.verifyDrilldownValue(value.get("Partners", "affiliate_program_from_contact_name"))==null)
         {
             fail("affiliate program not set");
         }
         
         AffiliateProgram_ListAll affiliateProgram_ListAll = contactListAll.menuPrimary.clickAffiliateProgramListAll();
         
-        affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_name"));
-        if(affiliateProgram_ListAll.verifyProgram(value.get("Partners", "affiliate_program_name"))==null)
+        affiliateProgram_ListAll.formSearch.find(value.get("Partners", "affiliate_program_from_contact_name"));
+        if(affiliateProgram_ListAll.verifyProgram(value.get("Partners", "affiliate_program_from_contact_name"))==null)
         {
             fail("couldnt find program");
         }
-        AffiliateProgram_Edit affiliateProgram_Edit = affiliateProgram_ListAll.clickProgram(value.get("Partners", "affiliate_program_name"));
-        if(affiliateProgram_Edit.verifyName(value.get("Partners", "affiliate_program_name"))==null)
+        AffiliateProgram_Edit affiliateProgram_Edit = affiliateProgram_ListAll.clickProgram(value.get("Partners", "affiliate_program_from_contact_name"));
+        if(affiliateProgram_Edit.verifyName(value.get("Partners", "affiliate_program_from_contact_name"))==null)
         {
             fail("couldnt find program name");
         }

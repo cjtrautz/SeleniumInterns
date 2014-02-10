@@ -717,6 +717,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.AddColumn.class,
     com.ontraport.app.tests.MoveColumn.class,
     com.ontraport.app.tests.DeleteColumn.class,
+    com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
     //relies on having contacts
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.EnsureRulesFire.class,
