@@ -274,18 +274,9 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(8, TimeUnit.SECONDS);
-            driver.findElement(By.xpath(".//span[normalize-space(text())='" + value + "']"));
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            driver.findElement(By.xpath("//span[normalize-space(text())='" + value + "']"));
         }
         catch(NoSuchElementException e){
-            driver.manage()
-            .timeouts()
-            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
         return this;

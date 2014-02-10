@@ -9,11 +9,6 @@ import com.ontraport.app.pages.AffiliateProgram_Edit;
 import com.ontraport.app.pages.AffiliateProgram_ListAll;
 import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.pages.Contact_ListAll;
-import com.ontraport.app.tools.AbstractSuite;
-//import com.ontraport.app.pages.Sequence_ListAll;
-//import com.ontraport.app.pages.Rule_ListAll;
-//import com.ontraport.app.pages.Sequence_ListAll;
-//import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
 public class CreateAffiliateProgramFromContact extends AbstractTest
@@ -42,15 +37,24 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         
         contactEdit = affiliateProgram_Create.clickSaveToContact();
         
-        /* TODO validate back at contact edit and field is updated. Click "back" to return contacts list then do the following validation
-        contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
-        contactListAll.clickContact(value.get("Contacts", "selenium_email"));
-        contactEdit.clickReferralInfoTab();
-        */
+        if (!driver.getCurrentUrl().contains("contact/edit"))
+        {
+            fail("not returned to contact editor");
+        }
         
         if(contactEdit.verifyDrilldownValue(value.get("Partners", "affiliate_program_from_contact_name"))==null)
         {
             fail("affiliate program not set");
+        }
+        
+        contactListAll = contactEdit.clickBack();
+        contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
+        contactListAll.clickContact(value.get("Contacts", "selenium_email"));
+        contactEdit.clickReferralInfoTab();
+        
+        if(contactEdit.verifyDrilldownValue(value.get("Partners", "affiliate_program_from_contact_name"))==null)
+        {
+            fail("affiliate program not saved");
         }
         
         AffiliateProgram_ListAll affiliateProgram_ListAll = contactListAll.menuPrimary.clickAffiliateProgramListAll();
