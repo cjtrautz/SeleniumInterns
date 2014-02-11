@@ -188,7 +188,7 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(ownerDropDown));
         ownerDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(ownerDropDownPane));
+        //wait.until(ExpectedConditions.visibilityOf(ownerDropDownPane));
         return this;
         
     }
@@ -196,7 +196,7 @@ public class Message_CreateTask extends AbstractPage
     public Message_CreateTask selectDropDownOption ( String option )
     {
         AbstractPart.waitForAjax(driver, 20);
-        //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
         dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
         return this;
@@ -208,7 +208,7 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(mergeDropDown));
         mergeDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(mergeDropDownPane));
+        //wait.until(ExpectedConditions.visibilityOf(mergeDropDownPane));
         return this;
         
     }
