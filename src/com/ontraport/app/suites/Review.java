@@ -18,6 +18,11 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    com.ontraport.app.tests.CreateContact.class,
+    //uses CreateContact
+    com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
+    
     com.ontraport.app.tests.EnsurePagination.class, 
     
     com.ontraport.app.tests.CreateSmartFormWithAddField.class,

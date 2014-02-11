@@ -491,7 +491,7 @@ public class Rule_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 40);
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPaneWait));
+       // wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuWhen));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
@@ -506,7 +506,7 @@ public class Rule_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 40);
         // wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
+         //wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
          wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
          wait.until(ExpectedConditions.visibilityOf(drillDownMenuIf));
          //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
@@ -520,8 +520,8 @@ public class Rule_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 40);
         // wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
-        wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPanePaddingWait));
+        //wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
+        //wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPanePaddingWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuThen));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));

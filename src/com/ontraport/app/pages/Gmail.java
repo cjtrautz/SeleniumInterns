@@ -294,6 +294,10 @@ public class Gmail extends AbstractPage
             int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
             if(stuff[2].equals("pm"))
             {
+                if(hours1 == 12)
+                {
+                    yep2 = 720 + Integer.parseInt(stuff[1]);
+                }
                 yep2=yep2+720;
             }
             String delim2 = "[ :]";
