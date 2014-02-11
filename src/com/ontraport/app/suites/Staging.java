@@ -17,7 +17,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 
-{  
+{   
     com.ontraport.app.tests.CreateAWordPressSite.class,
     com.ontraport.app.tests.CreateEmailMessageWPFields.class,
     com.ontraport.app.tests.DeleteEmailWPMessage.class,

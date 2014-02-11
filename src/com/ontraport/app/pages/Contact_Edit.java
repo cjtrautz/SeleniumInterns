@@ -62,6 +62,24 @@ public class Contact_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH, 
+            using = "//a[normalize-space(text())='Referral Info']")
+    private WebElement referralInfoTab;
+    
+    //NEED TO FIX
+    @FindBy(how=How.XPATH,
+            using="//div[contains(@class, 'NAME_program_id')]//span[@class='ussr-section-data']")
+    private WebElement affiliateProgramField;
+    
+    @FindBy(how=How.XPATH,
+            using="//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-quick-object-creator-target-sae-button ')]//button")
+    private WebElement affiliateProgramSaveAndEdit;
+    
+    @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', normalize-space(@class), ' '),' create-new-form ')]//input")
+    private WebElement affiliateProgramNameInput;
+    
+    @FindBy(
+            how = How.XPATH, 
             using = "//div[normalize-space(@class)='ussr-chrome-panel-pane-header-back']")
     private WebElement back;
     
@@ -128,6 +146,15 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(notesAndTasksTab));
         notesAndTasksTab.click();
+        return this;
+        
+    }
+    
+    public Contact_Edit clickReferralInfoTab ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(referralInfoTab));
+        referralInfoTab.click();
         return this;
         
     }
@@ -217,7 +244,6 @@ public class Contact_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
     
@@ -240,7 +266,19 @@ public class Contact_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
+        return this;
+    }
+    
+    public Contact_Edit verifyDrilldownValue (String value)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.findElement(By.xpath("//span[normalize-space(text())='" + value + "']"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
         return this;
     }
 
@@ -263,7 +301,6 @@ public class Contact_Edit extends AbstractPage
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
 
@@ -272,7 +309,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         driver.findElement(By.xpath(".//label[normalize-space(text())='Contact Tags']/following-sibling::div//ul//li[contains(., '" + string + "')]/a/span")).click();
         return this;
-        
     }
 
     public Contact_Edit verifyNoTag ( String string )
@@ -303,7 +339,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         firstNameField.click();
         return this;
-        
     }
 
     public Contact_Edit enterFirstName ( String string )
@@ -311,7 +346,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         firstNameInput.sendKeys(string);
         return this;
-        
     }
 
     public Contact_Edit clickFirstNameSave ()
@@ -319,7 +353,6 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         firstNameSave.click();
         return this;
-        
     }
 
     public Contact_Edit verifyFirstName ( String string )
@@ -427,5 +460,30 @@ public class Contact_Edit extends AbstractPage
         taskSelectAll.click();
         return this;
     }
+
+    public Contact_Edit clickAffiliateProgram ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramField));
+        affiliateProgramField.click();
+        return this;
+    }
     
+    public Contact_Edit enterNewAffiliateProgramName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramNameInput));
+        affiliateProgramNameInput.sendKeys(string);
+        return this;
+    }
+    
+    public AffiliateProgram_Create clickAffiliateProgramSaveAndEdit ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramSaveAndEdit));
+        affiliateProgramSaveAndEdit.click();
+        return (AffiliateProgram_Create) new AffiliateProgram_Create().init();
+    }
+
 }
+
