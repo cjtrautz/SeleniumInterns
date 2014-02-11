@@ -45,7 +45,7 @@ public class LandingPage_TypeSelection extends AbstractPage
     
     public LandingPage_CreateType1 clickCreateEasyPages ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(creatEasyPages));
         creatEasyPages.click();
         return (LandingPage_CreateType1) new LandingPage_CreateType1().init();
@@ -53,7 +53,7 @@ public class LandingPage_TypeSelection extends AbstractPage
 
     public LandingPage_CreateType0 clickCreateCodeMode ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(creatCodeMode));
         creatCodeMode.click();
         return (LandingPage_CreateType0) new LandingPage_CreateType0().init();
@@ -61,7 +61,7 @@ public class LandingPage_TypeSelection extends AbstractPage
 
     public LandingPage_ListAll clickCancel ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
@@ -69,7 +69,7 @@ public class LandingPage_TypeSelection extends AbstractPage
 
     public LandingPage_ListAll clickBack ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
@@ -77,7 +77,7 @@ public class LandingPage_TypeSelection extends AbstractPage
 
     public LandingPage_CreateType2 clickCreateRedirectMode ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(creatRedirectMode));
         creatRedirectMode.click();
         return (LandingPage_CreateType2) new LandingPage_CreateType2().init();

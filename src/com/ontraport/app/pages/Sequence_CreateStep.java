@@ -151,12 +151,12 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-component-drilldownselect-menu-wrapper']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-listview ')]")
     private WebElement drillDownPaneGone;
     
     @FindBy(
             how = How.XPATH,
-            using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[@class='ussr-component-drilldownselect-menu-wrapper']")
+            using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-listview ')]")
     private WebElement drillDownPaneWhole;
     
     @FindBy(
@@ -295,13 +295,13 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_CreateStep selectDrillDown ( String option )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
-        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")));
         drillDownPane.findElement(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")).click();
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        //wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
         return this;
         
     }
@@ -392,7 +392,7 @@ public class Sequence_CreateStep extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
+        //wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuIf));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
@@ -405,7 +405,7 @@ public class Sequence_CreateStep extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
+        //wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuThen));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));

@@ -116,12 +116,12 @@ public class Sequence_CreateDate extends AbstractPage
             
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-component-drilldownselect-menu-wrapper']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-listview ')]")
     private WebElement drillDownPaneGone;
             
     @FindBy(
             how = How.XPATH,
-                    using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[@class='ussr-component-drilldownselect-menu-wrapper']")
+                    using = "//ul[@class='ussr-component-drilldownselect-ul']/ancestor::div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-listview ')]")
     private WebElement drillDownPaneWhole;
             
     @FindBy(
@@ -436,13 +436,13 @@ public class Sequence_CreateDate extends AbstractPage
     public Sequence_CreateDate selectDrillDown ( String option )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
-        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")));
         drillDownPane.findElement(By.xpath(".//li/div[contains(text(), \"" + option + "\")]")).click();
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        //wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
         return this;
     }
 

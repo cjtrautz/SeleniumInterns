@@ -692,13 +692,13 @@ public class Sequence_Edit extends AbstractPage
     public Sequence_Edit selectDrillDownEmailName ( String option )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
-        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
         drillDownPane.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        //wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
         //wait.until(ExpectedConditions.stalenessOf(drillDownPane));
         return this;
         
@@ -706,13 +706,13 @@ public class Sequence_Edit extends AbstractPage
     public Sequence_Edit selectDrillDown ( String option )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPaneWhole));
         wait.until(ExpectedConditions.visibilityOf(drillDownPane));
-        wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
+        //wait.until(ExpectedConditions.visibilityOf(drillDownPanePadding));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/span[contains(text(), 'Create New Message')]")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
         drillDownPane.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
-        wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
+        //wait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(drillDownPaneGone)));
         return this;
         
     }
