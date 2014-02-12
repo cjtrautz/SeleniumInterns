@@ -227,7 +227,7 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(recipientDropDown));
         recipientDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(recipientDropDownPane));
+        //wait.until(ExpectedConditions.visibilityOf(recipientDropDownPane));
         return this;
         
     }
@@ -237,7 +237,7 @@ public class Message_CreateTask extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(eventDropDown));
         eventDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(eventDropDownPane));
+        //wait.until(ExpectedConditions.visibilityOf(eventDropDownPane));
         return this;
         
     }
@@ -288,7 +288,7 @@ public class Message_CreateTask extends AbstractPage
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", actionsDropDown);
         wait.until(ExpectedConditions.visibilityOf(actionsDropDown));
         actionsDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(actionsDropDownPane));
+        //wait.until(ExpectedConditions.visibilityOf(actionsDropDownPane));
         return this;
         
     }

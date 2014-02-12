@@ -134,6 +134,7 @@ public class SmartFormFe_ListAll extends AbstractPage
         {
             uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
         }
+        AbstractPart.waitForAjax(driver, 20);
         return (SmartFormFe_Edit) new SmartFormFe_Edit().init();
     }
     

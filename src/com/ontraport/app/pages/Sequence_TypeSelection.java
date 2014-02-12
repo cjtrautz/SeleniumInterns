@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 
@@ -37,6 +39,7 @@ public class Sequence_TypeSelection extends AbstractPage
     public Sequence_CreateStep clickStepSequenceCreate ()
     {
         AbstractPart.waitForAjax2(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stepSequenceCreate));
         stepSequenceCreate.click();
         return (Sequence_CreateStep) new Sequence_CreateStep().init();
 
@@ -45,6 +48,7 @@ public class Sequence_TypeSelection extends AbstractPage
     public Sequence_CreateDate clickDateSequenceCreate ()
     {
         AbstractPart.waitForAjax2(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dateSequenceCreate));
         dateSequenceCreate.click();
         return (Sequence_CreateDate) new Sequence_CreateDate().init();
     }
@@ -52,6 +56,7 @@ public class Sequence_TypeSelection extends AbstractPage
     public Sequence_TypeSelection clickStepSequenceDropDown ()
     {
         AbstractPart.waitForAjax2(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(stepDropDown));
         stepDropDown.click();
         return this;
     }
@@ -59,6 +64,7 @@ public class Sequence_TypeSelection extends AbstractPage
     public Sequence_Edit selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dropDownList.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
         dropDownList.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
         return (Sequence_Edit) new Sequence_Edit().init();
     }
@@ -66,6 +72,7 @@ public class Sequence_TypeSelection extends AbstractPage
     public Sequence_TypeSelection clickDateSequenceDropDown ()
     {
         AbstractPart.waitForAjax2(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(dateDropDown));
         dateDropDown.click();
         return this;
     }

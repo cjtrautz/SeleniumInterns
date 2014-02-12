@@ -1236,8 +1236,8 @@ public class DialogBox extends AbstractPart
         ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]")).click();
         Actions action = new Actions(driver);
         wait(30).until(ExpectedConditions.visibilityOf(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))));
-        //action.click(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
-        action.sendKeys(Keys.ENTER).build().perform();
+        ///action.click(ifEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
         //action.release().build().perform();
         return this;
     }
@@ -1271,7 +1271,7 @@ public class DialogBox extends AbstractPart
         Actions action = new Actions(driver);
         wait(30).until(ExpectedConditions.visibilityOf(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))));
         //action.click(thenEvents.findElement(By.xpath(".//option[contains(text(), '" + string + "')]"))).build().perform();
-        action.sendKeys(Keys.ENTER).build().perform();
+        action.sendKeys(Keys.RETURN).build().perform();
         //action.release().build().perform();
         return this;
     }

@@ -467,13 +467,13 @@ public class Field_Editor extends AbstractPage
         
     }
 
-    public Field_Editor clickTabName ( String string, int i )
+    public Field_Editor clickTabName ( String string)
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '), ' jb-overflowmenu-menu-secondary ')]//li/a[contains(text(), '" + string + "')]")));
         overflowList.findElement(By.xpath(".//li/a[contains(text(), '" + string + "')]")).click();
-        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
+        //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
         return this;
         
     }
@@ -1202,6 +1202,8 @@ public class Field_Editor extends AbstractPage
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).click();
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).clear();
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).sendKeys(string);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
 
