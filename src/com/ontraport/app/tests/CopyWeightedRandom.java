@@ -37,7 +37,7 @@ public class CopyWeightedRandom extends AbstractTest
         {
             fail("couldnt find user");
         }
-        if(leadRouter_Edit.verifyPercent("100")==null)
+        if(leadRouter_Edit.verifyPercent("100.00")==null)
         {
             fail("couldnt find user percent");
         }

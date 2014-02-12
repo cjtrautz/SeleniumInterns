@@ -39,7 +39,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
     
     public LeadRouter_CreateRR clickRoundRobinCreate ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(roundRobinCreate));
         roundRobinCreate.click();
         return (LeadRouter_CreateRR) new LeadRouter_CreateRR().init();
@@ -55,7 +55,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
 
     public LeadRouter_TypeSelection clickRoundRobinDropDown ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(roundRobinDropDown));
         roundRobinDropDown.click();
         return this;
@@ -71,7 +71,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
 
     public LeadRouter_TypeSelection clickWeightedRandomDropDown ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(weightedRandomDropDown));
         weightedRandomDropDown.click();
         return this;
