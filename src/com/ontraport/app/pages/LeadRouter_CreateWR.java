@@ -79,8 +79,8 @@ public class LeadRouter_CreateWR extends AbstractPage
     public LeadRouter_CreateWR enterPercentOfLeads ( int index, String percent )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]")).findElement(By.xpath(".//input"))));
-        WebElement percentOfLeadInput = leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]")).findElement(By.xpath(".//input[@class='ussr-form-input ussr-form-state-default']"));
+        wait.until(ExpectedConditions.visibilityOf(leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]//div[contains(@class, 'input_text_percent_NAME_lead_percent')]//input[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-input ')]"))));
+        WebElement percentOfLeadInput = leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]//div[contains(@class, 'input_text_percent_NAME_lead_percent')]//input[@class='ussr-form-input ussr-form-state-default']"));
         percentOfLeadInput.sendKeys(percent);
         return this;
     }

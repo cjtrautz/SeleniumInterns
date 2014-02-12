@@ -1054,7 +1054,7 @@ public class Message_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(eventDropDown));
         eventDropDown.click();
-        wait.until(ExpectedConditions.visibilityOf(eventDropDownPane));
+        //wait.until(ExpectedConditions.visibilityOf(eventDropDownPane));
         return this;
         
     }

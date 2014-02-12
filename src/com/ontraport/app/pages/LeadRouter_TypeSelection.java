@@ -47,7 +47,7 @@ public class LeadRouter_TypeSelection extends AbstractPage
 
     public LeadRouter_CreateWR clickWeightedRandomCreate ()
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(weightedRandomCreate));
         weightedRandomCreate.click();
         return (LeadRouter_CreateWR) new LeadRouter_CreateWR().init();
