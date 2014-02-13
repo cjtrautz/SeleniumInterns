@@ -296,6 +296,9 @@ public class DialogBox extends AbstractPart
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement drillDownSelect;
     @FindBy(how = How.XPATH,
+            using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' orderform-objectselector-list ')]")
+    private WebElement productDrillDownSelect;
+    @FindBy(how = How.XPATH,
             using = "//input[@name='domain']")
     private WebElement subdomainInput;
     @FindBy(how = How.XPATH,
@@ -989,6 +992,14 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
         drillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        return this;
+    }
+    public DialogBox selectProductDrillDown ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", productDrillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
+        wait(30).until(ExpectedConditions.visibilityOf(productDrillDownSelect));
+        productDrillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
     public DialogBox clickAddTag ()

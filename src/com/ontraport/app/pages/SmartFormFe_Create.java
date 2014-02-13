@@ -66,8 +66,26 @@ public class SmartFormFe_Create extends AbstractPage
             using = "//input[@value='single']")
     private WebElement singlOptIn;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addshipping ')]")
+    private WebElement addShippingMethod;
+    @FindBy(how = How.XPATH,
             using = "//input[@name='submit-button']")
     private WebElement submitButton;
+    @FindBy(how = How.XPATH,
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-search ')]")
+    private WebElement shippingInputSearch;
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-list-item-add-new ')]")
+    private WebElement createNew;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='name']")
+    private WebElement nameInput;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='price']")
+    private WebElement namePrice;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addshipping ')]")
+    private WebElement addTaxOption;
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -232,6 +250,54 @@ public class SmartFormFe_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(submitButton));
         Actions action = new Actions(driver);
         action.dragAndDropBy(submitButton, 0, i).build().perform();
+        return this;
+    }
+
+    public SmartFormFe_Create clickAddShippingMethod ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addShippingMethod));
+        addShippingMethod.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickShippingNameInput ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(shippingInputSearch));
+        shippingInputSearch.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickCreateNew ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNew));
+        createNew.click();
+        return this;
+    }
+
+    public SmartFormFe_Create enterShippingPrice ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(namePrice));
+        namePrice.sendKeys(string);
+        return this;
+    }
+
+    public SmartFormFe_Create enterShippingName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nameInput));
+        nameInput.sendKeys(string);
+        return this;
+    }
+
+    public SmartFormFe_Create clickAddTaxOption ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addTaxOption));
+        addTaxOption.click();
         return this;
     }
 

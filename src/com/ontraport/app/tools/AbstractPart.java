@@ -63,7 +63,7 @@ public abstract class AbstractPart
                 {
                     return (Boolean) ( (JavascriptExecutor) driverObject ).executeScript("return ontraport.activeRequests === 0");
                 }
-            });
+            });http://ontraport.com/
             jQcondition = (Boolean) ( (JavascriptExecutor) driver )
                         .executeScript( "return window.ontraport != undefined "
                                       + "&& ontraport.activeRequests != undefined "
