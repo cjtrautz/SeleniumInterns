@@ -1,5 +1,6 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -63,7 +64,7 @@ public class Contact_Edit extends AbstractPage
     @FindBy(
             how = How.XPATH, 
             using = "//a[normalize-space(text())='Referral Info']")
-    private WebElement referralInfoTab;
+    private List<WebElement> referralInfoTab;
     
     //NEED TO FIX
     @FindBy(how=How.XPATH,
@@ -117,6 +118,10 @@ public class Contact_Edit extends AbstractPage
             using = "//span[text()='Contact Information']")
     private WebElement contactInformationTitle;
     
+    @FindBy(how = How.XPATH,
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' jb-overflowmenu-menu-secondary-handle ')]/span")
+    private WebElement overflowIcon;
+    
     public Contact_Edit clickLastName ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -153,10 +158,20 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickReferralInfoTab ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(referralInfoTab));
-        referralInfoTab.click();
+        try 
+        {
+            wait.until(ExpectedConditions.visibilityOf(referralInfoTab.get(0)));
+            referralInfoTab.get(0).click();
+        }
+        catch (Exception e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(overflowIcon));
+            overflowIcon.click();
+            AbstractPart.waitForAjax(driver, 20);
+            wait.until(ExpectedConditions.visibilityOf(referralInfoTab.get(1)));
+            referralInfoTab.get(1).click();
+        }
         return this;
-        
     }
 
     public Contact_Edit clickNewNote ()

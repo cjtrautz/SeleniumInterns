@@ -3,6 +3,7 @@ package com.ontraport.app.tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.openqa.selenium.interactions.Actions;
 
 import com.ontraport.app.pages.AffiliateProgram_Create;
 import com.ontraport.app.pages.AffiliateProgram_Edit;
