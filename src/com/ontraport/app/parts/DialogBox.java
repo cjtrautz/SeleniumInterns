@@ -997,9 +997,10 @@ public class DialogBox extends AbstractPart
     public DialogBox selectProductDrillDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", productDrillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
         wait(30).until(ExpectedConditions.visibilityOf(productDrillDownSelect));
-        productDrillDownSelect.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", productDrillDownSelect.findElement(By.xpath("//li[contains(., '" + string + "')]")));
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[contains(., '" + string + "')]"))));
+        driver.findElement(By.xpath("//li[contains(., '" + string + "')]")).click();
         return this;
     }
     public DialogBox clickAddTag ()

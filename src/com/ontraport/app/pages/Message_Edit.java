@@ -22,6 +22,20 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Message_Edit extends AbstractPage
 {
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_date ')]//input")
+    private WebElement taskDueDate;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_name ')]//input")
+    private WebElement taskSubject;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
+    private WebElement taskNameInput;
     
     @FindBy(
             how = How.XPATH,
@@ -2704,6 +2718,38 @@ public class Message_Edit extends AbstractPage
         ((JavascriptExecutor) driver).executeScript("document.body.innerHTML = '<p>" + string + "</p>'");
         driver.switchTo().defaultContent();
         return this;
+    }
+
+    public Message_Edit enterTaskName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskNameInput));
+        taskNameInput.sendKeys(string);
+        return this;
+    }
+
+    public Message_Edit enterTaskSubjectName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskSubject));
+        taskSubject.sendKeys(string);
+        return this;
+    }
+
+    public Message_Edit enterDueDate ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskDueDate));
+        taskDueDate.sendKeys(string);
+        return this;
+    }
+
+    public Sequence_CreateStep clickSaveToSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        return (Sequence_CreateStep) new Sequence_CreateStep().init();
     }
 
 

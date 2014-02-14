@@ -96,6 +96,16 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//li[contains(concat(' ', @class, ' '),' create-new ')]")
+    private WebElement createNew;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(@class,'ussr-component-quick-object-creator-target-sub-comp')]//input")
+    private WebElement objectCreatorName;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@class='component-target-send-fields']//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_object_selector ')]//button")
     private WebElement assigneeDropDown;
     
@@ -470,7 +480,11 @@ public class Sequence_CreateStep extends AbstractPage
         {
             System.out.println(driver.getCurrentUrl());
             System.out.println(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create&type=step");
-            if(!driver.getCurrentUrl().equals(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create&type=step"))
+            if(!driver.getCurrentUrl().contains(AbstractPage.getUrl() + AbstractPage.getLatch() + "/#!/sequence/create"))
+            {
+                return null;
+            }
+            if(!driver.getCurrentUrl().contains("&type=step"))
             {
                 return null; 
             }
@@ -728,6 +742,22 @@ public class Sequence_CreateStep extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(toggleMessageSelector));
         toggleMessageSelector.click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickCreateNewMessage ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNew));
+        createNew.click();
+        return this;
+    }
+
+    public Sequence_CreateStep enterName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(objectCreatorName));
+        objectCreatorName.sendKeys(string);
         return this;
     }
 

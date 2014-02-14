@@ -23,6 +23,9 @@ public class Contact_ListAll extends AbstractPage
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification;
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-helper-cursor-pointer ')]")
+    private WebElement uiSelectAllInGroup;
+    @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification2;
     @FindBy(how = How.XPATH,
@@ -105,6 +108,7 @@ public class Contact_ListAll extends AbstractPage
     public Contact_ListAll selectAllInGroup ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        uiSelectAllInGroup.click();
         return this;
     }
     public Contact_ListAll selectNone ()

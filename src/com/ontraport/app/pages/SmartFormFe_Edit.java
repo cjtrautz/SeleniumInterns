@@ -23,6 +23,18 @@ public class SmartFormFe_Edit extends AbstractPage
     private WebElement activeDeleteField;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form-element-paymentmethod ')]")
+    private WebElement paymentMethod;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-shipping-style-widget ')]")
+    private WebElement shipping;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-taxes-style-widget ')]")
+    private WebElement tax;
+    
+    @FindBy(how = How.XPATH,
             using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' fe-design-element-list ')]")
     private WebElement fields;
     
@@ -525,6 +537,83 @@ public class SmartFormFe_Edit extends AbstractPage
         {
             System.out.println(fields.findElements(By.xpath(".//li")).size());
             if(fields.findElements(By.xpath(".//li")).size()!=i)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public SmartFormFe_Edit clickPaymentMethod ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", paymentMethod);
+        wait.until(ExpectedConditions.visibilityOf(paymentMethod));
+        paymentMethod.click();
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyTaxName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!tax.findElement(By.xpath(".//span[@class='title' and normalize-space(text())='" + string + "']")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyTaxRate ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!tax.findElement(By.xpath(".//span[@class='rate' and normalize-space(text())='" + string + "']")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyShippingName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!shipping.findElement(By.xpath(".//span[@class='title' and normalize-space(text())='" + string + "']")).isDisplayed())
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+
+    public SmartFormFe_Edit verifyShippingPrice ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!shipping.findElement(By.xpath(".//span[@class='rate' and normalize-space(text())='" + string + "']")).isDisplayed())
             {
                 return null;
             }

@@ -75,6 +75,9 @@ public class SmartFormFe_Create extends AbstractPage
             using = "//input[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-search ')]")
     private WebElement shippingInputSearch;
     @FindBy(how = How.XPATH,
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-search ')]")
+    private WebElement taxInputSearch;
+    @FindBy(how = How.XPATH,
             using = "//li[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-list-item-add-new ')]")
     private WebElement createNew;
     @FindBy(how = How.XPATH,
@@ -84,7 +87,10 @@ public class SmartFormFe_Create extends AbstractPage
             using = "//input[@name='price']")
     private WebElement namePrice;
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addshipping ')]")
+            using = "//input[@name='rate']")
+    private WebElement rateInput;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addtax ')]")
     private WebElement addTaxOption;
 
     public SmartFormFe_Create verifySubmitButton ()
@@ -298,6 +304,30 @@ public class SmartFormFe_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(addTaxOption));
         addTaxOption.click();
+        return this;
+    }
+
+    public SmartFormFe_Create clickTaxNameInput ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taxInputSearch));
+        taxInputSearch.click();
+        return this;
+    }
+
+    public SmartFormFe_Create enterTaxName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(nameInput));
+        nameInput.sendKeys(string);
+        return this;
+    }
+
+    public SmartFormFe_Create enterTaxPercent ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(rateInput));
+        rateInput.sendKeys(string);
         return this;
     }
 

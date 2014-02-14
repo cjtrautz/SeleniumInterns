@@ -14,7 +14,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CreateOrderformWithTaxAndShipping extends AbstractTest
 {
     @Test
-    public void testCreateOrderform () throws InterruptedException
+    public void testCreateOrderformWithTaxAndShipping () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -28,55 +28,48 @@ public class CreateOrderformWithTaxAndShipping extends AbstractTest
         smartFormFe_Create.dialogBox.clickProductName();
         smartFormFe_Create.dialogBox.selectProductDrillDown(value.get("Sales", "product"));
         smartFormFe_Create.dialogBox.clickDone();
-        smartFormFe_Create.clickAddPaymentMethod();
-        smartFormFe_Create.clickGatewayDropDown();
-        smartFormFe_Create.selectDropDown(value.get("Sales", "gateway_paypal_payments_pro"));
         smartFormFe_Create.clickAddShippingMethod();
         smartFormFe_Create.clickShippingNameInput();
         smartFormFe_Create.clickCreateNew();
         smartFormFe_Create.enterShippingName(value.get("SmartForms", "shipping"));
         smartFormFe_Create.enterShippingPrice(value.get("SmartForms", "shipping_price"));
         smartFormFe_Create.clickAddTaxOption();
-        //smartFormFe_Create.clickTaxNameInput();
+        smartFormFe_Create.clickTaxNameInput();
         smartFormFe_Create.clickCreateNew();
-        //smartFormFe_Create.enterTaxName(value.get("SmartForms", "shipping"));
-        //smartFormFe_Create.enterTaxPercent(value.get("SmartForms", "shipping_price"));
+        smartFormFe_Create.enterTaxName(value.get("SmartForms", "tax"));
+        smartFormFe_Create.enterTaxPercent(value.get("SmartForms", "tax_rate"));
+        smartFormFe_Create.clickAddPaymentMethod();
+        smartFormFe_Create.clickGatewayDropDown();
+        smartFormFe_Create.selectDropDown(value.get("Sales", "gateway_paypal_payments_pro"));
         smartFormFe_Create.clickSave();
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
-        smartFormFe_ListAll.formSearch.find("SelOrderform");
+        smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "tax_orderform"));
 
         //verify Sel Tag exists
-        if(smartFormFe_ListAll.verifySmartForm("SelOrderform")==null)
+        if(smartFormFe_ListAll.verifySmartForm(value.get("SmartForms", "tax_orderform"))==null)
         {
             fail("couldn't find smartform");
         }
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
-        SmartFormFe_Edit smartFormFe_Edit = smartFormFe_ListAll.clickSmartform(value.get("SmartForms", "orderForm"));
-        if(smartFormFe_Edit.verifyTag(value.get("Contacts", "tag"))==null)
+        SmartFormFe_Edit smartFormFe_Edit = smartFormFe_ListAll.clickSmartform(value.get("SmartForms", "tax_orderform"));
+        smartFormFe_Edit.clickPaymentMethod();
+        if(smartFormFe_Edit.verifyTaxName(value.get("SmartForms", "tax"))==null)
         {
-            fail("couldn't find tag");
+            fail("couldn't find tax");
         }
-        if(smartFormFe_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
+        if(smartFormFe_Edit.verifyTaxRate(value.get("SmartForms", "tax_rate_format"))==null)
         {
             fail("couldn't find sequence");
         }
-        if(smartFormFe_Edit.verifyRule(value.get("SmartForms", "rule_name"))==null)
+        if(smartFormFe_Edit.verifyShippingName(value.get("SmartForms", "shipping"))==null)
         {
             fail("couldn't find rule");
         }
-        smartFormFe_Edit.clickRule(value.get("SmartForms", "rule_name"));
-        if(smartFormFe_Edit.verifyIfDropDown(value.get("Contacts", "tag"))==null)
+        if(smartFormFe_Edit.verifyShippingPrice(value.get("SmartForms", "shipping_price_format"))==null)
         {
             fail("couldn't find if");
         }
-        if(smartFormFe_Edit.verifyThenInput("First Name", 1)==null)
-        {
-            fail("couldn't find then");
-        }
-        if(smartFormFe_Edit.verifyThenInput(value.get("SmartForms", "change"), 2)==null)
-        {
-            fail("couldn't find then 2");
-        }
+
         
     }
 }

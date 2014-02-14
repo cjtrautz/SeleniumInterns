@@ -156,6 +156,14 @@ public class DrawerActions extends AbstractPart
     private WebElement uiAddRemoveTag;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Sequences')]")
+    private WebElement uiSequences;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Change Field Value')]")
+    private WebElement changeFieldValue;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete API KEY')]")
     private WebElement uiDeleteAPI;
     
@@ -230,6 +238,22 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//input[@placeholder='Select Tag']/following-sibling::button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-drilldownselect-button-menu-toggle ')]")
         private WebElement dropDownButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-sequence-selector ')]//button")
+        private WebElement sequenceDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' sem-field-selector ')]//button")
+        private WebElement fieldDropDown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' sem-value-selector ')]//input")
+        private WebElement valueInput;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[@value='Save']")
+        private WebElement saveField;
     
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-done-button ')]")
@@ -1073,6 +1097,48 @@ public class DrawerActions extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(termDropDownInput));
         termDropDownInput.sendKeys(valueOf);
         return this;
+    }
+    public DrawerActions clickSequences ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(uiSequences));
+        uiSequences.click();
+        return this;
+    }
+    public DrawerActions clickSequenceDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(sequenceDropDown));
+        sequenceDropDown.click();
+        return this;
+    }
+    public DrawerActions clickChangeFieldValue ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(changeFieldValue));
+        changeFieldValue.click();
+        return this;
+    }
+    public DrawerActions clickFieldDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(fieldDropDown));
+        fieldDropDown.click();
+        return this; 
+    }
+    public DrawerActions enterValue ( String string )
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(valueInput));
+        valueInput.sendKeys(string);
+        return this; 
+    }
+    public DrawerActions clickSaveField ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(saveField));
+        saveField.click();
+        return this; 
     }
 
 
