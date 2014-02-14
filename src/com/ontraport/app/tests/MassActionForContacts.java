@@ -27,6 +27,7 @@ public class MassActionForContacts extends AbstractTest
         }
         contactListAll.paginator.toggleRecordsPerPagePane();
         contactListAll.paginator.clickRecordsPerPage(5);
+        contactListAll.paginator.clickFirstPage();
         contactListAll.selectAllOnPage();
         contactListAll.selectAllInGroup();
         contactListAll.drawerActions.clickSequences();
