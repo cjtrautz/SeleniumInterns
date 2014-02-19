@@ -683,7 +683,7 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CollapseNavButton.class,
     
-    com.ontraport.app.tests.CheckLogOut.class,
+    com.ontraport.app.tests.CheckLogOutAndNewUser.class,
     
     com.ontraport.app.tests.CreateRuleDateSequence.class,
     com.ontraport.app.tests.CopyDateSequence.class,

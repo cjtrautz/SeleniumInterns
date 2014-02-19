@@ -471,6 +471,10 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            if(!driver.getCurrentUrl().contains("#!/contact/listAll"))
+            {
+                return null;
+            }
             if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-title ')]/span[text()=\"No contacts yet... let's create some!\" or text()='Contacts']")).isDisplayed())
             {
                 return null;

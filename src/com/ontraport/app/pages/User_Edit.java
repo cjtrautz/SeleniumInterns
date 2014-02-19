@@ -201,6 +201,22 @@ public class User_Edit extends AbstractPage
     private WebElement selectAllEmptyCheckBox;
     
     @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', @class, ' '),' ussr-component-password ')]//label")
+    private WebElement passwordField;
+    
+    @FindBy(how=How.XPATH,
+            using="//span[contains(concat(' ', @class, ' '),' component-password-change-password-button ')]//b")
+    private WebElement changePassword;
+    
+    @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', @class, ' '),' password_target ')]//label")
+    private WebElement passwordTargetInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', @class, ' '),' password_confirm ')]//input")
+    private WebElement passwordConfirmTargetInput;
+    
+    @FindBy(how=How.XPATH,
             using="//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement dropDown;
     
@@ -1178,6 +1194,44 @@ public class User_Edit extends AbstractPage
         catch(NoSuchElementException e){
             return null;
         }
+        return this;
+    }
+
+    public User_Edit clickChangePassword ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", changePassword);
+        wait.until(ExpectedConditions.visibilityOf(changePassword));
+        changePassword.click();
+        return this;
+    }
+
+    public User_Edit enterNewPassword ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", passwordTargetInput);
+        wait.until(ExpectedConditions.visibilityOf(passwordTargetInput));
+        passwordTargetInput.click();
+        passwordTargetInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit enterNewPasswordConfirm ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", passwordConfirmTargetInput);
+        wait.until(ExpectedConditions.visibilityOf(passwordConfirmTargetInput));
+        passwordConfirmTargetInput.click();
+        passwordConfirmTargetInput.sendKeys(string);
+        return this;
+    }
+
+    public User_Edit clickPasswordField ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", passwordField);
+        wait.until(ExpectedConditions.visibilityOf(passwordField));
+        passwordField.click();
         return this;
     }
 

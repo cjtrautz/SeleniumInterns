@@ -829,10 +829,8 @@ public class DrawerActions extends AbstractPart
         if(minutes >= 60)
         {
             int hours = Integer.parseInt(name);
-            hours = hours + 1;
-            if(hours > 12)
+            if(hours == 11)
             {
-                hours = 1;
                 if(name3.equals("PM"))
                 {
                     name3 = "AM";
@@ -841,6 +839,11 @@ public class DrawerActions extends AbstractPart
                 {
                     name3 = "PM";
                 }
+            }
+            hours = hours + 1;
+            if(hours > 12)
+            {
+                hours = 1;
             }
             name = Integer.toString(hours);
             minutes = minutes - 60;
@@ -1193,10 +1196,8 @@ public class DrawerActions extends AbstractPart
         if(minutes >= 60)
         {
             int hours = Integer.parseInt(name);
-            hours = hours + 1;
-            if(hours > 12)
+            if(hours == 11)
             {
-                hours = 1;
                 if(name3.equals("PM"))
                 {
                     name3 = "AM";
@@ -1206,6 +1207,12 @@ public class DrawerActions extends AbstractPart
                     name3 = "PM";
                 }
             }
+            hours = hours + 1;
+            if(hours > 12)
+            {
+                hours = 1;
+            }
+            minutes = minutes - 60;
             name = Integer.toString(hours);
         }
         name2 = Integer.toString(minutes);
