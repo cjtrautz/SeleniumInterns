@@ -105,13 +105,6 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateUCConfig.class,
     
-    //used in following tests
-    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
-    //uses CreateDoubleOptinMessage message
-    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
-    //end use of CreateDoubleOptinMessage message
-    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
-    
     //requires previously imported csv
     com.ontraport.app.tests.TryToFailUsageAgreementImport.class,
     

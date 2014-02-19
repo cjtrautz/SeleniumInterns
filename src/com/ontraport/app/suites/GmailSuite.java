@@ -27,6 +27,13 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateSendFromAddress.class, 
     
     //used in following tests
+    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    //uses CreateDoubleOptinMessage message
+    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
+    //end use of CreateDoubleOptinMessage message
+    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+    
+    //used in following tests
     com.ontraport.app.tests.CreateMessage.class,                         
     //sends CreateMessage message 
     com.ontraport.app.tests.SendTestEmail.class,
@@ -159,9 +166,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRule_WasSubscribedToSequence.class,
     com.ontraport.app.tests.DeleteRule_WasSubscribedToSequence.class,
     
-    //wait a little before deleting contact and message for one off to ensure email is sent
-    com.ontraport.app.tests.DeleteSendSingleEmailToContact.class,
-    
     //testing navigation
     com.ontraport.app.tests.CancelBroadCast.class,
     com.ontraport.app.tests.DeleteCancelBroadCast.class,
@@ -234,6 +238,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     com.ontraport.app.tests.DeleteBroadCastEmail.class,
     com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
+    //wait a little before deleting contact and message for one off to ensure email is sent
+    com.ontraport.app.tests.DeleteSendSingleEmailToContact.class,
     
 })
 public class GmailSuite extends AbstractSuite

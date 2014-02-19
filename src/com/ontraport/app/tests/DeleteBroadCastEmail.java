@@ -30,6 +30,17 @@ public class DeleteBroadCastEmail extends AbstractTest
         {
             fail("found deleted message");
         }
+        message_ListAll.formSearch.clear();
+        message_ListAll.formSearch.find(value.get("Messages", "email_message_scheduled_broadcast"));
+        message_ListAll.selectAllOnPage();
+        message_ListAll.drawerActions.clickDeleteMessage();
+        message_ListAll.dialogBox.clickOk();
+        
+        //verify
+        if(message_ListAll.verifyNoMessage()==null)
+        {
+            fail("found deleted message");
+        }
         contactListAll = message_ListAll.menuPrimary.clickContactListAll();
         contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("Contacts", "my_email_adress3"));

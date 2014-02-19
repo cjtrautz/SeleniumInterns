@@ -16,6 +16,8 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractTest
 {
+    protected static String scheduledOneOffTime = "";
+    protected static String scheduledBlastTime = "";
     protected static String wordpressPassword = "";
     protected static String dateTime = "";
     public static Values value = new Values();
@@ -95,5 +97,21 @@ public abstract class AbstractTest
     public static String getDateTime ()
     {
         return AbstractTest.dateTime;
+    }
+    public static void setScheduledBlastTime (String time)
+    {
+        AbstractTest.scheduledBlastTime = time;
+    }
+    public static String getScheduledBlastTime ()
+    {
+        return AbstractTest.scheduledBlastTime;
+    }
+    public static void setScheduledOneOffTime (String time)
+    {
+        AbstractTest.scheduledOneOffTime = time;
+    }
+    public static String getScheduledOneOffTime ()
+    {
+        return AbstractTest.scheduledOneOffTime;
     }
 }

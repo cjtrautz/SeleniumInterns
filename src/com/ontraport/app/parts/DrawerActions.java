@@ -24,6 +24,7 @@ import com.ontraport.app.pages.Sequence_Edit;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
+import com.ontraport.app.tools.AbstractTest;
 
 public class DrawerActions extends AbstractPart
 {
@@ -164,6 +165,10 @@ public class DrawerActions extends AbstractPart
     private WebElement changeFieldValue;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send Double Opt-In Confirmation')]")
+    private WebElement sendDoubleOptin;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete API KEY')]")
     private WebElement uiDeleteAPI;
     
@@ -258,6 +263,10 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-done-button ')]")
         private WebElement submitButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//a[@value='scheduled']//span")
+        private WebElement scheduledRadioButton;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]//button")
@@ -816,9 +825,30 @@ public class DrawerActions extends AbstractPart
         String name3 = dateFormat3.format(date);
         int minutes = Integer.parseInt(name2);
         minutes = (minutes + 5)/5 *5;
+        minutes = minutes + 30;
+        if(minutes >= 60)
+        {
+            int hours = Integer.parseInt(name);
+            hours = hours + 1;
+            if(hours > 12)
+            {
+                hours = 1;
+                if(name3.equals("PM"))
+                {
+                    name3 = "AM";
+                }
+                else if(name3.equals("AM"))
+                {
+                    name3 = "PM";
+                }
+            }
+            name = Integer.toString(hours);
+            minutes = minutes - 60;
+        }
         name2 = Integer.toString(minutes);
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));
+        AbstractTest.setScheduledBlastTime(name + ":" + name2 + " " + name3);
         timeDropDownInput.sendKeys(name + ":" + name2 + " " + name3);
         selectDrillDown(name + ":" + name2 + " " + name3);
         return this;
@@ -1139,6 +1169,59 @@ public class DrawerActions extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(saveField));
         saveField.click();
         return this; 
+    }
+    public DrawerActions clickScheduledSendTime ()
+    {
+        waitForAjax(driver, 20);
+        wait(25).until(ExpectedConditions.visibilityOf(scheduledRadioButton));
+        scheduledRadioButton.click();
+        return this;
+    }
+    public DrawerActions selectFutureHourOneOff ()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("h");
+        DateFormat dateFormat2 = new SimpleDateFormat("mm");
+        DateFormat dateFormat3 = new SimpleDateFormat("a");
+        // get current date time with Date()
+        Date date = new Date();
+        String name = dateFormat.format(date);
+        String name2 = dateFormat2.format(date);
+        String name3 = dateFormat3.format(date);
+        int minutes = Integer.parseInt(name2);
+        minutes = (minutes + 5)/5 *5;
+        minutes = minutes + 30;
+        if(minutes >= 60)
+        {
+            int hours = Integer.parseInt(name);
+            hours = hours + 1;
+            if(hours > 12)
+            {
+                hours = 1;
+                if(name3.equals("PM"))
+                {
+                    name3 = "AM";
+                }
+                else if(name3.equals("AM"))
+                {
+                    name3 = "PM";
+                }
+            }
+            name = Integer.toString(hours);
+        }
+        name2 = Integer.toString(minutes);
+        System.out.println(name + ":" + name2 + " " + name3);
+        wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));
+        AbstractTest.setScheduledBlastTime(name + ":" + name2 + " " + name3);
+        timeDropDownInput.sendKeys(name + ":" + name2 + " " + name3);
+        selectDrillDown(name + ":" + name2 + " " + name3);
+        return this;
+    }
+    public DrawerActions clickSendDoubleOptIn ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(sendDoubleOptin));
+        sendDoubleOptin.click();
+        return this;
     }
 
 

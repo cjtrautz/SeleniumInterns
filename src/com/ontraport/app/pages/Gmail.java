@@ -22,6 +22,14 @@ public class Gmail extends AbstractPage
     private WebElement broadCastEmails;
     
     @FindBy(how = How.XPATH,
+            using = "//tr[td[contains(., '(2)')] and td[contains(., 'SelScheduledBroadcast')]]")
+    private WebElement scheduledBroadCastEmails;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[.='SelScheduledOneOff']")
+    private WebElement oneOffScheduledEmail;
+    
+    @FindBy(how = How.XPATH,
             using = "//span[.='ImmediateSubject']")
     private WebElement immedEmail;
     
@@ -437,6 +445,163 @@ public class Gmail extends AbstractPage
                 }
                 wait.until(ExpectedConditions.visibilityOf(dateEmail));
                 dateEmail.click();
+            }
+            catch(NoSuchElementException e2){
+                return null;
+            }
+        }
+        return this;
+    }
+    public Gmail clickAndVerifyScheduledBroadcastEmail ()
+    {
+        int yep = 0;
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
+            String parse = scheduledBroadCastEmails.getText();
+            String delim = "[ :]";
+            String[] stuff = parse.split(delim);
+            String finale = stuff[0] + stuff[1];
+            System.out.println(finale);
+            yep = Integer.parseInt(finale);
+            int hours1 = yep/100; 
+            System.out.println(hours1);
+            int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
+            if(stuff[2].equals("pm"))
+            {
+                yep2=yep2+720;
+            }
+            String[] stuff2 = AbstractTest.getScheduledBlastTime().split(delim);
+            int time = Integer.parseInt(stuff2[0] + stuff2[1]);
+            int hours2 = time/100; 
+            System.out.println(hours2);
+            int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
+            if(stuff2[2].equals("PM"))
+            {
+                time2=time2+720;
+            }
+            System.out.println(yep2 + "and" + time2);
+            if((time2) > yep2 | yep2 > (time2+20))
+            {
+                return null;
+            }
+            wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
+            scheduledBroadCastEmails.click();
+        }
+        catch(NoSuchElementException e){
+
+            driver.navigate().refresh();
+            try
+            {
+                wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
+                String parse = scheduledBroadCastEmails.getText();
+                String delim = "[ :]";
+                String[] stuff = parse.split(delim);
+                String finale = stuff[0] + stuff[1];
+                System.out.println(finale);
+                yep = Integer.parseInt(finale);
+                int hours1 = yep/100; 
+                System.out.println(hours1);
+                int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
+                if(stuff[2].equals("pm"))
+                {
+                    yep2=yep2+720;
+                }
+                String[] stuff2 = AbstractTest.getScheduledBlastTime().split(delim);
+                int time = Integer.parseInt(stuff2[0] + stuff2[1]);
+                int hours2 = time/100; 
+                System.out.println(hours2);
+                int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
+                if(stuff2[2].equals("PM"))
+                {
+                    time2=time2+720;
+                }
+                System.out.println(yep2 + "and" + time2);
+                if((time2) > yep2 | yep2 > (time2+10))
+                {
+                    return null;
+                }
+                wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
+                scheduledBroadCastEmails.click();
+            }
+            catch(NoSuchElementException e2){
+                return null;
+            }
+        }
+        return this;
+    }
+
+    public Gmail clickAndVerifyScheduledOneOffEmail ()
+    {
+        int yep = 0;
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
+            String parse = oneOffScheduledEmail.getText();
+            String delim = "[ :]";
+            String[] stuff = parse.split(delim);
+            String finale = stuff[0] + stuff[1];
+            System.out.println(finale);
+            yep = Integer.parseInt(finale);
+            int hours1 = yep/100; 
+            System.out.println(hours1);
+            int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
+            if(stuff[2].equals("pm"))
+            {
+                yep2=yep2+720;
+            }
+            String[] stuff2 = AbstractTest.getScheduledOneOffTime().split(delim);
+            int time = Integer.parseInt(stuff2[0] + stuff2[1]);
+            int hours2 = time/100; 
+            System.out.println(hours2);
+            int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
+            if(stuff2[2].equals("PM"))
+            {
+                time2=time2+720;
+            }
+            System.out.println(yep2 + "and" + time2);
+            if((time2) > yep2 | yep2 > (time2+20))
+            {
+                return null;
+            }
+            wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
+            oneOffScheduledEmail.click();
+        }
+        catch(NoSuchElementException e){
+
+            driver.navigate().refresh();
+            try
+            {
+                wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
+                String parse = oneOffScheduledEmail.getText();
+                String delim = "[ :]";
+                String[] stuff = parse.split(delim);
+                String finale = stuff[0] + stuff[1];
+                System.out.println(finale);
+                yep = Integer.parseInt(finale);
+                int hours1 = yep/100; 
+                System.out.println(hours1);
+                int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
+                if(stuff[2].equals("pm"))
+                {
+                    yep2=yep2+720;
+                }
+                String[] stuff2 = AbstractTest.getScheduledOneOffTime().split(delim);
+                int time = Integer.parseInt(stuff2[0] + stuff2[1]);
+                int hours2 = time/100; 
+                System.out.println(hours2);
+                int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
+                if(stuff2[2].equals("PM"))
+                {
+                    time2=time2+720;
+                }
+                System.out.println(yep2 + "and" + time2);
+                if((time2) > yep2 | yep2 > (time2+10))
+                {
+                    return null;
+                }
+                wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
+                oneOffScheduledEmail.click();
             }
             catch(NoSuchElementException e2){
                 return null;
