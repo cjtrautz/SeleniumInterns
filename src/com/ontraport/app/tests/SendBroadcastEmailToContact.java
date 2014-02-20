@@ -88,6 +88,8 @@ public class SendBroadcastEmailToContact extends AbstractTest
         contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_message_send2"));
         contactListAll.drawerActions.clickSendFromDropDown();
         contactListAll.drawerActions.selectDropDown(1);
+        contactListAll.drawerActions.clickEmailFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();
 
         
@@ -96,13 +98,16 @@ public class SendBroadcastEmailToContact extends AbstractTest
         {
             fail("didnt que send");
         }
-        AbstractPart.waitForAjax(driver, 20);
-        driver.navigate().refresh();
+//        AbstractPart.waitForAjax(driver, 20);
+//        driver.navigate().refresh();
+        contactListAll.selectAllOnPage();
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickSendEmail();
         contactListAll.drawerActions.clickEmailNameDropDown();
         contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_message_scheduled_broadcast"));
         contactListAll.drawerActions.clickSendFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
+        contactListAll.drawerActions.clickEmailFromDropDown();
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickScheduledSendTime();
         contactListAll.drawerActions.clickAtDropDown();

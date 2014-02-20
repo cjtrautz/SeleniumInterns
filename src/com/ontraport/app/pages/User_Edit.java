@@ -205,11 +205,11 @@ public class User_Edit extends AbstractPage
     private WebElement passwordField;
     
     @FindBy(how=How.XPATH,
-            using="//span[contains(concat(' ', @class, ' '),' component-password-change-password-button ')]//b")
+            using="//span[contains(concat(' ', @class, ' '),' component-password-change-password-button ')]//button")
     private WebElement changePassword;
     
     @FindBy(how=How.XPATH,
-            using="//div[contains(concat(' ', @class, ' '),' password_target ')]//label")
+            using="//div[contains(concat(' ', @class, ' '),' password_target ')]//input")
     private WebElement passwordTargetInput;
     
     @FindBy(how=How.XPATH,

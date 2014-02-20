@@ -93,6 +93,10 @@ public class DrawerActions extends AbstractPart
     private WebElement sendFromDropDown;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(normalize-space(@class), 'object_selector_NAME_send_from')]//button")
+    private WebElement emailFromDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
     private WebElement quickCreaterNameInput;
     
@@ -1228,6 +1232,13 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(sendDoubleOptin));
         sendDoubleOptin.click();
+        return this;
+    }
+    public DrawerActions clickEmailFromDropDown ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(emailFromDropDown));
+        emailFromDropDown.click();
         return this;
     }
 

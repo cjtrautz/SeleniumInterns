@@ -80,6 +80,8 @@ public class SendSingleEmailToContact extends AbstractTest
         contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_message_send"));
         contactListAll.drawerActions.clickSendFromDropDown();
         contactListAll.drawerActions.selectDropDown(1);
+        contactListAll.drawerActions.clickEmailFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();
 
         
@@ -97,6 +99,8 @@ public class SendSingleEmailToContact extends AbstractTest
         contactListAll.drawerActions.clickEmailNameDropDown();
         contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_scheduled_one_off"));
         contactListAll.drawerActions.clickSendFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
+        contactListAll.drawerActions.clickEmailFromDropDown();
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickScheduledSendTime();
         contactListAll.drawerActions.clickAtDropDown();
