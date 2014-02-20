@@ -34,7 +34,7 @@ public class CheckLogOutAndNewUser extends AbstractTest
         }
         contactListAll.menuUser.open();
         contactListAll.menuUser.clickLogOut();
-        AbstractPart.waitForAjax(driver, 15);
+        AbstractPart.waitForAjax(driver, 25);
         if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
         {
             fail("Can't find log out page2");
