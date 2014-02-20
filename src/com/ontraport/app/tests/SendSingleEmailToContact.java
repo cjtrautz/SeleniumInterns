@@ -32,18 +32,18 @@ public class SendSingleEmailToContact extends AbstractTest
         message_CreateEmail.openMergeFieldPane();
         message_CreateEmail.selectMergeField("First Name");
         message_ListAll = message_CreateEmail.clickSave();
-        message_TypeSelection = message_ListAll.clickNewMessage();
-        message_CreateEmail = message_TypeSelection.clickEmailCreate();
-        message_CreateEmail.enterMessageName(value.get("Messages", "email_scheduled_one_off"));
-//        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
-//        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
-        message_CreateEmail.openMailFromPane();
-        message_CreateEmail.selectMailFrom(1);
-        message_CreateEmail.enterSubject(value.get("Messages", "email_scheduled_one_off"));
-        message_CreateEmail.enterMessageBody(value.get("Messages", "email_body"));
-        message_CreateEmail.openMergeFieldPane();
-        message_CreateEmail.selectMergeField("First Name");
-        message_ListAll = message_CreateEmail.clickSave();
+//        message_TypeSelection = message_ListAll.clickNewMessage();
+//        message_CreateEmail = message_TypeSelection.clickEmailCreate();
+//        message_CreateEmail.enterMessageName(value.get("Messages", "email_scheduled_one_off"));
+////        message_CreateEmail.enterSendOutName(value.get("Messages", "email_send_out"));
+////        message_CreateEmail.enterReplyToEmail(value.get("Messages", "email_reply_to"));
+//        message_CreateEmail.openMailFromPane();
+//        message_CreateEmail.selectMailFrom(1);
+//        message_CreateEmail.enterSubject(value.get("Messages", "email_scheduled_one_off"));
+//        message_CreateEmail.enterMessageBody(value.get("Messages", "email_body"));
+//        message_CreateEmail.openMergeFieldPane();
+//        message_CreateEmail.selectMergeField("First Name");
+//        message_ListAll = message_CreateEmail.clickSave();
         contactListAll = message_ListAll.menuPrimary.clickContactListAll();
         
         Contact_Create contact_Create = contactListAll.clickNewContact();
@@ -90,29 +90,29 @@ public class SendSingleEmailToContact extends AbstractTest
         {
             fail("didnt que send");
         }
-        AbstractPart.waitForAjax(driver, 20);
-        driver.navigate().refresh();
-        contactListAll.formSearch.clear();
-        contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
-        contactListAll.selectContact(1);
-        contactListAll.drawerActions.clickSendEmail();
-        contactListAll.drawerActions.clickEmailNameDropDown();
-        contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_scheduled_one_off"));
-        contactListAll.drawerActions.clickSendFromDropDown();
-        contactListAll.drawerActions.selectDropDown(1);
-        contactListAll.drawerActions.clickEmailFromDropDown();
-        contactListAll.drawerActions.selectDropDown(1);
-        contactListAll.drawerActions.clickScheduledSendTime();
-        contactListAll.drawerActions.clickAtDropDown();
-        contactListAll.drawerActions.selectFutureHourOneOff();
-        contactListAll.drawerActions.clickSend();
-
-        
-        //verify its gone
-        if(contactListAll.verifyQued()==null)
-        {
-            fail("didnt que send");
-        }
+//        AbstractPart.waitForAjax(driver, 20);
+//        driver.navigate().refresh();
+//        contactListAll.formSearch.clear();
+//        contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
+//        contactListAll.selectContact(1);
+//        contactListAll.drawerActions.clickSendEmail();
+//        contactListAll.drawerActions.clickEmailNameDropDown();
+//        contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_scheduled_one_off"));
+//        contactListAll.drawerActions.clickSendFromDropDown();
+//        contactListAll.drawerActions.selectDropDown(1);
+//        contactListAll.drawerActions.clickEmailFromDropDown();
+//        contactListAll.drawerActions.selectDropDown(1);
+//        contactListAll.drawerActions.clickScheduledSendTime();
+//        contactListAll.drawerActions.clickAtDropDown();
+//        contactListAll.drawerActions.selectFutureHourOneOff();
+//        contactListAll.drawerActions.clickSend();
+//
+//        
+//        //verify its gone
+//        if(contactListAll.verifyQued()==null)
+//        {
+//            fail("didnt que send");
+//        }
 
         
 
