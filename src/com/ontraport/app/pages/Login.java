@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 
 public class Login extends AbstractPage
 {
@@ -28,6 +29,7 @@ public class Login extends AbstractPage
         loginInputUsername.sendKeys(username);
         wait.until(ExpectedConditions.visibilityOf(loginInputPassword));
         loginInputPassword.sendKeys(password);
+        AbstractPart.waitForAjax(driver, 5);
         wait.until(ExpectedConditions.visibilityOf(loginInputSubmit));
         loginInputSubmit.click();
         wait.until(new ExpectedCondition<Boolean>()
