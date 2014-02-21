@@ -32,7 +32,7 @@ public class DeleteAndVerifyMassActionForContact extends AbstractTest
             //verify Sel Tag exists
             if(contact_Edit.verifySequence(value.get("Sequences", "date_rule_sequence"))==null)
             {
-                fail("couldn't find tag");
+                fail("couldn't find sequence" + k);
             }
             contactListAll = contact_Edit.clickBack();
             k++;
