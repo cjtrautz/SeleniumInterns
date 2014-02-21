@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -78,6 +79,15 @@ public class Contact_Edit extends AbstractPage
     @FindBy(how=How.XPATH,
             using="//div[contains(concat(' ', normalize-space(@class), ' '),' create-new-form ')]//input")
     private WebElement affiliateProgramNameInput;
+    
+    @FindBy(how=How.XPATH,
+            using="//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-section ')][2]//th//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-checkbox-empty ')]")
+    private WebElement selectAllTasks;
+    
+    @FindBy(
+            how = How.XPATH, 
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-section ')][2]//li[@data-value='0']")
+    private WebElement markComplete;
     
     @FindBy(
             how = How.XPATH, 
@@ -456,7 +466,8 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-        String compare = subjectTask.getText();
+            wait.until(ExpectedConditions.visibilityOf(subjectTask));
+            String compare = subjectTask.getText();
         if(compare.equals(string)!=true)
         {
             return null;
@@ -498,6 +509,22 @@ public class Contact_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(affiliateProgramSaveAndEdit));
         affiliateProgramSaveAndEdit.click();
         return (AffiliateProgram_Create) new AffiliateProgram_Create().init();
+    }
+
+    public Contact_Edit selectAllTasks ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        Actions action = new Actions(driver);
+        action.click(selectAllTasks).build().perform();
+        return this;
+    }
+
+    public Contact_Edit clickMarkComplete ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(markComplete));
+        markComplete.click();
+        return this;
     }
 
 }

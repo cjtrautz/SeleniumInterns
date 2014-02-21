@@ -160,6 +160,12 @@ public class DialogBox extends AbstractPart
             using = "//div[@class='ui-dialog-buttonset']//button[span[contains(text(), 'save') or contains(text(), 'Save')]]")
     private WebElement saveButton3;
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' task-completer-target-outcome ')]//button")
+    private WebElement whatHappenedDropDown;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-buttons ')]//button")
+    private WebElement markComplete;
+    @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
     private WebElement sendButton;
     @FindBy(how = How.XPATH,
@@ -1377,6 +1383,20 @@ public class DialogBox extends AbstractPart
         useThisTemplate.click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
+        return this;
+    }
+    public DialogBox clickWhatHappenedDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(whatHappenedDropDown));
+        whatHappenedDropDown.click();
+        return this;
+    }
+    public DialogBox clickMarkComplete ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(markComplete));
+        markComplete.click();
         return this;
     }
 

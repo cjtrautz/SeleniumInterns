@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Login;
@@ -21,7 +23,12 @@ public class CheckLogOutAndNewUser extends AbstractTest
         
         contactListAll.menuUser.open();
         contactListAll.menuUser.clickLogOut();
-        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[@id='menu-item-9']//a[.='Features']")));
+        }
+        catch(Exception e)
         {
             fail("Can't find log out page 1");
         }
@@ -35,9 +42,13 @@ public class CheckLogOutAndNewUser extends AbstractTest
         contactListAll.menuUser.open();
         contactListAll.menuUser.clickLogOut();
         AbstractPart.waitForAjax(driver, 25);
-        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
+        try
         {
-            fail("Can't find log out page2");
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li[@id='menu-item-9']//a[.='Features']")));
+        }
+        catch(Exception e)
+        {
+            fail("Can't find log out page 2");
         }
         login = (Login) new Login().init();
         login.open(Login.url);

@@ -45,6 +45,10 @@ public class DrawerActions extends AbstractPart
     protected WebElement datePickerInput;
     
     @FindBy(how = How.XPATH,
+            using = "//input[contains(concat(' ', (@class), ' '), ' hasDatepicker ')]")
+    protected WebElement datePickerInput2;
+    
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', (@class), ' '), ' ussr-cancel-click ')]")
     protected WebElement cancelButton;
     
@@ -967,6 +971,7 @@ public class DrawerActions extends AbstractPart
         Actions action = new Actions(driver);
         action.clickAndHold(datePickerInput).build().perform();
         action.release().build().perform();
+        datePickerInput2.click();
         return this;
     }
     public DrawerActions clickCancelSendEmail ()
