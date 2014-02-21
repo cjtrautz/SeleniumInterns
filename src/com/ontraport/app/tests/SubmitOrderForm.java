@@ -45,6 +45,14 @@ public class SubmitOrderForm extends AbstractTest
         order_Form.clickYear();
         order_Form.enterYear("2");
         order_Form.enterYear("2");
+        if(order_Form.verifyTotal("$9.45")==null)
+        {
+            fail("no tax on hosted");
+        }
+        if(order_Form.verifyShipping("SelShipping - $3.45")==null)
+        {
+            fail("no tax on hosted");
+        }
         order_Form.clickSubmit();
         if(order_Form.verifyPage()==null)
         {

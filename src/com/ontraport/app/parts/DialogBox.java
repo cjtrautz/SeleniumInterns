@@ -701,24 +701,20 @@ public class DialogBox extends AbstractPart
         return this;
     }
     
-    public DialogBox enterPrice ( String string )
+    public DialogBox enterPrice ( String string ) throws InterruptedException
     {
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(priceInput));
         priceInput.click();
         Actions action = new Actions(driver);
-        action.sendKeys(Keys.SHIFT).build().perform();
+        action.doubleClick(priceInput).build().perform();
+        action.sendKeys(Keys.BACK_SPACE).build().perform();
+        action.sendKeys(Keys.BACK_SPACE).build().perform();
+        action.sendKeys(Keys.BACK_SPACE).build().perform();
+        action.sendKeys(Keys.BACK_SPACE).build().perform();
         AbstractPart.waitForAjax(driver, 20);
-        action.sendKeys(Keys.LEFT).build().perform();
-        AbstractPart.waitForAjax(driver, 20);
-        action.sendKeys(Keys.LEFT).build().perform();
-        AbstractPart.waitForAjax(driver, 20);
-        action.sendKeys(Keys.LEFT).build().perform();
-        AbstractPart.waitForAjax(driver, 20);
-        action.sendKeys(Keys.LEFT).build().perform();
-        AbstractPart.waitForAjax(driver, 20);
-        action.keyUp(Keys.SHIFT).build().perform();
-        priceInput.sendKeys(Keys.BACK_SPACE + string);
+        priceInput.clear();
+        priceInput.sendKeys(string);
         return this;
     }
     public DialogBox clickDone ()

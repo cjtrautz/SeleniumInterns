@@ -75,6 +75,16 @@ public class Order_Form extends AbstractPage
             how = How.XPATH,
             using = "//h2[@class='thanks']")
     private WebElement thanks;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' grid-summary-grandtotal ')]//td[@class='ussr-helper-font-weight-bold']")
+    private WebElement total;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//select[contains(concat(' ', @class, ' '),' moonray-form-cart-shipping-select ')]//option")
+    private WebElement shipping;
 
     public Order_Form enterFirstName ( String string )
     {
@@ -209,6 +219,42 @@ public class Order_Form extends AbstractPage
     {
         wait.until(ExpectedConditions.visibilityOf(email));
         email.sendKeys(string);
+        return this;
+    }
+
+    public Order_Form verifyTotal ( String string )
+    {
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(total));
+            if(!total.getText().equals(string))
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
+    public Order_Form verifyShipping ( String string )
+    {
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(total));
+            if(!shipping.getText().equals(string))
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
         return this;
     }
     
