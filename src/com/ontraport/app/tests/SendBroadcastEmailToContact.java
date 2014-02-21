@@ -98,8 +98,8 @@ public class SendBroadcastEmailToContact extends AbstractTest
         {
             fail("didnt que send");
         }
-        AbstractPart.waitForAjax(driver, 20);
-        driver.navigate().refresh();
+//        AbstractPart.waitForAjax(driver, 20);
+//        driver.navigate().refresh();
         contactListAll.selectAllOnPage();
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickSendEmail();
