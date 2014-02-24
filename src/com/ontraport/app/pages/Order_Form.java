@@ -78,7 +78,7 @@ public class Order_Form extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' grid-summary-grandtotal ')]//td[@class='ussr-helper-font-weight-bold']")
+            using = "//tr[contains(concat(' ', @class, ' '),' grid-summary-grandtotal ')]//td[@class='ussr-helper-font-weight-bold']")
     private WebElement total;
     
     @FindBy(
@@ -227,6 +227,7 @@ public class Order_Form extends AbstractPage
         try
         {
             wait.until(ExpectedConditions.visibilityOf(total));
+            System.out.println(total.getText());
             if(!total.getText().equals(string))
             {
                 return null;
@@ -244,7 +245,8 @@ public class Order_Form extends AbstractPage
     {
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(total));
+            wait.until(ExpectedConditions.visibilityOf(shipping));
+            System.out.println(shipping.getText());
             if(!shipping.getText().equals(string))
             {
                 return null;

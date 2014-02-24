@@ -51,7 +51,7 @@ public class SubmitOrderForm extends AbstractTest
         }
         if(order_Form.verifyShipping("SelShipping - $3.45")==null)
         {
-            fail("no tax on hosted");
+            fail("no shiiping on hosted");
         }
         order_Form.clickSubmit();
         if(order_Form.verifyPage()==null)
