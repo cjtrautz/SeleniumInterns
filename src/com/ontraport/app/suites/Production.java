@@ -100,6 +100,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSendFromAddress.class,
     com.ontraport.app.tests.DeleteBroadCastEmail.class,
     com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
+    com.ontraport.app.tests.DeleteSendSingleEmailToContact.class,
     
 })
 public class Production extends AbstractSuite
