@@ -1225,6 +1225,10 @@ public class DrawerActions extends AbstractPart
             name = Integer.toString(hours);
         }
         name2 = Integer.toString(minutes);
+        if(name2.equals("0"))
+        {
+            name2 = "00";
+        }
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));
         AbstractTest.setScheduledBlastTime(name + ":" + name2 + " " + name3);

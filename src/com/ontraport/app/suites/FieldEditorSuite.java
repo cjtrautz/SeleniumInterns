@@ -19,37 +19,37 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
-    //used in following tests
-    com.ontraport.app.tests.CreateRuleStepSequence.class,
-    //uses CreateRuleStepSequence sequence
-    com.ontraport.app.tests.CopyStepSequence.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateMessage.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateContact.class,
-    //uses CreateContact
-    com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
-    com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
-    //used in following tests
-    com.ontraport.app.tests.AddNewSection.class,
-    //used in following tests and uses AddNewSection section
-    com.ontraport.app.tests.CreateStateField.class,
-    //uses CreateStateField field
-    com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldState.class,
-    com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldState.class,
-    com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaState.class,
-    com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaState.class,
-    com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedState.class,
-    com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedState.class,
-    com.ontraport.app.tests.CreateLeadScoring_AStateFieldMeetsCriteria.class,
-    com.ontraport.app.tests.DeleteLeadScoring_AStateFieldMeetsCriteria.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateGateway.class, 
-    //used in following tests
-    com.ontraport.app.tests.CreateATag.class,
-    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    //uses CreateRuleStepSequence sequence
+//    com.ontraport.app.tests.CopyStepSequence.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateMessage.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateContact.class,
+//    //uses CreateContact
+//    com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
+//    com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
+//    //used in following tests
+//    com.ontraport.app.tests.AddNewSection.class,
+//    //used in following tests and uses AddNewSection section
+//    com.ontraport.app.tests.CreateStateField.class,
+//    //uses CreateStateField field
+//    com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldState.class,
+//    com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldState.class,
+//    com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaState.class,
+//    com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaState.class,
+//    com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedState.class,
+//    com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedState.class,
+//    com.ontraport.app.tests.CreateLeadScoring_AStateFieldMeetsCriteria.class,
+//    com.ontraport.app.tests.DeleteLeadScoring_AStateFieldMeetsCriteria.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateGateway.class, 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateATag.class,
+//    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
     com.ontraport.app.tests.CreateOrderform.class,
     //used in following tests and uses CreateOrderform orderform
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
