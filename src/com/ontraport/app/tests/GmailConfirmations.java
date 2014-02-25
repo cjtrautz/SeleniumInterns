@@ -54,16 +54,16 @@ public class GmailConfirmations extends AbstractTest
             fail("couldint find Date email");
         }
         gmail.clickDelete();
-//        if(gmail.clickAndVerifyScheduledBroadcastEmail()==null)
-//        {
-//            fail("couldint find Date email");
-//        }
-//        gmail.clickDelete();
-//        if(gmail.clickAndVerifyScheduledOneOffEmail()==null)
-//        {
-//            fail("couldint find Date email");
-//        }
-//        gmail.clickDelete();
+        if(gmail.clickAndVerifyScheduledBroadcastEmail()==null)
+        {
+            fail("couldint find Date email");
+        }
+        gmail.clickDelete();
+        if(gmail.clickAndVerifyScheduledOneOffEmail()==null)
+        {
+            fail("couldint find Date email");
+        }
+        gmail.clickDelete();
         String time = null;
         time = gmail.getImmediateSubjectTime();
         if(time==null)
