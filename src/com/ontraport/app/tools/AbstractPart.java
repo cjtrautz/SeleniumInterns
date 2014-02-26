@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class AbstractPart
 {
     protected static int trys = 0;
-    protected final static int DEFAULT_WAIT = 20;
+    protected final static int DEFAULT_WAIT = 10;
     protected WebDriver     driver = AbstractSuite.getDriver();
     public static boolean waitForAjax ( WebDriver driver, int timeOutInSeconds )
     {

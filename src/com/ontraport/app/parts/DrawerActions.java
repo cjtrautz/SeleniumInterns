@@ -972,6 +972,8 @@ public class DrawerActions extends AbstractPart
         action.clickAndHold(datePickerInput).build().perform();
         action.release().build().perform();
         datePickerInput2.click();
+        Actions action2 = new Actions(driver);
+        action2.click(datePickerInput2).build().perform();
         return this;
     }
     public DrawerActions clickCancelSendEmail ()
