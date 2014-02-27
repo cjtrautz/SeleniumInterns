@@ -857,6 +857,10 @@ public class DrawerActions extends AbstractPart
             minutes = minutes - 60;
         }
         name2 = Integer.toString(minutes);
+        if(name2.length()==1)
+        {
+            name2 = "0" + name2;
+        }
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));
         AbstractTest.setScheduledBlastTime(name + ":" + name2 + " " + name3);
