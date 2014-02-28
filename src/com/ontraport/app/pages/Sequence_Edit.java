@@ -23,7 +23,7 @@ public class Sequence_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "/div[contains(@class,'NAME_task_owner')]//input")
+            using = "//div[contains(@class,'NAME_task_owner')]//input")
     private WebElement assigneeDropDownInput;
     
     @FindBy(
