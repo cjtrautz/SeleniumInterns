@@ -19,30 +19,30 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-//    com.ontraport.app.tests.CreateTab.class,
-//    com.ontraport.app.tests.DeleteTab.class,
-//    
-//    com.ontraport.app.tests.NameATab.class,
-//    
-//    com.ontraport.app.tests.SetLanguage.class, 
-//    
-//    com.ontraport.app.tests.EnsurePagination.class, 
-//    
-//    com.ontraport.app.tests.SetTimezone.class,
-//    
-//    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
-//    com.ontraport.app.tests.GlobalSettingsClickBack.class,
-//    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
-//    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
-//    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
-//    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
-//    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
-//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
-//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
-//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
-//    
-//    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
-//    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
+    com.ontraport.app.tests.CreateTab.class,
+    com.ontraport.app.tests.DeleteTab.class,
+    
+    com.ontraport.app.tests.NameATab.class,
+    
+    com.ontraport.app.tests.SetLanguage.class, 
+    
+    com.ontraport.app.tests.EnsurePagination.class, 
+    
+    com.ontraport.app.tests.SetTimezone.class,
+    
+    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
+    com.ontraport.app.tests.GlobalSettingsClickBack.class,
+    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
+    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
+    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
+    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
+    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
+    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
+    
+    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
+    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateMessage.class, 
@@ -106,6 +106,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
+    
+    
 //  
 //    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
 //    com.ontraport.app.tests.EditPostcardPictureOpacity.class,
