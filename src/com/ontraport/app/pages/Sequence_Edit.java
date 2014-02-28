@@ -289,7 +289,7 @@ public class Sequence_Edit extends AbstractPage
             .implicitlyWait(5, TimeUnit.SECONDS);
             System.out.println(messageSelector.findElement(By.xpath(".//input")).getAttribute("value"));
             String compare = messageSelector.findElement(By.xpath(".//input")).getAttribute("value");
-            if(compare.equals(name)!=true)
+            if(compare.contains(name)!=true)
             {
                 driver.manage()
                 .timeouts()
