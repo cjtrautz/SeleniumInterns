@@ -34,7 +34,7 @@ public class CreateTaskDateSequence extends AbstractTest
         sequence_CreateDate.selectDrillDown(value.get("Messages", "task_message_who"));
         sequence_CreateDate.enterDueDateTask("1");
         sequence_CreateDate.openAssigneePane();
-        sequence_CreateDate.selectDrillDown("Contact's Owner");
+        sequence_CreateDate.selectDrillDown("Contact Owner");
         sequence_ListAll = sequence_CreateDate.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "date_task_sequence"));
         
@@ -56,7 +56,7 @@ public class CreateTaskDateSequence extends AbstractTest
         {
             fail("couldn't find sequence task due date");
         }
-        if(sequence_Edit.verifyAssignee("Contact's Owner")==null)
+        if(sequence_Edit.verifyAssignee("Contact Owner")==null)
         {
             fail("couldn't find sequence task assignee");
         }

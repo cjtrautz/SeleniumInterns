@@ -106,7 +106,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='component-target-send-fields']//div[contains(concat(' ', @class, ' '),' ussr-component-form_control_drill_down_select_object_selector ')]//button")
+            using = "//div[contains(@class,'NAME_task_owner')]//button")
     private WebElement assigneeDropDown;
     
     @FindBy(

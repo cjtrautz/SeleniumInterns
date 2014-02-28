@@ -64,7 +64,7 @@ public class CreateTaskMessage extends AbstractTest
         {
             fail("couldn't find due Date");
         }
-        if(message_Edit.verifyTaskOwner("Contact's Owner")==null)
+        if(message_Edit.verifyTaskOwner("Contact Owner")==null)
         {
             fail("couldn't find SelOutcome");
         }
