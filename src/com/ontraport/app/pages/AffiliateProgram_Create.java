@@ -13,7 +13,7 @@ public class AffiliateProgram_Create extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(), 'Program Name')]/following-sibling::div/input")
+            using = "//div[contains(@class, 'input_text_NAME_name')]//input")
     private WebElement programNameInput;
     
     @FindBy(

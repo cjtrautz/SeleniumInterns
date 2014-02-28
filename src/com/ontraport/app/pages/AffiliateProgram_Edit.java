@@ -17,17 +17,17 @@ public class AffiliateProgram_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(), 'Program Name')]/following-sibling::div/div")
+            using = "//div[contains(@class, 'input_text_NAME_name')]//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-input ')]")
     private WebElement programNameInput;
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(), 'Program Name')]/following-sibling::div/input")
+            using = "//div[contains(@class, 'input_text_NAME_name')]//input")
     private WebElement programNameEditInput;
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(), 'Program Name')]/following-sibling::button")
+            using = "//div[contains(@class, 'input_text_NAME_name')]//button")
     private WebElement programNameEditSave;
     
     @FindBy(

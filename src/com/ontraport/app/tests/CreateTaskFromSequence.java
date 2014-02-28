@@ -41,7 +41,7 @@ public class CreateTaskFromSequence extends AbstractTest
             fail("didnt return to sequence editor");
         }
         sequence_CreateStep.openAssigneePane();
-        sequence_CreateStep.selectDrillDown("Contact's Owner");
+        sequence_CreateStep.selectDrillDown("Contact Owner");
         sequence_ListAll = sequence_CreateStep.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "email_from_sequence"));
         
@@ -63,7 +63,7 @@ public class CreateTaskFromSequence extends AbstractTest
         {
             fail("couldn't find sequence task due date");
         }
-        if(sequence_Edit.verifyAssignee("Contact's Owner")==null)
+        if(sequence_Edit.verifyAssignee("Contact Owner")==null)
         {
             fail("couldn't find sequence task assignee");
         }
