@@ -28,6 +28,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
     com.ontraport.app.tests.CreateSendFromAddress.class,
+    com.ontraport.app.tests.SendDoubleOptIn.class,
     
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     com.ontraport.app.tests.CreateMessage.class,

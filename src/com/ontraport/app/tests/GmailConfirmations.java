@@ -9,6 +9,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Gmail;
 import com.ontraport.app.pages.Sender_View;
@@ -56,12 +57,12 @@ public class GmailConfirmations extends AbstractTest
         gmail.clickDelete();
         if(gmail.clickAndVerifyScheduledBroadcastEmail()==null)
         {
-            fail("couldint find Date email");
+            fail("couldint find scheduled broadcast email");
         }
         gmail.clickDelete();
         if(gmail.clickAndVerifyScheduledOneOffEmail()==null)
         {
-            fail("couldint find Date email");
+            fail("couldint find schedule one off email");
         }
         gmail.clickDelete();
         String time = null;
@@ -100,6 +101,42 @@ public class GmailConfirmations extends AbstractTest
         }
         driver.get("mail.google.com");
           gmail = (Gmail) new Gmail().init();
+          gmail.clickDoubleOptin();
+          gmail.clickDoubleOptinLink();
+          gmail.clickDelete();
+          try{
+              Alert alert = driver.switchTo().alert();
+              alert.accept();
+              driver.switchTo().defaultContent();
+          }
+          catch(Exception e)
+          {
+              
+          }
+          driver.get(AbstractPage.getUrl() + AbstractPage.getLatch() + Contact_ListAll.url);
+          AbstractPart.waitForAjax(driver, 30);
+          wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='chrome-company-logo ussr-helper-position-reset']")));
+          //verify App Name, ID, Redirect, and Visits
+          Contact_ListAll contact_ListAll = (Contact_ListAll) new Contact_ListAll().init();
+          contact_ListAll.formSearch.find(value.get("Contacts", "double_optin_email"));
+          Contact_Edit contact_Edit = contact_ListAll.clickContact(value.get("Contacts", "double_optin_email"));
+          if(contact_Edit.verifyDoubleOptin()==null)
+          {
+              fail("couldnt verify double opted in");
+          }
+          contact_ListAll = contact_Edit.menuPrimary.clickContactListAll();
+          contact_ListAll.formSearch.find(value.get("Contacts", "double_optin_email"));
+          contact_ListAll.selectAllOnPage();
+          contact_ListAll.drawerActions.clickDeleteContacts();
+          contact_ListAll.dialogBox.clickOk();
+          
+          //verify its gone
+          if(contact_ListAll.verifyNoContact()==null)
+          {
+              fail("found deleted contatct");
+          }
+          driver.get("mail.google.com");
+            gmail = (Gmail) new Gmail().init();
           
           if(gmail.clickMessageFrom()==null)
           {

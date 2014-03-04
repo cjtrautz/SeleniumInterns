@@ -53,11 +53,11 @@ public class SendDoubleOptIn extends AbstractTest
         }
         contactListAll = contact_Edit.menuPrimary.clickContactListAll();
         contactListAll.formSearch.clear();
-        contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
+        contactListAll.formSearch.find(value.get("Contacts", "double_optin_email"));
         contactListAll.selectContact(1);
         contactListAll.drawerActions.clickSendDoubleOptIn();
         contactListAll.drawerActions.clickEmailNameDropDown();
-        contactListAll.drawerActions.selectDrillDown(value.get("Messages", "sel_double_opt_in"));
+        contactListAll.drawerActions.selectDrillDown("Please confirm your subscription.");
         contactListAll.drawerActions.clickSendFromDropDown();
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();

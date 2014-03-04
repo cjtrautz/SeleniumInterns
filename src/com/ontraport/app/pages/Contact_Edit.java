@@ -30,6 +30,10 @@ public class Contact_Edit extends AbstractPage
     private WebElement subjectTask;
     
     @FindBy(how=How.XPATH,
+            using="//div[contains(@class, 'bulk_mail_TYPE')]//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-section-data ')]")
+    private WebElement bulkEmailStatus;
+    
+    @FindBy(how=How.XPATH,
             using="//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_section ')][2]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
     private WebElement newTask;
     
@@ -524,6 +528,24 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(markComplete));
         markComplete.click();
+        return this;
+    }
+
+    public Contact_Edit verifyDoubleOptin ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(bulkEmailStatus));
+            String compare = bulkEmailStatus.getText();
+            if(compare.equals("Double Opt-In")!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
         return this;
     }
 

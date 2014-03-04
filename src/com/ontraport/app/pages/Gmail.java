@@ -26,8 +26,16 @@ public class Gmail extends AbstractPage
     private WebElement scheduledBroadCastEmails;
     
     @FindBy(how = How.XPATH,
+            using = "//td[contains(., 'SelScheduledBroadcast')]/ancestor::tr/td[@class='xW xY ']/span")
+    private WebElement scheduledBroadcastTime;
+    
+    @FindBy(how = How.XPATH,
             using = "//span[.='SelScheduledOneOff']")
     private WebElement oneOffScheduledEmail;
+    
+    @FindBy(how = How.XPATH,
+            using = "//td[contains(., 'SelScheduledOneOff')]/ancestor::tr/td[@class='xW xY ']/span")
+    private WebElement scheduledOneOffTime;
     
     @FindBy(how = How.XPATH,
             using = "//span[.='ImmediateSubject']")
@@ -50,7 +58,7 @@ public class Gmail extends AbstractPage
     private WebElement dateEmail;
     
     @FindBy(how = How.XPATH,
-            using = "//span[.='SelDoubleOptInSubject']")
+            using = "//span[.='Please confirm your subscription.']")
     private WebElement doubleOptin;
     
     @FindBy(how = How.XPATH,
@@ -84,6 +92,10 @@ public class Gmail extends AbstractPage
     @FindBy(how = How.XPATH,
         using = "//a[contains(@href, 'https://forms.ontraport.com')]")
     private WebElement link;
+    
+    @FindBy(how = How.XPATH,
+            using = "//a[contains(@href, 'http://forms.ontraport.com')]")
+        private WebElement doubleOptinLink;
     
     @FindBy(how = How.XPATH,
         using = "//div[@class=' G-atb D E']//div[@class='ar9 T-I-J3 J-J5-Ji']")
@@ -483,8 +495,8 @@ public class Gmail extends AbstractPage
         int yep = 0;
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
-            String parse = scheduledBroadCastEmails.getText();
+            wait.until(ExpectedConditions.visibilityOf(scheduledBroadcastTime));
+            String parse = scheduledBroadcastTime.getText();
             String delim = "[ :]";
             String[] stuff = parse.split(delim);
             String finale = stuff[0] + stuff[1];
@@ -519,8 +531,8 @@ public class Gmail extends AbstractPage
             driver.navigate().refresh();
             try
             {
-                wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
-                String parse = scheduledBroadCastEmails.getText();
+                wait.until(ExpectedConditions.visibilityOf(scheduledBroadcastTime));
+                String parse = scheduledBroadcastTime.getText();
                 String delim = "[ :]";
                 String[] stuff = parse.split(delim);
                 String finale = stuff[0] + stuff[1];
@@ -562,8 +574,8 @@ public class Gmail extends AbstractPage
         int yep = 0;
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
-            String parse = oneOffScheduledEmail.getText();
+            wait.until(ExpectedConditions.visibilityOf(scheduledOneOffTime));
+            String parse = scheduledOneOffTime.getText();
             String delim = "[ :]";
             String[] stuff = parse.split(delim);
             String finale = stuff[0] + stuff[1];
@@ -598,8 +610,8 @@ public class Gmail extends AbstractPage
             driver.navigate().refresh();
             try
             {
-                wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
-                String parse = oneOffScheduledEmail.getText();
+                wait.until(ExpectedConditions.visibilityOf(scheduledOneOffTime));
+                String parse = scheduledOneOffTime.getText();
                 String delim = "[ :]";
                 String[] stuff = parse.split(delim);
                 String finale = stuff[0] + stuff[1];
@@ -633,6 +645,15 @@ public class Gmail extends AbstractPage
                 return null;
             }
         }
+        return this;
+    }
+
+    public Gmail clickDoubleOptinLink ()
+    {
+        //AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(doubleOptinLink));
+        doubleOptinLink.click();
+        //driver.switchTo().defaultContent();
         return this;
     }
     
