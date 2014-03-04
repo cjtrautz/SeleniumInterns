@@ -98,12 +98,12 @@ public class CancelBroadCast extends AbstractTest
         //contactListAll.drawerActions.selectFutureHour();
         contactListAll.drawerActions.clickSend();
 
-        
-        //verify its gone
-        if(contactListAll.verifyQued()==null)
-        {
-            fail("didnt que send");
-        }
+//        
+//        //verify its gone
+//        if(contactListAll.verifyQued()==null)
+//        {
+//            fail("didnt que send");
+//        }
         
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         QueuedMessage_ListAll queuedMessage_ListAll = contact_Settings.clickScheduledBroadCasts();

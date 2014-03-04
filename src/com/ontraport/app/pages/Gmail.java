@@ -519,7 +519,7 @@ public class Gmail extends AbstractPage
                 time2=time2+720;
             }
             System.out.println(yep2 + "and" + time2);
-            if((time2) > yep2 | yep2 > (time2+20))
+            if((time2-5) > yep2 | yep2 > (time2+20))
             {
                 return null;
             }
@@ -555,7 +555,7 @@ public class Gmail extends AbstractPage
                     time2=time2+720;
                 }
                 System.out.println(yep2 + "and" + time2);
-                if((time2) > yep2 | yep2 > (time2+10))
+                if((time2-5) > yep2 | yep2 > (time2+20))
                 {
                     return null;
                 }
@@ -598,7 +598,7 @@ public class Gmail extends AbstractPage
                 time2=time2+720;
             }
             System.out.println(yep2 + "and" + time2);
-            if((time2) > yep2 | yep2 > (time2+20))
+            if((time2-5) > yep2 | yep2 > (time2+20))
             {
                 return null;
             }
@@ -634,7 +634,7 @@ public class Gmail extends AbstractPage
                     time2=time2+720;
                 }
                 System.out.println(yep2 + "and" + time2);
-                if((time2) > yep2 | yep2 > (time2+10))
+                if((time2-5) > yep2 | yep2 > (time2+20))
                 {
                     return null;
                 }
