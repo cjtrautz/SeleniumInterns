@@ -28,7 +28,7 @@ public class CreateDoubleOptinMessage extends AbstractTest
         messageTemplate_CreateType1.enterReplyToEmail("selenium@email.com");
         messageTemplate_CreateType1.openMailFromPane();
         messageTemplate_CreateType1.selectMailFrom(1);
-        messageTemplate_CreateType1.enterSubject("SelSubject");
+        messageTemplate_CreateType1.enterSubject(value.get("Messages", "sel_double_opt_in_subject"));
         messageTemplate_CreateType1.enterMessageBody("SelBody");
         messageTemplate_CreateType1.openMergeFieldPane();
         messageTemplate_CreateType1.selectMergeField("First Name");

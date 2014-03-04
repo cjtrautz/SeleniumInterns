@@ -93,11 +93,11 @@ public class SendBroadcastEmailToContact extends AbstractTest
         contactListAll.drawerActions.clickSend();
 
         
-        //verify its gone
-        if(contactListAll.verifyQued()==null)
-        {
-            fail("didnt que send");
-        }
+//        //verify its gone
+//        if(contactListAll.verifyQued()==null)
+//        {
+//            fail("didnt que send");
+//        }
 //        AbstractPart.waitForAjax(driver, 20);
 //        driver.navigate().refresh();
         contactListAll.selectAllOnPage();

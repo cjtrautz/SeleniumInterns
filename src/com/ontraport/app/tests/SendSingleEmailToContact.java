@@ -84,12 +84,12 @@ public class SendSingleEmailToContact extends AbstractTest
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();
 
-        
-        //verify its gone
-        if(contactListAll.verifyQued()==null)
-        {
-            fail("didnt que send");
-        }
+//        
+//        //verify its gone
+//        if(contactListAll.verifyQued()==null)
+//        {
+//            fail("didnt que send");
+//        }
 //        AbstractPart.waitForAjax(driver, 20);
 //        driver.navigate().refresh();
         contactListAll.formSearch.clear();

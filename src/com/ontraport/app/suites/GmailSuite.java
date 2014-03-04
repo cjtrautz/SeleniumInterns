@@ -29,6 +29,7 @@ import com.ontraport.app.tools.AbstractSuite;
     //used in following tests
     com.ontraport.app.tests.CreateDoubleOptinMessage.class,
     //uses CreateDoubleOptinMessage message
+    com.ontraport.app.tests.SendDoubleOptIn.class,
     com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
     //end use of CreateDoubleOptinMessage message
     com.ontraport.app.tests.DeleteDoubleOptinMessage.class,

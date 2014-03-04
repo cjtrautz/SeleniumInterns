@@ -50,6 +50,10 @@ public class Gmail extends AbstractPage
     private WebElement dateEmail;
     
     @FindBy(how = How.XPATH,
+            using = "//span[.='SelDoubleOptInSubject']")
+    private WebElement doubleOptin;
+    
+    @FindBy(how = How.XPATH,
             using = "//td[contains(., 'DateSubject')]/ancestor::tr/td[@class='xW xY ']/span")
     private WebElement dateEmailTime;
     
@@ -217,6 +221,28 @@ public class Gmail extends AbstractPage
             {
                 wait.until(ExpectedConditions.visibilityOf(oneOffEmail));
                 oneOffEmail.click();
+            }
+            catch(NoSuchElementException e2){
+                return null;
+            }
+        }
+        return this;
+    }
+    
+    public Gmail clickDoubleOptin ()
+    {
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(doubleOptin));
+            doubleOptin.click();
+        }
+        catch(NoSuchElementException e){
+
+            driver.navigate().refresh();
+            try
+            {
+                wait.until(ExpectedConditions.visibilityOf(doubleOptin));
+                doubleOptin.click();
             }
             catch(NoSuchElementException e2){
                 return null;
