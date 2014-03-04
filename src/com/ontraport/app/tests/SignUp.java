@@ -49,7 +49,14 @@ public class SignUp extends AbstractTest
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         Login login = (Login) new Login().init();
         login.open(Login.url);
-        login.as(value.get("SignUp", "email"), value.get("SignUp", "pass"));
+        try
+        {
+            login.as(value.get("SignUp", "email"), value.get("SignUp", "pass"));
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         ontraport_SignUp.dialogBox.enterSubDomain(value.get("SignUp", "first_name") + AbstractSuite.UNIQUE);
         ontraport_SignUp.dialogBox.enterReplyToName(value.get("SignUp", "email"));

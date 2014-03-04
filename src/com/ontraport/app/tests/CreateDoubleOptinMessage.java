@@ -55,7 +55,7 @@ public class CreateDoubleOptinMessage extends AbstractTest
         {
             fail("couldn't find send name");
         }
-        if(messageTemplate_Edit.verifySubject("SelSubject")==null)
+        if(messageTemplate_Edit.verifySubject(value.get("Messages", "sel_double_opt_in_subject"))==null)
         {
             fail("couldn't find subject");
         }

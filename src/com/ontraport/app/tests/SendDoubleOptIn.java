@@ -62,12 +62,7 @@ public class SendDoubleOptIn extends AbstractTest
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();
 
-        
-        //verify its gone
-        if(contactListAll.verifyQued()==null)
-        {
-            fail("didnt que send");
-        }
+
 
         
 
