@@ -1237,7 +1237,7 @@ public class DrawerActions extends AbstractPart
         }
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));
-        AbstractTest.setScheduledBlastTime(name + ":" + name2 + " " + name3);
+        AbstractTest.setScheduledOneOffTime(name + ":" + name2 + " " + name3);
         timeDropDownInput.sendKeys(name + ":" + name2 + " " + name3);
         selectDrillDown(name + ":" + name2 + " " + name3);
         return this;
