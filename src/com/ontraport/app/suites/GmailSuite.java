@@ -19,13 +19,13 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-//    //these are all verified in GmailConfirmations
-//    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
-//    com.ontraport.app.tests.SendSingleEmailToContact.class,
-//    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
-//    com.ontraport.app.tests.EnsureDateSequence.class,
-//    com.ontraport.app.tests.CreateSendFromAddress.class, 
-//    com.ontraport.app.tests.SendDoubleOptIn.class,
+    //these are all verified in GmailConfirmations
+    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
+    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+    com.ontraport.app.tests.EnsureDateSequence.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class, 
+    com.ontraport.app.tests.SendDoubleOptIn.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateDoubleOptinMessage.class,
