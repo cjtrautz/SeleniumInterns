@@ -105,7 +105,7 @@ public class OPPackage_View extends AbstractPage
             .timeouts()
             .implicitlyWait(25, TimeUnit.SECONDS);
             System.out.println(driver.getCurrentUrl());
-            if(!driver.getCurrentUrl().equals("http://ontraport.com/legal-abuse/#terms-of-use"))
+            if(!driver.getCurrentUrl().equals("https://ontraport.com/legal-abuse/#terms-of-use"))
             {
                 driver.manage()
                 .timeouts()
