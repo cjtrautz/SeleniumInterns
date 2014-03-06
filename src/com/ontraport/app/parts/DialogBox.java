@@ -257,7 +257,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(text(), 'Enter Name')]/input")
     private WebElement enterNameInput;
     @FindBy(how = How.XPATH,
-            using = "//input[@placeholder='Enter product']")
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '), ' orderform-objectselector-search ')]")
     private WebElement enterProduct;
     @FindBy(how = How.XPATH,
             using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' orderform-objectselector-list-item-add-new ')]")
