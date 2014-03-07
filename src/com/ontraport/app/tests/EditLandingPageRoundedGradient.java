@@ -15,7 +15,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class EditLandingPageRoundedGradient extends AbstractTest
 {
     @Test
-    public void testEditLandingPageRounded ()
+    public void testEditLandingPageRoundedGradient ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         

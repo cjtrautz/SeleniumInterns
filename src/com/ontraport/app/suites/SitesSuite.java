@@ -19,129 +19,129 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-    //used in following tests
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    //uses CreateAWordPressSite wordpress site
-    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
-    com.ontraport.app.tests.DeleteEmailWPMessage.class,
-    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
-    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
-//    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
-//    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
-    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
-    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
-    //no longer part of rules
-    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
-    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
-    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
-    //end use of CreateAWordPressSite site
-    com.ontraport.app.tests.DeleteWordPressSite.class,
-    
-    com.ontraport.app.tests.ImportContacts.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
-    //uses CreateLandingPageWithHTML landing page
-    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
-    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
-    //end use of CreateLandingPageWithHTML landing page
-    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPageWithGradient.class,
-    //uses CreateLandingPageWithGradient landing page
-    com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
-    com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
-    com.ontraport.app.tests.EditLandingPageGradientColors.class,
-    com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
-    com.ontraport.app.tests.EditLandingPageCircleGradient.class,
-    //end use of CreateLandingPageWithGradient landing page
-    com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
-    //uses CreateLandingPagePictureWithRectangle landing page
-    com.ontraport.app.tests.EditLandingPageCircleImage.class,
-    com.ontraport.app.tests.EditLandingPageImageTop.class,
-    com.ontraport.app.tests.EditLandingPageImageWidth.class,
-    com.ontraport.app.tests.EditLandingPageImageHeight.class,
-    com.ontraport.app.tests.EditLandingPageImageLeft.class,
-    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
-    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
-    com.ontraport.app.tests.EditLandingPageImageRounded.class,
-    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
-    //end use of CreateLandingPagePictureWithRectangle landing page
-    com.ontraport.app.tests.DeleteLandingPageImage.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPageWithText.class,
-    //uses CreateLandingPageWithText landing page
-    com.ontraport.app.tests.EditLandingPageHeight.class,
-    com.ontraport.app.tests.EditLandingPageWidth.class,
-    com.ontraport.app.tests.EditLandingPageTop.class,
-    com.ontraport.app.tests.EditLandingPageLeft.class,
-    com.ontraport.app.tests.EditLandingPageLineSpacing.class,
-    com.ontraport.app.tests.EditLandingPageLetterSpacing.class,
-    com.ontraport.app.tests.EditLandingPageRightAlign.class,
-    com.ontraport.app.tests.EditLandingPageCenter.class,
-    com.ontraport.app.tests.EditLandingPageLeftAlign.class,
-    com.ontraport.app.tests.EditLandingPageUnderline.class,
-    com.ontraport.app.tests.EditLandingPageItalic.class,
-    com.ontraport.app.tests.EditLandingPageBold.class,
-    com.ontraport.app.tests.EditLandingPageFontSize.class,
-    com.ontraport.app.tests.EditLandingPageFont.class,
-    //end use of CreateLandingPageWithText landing page
-    com.ontraport.app.tests.DeleteLandingPageWithText.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPage.class,
-    //uses CreateLandingPage landing page
-    com.ontraport.app.tests.CreateSMSLPFieldMessage.class,
-    com.ontraport.app.tests.DeleteSMSLPFieldMessage.class,
-    com.ontraport.app.tests.CreateLPFieldTaskMessage.class,
-    com.ontraport.app.tests.DeleteLPFieldsTaskMessage.class,
-    com.ontraport.app.tests.CreateLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
-    com.ontraport.app.tests.DeleteLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
-    com.ontraport.app.tests.EditLandingPageOpacity.class,
-    com.ontraport.app.tests.EditLandingPageColor.class,
-    com.ontraport.app.tests.EditLandingPageRounded.class,
-    com.ontraport.app.tests.EditLandingPageCircle.class,
-    com.ontraport.app.tests.EditLandingPageSplitTesting.class,
-    com.ontraport.app.tests.EditLandingPageRemoveSplitTesting.class,
-    com.ontraport.app.tests.EditLandingPagePageSize.class,
-    com.ontraport.app.tests.EditLandingPageBackground.class,
-    com.ontraport.app.tests.CreateEmailMessageLPFields.class,
-    com.ontraport.app.tests.DeleteEmailLPMessage.class,
-    com.ontraport.app.tests.EditLandingPageAlignment.class,
-    com.ontraport.app.tests.EditLandingPageURL.class,
-    com.ontraport.app.tests.EditLandingPageTitle.class,
-    com.ontraport.app.tests.EditLandingPageName.class,
-    com.ontraport.app.tests.CreateEasyLandingPageFromExisting.class,
-    com.ontraport.app.tests.CopyLandingPageAction.class,
-    //end use of CreateLandingPage landing page
-    com.ontraport.app.tests.DeleteLandingPage.class,
-    
-    com.ontraport.app.tests.CreateStepSequenceBack.class,
-    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateAWordPressSite.class,
+//    //uses CreateAWordPressSite wordpress site
+//    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
+//    com.ontraport.app.tests.DeleteEmailWPMessage.class,
+//    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
+//    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
+////    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
+////    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
+//    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
+//    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
+//    //no longer part of rules
+//    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
+//    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
+//    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
+//    //end use of CreateAWordPressSite site
+//    com.ontraport.app.tests.DeleteWordPressSite.class,
+//    
+//    com.ontraport.app.tests.ImportContacts.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
+//    //uses CreateLandingPageWithHTML landing page
+//    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
+//    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
+//    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
+//    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
+//    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
+//    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
+//    //end use of CreateLandingPageWithHTML landing page
+//    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPageWithGradient.class,
+//    //uses CreateLandingPageWithGradient landing page
+//    com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
+//    com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
+//    com.ontraport.app.tests.EditLandingPageGradientColors.class,
+//    com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
+//    com.ontraport.app.tests.EditLandingPageCircleGradient.class,
+//    //end use of CreateLandingPageWithGradient landing page
+//    com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+//    //uses CreateLandingPagePictureWithRectangle landing page
+//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
+//    com.ontraport.app.tests.EditLandingPageImageTop.class,
+//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
+//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
+//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
+//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
+//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
+//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
+//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
+//    //end use of CreateLandingPagePictureWithRectangle landing page
+//    com.ontraport.app.tests.DeleteLandingPageImage.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPageWithText.class,
+//    //uses CreateLandingPageWithText landing page
+//    com.ontraport.app.tests.EditLandingPageHeight.class,
+//    com.ontraport.app.tests.EditLandingPageWidth.class,
+//    com.ontraport.app.tests.EditLandingPageTop.class,
+//    com.ontraport.app.tests.EditLandingPageLeft.class,
+//    com.ontraport.app.tests.EditLandingPageLineSpacing.class,
+//    com.ontraport.app.tests.EditLandingPageLetterSpacing.class,
+//    com.ontraport.app.tests.EditLandingPageRightAlign.class,
+//    com.ontraport.app.tests.EditLandingPageCenter.class,
+//    com.ontraport.app.tests.EditLandingPageLeftAlign.class,
+//    com.ontraport.app.tests.EditLandingPageUnderline.class,
+//    com.ontraport.app.tests.EditLandingPageItalic.class,
+//    com.ontraport.app.tests.EditLandingPageBold.class,
+//    com.ontraport.app.tests.EditLandingPageFontSize.class,
+//    com.ontraport.app.tests.EditLandingPageFont.class,
+//    //end use of CreateLandingPageWithText landing page
+//    com.ontraport.app.tests.DeleteLandingPageWithText.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateLandingPage.class,
+//    //uses CreateLandingPage landing page
+//    com.ontraport.app.tests.CreateSMSLPFieldMessage.class,
+//    com.ontraport.app.tests.DeleteSMSLPFieldMessage.class,
+//    com.ontraport.app.tests.CreateLPFieldTaskMessage.class,
+//    com.ontraport.app.tests.DeleteLPFieldsTaskMessage.class,
+//    com.ontraport.app.tests.CreateLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
+//    com.ontraport.app.tests.DeleteLeadScoring_HasVisitedLandingPageNumberOfTimes.class,
+//    com.ontraport.app.tests.EditLandingPageOpacity.class,
+//    com.ontraport.app.tests.EditLandingPageColor.class,
+//    com.ontraport.app.tests.EditLandingPageRounded.class,
+//    com.ontraport.app.tests.EditLandingPageCircle.class,
+//    com.ontraport.app.tests.EditLandingPageSplitTesting.class,
+//    com.ontraport.app.tests.EditLandingPageRemoveSplitTesting.class,
+//    com.ontraport.app.tests.EditLandingPagePageSize.class,
+//    com.ontraport.app.tests.EditLandingPageBackground.class,
+//    com.ontraport.app.tests.CreateEmailMessageLPFields.class,
+//    com.ontraport.app.tests.DeleteEmailLPMessage.class,
+//    com.ontraport.app.tests.EditLandingPageAlignment.class,
+//    com.ontraport.app.tests.EditLandingPageURL.class,
+//    com.ontraport.app.tests.EditLandingPageTitle.class,
+//    com.ontraport.app.tests.EditLandingPageName.class,
+//    com.ontraport.app.tests.CreateEasyLandingPageFromExisting.class,
+//    com.ontraport.app.tests.CopyLandingPageAction.class,
+//    //end use of CreateLandingPage landing page
+//    com.ontraport.app.tests.DeleteLandingPage.class,
+//    
+//    com.ontraport.app.tests.CreateStepSequenceBack.class,
+//    
     com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
     
     //used in following tests

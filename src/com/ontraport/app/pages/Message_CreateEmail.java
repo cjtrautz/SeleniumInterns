@@ -43,6 +43,11 @@ public class Message_CreateEmail extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(@class,'object_selector_NAME_send_from')]//button")
+    private WebElement sendFromDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' target-send-name ')]//input")
     private WebElement sendOutNameInput;
     
@@ -229,6 +234,24 @@ public class Message_CreateEmail extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
         return (Message_ListAll) new Message_ListAll().init();
+    }
+
+    public Message_CreateEmail openSendFromPane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sendFromDropDown));
+        sendFromDropDown.click();
+        return this;
+    }
+
+    public Message_CreateEmail selectSendFrom ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane));
+        List<WebElement> selectionOptions = mailFromPane.findElements(By.xpath(".//li/div"));
+        wait.until(ExpectedConditions.visibilityOf(selectionOptions.get(i-1)));
+        selectionOptions.get(i-1).click();
+        return this;
     }
     
 }

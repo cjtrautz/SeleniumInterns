@@ -25,6 +25,8 @@ public class CreateMessage extends AbstractTest
         message_CreateEmail.enterMessageName("SelEmailMessage");
 //        message_CreateEmail.enterSendOutName("Selenium");
 //        message_CreateEmail.enterReplyToEmail("selenium@email.com");
+        message_CreateEmail.openSendFromPane();
+        message_CreateEmail.selectSendFrom(1);
         message_CreateEmail.openMailFromPane();
         message_CreateEmail.selectMailFrom(1);
         message_CreateEmail.enterSubject("SelSubject");

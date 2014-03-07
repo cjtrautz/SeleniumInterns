@@ -545,6 +545,11 @@ public class Message_Edit extends AbstractPage
             using = "//button[span[text()='Save']]")
     private WebElement save;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(@class,'object_selector_NAME_send_from')]//button")
+    private WebElement sendFromDropDown;
+    
     public Message_Edit enterMessageName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -2750,6 +2755,24 @@ public class Message_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (Sequence_CreateStep) new Sequence_CreateStep().init();
+    }
+
+    public Message_Edit openSendFromPane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sendFromDropDown));
+        sendFromDropDown.click();
+        return this;
+    }
+
+    public Message_Edit selectSendFrom ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mailFromPane));
+        List<WebElement> selectionOptions = mailFromPane.findElements(By.xpath(".//li/div"));
+        wait.until(ExpectedConditions.visibilityOf(selectionOptions.get(i-1)));
+        selectionOptions.get(i-1).click();
+        return this;
     }
 
 
