@@ -36,6 +36,8 @@ public class UneditedWorkflow extends AbstractTest
         Message_Edit message_Edit = sequence_ListAll.menuWorkflow.clickUneditedWorkflow("Message: SelUnedittedWorkflowTime");
 //        message_Edit.enterSendOutName("Selenium");
 //        message_Edit.enterReplyToEmail("selenium@email.com");
+        message_Edit.openSendFromPane();
+        message_Edit.selectSendFrom(1);
         message_Edit.openMailFromPane();
         message_Edit.selectMailFrom(1);
         message_Edit.enterSubject("SelSubject");
