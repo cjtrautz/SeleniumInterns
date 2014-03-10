@@ -1230,5 +1230,29 @@ public class Field_Editor extends AbstractPage
         action.dragAndDropBy(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")), distance, 0).build().perform();
         return this;
     }
+    public Field_Editor moveTabToOverflow ( int tab )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(primaryTabs));
+        Actions action = new Actions(driver);
+        action.clickAndHold(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")));
+        action.moveToElement(overflowList.findElement(By.xpath(".//li/a")), 75, -3);
+        action.build().perform();
+        return this;
+    }
     
+    public Field_Editor verifyTabInOverflow ( String string )
+    {
+        AbstractPart.waitForAjax(driver,  20);
+        wait.until(ExpectedConditions.visibilityOf(overflowList));
+        System.out.println(AbstractPart.toTitleCase(string));
+        try
+        {
+            overflowList.findElements(By.xpath(".//li/a[contains(text(), '" + AbstractPart.toTitleCase(string) + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
 }

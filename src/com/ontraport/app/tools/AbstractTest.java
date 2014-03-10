@@ -20,6 +20,7 @@ public abstract class AbstractTest
     protected static String scheduledBlastTime = "";
     protected static String wordpressPassword = "";
     protected static String dateTime = "";
+    protected static String tabName = "";
     public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
@@ -113,5 +114,13 @@ public abstract class AbstractTest
     public static String getScheduledOneOffTime ()
     {
         return AbstractTest.scheduledOneOffTime;
+    }
+    public static String getTabName ()
+    {
+        return AbstractTest.tabName;
+    }
+    public static void setTabName (String tab)
+    {
+        AbstractTest.tabName = tab;
     }
 }
