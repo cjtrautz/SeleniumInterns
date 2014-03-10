@@ -22,6 +22,7 @@ import com.ontraport.app.parts.DialogBox;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
+import com.ontraport.app.tools.AbstractTest;
 
 public class Field_Editor extends AbstractPage
 {
@@ -1230,13 +1231,15 @@ public class Field_Editor extends AbstractPage
         action.dragAndDropBy(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")), distance, 0).build().perform();
         return this;
     }
-    public Field_Editor moveTabToOverflow ( int tab )
+    public Field_Editor moveTabToOverflow ( int tab ) throws Exception
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(primaryTabs));
         Actions action = new Actions(driver);
+        AbstractTest.setTabName(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']//input")).getAttribute("value"));
         action.clickAndHold(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")));
-        action.moveToElement(overflowList.findElement(By.xpath(".//li/a")), 75, -3);
+        action.moveToElement(overflowList.findElements(By.xpath(".//li/a")).get(1),75,5);
+        action.release();
         action.build().perform();
         return this;
     }
@@ -1245,7 +1248,6 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver,  20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
-        System.out.println(AbstractPart.toTitleCase(string));
         try
         {
             overflowList.findElements(By.xpath(".//li/a[contains(text(), '" + AbstractPart.toTitleCase(string) + "')]"));

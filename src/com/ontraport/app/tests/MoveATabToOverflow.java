@@ -17,7 +17,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class MoveATabToOverflow extends AbstractTest
 {
     @Test
-    public void testMoveATabToOverflow () throws InterruptedException
+    public void testMoveATabToOverflow () throws Exception
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
