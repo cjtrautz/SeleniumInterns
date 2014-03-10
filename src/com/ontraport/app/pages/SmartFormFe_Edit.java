@@ -27,6 +27,14 @@ public class SmartFormFe_Edit extends AbstractPage
     private WebElement paymentMethod;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addproducts ')]//span")
+    private WebElement addOrEditProducts;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' grid-offer-element ')]")
+    private WebElement productGrid;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-shipping-style-widget ')]")
     private WebElement shipping;
     
@@ -622,6 +630,22 @@ public class SmartFormFe_Edit extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+
+    public SmartFormFe_Edit clickAddOrEditProducts ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(addOrEditProducts));
+        addOrEditProducts.click();
+        return this;
+    }
+
+    public SmartFormFe_Edit clickProductForm ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(productGrid));
+        productGrid.click();
         return this;
     }
 

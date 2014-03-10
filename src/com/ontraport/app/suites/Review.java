@@ -18,14 +18,12 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateATag.class,
-    com.ontraport.app.tests.CreateRuleDateSequence.class,
-    com.ontraport.app.tests.MassActionForContacts.class,
-    com.ontraport.app.tests.CreateTaskFromSequence.class,
-    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
-    com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
-    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-    com.ontraport.app.tests.DeleteTag.class,
+//    com.ontraport.app.tests.CreateGateway.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateATag.class,
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.VerifyOrderformProductOptions.class,
 }
 )
 public class Review extends AbstractSuite

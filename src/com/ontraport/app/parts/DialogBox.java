@@ -25,6 +25,12 @@ import com.ontraport.app.tools.AbstractSuite;
 public class DialogBox extends AbstractPart
 {
     @FindBy(how = How.XPATH,
+            using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-grid-row-actions-list ')]")
+    private WebElement gridActions;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-dialog ')]//tr[contains(concat(' ', normalize-space(@class), ' '),' product ')]")
+    private WebElement product;
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-plugin-template ')]")
     private WebElement template;
     @FindBy(how = How.XPATH,
@@ -1394,6 +1400,25 @@ public class DialogBox extends AbstractPart
         wait(30).until(ExpectedConditions.visibilityOf(markComplete));
         markComplete.click();
         return this;
+    }
+    public DialogBox verifyPrdouctOptions ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            Actions action = new Actions(driver);
+            action.moveToElement(product).build().perform();
+            if(gridActions.isDisplayed())
+            {
+                return this;
+            }
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        
+        return null;
     }
 
 
