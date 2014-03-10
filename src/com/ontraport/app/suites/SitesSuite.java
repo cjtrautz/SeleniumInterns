@@ -164,6 +164,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRuleStepSequence.class,
     //used in following tests and uses CreateGateway gateway and uses CreateATag
     com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.VerifyOrderformProductOptions.class,
     //uses CreateOrderform orderform
     com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
     //end use of CreateOrderform orderform
