@@ -18,7 +18,7 @@ public class OPPackage_View extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//a[@href='http://ontraport.com/legal/#terms-of-use']")
+            using = "//a[@href='http://ontraport.com/legal-terms/']")
     private WebElement terms;
     
     @FindBy(
@@ -105,7 +105,7 @@ public class OPPackage_View extends AbstractPage
             .timeouts()
             .implicitlyWait(25, TimeUnit.SECONDS);
             System.out.println(driver.getCurrentUrl());
-            if(!driver.getCurrentUrl().equals("https://ontraport.com/legal-abuse/#terms-of-use"))
+            if(!driver.getCurrentUrl().equals("http://ontraport.com/legal-terms/"))
             {
                 driver.manage()
                 .timeouts()
