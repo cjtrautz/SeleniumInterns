@@ -23,6 +23,10 @@ public class Sequence_CreateStep extends AbstractPage
     private WebElement sequenceEmailDetail;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' preview_data_box ')]")
+    private WebElement previewData;
+    
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
     
@@ -141,7 +145,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//span[@class='ussr-theme-sequence-rule']//button")
+            using = "//span[@class='ussr-theme-sequence-sms']//button")
     private WebElement ruleStep;
     
     @FindBy(
@@ -163,6 +167,11 @@ public class Sequence_CreateStep extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-listview ')]")
     private WebElement drillDownPaneGone;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-message-selector ')]//button")
+    private WebElement smsMessageDropDown;
     
     @FindBy(
             how = How.XPATH,
@@ -223,6 +232,11 @@ public class Sequence_CreateStep extends AbstractPage
             how = How.XPATH,
             using = "//label[text()='Fulfillment Name']/following-sibling::div//button")
     private WebElement fulfillmentDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//label[text()='Fulfillment Name']/following-sibling::div//input")
+    private WebElement fulfillmentDropDownInput;
     
     @FindBy(
             how = How.XPATH,
@@ -758,6 +772,83 @@ public class Sequence_CreateStep extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(objectCreatorName));
         objectCreatorName.sendKeys(string);
+        return this;
+    }
+
+    public Sequence_CreateStep clickAddSMSStep ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ruleStep));
+        ruleStep.click();
+        return this;
+    }
+
+    public Sequence_CreateStep clickSMSDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smsMessageDropDown));
+        smsMessageDropDown.click();
+        return this;
+    }
+
+    public Sequence_CreateStep verifyPreviewData ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!previewData.getText().equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+
+    public Sequence_CreateStep verifySequenceName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!sequenceNameInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+
+    public Fulfillment_Edit clickSaveAndEditFul ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveAndEdit));
+        saveAndEdit.click();
+        return (Fulfillment_Edit) new Fulfillment_Edit().init();
+    }
+
+    public Sequence_CreateStep verifyFulfillmentDropDown (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(fulfillmentDropDownInput));
+            System.out.println(fulfillmentDropDownInput.getAttribute("value"));
+            if(!fulfillmentDropDownInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
         return this;
     }
 

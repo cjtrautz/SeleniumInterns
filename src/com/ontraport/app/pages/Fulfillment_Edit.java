@@ -18,6 +18,36 @@ public class Fulfillment_Edit extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-recipient-message-target-email-box ')]//input")
+    private WebElement emailNotificationInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-recipient-message-target-message-topic-box ')]//input")
+    private WebElement emailSubjectInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-recipient-message-target-message-body-box ')]//textarea")
+    private WebElement emailBodyInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement drillDownSelectPane;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' ussr-component-frequency-scheduler-time ')]//button")
+    private WebElement toggleTimeSchedulerSelector;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' ussr-component-frequency-scheduler-target-aux ')]//button")
+    private WebElement toggleDaySchedulerSelector;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header ')]//div[@class='ussr-pane-editor-back']")
     private WebElement back;
     
@@ -35,6 +65,11 @@ public class Fulfillment_Edit extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-fulfillment-target-fields ')]//button")
     private List<WebElement> fieldsButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-fulfillment-target-frequency ')]//button")
+    private WebElement compileListTime;
     
     @FindBy(
             how = How.XPATH,
@@ -554,5 +589,86 @@ public class Fulfillment_Edit extends AbstractPage
         return this;
     }
 
+    public Fulfillment_Edit openSendTimePane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(toggleTimeSchedulerSelector)));
+        toggleTimeSchedulerSelector.click();
+        return this;
+        
+    }
+
+    public Fulfillment_Edit selectTime ( String option )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownSelectPane)));
+        drillDownSelectPane.findElement(By.xpath(".//li/div[text()='" + option + "']")).click();
+        return this;
+    }
+    
+    public Fulfillment_Edit selectField ( String option )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownSelectPane)));
+        drillDownSelectPane.findElement(By.xpath(".//li/div[text()='" + option + "']")).click();
+        return this;
+        
+    }
+    
+    public Fulfillment_Edit enterEmailNotification ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(emailNotificationInput)));
+        emailNotificationInput.sendKeys(string);
+        return this;
+    }
+
+    public Fulfillment_Edit enterEmailSubject ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(emailSubjectInput)));
+        emailSubjectInput.sendKeys(string);
+        return this;
+    }
+
+    public Fulfillment_Edit enterEmailMessage ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(emailBodyInput)));
+        emailBodyInput.sendKeys(string);
+        return this;
+    }
+
+    public Sequence_CreateStep clickSaveToSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(save)));
+        save.click();
+        return (Sequence_CreateStep) new Sequence_CreateStep().init();
+    }
+
+    public Fulfillment_Edit openCompileListTimePane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(compileListTime)));
+        compileListTime.click();
+        return this;
+    }
+
+    public Fulfillment_Edit selectCompileListTime ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownSelectPane)));
+        drillDownSelectPane.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
+        return this;
+    }
+
+    public Fulfillment_Edit openDayPane ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(toggleDaySchedulerSelector)));
+        toggleDaySchedulerSelector.click();
+        return this;
+    }
   
 }
