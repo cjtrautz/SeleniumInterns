@@ -1200,6 +1200,7 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input"))));
+        AbstractTest.setTabReName(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).getAttribute("value"));
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).click();
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).clear();
         primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(i-1) + "']//input")).sendKeys(string);

@@ -30,7 +30,7 @@ public class NameATab extends AbstractTest
             fail("couldnt find section");
         }
         field_Editor.clickTab(2);
-        field_Editor.enterTabName(2, "Contact History");
+        field_Editor.enterTabName(2, AbstractTest.getTabReName());
         field_Editor.clickTitle();
         contact_Settings = field_Editor.clickSave();
         contact_Settings.menuPrimary.clickContactListAll();

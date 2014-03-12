@@ -107,6 +107,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
     
+    com.ontraport.app.tests.MoveATabToOverflow.class,
     
 //  
 //    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
