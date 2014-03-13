@@ -25,8 +25,8 @@ public class MoveATabOutOfOverflow extends AbstractTest
         
         Field_Editor fieldEditor = contactSettings.clickFieldEditor();
         fieldEditor.clickOverflowExpand();
-        fieldEditor.clickTab(2);
-        fieldEditor.moveTabToOverflow(2);
+        fieldEditor.clickOverflowTab(2);
+        fieldEditor.moveTabOutOfOverflow(2);
         fieldEditor.clickSave();
         
         if (!driver.getCurrentUrl().contains("contact/settings"))
@@ -36,11 +36,9 @@ public class MoveATabOutOfOverflow extends AbstractTest
         
         contactSettings.clickFieldEditor();
         
-        fieldEditor.clickOverflowExpand();
-        
-        if(fieldEditor.verifyTabInOverflow(AbstractTest.getTabName()) == null)
+        if(fieldEditor.verifyTab(AbstractTest.getTabName()) == null)
         {
-            fail("Tab not in overflow");
+            fail("Tab not in primary list");
         }
     }
 }

@@ -1231,6 +1231,7 @@ public class Field_Editor extends AbstractPage
         action.dragAndDropBy(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")), distance, 0).build().perform();
         return this;
     }
+    
     public Field_Editor moveTabToOverflow ( int tab ) throws Exception
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -1239,6 +1240,29 @@ public class Field_Editor extends AbstractPage
         AbstractTest.setTabName(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']//input")).getAttribute("value"));
         action.clickAndHold(primaryTabs.findElement(By.xpath(".//li[@data-tabindex='tab_" + Integer.toString(tab-1) + "']/span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-pane-field-editor-tab-drag-handle ')]")));
         action.moveToElement(overflowList.findElements(By.xpath(".//li/a")).get(1),75,5);
+        action.release();
+        action.build().perform();
+        return this;
+    }
+    
+    public Field_Editor clickOverflowTab ( int i )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(overflowList));
+        wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath(".//li[" + Integer.toString(i) + "]"))));
+        overflowList.findElement(By.xpath(".//li[" + Integer.toString(i) + "]/a")).click();
+        return this;
+    }
+
+    public Field_Editor moveTabOutOfOverflow ( int tab ) throws Exception
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(overflowList));
+        Actions action = new Actions(driver);
+        AbstractTest.setTabName(overflowList.findElement(By.xpath(".//li[" + Integer.toString(tab) + "]/span/span")).getAttribute("value"));
+        action.moveToElement(overflowList.findElement(By.xpath(".//li[" + Integer.toString(tab) + "]/span/span")));
+        action.clickAndHold(overflowList.findElement(By.xpath(".//li[" + Integer.toString(tab) + "]/span/span")));
+        action.moveToElement(primaryTabs.findElements(By.xpath(".//li/a")).get(1),75,10);
         action.release();
         action.build().perform();
         return this;
