@@ -1233,7 +1233,7 @@ public class Field_Editor extends AbstractPage
         return this;
     }
     
-    public Field_Editor moveTabToOverflow ( int tab ) throws Exception
+    public Field_Editor moveTabToOverflow ( int tab )
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(primaryTabs));
@@ -1255,7 +1255,7 @@ public class Field_Editor extends AbstractPage
         return this;
     }
 
-    public Field_Editor moveTabOutOfOverflow ( int target, int dest ) throws Exception
+    public Field_Editor moveTabOutOfOverflow ( int target, int dest )
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));

@@ -30,7 +30,6 @@ import com.ontraport.app.parts.Paginator;
 import com.ontraport.app.parts.Pin;
 
 public abstract class AbstractPage
-
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
     protected static String             password                    = "test123";
