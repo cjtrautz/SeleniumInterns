@@ -26,7 +26,7 @@ public class MoveATabOutOfOverflow extends AbstractTest
         Field_Editor fieldEditor = contactSettings.clickFieldEditor();
         fieldEditor.clickOverflowExpand();
         fieldEditor.clickOverflowTab(2);
-        fieldEditor.moveTabOutOfOverflow(2);
+        fieldEditor.moveTabOutOfOverflow(2, 1);
         fieldEditor.clickSave();
         
         if (!driver.getCurrentUrl().contains("contact/settings"))

@@ -1254,15 +1254,17 @@ public class Field_Editor extends AbstractPage
         return this;
     }
 
-    public Field_Editor moveTabOutOfOverflow ( int tab ) throws Exception
+    public Field_Editor moveTabOutOfOverflow ( int target, int dest ) throws Exception
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
         Actions action = new Actions(driver);
-        AbstractTest.setTabName(overflowList.findElement(By.xpath(".//li[" + Integer.toString(tab) + "]/span/span")).getAttribute("value"));
-        action.moveToElement(overflowList.findElement(By.xpath(".//li[" + Integer.toString(tab) + "]/span/span")));
-        action.clickAndHold(overflowList.findElement(By.xpath(".//li[" + Integer.toString(tab) + "]/span/span")));
-        action.moveToElement(primaryTabs.findElements(By.xpath(".//li/a")).get(1),75,10);
+        AbstractTest.setTabName(overflowList.findElement(By.xpath(".//li[" + Integer.toString(target) + "]//input")).getAttribute("value"));
+        System.out.println(AbstractTest.getTabName());
+        action.moveToElement(overflowList.findElement(By.xpath(".//li[" + Integer.toString(target) + "]/span/span")));
+        action.clickAndHold(overflowList.findElement(By.xpath(".//li[" + Integer.toString(target) + "]/span/span")));
+        action.moveToElement(primaryTabs.findElement(By.xpath(".//li[" + Integer.toString(dest) + "]/a")));
+        action.moveByOffset(5, 3);
         action.release();
         action.build().perform();
         return this;
