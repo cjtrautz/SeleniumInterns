@@ -35,7 +35,7 @@ public class EditLandingPageImageOpacity extends AbstractTest
 
         landingPage_Edit = landingPage_ListAll.clickPage(value.get("LandingPages", "Easy_Landing_Page_Image"));
 
-        if(landingPage_Edit.verifyOpacity(0.36)==null)
+        if(landingPage_Edit.verifyOpacity(0.373333)==null)
         {
             fail("couldn't find opacity");
         }

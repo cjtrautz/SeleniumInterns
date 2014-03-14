@@ -107,6 +107,12 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
     
+    com.ontraport.app.tests.MoveATabToOverflow.class,
+    
+    com.ontraport.app.tests.CreateSMSMessageFromSequence.class,
+    com.ontraport.app.tests.DeleteSMSMessageFromSequence.class,
+    com.ontraport.app.tests.CreateFulfillmentFromSequence.class,
+    com.ontraport.app.tests.DeleteFulfillmentFromSequence.class,
     
 //  
 //    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,

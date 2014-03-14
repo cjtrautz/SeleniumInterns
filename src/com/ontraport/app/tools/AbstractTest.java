@@ -21,6 +21,7 @@ public abstract class AbstractTest
     protected static String wordpressPassword = "";
     protected static String dateTime = "";
     protected static String tabName = "";
+    protected static String reTabName = "";
     public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
@@ -122,5 +123,13 @@ public abstract class AbstractTest
     public static void setTabName (String tab)
     {
         AbstractTest.tabName = tab;
+    }
+    public static void setTabReName ( String attribute )
+    {
+        AbstractTest.reTabName = attribute;
+    }
+    public static String getTabReName ()
+    {
+        return AbstractTest.reTabName;
     }
 }

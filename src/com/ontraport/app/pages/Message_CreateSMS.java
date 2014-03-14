@@ -153,4 +153,5 @@ public class Message_CreateSMS extends AbstractPage
         mergeFieldInput.sendKeys(string);
         return this;
     }
+
 }

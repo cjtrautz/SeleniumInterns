@@ -23,7 +23,11 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.CreateATag.class,
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateOrderform.class,
+<<<<<<< HEAD
     com.ontraport.app.tests.MoveATabOutOfOverflow.class
+=======
+    com.ontraport.app.tests.CreateFulfillmentFromSequence.class
+>>>>>>> 81b55b01be727c804dded7649ae2516db8e70135
 }
 )
 public class Review extends AbstractSuite
