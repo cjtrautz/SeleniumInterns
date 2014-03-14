@@ -120,7 +120,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(concat(' ', @class, ' '),' ussr-component-form-control ')]//button")
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(@class,'id__send_from_TYPE')]//button")
     private WebElement toggleEmailFrom;
     
     @FindBy(

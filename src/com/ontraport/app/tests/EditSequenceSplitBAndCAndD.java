@@ -33,21 +33,21 @@ public class EditSequenceSplitBAndCAndD extends AbstractTest
         sequence_Edit.openEmailFromPane();
         sequence_Edit.selectDrillDownByIndex(1);
         sequence_Edit.openSendFromPane();
-        sequence_Edit.selectDrillDown("Contact Owner");
+        sequence_Edit.selectDrillDown("Contact owner");
         sequence_Edit.clickNewSplitTest();
         sequence_Edit.openEmailNamePane();
         sequence_Edit.selectDrillDownEmailName(value.get("Messages", "email_messageC"));
         sequence_Edit.openEmailFromPane();
         sequence_Edit.selectDrillDownByIndex(1);
         sequence_Edit.openSendFromPane();
-        sequence_Edit.selectDrillDown("Contact Owner");
+        sequence_Edit.selectDrillDown("Contact owner");
         sequence_Edit.clickNewSplitTest();
         sequence_Edit.openEmailNamePane();
         sequence_Edit.selectDrillDownEmailName(value.get("Messages", "email_messageD"));
         sequence_Edit.openEmailFromPane();
         sequence_Edit.selectDrillDownByIndex(1);
         sequence_Edit.openSendFromPane();
-        sequence_Edit.selectDrillDown("Contact Owner");
+        sequence_Edit.selectDrillDown("Contact owner");
         sequence_ListAll = sequence_Edit.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "step_rule_sequence"));
 
@@ -66,7 +66,7 @@ public class EditSequenceSplitBAndCAndD extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }
@@ -76,7 +76,7 @@ public class EditSequenceSplitBAndCAndD extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }
@@ -86,7 +86,7 @@ public class EditSequenceSplitBAndCAndD extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }

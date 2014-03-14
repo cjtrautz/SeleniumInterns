@@ -97,7 +97,7 @@ public class DrawerActions extends AbstractPart
     private WebElement sendFromDropDown;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(normalize-space(@class), 'object_selector_NAME_send_from')]//button")
+            using = "//div[contains(normalize-space(@class), 'drawer_component__send_from')]//button")
     private WebElement emailFromDropDown;
     
     @FindBy(how = How.XPATH,

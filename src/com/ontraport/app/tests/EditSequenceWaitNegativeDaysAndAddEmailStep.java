@@ -27,7 +27,7 @@ public class EditSequenceWaitNegativeDaysAndAddEmailStep extends AbstractTest
         sequence_Edit.openEmailFromPane();
         sequence_Edit.selectDrillDownByIndex(1);
         sequence_Edit.openSendFromPane();
-        sequence_Edit.selectDrillDown("Contact Owner");
+        sequence_Edit.selectDrillDown("Contact owner");
         sequence_Edit.enterWaitDays("-1");
         sequence_ListAll = sequence_Edit.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "step_rule_sequence"));

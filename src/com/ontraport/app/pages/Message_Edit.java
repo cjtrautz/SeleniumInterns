@@ -552,7 +552,7 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(@class,'object_selector_NAME_send_from')]//button")
+            using = "//div[contains(@class,'object_selector_NAME_from')]//button")
     private WebElement sendFromDropDown;
     
     public Message_Edit enterMessageName ( String name )

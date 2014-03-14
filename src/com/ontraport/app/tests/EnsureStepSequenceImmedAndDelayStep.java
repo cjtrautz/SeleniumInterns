@@ -62,7 +62,7 @@ public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
         sequence_CreateStep.openEmailFromPane();
         sequence_CreateStep.selectDrillDownByIndex(1);
         sequence_CreateStep.openSendFromPane();
-        sequence_CreateStep.selectDrillDown("Contact Owner");
+        sequence_CreateStep.selectDrillDown("Contact owner");
         sequence_CreateStep.clickAddEmailStep();
         sequence_CreateStep.openEmailNamePane();
         sequence_CreateStep.selectDrillDownEmailName(value.get("Messages", "email_message_ensure_sequence2"));
@@ -71,7 +71,7 @@ public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
         sequence_CreateStep.openEmailFromPane();
         sequence_CreateStep.selectDrillDownByIndex(1);
         sequence_CreateStep.openSendFromPane();
-        sequence_CreateStep.selectDrillDown("Contact Owner");
+        sequence_CreateStep.selectDrillDown("Contact owner");
         sequence_ListAll = sequence_CreateStep.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "ensure_immediate_sequence_fires"));
         
@@ -89,7 +89,7 @@ public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }
@@ -102,7 +102,7 @@ public class EnsureStepSequenceImmedAndDelayStep extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }

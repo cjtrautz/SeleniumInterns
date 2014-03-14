@@ -31,7 +31,7 @@ public class CreateEmailStepSequence extends AbstractTest
         sequence_CreateStep.openEmailFromPane();
         sequence_CreateStep.selectDrillDownByIndex(1);
         sequence_CreateStep.openSendFromPane();
-        sequence_CreateStep.selectDrillDown("Contact Owner");
+        sequence_CreateStep.selectDrillDown("Contact owner");
         sequence_ListAll = sequence_CreateStep.clickSave();
         sequence_ListAll.formSearch.find("SelEmailStepSequence");
         
@@ -49,7 +49,7 @@ public class CreateEmailStepSequence extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }

@@ -54,7 +54,7 @@ public class EnsureDateSequence extends AbstractTest
         sequence_CreateDate.openEmailFromPane();
         sequence_CreateDate.selectDrillDownByIndex(1);
         sequence_CreateDate.openSendFromPane();
-        sequence_CreateDate.selectDropDown("Contact Owner");
+        sequence_CreateDate.selectDropDown("Contact owner");
         sequence_ListAll = sequence_CreateDate.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "ensure_date_sequence_fires"));
         
@@ -72,7 +72,7 @@ public class EnsureDateSequence extends AbstractTest
         {
             fail("couldn't find sequence email name");
         }
-        if(sequence_Edit.verifySendFrom("Contact Owner")==null)
+        if(sequence_Edit.verifySendFrom("Contact owner")==null)
         {
             fail("couldn't find sequence email send from");
         }

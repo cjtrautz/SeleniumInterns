@@ -30,7 +30,7 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         sequence_CreateStep.openEmailFromPane();
         sequence_CreateStep.selectDrillDownByIndex(1);
         sequence_CreateStep.openSendFromPane();
-        sequence_CreateStep.selectDrillDown("Contact Owner");
+        sequence_CreateStep.selectDrillDown("Contact owner");
         sequence_CreateStep.clickStepDropDown(2);
         if(sequence_CreateStep.verifyEmailStepMinimized()==null)
         {
