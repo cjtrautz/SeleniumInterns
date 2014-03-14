@@ -52,19 +52,19 @@ public class CreateFulfillmentFromSequence extends AbstractTest
         sequence_CreateStep.menuUser.open();
         Account_View account_View = sequence_CreateStep.menuUser.clickAdmin();
         Fulfillment_ListAll fulfillment_ListAll = account_View.clickFulfillmentManager();
-        fulfillment_ListAll.formSearch.find(value.get("Sequences", "sequence_edit_fulfillment"));
+        fulfillment_ListAll.formSearch.find(value.get("Admin", "fulfillment_from_sequence"));
         
         //verify fulfillment exists
-        if(fulfillment_ListAll.verifyFulfillment(value.get("Sequences", "sequence_edit_fulfillment"))==null)
+        if(fulfillment_ListAll.verifyFulfillment(value.get("Admin", "fulfillment_from_sequence"))==null)
         {
             fail("didnt find fulfillment");
         }
-        fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Sequences", "sequence_edit_fulfillment"));
+        fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_from_sequence"));
         if(fulfillment_Edit.verifyFieldValue(1, "First Name")==null)
         {
             fail("didnt find fulfillment field vale");
         }
-        if(fulfillment_Edit.verifyFulfillmentName(value.get("Sequences", "sequence_edit_fulfillment"))==null)
+        if(fulfillment_Edit.verifyFulfillmentName(value.get("Admin", "fulfillment_from_sequence"))==null)
         {
             fail("didnt find fulfillment list name");
         }

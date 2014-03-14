@@ -145,8 +145,13 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//span[@class='ussr-theme-sequence-sms']//button")
+            using = "//span[@class='ussr-theme-sequence-rule']//button")
     private WebElement ruleStep;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@class='ussr-theme-sequence-sms']//button")
+    private WebElement smsStep;
     
     @FindBy(
             how = How.XPATH,
@@ -778,8 +783,8 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_CreateStep clickAddSMSStep ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(ruleStep));
-        ruleStep.click();
+        wait.until(ExpectedConditions.visibilityOf(smsStep));
+        smsStep.click();
         return this;
     }
 
