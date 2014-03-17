@@ -172,6 +172,9 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-buttons ')]//button")
     private WebElement markComplete;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' longfellowtours-btn-stop ')]")
+    private WebElement cancelTour;
+    @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
     private WebElement sendButton;
     @FindBy(how = How.XPATH,
@@ -1419,6 +1422,13 @@ public class DialogBox extends AbstractPart
         }
         
         return null;
+    }
+    public DialogBox clickCancelTour ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(cancelTour));
+        cancelTour.click();
+        return this;
     }
 
 
