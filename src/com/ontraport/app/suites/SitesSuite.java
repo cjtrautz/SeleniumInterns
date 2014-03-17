@@ -279,8 +279,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.VerifySequenceEditSteps.class,
     //end use of CreateRuleDateSequence sequence
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
-    
-    //doesnt work in staging due to perms
+
     com.ontraport.app.tests.SignUp.class, 
     
 })

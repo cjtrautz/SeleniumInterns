@@ -333,7 +333,7 @@ public class DrawerActions extends AbstractPart
         private WebElement createURL;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Run this sequence only on weekends']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
+            using = "//div[contains(@class, 'checkbox_NAME_weekdays_only')]//span[@class='ussr-icon ussr-icon-checkbox-empty']")
     private WebElement onWeekendsEmptyCheckbox;
     
     @FindBy(how = How.XPATH,

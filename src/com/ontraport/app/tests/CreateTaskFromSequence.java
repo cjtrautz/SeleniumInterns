@@ -41,7 +41,7 @@ public class CreateTaskFromSequence extends AbstractTest
             fail("didnt return to sequence editor");
         }
         sequence_CreateStep.openAssigneePane();
-        sequence_CreateStep.selectDrillDown("Contact owner");
+        sequence_CreateStep.selectDrillDown("Contact Owner");
         sequence_ListAll = sequence_CreateStep.clickSave();
         sequence_ListAll.formSearch.find(value.get("Sequences", "email_from_sequence"));
         

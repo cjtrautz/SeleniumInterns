@@ -25,9 +25,9 @@ public class CreateTab extends AbstractTest
         field_Editor = contact_Settings.clickFieldEditor();
         
         //verify new section is in the field editor
-        if(field_Editor.verifyOverflowTab("SelTab")==null)
+        if(field_Editor.verifyTabAnywhere("SelTab")==null)
         {
-            fail("couldnt find section");
+            fail("couldnt find tab");
         }
         
         field_Editor.clickCancel();

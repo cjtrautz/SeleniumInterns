@@ -20,8 +20,8 @@ import com.ontraport.app.tools.AbstractSuite;
 
 {
 //    //these are all verified in GmailConfirmations
-//    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
-//    com.ontraport.app.tests.SendSingleEmailToContact.class,
+    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
     com.ontraport.app.tests.CreateSendFromAddress.class, 
