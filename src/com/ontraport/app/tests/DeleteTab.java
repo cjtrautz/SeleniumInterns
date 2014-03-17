@@ -21,7 +21,7 @@ public class DeleteTab extends AbstractTest
         field_Editor.clickOverflowExpand();
         field_Editor.clickTabName("SelTab");
         //this is for jenkins because the screen is smaller but on local should be 8
-        field_Editor.deleteTab(6);
+        field_Editor.deleteTab(5);
         contact_Settings = field_Editor.clickSave();
         field_Editor = contact_Settings.clickFieldEditor();
         
