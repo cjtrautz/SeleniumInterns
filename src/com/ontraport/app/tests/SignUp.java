@@ -65,6 +65,7 @@ public class SignUp extends AbstractTest
         ontraport_SignUp.dialogBox.enterBusinessCity(value.get("SignUp", "city"));
         ontraport_SignUp.dialogBox.enterBusinessZip(value.get("SignUp", "zip"));
         Contact_ListAll contact_ListAll = ontraport_SignUp.dialogBox.clickSubmit();
+        contact_ListAll.dialogBox.clickCancelTour();
         contact_ListAll.menuUser.open();
         OPPackage_View oPPackage_View = contact_ListAll.menuUser.clickAccount();
         oPPackage_View.clickCancelAccount();
