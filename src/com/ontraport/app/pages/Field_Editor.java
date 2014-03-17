@@ -1299,4 +1299,18 @@ public class Field_Editor extends AbstractPage
         
         return this;
     }
+
+    public Field_Editor verifyNoTab ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.findElement(By.xpath(".//li/a[contains(text(), '" + string + "')]")).isDisplayed();
+        }
+        catch(NoSuchElementException e){
+            return this;
+        }
+        
+        return null;
+    }
 }

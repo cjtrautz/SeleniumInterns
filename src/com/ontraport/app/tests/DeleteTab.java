@@ -26,7 +26,7 @@ public class DeleteTab extends AbstractTest
         field_Editor = contact_Settings.clickFieldEditor();
         
         //verify new section is in the field editor
-        if(field_Editor.verifyNoOverflowTab("SelTab")==null)
+        if(field_Editor.verifyNoTab("SelTab")==null)
         {
             fail("couldnt find section");
         }
