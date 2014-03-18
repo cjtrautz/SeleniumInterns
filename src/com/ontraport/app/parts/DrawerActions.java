@@ -335,9 +335,9 @@ public class DrawerActions extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//div[contains(@class, 'checkbox_NAME_weekdays_only')]//span[@class='ussr-icon ussr-icon-checkbox-empty']")
     private WebElement onWeekendsEmptyCheckbox;
-    
+
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Run this sequence only on weekends']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
+            using = "//div[contains(@class, 'checkbox_NAME_weekdays_only')]//span[@class='ussr-icon ussr-icon-checkbox-checked']")
     private WebElement onWeekendsCheckedCheckbox;
     
     @FindBy(how = How.XPATH,
