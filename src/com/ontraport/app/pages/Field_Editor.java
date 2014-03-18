@@ -472,8 +472,8 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
-        wait.until(ExpectedConditions.visibilityOf(overflowList.findElement(By.xpath("//li/a[contains(text(), '" + string + "')]"))));
-        overflowList.findElement(By.xpath(".//li/a[contains(text(), '" + string + "')]")).click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[not(contains(@class, 'placeholder'))]/a[contains(text(), '" + string + "')]"))));
+        driver.findElement(By.xpath(".//li[not(contains(@class, 'placeholder'))]/a[contains(text(), '" + string + "')]")).click();
         //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
         return this;
         
