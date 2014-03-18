@@ -472,7 +472,7 @@ public class Field_Editor extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(overflowList));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/a[contains(text(), '" + string + "')]")));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li/a[contains(text(), '" + string + "')]"))));
         driver.findElement(By.xpath(".//li/a[contains(text(), '" + string + "')]")).click();
         //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
         return this;
