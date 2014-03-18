@@ -63,7 +63,7 @@ public class CreateTaskFromSequence extends AbstractTest
         {
             fail("couldn't find sequence task due date");
         }
-        if(sequence_Edit.verifyAssignee("Contact owner")==null)
+        if(sequence_Edit.verifyAssignee("Contact Owner")==null)
         {
             fail("couldn't find sequence task assignee");
         }
