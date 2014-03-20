@@ -73,7 +73,7 @@ public class FormColumnManager extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
-        WebElement columnToEdit = driver.findElement(By.xpath("//tr[@class='sem-collection-header-display']//a[text()='" + column + "']"));
+        WebElement columnToEdit = driver.findElement(By.xpath("//tr[@class='sem-collection-header-display']//a[normalize-space(text())='" + column + "']"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", columnToEdit);
         waitForAjax(driver, 20);
         Actions actions = new Actions(driver);
@@ -95,8 +95,8 @@ public class FormColumnManager extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(columnToEdit));
         System.out.println("scrolled");
         actions.moveToElement(columnToEdit).build().perform();
-        wait(5).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-        WebElement toDelete = driver.findElement(By.xpath("//a[text()='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
+        wait(5).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space(text())='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
+        WebElement toDelete = driver.findElement(By.xpath("//a[normalize-space(text())='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
         actions.clickAndHold(toDelete).build().perform();
         actions.release(toDelete).build().perform();
         System.out.println("here3");
