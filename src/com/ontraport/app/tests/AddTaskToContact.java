@@ -10,8 +10,8 @@ import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Task_ListAll;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
-import com.ontraport.app.tools.bb.AbstractSuite;
 
 public class AddTaskToContact extends AbstractTest
 {
