@@ -479,11 +479,20 @@ public class Field_Editor extends AbstractPage
         
     }
 
-    public Field_Editor deleteTab (int i)
+    public Field_Editor deleteTab (String i)
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
-        deleteTab.get(i-1).click();
+        List<WebElement> tabs = driver.findElements(By.xpath("//li[not(contains(@class, 'placeholder'))]/a[contains(@class, 'tab')]"));
+        int j = 0;
+        for(j = 0; j<tabs.size(); j++)
+        {
+            if(tabs.get(j).getText().equals(i))
+            { 
+                break;
+            }
+        }
+        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(j-1)));
+        deleteTab.get(j-1).click();
         wait.until(ExpectedConditions.visibilityOf(contactInformationTitle));
         return this;
         
