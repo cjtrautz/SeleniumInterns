@@ -479,7 +479,7 @@ public class Field_Editor extends AbstractPage
         
     }
 
-    public Field_Editor deleteTab (String i)
+    public Field_Editor deleteTab (String i, String string)
     {
         AbstractPart.waitForAjax(driver, 20);
         List<WebElement> tabs = driver.findElements(By.xpath("//li[not(contains(@class, 'placeholder'))]/a[contains(@class, 'tab')]"));
@@ -491,8 +491,13 @@ public class Field_Editor extends AbstractPage
                 break;
             }
         }
-        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(j-1)));
-        deleteTab.get(j-1).click();
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(overflowList));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[not(contains(@class, 'placeholder'))]/a[contains(text(), '" + string + "')]"))));
+        driver.findElement(By.xpath(".//li[not(contains(@class, 'placeholder'))]/a[contains(text(), '" + string + "')]")).click();
+        //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
+        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(j)));
+        deleteTab.get(j).click();
         wait.until(ExpectedConditions.visibilityOf(contactInformationTitle));
         return this;
         
