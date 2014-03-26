@@ -19,7 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-//    //these are all verified in GmailConfirmations
+    //these are all verified in GmailConfirmations
     com.ontraport.app.tests.SendBroadcastEmailToContact.class,
     com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
@@ -248,7 +248,7 @@ public class GmailSuite extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setLogin("ontraportselenium@gmail.com");
+        AbstractPage.setLogin("nick+1@ontraport.com");
         AbstractPage.setPassword("test123");
         //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
