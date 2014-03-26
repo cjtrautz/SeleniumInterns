@@ -1173,7 +1173,7 @@ public class Field_Editor extends AbstractPage
         //Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
         //save.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
         return (Account_View) new Account_View().init();
     }
 
