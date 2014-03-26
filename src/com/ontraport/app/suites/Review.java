@@ -10,6 +10,7 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.LocalFileDetector;
 
 import com.ontraport.app.pages.Login;
 import com.ontraport.app.tools.AbstractPage;
@@ -23,7 +24,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.CreateATag.class,
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.MoveATabOutOfOverflow.class,
+    com.ontraport.app.tests.UploadVideo.class,
 }
 )
 public class Review extends AbstractSuite

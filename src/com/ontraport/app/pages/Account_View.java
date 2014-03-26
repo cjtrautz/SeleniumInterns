@@ -12,37 +12,37 @@ public class Account_View extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='SOFTWARE AFFILIATE LINKS']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/afflink ')]")
     private WebElement softwareAffiliateLinks;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='MANAGE TAGS']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/tag/listAll ')]")
     private WebElement manageTags;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='FACEBOOK']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/tag/listAll ')]")
     private WebElement facebook;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='EXPORTED LISTS']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/listExports ')]")
     private WebElement exportedLists;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='FULFILLMENT MANAGER']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/fulfillment/listAll ')]")
     private WebElement fulfillmentManager;
 
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='1SHOPPINGCART SYNCING']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/one_shopping_cart/view ')]")
     private WebElement oneShoppingCartSyncing;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='Get Affiliate Tracking Pixel']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/trackingpixel ')]")
     private WebElement getAffiliateTrackingPixel;
     
     @FindBy(
@@ -52,32 +52,32 @@ public class Account_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='ONTRAPORT API INSTRUCTIONS AND KEY MANAGER']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/api_settings/listAll ')]")
     private WebElement ontraportApiInstructionsAndKeyManager;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[contains(., 'ADDRESS SET UP')]/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/sender/view ')]")
     private WebElement sendFromAddress;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='DOUBLE OPT IN / INVOICE MANAGER']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/message_template/listAll ')]")
     private WebElement doubleOptInInvoice;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='ULTRACART CONFIGURATION']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ultracart/view ')]")
     private WebElement ultraCart;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='Team Roles & Permission Management']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/role/listAll ')]")
     private WebElement roles;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='User Field Editor']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/fieldeditor/manage&obj_id=2 ')]")
     private WebElement userFieldEditor;
     
     @FindBy(
