@@ -19,11 +19,11 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-    //used in following tests
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    //uses CreateAWordPressSite wordpress site
-    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
-    com.ontraport.app.tests.DeleteEmailWPMessage.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateAWordPressSite.class,
+//    //uses CreateAWordPressSite wordpress site
+//    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
+//    com.ontraport.app.tests.DeleteEmailWPMessage.class,
     com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,

@@ -43,7 +43,7 @@ public class Contact_Settings extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-list-item-desc' and text()='Set your lead scoring rules.']")
+            using = "//a[@href='#!/contact/scoreEdit']")
     private WebElement leadScoring;
     
     public Field_Editor clickFieldEditor ()
