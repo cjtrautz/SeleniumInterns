@@ -61,7 +61,7 @@ public class FormColumnManager extends AbstractPart
 
     @FindBy(
             how = How.XPATH,
-            using = "//tr[@class='sem-collection-header-display']//a[text()='Add Column']")
+            using = "//tr[@class='sem-collection-header-display']//th[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell-type-add-col ')]")
     private WebElement addColumn;
     
     @FindBy(
