@@ -28,22 +28,22 @@ public class Contact_Settings extends AbstractPage
 
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-list-item-desc' and text()='Add/Edit/Delete fields that make up your contact records.']")
+            using = "//a[@href='#!/fieldeditor/manage']")
     private WebElement fieldEditor;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-list-item-desc' and text()='Route new leads to the right user.']")
+            using = "//a[@href='#!/lead_rout/listAll']")
     private WebElement leadRouting;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-list-item-desc' and text()='Use this tool to import leads directly into your system.']")
+            using = "//a[@href='#!/contact/import']")
     private WebElement importContacts;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-list-item-desc' and text()='Set your lead scoring rules.']")
+            using = "//a[@href='#!/contact/scoreEdit']")
     private WebElement leadScoring;
     
     public Field_Editor clickFieldEditor ()

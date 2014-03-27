@@ -21,7 +21,7 @@ public class CreateLeadScoring_HasOrderedACertainAmountOnProduct extends Abstrac
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.enterDropDownCondition(1, "product");
-        contact_ScoreEdit.selectDrillDown("Has order a certain amount of a product");
+        contact_ScoreEdit.selectDrillDown("Has ordered a certain amount of a product");
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.selectDrillDown("Equal To");
         contact_ScoreEdit.clickDropDownCondition(2);

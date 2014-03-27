@@ -125,7 +125,7 @@ public class Contact_ListAll extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(0, TimeUnit.SECONDS);
-            uiCollectionHead.findElement(By.xpath(".//a[text()='" + column + "']"));
+            uiCollectionHead.findElement(By.xpath(".//a[normalize-space(text())='" + column + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

@@ -12,37 +12,37 @@ public class Account_View extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='SOFTWARE AFFILIATE LINKS']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/afflink ')]")
     private WebElement softwareAffiliateLinks;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='MANAGE TAGS']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/tag/listAll ')]")
     private WebElement manageTags;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='FACEBOOK']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/facebook/listAll ')]")
     private WebElement facebook;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='EXPORTED LISTS']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/listExports ')]")
     private WebElement exportedLists;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='FULFILLMENT MANAGER']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/fulfillment/listAll ')]")
     private WebElement fulfillmentManager;
 
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='1SHOPPINGCART SYNCING']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/one_shopping_cart/view ')]")
     private WebElement oneShoppingCartSyncing;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='Get Affiliate Tracking Pixel']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/trackingpixel ')]")
     private WebElement getAffiliateTrackingPixel;
     
     @FindBy(
@@ -52,32 +52,32 @@ public class Account_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='ONTRAPORT API INSTRUCTIONS AND KEY MANAGER']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/api_settings/listAll ')]")
     private WebElement ontraportApiInstructionsAndKeyManager;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[contains(., 'ADDRESS SET UP')]/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/sender/view ')]")
     private WebElement sendFromAddress;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='DOUBLE OPT IN / INVOICE MANAGER']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/message_template/listAll ')]")
     private WebElement doubleOptInInvoice;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='ULTRACART CONFIGURATION']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ultracart/view ')]")
     private WebElement ultraCart;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='Team Roles & Permission Management']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/role/listAll ')]")
     private WebElement roles;
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-settings']//div[.='User Field Editor']/span")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/fieldeditor/manage&obj_id=2 ')]")
     private WebElement userFieldEditor;
     
     @FindBy(
@@ -141,8 +141,8 @@ public class Account_View extends AbstractPage
     public Facebook_ListAll clickFacebook ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(facebook)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(facebook));
         facebook.click();
         return (Facebook_ListAll) new Facebook_ListAll().init();
     }
@@ -150,8 +150,8 @@ public class Account_View extends AbstractPage
     public Fulfillment_ListAll clickFulfillmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentManager)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(fulfillmentManager));
         fulfillmentManager.click();
         return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
     }
@@ -159,8 +159,8 @@ public class Account_View extends AbstractPage
     public Account_View clickAttachmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(attachmentManager)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(attachmentManager));
         attachmentManager.click();
         return this;
         
@@ -169,8 +169,8 @@ public class Account_View extends AbstractPage
     public Sender_View clickSendFrom ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(sendFromAddress)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(sendFromAddress));
         sendFromAddress.click();
         return (Sender_View) new Sender_View().init();
     }
@@ -178,8 +178,8 @@ public class Account_View extends AbstractPage
     public MessageTemplate_ListAll clickDoubleOptInOrInvoiceManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doubleOptInInvoice)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(doubleOptInInvoice));
         doubleOptInInvoice.click();
         return (MessageTemplate_ListAll) new MessageTemplate_ListAll().init();
     }
@@ -187,8 +187,8 @@ public class Account_View extends AbstractPage
     public UltraCart_View clickUCConfig ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(ultraCart)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(ultraCart));
         ultraCart.click();
         return (UltraCart_View) new UltraCart_View().init();
     }
@@ -196,8 +196,8 @@ public class Account_View extends AbstractPage
     public Role_ListAll clickTeamRolesAndPermissionManagement ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(roles)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(roles));
         roles.click();
         return (Role_ListAll) new Role_ListAll().init();
     }
@@ -205,8 +205,8 @@ public class Account_View extends AbstractPage
     public Field_Editor clickUserFieldEditor ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
         userFieldEditor.click();
         return (Field_Editor) new Field_Editor().init();
     }
@@ -214,8 +214,8 @@ public class Account_View extends AbstractPage
     public Package_ListAll clickPackageManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
         packageManager.click();
         return (Package_ListAll) new Package_ListAll().init();
     }
@@ -223,8 +223,8 @@ public class Account_View extends AbstractPage
     public ZencoderVideo_ListAll clickVideoManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(userFieldEditor)));
+        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
         videoManager.click();
         return (ZencoderVideo_ListAll) new ZencoderVideo_ListAll().init();
     }

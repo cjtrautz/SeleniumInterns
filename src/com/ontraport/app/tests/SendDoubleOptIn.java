@@ -58,6 +58,8 @@ public class SendDoubleOptIn extends AbstractTest
         contactListAll.drawerActions.clickSendDoubleOptIn();
         contactListAll.drawerActions.clickEmailNameDropDown();
         contactListAll.drawerActions.selectDrillDown("Please confirm your subscription.");
+        contactListAll.drawerActions.clickEmailFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSendFromDropDown();
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();

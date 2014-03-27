@@ -63,6 +63,11 @@ public class Field_Editor extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/afflink ')]")
+    private WebElement softwareAffiliateLinks;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']")
     private WebElement newSectionButton;
     
@@ -479,11 +484,25 @@ public class Field_Editor extends AbstractPage
         
     }
 
-    public Field_Editor deleteTab (int i)
+    public Field_Editor deleteTab (String i, String string)
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
-        deleteTab.get(i-1).click();
+        List<WebElement> tabs = driver.findElements(By.xpath("//li[not(contains(@class, 'placeholder'))]/a[contains(@class, 'tab')]"));
+        int j = 0;
+        for(j = 0; j<tabs.size(); j++)
+        {
+            if(tabs.get(j).getText().equals(i))
+            { 
+                break;
+            }
+        }
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(overflowList));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//li[not(contains(@class, 'placeholder'))]/a[contains(text(), '" + string + "')]"))));
+        driver.findElement(By.xpath(".//li[not(contains(@class, 'placeholder'))]/a[contains(text(), '" + string + "')]")).click();
+        //wait.until(ExpectedConditions.visibilityOf(deleteTab.get(i-1)));
+        wait.until(ExpectedConditions.visibilityOf(deleteTab.get(j)));
+        deleteTab.get(j).click();
         wait.until(ExpectedConditions.visibilityOf(contactInformationTitle));
         return this;
         
@@ -1159,7 +1178,7 @@ public class Field_Editor extends AbstractPage
         //Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
         //save.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
+        wait.until(ExpectedConditions.visibilityOf(softwareAffiliateLinks));
         return (Account_View) new Account_View().init();
     }
 

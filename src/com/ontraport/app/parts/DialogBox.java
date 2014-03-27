@@ -1221,6 +1221,7 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(cancelAccount));
         cancelAccount.click();
+        AbstractPart.waitForAjax(driver, 20);
         return (Login) new Login().init();
     }
     public DialogBox checkTitle ()
