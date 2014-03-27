@@ -43,6 +43,8 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
             fail("not returned to contact editor");
         }
         
+        contactEdit.saveSelectedAffiliateProgram();
+        
         if(contactEdit.verifyDrilldownValue(value.get("Partners", "affiliate_program_from_contact_name"))==null)
         {
             fail("affiliate program not set");
