@@ -22,7 +22,7 @@ public class Account_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//a[contains(concat(' ', @href, ' '),' #!/tag/listAll ')]")
+            using = "//a[contains(concat(' ', @href, ' '),' #!/facebook/listAll ')]")
     private WebElement facebook;
     
     @FindBy(
