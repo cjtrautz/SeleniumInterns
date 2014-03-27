@@ -63,6 +63,11 @@ public class Field_Editor extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//a[contains(concat(' ', @href, ' '),' #!/ontraport_admin/afflink ')]")
+    private WebElement softwareAffiliateLinks;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']")
     private WebElement newSectionButton;
     
@@ -1173,7 +1178,7 @@ public class Field_Editor extends AbstractPage
         //Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='ussr-chrome-panel-pane']//button/span[text()='Save']")).click();
         //save.click();
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(., 'Field Editor')]/span")));
+        wait.until(ExpectedConditions.visibilityOf(softwareAffiliateLinks));
         return (Account_View) new Account_View().init();
     }
 
