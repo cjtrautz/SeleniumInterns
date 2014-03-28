@@ -319,6 +319,7 @@ public class SmartFormFe_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(nameInput));
+        nameInput.click();
         nameInput.sendKeys(string);
         return this;
     }

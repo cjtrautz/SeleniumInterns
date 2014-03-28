@@ -173,16 +173,25 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups openConditionPane (int row)
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiToggleFieldPane.get(row)));
+        //idk how else to do this
+        try
+        {
+            Thread.sleep(3000);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        wait(10).until(ExpectedConditions.visibilityOf(uiToggleConditionPane.get(row)));
         uiToggleConditionPane.get(row).click();
         return this;
     }
     public DrawerManageGroups clickCondition ( String condition, int row )
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']"))));
+        wait(10).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']"))));
         uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']")).click();
-        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
+        wait(10).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
         return this;
     }
     public DrawerManageGroups enterValue ( String value, int row, int index )

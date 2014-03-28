@@ -92,6 +92,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
     com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
     
+    com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateRuleDateSequence.class,
     com.ontraport.app.tests.MassActionForContacts.class,
@@ -106,6 +107,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
+    com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.MoveATabToOverflow.class,
     
