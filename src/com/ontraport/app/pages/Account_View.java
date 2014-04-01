@@ -1,5 +1,7 @@
 package com.ontraport.app.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -93,7 +95,7 @@ public class Account_View extends AbstractPage
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(softwareAffiliateLinks));
         softwareAffiliateLinks.click();
         return (OntraportAdmin_Afflink) new OntraportAdmin_Afflink().init();
     }
@@ -101,7 +103,7 @@ public class Account_View extends AbstractPage
     public OneShoppingCart_View click1ShoppingCartSyncing ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(oneShoppingCartSyncing));
         oneShoppingCartSyncing.click();
         return (OneShoppingCart_View) new OneShoppingCart_View().init();
     }
@@ -109,6 +111,7 @@ public class Account_View extends AbstractPage
     public OntraportAdmin_TrackingPixel clickGetAffiliateTrackingPixel ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", getAffiliateTrackingPixel);
         wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         getAffiliateTrackingPixel.click();
         return (OntraportAdmin_TrackingPixel) new OntraportAdmin_TrackingPixel().init();
@@ -117,7 +120,7 @@ public class Account_View extends AbstractPage
     public ApiSettings_ListAll clickOntraportApiInstructionsAndKeyManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(ontraportApiInstructionsAndKeyManager));
         ontraportApiInstructionsAndKeyManager.click();
         return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
     }
@@ -125,7 +128,7 @@ public class Account_View extends AbstractPage
     public Tag_ListAll clickManageTags ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(manageTags));
         manageTags.click();
         return (Tag_ListAll) new Tag_ListAll().init();
     }
@@ -133,7 +136,7 @@ public class Account_View extends AbstractPage
     public OntraportAdmin_ListExports clickExportedLists ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(exportedLists));
         exportedLists.click();
         return (OntraportAdmin_ListExports) new OntraportAdmin_ListExports().init();
     }
@@ -141,7 +144,7 @@ public class Account_View extends AbstractPage
     public Facebook_ListAll clickFacebook ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(facebook));
         facebook.click();
         return (Facebook_ListAll) new Facebook_ListAll().init();
@@ -150,7 +153,7 @@ public class Account_View extends AbstractPage
     public Fulfillment_ListAll clickFulfillmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(fulfillmentManager));
         fulfillmentManager.click();
         return (Fulfillment_ListAll) new Fulfillment_ListAll().init();
@@ -159,7 +162,7 @@ public class Account_View extends AbstractPage
     public Account_View clickAttachmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(attachmentManager));
         attachmentManager.click();
         return this;
@@ -169,7 +172,7 @@ public class Account_View extends AbstractPage
     public Sender_View clickSendFrom ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(sendFromAddress));
         sendFromAddress.click();
         return (Sender_View) new Sender_View().init();
@@ -178,7 +181,7 @@ public class Account_View extends AbstractPage
     public MessageTemplate_ListAll clickDoubleOptInOrInvoiceManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(doubleOptInInvoice));
         doubleOptInInvoice.click();
         return (MessageTemplate_ListAll) new MessageTemplate_ListAll().init();
@@ -187,7 +190,7 @@ public class Account_View extends AbstractPage
     public UltraCart_View clickUCConfig ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(ultraCart));
         ultraCart.click();
         return (UltraCart_View) new UltraCart_View().init();
@@ -196,7 +199,7 @@ public class Account_View extends AbstractPage
     public Role_ListAll clickTeamRolesAndPermissionManagement ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(roles));
         roles.click();
         return (Role_ListAll) new Role_ListAll().init();
@@ -205,7 +208,7 @@ public class Account_View extends AbstractPage
     public Field_Editor clickUserFieldEditor ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
         userFieldEditor.click();
         return (Field_Editor) new Field_Editor().init();
@@ -214,8 +217,9 @@ public class Account_View extends AbstractPage
     public Package_ListAll clickPackageManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
-        wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", packageManager);
+        wait.until(ExpectedConditions.visibilityOf(packageManager));
         packageManager.click();
         return (Package_ListAll) new Package_ListAll().init();
     }
@@ -223,8 +227,8 @@ public class Account_View extends AbstractPage
     public ZencoderVideo_ListAll clickVideoManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
-        wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
+        //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        wait.until(ExpectedConditions.visibilityOf(videoManager));
         videoManager.click();
         return (ZencoderVideo_ListAll) new ZencoderVideo_ListAll().init();
     }
