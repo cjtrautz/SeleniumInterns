@@ -8,6 +8,7 @@ import com.ontraport.app.pages.Contact_Create;
 import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
 
 public class MassActionForContacts extends AbstractTest
@@ -21,10 +22,39 @@ public class MassActionForContacts extends AbstractTest
         {
             Contact_Create contact_Create = contactListAll.clickNewContact();
             contact_Create.enterFirstName("MassSubscribe" + String.valueOf(i));
-            contact_Create.enterEmail("MassSubscribe" + String.valueOf(i));
+            contact_Create.enterEmail("MassSubscribe" + String.valueOf(i) +"@gmail.com");
             contactListAll = contact_Create.clickSave();
             i++;
         }
+        Contact_Create contact_Create = contactListAll.clickNewContact();
+        contact_Create.enterFirstName("Dont");
+        contact_Create.enterLastName("Dont");
+        contact_Create.enterEmail("Dont@gmail.com");
+        contactListAll = contact_Create.clickSave();
+        contactListAll.drawerManageGroups.open();
+        contactListAll.drawerManageGroups.enterGroupName("My massaction group");
+        contactListAll.drawerManageGroups.openGroupPermissionsPane();
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.openFieldPane(0);
+        contactListAll.drawerManageGroups.clickField("First Name", 0);
+        contactListAll.drawerManageGroups.openConditionPane(0);
+        contactListAll.drawerManageGroups.clickCondition("Contains", 0);
+        contactListAll.drawerManageGroups.enterValue("MassSubscribe", 0, 0);
+        contactListAll.drawerManageGroups.clickSave();
+        contactListAll.paginator.toggleRecordsPerPagePane();
+        contactListAll.paginator.clickRecordsPerPage(5);
+        contactListAll.selectAllOnPage();
+        contactListAll.selectAllInGroup();
+        contactListAll.drawerActions.clickSendEmail();
+        contactListAll.drawerActions.clickEmailNameDropDown();
+        contactListAll.drawerActions.selectDrillDown(value.get("Messages", "email_message"));
+        contactListAll.drawerActions.clickSendFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
+        contactListAll.drawerActions.clickEmailFromDropDown();
+        contactListAll.drawerActions.selectDropDown(1);
+        contactListAll.drawerActions.clickSend();
+        AbstractPart.waitForAjax(driver, 15);
+        driver.navigate().refresh();
         contactListAll.paginator.toggleRecordsPerPagePane();
         contactListAll.paginator.clickRecordsPerPage(5);
         contactListAll.paginator.clickFirstPage();
@@ -67,7 +97,7 @@ public class MassActionForContacts extends AbstractTest
         contactListAll.selectAllInGroup();
         contactListAll.drawerActions.clickChangeFieldValue();
         contactListAll.drawerActions.clickFieldDropDown();
-        contactListAll.drawerActions.selectDrillDown("First Name");
+        contactListAll.drawerActions.selectDrillDown("Last Name");
         contactListAll.drawerActions.enterValue("Changed");
         contactListAll.drawerActions.clickSaveField();
         contactListAll.paginator.toggleRecordsPerPagePane();
@@ -79,13 +109,16 @@ public class MassActionForContacts extends AbstractTest
         {
             contact_Edit = contactListAll.clickContact(l);
             //verify Sel Tag exists
-            if(contact_Edit.verifyFirstName("Changed")==null)
+            if(contact_Edit.verifyLastName("Changed")==null)
             {
-                fail("couldn't find tag");
+                fail("couldn't find last name");
             }
             contactListAll = contact_Edit.clickBack();
             l++;
         }
+        
+        contactListAll.drawerManageGroups.open();
+        contactListAll.drilldownGroup.clickGroupAll();
 
 
     }

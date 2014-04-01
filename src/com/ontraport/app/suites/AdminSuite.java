@@ -19,53 +19,53 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-    com.ontraport.app.tests.CreateTab.class,
-    com.ontraport.app.tests.DeleteTab.class,
-    
-    com.ontraport.app.tests.NameATab.class,
-    
-    com.ontraport.app.tests.SetLanguage.class, 
-    
-    com.ontraport.app.tests.EnsurePagination.class, 
-    
-    com.ontraport.app.tests.SetTimezone.class,
-    
-    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
-    com.ontraport.app.tests.GlobalSettingsClickBack.class,
-    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
-    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
-    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
-    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
-    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
-    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
-    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
-    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
-    
-    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
-    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateMessage.class, 
-    //uses CreateMessage message
-    com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
-    com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
-    //uses CreateMessage message
-    com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
-    com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
-    //used in following tests uses CreateMessage message
-    com.ontraport.app.tests.CreateAffilatesProgram.class,
-    //uses CreateAffilatesProgram program
-    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
-    com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
-    com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
-    com.ontraport.app.tests.EditAffilatesProgramInformation.class,
-    com.ontraport.app.tests.EditAffilatesProgramType.class,
-    com.ontraport.app.tests.EditAffilatesProgramName.class,
-    //end use of CreateAffilatesProgram program
-    com.ontraport.app.tests.DeleteAffiliateProgram.class,
-    //ends the use of CreateMessage message
-    com.ontraport.app.tests.DeleteMessage.class,
-    
+//    com.ontraport.app.tests.CreateTab.class,
+//    com.ontraport.app.tests.DeleteTab.class,
+//    
+//    com.ontraport.app.tests.NameATab.class,
+//    
+//    com.ontraport.app.tests.SetLanguage.class, 
+//    
+//    com.ontraport.app.tests.EnsurePagination.class, 
+//    
+//    com.ontraport.app.tests.SetTimezone.class,
+//    
+//    com.ontraport.app.tests.GlobalSettingsClickCancel.class,
+//    com.ontraport.app.tests.GlobalSettingsClickBack.class,
+//    com.ontraport.app.tests.GlobalSettingsCookiesExpireIn30Days.class,
+//    com.ontraport.app.tests.GlobalSettingsCookiesNeverExpire.class,
+//    com.ontraport.app.tests.GlobalSettingsCommissionPaidToLastReferrer.class,
+//    com.ontraport.app.tests.GlobalSettingsCommissionPaidToFirstReferrer.class,
+//    com.ontraport.app.tests.GlobalSettingsPayThreshold.class,
+//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByTheirChoice.class,
+//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByCheck.class,
+//    com.ontraport.app.tests.GlobalSettingsPayAffiliateByPaypal.class,
+//    
+//    com.ontraport.app.tests.EditAffiliatesProgramBack.class,
+//    com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
+//    
+//    //used in following tests
+//    com.ontraport.app.tests.CreateMessage.class, 
+//    //uses CreateMessage message
+//    com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
+//    com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
+//    //uses CreateMessage message
+//    com.ontraport.app.tests.CreateAffiliatesProgramWithFullNameAndDeclinedTrans.class,
+//    com.ontraport.app.tests.DeleteAffiliateProgramWithFullNameAndDeclinedTrans.class,
+//    //used in following tests uses CreateMessage message
+//    com.ontraport.app.tests.CreateAffilatesProgram.class,
+//    //uses CreateAffilatesProgram program
+//    com.ontraport.app.tests.EditAffilatesProgramNotify.class,
+//    com.ontraport.app.tests.EditAffilatesProgramShowCompletePurchaseHistory.class,
+//    com.ontraport.app.tests.EditAffilatesProgramShowDeclined.class,
+//    com.ontraport.app.tests.EditAffilatesProgramInformation.class,
+//    com.ontraport.app.tests.EditAffilatesProgramType.class,
+//    com.ontraport.app.tests.EditAffilatesProgramName.class,
+//    //end use of CreateAffilatesProgram program
+//    com.ontraport.app.tests.DeleteAffiliateProgram.class,
+//    //ends the use of CreateMessage message
+//    com.ontraport.app.tests.DeleteMessage.class,
+//    
     com.ontraport.app.tests.VideoManagerBack.class,
     
     com.ontraport.app.tests.UploadToAttachmentManager.class,
@@ -92,6 +92,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
     com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
     
+    com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateRuleDateSequence.class,
     com.ontraport.app.tests.MassActionForContacts.class,
@@ -106,6 +107,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
+    com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.MoveATabToOverflow.class,
     
@@ -114,53 +116,52 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateFulfillmentFromSequence.class,
     com.ontraport.app.tests.DeleteFulfillmentFromSequence.class,
     
-//  
-//    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
-//    com.ontraport.app.tests.EditPostcardPictureOpacity.class,
-//    com.ontraport.app.tests.EditPostcardPictureCircle.class,
-//    com.ontraport.app.tests.EditPostcardPictureRounded.class,
-//    com.ontraport.app.tests.DeletePostcardPictureMessageAndCheckSelectImage.class,
-//    
-//    com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
-//    com.ontraport.app.tests.EditPostcardGradientOpacity.class,
-//    com.ontraport.app.tests.EditPostcardToggleVertAndHorz.class,
-//    com.ontraport.app.tests.EditPostcardGradient.class,
-//    com.ontraport.app.tests.EditPostcardGradientRounded.class,
-//    com.ontraport.app.tests.EditPostcardGradientCircle.class,
-//    com.ontraport.app.tests.CreatePostcardStepSequence.class,
-//    com.ontraport.app.tests.DeletePostcardStepSequence.class,
-//    com.ontraport.app.tests.DeletePostcardGradientMessage.class,
-//    
-//    com.ontraport.app.tests.CreatePostcardMessage.class,
-//    com.ontraport.app.tests.EditPostcardOpacity.class,
-//    com.ontraport.app.tests.EditPostcardColor.class,
-//    com.ontraport.app.tests.EditPostcardRounded.class,
-//    com.ontraport.app.tests.EditPostcardRectangle.class,
-//    com.ontraport.app.tests.EditPostcardCircle.class,
-//    com.ontraport.app.tests.EditPostcardShapeHeight.class,
-//    com.ontraport.app.tests.EditPostcardShapeWidth.class,
-//    com.ontraport.app.tests.EditPostcardShapeLeft.class,
-//    com.ontraport.app.tests.EditPostcardShapeTop.class,
-//    com.ontraport.app.tests.EditPostcardFrontAndBackWithText.class,
-//    com.ontraport.app.tests.EditPostcardCopyLayer.class,
-//    com.ontraport.app.tests.EditPostcardHiddenLayer.class,
-//    com.ontraport.app.tests.EditPostcardMoveLayer.class,
-//    com.ontraport.app.tests.EditPostcardDeleteLayer.class,
-//    //relies postcard message
-//    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
-//    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
-//    com.ontraport.app.tests.DeletePostcardMessage.class,
-//    
-//    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
-//    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
-//    com.ontraport.app.tests.EditPostcardLineSpacing.class,
-//    com.ontraport.app.tests.EditPostcardAlignRight.class,
-//    com.ontraport.app.tests.EditPostcardAlignCenter.class,
-//    com.ontraport.app.tests.EditPostcardAlignLeft.class,
-//    com.ontraport.app.tests.EditPostcardUnderline.class,
-//    com.ontraport.app.tests.EditPostcardItalic.class,
-//    com.ontraport.app.tests.EditPostcardBold.class,
-//    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
+    com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
+    com.ontraport.app.tests.EditPostcardPictureOpacity.class,
+    com.ontraport.app.tests.EditPostcardPictureCircle.class,
+    com.ontraport.app.tests.EditPostcardPictureRounded.class,
+    com.ontraport.app.tests.DeletePostcardPictureMessageAndCheckSelectImage.class,
+    
+    com.ontraport.app.tests.CreatePostcardGradientWithRectangle.class,
+    com.ontraport.app.tests.EditPostcardGradientOpacity.class,
+    com.ontraport.app.tests.EditPostcardToggleVertAndHorz.class,
+    com.ontraport.app.tests.EditPostcardGradient.class,
+    com.ontraport.app.tests.EditPostcardGradientRounded.class,
+    com.ontraport.app.tests.EditPostcardGradientCircle.class,
+    com.ontraport.app.tests.CreatePostcardStepSequence.class,
+    com.ontraport.app.tests.DeletePostcardStepSequence.class,
+    com.ontraport.app.tests.DeletePostcardGradientMessage.class,
+    
+    com.ontraport.app.tests.CreatePostcardMessage.class,
+    com.ontraport.app.tests.EditPostcardOpacity.class,
+    com.ontraport.app.tests.EditPostcardColor.class,
+    com.ontraport.app.tests.EditPostcardRounded.class,
+    com.ontraport.app.tests.EditPostcardRectangle.class,
+    com.ontraport.app.tests.EditPostcardCircle.class,
+    com.ontraport.app.tests.EditPostcardShapeHeight.class,
+    com.ontraport.app.tests.EditPostcardShapeWidth.class,
+    com.ontraport.app.tests.EditPostcardShapeLeft.class,
+    com.ontraport.app.tests.EditPostcardShapeTop.class,
+    com.ontraport.app.tests.EditPostcardFrontAndBackWithText.class,
+    com.ontraport.app.tests.EditPostcardCopyLayer.class,
+    com.ontraport.app.tests.EditPostcardHiddenLayer.class,
+    com.ontraport.app.tests.EditPostcardMoveLayer.class,
+    com.ontraport.app.tests.EditPostcardDeleteLayer.class,
+    //relies postcard message
+    com.ontraport.app.tests.CreateCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfPostcardMessage.class,
+    com.ontraport.app.tests.DeletePostcardMessage.class,
+    
+    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
+    com.ontraport.app.tests.EditPostcardLineSpacing.class,
+    com.ontraport.app.tests.EditPostcardAlignRight.class,
+    com.ontraport.app.tests.EditPostcardAlignCenter.class,
+    com.ontraport.app.tests.EditPostcardAlignLeft.class,
+    com.ontraport.app.tests.EditPostcardUnderline.class,
+    com.ontraport.app.tests.EditPostcardItalic.class,
+    com.ontraport.app.tests.EditPostcardBold.class,
+    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
     
 })
 public class AdminSuite extends AbstractSuite

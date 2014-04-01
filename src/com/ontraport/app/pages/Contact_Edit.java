@@ -71,6 +71,11 @@ public class Contact_Edit extends AbstractPage
             using = "//a[normalize-space(text())='Referral Info']")
     private List<WebElement> referralInfoTab;
     
+    @FindBy(
+            how = How.XPATH, 
+            using = "//a[normalize-space(text())='Contact History']")
+    private List<WebElement> contactHistory;
+    
     //NEED TO FIX
     @FindBy(how=How.XPATH,
             using="//div[contains(@class, 'NAME_program_id')]//span[@class='ussr-section-data']")
@@ -460,6 +465,20 @@ public class Contact_Edit extends AbstractPage
         
         return this;
     }
+    
+    public Contact_Edit verifyNoSequence ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.findElement(By.xpath("//label[normalize-space(text())='Sequences']/following-sibling::div//ul//li[contains(., '" + string + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return this;
+        }
+        
+        return null;
+    }
 
     public Contact_Edit clickNewTask ()
     {
@@ -559,6 +578,51 @@ public class Contact_Edit extends AbstractPage
             return null;
         }
         return this;
+    }
+
+    public Contact_Edit clickContactHistory ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try 
+        {
+            wait.until(ExpectedConditions.visibilityOf(contactHistory.get(0)));
+            contactHistory.get(0).click();
+        }
+        catch (Exception e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(overflowIcon));
+            overflowIcon.click();
+            AbstractPart.waitForAjax(driver, 20);
+            wait.until(ExpectedConditions.visibilityOf(contactHistory.get(1)));
+            contactHistory.get(1).click();
+        }
+        return this;
+    }
+
+    public Contact_Edit verifyLogItem (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(string);
+            driver.findElement(By.xpath("//td//a[contains(text(), '" + string + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
+    public Contact_Edit verifyNoLogItem (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            driver.findElement(By.xpath("//td//a[contains(text(), '" + string + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return this;
+        }
+        return null;
     }
 
 }

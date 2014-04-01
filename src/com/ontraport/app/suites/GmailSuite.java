@@ -248,7 +248,7 @@ public class GmailSuite extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setLogin("nick+1@ontraport.com");
+        AbstractPage.setLogin("ontraportselenium@gmail.com");
         AbstractPage.setPassword("test123");
         //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();

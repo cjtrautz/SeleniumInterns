@@ -46,7 +46,7 @@ public class Paginator extends AbstractPart
         waitForAjax(driver, 20);
         try
         {
-            wait(1).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPagePane));
+            wait(10).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPagePane));
             return uiToggleRecordsPerPagePane.isDisplayed();
         }
         catch (NoSuchElementException nsee)
@@ -99,7 +99,7 @@ public class Paginator extends AbstractPart
     public Paginator toggleRecordsPerPagePane ()
     {
         waitForAjax(driver, 20);
-        wait(1).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPagePane));
+        wait(10).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPagePane));
         uiToggleRecordsPerPagePane.click();
         return this;
     }
@@ -118,7 +118,7 @@ public class Paginator extends AbstractPart
         waitForAjax(driver, 20);
         wait(20).until(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList));
         uiToggleRecordsPerPageList.findElement(By.xpath(".//li[@data-val='"+count+"']")).click();
-        wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList)));
+        wait(10).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiToggleRecordsPerPageList)));
         return this;
     }
     public String getPages ()
