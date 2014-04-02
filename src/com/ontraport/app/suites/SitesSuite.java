@@ -30,8 +30,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
     com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
     com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
-//    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
-//    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
     com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
     com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
     //no longer part of rules
