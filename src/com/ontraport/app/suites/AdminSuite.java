@@ -19,6 +19,8 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    com.ontraport.app.tests.UploadVideo.class,
+    
     com.ontraport.app.tests.CreateTab.class,
     com.ontraport.app.tests.DeleteTab.class,
     

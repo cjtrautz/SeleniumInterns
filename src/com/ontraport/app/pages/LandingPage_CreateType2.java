@@ -75,9 +75,6 @@ public class LandingPage_CreateType2 extends AbstractPage
         AbstractPart.waitForAjax(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
-        AbstractPart.waitForAjax(driver, 30);
-        wait.until(ExpectedConditions.visibilityOf(back));
-        back.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
     
