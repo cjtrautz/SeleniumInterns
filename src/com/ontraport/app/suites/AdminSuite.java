@@ -104,6 +104,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateProduct.class,
     com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
     com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
+    com.ontraport.app.tests.CreateSMSMessageFromSequence.class,
+    com.ontraport.app.tests.DeleteSMSMessageFromSequence.class,
+    com.ontraport.app.tests.CreateFulfillmentFromSequence.class,
+    com.ontraport.app.tests.DeleteFulfillmentFromSequence.class,
     com.ontraport.app.tests.DeleteProduct.class,
     com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
@@ -112,11 +116,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.MoveATabToOverflow.class,
-    
-    com.ontraport.app.tests.CreateSMSMessageFromSequence.class,
-    com.ontraport.app.tests.DeleteSMSMessageFromSequence.class,
-    com.ontraport.app.tests.CreateFulfillmentFromSequence.class,
-    com.ontraport.app.tests.DeleteFulfillmentFromSequence.class,
     
     com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
     com.ontraport.app.tests.EditPostcardPictureOpacity.class,
