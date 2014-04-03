@@ -27,10 +27,6 @@ public class CreateSmartFormWithGetPaid extends AbstractTest
         smartFormFe_Create.dialogBox.enterName(value.get("SmartForms", "get_paid"));
         smartFormFe_Create.dialogBox.clickSave();
         smartFormFe_Create.clickGetPaid();
-        if(smartFormFe_Create.verifyGetPaid()==null)
-        {
-            fail("couldnt find title field1");
-        }
         smartFormFe_ListAll = smartFormFe_Create.clickSave();
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "get_paid"));
