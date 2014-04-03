@@ -27,12 +27,12 @@ public class MenuUser extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
-            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Personal Settings']")
+            using = "//li[@class='ussr-header-nav-option-user']//a[@href='#!/user/edit&id=1']")
     private WebElement personalSettings;
     
     @FindBy(
             how = How.XPATH,
-            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Manage Users']")
+            using = "//li[@class='ussr-header-nav-option-user']//a[@href='#!/user/listAll']")
     private WebElement manageUsers;
     
     @FindBy(
@@ -42,12 +42,12 @@ public class MenuUser extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
-            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Account']")
+            using = "//li[@class='ussr-header-nav-option-user']//a[@href='#!/op_package/view']")
     private WebElement account;
     
     @FindBy(
             how = How.XPATH,
-            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Log Out']")
+            using = "//li[@class='ussr-header-nav-option-user']//a[@href='Login/logout']")
     private WebElement logOut;
     
     public MenuUser open () 
