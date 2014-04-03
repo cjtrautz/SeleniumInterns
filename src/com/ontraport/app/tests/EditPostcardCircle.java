@@ -28,7 +28,8 @@ public class EditPostcardCircle extends AbstractTest
         Message_Edit message_Edit = message_ListAll.clickMessage("SelPostcardMessage");
         message_Edit.clickShape();
         message_Edit.clickCircle();
-        message_ListAll = message_Edit.clickSave();
+        message_Edit.clickSave();
+        message_ListAll = message_Edit.clickBack();
         message_ListAll.formSearch.find("SelPostcardMessage");
         
         //verify that it exists

@@ -29,7 +29,8 @@ public class EditPostcardAlignRight extends AbstractTest
         message_Edit.doubleClickText("test text");
         message_Edit.highlightTextRight("test text");
         message_Edit.clickAlignRight();
-        message_ListAll = message_Edit.clickSave();
+        message_Edit.clickSave();
+        message_ListAll = message_Edit.clickBack();
         message_ListAll.formSearch.find("SelMessageTestingPostcard");
         
         //verify that it exists

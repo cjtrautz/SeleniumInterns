@@ -28,7 +28,8 @@ public class EditPostcardPictureCircle extends AbstractTest
         Message_Edit message_Edit = message_ListAll.clickMessage(value.get("Messages", "gradient_picture"));
         message_Edit.clickImage();
         message_Edit.clickCircle();
-        message_ListAll = message_Edit.clickSave();
+        message_Edit.clickSave();
+        message_ListAll = message_Edit.clickBack();
         message_ListAll.formSearch.find(value.get("Messages", "gradient_picture"));
         
         //verify that it exists
