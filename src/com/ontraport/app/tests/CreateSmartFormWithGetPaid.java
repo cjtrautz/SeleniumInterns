@@ -26,10 +26,10 @@ public class CreateSmartFormWithGetPaid extends AbstractTest
         SmartFormFe_Create smartFormFe_Create = smartFormFe_ListAll.clickNewSmartForm();
         AbstractPart.waitForAjax(driver, 20);
         driver.navigate().refresh();
+        smartFormFe_Create.clickGetPaid();
         smartFormFe_Create.clickSmartFormName();
         smartFormFe_Create.dialogBox.enterName(value.get("SmartForms", "get_paid"));
         smartFormFe_Create.dialogBox.clickSave();
-        smartFormFe_Create.clickGetPaid();
         smartFormFe_ListAll = smartFormFe_Create.clickSave();
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "get_paid"));
