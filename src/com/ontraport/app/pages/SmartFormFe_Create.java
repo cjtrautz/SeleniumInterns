@@ -19,7 +19,7 @@ public class SmartFormFe_Create extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//img[@class='fe-poweredby-placeholder']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form-element-wrapper ')]//img")
     private WebElement getPaidImage;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-design-form-wrapper ')]")
@@ -204,11 +204,6 @@ public class SmartFormFe_Create extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(getPaid));
         getPaid.click();
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getPaid));
-        getPaid.click();
-        AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(getPaid));
-        getPaid.click();
         Actions action = new Actions(driver);
         action.click(getPaidImage).build().perform();
         return this;
