@@ -17,6 +17,10 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class SmartFormFe_Create extends AbstractPage
 {
+    @FindBy(
+            how = How.XPATH,
+            using = "//img[@class='fe-poweredby-placeholder']")
+    private WebElement getPaidImage;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-design-form-wrapper ')]")
     private WebElement smartForm;
@@ -332,4 +336,23 @@ public class SmartFormFe_Create extends AbstractPage
         return this;
     }
 
+    public SmartFormFe_Edit verifyGetPaid ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(getPaidImage));
+            System.out.println(getPaidImage.isDisplayed());
+            if(!getPaidImage.isDisplayed())
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
 }
