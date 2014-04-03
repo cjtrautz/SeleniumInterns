@@ -8,6 +8,7 @@ import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.SmartFormFe_Create;
 import com.ontraport.app.pages.SmartFormFe_Edit;
 import com.ontraport.app.pages.SmartFormFe_ListAll;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.Sequence_ListAll;
 //import com.ontraport.app.pages.Rule_ListAll;
@@ -23,6 +24,8 @@ public class CreateSmartFormWithGetPaid extends AbstractTest
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         SmartFormFe_Create smartFormFe_Create = smartFormFe_ListAll.clickNewSmartForm();
+        AbstractPart.waitForAjax(driver, 20);
+        driver.navigate().refresh();
         smartFormFe_Create.clickSmartFormName();
         smartFormFe_Create.dialogBox.enterName(value.get("SmartForms", "get_paid"));
         smartFormFe_Create.dialogBox.clickSave();
