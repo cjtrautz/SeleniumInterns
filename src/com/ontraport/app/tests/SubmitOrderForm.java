@@ -29,6 +29,14 @@ public class SubmitOrderForm extends AbstractTest
         driver.get(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE + ".respond.ontraport.net");
         
         Order_Form order_Form = (Order_Form) new Order_Form().init();
+        if(order_Form.verifyTotal("$9.45")==null)
+        {
+            fail("no tax on hosted");
+        }
+        if(order_Form.verifyShipping("SelShipping - $3.45")==null)
+        {
+            fail("no shiiping on hosted");
+        }
         order_Form.enterFirstName(value.get("SmartForms", "order_first_name"));
         order_Form.enterEmail(value.get("SmartForms", "order_email"));
         order_Form.enterBillingAddress(value.get("SmartForms", "order_billing_address"));
@@ -45,14 +53,7 @@ public class SubmitOrderForm extends AbstractTest
         order_Form.clickYear();
         order_Form.enterYear("2");
         order_Form.enterYear("2");
-        if(order_Form.verifyTotal("$9.45")==null)
-        {
-            fail("no tax on hosted");
-        }
-        if(order_Form.verifyShipping("SelShipping - $3.45")==null)
-        {
-            fail("no shiiping on hosted");
-        }
+
         order_Form.clickSubmit();
         if(order_Form.verifyPage()==null)
         {

@@ -36,7 +36,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
 //    com.ontraport.app.tests.DeleteProduct.class,
 //    com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
+    com.ontraport.app.tests.CreateSmartFormWithGetPaid.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
     com.ontraport.app.tests.DeleteMessage.class,
@@ -47,7 +47,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com/");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", true);
