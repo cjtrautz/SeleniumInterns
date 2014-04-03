@@ -542,6 +542,11 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-back ')]")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//p//img")
     private WebElement mailImage;
     
@@ -2799,6 +2804,14 @@ public class Message_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//textarea"))));
         driver.findElement(By.xpath("//textarea")).sendKeys("Sel");
         return this;
+    }
+
+    public Message_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (Message_ListAll) new Message_ListAll().init();
     }
 
 }

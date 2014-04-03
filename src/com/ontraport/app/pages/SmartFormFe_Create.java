@@ -203,9 +203,6 @@ public class SmartFormFe_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(getPaid));
         getPaid.click();
-        AbstractPart.waitForAjax(driver, 20);
-        Actions action = new Actions(driver);
-        action.click(getPaidImage).build().perform();
         return this;
     }
 
