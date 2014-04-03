@@ -37,7 +37,7 @@ public class MenuUser extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
-            using = "//li[@class='ussr-header-nav-option-user']//a[normalize-space(text())='Admin']")
+            using = "//li[@class='ussr-header-nav-option-user']//a[@href='#!/account/view']")
     private WebElement admin;
     
     @FindBy(
