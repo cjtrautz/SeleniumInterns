@@ -336,7 +336,7 @@ public class SmartFormFe_Create extends AbstractPage
         return this;
     }
 
-    public SmartFormFe_Edit verifyGetPaid ()
+    public SmartFormFe_Create verifyGetPaid ()
     {
         AbstractPart.waitForAjax(driver, 30);
         try
