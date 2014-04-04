@@ -1,5 +1,7 @@
 package com.ontraport.app.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -59,7 +61,7 @@ public class Ontraport_SignUp extends AbstractPage
     
     @FindBy(how = How.XPATH,
             using = "//input[@name='password']")
-    private WebElement passInput;
+    private List<WebElement> passInput;
     
     @FindBy(how = How.XPATH,
             using = "//input[@name='password2']")
@@ -69,6 +71,24 @@ public class Ontraport_SignUp extends AbstractPage
             using = "//input[@name='agree_term']")
     private WebElement agreeInput;
     
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='cc_name']")
+    private WebElement ccname;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='ccnumb']")
+    private WebElement ccnumb;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='vcode']")
+    private WebElement vcode;
+    @FindBy(how = How.XPATH,
+            using = "//select[@name='expmonth']")
+    private WebElement expmonth;
+    @FindBy(how = How.XPATH,
+            using = "//select[@name='expyear']")
+    private WebElement expyear;
+    @FindBy(how = How.XPATH,
+            using = "//input[@name='billing_zip']")
+    private WebElement billingZip;
     @FindBy(how = How.XPATH,
             using = "//input[@value='Create My Account Now']")
     private WebElement createAccount;
@@ -188,10 +208,10 @@ public class Ontraport_SignUp extends AbstractPage
     public Ontraport_SignUp enterPassword ( String string )
     {
         //AbstractPart.waitForAjax(driver, 20);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", passInput);
-        wait.until(ExpectedConditions.visibilityOf(passInput));
-        passInput.click();
-        passInput.sendKeys(string);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", passInput.get(1));
+        wait.until(ExpectedConditions.visibilityOf(passInput.get(1)));
+        passInput.get(1).click();
+        passInput.get(1).sendKeys(string);
         return this;
     }
 
@@ -220,7 +240,65 @@ public class Ontraport_SignUp extends AbstractPage
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", agreeInput);
         wait.until(ExpectedConditions.visibilityOf(createAccount));
         createAccount.click();
+        driver.switchTo().alert().accept();
         return this;
     }
+
+    public Ontraport_SignUp enterNameOnCard ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ccname);
+        wait.until(ExpectedConditions.visibilityOf(ccname));
+        ccname.click();
+        ccname.sendKeys(string);
+        return this;
+    }
+
+    public Ontraport_SignUp enterCard ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ccnumb);
+        wait.until(ExpectedConditions.visibilityOf(ccnumb));
+        ccnumb.click();
+        ccnumb.sendKeys(string);
+        return this;
+    }
+
+    public Ontraport_SignUp enterSecurityCode ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", vcode);
+        wait.until(ExpectedConditions.visibilityOf(vcode));
+        vcode.click();
+        vcode.sendKeys(string);
+        return this;
+    }
+
+    public Ontraport_SignUp enterExpiresOnMonth ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", expmonth);
+        wait.until(ExpectedConditions.visibilityOf(expmonth));
+        expmonth.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(string).build().perform();
+        return this;
+    }
+
+    public Ontraport_SignUp enterExpiresOnYear ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", expyear);
+        wait.until(ExpectedConditions.visibilityOf(expyear));
+        expyear.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(string).build().perform();
+        return this;
+    }
+
+    public Ontraport_SignUp enterBillingZip ( String string )
+    {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", billingZip);
+        wait.until(ExpectedConditions.visibilityOf(billingZip));
+        billingZip.click();
+        billingZip.sendKeys(string);
+        return this;
+    }
+
     
 }

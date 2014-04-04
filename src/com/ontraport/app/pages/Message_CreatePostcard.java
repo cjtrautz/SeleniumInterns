@@ -51,6 +51,11 @@ public class Message_CreatePostcard extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-back ')]")
+    private WebElement back;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//body")
     private WebElement body;
     
@@ -85,6 +90,9 @@ public class Message_CreatePostcard extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));  
         save.click();
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));  
+        back.click();
         return (Message_ListAll) new Message_ListAll().init();
     }
 

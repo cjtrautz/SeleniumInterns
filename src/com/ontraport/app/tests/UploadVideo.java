@@ -26,6 +26,5 @@ public class UploadVideo extends AbstractTest
         ZencoderVideo_ListAll zencoderVideo_ListAll = account_View.clickVideoManager();
         ZencoderVideo_Create zencoderVideo_Create = zencoderVideo_ListAll.clickNewVideo();
         zencoderVideo_Create.sendFile("/home/**/workspace/com.ontraport.app/etc/spacetestSMALL_512kb.mp4");
-        Thread.sleep(10000);
     }
 }

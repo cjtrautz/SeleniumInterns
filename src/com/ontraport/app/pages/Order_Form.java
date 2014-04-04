@@ -235,8 +235,19 @@ public class Order_Form extends AbstractPage
         }
         catch(Exception e)
         {
-            e.printStackTrace();
-            return null;
+            try
+            {
+                wait.until(ExpectedConditions.visibilityOf(total));
+                System.out.println(total.getText());
+                if(!total.getText().equals(string))
+                {
+                    return null;
+                } 
+            }
+            catch(Exception e2)
+            {
+                return null;
+            }
         }
         return this;
     }

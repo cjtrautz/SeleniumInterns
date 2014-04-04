@@ -25,7 +25,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateOrderform.class,
 //    com.ontraport.app.tests.CreateContact.class,
-    com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
+      com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
 //    com.ontraport.app.tests.CreateMessage.class,
 //    com.ontraport.app.tests.CreateATag.class,
 //    com.ontraport.app.tests.CreateRuleDateSequence.class,
@@ -39,9 +39,13 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteProduct.class,
 //    com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
 //    com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
-//  com.ontraport.app.tests.DeleteRuleDateSequence.class,
-//  com.ontraport.app.tests.DeleteTag.class,
-//  com.ontraport.app.tests.DeleteMessage.class,
+//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+//    com.ontraport.app.tests.DeleteTag.class,
+//    com.ontraport.app.tests.DeleteMessage.class,
+//    com.ontraport.app.tests.SignUp.class,
+//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
+//    com.ontraport.app.tests.DeleteTag.class,
+//    com.ontraport.app.tests.DeleteMessage.class,
 }
 )
 public class Review extends AbstractSuite

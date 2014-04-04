@@ -10,6 +10,7 @@ import com.ontraport.app.pages.Login;
 import com.ontraport.app.pages.OPPackage_View;
 import com.ontraport.app.pages.Ontraport_SignUp;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.Sequence_ListAll;
 //import com.ontraport.app.pages.Rule_ListAll;
@@ -29,7 +30,7 @@ public class SignUp extends AbstractTest
         {
             fail("Can't find Affiliates page");
         }
-        driver.get("https://signup.ontraport.com/ontraport-beta-signup.php");
+        driver.get("https://ontraport.com/ontraport-comped-signup.php");
         Ontraport_SignUp ontraport_SignUp = (Ontraport_SignUp) new Ontraport_SignUp().init();
         ontraport_SignUp.enterFirstName(value.get("SignUp", "first_name"));
         ontraport_SignUp.enterLastName(value.get("SignUp", "last_name"));
@@ -44,8 +45,15 @@ public class SignUp extends AbstractTest
         ontraport_SignUp.enterEmailAddressAgain(value.get("SignUp", "email"));
         ontraport_SignUp.enterPassword(value.get("SignUp", "pass"));
         ontraport_SignUp.enterPasswordAgain(value.get("SignUp", "pass"));
+        ontraport_SignUp.enterNameOnCard(value.get("SignUp", "name"));
+        ontraport_SignUp.enterCard(value.get("SignUp", "card"));
+        ontraport_SignUp.enterSecurityCode(value.get("SignUp", "code"));
+        ontraport_SignUp.enterExpiresOnMonth("2");
+        ontraport_SignUp.enterExpiresOnYear("2");
+        ontraport_SignUp.enterBillingZip(value.get("SignUp", "zip"));
         ontraport_SignUp.checkAgreeToTerms();
         ontraport_SignUp.clickCreateMyAccount();
+        Thread.sleep(4000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         Login login = (Login) new Login().init();
         login.open(Login.url);

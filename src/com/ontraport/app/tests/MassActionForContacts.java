@@ -54,7 +54,7 @@ public class MassActionForContacts extends AbstractTest
         contactListAll.drawerActions.selectDropDown(1);
         contactListAll.drawerActions.clickSend();
         AbstractPart.waitForAjax(driver, 15);
-        driver.navigate().refresh();
+        //driver.navigate().refresh();
         contactListAll.paginator.toggleRecordsPerPagePane();
         contactListAll.paginator.clickRecordsPerPage(5);
         contactListAll.paginator.clickFirstPage();
@@ -65,7 +65,7 @@ public class MassActionForContacts extends AbstractTest
         contactListAll.drawerActions.selectDrillDown(value.get("Sequences", "date_rule_sequence"));
         contactListAll.drawerActions.clickSubmit();
         AbstractPart.waitForAjax(driver, 15);
-        driver.navigate().refresh();
+        //driver.navigate().refresh();
         contactListAll.paginator.toggleRecordsPerPagePane();
         contactListAll.paginator.clickRecordsPerPage(5);
         contactListAll.selectAllOnPage();

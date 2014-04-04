@@ -31,6 +31,10 @@ public class LandingPage_CreateType2 extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//button[contains(normalize-space(.),'Save')]")
     private WebElement save;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
+    private WebElement back;
 
     public LandingPage_CreateType2 enterLandingPageName ( String string )
     {

@@ -192,6 +192,10 @@ public class LandingPage_Edit extends AbstractPage
     private WebElement save;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
+    private WebElement back;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_drill_down_select_field_selector_merge_field_inserter ')]//button")
     private WebElement fieldDropDown;
     
@@ -382,6 +386,9 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));  
         save.click();
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));  
+        back.click();
         return (LandingPage_ListAll) new LandingPage_ListAll().init();
     }
 

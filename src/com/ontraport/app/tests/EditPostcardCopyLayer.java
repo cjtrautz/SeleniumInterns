@@ -32,7 +32,8 @@ public class EditPostcardCopyLayer extends AbstractTest
         message_Edit.clickFirstLayer();
         message_Edit.doubleClickInsertText(2);
         message_Edit.enterText("Copy of");
-        message_ListAll = message_Edit.clickSave();
+        message_Edit.clickSave();
+        message_ListAll = message_Edit.clickBack();
         message_ListAll.formSearch.find(value.get("Messages", "shape_postcard"));
         
         //verify that it exists

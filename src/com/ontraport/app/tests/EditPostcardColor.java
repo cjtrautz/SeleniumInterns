@@ -32,7 +32,8 @@ public class EditPostcardColor extends AbstractTest
         message_Edit.dialogBox.enterGValue("219");
         message_Edit.dialogBox.enterBValue("188");
         message_Edit.dialogBox.clickAcceptColor();
-        message_ListAll = message_Edit.clickSave();
+        message_Edit.clickSave();
+        message_ListAll = message_Edit.clickBack();
         message_ListAll.formSearch.find("SelPostcardMessage");
         
         //verify that it exists

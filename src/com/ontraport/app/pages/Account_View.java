@@ -49,7 +49,7 @@ public class Account_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//a[contains(concat(' ', @class, ' '),' account-target-attachment-manager ')]")
+            using = "//a[contains(concat(' ', @class, ' '),' account-target-file-manager ')]")
     private WebElement attachmentManager;
     
     @FindBy(
