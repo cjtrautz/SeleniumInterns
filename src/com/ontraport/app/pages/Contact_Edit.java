@@ -86,7 +86,7 @@ public class Contact_Edit extends AbstractPage
     private WebElement affiliateProgramSaveAndEdit;
     
     @FindBy(how=How.XPATH,
-            using="//label[text()='Partner Program']//following-sibling::button")
+            using="//div[contains(@class, 'NAME_program_id ')]//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-control-action-save ')]")
     private WebElement affiliateProgramFieldSaveButton;
     
     @FindBy(how=How.XPATH,
