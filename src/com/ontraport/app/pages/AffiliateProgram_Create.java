@@ -199,6 +199,7 @@ public class AffiliateProgram_Create extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
+        AbstractPart.waitForAjax(driver, 20);
         return (Contact_Edit) new Contact_Edit().init();
     }
     

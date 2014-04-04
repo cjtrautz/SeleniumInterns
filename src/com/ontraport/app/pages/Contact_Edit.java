@@ -86,6 +86,10 @@ public class Contact_Edit extends AbstractPage
     private WebElement affiliateProgramSaveAndEdit;
     
     @FindBy(how=How.XPATH,
+            using="//div[contains(@class, 'NAME_program_id ')]//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-control-action-save ')]")
+    private WebElement affiliateProgramFieldSaveButton;
+    
+    @FindBy(how=How.XPATH,
             using="//div[contains(concat(' ', normalize-space(@class), ' '),' create-new-form ')]//input")
     private WebElement affiliateProgramNameInput;
     
@@ -532,6 +536,14 @@ public class Contact_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(affiliateProgramSaveAndEdit));
         affiliateProgramSaveAndEdit.click();
         return (AffiliateProgram_Create) new AffiliateProgram_Create().init();
+    }
+    
+    public Contact_Edit saveSelectedAffiliateProgram()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(affiliateProgramFieldSaveButton));
+        affiliateProgramFieldSaveButton.click();
+        return this;
     }
 
     public Contact_Edit selectAllTasks ()
