@@ -339,7 +339,7 @@
         </test>
       </junit>
       <junitreport todir="${report}/selenium/xml/anothersuite">
-        <fileset dir="${report}/selenium/xml/sitessuite">
+        <fileset dir="${report}/selenium/xml/anothersuite">
           <include name="TEST-*.xml"/>
         </fileset>
         <report format="frames" todir="${report}/selenium/html/anothersuite"/>
