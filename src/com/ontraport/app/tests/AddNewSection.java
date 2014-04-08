@@ -23,6 +23,9 @@ public class AddNewSection extends AbstractTest
         field_Editor.clickTitle();
         field_Editor.enterSectionDescription("SelTitle", "Section Description", "SelDescription");
         contact_Settings = field_Editor.clickSave();
+        contactListAll = contact_Settings.menuPrimary.clickContactListAll();
+        driver.navigate().refresh();
+        contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         field_Editor = contact_Settings.clickFieldEditor();
         
         //verify new section is in the field editor

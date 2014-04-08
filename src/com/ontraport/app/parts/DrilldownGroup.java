@@ -52,6 +52,7 @@ public class DrilldownGroup extends AbstractPart
     }
     public Boolean confirmGroupExists (String name)
     {
+        driver.navigate().refresh();
         open();
         waitForAjax(driver, 20);
         //System.out.println(uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText());

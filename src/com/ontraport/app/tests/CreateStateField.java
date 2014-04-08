@@ -27,7 +27,7 @@ public class CreateStateField extends AbstractTest
         contactListAll = contact_Settings.menuPrimary.clickContactListAll();
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         field_Editor = contact_Settings.clickFieldEditor();
-        driver.navigate().refresh();
+        //driver.navigate().refresh();
         
         //verify new section is in the field editor
         if(field_Editor.verifyFieldState("SelState")==null)

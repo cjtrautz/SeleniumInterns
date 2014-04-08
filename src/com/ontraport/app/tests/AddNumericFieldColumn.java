@@ -19,6 +19,7 @@ public class AddNumericFieldColumn extends AbstractTest
         contactListAll.formColumnManager.enterFieldPaneInput(value.get("Fields", "Numeric_Field"));
         contactListAll.formColumnManager.clickField(value.get("Fields", "Numeric_Field"));
         contactListAll.formColumnManager.clickCheckMark();
+        contactListAll.formColumnManager.waitForTotals();
         
         //verify its there
         if (contactListAll.verifyColumn(value.get("Fields", "Numeric_Field"))==null)

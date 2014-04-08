@@ -66,6 +66,12 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditPostcardBold.class,
     com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
     
+    com.ontraport.app.tests.CreateContact.class,
+    //uses CreateContact
+    com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
+    com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
+    com.ontraport.app.tests.DeleteContact.class,
+    
 })
 public class AnotherSuite extends AbstractSuite
 {
