@@ -2814,4 +2814,16 @@ public class Message_Edit extends AbstractPage
         return (Message_ListAll) new Message_ListAll().init();
     }
 
+    public Message_ListAll clickSavePostcard ()
+    {
+        driver.switchTo().defaultContent();
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
+        return (Message_ListAll) new Message_ListAll().init();
+    }
+
 }

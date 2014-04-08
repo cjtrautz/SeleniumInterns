@@ -784,6 +784,7 @@ public class DialogBox extends AbstractPart
         bInput.clear();
         bInput.click();
         bInput.sendKeys(string);
+        gInput.click();
         return this;
     }
     public DialogBox enterRValueLP ( String i )

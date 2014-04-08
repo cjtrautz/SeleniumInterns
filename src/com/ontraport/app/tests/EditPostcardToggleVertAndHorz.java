@@ -45,7 +45,7 @@ public class EditPostcardToggleVertAndHorz extends AbstractTest
         }
         message_Edit.clickShape();
         message_Edit.clickHorizontal();
-        message_ListAll = message_Edit.clickSave();
+        message_ListAll = message_Edit.clickSavePostcard();
         message_ListAll.formSearch.find(value.get("Messages", "gradient_postcard"));
         
         //verify that it exists

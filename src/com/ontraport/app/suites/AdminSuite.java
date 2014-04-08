@@ -114,9 +114,29 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
-    com.ontraport.app.tests.DeleteMessage.class,
+
     
     com.ontraport.app.tests.MoveATabToOverflow.class,
+    
+    //used in following tests
+    com.ontraport.app.tests.CreateSplitTestMessages.class,
+    //uses CreateRuleStepSequence sequence and uses CreateMessage message
+    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+  //uses CreateRuleStepSequence sequence and uses CreateSplitTestMessages messages
+    com.ontraport.app.tests.EditSequenceSplitB.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndCAndD.class,
+    //used in following tests and uses CreateMessage message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    //uses CreateEmailDateSequence sequence and uses CreateSplitTestMessages messages
+    com.ontraport.app.tests.EditDateSequenceSplitB.class,
+    com.ontraport.app.tests.EditDateSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditDateSequenceSplitBAndCAndD.class,
+    //uses uses CreateEmailDateSequence sequence
+    com.ontraport.app.tests.CreateDateSequenceFromExisting.class,
+    //end use of CreateEmailDateSequence sequence
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteMessage.class,
    
     
     
