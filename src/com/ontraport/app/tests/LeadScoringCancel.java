@@ -23,8 +23,8 @@ public class LeadScoringCancel extends AbstractTest
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
-        contactListAll = contact_ScoreEdit.clickCancel();
-        if(contactListAll.verifyPage()==null)
+        contact_Settings = contact_ScoreEdit.clickCancel();
+        if(contact_Settings.verifyPage()==null)
         {
             fail("couldnt find contact settings page");
         }

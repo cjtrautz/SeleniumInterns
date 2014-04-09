@@ -80,7 +80,7 @@ public class LeadRouter_CreateWR extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]//div[contains(@class, 'input_text_percent_NAME_lead_percent')]//input[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-input ')]"))));
-        WebElement percentOfLeadInput = leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]//div[contains(@class, 'input_text_percent_NAME_lead_percent')]//input[@class='ussr-form-input ussr-form-state-default']"));
+        WebElement percentOfLeadInput = leadRouterEntryList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-lead_rout_target ')][" + index + "]//div[contains(@class, 'input_text_percent_NAME_lead_percent')]//input[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-input ')]"));
         percentOfLeadInput.sendKeys(percent);
         return this;
     }

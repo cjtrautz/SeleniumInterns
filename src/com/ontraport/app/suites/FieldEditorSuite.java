@@ -19,83 +19,83 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {  
-//    //used in following tests
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    //uses CreateRuleStepSequence sequence
-//    com.ontraport.app.tests.CopyStepSequence.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateMessage.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateContact.class,
-//    //used in following tests
+    //used in following tests
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    //uses CreateRuleStepSequence sequence
+    com.ontraport.app.tests.CopyStepSequence.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateMessage.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateContact.class,
+    //used in following tests
     com.ontraport.app.tests.AddNewSection.class,
-//    //used in following tests and uses AddNewSection section
-//    com.ontraport.app.tests.CreateStateField.class,
-//    //uses CreateStateField field
-//    com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldState.class,
-//    com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldState.class,
-//    com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaState.class,
-//    com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaState.class,
-//    com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedState.class,
-//    com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedState.class,
-//    com.ontraport.app.tests.CreateLeadScoring_AStateFieldMeetsCriteria.class,
-//    com.ontraport.app.tests.DeleteLeadScoring_AStateFieldMeetsCriteria.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateGateway.class, 
-//    //used in following tests
-//    com.ontraport.app.tests.CreateATag.class,
-//    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
-//    com.ontraport.app.tests.CreateOrderform.class,
-//    //used in following tests and uses CreateOrderform orderform
-//    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-//    //used in following tests and uses CreateOrderform orderform
-//    com.ontraport.app.tests.SubmitOrderForm.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateUserFieldEditor.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateRule_PingAUrl.class,
-//    //uses CreateATag tag and uses CreateRuleStepSequence sequence and uses CreateMessage message and 
-//    //uses CreateLandingPageWithForm landing page and uses CreateOrderform orderform and 
-//    //uses CreateRule_PingAUrl rule and uses AddNewSection section and uses CreateUserFieldEditor section
-//    com.ontraport.app.tests.AddAPackageWithEverything.class,
-//    com.ontraport.app.tests.DeletePackageWithAll.class,
-//    //end use of CreateATag tag
-//    com.ontraport.app.tests.DeleteTag.class,
-//    //end use of CreateRule_PingAUrl rule
-//    com.ontraport.app.tests.DeleteRule_PingAUrl.class,
-//    //end use of CreateUserFieldEditor section
-//    com.ontraport.app.tests.DeleteUserFieldEditor.class,
-//    //uses CreateLandingPageWithForm landing page
-//    com.ontraport.app.tests.EditLandingPageFormOpacity.class,
-//    //com.ontraport.app.tests.EditLandingPageFormColor.class,
-//    //com.ontraport.app.tests.EditLandingPageFormSize.class,
-//    //end use of CreateLandingPageWithForm landing page
-//    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
-//    //uses CreateOrderform orderform
-//    com.ontraport.app.tests.CreateTaskMessageIncludeForm.class,
-//    com.ontraport.app.tests.CreateTaskMessageNoForm.class,
-//    //end use of CreateOrderform orderform
-//    com.ontraport.app.tests.DeleteOrderForm.class,
-//    //end use of CreateGateway gateway 
-//    com.ontraport.app.tests.DeleteGateway.class,
-//    //uses CreateTaskMessageBeforeDue message
-//    com.ontraport.app.tests.CreateTaskMessageSMS.class,
-//    com.ontraport.app.tests.CreateTaskMessageEmail.class,
-//    com.ontraport.app.tests.CreateTaskMessageAfterComplete.class,
-//    com.ontraport.app.tests.CreateTaskMessageAfterAssigned.class,
-//    com.ontraport.app.tests.CreateTaskMessageAfterDue.class,
-//    //end use of CreateTaskMessageBeforeDue message
-//    com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,
-//    //uses CreateStateField field
-//    com.ontraport.app.tests.AddStateFieldColumn.class,
-//    com.ontraport.app.tests.DeleteStateFieldColumn.class,
-//    com.ontraport.app.tests.AddGroupWithStateField.class,
-//    com.ontraport.app.tests.DeleteStateGroup.class,
-//    //end use of CreateStateField field
-//    com.ontraport.app.tests.DeleteStateField.class,
-//    //used in following tests and uses AddNewSection section
+    //used in following tests and uses AddNewSection section
+    com.ontraport.app.tests.CreateStateField.class,
+    //uses CreateStateField field
+    com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldState.class,
+    com.ontraport.app.tests.DeleteRule_ChangeTheValueOfAFieldState.class,
+    com.ontraport.app.tests.CreateRule_AFieldMeetsGivenCriteriaState.class,
+    com.ontraport.app.tests.DeleteRule_AFieldMeetsGivenCriteriaState.class,
+    com.ontraport.app.tests.CreateRule_ACertainFieldIsUpdatedState.class,
+    com.ontraport.app.tests.DeleteRule_ACertainFieldIsUpdatedState.class,
+    com.ontraport.app.tests.CreateLeadScoring_AStateFieldMeetsCriteria.class,
+    com.ontraport.app.tests.DeleteLeadScoring_AStateFieldMeetsCriteria.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateGateway.class, 
+    //used in following tests
+    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
+    com.ontraport.app.tests.CreateOrderform.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.SubmitOrderForm.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateUserFieldEditor.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateRule_PingAUrl.class,
+    //uses CreateATag tag and uses CreateRuleStepSequence sequence and uses CreateMessage message and 
+    //uses CreateLandingPageWithForm landing page and uses CreateOrderform orderform and 
+    //uses CreateRule_PingAUrl rule and uses AddNewSection section and uses CreateUserFieldEditor section
+    com.ontraport.app.tests.AddAPackageWithEverything.class,
+    com.ontraport.app.tests.DeletePackageWithAll.class,
+    //end use of CreateATag tag
+    com.ontraport.app.tests.DeleteTag.class,
+    //end use of CreateRule_PingAUrl rule
+    com.ontraport.app.tests.DeleteRule_PingAUrl.class,
+    //end use of CreateUserFieldEditor section
+    com.ontraport.app.tests.DeleteUserFieldEditor.class,
+    //uses CreateLandingPageWithForm landing page
+    com.ontraport.app.tests.EditLandingPageFormOpacity.class,
+    //com.ontraport.app.tests.EditLandingPageFormColor.class,
+    //com.ontraport.app.tests.EditLandingPageFormSize.class,
+    //end use of CreateLandingPageWithForm landing page
+    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
+    //uses CreateOrderform orderform
+    com.ontraport.app.tests.CreateTaskMessageIncludeForm.class,
+    com.ontraport.app.tests.CreateTaskMessageNoForm.class,
+    //end use of CreateOrderform orderform
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    //end use of CreateGateway gateway 
+    com.ontraport.app.tests.DeleteGateway.class,
+    //uses CreateTaskMessageBeforeDue message
+    com.ontraport.app.tests.CreateTaskMessageSMS.class,
+    com.ontraport.app.tests.CreateTaskMessageEmail.class,
+    com.ontraport.app.tests.CreateTaskMessageAfterComplete.class,
+    com.ontraport.app.tests.CreateTaskMessageAfterAssigned.class,
+    com.ontraport.app.tests.CreateTaskMessageAfterDue.class,
+    //end use of CreateTaskMessageBeforeDue message
+    com.ontraport.app.tests.DeleteTaskMessageBeforeDue.class,
+    //uses CreateStateField field
+    com.ontraport.app.tests.AddStateFieldColumn.class,
+    com.ontraport.app.tests.DeleteStateFieldColumn.class,
+    com.ontraport.app.tests.AddGroupWithStateField.class,
+    com.ontraport.app.tests.DeleteStateGroup.class,
+    //end use of CreateStateField field
+    com.ontraport.app.tests.DeleteStateField.class,
+    //used in following tests and uses AddNewSection section
     com.ontraport.app.tests.CreatePriceField.class,
     //uses CreatePriceField field
     com.ontraport.app.tests.CreateRule_ChangeTheValueOfAFieldPrice.class,
