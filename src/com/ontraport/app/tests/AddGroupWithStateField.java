@@ -26,9 +26,7 @@ public class AddGroupWithStateField extends AbstractTest
         contactListAll.drawerManageGroups.clickCondition("Equal To", 0);
         contactListAll.drawerManageGroups.openValuePane(0);
         contactListAll.drawerManageGroups.clickValue("Alabama", 0);
-        Thread.sleep(2000);
         contactListAll.drawerManageGroups.clickSave();
-        Thread.sleep(2000);
 
         if (contactListAll.drilldownGroup.confirmGroupExists("My First state Group"+AbstractSuite.UNIQUE) == true)
         {

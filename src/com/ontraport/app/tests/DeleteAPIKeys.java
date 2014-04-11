@@ -26,7 +26,6 @@ public class DeleteAPIKeys extends AbstractTest
         apiSettings_ListAll.menuUser.open();
         account_View = apiSettings_ListAll.menuUser.clickAdmin();
         apiSettings_ListAll = account_View.clickOntraportApiInstructionsAndKeyManager();
-        apiSettings_ListAll.formSearch.clear();
         apiSettings_ListAll.formSearch.find("SelAPI");
 
         //verify

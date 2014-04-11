@@ -87,7 +87,6 @@ public class SubmitOrderForm extends AbstractTest
             fail("couldnt find tag");
         }
         contactListAll = purchase_ListAll.menuPrimary.clickContactListAll();
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("SmartForms", "change"));
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
