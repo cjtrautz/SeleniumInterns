@@ -56,7 +56,6 @@ public class DeleteBroadCastEmail extends AbstractTest
         contactListAll.formSearch.clear();
         
         contactListAll = message_ListAll.menuPrimary.clickContactListAll();
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("Contacts", "my_email_adress2"));
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
