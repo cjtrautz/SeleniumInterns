@@ -90,7 +90,6 @@ public class EnsurePagination extends AbstractTest
         contactListAll.paginator.clickRecordsPerPage(25);
         while (j<10)
         {
-            contactListAll.formSearch.clear();
             contactListAll.formSearch.find("SelPage" + String.valueOf(j));
             contactListAll.selectAllOnPage();
             contactListAll.drawerActions.clickDeleteContacts();

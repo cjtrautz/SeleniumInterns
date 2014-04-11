@@ -20,7 +20,6 @@ public class DeleteEnsureStepSequenceImmedAndDelayStep extends AbstractTest
     public void testDeleteEnsureStepSequenceImmedAndDelayStep () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("Contacts", "ensure_sequence_email"));
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();

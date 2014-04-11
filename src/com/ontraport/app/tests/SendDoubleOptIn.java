@@ -52,7 +52,6 @@ public class SendDoubleOptIn extends AbstractTest
             fail("couldnt find contact last name");
         }
         contactListAll = contact_Edit.menuPrimary.clickContactListAll();
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("Contacts", "double_optin_email"));
         contactListAll.selectContact(1);
         contactListAll.drawerActions.clickSendDoubleOptIn();

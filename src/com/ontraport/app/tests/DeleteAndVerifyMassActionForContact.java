@@ -83,7 +83,6 @@ public class DeleteAndVerifyMassActionForContact extends AbstractTest
         {
             fail("didnt delete group in list");
         }
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find("Dont");
         if(contactListAll.verifyContact("Dont@gmail.com")==null)
         {
