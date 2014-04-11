@@ -11,7 +11,7 @@ public class OntraportAdmin_Afflink extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-component-section-components']/div[3]/div[2]")
+            using = "//div[@class='op_affiliate_label']")
     private WebElement affiliateSite;
 
     public String getLink ()
