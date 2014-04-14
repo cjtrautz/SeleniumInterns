@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
+import com.ontraport.app.tools.AbstractTest;
 
 public class SmartFormFe_Create extends AbstractPage
 {
@@ -96,6 +97,16 @@ public class SmartFormFe_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addtax ')]")
     private WebElement addTaxOption;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-publish ')]")
+    private WebElement publishForm;
+    @FindBy(how = How.XPATH,
+            using = "//a[@data-href='oaphost']")
+    private WebElement hostMyForm;
+    @FindBy(how = How.XPATH,
+            using = "//div[@id='form_hosted_link']")
+    private WebElement hostedFormURL;
+    
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -355,4 +366,29 @@ public class SmartFormFe_Create extends AbstractPage
         }
         return this;
     }
+    
+    public SmartFormFe_Create clickPublishForm ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(publishForm));
+        publishForm.click();
+        return this;
+    }
+    
+    public SmartFormFe_Create clickHostMyForm ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(hostMyForm));
+        hostMyForm.click();
+        return this;
+    }
+    
+    public SmartFormFe_Create getHostedURL ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(hostedFormURL));
+        AbstractTest.setHostedFormURL(hostedFormURL.getText());
+        return this;
+    }
+    
 }
