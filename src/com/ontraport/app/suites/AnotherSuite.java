@@ -11,9 +11,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
+import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Login;
+import com.ontraport.app.pages.Ontraport_SignUp;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractSuite;
+import com.ontraport.app.tools.Values;
 
 @RunWith(Suite.class)
 @SuiteClasses(
@@ -80,7 +83,7 @@ public class AnotherSuite extends AbstractSuite
     {
         AbstractPage.setLogin("ontraportselenium+5@gmail.com");
         AbstractPage.setPassword("test123");
-        //AbstractPage.setUrl("https://staging.ontraport.com/");
+        //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(false);
         profile.setPreference("browser.cache.disk.enable", true);
