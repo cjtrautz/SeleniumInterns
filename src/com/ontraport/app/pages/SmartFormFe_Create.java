@@ -25,7 +25,7 @@ public class SmartFormFe_Create extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-design-form-wrapper ')]")
     private WebElement smartForm;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-title ')]")
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '),' fe-title ')]")
     private WebElement smartFormName;
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Sell Products']")
@@ -121,11 +121,12 @@ public class SmartFormFe_Create extends AbstractPage
         return this;
     }
 
-    public SmartFormFe_Create clickSmartFormName ()
+    public SmartFormFe_Create sendSmartFormName (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(smartFormName));
         smartFormName.click();
+        smartFormName.sendKeys(string);
         return this;
         
     }

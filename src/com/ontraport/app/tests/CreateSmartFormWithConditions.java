@@ -23,9 +23,7 @@ public class CreateSmartFormWithConditions extends AbstractTest
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         SmartFormFe_Create smartFormFe_Create = smartFormFe_ListAll.clickNewSmartForm();
-        smartFormFe_Create.clickSmartFormName();
-        smartFormFe_Create.dialogBox.enterName(value.get("SmartForms", "conditions"));
-        smartFormFe_Create.dialogBox.clickSave();
+        smartFormFe_Create.sendSmartFormName(value.get("SmartForms", "conditions"));
         smartFormFe_Create.clickConditions();
         smartFormFe_Create.dialogBox.clickAddRuleFields();
         smartFormFe_Create.dialogBox.clickIfConditionDropDown();

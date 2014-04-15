@@ -20,9 +20,7 @@ public class CreateOrderformWithTaxAndShipping extends AbstractTest
         
         SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         SmartFormFe_Create smartFormFe_Create = smartFormFe_ListAll.clickNewSmartForm();
-        smartFormFe_Create.clickSmartFormName();
-        smartFormFe_Create.dialogBox.enterName(value.get("SmartForms", "tax_orderform"));
-        smartFormFe_Create.dialogBox.clickSave();
+        smartFormFe_Create.sendSmartFormName(value.get("SmartForms", "tax_orderform"));
         smartFormFe_Create.clickSellProducts();
         smartFormFe_Create.clickAddProduct();
         smartFormFe_Create.dialogBox.clickProductName();
