@@ -20,6 +20,7 @@ import com.ontraport.app.pages.Login;
 import com.ontraport.app.pages.OPPackage_View;
 import com.ontraport.app.pages.Ontraport_SignUp;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.Values;
 
@@ -332,8 +333,8 @@ public class FieldEditorSuite extends AbstractSuite
         oPPackage_View.dialogBox.checkIKnowNoRecovery();
         oPPackage_View.dialogBox.checkIKnowStopWorking();
         Login login = oPPackage_View.dialogBox.clickCancelAccount();
-        
-        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
+        AbstractPart.waitForAjax(driver, 30);
+        if ( driver.findElements(By.xpath("//form[@id='moonray_forms_545']")).size() == 0 )
         {
             fail("Can't find Affiliates page");
         }

@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -123,10 +124,13 @@ public class SmartFormFe_Create extends AbstractPage
 
     public SmartFormFe_Create sendSmartFormName (String string)
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjaxAndLoading(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(smartFormName));
         smartFormName.click();
         smartFormName.sendKeys(string);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.TAB).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
         return this;
         
     }

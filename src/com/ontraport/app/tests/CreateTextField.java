@@ -36,7 +36,6 @@ public class CreateTextField extends AbstractTest
         }
         
         field_Editor.clickCancel();
-        field_Editor.dialogBox.clickOk();
         
     }
 }

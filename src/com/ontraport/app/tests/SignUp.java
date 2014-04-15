@@ -82,7 +82,7 @@ public class SignUp extends AbstractTest
         oPPackage_View.dialogBox.checkIKnowStopWorking();
         login = oPPackage_View.dialogBox.clickCancelAccount();
         
-        if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
+        if ( driver.findElements(By.xpath("//form[@id='moonray_forms_545']")).size() == 0 )
         {
             fail("Can't find Affiliates page");
         }
