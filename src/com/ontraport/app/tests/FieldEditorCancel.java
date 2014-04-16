@@ -23,7 +23,6 @@ public class FieldEditorCancel extends AbstractTest
         Contact_Settings contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         Field_Editor field_Editor = contact_Settings.clickFieldEditor();
         contact_Settings = field_Editor.clickCancel();
-        contact_Settings.dialogBox.clickOk();
         if(contact_Settings.verifyPage()==null)
         {
             fail("couldnt find contact settings page");

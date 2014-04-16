@@ -510,20 +510,20 @@ public class Contact_ScoreEdit extends AbstractPage
         return this;
     }
 
-    public Contact_ListAll clickBack ()
+    public Contact_Settings clickBack ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
-        return (Contact_ListAll) new Contact_ListAll().init();
+        return (Contact_Settings) new Contact_Settings().init();
     }
 
-    public Contact_ListAll clickCancel ()
+    public Contact_Settings clickCancel ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(cancel));
         cancel.click();
-        return (Contact_ListAll) new Contact_ListAll().init();
+        return (Contact_Settings) new Contact_Settings().init();
     }
     
 }

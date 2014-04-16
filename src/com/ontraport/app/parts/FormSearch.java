@@ -85,6 +85,9 @@ public class FormSearch extends AbstractPart
     public FormSearch clear ()
     {
         waitForAjax(driver, 20);
+        wait(15).until(ExpectedConditions.visibilityOf(uiSearch));
+        uiSearch.click();
+        wait(15).until(ExpectedConditions.visibilityOf(uiClear));
         uiClear.click();
         return this;
     }

@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class AddGroupWithStateField extends AbstractTest
 {
     @Test
-    public void testAddGroupWithStateField ()
+    public void testAddGroupWithStateField () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
 
@@ -37,7 +37,9 @@ public class AddGroupWithStateField extends AbstractTest
             System.out.println("Exists: Failure");
             fail("Failure");
         }
+        Thread.sleep(2000);
         contactListAll.drawerManageGroups.open();
+        Thread.sleep(2000);
         if (contactListAll.drawerManageGroups.verifyFieldDropDown("SelState", 0) == null)
         {
             fail("couldnt find field group");

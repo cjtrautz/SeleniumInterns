@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,6 +16,7 @@ import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 import com.ontraport.app.tools.AbstractTest;
+import com.thoughtworks.selenium.Wait;
 
 public class SmartFormFe_Create extends AbstractPage
 {
@@ -26,7 +28,7 @@ public class SmartFormFe_Create extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-design-form-wrapper ')]")
     private WebElement smartForm;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' fe-title ')]")
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '),' fe-title ')]")
     private WebElement smartFormName;
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button-text-icon-primary ')]//span[text()='Sell Products']")
@@ -132,11 +134,15 @@ public class SmartFormFe_Create extends AbstractPage
         return this;
     }
 
-    public SmartFormFe_Create clickSmartFormName ()
+    public SmartFormFe_Create sendSmartFormName (String string)
     {
-        AbstractPart.waitForAjax(driver, 20);
+        AbstractPart.waitForAjaxAndLoading(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(smartFormName));
         smartFormName.click();
+        smartFormName.sendKeys(string);
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.TAB).build().perform();
+        AbstractPart.waitForAjax(driver, 20);
         return this;
         
     }
@@ -387,6 +393,8 @@ public class SmartFormFe_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(hostedFormURL));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        System.out.println(hostedFormURL.getText());
         AbstractTest.setHostedFormURL(hostedFormURL.getText());
         return this;
     }

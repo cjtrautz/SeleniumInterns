@@ -23,12 +23,9 @@ public class CreateAndHostSmartForm extends AbstractTest
         
         SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         SmartFormFe_Create smartFormFe_Create = smartFormFe_ListAll.clickNewSmartForm();
-        smartFormFe_Create.clickSmartFormName();
-        smartFormFe_Create.dialogBox.enterName(value.get("SmartForms", "hosted_form"));
+        smartFormFe_Create.sendSmartFormName(value.get("SmartForms", "hosted_form"));
         smartFormFe_Create.clickPublishForm();
         smartFormFe_Create.clickHostMyForm();
         smartFormFe_Create.getHostedURL();
-        
-        System.out.println(AbstractTest.getHostedFormURL());
     }
 }

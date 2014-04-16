@@ -29,7 +29,6 @@ public class DeleteDropdownField extends AbstractTest
         }
         
         field_Editor.clickCancel();
-        field_Editor.dialogBox.clickOk();
         
     }
 }

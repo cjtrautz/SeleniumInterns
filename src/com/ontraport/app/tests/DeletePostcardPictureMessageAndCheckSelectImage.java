@@ -25,7 +25,7 @@ public class DeletePostcardPictureMessageAndCheckSelectImage extends AbstractTes
         message_Edit.dialogBox.clickDelete();
         message_Edit.dialogBox.clickBrowse();
         message_Edit.dialogBox.clickCancelPicture();
-        message_ListAll = message_Edit.clickSave();
+        message_ListAll = message_Edit.clickSavePostcard();
         message_ListAll.formSearch.find(value.get("Messages", "gradient_picture"));
         message_ListAll.selectAllOnPage();
         message_ListAll.drawerActions.clickDeleteMessage();

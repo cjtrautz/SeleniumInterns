@@ -32,7 +32,7 @@ public class CreatePostcardAndEditFontSize extends AbstractTest
         message_CreatePostcard.enterText("test text");
         message_CreatePostcard.doubleClickText("test text");
         message_CreatePostcard.clickFontDropDown();
-        message_CreatePostcard.selectSize("32");
+        message_CreatePostcard.selectSize("3");
         message_ListAll = message_CreatePostcard.clickSave();
         message_ListAll.formSearch.find("SelMessageTestingPostcard");
         

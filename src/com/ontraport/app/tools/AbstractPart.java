@@ -49,6 +49,60 @@ public abstract class AbstractPart
         }
         return jQcondition;
     }
+    public static boolean waitForAjaxAndLoading ( WebDriver driver, int timeOutInSeconds )
+    {
+        
+        boolean jQcondition = false;
+        try
+        {
+            driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            WebDriverWait wait = new WebDriverWait(AbstractSuite.getDriver(), 30);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-state-loading ')]")));
+            new WebDriverWait(driver, timeOutInSeconds){}
+            .until(new ExpectedCondition<Boolean>()
+            {
+                @Override
+                public Boolean apply ( WebDriver driverObject )
+                {
+                    return (Boolean) ( (JavascriptExecutor) driverObject ).executeScript("return ontraport.activeRequests === 0");
+                }
+            });
+            jQcondition = (Boolean) ( (JavascriptExecutor) driver )
+                        .executeScript( "return window.ontraport != undefined "
+                                      + "&& ontraport.activeRequests != undefined "
+                                      + "&& ontraport.activeRequests === 0" );
+            
+            driver.manage().timeouts().implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+            return jQcondition;
+        }
+        catch (Exception e)
+        {
+            System.out.print("here");
+            try
+            {
+                new WebDriverWait(driver, timeOutInSeconds){}
+                .until(new ExpectedCondition<Boolean>()
+                {
+                    @Override
+                    public Boolean apply ( WebDriver driverObject )
+                    {
+                        return (Boolean) ( (JavascriptExecutor) driverObject ).executeScript("return ontraport.activeRequests === 0");
+                    }
+                });
+                jQcondition = (Boolean) ( (JavascriptExecutor) driver )
+                            .executeScript( "return window.ontraport != undefined "
+                                          + "&& ontraport.activeRequests != undefined "
+                                          + "&& ontraport.activeRequests === 0" );
+                driver.manage().timeouts().implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+                return jQcondition;
+            }
+            catch (Exception e2)
+            {
+            
+            }
+        }
+        return jQcondition;
+    }
     public static boolean waitForAjax2 ( WebDriver driver, int timeOutInSeconds )
     {
         AbstractPart.setTrys(0);

@@ -72,7 +72,6 @@ public class SendSingleEmailToContact extends AbstractTest
             fail("couldnt find contact last name");
         }
         contactListAll = contact_Edit.menuPrimary.clickContactListAll();
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
         contactListAll.selectContact(1);
         contactListAll.drawerActions.clickSendEmail();
@@ -90,9 +89,9 @@ public class SendSingleEmailToContact extends AbstractTest
 //        {
 //            fail("didnt que send");
 //        }
-//        AbstractPart.waitForAjax(driver, 20);
-//        driver.navigate().refresh();
-        contactListAll.formSearch.clear();
+        AbstractPart.waitForAjax(driver, 20);
+        driver.navigate().refresh();
+        //contactListAll.formSearch.clear();
         contactListAll.formSearch.find(value.get("Contacts", "my_email_adress"));
         contactListAll.selectContact(1);
         contactListAll.drawerActions.clickSendEmail();

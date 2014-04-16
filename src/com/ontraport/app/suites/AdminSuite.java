@@ -111,12 +111,40 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteFulfillmentFromSequence.class,
     com.ontraport.app.tests.DeleteProduct.class,
     com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
+    com.ontraport.app.tests.MoveATabToOverflow.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateSplitTestMessages.class,
+    //uses CreateRuleStepSequence sequence and uses CreateMessage message
+    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+  //uses CreateRuleStepSequence sequence and uses CreateSplitTestMessages messages
+    com.ontraport.app.tests.EditSequenceSplitB.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditSequenceSplitBAndCAndD.class,
+    //uses CreateRuleStepSequence sequence
+    com.ontraport.app.tests.EditSequenceWait0Days.class,
+    com.ontraport.app.tests.EditSequenceWait1Days.class,
+    com.ontraport.app.tests.EditSequenceSendAt15Mins.class,
+    com.ontraport.app.tests.EditSequenceSendAtImmediate.class,
+    com.ontraport.app.tests.EditSequenceSendAt2Hours.class,
+    com.ontraport.app.tests.EditSequenceSendAt12PM.class,
+    com.ontraport.app.tests.ShowSequenceOnSubscriptionManaementPage.class,
+    //used in following tests and uses CreateMessage message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    //uses CreateEmailDateSequence sequence and uses CreateSplitTestMessages messages
+    com.ontraport.app.tests.EditDateSequenceSplitB.class,
+    com.ontraport.app.tests.EditDateSequenceSplitBAndC.class,
+    com.ontraport.app.tests.EditDateSequenceSplitBAndCAndD.class,
+    //uses uses CreateEmailDateSequence sequence
+    com.ontraport.app.tests.CreateDateSequenceFromExisting.class,
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,
+    //end use of CreateEmailDateSequence sequence
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
-    
-    com.ontraport.app.tests.MoveATabToOverflow.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
    
     
     

@@ -78,7 +78,6 @@ public class EnsureTaskOutcomeWorksOnCompletion extends AbstractTest
             fail("couldnt verify outcome");
         }
         contactListAll = contact_edit.menuPrimary.clickContactListAll();
-        contactListAll.formSearch.clear();
         contactListAll.formSearch.find("task@email.com");
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();

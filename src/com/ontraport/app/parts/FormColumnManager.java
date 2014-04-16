@@ -46,6 +46,11 @@ public class FormColumnManager extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
+            using = "//tr[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell-type-total-row ')]")
+    private WebElement totalsColumn;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//tr[@class='sem-collection-header-display']/th[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell ')]")
     private List<WebElement> headerColumnCells;
     
@@ -230,6 +235,11 @@ public class FormColumnManager extends AbstractPart
         {
             return null;
         }
+        return this;
+    }
+    public FormColumnManager waitForTotals ()
+    {
+        wait(5).until(ExpectedConditions.visibilityOf(totalsColumn));  
         return this;
     }
 }

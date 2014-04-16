@@ -19,6 +19,7 @@ public class AddPriceFieldColumn extends AbstractTest
         contactListAll.formColumnManager.enterFieldPaneInput(value.get("Fields", "Price_Field"));
         contactListAll.formColumnManager.clickField(value.get("Fields", "Price_Field"));
         contactListAll.formColumnManager.clickCheckMark();
+        contactListAll.formColumnManager.waitForTotals();
         
         //verify its there
         if (contactListAll.verifyColumn(value.get("Fields", "Price_Field"))==null)
