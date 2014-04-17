@@ -55,6 +55,7 @@ public class ZencoderVideo_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            System.out.println(format);
             if(!driver.findElement(By.xpath("//a[contains(@href, '#!/zencoder_video/edit&id') and @title='" + format + "']")).isDisplayed())
             {
                 return null;

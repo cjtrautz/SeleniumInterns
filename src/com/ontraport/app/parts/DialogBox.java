@@ -133,7 +133,7 @@ public class DialogBox extends AbstractPart
             using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' ussr-componet-image-selector-target-box-ul ')]/li")
     private WebElement images;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='OK' or text()='Ok' or text()='ok']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='OK' or text()='Ok' or text()='ok' or text()='Okay']")
     private WebElement uiOk;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Cancel']")
@@ -142,7 +142,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
     private WebElement uiClose;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[text()='Close']")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-title-close ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
     private WebElement uiClose2;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
@@ -507,12 +507,12 @@ public class DialogBox extends AbstractPart
         return this;
         
     }
-    public WordPress_ListAll clickClose2 ()
+    public DialogBox clickClose2 ()
     {
         waitForAjax(driver, 60);
         wait(30).until(ExpectedConditions.visibilityOf(uiClose2));
         uiClose2.click();
-        return (WordPress_ListAll) new WordPress_ListAll().init();
+        return this;
     }
     public DialogBox clickUpload ()
     {
@@ -989,8 +989,8 @@ public class DialogBox extends AbstractPart
         String stuff = driver.findElement(By.xpath("//div[@class='ontraport_components_dialog']/following-sibling::div")).getText();
         String delims= "[ \n]+";
         String[] tokens = stuff.split(delims);
-        System.out.println(tokens[34]);
-        return tokens[34];
+        System.out.println(tokens[35]);
+        return tokens[35];
     }
     public DialogBox clickTagDropDown ()
     {
