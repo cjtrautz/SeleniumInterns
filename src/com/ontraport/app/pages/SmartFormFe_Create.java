@@ -412,7 +412,6 @@ public class SmartFormFe_Create extends AbstractPage
         try
         {
             driver.findElement(By.xpath("//form[contains(concat(' ', normalize-space(@class), ' '),' moonray-form-clearfix ')]"));
-            System.out.println("WIN!");
         }
         catch(Exception e)
         {
