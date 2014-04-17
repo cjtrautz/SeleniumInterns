@@ -107,8 +107,10 @@ public class SmartFormFe_Create extends AbstractPage
     private WebElement hostMyForm;
     @FindBy(how = How.XPATH,
             using = "//div[@id='form_hosted_link']")
-    private WebElement hostedFormURL;
-    
+    private WebElement hostedFormURLDiv;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(text(), 'http')]")
+    private WebElement hostedFormURL;    
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -393,9 +395,29 @@ public class SmartFormFe_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(hostedFormURL));
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        System.out.println(hostedFormURL.getText());
-        AbstractTest.setHostedFormURL(hostedFormURL.getText());
+        AbstractTest.setHostedFormURL(hostedFormURLDiv.getText());
+        return this;
+    }
+    
+    public SmartFormFe_Create visitHostedURL ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        driver.get(AbstractTest.getHostedFormURL());
+        return this;
+    }
+    
+    public SmartFormFe_Create verifyFormLoad ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            driver.findElement(By.xpath("//form[contains(concat(' ', normalize-space(@class), ' '),' moonray-form-clearfix ')]"));
+            System.out.println("WIN!");
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
         return this;
     }
     

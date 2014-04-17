@@ -27,5 +27,10 @@ public class CreateAndHostSmartForm extends AbstractTest
         smartFormFe_Create.clickPublishForm();
         smartFormFe_Create.clickHostMyForm();
         smartFormFe_Create.getHostedURL();
+        smartFormFe_Create.visitHostedURL();
+        
+        if (smartFormFe_Create.verifyFormLoad() == null){
+            fail ("form did not load");
+        }
     }
 }
