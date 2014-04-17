@@ -28,7 +28,7 @@ public class OPPackage_View extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' add_package ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' add_package ')]")
     private WebElement addPackage;
     
     @FindBy(
@@ -41,7 +41,7 @@ public class OPPackage_View extends AbstractPage
     private WebElement exportPage;
     
     @FindBy(how = How.XPATH,
-            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' oap_cancellation ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' oap_cancellation ')]")
     private WebElement cancelAccount;
 
     public OPPackage_View clickAddPackage ()

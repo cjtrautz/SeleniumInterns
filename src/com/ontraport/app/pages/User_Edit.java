@@ -650,6 +650,7 @@ public class User_Edit extends AbstractPage
     public User_Edit selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[text()='" + string + "']")));
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[text()='" + string + "']"))));
         driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[text()='" + string + "']")).click();
         return this;
