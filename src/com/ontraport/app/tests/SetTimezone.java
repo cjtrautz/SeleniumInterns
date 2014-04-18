@@ -18,13 +18,13 @@ public class SetTimezone extends AbstractTest
         contactListAll.menuUser.open();
         User_Edit user_Edit = contactListAll.menuUser.clickPersonalSettings();
         user_Edit.clickTimezone();
-        user_Edit.selectDropDown("HI");
+        user_Edit.selectDropDown("Addis Ababa");
         contactListAll = user_Edit.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         user_Edit = contactListAll.menuUser.clickPersonalSettings();
         
         //verify Permission
-        if(user_Edit.verifyTimezone("HI")==null)
+        if(user_Edit.verifyTimezone("Los Angeles")==null)
         {
             fail("couldn't find timezone");
         }
