@@ -46,7 +46,8 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteRuleDateSequence.class,
 //    com.ontraport.app.tests.DeleteTag.class,
 //    com.ontraport.app.tests.DeleteMessage.class,
-    com.ontraport.app.tests.CreateAndHostSmartForm.class
+    com.ontraport.app.tests.CreateAndHostSmartForm.class,
+    com.ontraport.app.tests.DeleteHostedSmartForm.class
 }
 )
 public class Review extends AbstractSuite

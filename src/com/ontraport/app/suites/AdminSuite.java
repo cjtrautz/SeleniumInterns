@@ -94,6 +94,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
     com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
     com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
+    com.ontraport.app.tests.CreateAndHostSmartForm.class,
+    com.ontraport.app.tests.DeleteHostedSmartForm.class,
     
     com.ontraport.app.tests.CreateMessage.class,
     com.ontraport.app.tests.CreateATag.class,
