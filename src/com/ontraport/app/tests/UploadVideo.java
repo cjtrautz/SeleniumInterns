@@ -30,7 +30,7 @@ public class UploadVideo extends AbstractTest
         ZencoderVideo_ListAll zencoderVideo_ListAll = account_View.clickVideoManager();
         ZencoderVideo_Create zencoderVideo_Create = zencoderVideo_ListAll.clickNewVideo();
         zencoderVideo_ListAll = zencoderVideo_Create.sendFile("/home/**/workspace/com.ontraport.app/etc/spacetestSMALL_512kb.mp4");
-        DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy  H:mm a");
+        DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy  h:mm a");
         Date date = new Date();
         if(zencoderVideo_ListAll.verifyUploadDate(dateFormat.format(date))==null)
         {

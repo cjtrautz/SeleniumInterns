@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebElement;
@@ -47,6 +48,7 @@ public class OPPackage_View extends AbstractPage
     public OPPackage_View clickAddPackage ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addPackage);
         wait.until(ExpectedConditions.visibilityOf(addPackage));
         addPackage.click();
         return this;
@@ -56,6 +58,8 @@ public class OPPackage_View extends AbstractPage
     public OPPackage_View clickExportItFirst ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", export);
+        wait.until(ExpectedConditions.visibilityOf(export));
         export.click();
         return this;
     }
@@ -65,6 +69,7 @@ public class OPPackage_View extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", exportPage);
             if(!exportPage.isDisplayed())
             {
                 return null;
@@ -133,6 +138,7 @@ public class OPPackage_View extends AbstractPage
     public OPPackage_View clickHere ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", terms);
         wait.until(ExpectedConditions.visibilityOf(terms));
         terms.click();
         return this;
@@ -141,6 +147,7 @@ public class OPPackage_View extends AbstractPage
     public OPPackage_View clickCancelAccount ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", cancelAccount);
         wait.until(ExpectedConditions.visibilityOf(cancelAccount));
         cancelAccount.click();
         return this;
