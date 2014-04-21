@@ -39,7 +39,7 @@ public class ChangePassword extends AbstractTest
         }
         catch(Exception e)
         {
-            System.out.println("Can't find log out page 1");
+            fail("Can't find log out page 1");
         }
         Login login = (Login) new Login().init();
         login.open(Login.url);
