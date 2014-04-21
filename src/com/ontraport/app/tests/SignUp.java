@@ -28,7 +28,7 @@ public class SignUp extends AbstractTest
         contactListAll.menuUser.clickLogOut();
         if ( driver.findElements(By.xpath("//li[@id='menu-item-9']//a[.='Features']")).size() == 0 )
         {
-            System.out.println("Can't find Affiliates page" + driver.getCurrentUrl());
+            fail("Can't find Affiliates page" + driver.getCurrentUrl());
         }
         driver.get("https://ontraport.com/ontraport-comped-signup.php");
         Ontraport_SignUp ontraport_SignUp = (Ontraport_SignUp) new Ontraport_SignUp().init();
@@ -82,7 +82,7 @@ public class SignUp extends AbstractTest
         oPPackage_View.dialogBox.checkIKnowStopWorking();
         login = oPPackage_View.dialogBox.clickCancelAccount();
         
-        if ( driver.findElements(By.xpath("//form[@id='moonray_forms_545']")).size() == 0 )
+        if ( driver.findElements(By.xpath("//input[@class='moonray-form-input']")).size() == 0 )
         {
             fail("Can't find Affiliates page");
         }
