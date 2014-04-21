@@ -429,7 +429,6 @@ public class SmartFormFe_Edit extends AbstractPage
 
     public SmartFormFe_Edit verifyGetPaid ()
     {
-        driver.navigate().refresh();
         AbstractPart.waitForAjax(driver, 30);
         try
         {
