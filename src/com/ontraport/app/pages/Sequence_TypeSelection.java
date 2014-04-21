@@ -15,6 +15,11 @@ public class Sequence_TypeSelection extends AbstractPage
             how = How.XPATH,
             using = "//a[@href='#!/sequence/create&type=step']/button")
     private WebElement stepSequenceCreate;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//a[@type='step']/button/span")
+    private WebElement workflowStepSequenceCreate;
 
     @FindBy(
             how = How.XPATH,
@@ -41,6 +46,15 @@ public class Sequence_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax2(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(stepSequenceCreate));
         stepSequenceCreate.click();
+        return (Sequence_CreateStep) new Sequence_CreateStep().init();
+
+    }
+    
+    public Sequence_CreateStep workflowClickStepSequenceCreate ()
+    {
+        AbstractPart.waitForAjax2(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(workflowStepSequenceCreate));
+        workflowStepSequenceCreate.click();
         return (Sequence_CreateStep) new Sequence_CreateStep().init();
 
     }

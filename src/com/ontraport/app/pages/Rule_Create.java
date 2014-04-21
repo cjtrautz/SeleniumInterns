@@ -105,6 +105,21 @@ public class Rule_Create extends AbstractPage
             how = How.XPATH,
             using = "//button//span[text()='Save']")
     private WebElement saveButton;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[@title='Create New Sequence']")
+    private WebElement createNewSequence;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[@class='ussr-component-quick-object-creator-wrapper']//input")
+    private WebElement newObjectName;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-quick-object-creator-target-sae-button ')]//button")
+    private WebElement saveAndEditObject;
 
     public Rule_Create enterRuleName ( String name )
     {
@@ -531,5 +546,27 @@ public class Rule_Create extends AbstractPage
         return this;
     }
 
+    public Rule_Create clickCreateNewSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNewSequence));
+        createNewSequence.click();
+        return this;
+    }
     
+    public Rule_Create enterNewObjectName (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newObjectName));
+        newObjectName.sendKeys(string);
+        return this;
+    }
+    
+    public Sequence_TypeSelection saveAndEditNewSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveAndEditObject));
+        saveAndEditObject.click();
+        return (Sequence_TypeSelection) new Sequence_TypeSelection().init();
+    }
 }
