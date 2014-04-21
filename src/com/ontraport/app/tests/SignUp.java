@@ -30,7 +30,7 @@ public class SignUp extends AbstractTest
         {
             System.out.println("Can't find Affiliates page" + driver.getCurrentUrl());
         }
-        driver.get("https://ontraport.com/ontraport-comped-signup.php");
+        driver.get("www.google.com);
         Ontraport_SignUp ontraport_SignUp = (Ontraport_SignUp) new Ontraport_SignUp().init();
         ontraport_SignUp.enterFirstName(value.get("SignUp", "first_name"));
         ontraport_SignUp.enterLastName(value.get("SignUp", "last_name"));
