@@ -857,6 +857,12 @@ public class Sequence_CreateStep extends AbstractPage
         return this;
     }
 
+    public Rule_Create clickSaveToRuleWorkflow ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        save.click();
+        return (Rule_Create) new Rule_Create().init();
 
+    }
     
 }
