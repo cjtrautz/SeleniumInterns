@@ -48,9 +48,12 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.EditAffiliatesProgramBack.class,
     com.ontraport.app.tests.EditAffiliatesProgramCancel.class,
+   
     
-    //used in following tests
-    com.ontraport.app.tests.CreateMessage.class, 
+    com.ontraport.app.tests.CreateMessage.class,
+    com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.CreateRuleDateSequence.class,
+    com.ontraport.app.tests.MassActionForContacts.class,
     //uses CreateMessage message
     com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
     com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,
@@ -68,8 +71,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.EditAffilatesProgramName.class,
     //end use of CreateAffilatesProgram program
     com.ontraport.app.tests.DeleteAffiliateProgram.class,
-    //ends the use of CreateMessage message
-    com.ontraport.app.tests.DeleteMessage.class,
     
     com.ontraport.app.tests.VideoManagerBack.class,
     
@@ -79,11 +80,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateTrackingURL.class,
     com.ontraport.app.tests.DeleteTrackingURL.class,
     
-
-    com.ontraport.app.tests.CreateMessage.class,
-    com.ontraport.app.tests.CreateATag.class,
-    com.ontraport.app.tests.CreateRuleDateSequence.class,
-    com.ontraport.app.tests.MassActionForContacts.class,
     com.ontraport.app.tests.CreateTaskFromSequence.class,
     com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
     com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
@@ -138,7 +134,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
     com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
     com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
-    
     com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
     com.ontraport.app.tests.DeleteRuleDateSequence.class,
     com.ontraport.app.tests.DeleteTag.class,

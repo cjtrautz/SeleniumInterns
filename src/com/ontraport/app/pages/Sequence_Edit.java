@@ -103,7 +103,7 @@ public class Sequence_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(concat(' ', @class, ' '),' ussr-component-form-control ')]//button")
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//div[contains(@class,'NAME_send_from')]//button")
     private WebElement toggleEmailFrom;
     
     @FindBy(
