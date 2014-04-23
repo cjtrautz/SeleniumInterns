@@ -21,7 +21,7 @@ public class CreateRule_ACertainFieldIsUpdatedLongText extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName(value.get("Rules", "when_longtext_is_updated"));
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("A Certain field is updated");
+        rule_Create.selectWhenDrillDownPaneOption("A field is updated");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.enterWhenInputDropDown("Long", 1);
         rule_Create.selectWhenDrillDownPaneOption(value.get("Fields", "Long_Text_Field"));
