@@ -73,6 +73,11 @@ public class Contact_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH, 
+            using = "//a[normalize-space(text())='Memberships']")
+    private List<WebElement> membershipsTab;
+    
+    @FindBy(
+            how = How.XPATH, 
             using = "//a[normalize-space(text())='Contact History']")
     private List<WebElement> contactHistory;
     
@@ -144,6 +149,14 @@ public class Contact_Edit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//a[contains(concat(' ', normalize-space(@class), ' '),' jb-overflowmenu-menu-secondary-handle ')]/span")
     private WebElement overflowIcon;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ussr-component-sub-collection-add-new']/span[text()='NEW WordPress Membership']")
+    private WebElement newWPMembership;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-site ')]//input")
+    private WebElement wpMembershipDrilldown;
     
     public Contact_Edit clickLastName ()
     {
@@ -612,6 +625,7 @@ public class Contact_Edit extends AbstractPage
         }
         return this;
     }
+    
     public Contact_Edit verifyNoLogItem (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -624,6 +638,40 @@ public class Contact_Edit extends AbstractPage
         }
         return null;
     }
-
+    
+    public Contact_Edit clickMembershipsTab ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try 
+        {
+            wait.until(ExpectedConditions.visibilityOf(membershipsTab.get(0)));
+            membershipsTab.get(0).click();
+        }
+        catch (Exception e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(overflowIcon));
+            overflowIcon.click();
+            AbstractPart.waitForAjax(driver, 20);
+            wait.until(ExpectedConditions.visibilityOf(membershipsTab.get(1)));
+            membershipsTab.get(1).click();
+        }
+        return this;
+    }
+    
+    public Contact_Edit clickNewWPMembership ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWPMembership));
+        newWPMembership.click();
+        return this;
+    }
+    
+    public Contact_Edit clickWPMembershipDrilldown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpMembershipDrilldown));
+        wpMembershipDrilldown.click();
+        return this;
+    }
 }
 
