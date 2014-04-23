@@ -172,7 +172,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-buttons ')]//button")
     private WebElement markComplete;
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' longfellowtours-btn-stop ')]")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' longfellow-close-button ')]//span")
     private WebElement cancelTour;
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
@@ -314,22 +314,22 @@ public class DialogBox extends AbstractPart
             using = "//ul[contains(concat(' ', normalize-space(@class), ' '), ' orderform-objectselector-list ')]")
     private WebElement productDrillDownSelect;
     @FindBy(how = How.XPATH,
-            using = "//input[@name='domain']")
+            using = "//div[contains(@class, 'NAME_subdomain')]//input")
     private WebElement subdomainInput;
     @FindBy(how = How.XPATH,
-            using = "//input[@name='reply_to']")
+            using = "//div[contains(@class, 'NAME_replyto_name')]//input")
     private WebElement repyToInput;
     @FindBy(how = How.XPATH,
-            using = "//input[@name='bussname']")
+            using = "//div[contains(@class, 'NAME_bussname')]//input")
     private WebElement businessNameInput;
     @FindBy(how = How.XPATH,
-            using = "//input[@name='buss_add']")
+            using = "//div[contains(@class, 'NAME_buss_add')]//input")
     private WebElement businessAddressInput;
     @FindBy(how = How.XPATH,
-            using = "//input[@name='buss_city']")
+            using = "//div[contains(@class, 'NAME_buss_city')]//input")
     private WebElement businessCityInput;
     @FindBy(how = How.XPATH,
-            using = "//input[@name='buss_zip']")
+            using = "//div[contains(@class, 'NAME_buss_zip')]//input")
     private WebElement businessZipInput;
     @FindBy(how = How.XPATH,
             using = "//input[@value='Submit']")
