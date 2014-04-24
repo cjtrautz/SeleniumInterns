@@ -22,7 +22,7 @@ public class EnsureRulesFire extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleEnsureThatItWillFire");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("A Certain field is updated");
+        rule_Create.selectWhenDrillDownPaneOption("A field is updated");
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("First Name");
         rule_Create.openThenActionPane(1);

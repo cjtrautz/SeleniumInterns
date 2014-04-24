@@ -175,6 +175,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateCodeModeLandingPageFromExisting.class,
     //end use of CreateLandingPageCodeMode landing page
     com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
+    com.ontraport.app.tests.DeleteTag.class,
     
     com.ontraport.app.tests.VideoManagerCancel.class,
     com.ontraport.app.tests.CreateLandingPageBack.class,

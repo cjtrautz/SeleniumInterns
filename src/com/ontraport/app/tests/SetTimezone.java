@@ -24,18 +24,18 @@ public class SetTimezone extends AbstractTest
         user_Edit = contactListAll.menuUser.clickPersonalSettings();
         
         //verify Permission
-        if(user_Edit.verifyTimezone("Los Angeles")==null)
+        if(user_Edit.verifyTimezone("Addis Ababa")==null)
         {
             fail("couldn't find timezone");
         }
         
         user_Edit.clickTimezone();
-        user_Edit.selectDropDown("PST");
+        user_Edit.selectDropDown("Los Angeles");
         contactListAll = user_Edit.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         user_Edit = contactListAll.menuUser.clickPersonalSettings();
         
-        if(user_Edit.verifyTimezone("PST")==null)
+        if(user_Edit.verifyTimezone("Los Angeles")==null)
         {
             fail("couldn't find timezone");
         }

@@ -334,7 +334,7 @@ public class FieldEditorSuite extends AbstractSuite
         oPPackage_View.dialogBox.checkIKnowStopWorking();
         Login login = oPPackage_View.dialogBox.clickCancelAccount();
         AbstractPart.waitForAjax(driver, 30);
-        if ( driver.findElements(By.xpath("//form[@id='moonray_forms_545']")).size() == 0 )
+        if ( driver.findElements(By.xpath("//input[@class='moonray-form-input']")).size() == 0 )
         {
             fail("Can't find Affiliates page");
         }

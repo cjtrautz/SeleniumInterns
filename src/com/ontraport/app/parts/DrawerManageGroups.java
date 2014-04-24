@@ -94,11 +94,11 @@ public class DrawerManageGroups extends AbstractPart
     private List<WebElement> uiInputValueRows;
 
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Save']")
+            using = "//button[contains(concat(' ',@class,' '), ' sem-save-button ')]")
     private WebElement uiButtonSave;
     
     @FindBy(how = How.XPATH,
-    using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Delete Group']")
+    using = "//button[contains(concat(' ',@class,' '), ' sem-delete-button ')]")
 private WebElement uiButtonDeleteGroup;
     
     @FindBy(how = How.XPATH,
