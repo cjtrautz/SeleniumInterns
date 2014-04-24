@@ -115,7 +115,7 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes clear all')]")
     private WebElement yesClearAll;
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Delete')]")
     private WebElement yes;
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-delete-button ')]")
