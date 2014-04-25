@@ -82,11 +82,7 @@ import com.ontraport.app.tools.AbstractSuite;
 
     com.ontraport.app.tests.CreateAndHostSmartForm.class,
     com.ontraport.app.tests.DeleteHostedSmartForm.class,
-    
-    com.ontraport.app.tests.CreateMessage.class,
-    com.ontraport.app.tests.CreateATag.class,
-    com.ontraport.app.tests.CreateRuleDateSequence.class,
-    com.ontraport.app.tests.MassActionForContacts.class,
+
     com.ontraport.app.tests.CreateTaskFromSequence.class,
     com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
     com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
