@@ -20,7 +20,7 @@ public class CreateAffiliateProgramFromContact extends AbstractTest
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
         
-        Contact_Edit contactEdit = contactListAll.clickContact(0);
+        Contact_Edit contactEdit = contactListAll.clickContact(1);
         
         contactEdit.clickReferralInfoTab();
         contactEdit.clickAffiliateProgram();
