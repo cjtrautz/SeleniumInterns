@@ -79,22 +79,7 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateTrackingURL.class,
     com.ontraport.app.tests.DeleteTrackingURL.class,
-    
-    com.ontraport.app.tests.CreateSmartFormWithConditions.class,
-    com.ontraport.app.tests.DeleteSmartFormWithConditions.class,
-    com.ontraport.app.tests.CreateSmartFormWithTemplate.class,
-    com.ontraport.app.tests.DeleteSmartFormWithTemplate.class,
-    com.ontraport.app.tests.CreateSmartFormWithAddSeparator.class,
-    com.ontraport.app.tests.DeleteSmartFormWithAddSeparator.class,
-    com.ontraport.app.tests.CreateSmartFormWithCaptcha.class,
-    com.ontraport.app.tests.DeleteSmartFormWithCaptcha.class,
-    com.ontraport.app.tests.CreateSmartFormWithAddContent.class,
-    com.ontraport.app.tests.DeleteSmartFormWithAddContent.class,
-    com.ontraport.app.tests.CreateSmartFormWithAddField.class,
-    com.ontraport.app.tests.DeleteSmartFormField.class,
-    com.ontraport.app.tests.DeleteSmartFormWithAddField.class,
-    com.ontraport.app.tests.CreateSmartFormWithMovedSubmit.class,
-    com.ontraport.app.tests.DeleteSmartFormWithMovedSubmit.class,
+
     com.ontraport.app.tests.CreateAndHostSmartForm.class,
     com.ontraport.app.tests.DeleteHostedSmartForm.class,
     
