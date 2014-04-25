@@ -19,14 +19,13 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.UploadVideo.class,
+//    com.ontraport.app.tests.UploadVideo.class,
 //    com.ontraport.app.tests.CreateGateway.class,
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateOrderform.class,
 //    com.ontraport.app.tests.CreateContact.class,
-//    com.ontraport.app.tests.AddWeightedRandom.class, 
 //    com.ontraport.app.tests.CreateMessage.class,
 //    com.ontraport.app.tests.CreateATag.class,
 //    com.ontraport.app.tests.CreateRuleDateSequence.class,
@@ -47,6 +46,8 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteRuleDateSequence.class,
 //    com.ontraport.app.tests.DeleteTag.class,
 //    com.ontraport.app.tests.DeleteMessage.class,
+    com.ontraport.app.tests.CreateAndHostSmartForm.class,
+    com.ontraport.app.tests.DeleteHostedSmartForm.class
 }
 )
 public class Review extends AbstractSuite

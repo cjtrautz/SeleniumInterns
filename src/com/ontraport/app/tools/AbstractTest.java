@@ -22,6 +22,7 @@ public abstract class AbstractTest
     protected static String dateTime = "";
     protected static String tabName = "";
     protected static String reTabName = "";
+    protected static String formURL = "";
     public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
@@ -131,5 +132,13 @@ public abstract class AbstractTest
     public static String getTabReName ()
     {
         return AbstractTest.reTabName;
+    }
+    public static void setHostedFormURL ( String url )
+    {
+        AbstractTest.formURL = url;
+    }
+    public static String getHostedFormURL ()
+    {
+        return AbstractTest.formURL;
     }
 }
