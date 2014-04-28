@@ -33,7 +33,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.CreateTaskFromSequence.class,
 //    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
 //    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.CreateProduct.class,
+    com.ontraport.app.tests.CreateProduct.class,
 //    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
 //    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
 //    com.ontraport.app.tests.DeleteProduct.class,
@@ -46,8 +46,9 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteRuleDateSequence.class,
 //    com.ontraport.app.tests.DeleteTag.class,
 //    com.ontraport.app.tests.DeleteMessage.class,
-    com.ontraport.app.tests.CreateAndHostSmartForm.class,
-    com.ontraport.app.tests.DeleteHostedSmartForm.class
+    com.ontraport.app.tests.CreateOrderformWithGatewayWorkflow.class,
+    com.ontraport.app.tests.DeleteOrderFormGateway.class,
+    com.ontraport.app.tests.DeleteProduct.class
 }
 )
 public class Review extends AbstractSuite
@@ -55,7 +56,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com/");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", true);
