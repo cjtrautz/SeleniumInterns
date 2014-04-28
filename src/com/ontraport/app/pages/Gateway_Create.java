@@ -60,6 +60,15 @@ public class Gateway_Create extends AbstractPage
         return this;
         
     }
+    
+    public SmartFormFe_Create clickSaveToOrderform ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        return (SmartFormFe_Create) new SmartFormFe_Create().init();
+        
+    }
 
     public Gateway_Create selectDrilldownOption ( String string )
     {

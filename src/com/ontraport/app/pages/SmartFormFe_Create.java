@@ -111,6 +111,21 @@ public class SmartFormFe_Create extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(text(), 'http')]")
     private WebElement hostedFormURL;    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
+    private WebElement createNewGatewayInput;
+    @FindBy(how = How.XPATH,
+            using = "//li[@data-val='create_new']/span")
+    private WebElement createNewGateway;
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sae-button ')]/button")
+    private WebElement saveAndEditGatewayButton;
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '),' paymentgateway ')]")
+    private WebElement gateway;
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-cancel ')]")
+    private WebElement back;
 
     public SmartFormFe_Create verifySubmitButton ()
     {
@@ -423,4 +438,47 @@ public class SmartFormFe_Create extends AbstractPage
         return this;
     }
     
+    public SmartFormFe_Create selectCreateNewGateway ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNewGateway));
+        createNewGateway.click();
+        return this;
+    }
+
+    public SmartFormFe_Create enterGatewayNameNoReturn ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNewGatewayInput));
+        createNewGatewayInput.sendKeys(string);
+        return this;
+    }
+
+    public Gateway_Create clickSaveAndEditGateway ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveAndEditGatewayButton));
+        saveAndEditGatewayButton.click();
+        return (Gateway_Create) new Gateway_Create().init();
+    }
+
+    public SmartFormFe_Create verifyGateway2 ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(gateway));
+            if(!gateway.getText().contains(string))
+            {
+                return null;
+            } 
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        return this;
+    }
+
 }
