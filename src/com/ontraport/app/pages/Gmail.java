@@ -370,7 +370,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(delayedEmail));
             delayedEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
