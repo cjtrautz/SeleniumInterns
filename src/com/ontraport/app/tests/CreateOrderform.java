@@ -29,10 +29,6 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.dialogBox.clickGrid();
         smartFormFe_Create.dialogBox.enterPrice("6.00");
         smartFormFe_Create.dialogBox.clickDone();
-        smartFormFe_Create.clickAddPaymentMethod();
-        smartFormFe_Create.clickGatewayDropDown();
-        smartFormFe_Create.selectDropDown("SelGateway");
-        smartFormFe_Create.clickGatewayDropDown();
         smartFormFe_Create.clickAddShippingMethod();
         smartFormFe_Create.clickShippingNameInput();
         smartFormFe_Create.clickCreateNew();
@@ -43,6 +39,10 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.clickCreateNew();
         smartFormFe_Create.enterTaxName(value.get("SmartForms", "tax"));
         smartFormFe_Create.enterTaxPercent(value.get("SmartForms", "tax_rate"));
+        smartFormFe_Create.clickAddPaymentMethod();
+        smartFormFe_Create.clickGatewayDropDown();
+        smartFormFe_Create.selectDropDown("SelGateway");
+        smartFormFe_Create.clickGatewayDropDown();
         smartFormFe_Create.clickSave();
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         smartFormFe_ListAll.formSearch.find("SelOrderform");
