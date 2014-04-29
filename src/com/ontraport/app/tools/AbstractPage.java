@@ -34,7 +34,7 @@ public abstract class AbstractPage
     // GENERAL ---------------------------------------------------------------------------------------------------------
     protected static String             password                    = "test123";
     protected static String             login                       = "colton@sendpepper.com";
-    protected static String             url                         = "https://app.ontraport.com/";
+    protected static String             url                         = "https://staging.ontraport.com/";
     private static String               latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
     protected WebDriverWait             wait                        = new WebDriverWait(AbstractSuite.getDriver(), AbstractSuite.DEFAULT_WAIT);
