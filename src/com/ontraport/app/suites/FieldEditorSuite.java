@@ -264,10 +264,10 @@ public class FieldEditorSuite extends AbstractSuite
         AbstractPage.setPassword("test123");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(false);
-        profile.setPreference("browser.cache.disk.enable", true);
-        profile.setPreference("browser.cache.memory.enable", true);
-        profile.setPreference("browser.cache.offline.enable", true);
-        profile.setPreference("network.http.use-cache", true);
+        profile.setPreference("browser.cache.disk.enable", false);
+        profile.setPreference("browser.cache.memory.enable", false);
+        profile.setPreference("browser.cache.offline.enable", false);
+        profile.setPreference("network.http.use-cache", false);
         driver = new FirefoxDriver(profile);
         //driver = new ChromeDriver();
         driver.manage()
