@@ -300,6 +300,7 @@ public class MessagesSuite extends AbstractSuite
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);
