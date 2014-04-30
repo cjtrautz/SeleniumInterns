@@ -173,7 +173,7 @@ public class DrawerActions extends AbstractPart
     private WebElement changeFieldValue;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send Double Opt-In Confirmation')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send Opt-In Confirmation')]")
     private WebElement sendDoubleOptin;
     
     @FindBy(how = How.XPATH,

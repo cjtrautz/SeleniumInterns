@@ -21,10 +21,10 @@ public class CreateRule_SubscriptionCharged extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleSubscriptionCharged");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInputDropDown("Charged", 1);
-        rule_Create.selectWhenDrillDownPaneOption("Subscription to product is Charged, Cancelled, or Completed");
+        rule_Create.enterWhenInputDropDown("open", 1);
+        rule_Create.selectWhenDrillDownPaneOption("Open order is charged or updated");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Any Subscription Product");
+        rule_Create.selectWhenDrillDownPaneOption("Any Product");
         rule_Create.openWhenTriggerPane(2);
         rule_Create.selectWhenDrillDownPaneOption("Charged");
         rule_Create.openThenActionPane(1);
@@ -38,11 +38,11 @@ public class CreateRule_SubscriptionCharged extends AbstractTest
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule("SelRuleSubscriptionCharged");
-        if(rule_Edit.verifyText("Subscription to ")==null)
+        if(rule_Edit.verifyText("Open order with ")==null)
         {
             fail("didnt select subscription to product");
         }
-        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Subscription Product")==null)
+        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Product")==null)
         {
             fail("didnt select any subscription product");
         }
