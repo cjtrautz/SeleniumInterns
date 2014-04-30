@@ -95,6 +95,7 @@ public class Account_View extends AbstractPage
     public OntraportAdmin_Afflink clickSoftwareAffiliateLinks ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", softwareAffiliateLinks);
         wait.until(ExpectedConditions.visibilityOf(softwareAffiliateLinks));
         softwareAffiliateLinks.click();
         return (OntraportAdmin_Afflink) new OntraportAdmin_Afflink().init();
@@ -103,6 +104,7 @@ public class Account_View extends AbstractPage
     public OneShoppingCart_View click1ShoppingCartSyncing ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", oneShoppingCartSyncing);
         wait.until(ExpectedConditions.visibilityOf(oneShoppingCartSyncing));
         oneShoppingCartSyncing.click();
         return (OneShoppingCart_View) new OneShoppingCart_View().init();
@@ -120,6 +122,7 @@ public class Account_View extends AbstractPage
     public ApiSettings_ListAll clickOntraportApiInstructionsAndKeyManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ontraportApiInstructionsAndKeyManager);
         wait.until(ExpectedConditions.visibilityOf(ontraportApiInstructionsAndKeyManager));
         ontraportApiInstructionsAndKeyManager.click();
         return (ApiSettings_ListAll) new ApiSettings_ListAll().init();
@@ -128,6 +131,7 @@ public class Account_View extends AbstractPage
     public Tag_ListAll clickManageTags ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", manageTags);
         wait.until(ExpectedConditions.visibilityOf(manageTags));
         manageTags.click();
         return (Tag_ListAll) new Tag_ListAll().init();
@@ -136,6 +140,7 @@ public class Account_View extends AbstractPage
     public OntraportAdmin_ListExports clickExportedLists ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", exportedLists);
         wait.until(ExpectedConditions.visibilityOf(exportedLists));
         exportedLists.click();
         return (OntraportAdmin_ListExports) new OntraportAdmin_ListExports().init();
@@ -144,6 +149,7 @@ public class Account_View extends AbstractPage
     public Facebook_ListAll clickFacebook ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", facebook);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(facebook));
         facebook.click();
@@ -153,6 +159,7 @@ public class Account_View extends AbstractPage
     public Fulfillment_ListAll clickFulfillmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", fulfillmentManager);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(fulfillmentManager));
         fulfillmentManager.click();
@@ -162,6 +169,7 @@ public class Account_View extends AbstractPage
     public Account_View clickAttachmentManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", attachmentManager);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(attachmentManager));
         attachmentManager.click();
@@ -172,6 +180,7 @@ public class Account_View extends AbstractPage
     public Sender_View clickSendFrom ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", sendFromAddress);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(sendFromAddress));
         sendFromAddress.click();
@@ -181,6 +190,7 @@ public class Account_View extends AbstractPage
     public MessageTemplate_ListAll clickDoubleOptInOrInvoiceManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", doubleOptInInvoice);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(doubleOptInInvoice));
         doubleOptInInvoice.click();
@@ -191,6 +201,7 @@ public class Account_View extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ultraCart);
         wait.until(ExpectedConditions.visibilityOf(ultraCart));
         ultraCart.click();
         return (UltraCart_View) new UltraCart_View().init();
@@ -199,6 +210,7 @@ public class Account_View extends AbstractPage
     public Role_ListAll clickTeamRolesAndPermissionManagement ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", roles);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(roles));
         roles.click();
@@ -208,6 +220,7 @@ public class Account_View extends AbstractPage
     public Field_Editor clickUserFieldEditor ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", userFieldEditor);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(userFieldEditor));
         userFieldEditor.click();
@@ -227,6 +240,7 @@ public class Account_View extends AbstractPage
     public ZencoderVideo_ListAll clickVideoManager ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", videoManager);
         //wait.until(ExpectedConditions.visibilityOf(getAffiliateTrackingPixel));
         wait.until(ExpectedConditions.visibilityOf(videoManager));
         videoManager.click();

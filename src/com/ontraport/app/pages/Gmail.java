@@ -370,7 +370,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(delayedEmail));
             delayedEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -417,7 +417,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(delayedEmail));
                 delayedEmail.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }
@@ -468,7 +468,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(dateEmail));
             dateEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -512,7 +512,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(dateEmail));
                 dateEmail.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }
@@ -562,7 +562,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
             scheduledBroadCastEmails.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -606,7 +606,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
                 scheduledBroadCastEmails.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }
@@ -657,7 +657,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
             oneOffScheduledEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -701,7 +701,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
                 oneOffScheduledEmail.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }

@@ -68,8 +68,8 @@ public class Contact_Import extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(collection));
-        wait.until(ExpectedConditions.visibilityOf(table));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tfoot[@class='ussr-component-collection-foot']")));
+        //wait.until(ExpectedConditions.visibilityOf(table));
+        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//tfoot[@class='ussr-component-collection-foot']")));
         wait.until(ExpectedConditions.visibilityOf(firstContact));
         firstContact.click();
         return this;

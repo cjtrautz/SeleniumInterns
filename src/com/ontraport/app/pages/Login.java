@@ -32,14 +32,14 @@ public class Login extends AbstractPage
         AbstractPart.waitForAjax(driver, 5);
         wait.until(ExpectedConditions.visibilityOf(loginInputSubmit));
         loginInputSubmit.click();
-        wait.until(new ExpectedCondition<Boolean>()
-            {
-                public Boolean apply (WebDriver d)
-                {
-                    return (previousURL.equals(d.getCurrentUrl()) == false);
-                }
-            }
-        );
+//        wait.until(new ExpectedCondition<Boolean>()
+//            {
+//                public Boolean apply (WebDriver d)
+//                {
+//                    return (previousURL.equals(d.getCurrentUrl()) == false);
+//                }
+//            }
+//        );
         return (Contact_ListAll) new Contact_ListAll().init();
     }
     public Object verifyPage ()
