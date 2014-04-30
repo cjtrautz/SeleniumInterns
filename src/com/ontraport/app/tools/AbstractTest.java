@@ -39,7 +39,14 @@ public abstract class AbstractTest
     {
         //AbstractPart.waitForAjax(driver, 30);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
-        Thread.sleep(3000);
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 2);
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (Exception e) {
+            //exception handling
+        }
         driver.navigate().refresh();
         try {
             WebDriverWait wait = new WebDriverWait(driver, 2);

@@ -354,8 +354,9 @@ public class Gmail extends AbstractPage
             int hours2 = newTime/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-            if(stuff2[2].equals("pm") && !stuff2[1].equals("12"))
+            if(stuff2[2].equals("pm") && (!stuff2[1].equals("12")))
             {
+                System.out.println("not 12 pm");
                 time2=time2+720;
             }
             if(stuff2[2].equals("am") && stuff2[1].equals("12"))
