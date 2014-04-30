@@ -19,38 +19,38 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-    //used in following tests
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    //uses CreateAWordPressSite wordpress site
-    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
-    com.ontraport.app.tests.DeleteEmailWPMessage.class,
-    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
-    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
-    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
-    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
-    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
-    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
-    //no longer part of rules
-    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
-    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
-    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
-    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
-    //end use of CreateAWordPressSite site
-    com.ontraport.app.tests.DeleteWordPressSite.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateAWordPressSite.class,
+//    //uses CreateAWordPressSite wordpress site
+//    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
+//    com.ontraport.app.tests.DeleteEmailWPMessage.class,
+//    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
+//    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
+//    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
+//    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
+//    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
+//    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
+//    //no longer part of rules
+//    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
+//    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
+//    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
+//    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
+//    //end use of CreateAWordPressSite site
+//    com.ontraport.app.tests.DeleteWordPressSite.class,
     
     //com.ontraport.app.tests.ImportContacts.class,//out for now
     
