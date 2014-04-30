@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class ChangePassword extends AbstractTest
 {
     @Test
-    public void testChangePassword ( throws InterruptedException)
+    public void testChangePassword () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.menuUser.open();
