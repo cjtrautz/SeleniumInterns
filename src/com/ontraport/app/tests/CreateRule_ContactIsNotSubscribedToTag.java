@@ -23,7 +23,7 @@ public class CreateRule_ContactIsNotSubscribedToTag extends AbstractTest
         rule_Create.openWhenTriggerPane(1);
         rule_Create.selectWhenDrillDownPaneOption("Contact is created");
         rule_Create.openIfConditionPane(1);
-        rule_Create.selectIfDrillDownPaneOption("If Contact is not subscribed to Tag");
+        rule_Create.selectIfDrillDownPaneOption("Contact doesn\'t have Tag");
         rule_Create.openIfConditionPane(1);
         rule_Create.selectIfDrillDownPaneOption("SelTag");
         rule_Create.openThenActionPane(1);
@@ -37,7 +37,7 @@ public class CreateRule_ContactIsNotSubscribedToTag extends AbstractTest
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule("SelRuleContactIsNotSubscribedToTag");
-        if(rule_Edit.verifyText("If Contact is not subscribed to Tag:")==null)
+        if(rule_Edit.verifyText("Contact doesn\'t have Tag:")==null)
         {
             fail("didnt select if contact subscribed to tag");
         }
