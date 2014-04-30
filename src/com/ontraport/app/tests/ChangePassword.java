@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class ChangePassword extends AbstractTest
 {
     @Test
-    public void testChangePassword ()
+    public void testChangePassword () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.menuUser.open();
@@ -44,6 +44,7 @@ public class ChangePassword extends AbstractTest
         Login login = (Login) new Login().init();
         login.open(Login.url);
         login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "changed");
+        Thread.sleep(10000);
         if(contactListAll.verifyPage()==null)
         {
             fail("couldnt find new user password");

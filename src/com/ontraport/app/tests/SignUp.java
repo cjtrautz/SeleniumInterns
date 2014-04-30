@@ -65,6 +65,7 @@ public class SignUp extends AbstractTest
         {
             e.printStackTrace();
         }
+        Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         ontraport_SignUp.dialogBox.enterSubDomain(value.get("SignUp", "first_name") + AbstractSuite.UNIQUE);
         ontraport_SignUp.dialogBox.enterReplyToName(value.get("SignUp", "email"));
