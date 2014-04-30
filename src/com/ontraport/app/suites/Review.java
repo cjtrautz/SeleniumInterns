@@ -19,36 +19,10 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-//    com.ontraport.app.tests.UploadVideo.class,
-//    com.ontraport.app.tests.CreateGateway.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateATag.class,
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    com.ontraport.app.tests.CreateOrderform.class,
-//    com.ontraport.app.tests.CreateContact.class,
-//    com.ontraport.app.tests.CreateMessage.class,
-//    com.ontraport.app.tests.CreateATag.class,
-//    com.ontraport.app.tests.CreateRuleDateSequence.class,
-//    com.ontraport.app.tests.MassActionForContacts.class,
-//    com.ontraport.app.tests.CreateTaskFromSequence.class,
-//    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
-//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteProduct.class,
-//    com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
-//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-//    com.ontraport.app.tests.DeleteTag.class,
-//    com.ontraport.app.tests.DeleteMessage.class,
-//    com.ontraport.app.tests.SignUp.class,
-//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-//    com.ontraport.app.tests.DeleteTag.class,
-//    com.ontraport.app.tests.DeleteMessage.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateRole.class,
-    //used in following tests uses CreateRole role
-    com.ontraport.app.tests.CreateUser.class
+    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
+    com.ontraport.app.tests.CreateProduct.class,
+    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
     
 }
 )
