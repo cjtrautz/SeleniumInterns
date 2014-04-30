@@ -52,7 +52,7 @@ import com.ontraport.app.tools.AbstractSuite;
     //end use of CreateAWordPressSite site
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
-    com.ontraport.app.tests.ImportContacts.class,
+    //com.ontraport.app.tests.ImportContacts.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
