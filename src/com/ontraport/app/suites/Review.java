@@ -19,10 +19,28 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreateProduct.class,
-    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
+    //uses CreateLandingPageWithHTML landing page
+    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
+    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
+    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
+    //end use of CreateLandingPageWithHTML landing page
+    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
+    
+    //used in following tests
+    com.ontraport.app.tests.CreateLandingPageWithGradient.class,
+    //uses CreateLandingPageWithGradient landing page
+    com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
+    com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
+    com.ontraport.app.tests.EditLandingPageGradientColors.class,
+    com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
+    com.ontraport.app.tests.EditLandingPageCircleGradient.class,
+    //end use of CreateLandingPageWithGradient landing page
+    com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
     
 }
 )

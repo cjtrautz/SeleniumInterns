@@ -32,6 +32,8 @@ public class LandingPage_ListAll extends AbstractPage
 
     public LandingPage_TypeSelection clickNewLandingPage ()
     {
+        driver.navigate().refresh();
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         wait.until(ExpectedConditions.visibilityOf(newLandingPage));
         newLandingPage.click();

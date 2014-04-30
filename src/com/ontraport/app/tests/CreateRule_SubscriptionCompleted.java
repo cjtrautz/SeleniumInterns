@@ -38,7 +38,7 @@ public class CreateRule_SubscriptionCompleted extends AbstractTest
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule("SelRuleSubscriptionCompleted");
-        if(rule_Edit.verifyText("Subscription to ")==null)
+        if(rule_Edit.verifyText("Open order with ")==null)
         {
             fail("didnt select subscription to product");
         }
