@@ -34,7 +34,7 @@ public class CheckLogOutAndNewUser extends AbstractTest
         }
         Login login = (Login) new Login().init();
         login.open(Login.url);
-        login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "test");
+        login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "test123");
         if(contactListAll.verifyPage()==null)
         {
             fail("couldnt find selenium log in");

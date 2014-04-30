@@ -46,43 +46,10 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.DeleteTag.class,
 //    com.ontraport.app.tests.DeleteMessage.class,
     //used in following tests
-    com.ontraport.app.tests.CreateFulfillment.class, 
-    //uses CreateFulfillment fulfillment
-    com.ontraport.app.tests.CreateFulfillmentDateSequence.class, 
-    com.ontraport.app.tests.DeleteFulfillmentDateSequence.class,
-    com.ontraport.app.tests.CreateFulfillmentStepSequence.class,
-    com.ontraport.app.tests.DeleteFulfillmentStepSequence.class,
-    com.ontraport.app.tests.CreateRule_RemoveContactFromFulfillmentList.class,
-    com.ontraport.app.tests.DeleteRule_RemoveContactFromFulfillmentList.class,
-    com.ontraport.app.tests.CreateRule_AddContactToFulfillmentList.class,
-    com.ontraport.app.tests.DeleteRule_AddContactToFulfillmentList.class,
-    com.ontraport.app.tests.EditFulfillmentMonthly.class, 
-    com.ontraport.app.tests.EditFulfillmentWeekly.class,
-    com.ontraport.app.tests.EditFulfillmentSendNotificationTo.class,
-    com.ontraport.app.tests.EditFulfillmentAddRecipient.class,
-    com.ontraport.app.tests.EditFulfillmentUnsubContactFromFulfillmentAfterSend.class,
-    com.ontraport.app.tests.EditFulfillmentCreateTask.class,
-    com.ontraport.app.tests.EditFulfillmentDueEntryBox.class,
-    com.ontraport.app.tests.EditFulfillmentBack.class,
-    com.ontraport.app.tests.EditFulfillmentCancel.class,
-    //used in following tests
     com.ontraport.app.tests.CreateRole.class,
     //used in following tests uses CreateRole role
-    com.ontraport.app.tests.CreateUser.class,
-    //uses CreateFulfillment fulfillment and uses CreateUser user
-    com.ontraport.app.tests.CheckLogOutAndNewUser.class,
-    com.ontraport.app.tests.ChangePassword.class,
-    com.ontraport.app.tests.EditFulfillmentOwner.class,
-    //uses CreateFulfillment fulfillment
-    com.ontraport.app.tests.EditFulfillmentListFields.class,
-    com.ontraport.app.tests.EditFulfillmentClearField.class,
-    com.ontraport.app.tests.EditFulfillmentSelectAllField.class,
-    //end use of CreateFulfillment fulfillment
-    com.ontraport.app.tests.DeleteFulfillment.class,
-    //end use of CreateUser user
-    com.ontraport.app.tests.DeleteUser.class,
-    //end use of CreateRole role
-    com.ontraport.app.tests.DeleteRole.class,
+    com.ontraport.app.tests.CreateUser.class
+    
 }
 )
 public class Review extends AbstractSuite
