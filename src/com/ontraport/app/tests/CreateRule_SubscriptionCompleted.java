@@ -42,7 +42,7 @@ public class CreateRule_SubscriptionCompleted extends AbstractTest
         {
             fail("didnt select subscription to product");
         }
-        if(rule_Edit.verifyWhenDropDownInputText(1, "Open order with ")==null)
+        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Product")==null)
         {
             fail("didnt select any subscription product");
         }
