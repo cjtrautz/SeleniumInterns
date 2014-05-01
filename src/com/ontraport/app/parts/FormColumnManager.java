@@ -32,7 +32,7 @@ public class FormColumnManager extends AbstractPart
     private WebElement draggableColumn;
     
     @FindBy(how = How.XPATH,
-            using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_collection_column_editor ')]//button")
+            using = "//table[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_collection_column_editor ') and contains(concat(' ', normalize-space(@class), ' '), ' dragtable-drag-col ')]//button")
     private WebElement fieldPaneDropDown;
     
     @FindBy(how = How.XPATH,

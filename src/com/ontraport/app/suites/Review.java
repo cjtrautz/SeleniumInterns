@@ -19,29 +19,18 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPageWithHTML.class,
-    //uses CreateLandingPageWithHTML landing page
-    com.ontraport.app.tests.EditLandingPageHTMLLinksTo.class,
-    com.ontraport.app.tests.EditLandingPageOpacityWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageLeftWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageWidthWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageTopWithHTML.class,
-    com.ontraport.app.tests.EditLandingPageHeightWithHTML.class,
-    //end use of CreateLandingPageWithHTML landing page
-    com.ontraport.app.tests.DeleteLandingPageWithHTML.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateLandingPageWithGradient.class,
-    //uses CreateLandingPageWithGradient landing page
-    com.ontraport.app.tests.EditLandingPageGradientOpacity.class,
-    com.ontraport.app.tests.EditLandingPageToggleVertAndHorz.class,
-    com.ontraport.app.tests.EditLandingPageGradientColors.class,
-    com.ontraport.app.tests.EditLandingPageRoundedGradient.class,
-    com.ontraport.app.tests.EditLandingPageCircleGradient.class,
-    //end use of CreateLandingPageWithGradient landing page
-    com.ontraport.app.tests.DeleteLandingPageWithGradient.class,
-    
+    com.ontraport.app.tests.AddDateModifiedColumn.class,
+    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
+    com.ontraport.app.tests.AddDateCreatedColumn.class,
+    com.ontraport.app.tests.DeleteDateCreatedColumn.class,
+    com.ontraport.app.tests.AddQuantityPurchasedColumn.class,
+    com.ontraport.app.tests.DeleteQuantityPurchasedColumn.class,
+    com.ontraport.app.tests.AddRevenueColumn.class,
+    com.ontraport.app.tests.DeleteRevenueColumn.class,
+    com.ontraport.app.tests.AddPriceColumn.class,
+    com.ontraport.app.tests.DeletePriceColumn.class,
+    com.ontraport.app.tests.AddProductIDColumn.class,
+    com.ontraport.app.tests.DeleteProductIDColumn.class,
 }
 )
 public class Review extends AbstractSuite
