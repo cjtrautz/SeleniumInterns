@@ -114,7 +114,7 @@ public class Rule_Edit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            driver.findElement(By.xpath("//span[text()='" + text + "']"));
+            driver.findElement(By.xpath("//span[text()=\"" + text + "\"]"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
