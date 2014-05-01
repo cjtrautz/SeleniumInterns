@@ -62,6 +62,7 @@ public class ChangePassword extends AbstractTest
         login = (Login) new Login().init();
         login.open(Login.url);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         
     }
 }
