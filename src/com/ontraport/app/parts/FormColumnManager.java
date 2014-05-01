@@ -140,7 +140,6 @@ public class FormColumnManager extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(fieldPaneInput)); 
-        fieldPaneInput.click();
         fieldPaneInput.sendKeys(string); 
         wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + string + "')]"))))); 
         wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + string + "')]"))))); 

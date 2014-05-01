@@ -19,16 +19,12 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateRole.class,
-    //used in following tests uses CreateRole role
-    com.ontraport.app.tests.CreateUser.class,
-    //uses CreateFulfillment fulfillment and uses CreateUser user
-    com.ontraport.app.tests.CheckLogOutAndNewUser.class,
-    com.ontraport.app.tests.ChangePassword.class,
-    com.ontraport.app.tests.DeleteUser.class,
-    //end use of CreateRole role
-    com.ontraport.app.tests.DeleteRole.class,
- 
+//    //used in following tests
+//    com.ontraport.app.tests.AddNewSection.class,
+//    //used in following tests and uses AddNewSection section
+//    com.ontraport.app.tests.CreateStateField.class,
+    com.ontraport.app.tests.AddStateFieldColumn.class,
+    com.ontraport.app.tests.DeleteStateFieldColumn.class,
 }
 )
 public class Review extends AbstractSuite
