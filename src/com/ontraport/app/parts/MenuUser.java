@@ -94,7 +94,15 @@ public class MenuUser extends AbstractPart
     }
     public void clickLogOut ()
     {
-        waitForAjax(driver, 20);
+        try
+        {
+            waitForAjax(driver, 20);
+            Thread.sleep(1500);
+        }
+        catch(Exception e)
+        {
+            
+        }
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         logOut.click();
         

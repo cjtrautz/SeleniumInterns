@@ -19,18 +19,16 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.AddDateModifiedColumn.class,
-    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
-    com.ontraport.app.tests.AddDateCreatedColumn.class,
-    com.ontraport.app.tests.DeleteDateCreatedColumn.class,
-    com.ontraport.app.tests.AddQuantityPurchasedColumn.class,
-    com.ontraport.app.tests.DeleteQuantityPurchasedColumn.class,
-    com.ontraport.app.tests.AddRevenueColumn.class,
-    com.ontraport.app.tests.DeleteRevenueColumn.class,
-    com.ontraport.app.tests.AddPriceColumn.class,
-    com.ontraport.app.tests.DeletePriceColumn.class,
-    com.ontraport.app.tests.AddProductIDColumn.class,
-    com.ontraport.app.tests.DeleteProductIDColumn.class,
+    com.ontraport.app.tests.CreateRole.class,
+    //used in following tests uses CreateRole role
+    com.ontraport.app.tests.CreateUser.class,
+    //uses CreateFulfillment fulfillment and uses CreateUser user
+    com.ontraport.app.tests.CheckLogOutAndNewUser.class,
+    com.ontraport.app.tests.ChangePassword.class,
+    com.ontraport.app.tests.DeleteUser.class,
+    //end use of CreateRole role
+    com.ontraport.app.tests.DeleteRole.class,
+ 
 }
 )
 public class Review extends AbstractSuite

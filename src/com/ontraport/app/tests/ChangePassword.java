@@ -26,8 +26,8 @@ public class ChangePassword extends AbstractTest
         user_ListAll.formSearch.find("FirstSelenium");
         User_Edit user_Edit = user_ListAll.clickUser("Selenium" + AbstractSuite.UNIQUE + "@email.com", "test");
         user_Edit.clickPasswordField();
-        user_Edit.enterNewPassword("changed");
-        user_Edit.enterNewPasswordConfirm("changed");
+        user_Edit.enterNewPassword("changed1");
+        user_Edit.enterNewPasswordConfirm("changed1");
         user_Edit.clickChangePassword();
         
         contactListAll.menuUser.open();
@@ -43,7 +43,7 @@ public class ChangePassword extends AbstractTest
         }
         Login login = (Login) new Login().init();
         login.open(Login.url);
-        login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "changed");
+        login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "changed1");
         Thread.sleep(10000);
         if(contactListAll.verifyPage()==null)
         {
