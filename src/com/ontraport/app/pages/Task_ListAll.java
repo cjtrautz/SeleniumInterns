@@ -101,7 +101,7 @@ public class Task_ListAll extends AbstractPage
         for(i=0; i<headerCells.size(); i++)
         {
             System.out.println(headerCells.get(i).getText());
-            if(headerCells.get(i).getText().contains("Assignee"))
+            if(headerCells.get(i).getText().contains("ASSIGNEE"))
             {
                 break;
             }

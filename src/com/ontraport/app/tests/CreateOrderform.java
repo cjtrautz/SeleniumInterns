@@ -62,7 +62,7 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Edit.clickAddRule();
         smartFormFe_Edit.enterRuleName(value.get("SmartForms", "rule_name"));
         smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown("If Contact is subscribed to Tag");
+        smartFormFe_Edit.selectDropDown("Contact has Tag");
         smartFormFe_Edit.clickIfDropDown();
         smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
         smartFormFe_Edit.clickThenDropDown();

@@ -17,7 +17,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class CheckLogOutAndNewUser extends AbstractTest
 {
     @Test
-    public void testCheckLogOut ()
+    public void testCheckLogOut () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -53,6 +53,7 @@ public class CheckLogOutAndNewUser extends AbstractTest
         login = (Login) new Login().init();
         login.open(Login.url);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         
     }
 }
