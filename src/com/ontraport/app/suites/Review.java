@@ -19,34 +19,18 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    //used in following tests
-    com.ontraport.app.tests.CreateMessage.class,                         
-    //sends CreateMessage message 
-//    com.ontraport.app.tests.SendTestEmail.class,
-    //uses CreateMessage message
-    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
-    
-//    //used in following tests
-//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
-//    //uses CreateLandingPagePictureWithRectangle landing page
-//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
-//    com.ontraport.app.tests.EditLandingPageImageTop.class,
-//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
-//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
-//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
-//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
-//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
-//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
-//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
-//    //end use of CreateLandingPagePictureWithRectangle landing page
-//    com.ontraport.app.tests.DeleteLandingPageImage.class,
-//    
-//    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
-//    //uses CreateLandingPageCodeMode landing page
-//    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
-//    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
-//    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
-//    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+    com.ontraport.app.tests.AddDateModifiedColumn.class,
+    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
+    com.ontraport.app.tests.AddDateCreatedColumn.class,
+    com.ontraport.app.tests.DeleteDateCreatedColumn.class,
+    com.ontraport.app.tests.AddQuantityPurchasedColumn.class,
+    com.ontraport.app.tests.DeleteQuantityPurchasedColumn.class,
+    com.ontraport.app.tests.AddRevenueColumn.class,
+    com.ontraport.app.tests.DeleteRevenueColumn.class,
+    com.ontraport.app.tests.AddPriceColumn.class,
+    com.ontraport.app.tests.DeletePriceColumn.class,
+    com.ontraport.app.tests.AddProductIDColumn.class,
+    com.ontraport.app.tests.DeleteProductIDColumn.class,
 }
 )
 public class Review extends AbstractSuite
