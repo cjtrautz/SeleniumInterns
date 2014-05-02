@@ -19,12 +19,34 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
+    //used in following tests
+    com.ontraport.app.tests.CreateMessage.class,                         
+    //sends CreateMessage message 
+//    com.ontraport.app.tests.SendTestEmail.class,
+    //uses CreateMessage message
+    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
+    
 //    //used in following tests
-//    com.ontraport.app.tests.AddNewSection.class,
-//    //used in following tests and uses AddNewSection section
-//    com.ontraport.app.tests.CreateStateField.class,
-    com.ontraport.app.tests.AddStateFieldColumn.class,
-    com.ontraport.app.tests.DeleteStateFieldColumn.class,
+//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
+//    //uses CreateLandingPagePictureWithRectangle landing page
+//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
+//    com.ontraport.app.tests.EditLandingPageImageTop.class,
+//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
+//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
+//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
+//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
+//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
+//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
+//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
+//    //end use of CreateLandingPagePictureWithRectangle landing page
+//    com.ontraport.app.tests.DeleteLandingPageImage.class,
+//    
+//    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+//    //uses CreateLandingPageCodeMode landing page
+//    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
+//    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
 }
 )
 public class Review extends AbstractSuite

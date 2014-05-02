@@ -338,12 +338,14 @@ public class Gmail extends AbstractPage
             int hours1 = yep/100; 
             System.out.println(hours1);
             int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-            if(stuff[2].equals("pm") && !stuff[1].equals("12"))
+            if(stuff[2].equals("pm") && (!stuff[1].equals("12")))
             {
+                System.out.println("not 12 pm1");
                 yep2=yep2+720;
             }
             if(stuff[2].equals("am") && stuff[1].equals("12"))
             {
+                System.out.println("12 am1");
                 yep2=yep2+720;
             }
             String delim2 = "[ :]";
@@ -361,6 +363,7 @@ public class Gmail extends AbstractPage
             }
             if(stuff2[2].equals("am") && stuff2[1].equals("12"))
             {
+                System.out.println("12 am");
                 time2=time2+720;
             }
             System.out.println(yep2 + "and" + time2);
