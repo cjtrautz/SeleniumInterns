@@ -31,6 +31,10 @@ public class Sequence_CreateStep extends AbstractPage
     private WebElement uiCollectionBody;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'sequence_step_details__rule_editor__actions')]//button")
+    private WebElement ruleActionDropDown;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-menu ') and div[ul[@class='ussr-component-drilldownselect-ul']]]")
     private WebElement drillDownMenuIf;
     
@@ -854,6 +858,14 @@ public class Sequence_CreateStep extends AbstractPage
         {
             return null;
         }
+        return this;
+    }
+
+    public Sequence_CreateStep clickRuleActionDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ruleActionDropDown));
+        ruleActionDropDown.click();
         return this;
     }
 

@@ -43,6 +43,8 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         }
         sequence_CreateStep.clickAddRuleStep();
         sequence_CreateStep.enterRuleName("Something");
+        sequence_CreateStep.clickRuleActionDropDown();
+        sequence_CreateStep.selectDrillDown("Recharge all declined transactions");
         sequence_CreateStep.clickStepDropDown(3);
         sequence_CreateStep.clickStepHandleAndMove(1, 60);
         try
