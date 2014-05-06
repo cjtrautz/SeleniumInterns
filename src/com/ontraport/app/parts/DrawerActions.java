@@ -1116,6 +1116,7 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(campaignDropDownInput));
         campaignDropDownInput.sendKeys(unique);
+        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//li/div[contains(text(), '" + unique + "')]"))));
         return this;
     }
     public DrawerActions enterLeadSourceDropDown ( String valueOf )
