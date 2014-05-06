@@ -20,11 +20,10 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
     //used in following tests
-    com.ontraport.app.tests.CreateMessage.class,                         
+    com.ontraport.app.tests.CreateTrackingURL.class,                         
     //sends CreateMessage message 
 //    com.ontraport.app.tests.SendTestEmail.class,
     //uses CreateMessage message
-    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
     
 //    //used in following tests
 //    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
