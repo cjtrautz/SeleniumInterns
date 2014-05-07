@@ -25,6 +25,7 @@ public class CreateSMSMessage extends AbstractTest
         message_CreateSMS.selectMergeField("First Name");
         message_CreateSMS.enterMessageName("SelSMSMessage");
         message_ListAll = message_CreateSMS.clickSave();
+        message_ListAll.dialogBox.clickOk();
         message_ListAll.formSearch.find("SelSMSMessage");
         
         //verify that it exists
