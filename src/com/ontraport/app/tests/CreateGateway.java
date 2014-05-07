@@ -24,7 +24,6 @@ public class CreateGateway extends AbstractTest
         gateway_Create.enterGatewayName("SelGateway");
         gateway_Create.clickGatewayTypeDropdown();
         gateway_Create.selectDrilldownOption("Dummy Gateway");
-        gateway_Create.enterGatewayNickName("SelGateway");
         gateway_ListAll = gateway_Create.clickSave();
         gateway_ListAll.formSearch.find("SelGateway");
         
