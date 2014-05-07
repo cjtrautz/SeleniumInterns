@@ -1236,6 +1236,10 @@ public class DrawerActions extends AbstractPart
         {
             name2 = "00";
         }
+        if(name2.length() == 1)
+        {
+            name2 += "0";
+        }
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));
         AbstractTest.setScheduledOneOffTime(name + ":" + name2 + " " + name3);

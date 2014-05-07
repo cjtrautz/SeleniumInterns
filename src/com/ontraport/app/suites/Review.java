@@ -20,7 +20,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
     //used in following tests
-    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,                         
+    com.ontraport.app.tests.SendSingleEmailToContact.class,                  
     //sends CreateMessage message 
 //    com.ontraport.app.tests.SendTestEmail.class,
     //uses CreateMessage message
