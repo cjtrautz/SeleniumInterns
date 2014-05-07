@@ -20,7 +20,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
     //used in following tests
-    com.ontraport.app.tests.SendSingleEmailToContact.class,                  
+    //com.ontraport.app.tests.SendSingleEmailToContact.class,                  
     //sends CreateMessage message 
 //    com.ontraport.app.tests.SendTestEmail.class,
     //uses CreateMessage message
@@ -46,6 +46,10 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+      com.ontraport.app.tests.CreateTaskWhoMessage.class,
+      com.ontraport.app.tests.CreateTaskStepSequence.class,
+      com.ontraport.app.tests.EditTaskStepSequence.class,
+      com.ontraport.app.tests.DeleteTaskStepSequence.class
 }
 )
 public class Review extends AbstractSuite
@@ -53,7 +57,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://staging.ontraport.com/");
+        AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);
