@@ -24,15 +24,15 @@ public class CreateSMSMessage extends AbstractTest
         message_CreateSMS.openMergeFieldPane();
         message_CreateSMS.selectMergeField("First Name");
         message_CreateSMS.dialogBox.clickOk();
-       // message_CreateSMS.enterSMSBody("Sel");
+       message_CreateSMS.enterSMSBody("Sel");
         message_CreateSMS.enterMessageName("SelSMSMessage");
-        message_ListAll = message_CreateSMS.clickSave();
-        message_ListAll.formSearch.find("SelSMSMessage");
+       	message_ListAll = message_CreateSMS.clickSave();
+      	 message_ListAll.formSearch.find("SelSMSMessage");
         
         //verify that it exists
         if(message_ListAll.verifyMessage("SelSMSMessage")==null)
         {
-            fail("couldn't find created message");
+           fail("couldn't find created message");
         }
 
         Message_Edit message_Edit = message_ListAll.clickMessage("SelSMSMessage");
