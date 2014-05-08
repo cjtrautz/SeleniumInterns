@@ -20,7 +20,16 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
     //used in following tests
-    com.ontraport.app.tests.CreateAWordPressSite.class,               
+    //used if following tests
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    //uses CreateSMSMessage message
+    com.ontraport.app.tests.EditSMSMessageName.class,
+    com.ontraport.app.tests.EditSMSMessageBody.class,
+    com.ontraport.app.tests.EditSMSMessageMergeField.class,
+    com.ontraport.app.tests.EditSMSMessageCancel.class,
+    com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
+    //end use of CreateSMSMessage message
+    com.ontraport.app.tests.DeleteSMSMessage.class,             
     //sends CreateMessage message 
 //    com.ontraport.app.tests.SendTestEmail.class,
     //uses CreateMessage message

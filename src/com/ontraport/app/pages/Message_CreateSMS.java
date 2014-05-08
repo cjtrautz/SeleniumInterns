@@ -84,10 +84,14 @@ public class Message_CreateSMS extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']"))));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
+        return this;
+    }
+    public Message_CreateSMS enterSMSBody ( String string )
+    {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[text()='[Warning! This message contains merge fields; it could produce very large output.]']")));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[text()='[Warning! This message contains merge fields; it could produce very large output.]']")));
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//textarea"))));
-        driver.findElement(By.xpath("//textarea")).sendKeys("Sel");
+        driver.findElement(By.xpath("//textarea")).sendKeys(string);
         return this;
     }
     public Message_CreateSMS selectMergeField2 ( String string )
