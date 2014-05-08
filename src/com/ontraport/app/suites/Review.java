@@ -21,15 +21,15 @@ import com.ontraport.app.tools.AbstractSuite;
 {
     //used in following tests
     //used if following tests
-    com.ontraport.app.tests.CreateSMSMessage.class,
+    com.ontraport.app.tests.WorkflowPagination.class,
     //uses CreateSMSMessage message
-    com.ontraport.app.tests.EditSMSMessageName.class,
-    com.ontraport.app.tests.EditSMSMessageBody.class,
-    com.ontraport.app.tests.EditSMSMessageMergeField.class,
-    com.ontraport.app.tests.EditSMSMessageCancel.class,
-    com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
+   // com.ontraport.app.tests.EditSMSMessageName.class,
+    //com.ontraport.app.tests.EditSMSMessageBody.class,
+    //com.ontraport.app.tests.EditSMSMessageMergeField.class,
+    //com.ontraport.app.tests.EditSMSMessageCancel.class,
+    //com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
     //end use of CreateSMSMessage message
-    com.ontraport.app.tests.DeleteSMSMessage.class,             
+    //com.ontraport.app.tests.DeleteSMSMessage.class,             
     //sends CreateMessage message 
 //    com.ontraport.app.tests.SendTestEmail.class,
     //uses CreateMessage message
