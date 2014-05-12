@@ -587,7 +587,7 @@ public class SmartFormFe_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            if(!tax.findElement(By.xpath(".//span[@class='rate' and normalize-space(text())='" + string + "']")).isDisplayed())
+            if(!tax.findElement(By.xpath(".//span[contains(@class, 'rate') and normalize-space(text())='" + string + "']")).isDisplayed())
             {
                 return null;
             }
@@ -621,7 +621,7 @@ public class SmartFormFe_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            if(!shipping.findElement(By.xpath(".//span[@class='rate' and normalize-space(text())='" + string + "']")).isDisplayed())
+            if(!shipping.findElement(By.xpath(".//span[contains(@class, 'rate') and normalize-space(text())='" + string + "']")).isDisplayed())
             {
                 return null;
             }
