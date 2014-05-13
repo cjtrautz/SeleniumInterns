@@ -18,7 +18,7 @@ public class AddGroupWithDateField extends AbstractTest
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My First date Group"+AbstractSuite.UNIQUE);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view and edit");
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.enterFieldPaneInput("date", 0);
         contactListAll.drawerManageGroups.clickField("SelDate", 0);

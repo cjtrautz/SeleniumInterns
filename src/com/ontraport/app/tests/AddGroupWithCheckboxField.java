@@ -18,7 +18,7 @@ public class AddGroupWithCheckboxField extends AbstractTest
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My First checkbox Group"+AbstractSuite.UNIQUE);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view and edit");
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.enterFieldPaneInput("checkbox", 0);
         contactListAll.drawerManageGroups.clickField("SelCheckbox", 0);
