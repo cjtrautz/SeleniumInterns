@@ -19,10 +19,16 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreateProduct.class,
-    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
+
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateGateway.class, 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateATag.class,
+//    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence 
+    com.ontraport.app.tests.CreateGroupContainsTag.class,
+
 }
 )
 public class Review extends AbstractSuite

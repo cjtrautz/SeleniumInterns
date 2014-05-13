@@ -175,6 +175,9 @@ public class DialogBox extends AbstractPart
             using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' longfellow-close-button ')]//span")
     private WebElement cancelTour;
     @FindBy(how = How.XPATH,
+            using = "//select[@id='tax']")
+    private WebElement taxableDropDown;
+    @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
     private WebElement sendButton;
     @FindBy(how = How.XPATH,
@@ -1430,6 +1433,20 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(cancelTour));
         cancelTour.click();
+        return this;
+    }
+    public DialogBox clickTaxableDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(taxableDropDown));
+        taxableDropDown.click();
+        return this;
+    }
+    public DialogBox select ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//select/option[@value='" + string + "']"))));
+        driver.findElement(By.xpath("//select/option[@value='" + string + "']")).click();
         return this;
     }
 

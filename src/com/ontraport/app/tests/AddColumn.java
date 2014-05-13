@@ -13,7 +13,7 @@ public class AddColumn extends AbstractTest
     public void testAddColumn ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.formColumnManager.open();
         contactListAll.formColumnManager.openFieldPane();
         contactListAll.formColumnManager.clickField("Zip Code");

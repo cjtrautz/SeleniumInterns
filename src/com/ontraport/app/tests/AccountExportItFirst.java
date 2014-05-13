@@ -19,7 +19,7 @@ public class AccountExportItFirst extends AbstractTest
     public void testAccountExportItFirst ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         OPPackage_View oPPackage_View = contactListAll.menuUser.clickAccount();
         oPPackage_View.clickExportItFirst();

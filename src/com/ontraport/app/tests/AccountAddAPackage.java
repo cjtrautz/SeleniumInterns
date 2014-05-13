@@ -14,7 +14,7 @@ public class AccountAddAPackage extends AbstractTest
     public void testAccountAddAPackage()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         OPPackage_View oPPackage_View = contactListAll.menuUser.clickAccount();
         oPPackage_View.clickAddPackage();

@@ -14,7 +14,7 @@ public class AddGroupWithCheckboxField extends AbstractTest
     public void testAddGroupWithCheckboxField ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My First checkbox Group"+AbstractSuite.UNIQUE);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();

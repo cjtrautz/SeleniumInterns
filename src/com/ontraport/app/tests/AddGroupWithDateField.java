@@ -14,7 +14,7 @@ public class AddGroupWithDateField extends AbstractTest
     public void testAddGroupWithDateField ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My First date Group"+AbstractSuite.UNIQUE);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
