@@ -34,7 +34,7 @@ public class MassActionForContacts extends AbstractTest
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My massaction group");
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view and edit");
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.clickField("First Name", 0);
         contactListAll.drawerManageGroups.openConditionPane(0);
