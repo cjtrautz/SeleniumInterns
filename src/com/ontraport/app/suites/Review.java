@@ -27,7 +27,8 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
 //    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence 
-    com.ontraport.app.tests.CreateGroupContainsTag.class,
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
 
 }
 )
