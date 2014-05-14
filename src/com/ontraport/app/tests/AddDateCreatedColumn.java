@@ -15,6 +15,7 @@ public class AddDateCreatedColumn extends AbstractTest
     public void testAddDateCreatedColumn ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         Product_ListAll product_ListAll = contactListAll.menuPrimary.clickProductListAll();
         product_ListAll.formColumnManager.open();
         product_ListAll.formColumnManager.openFieldPane();

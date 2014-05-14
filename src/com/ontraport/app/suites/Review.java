@@ -49,7 +49,17 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.CreateTaskWhoMessage.class,
       com.ontraport.app.tests.CreateTaskStepSequence.class,
       com.ontraport.app.tests.EditTaskStepSequence.class,
-      com.ontraport.app.tests.DeleteTaskStepSequence.class
+      com.ontraport.app.tests.DeleteTaskStepSequence.class,
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateGateway.class, 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateATag.class,
+//    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence 
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+
 }
 )
 public class Review extends AbstractSuite

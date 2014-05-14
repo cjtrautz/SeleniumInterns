@@ -1238,7 +1238,7 @@ public class DrawerActions extends AbstractPart
         }
         if(name2.length() == 1)
         {
-            name2 += "0";
+            name2 = "0" + name2;
         }
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));

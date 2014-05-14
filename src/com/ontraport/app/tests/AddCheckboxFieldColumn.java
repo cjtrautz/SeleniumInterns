@@ -13,7 +13,7 @@ public class AddCheckboxFieldColumn extends AbstractTest
     public void testAddCheckboxFieldColumn ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.formColumnManager.open();
         contactListAll.formColumnManager.openFieldPane();
         contactListAll.formColumnManager.enterFieldPaneInput(value.get("Fields", "Checkbox_Field"));

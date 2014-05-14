@@ -2799,13 +2799,16 @@ public class Message_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']"))));
         mailFromPane.findElement(By.xpath(".//li/div[normalize-space(text())='" + string + "']")).click();
-        AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[text()='[Warning! This message contains merge fields; it could produce very large output.]']")));
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//textarea"))));
-        driver.findElement(By.xpath("//textarea")).sendKeys("Sel");
         return this;
     }
-
+    public Message_Edit sendSMSBody ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//strong[text()='[Warning! This message contains merge fields; it could produce very large output.]']")));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//textarea"))));
+        driver.findElement(By.xpath("//textarea")).sendKeys(string);
+        return this;
+    }
     public Message_ListAll clickBack ()
     {
         AbstractPart.waitForAjax(driver, 20);

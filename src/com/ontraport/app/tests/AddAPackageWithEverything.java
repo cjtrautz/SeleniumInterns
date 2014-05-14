@@ -22,6 +22,7 @@ public class AddAPackageWithEverything extends AbstractTest
     public void testAddAPackageWithEverything () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         Account_View account_View = contactListAll.menuUser.clickAdmin();
         Package_ListAll package_ListAll = account_View.clickPackageManager();

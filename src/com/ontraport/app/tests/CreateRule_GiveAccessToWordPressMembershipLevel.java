@@ -38,7 +38,7 @@ public class CreateRule_GiveAccessToWordPressMembershipLevel extends AbstractTes
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule(value.get("Rules", "give_access_to_wordpress_membership_level"));
-        if(rule_Edit.verifyText("Give acces to ")==null)
+        if(rule_Edit.verifyText("Give access to ")==null)
         {
             fail("didnt select tracked links");
         }

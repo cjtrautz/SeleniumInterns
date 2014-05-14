@@ -28,6 +28,8 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.dialogBox.enterProductName("Dollar" + AbstractSuite.UNIQUE);
         smartFormFe_Create.dialogBox.clickGrid();
         smartFormFe_Create.dialogBox.enterPrice("6.00");
+        smartFormFe_Create.dialogBox.clickTaxableDropDown();
+        smartFormFe_Create.dialogBox.select("true");
         smartFormFe_Create.dialogBox.clickDone();
         smartFormFe_Create.clickAddShippingMethod();
         smartFormFe_Create.clickShippingNameInput();

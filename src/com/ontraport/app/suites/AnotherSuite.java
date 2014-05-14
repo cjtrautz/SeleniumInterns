@@ -75,6 +75,8 @@ import com.ontraport.app.tools.Values;
     com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
     com.ontraport.app.tests.DeleteContact.class,
     
+    com.ontraport.app.tests.CreateGroupContainsTag.class,
+    
 })
 public class AnotherSuite extends AbstractSuite
 {

@@ -57,7 +57,7 @@ public class CreateOrderformWithTaxAndShipping extends AbstractTest
         }
         if(smartFormFe_Edit.verifyTaxRate(value.get("SmartForms", "tax_rate_format"))==null)
         {
-            fail("couldn't find sequence");
+            fail("couldn't find tax rate");
         }
         if(smartFormFe_Edit.verifyShippingName(value.get("SmartForms", "shipping"))==null)
         {

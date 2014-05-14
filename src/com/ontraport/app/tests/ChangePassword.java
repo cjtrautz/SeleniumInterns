@@ -45,6 +45,7 @@ public class ChangePassword extends AbstractTest
         login.open(Login.url);
         login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "changed1");
         Thread.sleep(10000);
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         if(contactListAll.verifyPage()==null)
         {
             fail("couldnt find new user password");

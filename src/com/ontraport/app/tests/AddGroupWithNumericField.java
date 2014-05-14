@@ -14,11 +14,11 @@ public class AddGroupWithNumericField extends AbstractTest
     public void testAddGroupWithNumericField ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My First numeric Group"+AbstractSuite.UNIQUE);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view and edit");
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.enterFieldPaneInput("numeric", 0);
         contactListAll.drawerManageGroups.clickField("SelNumeric", 0);

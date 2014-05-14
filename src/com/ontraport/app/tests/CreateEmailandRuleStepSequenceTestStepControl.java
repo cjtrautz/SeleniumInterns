@@ -70,6 +70,19 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         {
             fail("couldn't find step number");
         }
+        sequence_ListAll = sequence_CreateStep.clickSave();
+        sequence_ListAll.formSearch.find("SelTestMovement");
+        
+        //verify Sequence exists
+        if(sequence_ListAll.verifySequence("SelTestMovement")==null)
+        {
+            fail("couldn't find sequence");
+        }
+        sequence_Edit = sequence_ListAll.clickSequence("SelTestMovement");
+        if(sequence_CreateStep.verifyEmailStepNumber(2)==null)
+        {
+            fail("couldn't find step number");
+        }
         sequence_CreateStep.clickStepDelete(2);
         sequence_CreateStep.dialogBox.clickYes();
         if(sequence_CreateStep.verifySteps(1)==null)

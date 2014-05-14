@@ -13,7 +13,7 @@ public class AddDropDownFieldColumn extends AbstractTest
     public void testAddDropDownFieldColumn ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.formColumnManager.open();
         contactListAll.formColumnManager.openFieldPane();
         contactListAll.formColumnManager.enterFieldPaneInput(value.get("Fields", "Drop_Down_Field"));

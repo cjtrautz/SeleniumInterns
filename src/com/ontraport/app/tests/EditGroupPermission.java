@@ -27,21 +27,21 @@ public class EditGroupPermission extends AbstractTest
             fail("didnt select only I can edit, everyone can view");
         }
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Only I can view & edit");
+        contactListAll.drawerManageGroups.clickPermissions("Only I can view and edit");
         contactListAll.drawerManageGroups.clickSave();
         contactListAll.drawerManageGroups.open();
 
-        if (contactListAll.drawerManageGroups.verifyGroupPermissions("Only I can view & edit") == null)
+        if (contactListAll.drawerManageGroups.verifyGroupPermissions("Only I can view and edit") == null)
         {
             fail("didnt select only I can view and edit");
         }
         
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view and edit");
         contactListAll.drawerManageGroups.clickSave();
         contactListAll.drawerManageGroups.open();
 
-        if (contactListAll.drawerManageGroups.verifyGroupPermissions("Everyone can view & Edit") == null)
+        if (contactListAll.drawerManageGroups.verifyGroupPermissions("Everyone can view and edit") == null)
         {
             fail("didnt select only I can view and edit");
         }

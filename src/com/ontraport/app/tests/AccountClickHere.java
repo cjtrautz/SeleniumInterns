@@ -14,7 +14,7 @@ public class AccountClickHere extends AbstractTest
     public void testAccountClickHere ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         OPPackage_View oPPackage_View = contactListAll.menuUser.clickAccount();
         oPPackage_View.clickHere();

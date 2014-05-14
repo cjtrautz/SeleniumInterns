@@ -14,7 +14,7 @@ public class AddDeleteUserPermissions extends AbstractTest
     public void testAddDeleteUserPermissions ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.menuUser.open();
         User_Edit user_Edit = contactListAll.menuUser.clickPersonalSettings();
         user_Edit.drawerSimpleActions.open();
