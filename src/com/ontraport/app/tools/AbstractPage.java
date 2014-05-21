@@ -33,7 +33,7 @@ public abstract class AbstractPage
 {
     // GENERAL ---------------------------------------------------------------------------------------------------------
     protected static String             password                    = "test123";
-    protected static String             login                       = "ontraportselenium+3@ontraport.com";
+    protected static String             login                       = "ontraportselenium+3@gmail.com";
     protected static String             url                         = "https://staging.ontraport.com/";
     private static String               latch                       = "?track_requests=1";
     protected WebDriver                 driver                      = AbstractSuite.getDriver();
