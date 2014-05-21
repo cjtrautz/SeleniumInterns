@@ -33,7 +33,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
 //    //used in following tests
-    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.EnsureDateSequence.class,
 //    //used in following tests and uses CreateContact contact
 //    com.ontraport.app.tests.AddTaskToContact.class,
 //    //uses CreateUser user and uses AddTaskToContact task
@@ -47,9 +47,6 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //end use of CreateRole role
 //    com.ontraport.app.tests.DeleteRole.class,
 //    //needs contact in the contact collection to do column test
-    com.ontraport.app.tests.AddColumn.class,
-    com.ontraport.app.tests.MoveColumn.class,
-    com.ontraport.app.tests.DeleteColumn.class,
 ////    //uses CreateContact contact
 ////    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
 ////    com.ontraport.app.tests.EnsureRulesFire.class,
