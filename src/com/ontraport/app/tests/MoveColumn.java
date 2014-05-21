@@ -16,7 +16,7 @@ public class MoveColumn extends AbstractTest
         
         int index = contactListAll.formColumnManager.getColumnIndex("ZIP CODE");
         contactListAll.formColumnManager.open("Zip Code");
-        contactListAll.formColumnManager.clickColumnAndMove(-300);
+        contactListAll.formColumnManager.clickColumnAndMove(-400);
         contactListAll.formColumnManager.clickCheckMark();
         
         //verify its gone

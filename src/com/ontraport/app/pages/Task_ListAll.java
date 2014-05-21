@@ -32,7 +32,7 @@ public class Task_ListAll extends AbstractPage
     private WebElement uiSelectAll;
     
     @FindBy(how = How.XPATH,
-            using = "//thead[@class='ussr-component-collection-head']/tr/th/a")
+            using = "//thead[@class='ussr-component-collection-head']/tr/th//a")
     private List<WebElement> headerCells;
     
     @FindBy(how = How.XPATH,

@@ -72,6 +72,19 @@ public class LandingPage_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"))));
         driver.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            previousVersion.click();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(Exception e)
+        {
+        }
         return (LandingPage_Edit) new LandingPage_Edit().init();
     }
 
@@ -80,14 +93,6 @@ public class LandingPage_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a"))));
         driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
-        try
-        {
-            wait.until(ExpectedConditions.visibilityOf(previousVersion));
-            previousVersion.click();
-        }
-        catch(Exception e)
-        {
-        }
         return this;
         
     }
