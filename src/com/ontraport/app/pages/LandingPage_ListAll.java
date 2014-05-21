@@ -22,6 +22,10 @@ public class LandingPage_ListAll extends AbstractPage
     private WebElement emptyCell;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' uid__dialog_button_1_TYPE_ontraport_components_button_NAME_dialog_button_1 ')]")
+    private WebElement previousVersion;
+    
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
     
@@ -76,6 +80,14 @@ public class LandingPage_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a"))));
         driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td[span[contains(., '" + string + "')]]/preceding-sibling::td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-checkbox ')]/a")).click();
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(previousVersion));
+            previousVersion.click();
+        }
+        catch(Exception e)
+        {
+        }
         return this;
         
     }

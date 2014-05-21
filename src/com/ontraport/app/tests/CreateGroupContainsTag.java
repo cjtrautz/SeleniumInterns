@@ -52,6 +52,12 @@ public class CreateGroupContainsTag extends AbstractTest
         contactListAll.drawerActions.selectDrillDown("GroupTag1");
         contactListAll.drawerActions.clickSubmit();
         contactListAll.selectContact(1);
+        contactListAll.selectContact(3);
+        contactListAll.drawerActions.clickAddRemoveTags();
+        contactListAll.drawerActions.clickTagDropDown();
+        contactListAll.drawerActions.selectDrillDown("GroupTag2");
+        contactListAll.drawerActions.clickSubmit();
+        contactListAll.selectContact(3);
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My tag contains group");
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
