@@ -76,7 +76,7 @@ public class LandingPage_ListAll extends AbstractPage
         {
             driver.manage()
             .timeouts()
-            .implicitlyWait(5, TimeUnit.SECONDS);
+            .implicitlyWait(1, TimeUnit.SECONDS);
             previousVersion.click();
             driver.manage()
             .timeouts()

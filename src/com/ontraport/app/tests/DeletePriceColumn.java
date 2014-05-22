@@ -15,7 +15,7 @@ public class DeletePriceColumn extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         Product_ListAll product_ListAll = contactListAll.menuPrimary.clickProductListAll();
-        product_ListAll.formColumnManager.open("Price");
+        product_ListAll.formColumnManager.openNum("Price");
         product_ListAll.formColumnManager.clickTrashCan();
         
         //verify its gone

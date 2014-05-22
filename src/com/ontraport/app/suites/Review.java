@@ -19,69 +19,10 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-//    com.ontraport.app.tests.CreateTaskMessage.class,
-//    //uses CreateTaskMessage message
-//    com.ontraport.app.tests.CreateCopyOfTaskMessage.class,
-//    com.ontraport.app.tests.DeleteCopyOfTaskMessage.class,
-//    //end use of CreateTaskMessage message
-//    com.ontraport.app.tests.DeleteTaskMessage.class,
-//    
-//    //used in following tests
-//    com.ontraport.app.tests.CreateRole.class,
-//    //used in following tests uses CreateRole role
-//    com.ontraport.app.tests.CreateUser.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateATag.class,
-//    //used in following tests
-    com.ontraport.app.tests.EnsureDateSequence.class,
-//    //used in following tests and uses CreateContact contact
-//    com.ontraport.app.tests.AddTaskToContact.class,
-//    //uses CreateUser user and uses AddTaskToContact task
-//    com.ontraport.app.tests.TaskActions.class,
-//    //end use of AddTaskToContact task
-//    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
-//    //uses CreateATag tag
-//    com.ontraport.app.tests.EnsureTaskOutcomeWorksOnCompletion.class,
-//    //end use of CreateUser user
-//    com.ontraport.app.tests.DeleteUser.class,
-//    //end use of CreateRole role
-//    com.ontraport.app.tests.DeleteRole.class,
-//    //needs contact in the contact collection to do column test
-////    //uses CreateContact contact
-////    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
-////    com.ontraport.app.tests.EnsureRulesFire.class,
-////    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
-////    com.ontraport.app.tests.CreateNote.class,
-////    com.ontraport.app.tests.DeleteNote.class,
-////    com.ontraport.app.tests.AddDeleteUserPermissions.class,
-////    //relies on having contacts
-////    com.ontraport.app.tests.CreateExportContacts.class,
-////    //uses CreateContact contact and uses CreateATag tag
-////    com.ontraport.app.tests.AddTagToContact.class,
-////    //uses CreateATag tag
-////    com.ontraport.app.tests.CreateRule_RemoveContactFromTag.class,
-////    com.ontraport.app.tests.DeleteRule_RemoveContactFromTag.class,
-////    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToTag.class,
-////    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToTag.class,
-////    //end use of CreateATag tag
-////    com.ontraport.app.tests.DeleteTag.class,
-////    //end use of CreateContact contact
-////    com.ontraport.app.tests.DeleteContact.class,
-//    
-//    //used in following tests
-//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
-//    //uses CreateLandingPagePictureWithRectangle landing page
-//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
-//    com.ontraport.app.tests.EditLandingPageImageTop.class,
-//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
-//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
-//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
-//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
-//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
-//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
-//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
-//    //end use of CreateLandingPagePictureWithRectangle landing page
-//    com.ontraport.app.tests.DeleteLandingPageImage.class,
+    //com.ontraport.app.tests.AddPriceColumn.class,
+    com.ontraport.app.tests.DeletePriceColumn.class,
+    com.ontraport.app.tests.AddDateModifiedColumn.class,
+    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
 
 }
 )
