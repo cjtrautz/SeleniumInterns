@@ -19,10 +19,12 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    //com.ontraport.app.tests.AddPriceColumn.class,
-    com.ontraport.app.tests.DeletePriceColumn.class,
-    com.ontraport.app.tests.AddDateModifiedColumn.class,
-    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
+//    com.ontraport.app.tests.CreateTaskFromSequence.class,
+//    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
+//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
+    com.ontraport.app.tests.CreateProduct.class,
+    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
 
 }
 )
