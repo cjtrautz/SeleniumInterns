@@ -192,6 +192,22 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
     com.ontraport.app.tests.DeleteLandingPageRedirect.class,
     
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    com.ontraport.app.tests.CreateGateway.class, 
+    //used in following tests
+    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
+    com.ontraport.app.tests.CreateOrderform.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    com.ontraport.app.tests.EditLandingPageFormOpacity.class,
+    com.ontraport.app.tests.DeleteTag.class,
+    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    //end use of CreateGateway gateway 
+    com.ontraport.app.tests.DeleteGateway.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    
 //    //used in following tests
 //    com.ontraport.app.tests.CreateTrackedLink.class, 
 //    //uses CreateTrackedLink tracked link
