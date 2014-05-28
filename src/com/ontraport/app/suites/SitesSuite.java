@@ -19,40 +19,40 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-//    //used in following tests
-//    com.ontraport.app.tests.CreateAWordPressSite.class,
-//    //uses CreateAWordPressSite wordpress site
-//    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
-//    com.ontraport.app.tests.DeleteEmailWPMessage.class,
-//    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
-//    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
-//    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
-//    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
-//    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
-//    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
-//    //no longer part of rules
-//    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
-//    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
-//    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
-//    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
-//    //end use of CreateAWordPressSite site
-//    com.ontraport.app.tests.DeleteWordPressSite.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateAWordPressSite.class,
+    //uses CreateAWordPressSite wordpress site
+    com.ontraport.app.tests.CreateEmailMessageWPFields.class,
+    com.ontraport.app.tests.DeleteEmailWPMessage.class,
+    com.ontraport.app.tests.CreateLeadScoring_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteLeadScoring_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteLeadScoring_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateSMSWPFieldMessage.class,
+    com.ontraport.app.tests.DeleteSMSWPFieldMessage.class,
+    com.ontraport.app.tests.CreatePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.DeletePostcardWPFieldMessage.class,
+    com.ontraport.app.tests.CreateWPFieldTaskMessage.class,
+    com.ontraport.app.tests.DeleteWPFieldsTaskMessage.class,
+    //no longer part of rules
+    //com.ontraport.app.tests.CreateRule_VisitsAWPWebsite.class,
+    //com.ontraport.app.tests.DeleteRule_VisitsAWPWebsite.class,
+    com.ontraport.app.tests.CreateRule_RemoveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_RemoveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_GiveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_GiveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_DoesntHaveAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_HasAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_LosesAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_LosesAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.CreateRule_IsGivenAccessToWordPressMembershipLevel.class,
+    com.ontraport.app.tests.DeleteRule_IsGivenAccessToWordPressMembershipLevel.class,
+    //end use of CreateAWordPressSite site
+    com.ontraport.app.tests.DeleteWordPressSite.class,
     
-    //com.ontraport.app.tests.ImportContacts.class,
+    com.ontraport.app.tests.ImportContacts.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
@@ -139,10 +139,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CopyLandingPageAction.class,
     //end use of CreateLandingPage landing page
     com.ontraport.app.tests.DeleteLandingPage.class,
-//    
-//    com.ontraport.app.tests.CreateStepSequenceBack.class,
-//    
-//    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
+    
+    com.ontraport.app.tests.CreateStepSequenceBack.class,
+    
+    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateLandingPageCodeMode.class,
@@ -176,10 +176,10 @@ import com.ontraport.app.tools.AbstractSuite;
     //end use of CreateLandingPageCodeMode landing page
     com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
     com.ontraport.app.tests.DeleteTag.class,
-//    
-//    com.ontraport.app.tests.VideoManagerCancel.class,
-//    com.ontraport.app.tests.CreateLandingPageBack.class,
-//    com.ontraport.app.tests.CreateLandingPageCancel.class,
+    
+    com.ontraport.app.tests.VideoManagerCancel.class,
+    com.ontraport.app.tests.CreateLandingPageBack.class,
+    com.ontraport.app.tests.CreateLandingPageCancel.class,
     
     //no longer part of system
 //    //used in following tests
@@ -192,30 +192,14 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateRedirectLandingPage.class, 
     com.ontraport.app.tests.DeleteLandingPageRedirect.class,
     
-    com.ontraport.app.tests.CreateRuleStepSequence.class,
-    com.ontraport.app.tests.CreateGateway.class, 
     //used in following tests
-    com.ontraport.app.tests.CreateATag.class,
-    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
-    com.ontraport.app.tests.CreateOrderform.class,
-    //used in following tests and uses CreateOrderform orderform
-    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    com.ontraport.app.tests.EditLandingPageFormOpacity.class,
-    com.ontraport.app.tests.DeleteTag.class,
-    com.ontraport.app.tests.DeleteLandingPageWithForm.class,
-    com.ontraport.app.tests.DeleteOrderForm.class,
-    //end use of CreateGateway gateway 
-    com.ontraport.app.tests.DeleteGateway.class,
-    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    com.ontraport.app.tests.CreateTrackedLink.class, 
+    //uses CreateTrackedLink tracked link
+    com.ontraport.app.tests.EditTrackedLinkName.class, 
+    com.ontraport.app.tests.EditTrackedDestinationLink.class, 
+    //end use of CreateTrackedLink tracked link
+    com.ontraport.app.tests.DeleteTrackedLink.class, 
     
-//    //used in following tests
-//    com.ontraport.app.tests.CreateTrackedLink.class, 
-//    //uses CreateTrackedLink tracked link
-//    com.ontraport.app.tests.EditTrackedLinkName.class, 
-//    com.ontraport.app.tests.EditTrackedDestinationLink.class, 
-//    //end use of CreateTrackedLink tracked link
-//    com.ontraport.app.tests.DeleteTrackedLink.class, 
-//    
     
     
 })
