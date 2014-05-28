@@ -1,5 +1,7 @@
 package com.ontraport.app.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,9 +10,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class LandingPage_TypeSelection extends AbstractPage
 {
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' uid__dialog_button_1_TYPE_ontraport_components_button_NAME_dialog_button_1 ')]")
+    private WebElement previousVersion;
     @FindBy(how = How.XPATH,
             using = "//a[@href='#!/landing_page/create&type=1']/button[contains(concat(' ', normalize-space(@class), ' '),' type-selection-create-button ')]")
     private WebElement creatEasyPages;
@@ -96,6 +102,19 @@ public class LandingPage_TypeSelection extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drilldown));
         drilldown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(5, TimeUnit.SECONDS);
+            previousVersion.click();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(Exception e)
+        {
+        }
         return (LandingPage_Edit) new LandingPage_Edit().init();
     }
 

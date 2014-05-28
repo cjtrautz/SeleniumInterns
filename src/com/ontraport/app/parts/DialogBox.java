@@ -175,7 +175,7 @@ public class DialogBox extends AbstractPart
             using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' longfellow-close-button ')]//span")
     private WebElement cancelTour;
     @FindBy(how = How.XPATH,
-            using = "//select[@id='tax']")
+            using = "//tr[contains(concat(' ', normalize-space(@class), ' '), ' product ')]//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-drilldownselect-button-menu-toggle ')]")
     private WebElement taxableDropDown;
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
@@ -1445,8 +1445,8 @@ public class DialogBox extends AbstractPart
     public DialogBox select ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//select/option[@value='" + string + "']"))));
-        driver.findElement(By.xpath("//select/option[@value='" + string + "']")).click();
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]/li[@data-val='" + string + "']"))));
+        driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]/li[@data-val='" + string + "']")).click();
         return this;
     }
 

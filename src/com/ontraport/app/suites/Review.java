@@ -59,6 +59,12 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence 
     com.ontraport.app.tests.UploadToAttachmentManager.class,
     com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+//    com.ontraport.app.tests.CreateTaskFromSequence.class,
+//    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
+//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
+    com.ontraport.app.tests.CreateProduct.class,
+    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
 
 }
 )

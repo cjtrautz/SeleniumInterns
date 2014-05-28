@@ -44,7 +44,7 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//th[contains(concat(' ', @class, ' '),' ussr-component-collection-cell-type-text ') and @data-header='name']/a")
+            using = "//th[contains(concat(' ', @class, ' '),' ussr-component-collection-cell-type-text ') and @data-header='name']//a")
     private WebElement nameColumn;
     
     @FindBy(

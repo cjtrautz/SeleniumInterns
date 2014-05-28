@@ -52,7 +52,7 @@ import com.ontraport.app.tools.AbstractSuite;
     //end use of CreateAWordPressSite site
     com.ontraport.app.tests.DeleteWordPressSite.class,
     
-    //com.ontraport.app.tests.ImportContacts.class,
+    com.ontraport.app.tests.ImportContacts.class,
     
     //used in following tests
     com.ontraport.app.tests.CreateLandingPageWithHTML.class,
@@ -177,111 +177,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
     com.ontraport.app.tests.DeleteTag.class,
     
-    com.ontraport.app.tests.VideoManagerCancel.class,
-    com.ontraport.app.tests.CreateLandingPageBack.class,
-    com.ontraport.app.tests.CreateLandingPageCancel.class,
     
-    //no longer part of system
-//    //used in following tests
-//    com.ontraport.app.tests.CreateTrackedDomain.class, 
-//    //uses CreateTrackedDomain tracked domain
-//    com.ontraport.app.tests.ViewTrackingScript.class,
-//    //end use of CreateTrackedDomain tracked domain
-//    com.ontraport.app.tests.DeleteTrackedDomain.class, 
     
-    com.ontraport.app.tests.CreateRedirectLandingPage.class, 
-    com.ontraport.app.tests.DeleteLandingPageRedirect.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateTrackedLink.class, 
-    //uses CreateTrackedLink tracked link
-    com.ontraport.app.tests.EditTrackedLinkName.class, 
-    com.ontraport.app.tests.EditTrackedDestinationLink.class, 
-    //end use of CreateTrackedLink tracked link
-    com.ontraport.app.tests.DeleteTrackedLink.class, 
-    
-    com.ontraport.app.tests.CreateRule_SMSContainsText.class,
-    com.ontraport.app.tests.DeleteRule_SMSContainsText.class,
-    com.ontraport.app.tests.CreateRule_SMSDoesntContainAnEmailAddress.class,
-    com.ontraport.app.tests.DeleteRule_SMSDoesntContainAnEmailAddress.class,
-    com.ontraport.app.tests.CreateRule_SMSDoesNotContainText.class,
-    com.ontraport.app.tests.DeleteRule_SMSDoesNotContainText.class,
-    com.ontraport.app.tests.CreateRule_SMSContainsAnEmailAddress.class,
-    com.ontraport.app.tests.DeleteRule_SMSContainsAnEmailAddress.class,  
-    com.ontraport.app.tests.CreateRule_SMSRecievedFromContact.class,
-    com.ontraport.app.tests.DeleteRule_SMSRecievedFromContact.class,
-    
-    com.ontraport.app.tests.AddDateModifiedColumn.class,
-    com.ontraport.app.tests.DeleteDateModifiedColumn.class,
-    com.ontraport.app.tests.AddDateCreatedColumn.class,
-    com.ontraport.app.tests.DeleteDateCreatedColumn.class,
-    com.ontraport.app.tests.AddQuantityPurchasedColumn.class,
-    com.ontraport.app.tests.DeleteQuantityPurchasedColumn.class,
-    com.ontraport.app.tests.AddRevenueColumn.class,
-    com.ontraport.app.tests.DeleteRevenueColumn.class,
-    com.ontraport.app.tests.AddPriceColumn.class,
-    com.ontraport.app.tests.DeletePriceColumn.class,
-    com.ontraport.app.tests.AddProductIDColumn.class,
-    com.ontraport.app.tests.DeleteProductIDColumn.class,
-    
-    com.ontraport.app.tests.WordPressSiteSwitchBetweenDomain.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateAnExistingWordPressSite.class,
-    //uses CreateAnExistingWordPressSite wordpress site
-    com.ontraport.app.tests.ExistingWordPressSiteTryPilotPress.class,
-    //end use of CreateAnExistingWordPressSite wordpress site
-    com.ontraport.app.tests.DeleteExistingWordPressSite.class,
-    
-    com.ontraport.app.tests.CreateWordPressBack.class,
-    com.ontraport.app.tests.CreateWordPressCancel.class,
-    
-    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreateGatewayUSAePayToken.class,
-    com.ontraport.app.tests.DeleteGatewayUSAePayToken.class,
-    com.ontraport.app.tests.CreateGatewayUSAePay.class,
-    com.ontraport.app.tests.DeleteGatewayUSAePay.class,
-    com.ontraport.app.tests.CreateGatewayQuickBooks.class,
-    com.ontraport.app.tests.DeleteGatewayQuickBooks.class,
-    com.ontraport.app.tests.CreateGatewayPayPal.class,
-    com.ontraport.app.tests.DeleteGatewayPayPal.class,
-    com.ontraport.app.tests.CreateGatewayPayLeap.class,
-    com.ontraport.app.tests.DeleteGatewayPayLeap.class,
-    com.ontraport.app.tests.CreateGatewayPayJunction.class,
-    com.ontraport.app.tests.DeleteGatewayPayJunction.class,
-    com.ontraport.app.tests.CreateGatewayPayflowPro.class,
-    com.ontraport.app.tests.DeleteGatewayPayflowPro.class,
-    com.ontraport.app.tests.CreateGatewayNetworkMerchantsInc.class,
-    com.ontraport.app.tests.DeleteGatewayNetworkMerchantsInc.class,
-    com.ontraport.app.tests.CreateGatewayeWay.class,
-    com.ontraport.app.tests.DeleteGatewayeWay.class,
-    com.ontraport.app.tests.CreateGatewayElavon.class,
-    com.ontraport.app.tests.DeleteGatewayElavon.class, 
-    com.ontraport.app.tests.CreateGatewayAuthorizeNet.class,
-    com.ontraport.app.tests.DeleteGatewayAuthorizeNet.class,
-    com.ontraport.app.tests.CreateGatewayAuthorizeNetCIM.class,
-    com.ontraport.app.tests.DeleteGatewayAuthorizeNetCIM.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateRuleDateSequence.class,
-    //uses CreateRuleDateSequence sequence
-    com.ontraport.app.tests.CopyDateSequence.class,
-    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
-    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToUnPausedDateSequence.class,
-    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToPausedDateSequence.class,
-    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToPausedDateSequence.class,
-    com.ontraport.app.tests.CreateLeadScoring_ContactNotSubscribedToDateSequence.class,
-    com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToDateSequence.class,
-    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToDateSequence.class,
-    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToDateSequence.class,
-    com.ontraport.app.tests.UnsubscribeContactAfterLastStep.class,
-    com.ontraport.app.tests.RunSequenceOnlyOnWeekends.class,
-    com.ontraport.app.tests.VerifySequenceEditSteps.class,
-    //end use of CreateRuleDateSequence sequence
-    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-
-    com.ontraport.app.tests.SignUp.class, 
     
 })
 public class SitesSuite extends AbstractSuite

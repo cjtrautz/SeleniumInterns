@@ -24,7 +24,7 @@ import com.ontraport.app.tools.Values;
 public class CreateLandingPageWithForm extends AbstractTest
 {
     @Test
-    public void testCreateLandingPageWithForm ()
+    public void testCreateLandingPageWithForm () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -42,6 +42,7 @@ public class CreateLandingPageWithForm extends AbstractTest
         landingPage_CreateType1.clickFormDropDown();
         landingPage_CreateType1.selectDrillDown("Smart Forms and Order Form");
         landingPage_CreateType1.selectDrillDown(value.get("SmartForms", "orderForm"));
+        Thread.sleep(4000);
         landingPage_ListAll = landingPage_CreateType1.clickSave();
         landingPage_ListAll.formSearch.find(value.get("LandingPages", "Easy_Landing_Page_Form"));
         

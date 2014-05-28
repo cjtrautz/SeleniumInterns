@@ -100,8 +100,41 @@ public class FormColumnManager extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(columnToEdit));
         System.out.println("scrolled");
         actions.moveToElement(columnToEdit).build().perform();
-        wait(5).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space(text())='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span")));
-        WebElement toDelete = driver.findElement(By.xpath("//a[normalize-space(text())='" + column + "']/following-sibling::div/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ') and @style='display: inline;']/span"));
+        wait(5).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space(text())='" + column + "']/following-sibling::span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-controls ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
+        WebElement toDelete = driver.findElement(By.xpath("//a[normalize-space(text())='" + column + "']/following-sibling::span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-controls ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"));
+        actions.clickAndHold(toDelete).build().perform();
+        actions.release(toDelete).build().perform();
+        System.out.println("here3");
+        return this;
+    }
+    public FormColumnManager openNum (String column) throws InterruptedException 
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(headerColumns));
+        WebElement columnToEdit = driver.findElement(By.xpath("//tr[@class='sem-collection-header-display']//a[normalize-space(text())='" + column + "']"));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", columnToEdit);
+        waitForAjax(driver, 20);
+        Actions actions = new Actions(driver);
+        try{
+            wait(5).until(ExpectedConditions.visibilityOf(scroll));
+        }
+        catch(TimeoutException e)
+        {
+            System.out.println("no scroll");
+        }
+        try
+        {
+        actions.dragAndDropBy(scroll, 1000, 0).build().perform();
+        }
+        catch(Exception e1)
+        {
+            
+        }
+        wait(5).until(ExpectedConditions.visibilityOf(columnToEdit));
+        System.out.println("scrolled");
+        actions.moveToElement(columnToEdit).build().perform();
+        wait(5).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space(text())='" + column + "']/ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' collection-header-title-wrapper ')]/following-sibling::span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-controls ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span")));
+        WebElement toDelete = driver.findElement(By.xpath("//a[normalize-space(text())='" + column + "']/ancestor::div[contains(concat(' ', normalize-space(@class), ' '), ' collection-header-title-wrapper ')]/following-sibling::span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-controls ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-col-edit ')]/span"));
         actions.clickAndHold(toDelete).build().perform();
         actions.release(toDelete).build().perform();
         System.out.println("here3");
