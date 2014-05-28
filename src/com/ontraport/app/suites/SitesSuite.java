@@ -177,28 +177,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
     com.ontraport.app.tests.DeleteTag.class,
     
-    com.ontraport.app.tests.VideoManagerCancel.class,
-    com.ontraport.app.tests.CreateLandingPageBack.class,
-    com.ontraport.app.tests.CreateLandingPageCancel.class,
-    
-    //no longer part of system
-//    //used in following tests
-//    com.ontraport.app.tests.CreateTrackedDomain.class, 
-//    //uses CreateTrackedDomain tracked domain
-//    com.ontraport.app.tests.ViewTrackingScript.class,
-//    //end use of CreateTrackedDomain tracked domain
-//    com.ontraport.app.tests.DeleteTrackedDomain.class, 
-    
-    com.ontraport.app.tests.CreateRedirectLandingPage.class, 
-    com.ontraport.app.tests.DeleteLandingPageRedirect.class,
-    
-    //used in following tests
-    com.ontraport.app.tests.CreateTrackedLink.class, 
-    //uses CreateTrackedLink tracked link
-    com.ontraport.app.tests.EditTrackedLinkName.class, 
-    com.ontraport.app.tests.EditTrackedDestinationLink.class, 
-    //end use of CreateTrackedLink tracked link
-    com.ontraport.app.tests.DeleteTrackedLink.class, 
     
     
     
