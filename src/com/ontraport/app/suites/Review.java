@@ -50,6 +50,7 @@ import com.ontraport.app.tools.AbstractSuite;
       com.ontraport.app.tests.CreateTaskStepSequence.class,
       com.ontraport.app.tests.EditTaskStepSequence.class,
       com.ontraport.app.tests.DeleteTaskStepSequence.class,
+      com.ontraport.app.tests.DeleteTaskWhoMessage.class,
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
 //    //used in following tests
@@ -57,14 +58,14 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
 //    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence 
-    com.ontraport.app.tests.UploadToAttachmentManager.class,
-    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+//    com.ontraport.app.tests.UploadToAttachmentManager.class,
+//    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
 //    com.ontraport.app.tests.CreateTaskFromSequence.class,
 //    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
 //    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreateProduct.class,
-    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
+//    com.ontraport.app.tests.CreateProduct.class,
+//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+//    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
 
 }
 )
