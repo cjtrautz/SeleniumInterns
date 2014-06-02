@@ -176,5 +176,12 @@ public class WordPress_CreateType2 extends AbstractPage
         return this;
     }
 
-    
+    public Contact_Edit saveToContactEditor()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveButton));
+        saveButton.click();
+        
+        return (Contact_Edit) new Contact_Edit().init() ;
+    }
 }

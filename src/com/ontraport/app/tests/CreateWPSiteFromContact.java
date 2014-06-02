@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.pages.Contact_ListAll;
+import com.ontraport.app.pages.WordPress_CreateType2;
+import com.ontraport.app.pages.WordPress_TypeSelection;
 import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.Sequence_ListAll;
 //import com.ontraport.app.pages.Rule_ListAll;
@@ -24,7 +26,17 @@ public class CreateWPSiteFromContact extends AbstractTest
         Contact_Edit contactEdit = contactListAll.clickContact(value.get("Contacts", "selenium_email"));
         
         contactEdit.clickMembershipsTab();
+        contactEdit.clickNewWPMembership();
         contactEdit.clickWPMembershipDrilldown();
         
+        WordPress_TypeSelection wpTypeSelect = contactEdit.clickNewWPSite();
+        
+        WordPress_CreateType2 wpCreate = wpTypeSelect.clickCreateNewWordPressSite();
+        
+        wpCreate.enterWordPressSiteName("New WP Site From Contact");
+        wpCreate.enterDomainName("WP Site From Contact"+AbstractSuite.UNIQUE);
+        wpCreate.enterMembershipLevel("One");
+        wpCreate.clickAddMembershipLevel();
+        wpCreate.saveToContactEditor();
     }
 }
