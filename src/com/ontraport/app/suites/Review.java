@@ -19,34 +19,21 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.UploadVideo.class,
-//    com.ontraport.app.tests.CreateGateway.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateATag.class,
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    com.ontraport.app.tests.CreateOrderform.class,
-//    com.ontraport.app.tests.CreateContact.class,
-//    com.ontraport.app.tests.AddWeightedRandom.class, 
-//    com.ontraport.app.tests.CreateMessage.class,
-//    com.ontraport.app.tests.CreateATag.class,
-//    com.ontraport.app.tests.CreateRuleDateSequence.class,
-//    com.ontraport.app.tests.MassActionForContacts.class,
 //    com.ontraport.app.tests.CreateTaskFromSequence.class,
 //    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
 //    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.CreateProduct.class,
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteProduct.class,
-//    com.ontraport.app.tests.DeleteGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.DeleteAndVerifyMassActionForContact.class,
-//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-//    com.ontraport.app.tests.DeleteTag.class,
-//    com.ontraport.app.tests.DeleteMessage.class,
-//    com.ontraport.app.tests.SignUp.class,
-//    com.ontraport.app.tests.DeleteRuleDateSequence.class,
-//    com.ontraport.app.tests.DeleteTag.class,
-//    com.ontraport.app.tests.DeleteMessage.class,
+    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
+    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
+    com.ontraport.app.tests.EditPostcardLineSpacing.class,
+    com.ontraport.app.tests.EditPostcardAlignRight.class,
+    com.ontraport.app.tests.EditPostcardAlignCenter.class,
+    com.ontraport.app.tests.EditPostcardAlignLeft.class,
+    com.ontraport.app.tests.EditPostcardUnderline.class,
+    com.ontraport.app.tests.EditPostcardItalic.class,
+    com.ontraport.app.tests.EditPostcardBold.class,
+    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
+    
+
 }
 )
 public class Review extends AbstractSuite
@@ -57,10 +44,10 @@ public class Review extends AbstractSuite
         AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
-        profile.setPreference("browser.cache.disk.enable", true);
-        profile.setPreference("browser.cache.memory.enable", true);
-        profile.setPreference("browser.cache.offline.enable", true);
-        profile.setPreference("network.http.use-cache", true);
+        profile.setPreference("browser.cache.disk.enable", false);
+        profile.setPreference("browser.cache.memory.enable", false);
+        profile.setPreference("browser.cache.offline.enable", false);
+        profile.setPreference("network.http.use-cache", false);
         driver = new FirefoxDriver(profile);
         //driver = new ChromeDriver();
         driver.manage()
@@ -75,6 +62,7 @@ public class Review extends AbstractSuite
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);

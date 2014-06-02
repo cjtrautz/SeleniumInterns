@@ -28,11 +28,9 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.dialogBox.enterProductName("Dollar" + AbstractSuite.UNIQUE);
         smartFormFe_Create.dialogBox.clickGrid();
         smartFormFe_Create.dialogBox.enterPrice("6.00");
+        smartFormFe_Create.dialogBox.clickTaxableDropDown();
+        smartFormFe_Create.dialogBox.select("true");
         smartFormFe_Create.dialogBox.clickDone();
-        smartFormFe_Create.clickAddPaymentMethod();
-        smartFormFe_Create.clickGatewayDropDown();
-        smartFormFe_Create.selectDropDown("SelGateway");
-        smartFormFe_Create.clickGatewayDropDown();
         smartFormFe_Create.clickAddShippingMethod();
         smartFormFe_Create.clickShippingNameInput();
         smartFormFe_Create.clickCreateNew();
@@ -43,6 +41,10 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Create.clickCreateNew();
         smartFormFe_Create.enterTaxName(value.get("SmartForms", "tax"));
         smartFormFe_Create.enterTaxPercent(value.get("SmartForms", "tax_rate"));
+        smartFormFe_Create.clickAddPaymentMethod();
+        smartFormFe_Create.clickGatewayDropDown();
+        smartFormFe_Create.selectDropDown("SelGateway");
+        smartFormFe_Create.clickGatewayDropDown();
         smartFormFe_Create.clickSave();
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         smartFormFe_ListAll.formSearch.find("SelOrderform");
@@ -62,7 +64,7 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Edit.clickAddRule();
         smartFormFe_Edit.enterRuleName(value.get("SmartForms", "rule_name"));
         smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown("If Contact is subscribed to Tag");
+        smartFormFe_Edit.selectDropDown("Contact has Tag");
         smartFormFe_Edit.clickIfDropDown();
         smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
         smartFormFe_Edit.clickThenDropDown();

@@ -21,10 +21,10 @@ public class CreateRule_SubscribedToSubscriptionProduct extends AbstractTest
         Rule_Create rule_Create = rule_ListAll.clickNewRule();
         rule_Create.enterRuleName("SelRuleSubscribedToSubscriptionProduct");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.enterWhenInputDropDown("product", 1);
-        rule_Create.selectWhenDrillDownPaneOption("Is subscribed to subscription product");
+        rule_Create.enterWhenInputDropDown("Open", 1);
+        rule_Create.selectWhenDrillDownPaneOption("Open order is created");
         rule_Create.openWhenTriggerPane(1);
-        rule_Create.selectWhenDrillDownPaneOption("Any Subscription Product");
+        rule_Create.selectWhenDrillDownPaneOption("Any Product");
         rule_Create.openThenActionPane(1);
         rule_Create.selectThenDrillDownPaneOption("Recharge all declined transactions");
         rule_ListAll = rule_Create.clickSave();
@@ -36,11 +36,11 @@ public class CreateRule_SubscribedToSubscriptionProduct extends AbstractTest
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule("SelRuleSubscribedToSubscriptionProduct");
-        if(rule_Edit.verifyText("Is subscribed to ")==null)
+        if(rule_Edit.verifyText("Open order created with ")==null)
         {
             fail("didnt select subscribed to subscription product");
         }
-        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Subscription Product")==null)
+        if(rule_Edit.verifyWhenDropDownInputText(1, "Any Product")==null)
         {
             fail("didnt select any subscription product");
         }

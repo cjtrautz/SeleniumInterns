@@ -12,8 +12,18 @@ public class UltraCart_View extends AbstractPage
 {
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(text(), 'Add this key to the Ultracart configuration menu under OfficeAutoPilot: ')]")
+            using = "//div[contains(@class, 'text_NAME_ultracart_key')]//input")
     private WebElement ultraCartKey;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_ultracart_last_sync')]//input")
+    private WebElement ultraCartSyncInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(@class, 'ussr-ultracart-form-submit')]//button")
+    private WebElement ultraCartSyncButton;
 
     public UltraCart_View keyAdding ()
     {
@@ -21,6 +31,28 @@ public class UltraCart_View extends AbstractPage
         try
         {
             if(ultraCartKey.isDisplayed()!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        try
+        {
+            if(ultraCartSyncInput.isDisplayed()!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        try
+        {
+            if(ultraCartSyncButton.isDisplayed()!=true)
             {
                 return null;
             }

@@ -173,7 +173,7 @@ public class DrawerActions extends AbstractPart
     private WebElement changeFieldValue;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send Double Opt-In Confirmation')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Send Opt-In Confirmation')]")
     private WebElement sendDoubleOptin;
     
     @FindBy(how = How.XPATH,
@@ -609,7 +609,7 @@ public class DrawerActions extends AbstractPart
     public DrawerActions selectDrillDown ( String string )
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
+        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
         drillDown.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
         return this;
         
@@ -1116,6 +1116,7 @@ public class DrawerActions extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(campaignDropDownInput));
         campaignDropDownInput.sendKeys(unique);
+        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//li/div[contains(text(), '" + unique + "')]"))));
         return this;
     }
     public DrawerActions enterLeadSourceDropDown ( String valueOf )
@@ -1234,6 +1235,10 @@ public class DrawerActions extends AbstractPart
         if(name2.equals("0"))
         {
             name2 = "00";
+        }
+        if(name2.length() == 1)
+        {
+            name2 = "0" + name2;
         }
         System.out.println(name + ":" + name2 + " " + name3);
         wait(5).until(ExpectedConditions.visibilityOf(timeDropDownInput));

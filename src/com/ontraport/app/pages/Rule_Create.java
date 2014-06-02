@@ -326,11 +326,11 @@ public class Rule_Create extends AbstractPage
         //wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuIf));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()=\"" + string + "\"]]")));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()='" + string + "']]")));
-        wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]"))));
-        ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()=\"" + string + "\"]]")));
+        wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()=\"" + string + "\"]]"))));
+        ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()=\"" + string + "\"]]")).click();
         return this;
         
     }

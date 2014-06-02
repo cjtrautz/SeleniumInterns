@@ -12,29 +12,30 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.ontraport.app.pages.Login;
 import com.ontraport.app.tools.AbstractPage;
+import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
 
 @RunWith(Suite.class)
 @SuiteClasses(
 
 {
-    com.ontraport.app.tests.CreateAWordPressSite.class,
-    com.ontraport.app.tests.DeleteWordPressSite.class,
-    
-    com.ontraport.app.tests.ImportContacts.class,
-    
-    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
-    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
-    com.ontraport.app.tests.SendSingleEmailToContact.class,
-    com.ontraport.app.tests.EnsureDateSequence.class,
-    com.ontraport.app.tests.CreateSendFromAddress.class,
-    com.ontraport.app.tests.SendDoubleOptIn.class,
-    
-    com.ontraport.app.tests.CreateRuleStepSequence.class,
-    com.ontraport.app.tests.CreateMessage.class,
-    com.ontraport.app.tests.SendTestEmail.class,
-    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
-    com.ontraport.app.tests.CreateContact.class,
+//    com.ontraport.app.tests.CreateAWordPressSite.class,
+//    com.ontraport.app.tests.DeleteWordPressSite.class,
+//    
+//    com.ontraport.app.tests.ImportContacts.class,
+//    
+//    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+//    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+//    com.ontraport.app.tests.SendSingleEmailToContact.class,
+//    com.ontraport.app.tests.EnsureDateSequence.class,
+//    com.ontraport.app.tests.CreateSendFromAddress.class,
+//    com.ontraport.app.tests.SendDoubleOptIn.class,
+//    
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateMessage.class,
+//    com.ontraport.app.tests.SendTestEmail.class,
+//    com.ontraport.app.tests.EditSequenceWaitNegativeDaysAndAddEmailStep.class,
+//    com.ontraport.app.tests.CreateContact.class,
     com.ontraport.app.tests.CreateTagToAddToContact.class,
     com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.EnsureRulesFire.class,
@@ -109,7 +110,7 @@ public class Production extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com/");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);
@@ -129,6 +130,8 @@ public class Production extends AbstractSuite
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        AbstractPart.waitForAjax(driver, 30);
+        Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);

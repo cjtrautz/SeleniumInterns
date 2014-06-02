@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
@@ -1270,7 +1271,23 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 2);
+                wait.until(ExpectedConditions.alertIsPresent());
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            } catch (Exception e) {
+                //exception handling
+            }
             driver.get(string + ".respond.ontraport.net");
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 2);
+                wait.until(ExpectedConditions.alertIsPresent());
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            } catch (Exception e) {
+                //exception handling
+            }
             if(!driver.findElement(By.xpath("//body//center//div[contains(concat(' ', normalize-space(@style), ' '),' rgb(127,127,127);')]")).isDisplayed())
             {
                 return null;
@@ -1289,7 +1306,23 @@ public class LandingPage_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 2);
+                wait.until(ExpectedConditions.alertIsPresent());
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            } catch (Exception e) {
+                //exception handling
+            }
             driver.get(string + ".respond.ontraport.net");
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 2);
+                wait.until(ExpectedConditions.alertIsPresent());
+                Alert alert = driver.switchTo().alert();
+                alert.accept();
+            } catch (Exception e) {
+                //exception handling
+            }
             if(!driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form ')]")).isDisplayed())
             {
                 return null;

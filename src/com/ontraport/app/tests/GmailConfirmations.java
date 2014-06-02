@@ -99,6 +99,14 @@ public class GmailConfirmations extends AbstractTest
 //            fail("couldnt find send from address");
 //        }
         driver.get("mail.google.com");
+        try {
+            WebDriverWait wait2 = new WebDriverWait(driver, 2);
+            wait2.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (Exception e) {
+            //exception handling
+        }
           gmail = (Gmail) new Gmail().init();
           gmail.clickDoubleOptin();
           gmail.clickDoubleOptinLink();

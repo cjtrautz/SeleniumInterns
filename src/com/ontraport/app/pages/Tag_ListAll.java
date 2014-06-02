@@ -64,7 +64,7 @@ public class Tag_ListAll extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            uiCollectionBody.findElement(By.xpath(".//span[normalize-space(text())='" + tag + "']"));
+            uiCollectionBody.findElement(By.xpath(".//span[normalize-space(.)='" + tag + "']"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

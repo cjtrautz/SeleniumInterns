@@ -14,11 +14,11 @@ public class AddGroupWithLongTextField extends AbstractTest
     public void testAddGroupWithLongTextField ()
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         contactListAll.drawerManageGroups.open();
         contactListAll.drawerManageGroups.enterGroupName("My First long text Group"+AbstractSuite.UNIQUE);
         contactListAll.drawerManageGroups.openGroupPermissionsPane();
-        contactListAll.drawerManageGroups.clickPermissions("Everyone can view & Edit");
+        contactListAll.drawerManageGroups.clickPermissions("Everyone can view and edit");
         contactListAll.drawerManageGroups.openFieldPane(0);
         contactListAll.drawerManageGroups.enterFieldPaneInput("longtext", 0);
         contactListAll.drawerManageGroups.clickField("SelLongText", 0);

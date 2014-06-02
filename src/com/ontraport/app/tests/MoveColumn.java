@@ -14,13 +14,13 @@ public class MoveColumn extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
-        int index = contactListAll.formColumnManager.getColumnIndex("Zip Code");
+        int index = contactListAll.formColumnManager.getColumnIndex("ZIP CODE");
         contactListAll.formColumnManager.open("Zip Code");
-        contactListAll.formColumnManager.clickColumnAndMove(-300);
+        contactListAll.formColumnManager.clickColumnAndMove(-400);
         contactListAll.formColumnManager.clickCheckMark();
         
         //verify its gone
-        if(contactListAll.formColumnManager.verifyColumnEarlier("Zip Code", index)==null)
+        if(contactListAll.formColumnManager.verifyColumnEarlier("ZIP CODE", index)==null)
         {
             fail("found column not moved");
         }

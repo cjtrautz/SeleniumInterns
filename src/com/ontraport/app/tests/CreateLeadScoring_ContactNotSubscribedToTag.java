@@ -20,7 +20,7 @@ public class CreateLeadScoring_ContactNotSubscribedToTag extends AbstractTest
         Contact_ScoreEdit contact_ScoreEdit = contact_Settings.clickLeadScoring();
         contact_ScoreEdit.clickAddNewCondition();
         contact_ScoreEdit.clickDropDownCondition();
-        contact_ScoreEdit.selectDrillDown("If Contact is not subscribed to Tag");
+        contact_ScoreEdit.selectDrillDown("Contact doesn't have Tag");
         contact_ScoreEdit.clickDropDownCondition();
         contact_ScoreEdit.selectDrillDown(value.get("Contacts", "tag"));
         contact_ScoreEdit.enterPointScore("25");
@@ -29,7 +29,7 @@ public class CreateLeadScoring_ContactNotSubscribedToTag extends AbstractTest
         contact_Settings = contactListAll.menuPrimary.clickContactSettings();
         contact_ScoreEdit = contact_Settings.clickLeadScoring();
         //verify new section is in the field editor
-        if(contact_ScoreEdit.verifyText("If Contact is not subscribed to Tag:")==null)
+        if(contact_ScoreEdit.verifyText("Contact doesn't have Tag:")==null)
         {
             fail("didnt Select If Contact is not subscribed to tag");
         }

@@ -17,7 +17,7 @@ public class MenuUser extends AbstractPart
 {
     @FindBy(
             how = How.XPATH,
-            using = "//li[@class='ussr-header-nav-option-user']/span")
+            using = "//li[@class='ussr-header-nav-option-user']//span")
     private WebElement toggleMenuUser;
     
     @FindBy(
@@ -54,7 +54,7 @@ public class MenuUser extends AbstractPart
     { 
         waitForAjax(driver, 20);
         wait(4).until(ExpectedConditions.visibilityOf(toggleMenuUser));
-        wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']/span")));
+        wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']//span")));
         wait(4).until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='ussr-header-nav-option-user']//a[@href='javascript://']")));
 
         toggleMenuUser.click();
@@ -94,7 +94,15 @@ public class MenuUser extends AbstractPart
     }
     public void clickLogOut ()
     {
-        waitForAjax(driver, 20);
+        try
+        {
+            waitForAjax(driver, 20);
+            Thread.sleep(1500);
+        }
+        catch(Exception e)
+        {
+            
+        }
         wait(4).until(ExpectedConditions.visibilityOf(logOut));
         logOut.click();
         

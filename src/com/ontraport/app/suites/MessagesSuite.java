@@ -282,10 +282,10 @@ public class MessagesSuite extends AbstractSuite
         //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(false);
-        profile.setPreference("browser.cache.disk.enable", true);
-        profile.setPreference("browser.cache.memory.enable", true);
-        profile.setPreference("browser.cache.offline.enable", true);
-        profile.setPreference("network.http.use-cache", true);
+        profile.setPreference("browser.cache.disk.enable", false);
+        profile.setPreference("browser.cache.memory.enable", false);
+        profile.setPreference("browser.cache.offline.enable", false);
+        profile.setPreference("network.http.use-cache", false);
         driver = new FirefoxDriver(profile);
         //driver = new ChromeDriver();
         driver.manage()
@@ -300,6 +300,7 @@ public class MessagesSuite extends AbstractSuite
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);

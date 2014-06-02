@@ -21,6 +21,7 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         Sequence_ListAll sequence_ListAll = contactListAll.menuPrimary.clickSequenceListAll();
         Sequence_TypeSelection sequence_TypeSelection = sequence_ListAll.clickNewSequence();
         Sequence_CreateStep sequence_CreateStep = sequence_TypeSelection.clickStepSequenceCreate();
+        sequence_CreateStep.enterSequenceName("SelTestMovement");
         //sequence_ListAll = sequence_CreateStep.clickBack();
         //sequence_TypeSelection = sequence_ListAll.clickNewSequence();
         //sequence_CreateStep = sequence_TypeSelection.clickStepSequenceCreate();
@@ -43,7 +44,18 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         }
         sequence_CreateStep.clickAddRuleStep();
         sequence_CreateStep.enterRuleName("Something");
+        sequence_CreateStep.clickRuleActionDropDown();
+        sequence_CreateStep.selectDrillDown("Recharge all declined transactions");
         sequence_CreateStep.clickStepDropDown(3);
+        sequence_ListAll = sequence_CreateStep.clickSave();
+        sequence_ListAll.formSearch.find("SelTestMovement");
+        
+        //verify Sequence exists
+        if(sequence_ListAll.verifySequence("SelTestMovement")==null)
+        {
+            fail("couldn't find sequence");
+        }
+        Sequence_Edit sequence_Edit = sequence_ListAll.clickSequence("SelTestMovement");
         sequence_CreateStep.clickStepHandleAndMove(1, 60);
         try
         {
@@ -58,13 +70,35 @@ public class CreateEmailandRuleStepSequenceTestStepControl extends AbstractTest
         {
             fail("couldn't find step number");
         }
+        sequence_ListAll = sequence_CreateStep.clickSave();
+        sequence_ListAll.formSearch.find("SelTestMovement");
+        
+        //verify Sequence exists
+        if(sequence_ListAll.verifySequence("SelTestMovement")==null)
+        {
+            fail("couldn't find sequence");
+        }
+        sequence_Edit = sequence_ListAll.clickSequence("SelTestMovement");
+        if(sequence_CreateStep.verifyEmailStepNumber(2)==null)
+        {
+            fail("couldn't find step number");
+        }
         sequence_CreateStep.clickStepDelete(2);
         sequence_CreateStep.dialogBox.clickYes();
         if(sequence_CreateStep.verifySteps(1)==null)
         {
-            fail("couldn't find maximized step");
+            fail("find deleted step");
         }
-        
+        sequence_ListAll = sequence_CreateStep.clickSave();
+        sequence_ListAll.formSearch.find("SelTestMovement");
+        sequence_ListAll.selectAllOnPage();
+        sequence_ListAll.drawerActions.clickDeleteSequences();
+        sequence_ListAll.dialogBox.clickOk();
+        //verify
+        if(sequence_ListAll.verifyNoSequence()==null)
+        {
+            fail("found deleted sequence");
+        }
         
     }
 }

@@ -38,7 +38,7 @@ public class CreateRule_1ConditionWithOrAndAnd extends AbstractTest
         rule_Create.selectIfDrillDownPaneOption("Any Sequence");
         rule_Create.addNewCondition();
         rule_Create.openIfConditionPane(8);
-        rule_Create.selectIfDrillDownPaneOption("If Contact is subscribed to Tag");
+        rule_Create.selectIfDrillDownPaneOption("Contact has Tag");
         rule_Create.openIfConditionPane(8);
         rule_Create.selectIfDrillDownPaneOption("SelTag");
         rule_Create.openThenActionPane(1);
@@ -85,7 +85,7 @@ public class CreateRule_1ConditionWithOrAndAnd extends AbstractTest
         {
             fail("didnt select 2nd And");
         }
-        if(rule_Edit.verifyText("If Contact is subscribed to Tag:")==null)
+        if(rule_Edit.verifyText("Contact has Tag:")==null)
         {
             fail("didnt select 2nd condition that contact is subscribed to tag");
         }

@@ -38,7 +38,7 @@ public class CreateRule_RemoveAccessToWordPressMembershipLevel extends AbstractT
             fail("couldnt find created rule");
         }
         Rule_Edit rule_Edit = rule_ListAll.clickRule(value.get("Rules", "remove_access_to_wordpress_membership_level"));
-        if(rule_Edit.verifyText("Remove acces to ")==null)
+        if(rule_Edit.verifyText("Remove access to ")==null)
         {
             fail("didnt select tracked links");
         }

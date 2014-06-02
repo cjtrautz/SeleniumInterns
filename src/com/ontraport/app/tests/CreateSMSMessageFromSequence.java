@@ -32,6 +32,8 @@ public class CreateSMSMessageFromSequence extends AbstractTest
         Message_Edit message_Edit = sequence_CreateStep.clickSaveAndEdit();
         message_Edit.openMergeFieldPane();
         message_Edit.selectMergeField("First Name");
+        message_Edit.dialogBox.clickOk();
+        message_Edit.sendSMSBody("Sel");
         sequence_CreateStep = message_Edit.clickSaveToSequence();
 
         if(sequence_CreateStep.verifyPreviewData("[First Name]Sel")==null)

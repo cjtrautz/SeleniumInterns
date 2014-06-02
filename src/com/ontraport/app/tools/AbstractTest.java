@@ -10,9 +10,12 @@ import org.junit.Rule;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractTest
 {
@@ -22,6 +25,7 @@ public abstract class AbstractTest
     protected static String dateTime = "";
     protected static String tabName = "";
     protected static String reTabName = "";
+    protected static String formURL = "";
     public static Values value = new Values();
     protected static WebDriver driver = AbstractSuite.getDriver();
     @Rule
@@ -31,11 +35,27 @@ public abstract class AbstractTest
         //driver = AbstractSuite.getDriver();
     }
     @BeforeClass
-    public static void beforeTest ()
+    public static void beforeTest () throws InterruptedException
     {
         //AbstractPart.waitForAjax(driver, 30);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 2);
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (Exception e) {
+            //exception handling
+        }
         driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 2);
+            wait.until(ExpectedConditions.alertIsPresent());
+            Alert alert = driver.switchTo().alert();
+            alert.accept();
+        } catch (Exception e) {
+            //exception handling
+        }
         AbstractPart.waitForAjax2(driver, 30);
     }
     @Before
@@ -131,5 +151,13 @@ public abstract class AbstractTest
     public static String getTabReName ()
     {
         return AbstractTest.reTabName;
+    }
+    public static void setHostedFormURL ( String url )
+    {
+        AbstractTest.formURL = url;
+    }
+    public static String getHostedFormURL ()
+    {
+        return AbstractTest.formURL;
     }
 }

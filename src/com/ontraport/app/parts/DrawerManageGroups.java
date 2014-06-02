@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -94,11 +96,11 @@ public class DrawerManageGroups extends AbstractPart
     private List<WebElement> uiInputValueRows;
 
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Save']")
+            using = "//button[contains(concat(' ',@class,' '), ' sem-save-button ')]")
     private WebElement uiButtonSave;
     
     @FindBy(how = How.XPATH,
-    using = "//div[contains(concat(' ',@class,' '), ' group-editor-buttons ')]//button[@value='Delete Group']")
+    using = "//button[contains(concat(' ',@class,' '), ' sem-delete-button ')]")
 private WebElement uiButtonDeleteGroup;
     
     @FindBy(how = How.XPATH,
@@ -165,6 +167,7 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups clickField ( String field,  int row )
     {
         waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")));
         wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']"))));
         uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiFieldList.get(row))));
@@ -191,6 +194,8 @@ private WebElement uiButtonDeleteGroup;
         waitForAjax(driver, 20);
         wait(10).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']"))));
         uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']")).click();
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.RETURN).build().perform();
         wait(10).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
         return this;
     }

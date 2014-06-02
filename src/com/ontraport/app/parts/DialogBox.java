@@ -115,7 +115,7 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes clear all')]")
     private WebElement yesClearAll;
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Delete')]")
     private WebElement yes;
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-delete-button ')]")
@@ -174,6 +174,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' longfellow-close-button ')]//span")
     private WebElement cancelTour;
+    @FindBy(how = How.XPATH,
+            using = "//tr[contains(concat(' ', normalize-space(@class), ' '), ' product ')]//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-drilldownselect-button-menu-toggle ')]")
+    private WebElement taxableDropDown;
     @FindBy(how = How.XPATH,
             using = "//div[@class='ussr-dialog-buttons']//button[span[contains(text(), 'Send')]]")
     private WebElement sendButton;
@@ -1430,6 +1433,20 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(cancelTour));
         cancelTour.click();
+        return this;
+    }
+    public DialogBox clickTaxableDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(taxableDropDown));
+        taxableDropDown.click();
+        return this;
+    }
+    public DialogBox select ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]/li[@data-val='" + string + "']"))));
+        driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]/li[@data-val='" + string + "']")).click();
         return this;
     }
 

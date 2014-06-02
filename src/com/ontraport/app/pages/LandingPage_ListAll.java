@@ -22,6 +22,10 @@ public class LandingPage_ListAll extends AbstractPage
     private WebElement emptyCell;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' uid__dialog_button_1_TYPE_ontraport_components_button_NAME_dialog_button_1 ')]")
+    private WebElement previousVersion;
+    
+    @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
     
@@ -32,6 +36,8 @@ public class LandingPage_ListAll extends AbstractPage
 
     public LandingPage_TypeSelection clickNewLandingPage ()
     {
+        driver.navigate().refresh();
+        AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
         wait.until(ExpectedConditions.visibilityOf(newLandingPage));
         newLandingPage.click();
@@ -66,6 +72,19 @@ public class LandingPage_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']"))));
         driver.findElement(By.xpath(".//a[normalize-space(text())='" + string + "']")).click();
+        try
+        {
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(1, TimeUnit.SECONDS);
+            previousVersion.click();
+            driver.manage()
+            .timeouts()
+            .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        }
+        catch(Exception e)
+        {
+        }
         return (LandingPage_Edit) new LandingPage_Edit().init();
     }
 

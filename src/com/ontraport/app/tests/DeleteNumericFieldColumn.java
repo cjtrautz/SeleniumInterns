@@ -14,7 +14,7 @@ public class DeleteNumericFieldColumn extends AbstractTest
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
-        contactListAll.formColumnManager.open(value.get("Fields", "Numeric_Field"));
+        contactListAll.formColumnManager.openNum(value.get("Fields", "Numeric_Field"));
         contactListAll.formColumnManager.clickTrashCan();
         
         //verify its gone

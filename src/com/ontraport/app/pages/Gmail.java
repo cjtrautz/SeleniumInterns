@@ -338,12 +338,14 @@ public class Gmail extends AbstractPage
             int hours1 = yep/100; 
             System.out.println(hours1);
             int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-            if(stuff[2].equals("pm"))
+            if(stuff[2].equals("pm") && (!stuff[0].equals("12")))
             {
-                if(hours1 == 12)
-                {
-                    yep2 = 720 + Integer.parseInt(stuff[1]);
-                }
+                System.out.println("not 12 pm1");
+                yep2=yep2+720;
+            }
+            if(stuff[2].equals("am") && stuff[0].equals("12"))
+            {
+                System.out.println("12 am1");
                 yep2=yep2+720;
             }
             String delim2 = "[ :]";
@@ -354,19 +356,25 @@ public class Gmail extends AbstractPage
             int hours2 = newTime/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-            if(stuff2[2].equals("pm"))
+            if(stuff2[2].equals("pm") && (!stuff2[0].equals("12")))
             {
+                System.out.println("not 12 pm");
+                time2=time2+720;
+            }
+            if(stuff2[2].equals("am") && stuff2[0].equals("12"))
+            {
+                System.out.println("12 am");
                 time2=time2+720;
             }
             System.out.println(yep2 + "and" + time2);
-            if((time2+10) > yep2 | yep2 > (time2+45))
+            if((time2+10) > yep2 | yep2 > (time2+50))
             {
                 return null;
             }
             wait.until(ExpectedConditions.visibilityOf(delayedEmail));
             delayedEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -381,7 +389,11 @@ public class Gmail extends AbstractPage
                 int hours1 = yep/100; 
                 System.out.println(hours1);
                 int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-                if(stuff[2].equals("pm"))
+                if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+                {
+                    yep2=yep2+720;
+                }
+                if(stuff[2].equals("am") && stuff[0].equals("12"))
                 {
                     yep2=yep2+720;
                 }
@@ -393,7 +405,11 @@ public class Gmail extends AbstractPage
                 int hours2 = newTime/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-                if(stuff2[2].equals("pm"))
+                if(stuff2[2].equals("pm") && !stuff2[0].equals("12"))
+                {
+                    time2=time2+720;
+                }
+                if(stuff2[2].equals("am") && stuff2[0].equals("12"))
                 {
                     time2=time2+720;
                 }
@@ -405,7 +421,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(delayedEmail));
                 delayedEmail.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }
@@ -427,7 +443,11 @@ public class Gmail extends AbstractPage
             int hours1 = yep/100; 
             System.out.println(hours1);
             int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-            if(stuff[2].equals("pm"))
+            if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+            {
+                yep2=yep2+720;
+            }
+            if(stuff[2].equals("am") && stuff[0].equals("12"))
             {
                 yep2=yep2+720;
             }
@@ -436,7 +456,11 @@ public class Gmail extends AbstractPage
             int hours2 = time/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-            if(stuff2[2].equals("PM"))
+            if(stuff2[2].equals("PM") && !stuff2[0].equals("12"))
+            {
+                time2=time2+720;
+            }
+            if(stuff2[2].equals("AM") && stuff2[0].equals("12"))
             {
                 time2=time2+720;
             }
@@ -448,7 +472,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(dateEmail));
             dateEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -463,7 +487,11 @@ public class Gmail extends AbstractPage
                 int hours1 = yep/100; 
                 System.out.println(hours1);
                 int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-                if(stuff[2].equals("pm"))
+                if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+                {
+                    yep2=yep2+720;
+                }
+                if(stuff[2].equals("am") && stuff[0].equals("12"))
                 {
                     yep2=yep2+720;
                 }
@@ -472,7 +500,11 @@ public class Gmail extends AbstractPage
                 int hours2 = time/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-                if(stuff2[2].equals("PM"))
+                if(stuff2[2].equals("PM") && !stuff2[0].equals("12"))
+                {
+                    time2=time2+720;
+                }
+                if(stuff2[2].equals("AM") && stuff2[0].equals("12"))
                 {
                     time2=time2+720;
                 }
@@ -484,7 +516,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(dateEmail));
                 dateEmail.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }
@@ -505,7 +537,11 @@ public class Gmail extends AbstractPage
             int hours1 = yep/100; 
             System.out.println(hours1);
             int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-            if(stuff[2].equals("pm"))
+            if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+            {
+                yep2=yep2+720;
+            }
+            if(stuff[2].equals("am") && stuff[0].equals("12"))
             {
                 yep2=yep2+720;
             }
@@ -514,7 +550,11 @@ public class Gmail extends AbstractPage
             int hours2 = time/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-            if(stuff2[2].equals("PM"))
+            if(stuff2[2].equals("PM") && !stuff2[0].equals("12"))
+            {
+                time2=time2+720;
+            }
+            if(stuff2[2].equals("AM") && stuff2[0].equals("12"))
             {
                 time2=time2+720;
             }
@@ -526,7 +566,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
             scheduledBroadCastEmails.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -541,7 +581,11 @@ public class Gmail extends AbstractPage
                 int hours1 = yep/100; 
                 System.out.println(hours1);
                 int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-                if(stuff[2].equals("pm"))
+                if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+                {
+                    yep2=yep2+720;
+                }
+                if(stuff[2].equals("am") && stuff[0].equals("12"))
                 {
                     yep2=yep2+720;
                 }
@@ -550,7 +594,11 @@ public class Gmail extends AbstractPage
                 int hours2 = time/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-                if(stuff2[2].equals("PM"))
+                if(stuff2[2].equals("PM") && !stuff2[0].equals("12"))
+                {
+                    time2=time2+720;
+                }
+                if(stuff2[2].equals("AM") && stuff2[0].equals("12"))
                 {
                     time2=time2+720;
                 }
@@ -562,7 +610,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(scheduledBroadCastEmails));
                 scheduledBroadCastEmails.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }
@@ -584,7 +632,11 @@ public class Gmail extends AbstractPage
             int hours1 = yep/100; 
             System.out.println(hours1);
             int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-            if(stuff[2].equals("pm"))
+            if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+            {
+                yep2=yep2+720;
+            }
+            if(stuff[2].equals("am") && stuff[0].equals("12"))
             {
                 yep2=yep2+720;
             }
@@ -593,7 +645,11 @@ public class Gmail extends AbstractPage
             int hours2 = time/100; 
             System.out.println(hours2);
             int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-            if(stuff2[2].equals("PM"))
+            if(stuff2[2].equals("PM") && !stuff2[0].equals("12"))
+            {
+                time2=time2+720;
+            }
+            if(stuff2[2].equals("AM") && stuff2[0].equals("12"))
             {
                 time2=time2+720;
             }
@@ -605,7 +661,7 @@ public class Gmail extends AbstractPage
             wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
             oneOffScheduledEmail.click();
         }
-        catch(NoSuchElementException e){
+        catch(Exception e){
 
             driver.navigate().refresh();
             try
@@ -620,7 +676,11 @@ public class Gmail extends AbstractPage
                 int hours1 = yep/100; 
                 System.out.println(hours1);
                 int yep2 = (hours1*60) + Integer.parseInt(stuff[1]);
-                if(stuff[2].equals("pm"))
+                if(stuff[2].equals("pm") && !stuff[0].equals("12"))
+                {
+                    yep2=yep2+720;
+                }
+                if(stuff[2].equals("am") && stuff[0].equals("12"))
                 {
                     yep2=yep2+720;
                 }
@@ -629,7 +689,11 @@ public class Gmail extends AbstractPage
                 int hours2 = time/100; 
                 System.out.println(hours2);
                 int time2 = (hours2*60) + Integer.parseInt(stuff2[1]);
-                if(stuff2[2].equals("PM"))
+                if(stuff2[2].equals("PM") && !stuff2[0].equals("12"))
+                {
+                    time2=time2+720;
+                }
+                if(stuff2[2].equals("AM") && stuff2[0].equals("12"))
                 {
                     time2=time2+720;
                 }
@@ -641,7 +705,7 @@ public class Gmail extends AbstractPage
                 wait.until(ExpectedConditions.visibilityOf(oneOffScheduledEmail));
                 oneOffScheduledEmail.click();
             }
-            catch(NoSuchElementException e2){
+            catch(Exception e2){
                 return null;
             }
         }

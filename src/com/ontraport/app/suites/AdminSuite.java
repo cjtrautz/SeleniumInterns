@@ -79,7 +79,10 @@ import com.ontraport.app.tools.AbstractSuite;
     
     com.ontraport.app.tests.CreateTrackingURL.class,
     com.ontraport.app.tests.DeleteTrackingURL.class,
-    
+
+    com.ontraport.app.tests.CreateAndHostSmartForm.class,
+    com.ontraport.app.tests.DeleteHostedSmartForm.class,
+
     com.ontraport.app.tests.CreateTaskFromSequence.class,
     com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
     com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
@@ -173,6 +176,7 @@ public class AdminSuite extends AbstractSuite
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);

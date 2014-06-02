@@ -33,6 +33,7 @@ public class WorkflowEnsureItemStore extends AbstractTest
             fail("couldnt find new message workflow");
         }
         message_Edit = contactListAll.menuWorkflow.clickWorkflowItem("Creating new Message");
+        message_Edit.enterMessageBody("test");
         contactListAll = message_Edit.clickSave2();
         Message_ListAll message_ListAll = contactListAll.menuPrimary.clickMessageListAll();
         message_ListAll.formSearch.find("SeleniumWorkflowItem");

@@ -117,10 +117,10 @@ public class Contact_ScoreEdit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(drillDownList));
-        wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
-        wait.until(ExpectedConditions.elementToBeClickable(drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")));
-        drillDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
+        wait.until(ExpectedConditions.visibilityOf(drillDownList.findElement(By.xpath(".//li/div[contains(text(), \"" + string + "\")]"))));
+        wait.until(ExpectedConditions.elementToBeClickable(drillDownList.findElement(By.xpath(".//li/div[contains(text(), \"" + string + "\")]"))));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDownList.findElement(By.xpath(".//li/div[contains(text(), \"" + string + "\")]")));
+        drillDownList.findElement(By.xpath(".//li/div[contains(text(), \"" + string + "\")]")).click();
         return this;
         
     }
@@ -171,7 +171,7 @@ public class Contact_ScoreEdit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//span[text()='" + string +"']"));
+            driver.findElement(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//span[text()=\"" + string +"\"]"));
             driver.manage()
             .timeouts()
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);

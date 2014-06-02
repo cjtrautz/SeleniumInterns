@@ -29,7 +29,8 @@ public class SubmitOrderForm extends AbstractTest
         driver.get(value.get("LandingPages", "Easy_Landing_Page_Form") + AbstractSuite.UNIQUE + ".respond.ontraport.net");
         
         Order_Form order_Form = (Order_Form) new Order_Form().init();
-        if(order_Form.verifyTotal("$9.45")==null)
+        Thread.sleep(4000);
+        if(order_Form.verifyTotal("$9.74")==null)
         {
             fail("no tax on hosted");
         }

@@ -18,7 +18,7 @@ import com.ontraport.app.tools.AbstractTest;
 public class ChangePassword extends AbstractTest
 {
     @Test
-    public void testChangePassword ()
+    public void testChangePassword () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         contactListAll.menuUser.open();
@@ -26,8 +26,8 @@ public class ChangePassword extends AbstractTest
         user_ListAll.formSearch.find("FirstSelenium");
         User_Edit user_Edit = user_ListAll.clickUser("Selenium" + AbstractSuite.UNIQUE + "@email.com", "test");
         user_Edit.clickPasswordField();
-        user_Edit.enterNewPassword("changed");
-        user_Edit.enterNewPasswordConfirm("changed");
+        user_Edit.enterNewPassword("changed1");
+        user_Edit.enterNewPasswordConfirm("changed1");
         user_Edit.clickChangePassword();
         
         contactListAll.menuUser.open();
@@ -43,7 +43,9 @@ public class ChangePassword extends AbstractTest
         }
         Login login = (Login) new Login().init();
         login.open(Login.url);
-        login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "changed");
+        login.as("Selenium" + AbstractSuite.UNIQUE + "@email.com", "changed1");
+        Thread.sleep(10000);
+        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         if(contactListAll.verifyPage()==null)
         {
             fail("couldnt find new user password");
@@ -61,6 +63,7 @@ public class ChangePassword extends AbstractTest
         login = (Login) new Login().init();
         login.open(Login.url);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        Thread.sleep(10000);
         
     }
 }
