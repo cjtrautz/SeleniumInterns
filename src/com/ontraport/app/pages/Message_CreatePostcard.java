@@ -99,7 +99,8 @@ public class Message_CreatePostcard extends AbstractPage
     public Message_CreatePostcard doubleClickInsertText ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(textArea));  
+        wait.until(ExpectedConditions.visibilityOf(textArea));
+        textArea.click();
         Actions action = new Actions(driver);
         action.doubleClick(textArea).build().perform();
         return this;
@@ -142,7 +143,6 @@ public class Message_CreatePostcard extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         Actions action = new Actions(driver);
         action.sendKeys(string).build().perform();
-        action.sendKeys(Keys.ENTER).build().perform();
         action.sendKeys(Keys.RETURN).build().perform();
 //        Select selecter = new Select(driver.findElement(By.xpath("//td[@id='property_cell']//tbody/tr/td[2]//select")));
 //        selecter.selectByValue(string);

@@ -180,6 +180,44 @@ import com.ontraport.app.tools.Values;
     com.ontraport.app.tests.EditTrackedDestinationLink.class, 
     //end use of CreateTrackedLink tracked link
     com.ontraport.app.tests.DeleteTrackedLink.class, 
+    
+    
+    com.ontraport.app.tests.CreateStepSequenceBack.class,
+    
+    com.ontraport.app.tests.EmailStepCreateNewMessageAndEdit.class,
+    
+    //used in following tests
+    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
+    //uses CreateLandingPageCodeMode landing page
+    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestDropDown.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAlignment.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeAlignmentCenter.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeURL.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeTitle.class,
+    com.ontraport.app.tests.EditLandingPageCodeModeName.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateGateway.class,
+    //used in following tests
+    com.ontraport.app.tests.CreateATag.class,
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag
+    com.ontraport.app.tests.CreateOrderform.class,
+    com.ontraport.app.tests.VerifyOrderformProductOptions.class,
+    //uses CreateOrderform orderform
+    com.ontraport.app.tests.EditLandingPageCodeModeInsertForm.class,
+    //end use of CreateOrderform orderform
+    com.ontraport.app.tests.DeleteOrderForm.class,
+    com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    //end use of CreateGateway gateway
+    com.ontraport.app.tests.DeleteGateway.class,
+    com.ontraport.app.tests.CreateCodeModeLandingPageFromExisting.class,
+    //end use of CreateLandingPageCodeMode landing page
+    com.ontraport.app.tests.DeleteLandingPageCodeMode.class,
+    com.ontraport.app.tests.DeleteTag.class,
 
     com.ontraport.app.tests.SignUp.class, 
     

@@ -559,6 +559,7 @@ public class SmartFormFe_Edit extends AbstractPage
     public SmartFormFe_Edit clickPaymentMethod ()
     {
         AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' moonray-form-element-paymentmethod ')]")));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", paymentMethod);
         wait.until(ExpectedConditions.visibilityOf(paymentMethod));
         paymentMethod.click();
