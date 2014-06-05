@@ -22,16 +22,17 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.CreateTaskFromSequence.class,
 //    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
 //    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
-    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
-    com.ontraport.app.tests.EditPostcardLineSpacing.class,
-    com.ontraport.app.tests.EditPostcardAlignRight.class,
-    com.ontraport.app.tests.EditPostcardAlignCenter.class,
-    com.ontraport.app.tests.EditPostcardAlignLeft.class,
-    com.ontraport.app.tests.EditPostcardUnderline.class,
-    com.ontraport.app.tests.EditPostcardItalic.class,
-    com.ontraport.app.tests.EditPostcardBold.class,
-    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateGateway.class, 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
+    com.ontraport.app.tests.CreateOrderform.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.SubmitOrderForm.class,
+    //used in following tests
     
 
 }
