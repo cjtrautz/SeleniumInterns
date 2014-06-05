@@ -15,6 +15,10 @@ public class WordPress_TypeSelection extends AbstractPage
     private WebElement newWordPress;
     
     @FindBy(how = How.XPATH,
+            using = "//a[@type='2']/button")
+    private WebElement newWordPressWorkflow;
+    
+    @FindBy(how = How.XPATH,
             using = "//a[@href='#!/wordpress/create&type=1']/button")
     private WebElement existingWordPress;
 
@@ -32,6 +36,14 @@ public class WordPress_TypeSelection extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(existingWordPress));
         existingWordPress.click();
         return (WordPress_CreateType1) new WordPress_CreateType1().init();
+    }
+    
+    public WordPress_CreateType2 clickCreateNewWordPressSiteWorkflow ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWordPressWorkflow));
+        newWordPressWorkflow.click();
+        return (WordPress_CreateType2) new WordPress_CreateType2().init();
     }
     
 }

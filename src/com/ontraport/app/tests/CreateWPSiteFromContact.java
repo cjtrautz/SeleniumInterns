@@ -31,10 +31,10 @@ public class CreateWPSiteFromContact extends AbstractTest
         
         WordPress_TypeSelection wpTypeSelect = contactEdit.clickNewWPSite();
         
-        WordPress_CreateType2 wpCreate = wpTypeSelect.clickCreateNewWordPressSite();
+        WordPress_CreateType2 wpCreate = wpTypeSelect.clickCreateNewWordPressSiteWorkflow();
         
         wpCreate.enterWordPressSiteName("New WP Site From Contact");
-        wpCreate.enterDomainName("WP Site From Contact"+AbstractSuite.UNIQUE);
+        wpCreate.enterDomainName("WPSiteFromContact"+AbstractSuite.UNIQUE);
         wpCreate.enterMembershipLevel("One");
         wpCreate.clickAddMembershipLevel();
         wpCreate.saveToContactEditor();
