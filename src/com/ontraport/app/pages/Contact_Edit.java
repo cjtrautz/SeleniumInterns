@@ -158,6 +158,10 @@ public class Contact_Edit extends AbstractPage
             using = "//li[contains(concat(' ', normalize-space(@class), ' '),' create-new ')]")
     private WebElement newWPSite;
     
+    @FindBy(how = How.XPATH,
+            using = "//input[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-save ')]")
+    private WebElement saveWPMembership;
+    
     public Contact_Edit clickLastName ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -672,6 +676,14 @@ public class Contact_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(newWPSite));
         newWPSite.click();
         return (WordPress_TypeSelection) new WordPress_TypeSelection().init();
+    }
+    
+    public Contact_Edit saveWPMembership ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveWPMembership));
+        saveWPMembership.click();
+        return this;
     }
 }
 

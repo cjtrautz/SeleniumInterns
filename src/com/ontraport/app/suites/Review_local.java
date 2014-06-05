@@ -48,7 +48,7 @@ public class Review_local extends AbstractSuite
               .maximize();
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
-        login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        login.as("slayman+new@ontraport.com", "moonray1");
         Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);

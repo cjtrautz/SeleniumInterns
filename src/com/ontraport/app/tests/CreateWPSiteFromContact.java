@@ -38,5 +38,20 @@ public class CreateWPSiteFromContact extends AbstractTest
         wpCreate.enterMembershipLevel("One");
         wpCreate.clickAddMembershipLevel();
         wpCreate.saveToContactEditor();
+        String password = wpCreate.dialogBox.getPasswordCredentials();
+        wpCreate.dialogBox.clickClose2();
+        
+        contactEdit = wpCreate.clickBackToContact();
+        
+        contactEdit.saveWPMembership();
+        
+        contactListAll = contactEdit.clickBack();
+        
+        contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
+        
+        contactEdit = contactListAll.clickContact(value.get("Contacts", "selenium_email"));
+        
+        contactEdit.clickMembershipsTab();
+        
     }
 }
