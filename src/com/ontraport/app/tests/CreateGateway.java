@@ -24,13 +24,6 @@ public class CreateGateway extends AbstractTest
         gateway_Create.enterGatewayName("SelGateway");
         gateway_Create.clickGatewayTypeDropdown();
         gateway_Create.selectDrilldownOption("Dummy Gateway");
-        try
-	{
-		gateway_Create.enterGatewayNickName("SelGateway");
-	}
-	catch(Exception e)
-	{
-	}
         gateway_ListAll = gateway_Create.clickSave();
         gateway_ListAll.formSearch.find("SelGateway");
         
@@ -47,10 +40,6 @@ public class CreateGateway extends AbstractTest
         if(gateway_Edit.verifyGatewayTypeDummy()==null)
         {
             fail("couldnt find gateway type");
-        }
-        if(gateway_Edit.verifyGatewayNickName("SelGateway")==null)
-        {
-            fail("couldnt find product price");
         }
 
         
