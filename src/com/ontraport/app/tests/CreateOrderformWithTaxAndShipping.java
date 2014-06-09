@@ -61,7 +61,7 @@ public class CreateOrderformWithTaxAndShipping extends AbstractTest
         }
         if(smartFormFe_Edit.verifyShippingName(value.get("SmartForms", "shipping"))==null)
         {
-            fail("couldn't find rule");
+            fail("couldn't find shipping");
         }
         if(smartFormFe_Edit.verifyShippingPrice(value.get("SmartForms", "shipping_price_format"))==null)
         {

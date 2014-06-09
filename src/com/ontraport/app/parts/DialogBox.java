@@ -145,7 +145,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
     private WebElement uiClose;
     @FindBy(how = How.XPATH,
-            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-title-close ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-button ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-button-text ')]")
     private WebElement uiClose2;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
