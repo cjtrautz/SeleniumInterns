@@ -33,15 +33,12 @@ public class CreateWPSiteFromContact extends AbstractTest
         
         WordPress_CreateType2 wpCreate = wpTypeSelect.clickCreateNewWordPressSiteWorkflow();
         
-        wpCreate.enterWordPressSiteName("New WP Site From Contact");
+        wpCreate.enterWordPressSiteName("New WP Site From Contact"+AbstractSuite.UNIQUE);
         wpCreate.enterDomainName("WPSiteFromContact"+AbstractSuite.UNIQUE);
         wpCreate.enterMembershipLevel("One");
         wpCreate.clickAddMembershipLevel();
         wpCreate.saveToContactEditor();
-        String password = wpCreate.dialogBox.getPasswordCredentials();
-        wpCreate.dialogBox.clickClose2();
-        
-        contactEdit = wpCreate.clickBackToContact();
+        wpCreate.dialogBox.clickOk();
         
         contactEdit.saveWPMembership();
         
@@ -50,8 +47,22 @@ public class CreateWPSiteFromContact extends AbstractTest
         contactListAll.formSearch.find(value.get("Contacts", "selenium_email"));
         
         contactEdit = contactListAll.clickContact(value.get("Contacts", "selenium_email"));
-        
         contactEdit.clickMembershipsTab();
+        contactEdit.formSearch.find("WPSiteFromContact"+AbstractSuite.UNIQUE);
         
+        if ( contactEdit.clickWPMembership("WPSiteFromContact"+AbstractSuite.UNIQUE) == null )
+            {
+                fail("couldn't find membership");
+            };
+            
+        if ( contactEdit.verifyWPUsername(value.get("Contacts", "selenium_email")) == null )
+        {
+            fail("username not correct");
+        }
+        
+        if ( contactEdit.verifyWPUsername("SelFirstNameSelLastName") == null )
+        {
+            fail("nickname not correct");
+        }
     }
 }

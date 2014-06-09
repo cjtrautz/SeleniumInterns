@@ -40,7 +40,7 @@ public class WordPress_TypeSelection extends AbstractPage
     
     public WordPress_CreateType2 clickCreateNewWordPressSiteWorkflow ()
     {
-        driver.navigate().refresh();
+        //driver.navigate().refresh();
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newWordPressWorkflow));
         newWordPressWorkflow.click();

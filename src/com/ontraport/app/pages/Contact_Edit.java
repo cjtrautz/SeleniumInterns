@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -159,8 +161,20 @@ public class Contact_Edit extends AbstractPage
     private WebElement newWPSite;
     
     @FindBy(how = How.XPATH,
-            using = "//input[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-save ')]")
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-save ')]")
     private WebElement saveWPMembership;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Username']/following-sibling::div/input")
+    private WebElement wpUsername;
+    
+    @FindBy(how = How.XPATH,
+            using = "//label[text()='Nickname']/following-sibling::div/input")
+    private WebElement wpNickname;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_sortable_list ')]/")
+    private WebElement wpMembershipsList;
     
     public Contact_Edit clickLastName ()
     {
@@ -683,6 +697,55 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(saveWPMembership));
         saveWPMembership.click();
+        return this;
+    }
+    
+    public Contact_Edit clickWPMembership ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWPMembership));
+        try
+        {
+            driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")).click();
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+    
+    public Contact_Edit verifyWPUsername ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!wpUsername.getText().equals(string))
+                {
+                return null;
+                }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public Contact_Edit verifyWPNickname ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!wpNickname.getText().equals(string))
+                {
+                return null;
+                }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
         return this;
     }
 }
