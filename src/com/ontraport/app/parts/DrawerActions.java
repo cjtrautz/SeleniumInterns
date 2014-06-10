@@ -341,23 +341,23 @@ public class DrawerActions extends AbstractPart
     private WebElement onWeekendsCheckedCheckbox;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Unsubscribe contact after last step']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
+            using = "//div[contains(@class, 'sequencesettings__reset_type_TYPE')]//span[@class='ussr-icon ussr-icon-checkbox-empty']")
     private WebElement unsubcribeContactAfterLastStepEmptyCheckbox;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Show this sequence on the Subscription Management Page']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-empty']")
+            using = "//div[contains(@class, 'sequencesettings__public_viewable_TYPE')]//span[@class='ussr-icon ussr-icon-checkbox-empty']")
     private WebElement showSequenceOnSubscriptionManagmentPageEmptyCheckbox;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Unsubscribe contact after last step']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
+            using = "//div[contains(@class, 'sequencesettings__reset_type_TYPE')]//span[@class='ussr-icon ussr-icon-checkbox-checked']")
     private WebElement unsubcribeContactAfterLastStepCheckedCheckbox;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Show this sequence on the Subscription Management Page']/following-sibling::div//span[@class='ussr-icon ussr-icon-checkbox-checked']")
+            using = "//div[contains(@class, 'sequencesettings__public_viewable_TYPE')]//span[@class='ussr-icon ussr-icon-checkbox-checked']")
     private WebElement showSequenceOnSubscriptionManagmentPageCheckedCheckbox;
     
     @FindBy(how = How.XPATH,
-            using = "//div[@class='sequence_setting_controls']/button/span[text()='Save Settings']")
+            using = "//div[@class='sequence_setting_controls']/button[contains(@class,'sequence-settings__button--save')]")
     private WebElement saveSettings;
     
     public DrawerActions clickDeleteContacts ()

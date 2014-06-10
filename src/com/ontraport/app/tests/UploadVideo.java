@@ -32,6 +32,8 @@ public class UploadVideo extends AbstractTest
         zencoderVideo_ListAll = zencoderVideo_Create.sendFile("/home/**/workspace/com.ontraport.app/etc/spacetestSMALL_512kb.mp4");
         DateFormat dateFormat = new SimpleDateFormat("M/d/yyyy  h:mm a");
         Date date = new Date();
+        Thread.sleep(3000);
+        driver.navigate().refresh();
         if(zencoderVideo_ListAll.verifyUploadDate(dateFormat.format(date))==null)
         {
             fail("couldnt find video");
