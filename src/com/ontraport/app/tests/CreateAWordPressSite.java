@@ -39,7 +39,7 @@ public class CreateAWordPressSite extends AbstractTest
         String password= wordPress_CreateType2.dialogBox.getPasswordCredentials();
         AbstractTest.setWPpass(password);
         wordPress_CreateType2.dialogBox.clickClose2();
-        wordPress_ListAll = wordPress_CreateType2.clickBack();
+        //wordPress_ListAll = wordPress_CreateType2.clickBack();
         wordPress_ListAll.formSearch.find("seleniumwordpress2");
         
         //verify product exists

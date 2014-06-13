@@ -118,6 +118,9 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Delete')]")
     private WebElement yes;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
+    private WebElement yes2;
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-carousel-target-delete-button ')]")
     private WebElement deleteButton;
     @FindBy(how = How.XPATH,
@@ -142,7 +145,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
     private WebElement uiClose;
     @FindBy(how = How.XPATH,
-            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog-title-close ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-icon-close ')]")
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-button ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-button-text ')]")
     private WebElement uiClose2;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
@@ -1142,6 +1145,13 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(yes));
         yes.click();
+        return this;
+    }
+    public DialogBox clickYes2 ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(yes2));
+        yes2.click();
         return this;
     }
     public DialogBox enterSubDomain ( String string )

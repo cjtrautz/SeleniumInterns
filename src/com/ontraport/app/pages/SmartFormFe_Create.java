@@ -303,6 +303,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create clickAddShippingMethod ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", addShippingMethod);
         wait.until(ExpectedConditions.visibilityOf(addShippingMethod));
         addShippingMethod.click();
         return this;
@@ -311,6 +312,7 @@ public class SmartFormFe_Create extends AbstractPage
     public SmartFormFe_Create clickShippingNameInput ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", shippingInputSearch);
         wait.until(ExpectedConditions.visibilityOf(shippingInputSearch));
         shippingInputSearch.click();
         return this;

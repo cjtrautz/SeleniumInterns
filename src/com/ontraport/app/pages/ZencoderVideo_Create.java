@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -48,7 +49,9 @@ public class ZencoderVideo_Create extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(videoUploadInput));
-        ((JavascriptExecutor)driver).executeScript("$(\"input[type=file]\").removeClass(\"ussr-helper-display-none\");");
+        ((JavascriptExecutor)driver).executeScript("$(\"input[type=file]\").removeClass(\"display-none\");");
+        //Actions action = new Actions(driver);
+        //action.sendKeys(videoUploadInput, string).build().perform();
         videoUploadInput.sendKeys(string);
         return (ZencoderVideo_ListAll) new ZencoderVideo_ListAll().init();
     }
