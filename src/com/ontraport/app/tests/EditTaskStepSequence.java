@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.ontraport.app.pages.Contact_ListAll;
+import com.ontraport.app.pages.Message_CreateTask;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Message_ListAll;
 import com.ontraport.app.pages.Sequence_CreateStep;
@@ -25,18 +26,40 @@ import com.ontraport.app.tools.AbstractTest;
         {
             Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
             Sequence_ListAll sequence_ListAll = contactListAll.menuPrimary.clickSequenceListAll();
+            sequence_ListAll.formSearch.find(value.get("Sequences", "step_task_sequence"));
             Sequence_Edit sequence_Edit = sequence_ListAll.clickSequence(value.get("Sequences", "step_task_sequence"));
-
-            // verify task info
+           
             if(sequence_Edit.verifySequenceStepAndExpand("TASK", 1)==null)
             {
                 fail("couldn't find sequence step");
             }
-            if(sequence_Edit.verifyTaskName(value.get("Messages", "task_message_who"))==null)
+         
+            Message_Edit message_Edit = sequence_Edit.clickEditTask();
+
+            message_Edit.enterTaskName(value.get("Messages", "task_message_who"));
+            message_Edit.enterTaskSubjectName("This task was edited");
+            message_Edit.enterDueDate("20");
+            message_Edit.clickAssigneeDropDown();
+            message_Edit.selectDropDownOption("Contact");
+            message_Edit.clickMergeFieldsDropDown();
+            message_Edit.selectDropDownOption("First Name");
+            message_Edit.enterWhenDays("20");
+            message_Edit.clickAddNewOutcome();
+            message_Edit.clickOutcomeNameDropDown();
+            message_Edit.selectCreateNewOutcome();
+            message_Edit.enterOutcomeName("SelOutcome2-"  + AbstractSuite.UNIQUE);
+            message_Edit.clickSelect();
+            message_Edit.clickOutcomeThenDropDown();
+            message_Edit.selectDropDownOption("Recharge all declined transactions");
+            message_Edit.clickSaveOutcome();
+            
+            sequence_Edit = message_Edit.clickSaveTask();
+
+            if(sequence_Edit.verifyTaskName(value.get("Messages", "task_message_who_edit2"))==null)
             {
                 fail("couldn't find sequence task name");
             }
-            if(sequence_Edit.verifyTaskDueDate("1")==null)
+            if(sequence_Edit.verifyTaskDueDate("120")==null)
             {
                 fail("couldn't find sequence task due date");
             }
@@ -45,6 +68,8 @@ import com.ontraport.app.tools.AbstractTest;
                 fail("couldn't find sequence task assignee");
             }
             
+          
+          
         }
         
     }

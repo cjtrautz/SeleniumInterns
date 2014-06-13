@@ -231,6 +231,11 @@ public class Sequence_Edit extends AbstractPage
             using = "//div[@id='ussr-chrome-panel-pane']//button[normalize-space(.)='Settings']")
     private WebElement settings;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-message-edit-button ')]")
+    private WebElement editButton;
+    
     public Sequence_Edit verifySequenceStepAndExpand (String step, int index)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -919,6 +924,13 @@ public class Sequence_Edit extends AbstractPage
         splitTestingToggle.click();
         return this;
     }
+    public Message_Edit clickEditTask ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        editButton.click();
+       // return this; //gotta change the type
+        return (Message_Edit) new Message_Edit().init();
+    }
     public Sequence_Edit verifySplitTestOn ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -1033,8 +1045,10 @@ public class Sequence_Edit extends AbstractPage
     public Sequence_Edit verifyTaskName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(messageSelector.findElement(By.xpath(".//input"))));
         try
         {
+
             System.out.println(messageSelector.findElement(By.xpath(".//input")).getAttribute("value"));
             String compare = messageSelector.findElement(By.xpath(".//input")).getAttribute("value");
             if(compare.equals(string)!=true)
@@ -1102,5 +1116,6 @@ public class Sequence_Edit extends AbstractPage
         
         return this;
     }
+    
 
 }

@@ -10,6 +10,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchWindowException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -64,7 +66,7 @@ public class Message_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-plaintext-merge ')]//button")
+            using = "//div[contains(concat(' ', @class, ' '),' target_merge ')]//button")
     private WebElement mergeDropDown;
     
     @FindBy(
@@ -555,10 +557,80 @@ public class Message_Edit extends AbstractPage
             using = "//button[span[text()='Save']]")
     private WebElement save;
     
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[contains(@class,'object_selector_NAME_from')]//button")
     private WebElement sendFromDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target_owner ')]//button")
+    private WebElement ownerDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' task_notification_add_target ')]//span")
+    private WebElement addNewNotification;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' target-recipient ')]//button")
+    private WebElement recipientDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' task-outcome-target-rule-add ')]//span")
+    private WebElement addNewOutcome;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-quick-view-object-rules-target-name ')]//input")
+    private WebElement outcomeNameDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//ul[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-ul ')]//li[1]")
+    private WebElement createNewOutcomeOption;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-custom-value-creator-target-component ')]//input")
+    private WebElement outcomeNameInput;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-custom-value-creator-target-save-button ')]")
+    private WebElement selectOutcomeName;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-rule-editor-target-actions ')]//button")
+    private WebElement actionsDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div/span[text()='Save']")
+    private WebElement saveOutcome;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']/tr/td")
+    private WebElement uiCollectionBodyRow1;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//tbody[@class='ussr-component-collection-body']")
+    private WebElement uiCollectionBody;
+    
+    @FindBy(how = How.XPATH,
+            using = "//thead[@class='ussr-component-collection-head']/tr/th")
+    private WebElement uiSelectAll;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', @class, ' '),' ussr-icon-trashcan ')]") 
+    private WebElement delete;
+    
     
     public Message_Edit enterMessageName ( String name )
     {
@@ -2742,6 +2814,7 @@ public class Message_Edit extends AbstractPage
         taskNameInput.sendKeys(string);
         return this;
     }
+    
 
     public Message_Edit enterTaskSubjectName ( String string )
     {
@@ -2827,6 +2900,168 @@ public class Message_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(back));
         back.click();
         return (Message_ListAll) new Message_ListAll().init();
+    }
+    
+    public Message_Edit clickAssigneeDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(ownerDropDown));
+        ownerDropDown.click();
+        //wait.until(ExpectedConditions.visibilityOf(ownerDropDownPane));
+        return this;
+        
+    }
+    
+    public Message_Edit clickMergeFieldsDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(mergeDropDown));
+        mergeDropDown.click();
+        //wait.until(ExpectedConditions.visibilityOf(mergeDropDownPane));
+        return this;
+        
+    }
+
+    public Message_Edit clickAddNewNotification ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addNewNotification));
+        addNewNotification.click();
+        return this;
+        
+    }
+    
+    public Message_Edit clickWhoDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(recipientDropDown));
+        recipientDropDown.click();
+        //wait.until(ExpectedConditions.visibilityOf(recipientDropDownPane));
+        return this;
+        
+    }
+    
+    public Message_Edit enterWhenDays ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        taskWhenNotification.clear();
+        taskWhenNotification.sendKeys(string);       
+        return this;
+    }
+    
+    public Message_Edit clickAddNewOutcome ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addNewOutcome));
+        addNewOutcome.click();
+        return this;
+        
+    }
+    
+    public Message_Edit clickOutcomeNameDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(outcomeNameDropDown));
+        outcomeNameDropDown.click();
+        return this;
+        
+    }
+    
+    public Message_Edit selectCreateNewOutcome ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", createNewOutcomeOption);
+        wait.until(ExpectedConditions.visibilityOf(createNewOutcomeOption));
+        createNewOutcomeOption.click();
+        return this;
+        
+    }
+    
+    public Message_Edit enterOutcomeName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(outcomeNameInput));
+        outcomeNameInput.click();
+        outcomeNameInput.clear();
+        outcomeNameInput.sendKeys(string);
+        return this;
+        
+    }
+    
+    public Message_Edit clickSelect ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(selectOutcomeName));
+        selectOutcomeName.click();       
+        return this;
+        
+    }
+    
+    public Message_Edit clickOutcomeThenDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", actionsDropDown);
+        wait.until(ExpectedConditions.visibilityOf(actionsDropDown));
+        actionsDropDown.click();
+        //wait.until(ExpectedConditions.visibilityOf(actionsDropDownPane));
+        return this;
+        
+    }
+    
+    public Sequence_Edit clickSaveOutcome ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", saveOutcome);
+        //wait.until(ExpectedConditions.visibilityOf(saveOutcome));
+        saveOutcome.click();
+        //wait.until(ExpectedConditions.visibilityOf(outcomeLine));
+        return (Sequence_Edit) new Sequence_Edit().init();
+    }
+    
+    public Sequence_Edit clickSequence (String sequence)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(0, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']"))));
+        driver.manage()
+        .timeouts()
+        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
+        //wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a")));
+        try
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+        }
+        catch(StaleElementReferenceException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+        }
+        catch(TimeoutException e)
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+        }
+        try
+        {
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
+        }
+        catch(StaleElementReferenceException e)
+        {
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
+        }
+        return (Sequence_Edit) new Sequence_Edit().init();
+    }
+    
+    public Sequence_Edit clickSaveTask ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click(); 
+        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
+        return (Sequence_Edit) new Sequence_Edit().init();
     }
 
 }
