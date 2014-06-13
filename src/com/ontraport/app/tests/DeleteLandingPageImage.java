@@ -24,6 +24,7 @@ public class DeleteLandingPageImage extends AbstractTest
         landingPage_Edit.dialogBox.clickBrowse();
         landingPage_Edit.dialogBox.selectPicture();
         landingPage_Edit.dialogBox.clickDelete();
+        landingPage_Edit.dialogBox.clickDeleteConfirm();
         landingPage_Edit.dialogBox.clickBrowse();
         landingPage_Edit.dialogBox.selectPicture();
         landingPage_Edit.dialogBox.clickDelete();
