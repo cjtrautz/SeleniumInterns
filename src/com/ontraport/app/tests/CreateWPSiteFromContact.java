@@ -64,5 +64,6 @@ public class CreateWPSiteFromContact extends AbstractTest
         {
             fail("nickname not correct");
         }
+        
     }
 }

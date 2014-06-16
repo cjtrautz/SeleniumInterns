@@ -13,6 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Console;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
@@ -165,8 +166,16 @@ public class Contact_Edit extends AbstractPage
     private WebElement saveWPMembership;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Username']/following-sibling::div/input")
+            using = "//label[text()='User Name']/following-sibling::div/input")
     private WebElement wpUsername;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_sortable_list ')]/")
+    private WebElement wpPassword;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_sortable_list ')]/")
+    private WebElement wpPasswordConfirm;
     
     @FindBy(how = How.XPATH,
             using = "//label[text()='Nickname']/following-sibling::div/input")
@@ -720,7 +729,7 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            if(!wpUsername.getText().equals(string))
+            if(!wpUsername.getAttribute("value").equals(string))
                 {
                 return null;
                 }
@@ -737,7 +746,7 @@ public class Contact_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         try
         {
-            if(!wpNickname.getText().equals(string))
+            if(!wpNickname.getAttribute("value").equals(string))
                 {
                 return null;
                 }
@@ -749,4 +758,3 @@ public class Contact_Edit extends AbstractPage
         return this;
     }
 }
-
