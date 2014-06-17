@@ -631,6 +631,12 @@ public class Message_Edit extends AbstractPage
             using = "//span[contains(concat(' ', @class, ' '),' ussr-icon-trashcan ')]") 
     private WebElement delete;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(@class,'NAME_task_owner')]//input")
+    private WebElement assigneeDropDownInput;
+
+    
     
     public Message_Edit enterMessageName ( String name )
     {
@@ -3062,6 +3068,43 @@ public class Message_Edit extends AbstractPage
         save.click(); 
         //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@class='ontraport_panes_message']"))));
         return (Sequence_Edit) new Sequence_Edit().init();
+    }
+    
+    public Message_Edit verifyTaskDueDate ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(taskDueDate.getAttribute("value"));
+            String compare = taskDueDate.getAttribute("value");
+            if(compare.equals(string)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    public Message_Edit verifyAssignee ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(assigneeDropDownInput.getAttribute("value"));
+            String compare = assigneeDropDownInput.getAttribute("value");
+            if(compare.equals(string)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
     }
 
 }

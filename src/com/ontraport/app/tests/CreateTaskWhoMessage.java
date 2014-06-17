@@ -42,7 +42,7 @@ public class CreateTaskWhoMessage extends AbstractTest
         message_CreateTask.selectDropDownOption("Recharge all declined transactions");
         message_CreateTask.clickSaveOutcome();
         message_ListAll = message_CreateTask.clickSave();
-        //message_ListAll.formSearch.find(value.get("Messages", "task_message_who"));
+        message_ListAll.formSearch.find(value.get("Messages", "task_message_who"));
         
         //verify that it exists
         if(message_ListAll.verifyMessage(value.get("Messages", "task_message_who"))==null)

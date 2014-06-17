@@ -74,9 +74,9 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
     //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
-    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreateProduct.class,
-    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
+//    com.ontraport.app.tests.CreateProduct.class,
+//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
     //used in following tests and uses CreateOrderform orderform
     
 }

@@ -927,6 +927,7 @@ public class Sequence_Edit extends AbstractPage
     public Message_Edit clickEditTask ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(editButton));
         editButton.click();
        // return this; //gotta change the type
         return (Message_Edit) new Message_Edit().init();
