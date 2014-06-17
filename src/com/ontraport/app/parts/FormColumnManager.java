@@ -156,8 +156,8 @@ public class FormColumnManager extends AbstractPart
         wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldPaneCollection))); 
         wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + field + "')]"))))); 
         wait(5).until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(fieldPaneCollection.findElement(By.xpath(".//div[contains(text(), '" + field + "')]"))))); 
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath(".//div[text()='" + field + "']")));
-        driver.findElement(By.xpath(".//div[text()='" + field + "']")).click();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath(".//div[contains(text(), '" + field + "')]")));
+        driver.findElement(By.xpath(".//div[contains(text(), '" + field + "')]")).click();
         return this;
 
     }

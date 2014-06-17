@@ -142,9 +142,9 @@ private WebElement uiButtonDeleteGroup;
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList));
-        wait(5).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']"))));
+        wait(5).until(ExpectedConditions.visibilityOf(uiGroupPermissionsList.findElement(By.xpath(".//li/div[contains(text(), '"+permissions+"')]"))));
         Actions action = new Actions(driver);
-        action.click(uiGroupPermissionsList.findElement(By.xpath(".//li/div[text()='"+permissions+"']"))).build().perform();
+        action.click(uiGroupPermissionsList.findElement(By.xpath(".//li/div[contains(text(), '"+permissions+"')]"))).build().perform();
         wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiGroupPermissionsList)));
         return this;
     }

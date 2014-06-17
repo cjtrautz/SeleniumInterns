@@ -109,7 +109,7 @@ public class User_Create extends AbstractPage
     public User_Create selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[text()='" + string + "']")).click();
+        driver.findElement(By.xpath("//ul[@class='ussr-component-drilldownselect-ul']/li/div[contains(text(), '" + string + "')]")).click();
         return this;
         
     }

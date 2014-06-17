@@ -35,7 +35,7 @@ public class Contact_Export extends AbstractPage
     public Contact_Export selectField ( String field )
     {
         AbstractPart.waitForAjax(driver, 20);
-        WebElement fieldOptions = drillDownPane.findElement(By.xpath(".//li/div[text()='" + field + "']"));
+        WebElement fieldOptions = drillDownPane.findElement(By.xpath(".//li/div[contains(text(), '" + field + "')]"));
         fieldOptions.click();
         return this;
     }
