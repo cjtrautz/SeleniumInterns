@@ -60,7 +60,7 @@ public class CreateWPSiteFromContact extends AbstractTest
             fail("username not correct");
         }
         
-        if ( contactEdit.verifyWPUsername("SelFirstNameSelLastName") == null )
+        if ( contactEdit.verifyWPNickname("SelFirstNameSelLastName") == null )
         {
             fail("nickname not correct");
         }
