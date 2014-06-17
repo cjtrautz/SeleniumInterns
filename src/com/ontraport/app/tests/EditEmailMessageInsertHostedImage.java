@@ -49,6 +49,7 @@ public class EditEmailMessageInsertHostedImage extends AbstractTest
         message_Edit.dialogBox.clickBrowse();
         message_Edit.dialogBox.selectPicture();
         message_Edit.dialogBox.clickDelete();
+        message_Edit.dialogBox.clickDeleteConfirm();
         message_Edit.dialogBox.clickBrowse();
         message_Edit.dialogBox.clickCancelPicture();
         message_Edit.ckEditorDialogBox.clickOk(1);

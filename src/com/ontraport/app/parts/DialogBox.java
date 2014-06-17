@@ -118,6 +118,9 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Delete')]")
     private WebElement yes;
     @FindBy(how = How.XPATH,
+            using = "//button[contains(@class, 'button_NAME_dialog_button')]//span[contains(text(), 'Delete')]")
+    private WebElement deleteConfirm;
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
     private WebElement yes2;
     @FindBy(how = How.XPATH,
@@ -1457,6 +1460,13 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]/li[@data-val='" + string + "']"))));
         driver.findElement(By.xpath("//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]/li[@data-val='" + string + "']")).click();
+        return this;
+    }
+    public DialogBox clickDeleteConfirm ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(deleteConfirm));
+        deleteConfirm.click();
         return this;
     }
 
