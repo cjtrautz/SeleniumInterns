@@ -310,11 +310,11 @@ public class Rule_Create extends AbstractPage
         //wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuWhen));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", whenDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", whenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(), '" + string + "')]]")));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()='" + string + "']]")));
-        wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]"))));
-        whenDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-events ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[contains(text(),'" + string + "')]]")));
+        wait.until(ExpectedConditions.visibilityOf(whenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(), '" + string + "')]]"))));
+        whenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(),'" + string + "')]]")).click();
         return this;
         
     }
@@ -326,11 +326,11 @@ public class Rule_Create extends AbstractPage
         //wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPaneWait));
         wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane));
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuIf));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()=\"" + string + "\"]]")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", ifDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(),'" + string + "')]]")));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[text()=\"" + string + "\"]]")));
-        wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()=\"" + string + "\"]]"))));
-        ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()=\"" + string + "\"]]")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[contains(text(),'" + string + "')]]")));
+        wait.until(ExpectedConditions.visibilityOf(ifDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(),'" + string + "')]]"))));
+        ifDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(),'" + string + "')]]")).click();
         return this;
         
     }
@@ -344,7 +344,7 @@ public class Rule_Create extends AbstractPage
         //wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPanePaddingWait));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane));
         //wait.until(ExpectedConditions.visibilityOf(drillDownMenuThen));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(),'" + string + "')]]")));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[contains(text(), '" + string + "')]]")));
         wait.until(ExpectedConditions.visibilityOf(thenDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(), '" + string + "')]]"))));
