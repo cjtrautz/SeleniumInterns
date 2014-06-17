@@ -430,7 +430,7 @@ public class Sequence_CreateStep extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(drillDownMenuIf));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li")));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']//li[div[contains(text(), '" + string + "')]]")));
-        ifDrillDownSelectPane.findElement(By.xpath(".//li[div[text()='" + string + "']]")).click();
+        ifDrillDownSelectPane.findElement(By.xpath(".//li[div[contains(text(), '" + string + "')]]")).click();
         return this;
         
     }

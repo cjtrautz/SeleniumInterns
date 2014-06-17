@@ -602,7 +602,7 @@ public class Fulfillment_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(drillDownSelectPane)));
-        drillDownSelectPane.findElement(By.xpath(".//li/div[text()='" + option + "']")).click();
+        drillDownSelectPane.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
         return this;
     }
     

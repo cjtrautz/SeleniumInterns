@@ -167,9 +167,9 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups clickField ( String field,  int row )
     {
         waitForAjax(driver, 20);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")));
-        wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']"))));
-        uiFieldList.get(row).findElement(By.xpath(".//div[text()='"+field+"']")).click();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", uiFieldList.get(row).findElement(By.xpath(".//div[contains(text(), '"+field+"')]")));
+        wait(1).until(ExpectedConditions.visibilityOf(uiFieldList.get(row).findElement(By.xpath(".//div[contains(text(), '"+field+"')]"))));
+        uiFieldList.get(row).findElement(By.xpath(".//div[contains(text(), '"+field+"')]")).click();
         wait(1).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiFieldList.get(row))));
         return this;
     }
@@ -192,8 +192,8 @@ private WebElement uiButtonDeleteGroup;
     public DrawerManageGroups clickCondition ( String condition, int row )
     {
         waitForAjax(driver, 20);
-        wait(10).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']"))));
-        uiConditionList.get(row).findElement(By.xpath(".//div[text()='"+condition+"']")).click();
+        wait(10).until(ExpectedConditions.visibilityOf(uiConditionList.get(row).findElement(By.xpath(".//div[contains(text(), '"+condition+"')]"))));
+        uiConditionList.get(row).findElement(By.xpath(".//div[contains(text(), '"+condition+"')]")).click();
         Actions action = new Actions(driver);
         action.sendKeys(Keys.RETURN).build().perform();
         wait(10).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(uiConditionList.get(row))));
