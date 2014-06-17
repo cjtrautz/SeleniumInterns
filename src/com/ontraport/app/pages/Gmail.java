@@ -86,7 +86,7 @@ public class Gmail extends AbstractPage
     private WebElement signIn;
     
     @FindBy(how = How.XPATH,
-        using = "//span[@name='Confirmation Email']")
+        using = "//td/div[2]//span[@name='Confirmation Email']")
     private WebElement confirmationEmail;
     
     @FindBy(how = How.XPATH,

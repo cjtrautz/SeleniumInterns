@@ -34,8 +34,7 @@ public class CreateMessage extends AbstractTest
         message_CreateEmail.openMergeFieldPane();
         message_CreateEmail.selectMergeField("First Name");
         message_CreateEmail.clickCopyFromHTML();
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
+        message_CreateEmail.dialogBox.clickYes2();
         message_ListAll = message_CreateEmail.clickSave();
         message_ListAll.formSearch.find("SelEmailMessage");
         

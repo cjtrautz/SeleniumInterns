@@ -22,16 +22,14 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.CreateTaskFromSequence.class,
 //    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
 //    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-    com.ontraport.app.tests.CreatePostcardAndEditFontSize.class,
-    com.ontraport.app.tests.EditPostcardLetterSpacing.class,
-    com.ontraport.app.tests.EditPostcardLineSpacing.class,
-    com.ontraport.app.tests.EditPostcardAlignRight.class,
-    com.ontraport.app.tests.EditPostcardAlignCenter.class,
-    com.ontraport.app.tests.EditPostcardAlignLeft.class,
-    com.ontraport.app.tests.EditPostcardUnderline.class,
-    com.ontraport.app.tests.EditPostcardItalic.class,
-    com.ontraport.app.tests.EditPostcardBold.class,
-    com.ontraport.app.tests.DeleteTestingPostcardMessage.class,
+//    com.ontraport.app.tests.CreateRuleStepSequence.class,
+//    com.ontraport.app.tests.CreateGateway.class, 
+//    //used in following tests
+//    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
+    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
+    //used in following tests and uses CreateOrderform orderform
     
 
 }
@@ -61,7 +59,7 @@ public class Review extends AbstractSuite
               .maximize();
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
-        login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+        login.as("ontraportselenium+4@gmail.com", "test123");
         Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);

@@ -17,7 +17,7 @@ public class FormSearch extends AbstractPart
             using = "//input[@type='search']")
     private WebElement       uiSearch;
     @FindBy(how = How.XPATH,
-            using = "//input[@type='search']/following-sibling::a")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-form-input-type-search-clear ')]//span")
     private WebElement       uiClear;
     @FindBy(how = How.XPATH,
             using = "//input[@type='search']/preceding-sibling::span")
@@ -87,6 +87,7 @@ public class FormSearch extends AbstractPart
         waitForAjax(driver, 20);
         wait(15).until(ExpectedConditions.visibilityOf(uiSearch));
         uiSearch.click();
+        waitForAjax(driver, 20);
         wait(15).until(ExpectedConditions.visibilityOf(uiClear));
         uiClear.click();
         return this;

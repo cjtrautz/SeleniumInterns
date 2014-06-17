@@ -77,21 +77,21 @@ public class GmailConfirmations extends AbstractTest
             fail("couldnt verify delay sequence step");
         }
         gmail.clickDelete();
-        gmail.clickConfirmationEmail();
-        gmail.clickLink();
-        gmail.clickDelete();
-        try{
-            Alert alert = driver.switchTo().alert();
-            alert.accept();
-            driver.switchTo().defaultContent();
-        }
-        catch(Exception e)
-        {
-            
-        }
-        driver.get(AbstractPage.getUrl() + AbstractPage.getLatch() + Sender_View.url);
-        AbstractPart.waitForAjax(driver, 30);
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+//        gmail.clickConfirmationEmail();
+//        gmail.clickLink();
+//        gmail.clickDelete();
+//        try{
+//            Alert alert = driver.switchTo().alert();
+//            alert.accept();
+//            driver.switchTo().defaultContent();
+//        }
+//        catch(Exception e)
+//        {
+//            
+//        }
+//        driver.get(AbstractPage.getUrl() + AbstractPage.getLatch() + Sender_View.url);
+//        AbstractPart.waitForAjax(driver, 30);
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
         //verify App Name, ID, Redirect, and Visits
         Sender_View sender_View = (Sender_View) new Sender_View().init();
 //        if(sender_View.verifyConfirmed("seleniumontraport@gmail.com")==null)
