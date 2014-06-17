@@ -2950,6 +2950,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit enterWhenDays ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskWhenNotification));
         taskWhenNotification.clear();
         taskWhenNotification.sendKeys(string);       
         return this;
@@ -3073,6 +3074,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit verifyTaskDueDate ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskDueDate));
         try
         {
             System.out.println(taskDueDate.getAttribute("value"));
@@ -3091,6 +3093,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit verifyAssignee ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(assigneeDropDownInput));
         try
         {
             System.out.println(assigneeDropDownInput.getAttribute("value"));
