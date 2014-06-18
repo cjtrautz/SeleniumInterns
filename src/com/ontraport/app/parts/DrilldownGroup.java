@@ -61,7 +61,7 @@ public class DrilldownGroup extends AbstractPart
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            if (uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText().equals(name))
+            if (uiGroupSelector.findElement(By.xpath(".//div[contains(text(), '"+name+"')]")).getText().equals(name))
             {
                 driver.manage()
                 .timeouts()
@@ -97,7 +97,7 @@ public class DrilldownGroup extends AbstractPart
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            if (uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText().equals(name))
+            if (uiGroupSelector.findElement(By.xpath(".//div[contains(text(), '"+name+"')]")).getText().equals(name))
             {
                 driver.manage()
                 .timeouts()
@@ -202,7 +202,7 @@ public class DrilldownGroup extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(groupSelectorPane));
-        groupSelectorPane.findElement(By.xpath(".//li/div[text()='" + name + "']")).click();
+        groupSelectorPane.findElement(By.xpath(".//li/div[contains(text(), '" + name + "')]")).click();
         return this;
         
     }
