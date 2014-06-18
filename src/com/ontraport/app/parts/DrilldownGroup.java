@@ -27,7 +27,7 @@ public class DrilldownGroup extends AbstractPart
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]")
     private WebElement groupSelectorPane;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//li/div[text()='Group: All']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//li/div[contains(text(), 'Group: All')]")
     private WebElement groupAll;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-menu ')]")
