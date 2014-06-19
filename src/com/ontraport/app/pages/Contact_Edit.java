@@ -224,9 +224,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickReferralInfoTab ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(referralInfoTab.get(0)));
         try 
         {
+            wait.until(ExpectedConditions.visibilityOf(referralInfoTab.get(0)));
             referralInfoTab.get(0).click();
         }
         catch (Exception e)
@@ -310,7 +310,8 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit verifyNoNote (String note)
     {
-        AbstractPart.waitForAjax(driver, 20);        try
+        AbstractPart.waitForAjax(driver, 20);
+        try
         {
             driver.manage()
             .timeouts()
@@ -541,9 +542,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyTask ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(subjectTask));
         try
         {
+            wait.until(ExpectedConditions.visibilityOf(subjectTask));
             String compare = subjectTask.getText();
         if(compare.equals(string)!=true)
         {
@@ -608,9 +609,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyDoubleOptin ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(bulkEmailStatus));
         try
         {
+            wait.until(ExpectedConditions.visibilityOf(bulkEmailStatus));
             String compare = bulkEmailStatus.getText();
             if(compare.equals("Double Opt-In")!=true)
             {
@@ -626,9 +627,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickContactHistory ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(contactHistory.get(0)));
         try 
         {
+            wait.until(ExpectedConditions.visibilityOf(contactHistory.get(0)));
             contactHistory.get(0).click();
         }
         catch (Exception e)
