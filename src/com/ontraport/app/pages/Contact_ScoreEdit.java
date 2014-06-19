@@ -60,6 +60,10 @@ public class Contact_ScoreEdit extends AbstractPage
     private WebElement conditions;
     
     @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' sem-statement-score ')]//input")
+    private WebElement score;
+    
+    @FindBy(how = How.XPATH,
             using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]")
     private WebElement drillDownList;
     
@@ -229,7 +233,7 @@ public class Contact_ScoreEdit extends AbstractPage
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
             wait.until(ExpectedConditions.visibilityOf(conditions));
-            String compare = conditions.findElement(By.xpath(".//span[text()='Assign a score of']/following-sibling::span//input")).getAttribute("value");
+            String compare = score.findElement(By.xpath(".//span[text()='Assign a score of']/following-sibling::span//input")).getAttribute("value");
             System.out.println(compare);
             if(compare.equals(value)!=true)
             {

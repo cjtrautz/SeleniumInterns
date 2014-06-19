@@ -27,7 +27,7 @@ public class DrilldownGroup extends AbstractPart
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]")
     private WebElement groupSelectorPane;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//li/div[text()='Group: All']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-group_selector ')]//li/div[contains(text(), 'Group: All')]")
     private WebElement groupAll;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' ussr-component-drilldownselect-menu ')]")
@@ -61,7 +61,7 @@ public class DrilldownGroup extends AbstractPart
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            if (uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText().equals(name))
+            if (uiGroupSelector.findElement(By.xpath(".//div[contains(text(), '"+name+"')]")).getText().equals(name))
             {
                 driver.manage()
                 .timeouts()
@@ -97,7 +97,7 @@ public class DrilldownGroup extends AbstractPart
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            if (uiGroupSelector.findElement(By.xpath(".//div[text()='"+name+"']")).getText().equals(name))
+            if (uiGroupSelector.findElement(By.xpath(".//div[contains(text(), '"+name+"')]")).getText().equals(name))
             {
                 driver.manage()
                 .timeouts()
@@ -202,7 +202,7 @@ public class DrilldownGroup extends AbstractPart
     {
         waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(groupSelectorPane));
-        groupSelectorPane.findElement(By.xpath(".//li/div[text()='" + name + "']")).click();
+        groupSelectorPane.findElement(By.xpath(".//li/div[contains(text(), '" + name + "')]")).click();
         return this;
         
     }
