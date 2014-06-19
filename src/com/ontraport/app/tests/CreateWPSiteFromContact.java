@@ -65,5 +65,9 @@ public class CreateWPSiteFromContact extends AbstractTest
             fail("nickname not correct");
         }
         
+        if ( contactEdit.verifyWPMembershipLevel("One") == null)
+        {
+            fail("membership level not applied");
+        }
     }
 }

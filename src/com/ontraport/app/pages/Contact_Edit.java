@@ -166,28 +166,29 @@ public class Contact_Edit extends AbstractPage
     private WebElement saveWPMembership;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='User Name']/following-sibling::div/input")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-username ')]//input")
     private WebElement wpUsername;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_sortable_list ')]/")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' password_target ')]//input")
     private WebElement wpPassword;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_sortable_list ')]/")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' password_confirm ')]//input")
     private WebElement wpPasswordConfirm;
     
     @FindBy(how = How.XPATH,
-            using = "//label[text()='Nickname']/following-sibling::div/input")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-nickname ')]//input")
     private WebElement wpNickname;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_sortable_list ')]/")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-levels ')]")
     private WebElement wpMembershipsList;
     
     public Contact_Edit clickLastName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField));
         lastNameField.click();
         return this;
         
@@ -196,6 +197,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterLastName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameInput));
         lastNameInput.sendKeys(string);
         return this;
         
@@ -204,6 +206,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickLastNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameSave));
         lastNameSave.click();
         return this;
         
@@ -221,9 +224,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickReferralInfoTab ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(referralInfoTab.get(0)));
         try 
         {
-            wait.until(ExpectedConditions.visibilityOf(referralInfoTab.get(0)));
             referralInfoTab.get(0).click();
         }
         catch (Exception e)
@@ -250,6 +253,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterNote ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textArea));
         textArea.sendKeys(string);
         return this;
         
@@ -258,6 +262,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickSaveNote ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveNote));
         saveNote.click();
         return this;
         
@@ -305,8 +310,7 @@ public class Contact_Edit extends AbstractPage
     
     public Contact_Edit verifyNoNote (String note)
     {
-        AbstractPart.waitForAjax(driver, 20);
-        try
+        AbstractPart.waitForAjax(driver, 20);        try
         {
             driver.manage()
             .timeouts()
@@ -415,6 +419,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickFirstName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameField));
         firstNameField.click();
         return this;
     }
@@ -422,6 +427,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterFirstName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameInput));
         firstNameInput.sendKeys(string);
         return this;
     }
@@ -429,6 +435,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickFirstNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameSave));
         firstNameSave.click();
         return this;
     }
@@ -436,8 +443,10 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyFirstName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameField));
         try
         {
+        
         String compare = firstNameField.getText();
         if(compare.equals(string)!=true)
         {
@@ -453,6 +462,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyLastName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField));
         try
         {
         String compare = lastNameField.getText();
@@ -531,9 +541,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyTask ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(subjectTask));
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(subjectTask));
             String compare = subjectTask.getText();
         if(compare.equals(string)!=true)
         {
@@ -581,6 +591,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit selectAllTasks ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(selectAllTasks));
         Actions action = new Actions(driver);
         action.click(selectAllTasks).build().perform();
         return this;
@@ -597,9 +608,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyDoubleOptin ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(bulkEmailStatus));
         try
         {
-            wait.until(ExpectedConditions.visibilityOf(bulkEmailStatus));
             String compare = bulkEmailStatus.getText();
             if(compare.equals("Double Opt-In")!=true)
             {
@@ -615,9 +626,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickContactHistory ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(contactHistory.get(0)));
         try 
         {
-            wait.until(ExpectedConditions.visibilityOf(contactHistory.get(0)));
             contactHistory.get(0).click();
         }
         catch (Exception e)
@@ -661,9 +672,9 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickMembershipsTab ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(membershipsTab.get(0)));
         try 
         {
-            wait.until(ExpectedConditions.visibilityOf(membershipsTab.get(0)));
             membershipsTab.get(0).click();
         }
         catch (Exception e)
@@ -727,6 +738,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyWPUsername ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpUsername));
         try
         {
             if(!wpUsername.getAttribute("value").equals(string))
@@ -744,6 +756,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyWPNickname ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpNickname));
         try
         {
             if(!wpNickname.getAttribute("value").equals(string))
@@ -755,6 +768,20 @@ public class Contact_Edit extends AbstractPage
             return null;
         }
         
+        return this;
+    }
+    
+    public Contact_Edit verifyWPMembershipLevel ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpMembershipsList));
+        try
+        {
+            wpMembershipsList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sortablelist-option ')]/span[contains(., '" + string + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
         return this;
     }
 }
