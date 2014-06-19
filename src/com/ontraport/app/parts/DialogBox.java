@@ -37,13 +37,13 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' ui-button ')]//span[text()='Use this Template']")
     private WebElement useThisTemplate;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation1 ')]//span")
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' confirmation1 ')]//span")
     private WebElement confirmationBox1;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation2 ')]//span")
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' confirmation2 ')]//span")
     private WebElement confirmationBox2;
     @FindBy(how = How.XPATH,
-            using = "//li[contains(concat(' ', normalize-space(@id), ' '), ' confirmation3 ')]//span")
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '), ' confirmation3 ')]//span")
     private WebElement confirmationBox3;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-package-manager-dialog ')]//div[@class='clearfix']")
