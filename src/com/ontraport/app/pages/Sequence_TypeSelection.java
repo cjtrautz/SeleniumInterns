@@ -64,8 +64,8 @@ public class Sequence_TypeSelection extends AbstractPage
     public Sequence_Edit selectDropDown ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(dropDownList.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
-        dropDownList.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
+        wait.until(ExpectedConditions.visibilityOf(dropDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
+        dropDownList.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
         return (Sequence_Edit) new Sequence_Edit().init();
     }
 

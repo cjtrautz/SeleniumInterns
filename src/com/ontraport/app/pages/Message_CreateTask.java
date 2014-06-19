@@ -202,6 +202,7 @@ public class Message_CreateTask extends AbstractPage
         return this;
         
     }
+    
 
     public Message_CreateTask clickMergeFieldsDropDown ()
     {

@@ -22,7 +22,7 @@ public class DeleteRole extends AbstractTest
         role_ListAll.formSearch.find("SeleniumRole");
         role_ListAll.selectAllRoles();
         role_ListAll.drawerActions.clickDeleteRole();
-        role_ListAll.drawerActions.clickRemoveRole();
+        role_ListAll.dialogBox.clickOk();
         //role_ListAll.dialogBox.clickOk();
          
          //verify

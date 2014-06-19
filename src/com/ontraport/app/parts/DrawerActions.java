@@ -609,8 +609,8 @@ public class DrawerActions extends AbstractPart
     public DrawerActions selectDrillDown ( String string )
     {
         waitForAjax(driver, 20);
-        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//li/div[text()='" + string + "']"))));
-        drillDown.findElement(By.xpath(".//li/div[text()='" + string + "']")).click();
+        wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]"))));
+        drillDown.findElement(By.xpath(".//li/div[contains(text(), '" + string + "')]")).click();
         return this;
         
     }
