@@ -151,6 +151,7 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//ul[@class='cke_panel_list']/li/a/h2")
     private WebElement firstStyle;
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")

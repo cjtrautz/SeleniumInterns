@@ -44,6 +44,11 @@ public class CreateSMSMessageFromSequence extends AbstractTest
         {
             fail("couldn't find message body");
         }
+        
+        sequence_CreateStep.clickSMSNumberDropDown();
+        sequence_CreateStep.selectDropDownOption("Test SMS Number - +18053866541");
+       // sequence_CreateStep.clickSMSNumber();
+        sequence_CreateStep.clickSave();
 
     }
 }
