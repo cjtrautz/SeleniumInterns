@@ -45,7 +45,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateTaskStepSequence.class,
     com.ontraport.app.tests.EditTaskStepSequence.class,
     com.ontraport.app.tests.DeleteTaskStepSequence.class,
-    com.ontraport.app.tests.DeleteTaskWhoMessage.class,
     com.ontraport.app.tests.CreateRule_AddATask.class,
     com.ontraport.app.tests.DeleteRule_AddATask.class,
     //uses CreateTaskStepSequence sequence 

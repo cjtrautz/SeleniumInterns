@@ -19,44 +19,44 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-//    //these are all verified in GmailConfirmations
-//    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
-//    com.ontraport.app.tests.SendSingleEmailToContact.class,
-//    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
-//    com.ontraport.app.tests.EnsureDateSequence.class,
-//    com.ontraport.app.tests.CreateSendFromAddress.class, 
-//    com.ontraport.app.tests.SendDoubleOptIn.class,
-//    
-//    //used in following tests
-//    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
-//    //uses CreateDoubleOptinMessage message
-//    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
-//    //end use of CreateDoubleOptinMessage message
-//    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
-//    
-//    //used in following tests
+    //these are all verified in GmailConfirmations
+    com.ontraport.app.tests.SendBroadcastEmailToContact.class,
+    com.ontraport.app.tests.SendSingleEmailToContact.class,
+    com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
+    com.ontraport.app.tests.EnsureDateSequence.class,
+    com.ontraport.app.tests.CreateSendFromAddress.class, 
+    com.ontraport.app.tests.SendDoubleOptIn.class,
+    
+    //used in following tests
+    com.ontraport.app.tests.CreateDoubleOptinMessage.class,
+    //uses CreateDoubleOptinMessage message
+    com.ontraport.app.tests.CreateCopyOfDoubleOptinMessage.class,
+    //end use of CreateDoubleOptinMessage message
+    com.ontraport.app.tests.DeleteDoubleOptinMessage.class,
+    
+    //used in following tests
     com.ontraport.app.tests.CreateMessage.class,                         
-//    //sends CreateMessage message 
-//    com.ontraport.app.tests.SendTestEmail.class,
-//    //uses CreateMessage message
-//    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
-//    //edits CreateMessage message
-//    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
-//    com.ontraport.app.tests.PreviewEmailMessage.class,
-//    com.ontraport.app.tests.EditEmailMessageAlignment.class,
-//    com.ontraport.app.tests.EditEmailMessageLinkText.class,
-//    com.ontraport.app.tests.EditEmailMessageSource.class,
-//    com.ontraport.app.tests.EditEmailMessageInsertHostedImage.class,
-//    com.ontraport.app.tests.EditEmailMessageInsertImage.class,
-//    //copies CreateMessage message
-//    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
-//    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
-//    //uses CreateMessage message
-//    com.ontraport.app.tests.CreateEmailDateSequence.class,
-//    com.ontraport.app.tests.DeleteEmailDateSequence.class,
-//    com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
-//    com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
-//    //used in following tests and uses CreateMessage message
+    //sends CreateMessage message 
+    com.ontraport.app.tests.SendTestEmail.class,
+    //uses CreateMessage message
+    com.ontraport.app.tests.CreateEmailandRuleStepSequenceTestStepControl.class,
+    //edits CreateMessage message
+    com.ontraport.app.tests.CreateEmailStepSequenceEdit.class,
+    com.ontraport.app.tests.PreviewEmailMessage.class,
+    com.ontraport.app.tests.EditEmailMessageAlignment.class,
+    com.ontraport.app.tests.EditEmailMessageLinkText.class,
+    com.ontraport.app.tests.EditEmailMessageSource.class,
+    com.ontraport.app.tests.EditEmailMessageInsertHostedImage.class,
+    com.ontraport.app.tests.EditEmailMessageInsertImage.class,
+    //copies CreateMessage message
+    com.ontraport.app.tests.CreateCopyOfEmailMessage.class,
+    com.ontraport.app.tests.DeleteCopyOfEmailMessage.class,
+    //uses CreateMessage message
+    com.ontraport.app.tests.CreateEmailDateSequence.class,
+    com.ontraport.app.tests.DeleteEmailDateSequence.class,
+    com.ontraport.app.tests.CreateRule_NotifySomeoneWithEmail.class,
+    com.ontraport.app.tests.DeleteRule_NotifySomeoneWithEmail.class,
+    //used in following tests and uses CreateMessage message
     com.ontraport.app.tests.CreateEmailStepSequence.class,                  
     //uses CreateEmailStepSequence sequence
     com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToStepSequence.class,
