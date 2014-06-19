@@ -82,7 +82,7 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-redirect-conditions-add ')]")
     private WebElement addRedirect;
     @FindBy(how = How.XPATH,
-            using = "//input[contains(concat(' ', normalize-space(@class), ' '), ' redirect-url ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' fe-conditions__custom-url ')]//input")
     private WebElement redirectInput;
     @FindBy(how = How.XPATH,
             using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-field ')]//select")
@@ -120,6 +120,9 @@ public class DialogBox extends AbstractPart
     @FindBy(how = How.XPATH,
             using = "//button[contains(@class, 'button_NAME_dialog_button')]//span[contains(text(), 'Delete')]")
     private WebElement deleteConfirm;
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'AME_conditionsRedirectRadioButtons')]//span[contains(@class, 'ussr-icon-radiobutton')]")
+    private WebElement redirectRadioButton;
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
     private WebElement yes2;
@@ -1467,6 +1470,13 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(deleteConfirm));
         deleteConfirm.click();
+        return this;
+    }
+    public DialogBox clickURLRadioButton ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(redirectRadioButton));
+        redirectRadioButton.click();
         return this;
     }
 
