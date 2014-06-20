@@ -77,40 +77,6 @@ import com.ontraport.app.tools.AbstractTest;
                 fail("couldn't find message body");
             }
 
-            
-//            // Verify task message IN sequence
-//            if(sequence_Edit.verifyTaskName(value.get("Messages", "task_message_who_edit2"))==null)
-//            {
-//                fail("couldn't find sequence task name");
-//            }
-//            if(sequence_Edit.verifyTaskDueDate("120")==null)
-//            {
-//                fail("couldn't find sequence task due date");
-//            }
-//            if(sequence_Edit.verifyAssignee("Contact Owner")==null)
-//            {
-//                fail("couldn't find sequence task assignee");
-//            }
-//            
-//            message_Edit = sequence_Edit.clickEditTask();
-//            
-//            // Verify task message edits
-//            if(message_Edit.verifyTaskDueDate("120")==null)
-//            {
-//                fail("couldn't find sequence task due date");
-//            }
-//            if(message_Edit.verifyAssignee("Contact Owner")==null)
-//            {
-//                fail("couldn't find sequence task assignee");
-//            }
-//            if(message_Edit.verifyOutcome("SelOutcome"  + AbstractSuite.UNIQUE)==null)
-//            {
-//                fail("couldn't find sequence task Outcome");
-//            }
-//            if(message_Edit.verifyOutcome("SelOutcome2-"  + AbstractSuite.UNIQUE)==null)
-//            {
-//                fail("couldn't find sequence task Outcome");
-//            }
 
           
         }
