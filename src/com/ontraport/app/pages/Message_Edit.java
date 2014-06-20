@@ -637,7 +637,7 @@ public class Message_Edit extends AbstractPage
             using = "//div[contains(@class,'NAME_task_owner')]//input")
     private WebElement assigneeDropDownInput;
 
-    
+
     
     public Message_Edit enterMessageName ( String name )
     {
@@ -2846,6 +2846,14 @@ public class Message_Edit extends AbstractPage
         save.click();
         return (Sequence_CreateStep) new Sequence_CreateStep().init();
     }
+    public Sequence_Edit clickSMSSaveToSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        return (Sequence_Edit) new Sequence_Edit().init();
+    }
+
 
     public Message_Edit openSendFromPane ()
     {

@@ -46,11 +46,6 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
-      com.ontraport.app.tests.CreateTaskWhoMessage.class,
-      com.ontraport.app.tests.CreateTaskStepSequence.class,
-      com.ontraport.app.tests.EditTaskStepSequence.class,
-      com.ontraport.app.tests.DeleteTaskStepSequence.class,
-      com.ontraport.app.tests.DeleteTaskWhoMessage.class,
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
 //    //used in following tests
