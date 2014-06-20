@@ -101,7 +101,7 @@ public class SmartFormFe_ListAll extends AbstractPage
         return this;
     }
     
-    public SmartFormFe_Edit clickSmartform (String sequence)
+    public SmartFormFe_Edit clickSmartform (String form)
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.manage()
@@ -109,30 +109,30 @@ public class SmartFormFe_ListAll extends AbstractPage
         .implicitlyWait(0, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiCollectionBodyRow1)));
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(uiSelectAll)));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']"))));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + form + "']"))));
         driver.manage()
         .timeouts()
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         //wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a")));
         try
         {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + form + "']")));
         }
         catch(StaleElementReferenceException e)
         {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + form + "']")));
         }
         catch(TimeoutException e)
         {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + sequence + "']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody[@class='ussr-component-collection-body']//a[normalize-space(text())='" + form + "']")));
         }
         try
         {
-            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + form + "']")).click();
         }
         catch(StaleElementReferenceException e)
         {
-            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + sequence + "']")).click();
+            uiCollectionBody.findElement(By.xpath(".//a[normalize-space(text())='" + form + "']")).click();
         }
         AbstractPart.waitForAjax(driver, 20);
         return (SmartFormFe_Edit) new SmartFormFe_Edit().init();

@@ -43,7 +43,27 @@ public class SmartFormFe_Edit extends AbstractPage
     private WebElement tax;
     
     @FindBy(how = How.XPATH,
-            using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' fe-design-element-list ')]")
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' orderform-action-addtax ')]")
+    private WebElement addTaxButton;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-taxes-style-widget ')]//input[contains(concat(' ', normalize-space(@class), ' '),' search ')]")
+    private WebElement taxSearchBox;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-taxes-style-widget ')]//li[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-list-item-add-new ')]")
+    private WebElement createNewTax;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-taxes-style-widget ')]//input[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-create-input ')]")
+    private WebElement newTaxName;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' cart-taxes-style-widget ')]//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_input_text_percent ')]//input")
+    private WebElement newTaxRate;
+    
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '),' orderform-objectselector-list-item-add-new ')]/span")
     private WebElement fields;
     
     @FindBy(how = How.XPATH,
@@ -78,6 +98,10 @@ public class SmartFormFe_Edit extends AbstractPage
             how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-save ')]")
     private WebElement save;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-publish ')]")
+    private WebElement publishForm;
     
     @FindBy(
             how = How.XPATH,
@@ -275,13 +299,13 @@ public class SmartFormFe_Edit extends AbstractPage
         return this;
     }
 
-    public SmartFormFe_Edit clickSave ()
+    public SmartFormFe_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 30);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", save);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
-        return this;
+        return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
     }
 
     public SmartFormFe_Edit verifyTag ( String string )
@@ -651,7 +675,51 @@ public class SmartFormFe_Edit extends AbstractPage
         return this;
     }
 
+    public SmartFormFe_Edit clickAddTaxOption ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addTaxButton));
+        addTaxButton.click();
+        return this;
+    }
     
+    public SmartFormFe_Edit clickTaxNameInput ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taxSearchBox));
+        taxSearchBox.click();
+        return this;
+    }
 
+    public SmartFormFe_Edit createNewTaxOption ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(createNewTax));
+        createNewTax.click();
+        return this;
+    }
     
+    public SmartFormFe_Edit enterNewTaxName (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newTaxName));
+        newTaxName.sendKeys(string);
+        return this;
+    }
+    
+    public SmartFormFe_Edit enterNewTaxRate (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newTaxRate));
+        newTaxRate.sendKeys(string);
+        return this;
+    }
+    
+    public SmartFormFe_Edit clickPublishForm ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(publishForm));
+        publishForm.click();
+        return this;
+    }
 }
