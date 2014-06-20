@@ -440,7 +440,7 @@ public class Message_Edit extends AbstractPage
 
     @FindBy(how = How.XPATH,
             using = "//tbody//tr[contains(concat(' ', normalize-space(@class), ' '),' outcome_rules ')]//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-collection-cell-type-text ')]/span/a")
-    private WebElement taskOutcomes;
+    private List<WebElement> taskOutcomes;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@style), ' '),'/js/ontraport/boxes/images/transp.png')]/span/span[contains(concat(' ', normalize-space(@style), ' '),' width: 300px; ') or contains(concat(' ', normalize-space(@style), ' '),' height: 200px; ')]")
@@ -747,11 +747,30 @@ public class Message_Edit extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(nameColumn));  
         nameColumn.click();
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(taskOutcomes));  
+        wait.until(ExpectedConditions.visibilityOf(taskOutcomes.get(0)));  
             try
             {
-                System.out.println(taskOutcomes.getText());
-                String compare = taskOutcomes.getText();
+                System.out.println(taskOutcomes.get(0).getText());
+                String compare = taskOutcomes.get(0).getText();
+                if(compare.equals(name)!=true)
+                {
+                    return null;
+                }
+            }
+            catch(NoSuchElementException e){
+                return null;
+            }
+            
+            return this;
+    }
+    
+    public Message_Edit verifyOutcomeByIndex ( String name, int index )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taskOutcomes.get(index)));  
+            try
+            {
+                String compare = taskOutcomes.get(index).getText();
                 if(compare.equals(name)!=true)
                 {
                     return null;
@@ -2827,6 +2846,7 @@ public class Message_Edit extends AbstractPage
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(taskSubject));
+        taskSubject.clear();
         taskSubject.sendKeys(string);
         return this;
     }

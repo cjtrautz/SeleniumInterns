@@ -42,6 +42,7 @@ public class CreateSmartFormWithConditions extends AbstractTest
         smartFormFe_Create.dialogBox.clickIfConditionOperatorDropDown();
         smartFormFe_Create.dialogBox.selectIfOption("Ends With");
         smartFormFe_Create.dialogBox.enterIfValue("abc");
+        smartFormFe_Create.dialogBox.clickURLRadioButton();
         smartFormFe_Create.dialogBox.enterRedirectSite("http://www.google.com");
         smartFormFe_Create.dialogBox.clickSaveCondition();
         smartFormFe_Create.dialogBox.clickDone();

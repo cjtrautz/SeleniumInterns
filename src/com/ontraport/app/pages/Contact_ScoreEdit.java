@@ -232,8 +232,8 @@ public class Contact_ScoreEdit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            wait.until(ExpectedConditions.visibilityOf(conditions));
-            String compare = score.findElement(By.xpath(".//span[text()='Assign a score of']/following-sibling::span//input")).getAttribute("value");
+            wait.until(ExpectedConditions.visibilityOf(score));
+            String compare = score.getAttribute("value");
             System.out.println(compare);
             if(compare.equals(value)!=true)
             {

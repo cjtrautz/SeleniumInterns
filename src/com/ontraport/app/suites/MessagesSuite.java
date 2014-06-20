@@ -44,7 +44,6 @@ import com.ontraport.app.tools.AbstractSuite;
     //used in following tests and  uses CreateTaskWhoMessage message
     com.ontraport.app.tests.CreateTaskStepSequence.class,
     com.ontraport.app.tests.EditTaskStepSequence.class,
-    com.ontraport.app.tests.DeleteTaskStepSequence.class,
     com.ontraport.app.tests.CreateRule_AddATask.class,
     com.ontraport.app.tests.DeleteRule_AddATask.class,
     //uses CreateTaskStepSequence sequence 
