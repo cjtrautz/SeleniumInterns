@@ -19,26 +19,26 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
-//    com.ontraport.app.tests.CreateInvoiceMessage.class,
-//    com.ontraport.app.tests.DeleteInvoiceMessage.class,
-//    
-//    //used if following tests
-//    com.ontraport.app.tests.CreateSMSMessage.class,
-//    //uses CreateSMSMessage message
-//    com.ontraport.app.tests.EditSMSMessageName.class,
-//    com.ontraport.app.tests.EditSMSMessageBody.class,
-//    com.ontraport.app.tests.EditSMSMessageMergeField.class,
-//    com.ontraport.app.tests.EditSMSMessageCancel.class,
-//    com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
-//    //end use of CreateSMSMessage message
-//    com.ontraport.app.tests.DeleteSMSMessage.class,
-//    
-//    com.ontraport.app.tests.CreateMessageCancel.class,
-//    
-//    com.ontraport.app.tests.TaskMessageCancel.class,
-//    
-//    com.ontraport.app.tests.TaskMessageBack.class,
-//    
+    com.ontraport.app.tests.CreateInvoiceMessage.class,
+    com.ontraport.app.tests.DeleteInvoiceMessage.class,
+    
+    //used if following tests
+    com.ontraport.app.tests.CreateSMSMessage.class,
+    //uses CreateSMSMessage message
+    com.ontraport.app.tests.EditSMSMessageName.class,
+    com.ontraport.app.tests.EditSMSMessageBody.class,
+    com.ontraport.app.tests.EditSMSMessageMergeField.class,
+    com.ontraport.app.tests.EditSMSMessageCancel.class,
+    com.ontraport.app.tests.CreateCopyOfSMSMessage.class,
+    //end use of CreateSMSMessage message
+    com.ontraport.app.tests.DeleteSMSMessage.class,
+    
+    com.ontraport.app.tests.CreateMessageCancel.class,
+    
+    com.ontraport.app.tests.TaskMessageCancel.class,
+    
+    com.ontraport.app.tests.TaskMessageBack.class,
+    
     //used in following tests
     com.ontraport.app.tests.CreateTaskWhoMessage.class,
     //used in following tests and  uses CreateTaskWhoMessage message
