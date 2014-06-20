@@ -36,7 +36,6 @@ import com.ontraport.app.tools.AbstractTest;
          
             Message_Edit message_Edit = sequence_Edit.clickEditTask();
 
-            message_Edit.enterTaskName(value.get("Messages", "task_message_who"));
             message_Edit.enterTaskSubjectName("This task was edited");
             message_Edit.enterDueDate("20");
             message_Edit.clickAssigneeDropDown();
@@ -54,9 +53,16 @@ import com.ontraport.app.tools.AbstractTest;
             message_Edit.clickSaveOutcome();
             
             sequence_Edit = message_Edit.clickSaveTask();
+            sequence_ListAll = sequence_Edit.clickSave();
+            sequence_ListAll.formSearch.find(value.get("Sequences", "step_task_sequence"));
+            sequence_Edit = sequence_ListAll.clickSequence(value.get("Sequences", "step_task_sequence"));
             
             // Verify task message IN sequence
-            if(sequence_Edit.verifyTaskName(value.get("Messages", "task_message_who_edit2"))==null)
+            if(sequence_Edit.verifySequenceStepAndExpand("TASK", 1)==null)
+            {
+                fail("couldn't find sequence step");
+            }
+            if(sequence_Edit.verifyTaskName(value.get("Messages", "task_message_who"))==null)
             {
                 fail("couldn't find sequence task name");
             }
@@ -68,10 +74,16 @@ import com.ontraport.app.tools.AbstractTest;
             {
                 fail("couldn't find sequence task assignee");
             }
-            
-            message_Edit = sequence_Edit.clickEditTask();
+
+            Message_ListAll message_ListAll = sequence_Edit.menuPrimary.clickMessageListAll();
+            message_ListAll.formSearch.find(value.get("Messages", "task_message_who"));
+            message_Edit = message_ListAll.clickMessage(value.get("Messages", "task_message_who"));
             
             // Verify task message edits
+            if(message_Edit.verifySubjectTask("This task was edited")==null)
+            {
+                fail("couldn't find sequence task due date");
+            }
             if(message_Edit.verifyTaskDueDate("120")==null)
             {
                 fail("couldn't find sequence task due date");
@@ -80,11 +92,11 @@ import com.ontraport.app.tools.AbstractTest;
             {
                 fail("couldn't find sequence task assignee");
             }
-            if(message_Edit.verifyOutcome("SelOutcome"  + AbstractSuite.UNIQUE)==null)
+            if(message_Edit.verifyOutcomeByIndex("SelOutcome"  + AbstractSuite.UNIQUE, 1)==null)
             {
                 fail("couldn't find sequence task Outcome");
             }
-            if(message_Edit.verifyOutcome("SelOutcome2-"  + AbstractSuite.UNIQUE)==null)
+            if(message_Edit.verifyOutcomeByIndex("SelOutcome2-"  + AbstractSuite.UNIQUE, 0)==null)
             {
                 fail("couldn't find sequence task Outcome");
             }
