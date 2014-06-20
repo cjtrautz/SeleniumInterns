@@ -72,6 +72,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateSMSMessageFromSequence.class,
     com.ontraport.app.tests.EditSMSMessageFromSequence.class,
     com.ontraport.app.tests.DeleteSMSMessageFromSequence.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
 
     //used in following tests and uses CreateOrderform orderform
     

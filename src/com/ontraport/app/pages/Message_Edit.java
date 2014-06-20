@@ -880,6 +880,25 @@ public class Message_Edit extends AbstractPage
         
         return this;
     }
+    
+    public Message_Edit verifyMessageName ( String name )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(textArea2.getAttribute("value"));
+            String compare = textArea2.getAttribute("value");
+            if(compare.equals(name)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
 
     public Message_Edit clickSendTestEmail ()
     {
