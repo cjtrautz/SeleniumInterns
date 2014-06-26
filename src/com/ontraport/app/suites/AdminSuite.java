@@ -19,6 +19,11 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 { 
+    //workflow tests
+    com.ontraport.app.tests.WorkflowPagination.class,
+    com.ontraport.app.tests.UneditedWorkflow.class,
+    com.ontraport.app.tests.PinnedItemsWorkflow.class,
+    
     com.ontraport.app.tests.CreateSmartFormWithGetPaid.class,
     com.ontraport.app.tests.DeleteSmartFormWithGetPaid.class,
     
@@ -54,6 +59,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateATag.class,
     com.ontraport.app.tests.CreateRuleDateSequence.class,
     com.ontraport.app.tests.MassActionForContacts.class,
+    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     //uses CreateMessage message
     com.ontraport.app.tests.CreateAffiliatesProgramWithContactIDAndPurchaseHistory.class,
     com.ontraport.app.tests.DeleteAffiliateProgramWithContactIDAndPurchaseHistory.class,

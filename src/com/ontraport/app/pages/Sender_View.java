@@ -7,6 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
@@ -17,12 +18,13 @@ public class Sender_View extends AbstractPage
     public static String url = "/#!/sender/view";
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='sender_add']/button")
+            using = "//div[@class='sender_add']/span")
     private WebElement addEmail;
 
     public Sender_View clickAddEmail ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(addEmail));
         addEmail.click();
         return this;
         

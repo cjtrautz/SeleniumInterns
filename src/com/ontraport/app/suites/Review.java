@@ -46,11 +46,9 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
-      com.ontraport.app.tests.CreateTaskWhoMessage.class,
-      com.ontraport.app.tests.CreateTaskStepSequence.class,
-      com.ontraport.app.tests.EditTaskStepSequence.class,
-      com.ontraport.app.tests.DeleteTaskStepSequence.class,
-      com.ontraport.app.tests.DeleteTaskWhoMessage.class,
+      com.ontraport.app.tests.CancelBroadCast.class,
+      com.ontraport.app.tests.DeleteCancelBroadCast.class,
+
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
 //    //used in following tests
@@ -89,7 +87,7 @@ public class Review extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setUrl("https://app.ontraport.com/");
+        AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(true);
         profile.setPreference("browser.cache.disk.enable", false);

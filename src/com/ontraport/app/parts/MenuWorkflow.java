@@ -25,7 +25,7 @@ public class MenuWorkflow extends AbstractPart
     protected WebElement pageSpan;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-workflow-menu-close ')]//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon ')]")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-workflow-menu-close ')]//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon ')]")
     protected WebElement workflowClose;
     
     @FindBy(how = How.XPATH,
