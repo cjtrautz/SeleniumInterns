@@ -92,11 +92,6 @@ import com.ontraport.app.tools.AbstractSuite;
     //end use of CreateTaskWhoMessage message
     com.ontraport.app.tests.DeleteTaskWhoMessage.class,
     
-    //workflow tests
-    com.ontraport.app.tests.WorkflowPagination.class,
-    com.ontraport.app.tests.UneditedWorkflow.class,
-    com.ontraport.app.tests.PinnedItemsWorkflow.class,
-    
     //used in following tests
     com.ontraport.app.tests.CreateTaskMessage.class,
     //uses CreateTaskMessage message
@@ -204,7 +199,6 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.MoveColumn.class,
     com.ontraport.app.tests.DeleteColumn.class,
     //uses CreateContact contact
-    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.EnsureRulesFire.class,
     com.ontraport.app.tests.DeleteEnsureRulesFire.class,
     com.ontraport.app.tests.CreateNote.class,

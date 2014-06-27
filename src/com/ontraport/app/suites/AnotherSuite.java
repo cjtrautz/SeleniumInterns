@@ -22,6 +22,11 @@ import com.ontraport.app.tools.Values;
 @SuiteClasses(
 
 { 
+    //workflow tests
+    com.ontraport.app.tests.WorkflowPagination.class,
+    com.ontraport.app.tests.UneditedWorkflow.class,
+    com.ontraport.app.tests.PinnedItemsWorkflow.class,
+    
     com.ontraport.app.tests.CreatePostcardPictureWithRectangle.class,
     com.ontraport.app.tests.EditPostcardPictureOpacity.class,
     com.ontraport.app.tests.EditPostcardPictureCircle.class,
@@ -71,6 +76,7 @@ import com.ontraport.app.tools.Values;
     
     com.ontraport.app.tests.CreateContact.class,
     //uses CreateContact
+    com.ontraport.app.tests.WorkflowEnsureItemStore.class,
     com.ontraport.app.tests.CreateAffiliateProgramFromContact.class,
     com.ontraport.app.tests.DeleteAffiliateProgramCreatedFromContact.class,
     com.ontraport.app.tests.DeleteContact.class,
