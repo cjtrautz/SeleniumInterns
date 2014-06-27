@@ -42,7 +42,7 @@ public class Message_CreateSMS extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-pane-editor-back']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
     private WebElement back;
     
     @FindBy(

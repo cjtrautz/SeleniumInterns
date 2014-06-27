@@ -48,7 +48,7 @@ public class Fulfillment_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header ')]//div[@class='ussr-pane-editor-back']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-chrome-panel-pane-header ')]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
     private WebElement back;
     
     @FindBy(
