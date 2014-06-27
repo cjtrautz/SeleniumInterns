@@ -41,7 +41,9 @@ import com.ontraport.app.tools.AbstractTest;
 
             fulfillment_Edit.enterFulfillmentListName(value.get("Admin", "fulfillment_list_edit"));
             fulfillment_Edit.openSendTimePane();
+            fulfillment_Edit.openTimeDropDown();
             fulfillment_Edit.selectTime(value.get("Admin", "fulfillment_time_edit")); // fails right here
+            
             fulfillment_Edit.openFieldPane();
             fulfillment_Edit.selectField("Last Name");
             fulfillment_Edit.enterEmailNotification(value.get("Admin", "fulfillment_email_edit"));
