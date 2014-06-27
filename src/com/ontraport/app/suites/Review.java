@@ -50,6 +50,9 @@ import com.ontraport.app.tools.AbstractSuite;
 //      com.ontraport.app.tests.CancelBroadCast.class,
 //      com.ontraport.app.tests.DeleteCancelBroadCast.class,
 
+      com.ontraport.app.tests.CancelBroadCast.class,
+      com.ontraport.app.tests.DeleteCancelBroadCast.class,
+
 //    com.ontraport.app.tests.CreateRuleStepSequence.class,
 //    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
 //    //used in following tests
