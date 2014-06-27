@@ -18,7 +18,7 @@ public class Sender_View extends AbstractPage
     public static String url = "/#!/sender/view";
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='sender_add']/span")
+            using = "//div[@class='sender_add']//span")
     private WebElement addEmail;
 
     public Sender_View clickAddEmail ()

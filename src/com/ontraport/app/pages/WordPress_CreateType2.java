@@ -44,7 +44,7 @@ public class WordPress_CreateType2 extends AbstractPage
     private WebElement ownDomain;
     
     @FindBy(how = How.XPATH,
-            using = "//input[@value='ours']")
+            using = "//a[@value='ours']")
     private WebElement ourDomain;
     
     @FindBy(how = How.XPATH,

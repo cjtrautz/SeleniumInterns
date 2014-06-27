@@ -19,12 +19,12 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 
 {
-    //these are all verified in GmailConfirmations
+//    //these are all verified in GmailConfirmations
     com.ontraport.app.tests.SendBroadcastEmailToContact.class,
     com.ontraport.app.tests.SendSingleEmailToContact.class,
     com.ontraport.app.tests.EnsureStepSequenceImmedAndDelayStep.class,
     com.ontraport.app.tests.EnsureDateSequence.class,
-    com.ontraport.app.tests.CreateSendFromAddress.class, 
+    //com.ontraport.app.tests.CreateSendFromAddress.class, 
     com.ontraport.app.tests.SendDoubleOptIn.class,
     
     //used in following tests
@@ -236,7 +236,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.GmailConfirmations.class,
     //deletes all of the email verification objects
     com.ontraport.app.tests.DeleteEnsureDateSequence.class,
-    com.ontraport.app.tests.DeleteSendFromAddress.class,
+    //com.ontraport.app.tests.DeleteSendFromAddress.class,
     com.ontraport.app.tests.DeleteBroadCastEmail.class,
     com.ontraport.app.tests.DeleteEnsureStepSequenceImmedAndDelayStep.class,
     //wait a little before deleting contact and message for one off to ensure email is sent
