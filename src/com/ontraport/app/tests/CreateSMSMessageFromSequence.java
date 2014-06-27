@@ -46,7 +46,7 @@ public class CreateSMSMessageFromSequence extends AbstractTest
         }
         
         sequence_CreateStep.clickSMSNumberDropDown();
-        sequence_CreateStep.selectDropDownOption("Test SMS Number - +18053866541");
+        sequence_CreateStep.selectDrillDownByIndex(2);
         // sequence_CreateStep.clickSMSNumber();
         sequence_CreateStep.clickSave();
 
