@@ -26,6 +26,7 @@ public class ImportContacts extends AbstractTest
         contact_Import.clickNextMerge();
         contact_Import.clickNextAddRules();
         contactListAll = contact_Import.clickFinish();
+        contactListAll = contactListAll.menuPrimary.clickContactListAll();
         //Thread.sleep(5000);
         if(contactListAll.verifyBeingImportedAndClose()==null)
         {
