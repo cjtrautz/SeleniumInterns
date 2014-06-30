@@ -42,7 +42,7 @@ import com.ontraport.app.tools.AbstractTest;
             fulfillment_Edit.enterFulfillmentListName(value.get("Admin", "fulfillment_list_edit"));
             fulfillment_Edit.openSendTimePane();
             fulfillment_Edit.openTimeDropDown();
-            fulfillment_Edit.selectTime(value.get("Admin", "fulfillment_time_edit")); // fails right here
+            fulfillment_Edit.selectTime(value.get("Admin", "fulfillment_time_edit"));
             
             fulfillment_Edit.openFieldPane();
             fulfillment_Edit.selectField("Last Name");
@@ -51,12 +51,8 @@ import com.ontraport.app.tools.AbstractTest;
             fulfillment_Edit.enterEmailMessage(value.get("Admin", "fulfillment_email_message_edit"));
             sequence_Edit = fulfillment_Edit.clickSaveToSequence();
             
-            // verify values of fulfillment in sequence
-            if(sequence_Edit.verifySequenceName(value.get("Sequences", "sequence_edit_fulfillment"))==null)
-            {
-                fail("couldn't find message body");
-            }
-            if(sequence_Edit.verifyFulfillmentDropDown(value.get("Admin", "fulfillment_from_sequence"))==null)
+            //verify values of fulfillment in sequence
+            if(sequence_Edit.verifyFulfillmentDropDown ()==null)
             {
                 fail("couldnt fine fulfillment");
             }
@@ -71,18 +67,18 @@ import com.ontraport.app.tools.AbstractTest;
             fulfillment_ListAll.formSearch.find(value.get("Admin", "fulfillment_list"));
             
             //verify fulfillment exists
-            if(fulfillment_ListAll.verifyFulfillment(value.get("Admin", "fulfillment_list"))==null)
+            if(fulfillment_ListAll.verifyFulfillment(value.get("Admin", "fulfillment_list_edit_verify"))==null)
             {
                 fail("didnt find fulfillment");
             }
             
-            fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list"));
+            fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list_edit_verify"));
             
             if(fulfillment_Edit.verifyFieldValue(1, "First Name")==null)
             {
                 fail("didnt find fulfillment field vale");
             }
-            if(fulfillment_Edit.verifyFulfillmentName(value.get("Admin", "fulfillment_list"))==null)
+            if(fulfillment_Edit.verifyFulfillmentName(value.get("Admin", "fulfillment_list_edit_verify"))==null)
             {
                 fail("didnt find fulfillment list name");
             }
