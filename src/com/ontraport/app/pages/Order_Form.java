@@ -78,7 +78,7 @@ public class Order_Form extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//tr[contains(concat(' ', @class, ' '),' grid-summary-grandtotal ')]//td[@class='ussr-helper-font-weight-bold']")
+            using = "//tr[contains(concat(' ', @class, ' '),' grid-summary-grandtotal ')]//td[2]")
     private WebElement total;
     
     @FindBy(
