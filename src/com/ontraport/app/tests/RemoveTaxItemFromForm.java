@@ -36,7 +36,7 @@ public class RemoveTaxItemFromForm extends AbstractTest
         smartFormEdit = formsListAll.clickSmartform(value.get("SmartForms", "orderForm"));
         smartFormEdit.clickProductForm();
         
-        if (!(smartFormEdit.verifyNoTax("SelTax" + AbstractSuite.UNIQUE) == null))
+        if (smartFormEdit.verifyNoTax("SelTax" + AbstractSuite.UNIQUE) == null)
             {
                 fail("tax still exists");
             };
