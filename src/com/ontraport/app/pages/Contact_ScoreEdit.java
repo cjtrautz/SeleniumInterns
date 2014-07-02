@@ -36,7 +36,7 @@ public class Contact_ScoreEdit extends AbstractPage
     private WebElement textarea;
     
     @FindBy(how = How.XPATH,
-            using = "//div[@class='ussr-pane-editor-back']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
     private WebElement back;
     
     @FindBy(how = How.XPATH,
@@ -58,6 +58,10 @@ public class Contact_ScoreEdit extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-conditions ')]")
     private WebElement conditions;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ', normalize-space(@class), ' '),' sem-statement-score ')]//input")
+    private WebElement score;
     
     @FindBy(how = How.XPATH,
             using = "//ul[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-drilldownselect-ul ')]")
@@ -228,8 +232,8 @@ public class Contact_ScoreEdit extends AbstractPage
             driver.manage()
             .timeouts()
             .implicitlyWait(5, TimeUnit.SECONDS);
-            wait.until(ExpectedConditions.visibilityOf(conditions));
-            String compare = conditions.findElement(By.xpath(".//span[text()='Assign a score of']/following-sibling::span//input")).getAttribute("value");
+            wait.until(ExpectedConditions.visibilityOf(score));
+            String compare = score.getAttribute("value");
             System.out.println(compare);
             if(compare.equals(value)!=true)
             {

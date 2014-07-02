@@ -191,7 +191,7 @@ public class Sequence_CreateDate extends AbstractPage
     public Sequence_CreateDate enterSequenceName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")));
         wait.until(ExpectedConditions.visibilityOf(subsicribers));
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));

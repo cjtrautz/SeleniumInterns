@@ -43,7 +43,7 @@ public class ApiSettings_Edit extends AbstractPage
     private WebElement apiKey; 
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-top ')]/div[@class='ussr-pane-editor-back']")
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-chrome-panel-pane-header-top ')]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-pane-editor-back ')]")
     private WebElement back; 
     
     @FindBy(how = How.XPATH,

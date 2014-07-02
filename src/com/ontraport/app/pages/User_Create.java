@@ -3,6 +3,7 @@ package com.ontraport.app.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -144,6 +145,7 @@ public class User_Create extends AbstractPage
     public User_Create enterConfirmPassword ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", confirmPasswordInput);
         wait.until(ExpectedConditions.visibilityOf(confirmPasswordInput));
         confirmPasswordInput.click();
         confirmPasswordInput.clear();

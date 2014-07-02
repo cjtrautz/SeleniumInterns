@@ -194,7 +194,7 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-pane-editor-back']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-back ')]")
     private WebElement back;
     
     @FindBy(
@@ -282,7 +282,6 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_CreateStep enterSequenceName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
         wait.until(ExpectedConditions.visibilityOf(subsicribers));
         //wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")));
@@ -377,7 +376,7 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_ListAll clickBack ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ussr-pane-editor-back']")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-back ')]")));
         back.click();
         return (Sequence_ListAll) new Sequence_ListAll().init();
     }
