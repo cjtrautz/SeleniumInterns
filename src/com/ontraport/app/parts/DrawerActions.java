@@ -221,6 +221,10 @@ public class DrawerActions extends AbstractPart
     private WebElement uiRemoveRole;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Tax Item')]")
+    private WebElement uiDeleteTaxItem;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete User')]")
     private WebElement uiDeleteUser;
     
@@ -551,6 +555,15 @@ public class DrawerActions extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         wait(5).until(ExpectedConditions.visibilityOf(uiDeleteUser));
         uiDeleteUser.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+    }
+    public DrawerActions clickDeleteTaxItem ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        wait(5).until(ExpectedConditions.visibilityOf(uiDeleteTaxItem));
+        uiDeleteTaxItem.click();
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }

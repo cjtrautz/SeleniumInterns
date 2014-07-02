@@ -99,6 +99,11 @@ public class SmartFormFe_Edit extends AbstractPage
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-save ')]")
     private WebElement save;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-cancel ')]")
+    private WebElement back;
+    
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '),' fe-control-publish ')]")
     private WebElement publishForm;
@@ -305,6 +310,15 @@ public class SmartFormFe_Edit extends AbstractPage
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", save);
         wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
+        return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
+    }
+    
+    public SmartFormFe_ListAll clickBack ()
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", save);
+        wait.until(ExpectedConditions.visibilityOf(back));
+        back.click();
         return (SmartFormFe_ListAll) new SmartFormFe_ListAll().init();
     }
 
@@ -623,6 +637,24 @@ public class SmartFormFe_Edit extends AbstractPage
         
         return this;
     }
+    
+    public SmartFormFe_Edit verifyNoTax ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(tax));
+        try
+        {
+            if(!tax.findElement(By.xpath(".//span[@class='name' and contains(normalize-space(text()), '" + string + "')]")).isDisplayed())
+            {
+                return this;
+            }
+        }
+        catch(NoSuchElementException e){
+            return this;
+        }
+        
+        return null;
+    }
 
     public SmartFormFe_Edit verifyShippingName ( String string )
     {
@@ -720,6 +752,14 @@ public class SmartFormFe_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(publishForm));
         publishForm.click();
+        return this;
+    }
+
+    public SmartFormFe_Edit removeTaxItem ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(tax));
+        tax.findElement(By.xpath(".//span[@class='name' and contains(normalize-space(text()), '" + string + "')]/following-sibling::span[@class='icons']//span[contains(concat(' ', normalize-space(@class), ' '),' ussr-icon-trashcan ')]")).click();
         return this;
     }
 }

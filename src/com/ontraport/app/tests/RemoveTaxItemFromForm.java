@@ -16,10 +16,10 @@ import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.SmartFormFe_ListAll;
 import com.ontraport.app.tools.AbstractTest;
 
-public class AddTaxToOrderForm extends AbstractTest
+public class RemoveTaxItemFromForm extends AbstractTest
 {
     @Test
-    public void addTaskToOrderForm () throws InterruptedException
+    public void removeTaxItemFromForm () throws InterruptedException
     {
         Contact_ListAll contactListAll = (Contact_ListAll) new Contact_ListAll().init();
         
@@ -28,15 +28,7 @@ public class AddTaxToOrderForm extends AbstractTest
         
         SmartFormFe_Edit smartFormEdit = formsListAll.clickSmartform(value.get("SmartForms", "orderForm"));
         smartFormEdit.clickProductForm();
-        smartFormEdit.clickAddTaxOption();
-        smartFormEdit.clickTaxNameInput();
-        smartFormEdit.createNewTaxOption();
-        smartFormEdit.enterNewTaxName("SelTax" + AbstractSuite.UNIQUE);
-        smartFormEdit.enterNewTaxRate("20");
-        
-        //Bug with Save button not triggering blur on tax.
-        //Need this for now to save the new tax option prior to saving
-        smartFormEdit.clickPublishForm();
+        smartFormEdit.removeTaxItem("SelTax" + AbstractSuite.UNIQUE);
         
         formsListAll = smartFormEdit.clickSave();
         
@@ -44,25 +36,9 @@ public class AddTaxToOrderForm extends AbstractTest
         smartFormEdit = formsListAll.clickSmartform(value.get("SmartForms", "orderForm"));
         smartFormEdit.clickProductForm();
         
-        if (smartFormEdit.verifyTaxName("SelTax" + AbstractSuite.UNIQUE) == null)
+        if (!(smartFormEdit.verifyNoTax("SelTax" + AbstractSuite.UNIQUE) == null))
             {
-                fail("tax name not set");
-            };
-        if (smartFormEdit.verifyTaxRate("20 %") == null)
-            {
-                fail("tax rate not set");
-            };
-            
-        formsListAll = smartFormEdit.clickSave();
-        SalesReport_Settings salesReportSettings = formsListAll.menuPrimary.clickSalesReportSettings();
-        
-        Taxes_ListAll taxesListAll = salesReportSettings.clickTaxTypes();
-        
-        taxesListAll.formSearch.find("SelTax" + AbstractSuite.UNIQUE);
-        
-        if (taxesListAll.verifyTaxItem("SelTax" + AbstractSuite.UNIQUE) == null)
-            {
-                fail("tax item does not exist");
+                fail("tax still exists");
             };
     }
 }
