@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -70,6 +72,11 @@ public class Contact_Edit extends AbstractPage
             how = How.XPATH, 
             using = "//a[normalize-space(text())='Referral Info']")
     private List<WebElement> referralInfoTab;
+    
+    @FindBy(
+            how = How.XPATH, 
+            using = "//a[normalize-space(text())='Memberships']")
+    private List<WebElement> membershipsTab;
     
     @FindBy(
             how = How.XPATH, 
@@ -141,9 +148,46 @@ public class Contact_Edit extends AbstractPage
             using = "//a[contains(concat(' ', normalize-space(@class), ' '),' jb-overflowmenu-menu-secondary-handle ')]/span")
     private WebElement overflowIcon;
     
+    @FindBy(how = How.XPATH,
+            using = "//div[@class='ussr-component-sub-collection-add-new']/span[text()='NEW WordPress Membership']")
+    private WebElement newWPMembership;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-site ')]//input")
+    private WebElement wpMembershipDrilldown;
+    
+    @FindBy(how = How.XPATH,
+            using = "//li[contains(concat(' ', normalize-space(@class), ' '),' create-new ')]")
+    private WebElement newWPSite;
+    
+    @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-save ')]")
+    private WebElement saveWPMembership;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-username ')]//input")
+    private WebElement wpUsername;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' password_target ')]//input")
+    private WebElement wpPassword;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' password_confirm ')]//input")
+    private WebElement wpPasswordConfirm;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-nickname ')]//input")
+    private WebElement wpNickname;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' component-wp-membership-level-create-target-levels ')]")
+    private WebElement wpMembershipsList;
+    
     public Contact_Edit clickLastName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField));
         lastNameField.click();
         return this;
         
@@ -152,6 +196,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterLastName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameInput));
         lastNameInput.sendKeys(string);
         return this;
         
@@ -160,6 +205,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickLastNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameSave));
         lastNameSave.click();
         return this;
         
@@ -206,6 +252,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterNote ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textArea));
         textArea.sendKeys(string);
         return this;
         
@@ -214,6 +261,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickSaveNote ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveNote));
         saveNote.click();
         return this;
         
@@ -371,6 +419,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickFirstName ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameField));
         firstNameField.click();
         return this;
     }
@@ -378,6 +427,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit enterFirstName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameInput));
         firstNameInput.sendKeys(string);
         return this;
     }
@@ -385,6 +435,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit clickFirstNameSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameSave));
         firstNameSave.click();
         return this;
     }
@@ -392,8 +443,10 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyFirstName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(firstNameField));
         try
         {
+        
         String compare = firstNameField.getText();
         if(compare.equals(string)!=true)
         {
@@ -409,6 +462,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit verifyLastName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(lastNameField));
         try
         {
         String compare = lastNameField.getText();
@@ -537,6 +591,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit selectAllTasks ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(selectAllTasks));
         Actions action = new Actions(driver);
         action.click(selectAllTasks).build().perform();
         return this;
@@ -600,6 +655,7 @@ public class Contact_Edit extends AbstractPage
         }
         return this;
     }
+    
     public Contact_Edit verifyNoLogItem (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -612,6 +668,120 @@ public class Contact_Edit extends AbstractPage
         }
         return null;
     }
-
+    
+    public Contact_Edit clickMembershipsTab ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(membershipsTab.get(0)));
+        try 
+        {
+            membershipsTab.get(0).click();
+        }
+        catch (Exception e)
+        {
+            wait.until(ExpectedConditions.visibilityOf(overflowIcon));
+            overflowIcon.click();
+            AbstractPart.waitForAjax(driver, 20);
+            wait.until(ExpectedConditions.visibilityOf(membershipsTab.get(1)));
+            membershipsTab.get(1).click();
+        }
+        return this;
+    }
+    
+    public Contact_Edit clickNewWPMembership ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWPMembership));
+        newWPMembership.click();
+        return this;
+    }
+    
+    public Contact_Edit clickWPMembershipDrilldown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpMembershipDrilldown));
+        wpMembershipDrilldown.click();
+        return this;
+    }
+    
+    public WordPress_TypeSelection clickNewWPSite ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWPSite));
+        newWPSite.click();
+        return (WordPress_TypeSelection) new WordPress_TypeSelection().init();
+    }
+    
+    public Contact_Edit saveWPMembership ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(saveWPMembership));
+        saveWPMembership.click();
+        return this;
+    }
+    
+    public Contact_Edit clickWPMembership ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(newWPMembership));
+        try
+        {
+            driver.findElement(By.xpath("//tbody[@class='ussr-component-collection-body']//tr//td//a[contains(text(), '" + string + "')]")).click();
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+    
+    public Contact_Edit verifyWPUsername ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpUsername));
+        try
+        {
+            if(!wpUsername.getAttribute("value").equals(string))
+                {
+                return null;
+                }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public Contact_Edit verifyWPNickname ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpNickname));
+        try
+        {
+            if(!wpNickname.getAttribute("value").equals(string))
+                {
+                return null;
+                }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public Contact_Edit verifyWPMembershipLevel ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(wpMembershipsList));
+        try
+        {
+            wpMembershipsList.findElement(By.xpath(".//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sortablelist-option ')]/span[contains(., '" + string + "')]"));
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
 }
-
