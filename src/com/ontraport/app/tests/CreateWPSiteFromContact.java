@@ -7,6 +7,8 @@ import org.junit.Test;
 import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.WordPress_CreateType2;
+import com.ontraport.app.pages.WordPress_Edit;
+import com.ontraport.app.pages.WordPress_ListAll;
 import com.ontraport.app.pages.WordPress_TypeSelection;
 import com.ontraport.app.tools.AbstractSuite;
 //import com.ontraport.app.pages.Sequence_ListAll;
@@ -68,6 +70,25 @@ public class CreateWPSiteFromContact extends AbstractTest
         if ( contactEdit.verifyWPMembershipLevel("One") == null)
         {
             fail("membership level not applied");
+        }
+        
+        WordPress_ListAll wpListAll = contactEdit.menuPrimary.clickWordPressListAll();
+        wpListAll.formSearch.find("WPSiteFromContact"+AbstractSuite.UNIQUE);
+        
+        WordPress_Edit wpEdit = wpListAll.clickPage("WPSiteFromContact"+AbstractSuite.UNIQUE);
+        if ( wpEdit.verifyWordPressName("New WP Site From Contact"+AbstractSuite.UNIQUE) == null )
+        {
+            fail("wp site name incorrect");
+        }
+        
+        if (wpEdit.verifyWordPressURL("WPSiteFromContact"+AbstractSuite.UNIQUE) == null )
+        {
+            fail("wp site url incorrect");
+        }
+        
+        if (wpEdit.verifyWordpressMembership("One") == null)
+        {
+            fail("membership level is missing");
         }
     }
 }
