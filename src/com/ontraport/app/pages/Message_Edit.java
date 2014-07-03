@@ -153,6 +153,7 @@ public class Message_Edit extends AbstractPage
             how = How.XPATH,
             using = "//ul[@class='cke_panel_list']/li/a/h2")
     private WebElement firstStyle;
+    
     @FindBy(
             how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")
@@ -636,7 +637,7 @@ public class Message_Edit extends AbstractPage
             using = "//div[contains(@class,'NAME_task_owner')]//input")
     private WebElement assigneeDropDownInput;
 
-    
+
     
     public Message_Edit enterMessageName ( String name )
     {
@@ -862,6 +863,25 @@ public class Message_Edit extends AbstractPage
     }
 
     public Message_Edit verifyTextArea ( String name )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            System.out.println(textArea2.getAttribute("value"));
+            String compare = textArea2.getAttribute("value");
+            if(compare.equals(name)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        
+        return this;
+    }
+    
+    public Message_Edit verifyMessageName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -2865,6 +2885,14 @@ public class Message_Edit extends AbstractPage
         save.click();
         return (Sequence_CreateStep) new Sequence_CreateStep().init();
     }
+    public Sequence_Edit clickSMSSaveToSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
+        save.click();
+        return (Sequence_Edit) new Sequence_Edit().init();
+    }
+
 
     public Message_Edit openSendFromPane ()
     {

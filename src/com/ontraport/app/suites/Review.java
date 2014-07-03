@@ -46,6 +46,7 @@ import com.ontraport.app.tools.AbstractSuite;
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
 //    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
+
       com.ontraport.app.tests.CancelBroadCast.class,
       com.ontraport.app.tests.DeleteCancelBroadCast.class,
 
@@ -72,12 +73,11 @@ import com.ontraport.app.tools.AbstractSuite;
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
     //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
-//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.CreateProduct.class,
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
+    com.ontraport.app.tests.CreateSMSMessageFromSequence.class,
+    com.ontraport.app.tests.EditSMSMessageFromSequence.class,
+    com.ontraport.app.tests.DeleteSMSMessageFromSequence.class,
+    com.ontraport.app.tests.DeleteSMSMessage.class,
 
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
     //used in following tests and uses CreateOrderform orderform
     
 }
@@ -107,7 +107,7 @@ public class Review extends AbstractSuite
               .maximize();
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
-        login.as("ontraportselenium+4@gmail.com", "test123");
+        login.as("nick@ontraport.com", "test123");
         Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);
