@@ -647,7 +647,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Sequence_Edit clickSaveToEditSequence ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(save)));
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (Sequence_Edit) new Sequence_Edit().init();
     }
@@ -687,6 +687,7 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit enterFulfillmentListName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(fulfillmentListNameInput));
         fulfillmentListNameInput.sendKeys(name);
         return this;
         
