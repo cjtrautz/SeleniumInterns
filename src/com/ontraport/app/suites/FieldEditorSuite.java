@@ -291,8 +291,8 @@ public class FieldEditorSuite extends AbstractSuite
         ontraport_SignUp.enterState("c");
         ontraport_SignUp.enterZip(value.get("SignUp", "zip"));
         ontraport_SignUp.enterCountry("u");
-        ontraport_SignUp.enterEmailAddress("ontraportselenium+" + AbstractSuite.UNIQUE +"@gmail.com");
-        ontraport_SignUp.enterEmailAddressAgain("ontraportselenium+" + AbstractSuite.UNIQUE +"@gmail.com");
+        ontraport_SignUp.enterEmailAddress("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
+        ontraport_SignUp.enterEmailAddressAgain("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
         ontraport_SignUp.enterPassword("test123");
         ontraport_SignUp.enterPasswordAgain("test123");
         ontraport_SignUp.enterNameOnCard(value.get("SignUp", "name"));
