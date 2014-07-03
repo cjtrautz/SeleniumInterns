@@ -42,10 +42,9 @@ public class WordPress_TypeSelection extends AbstractPage
     {
         //latch doesn't work with typeselections and workflow right now.
         //need to wait for buttons to render and then force a refresh for now
-        
-        //AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(newWordPressWorkflow));
         driver.navigate().refresh();
+        AbstractPart.waitForAjax(driver, 20);
         newWordPressWorkflow.click();
         return (WordPress_CreateType2) new WordPress_CreateType2().init();
     }
