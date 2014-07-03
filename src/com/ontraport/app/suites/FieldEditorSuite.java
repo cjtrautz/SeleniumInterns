@@ -260,7 +260,7 @@ public class FieldEditorSuite extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setLogin("ontraportselenium+" + AbstractSuite.UNIQUE +"@gmail.com");
+        AbstractPage.setLogin("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
         AbstractPage.setPassword("test123");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(false);
