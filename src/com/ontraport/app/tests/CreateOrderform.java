@@ -63,15 +63,11 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Edit.selectDropDown(value.get("Sequences", "step_rule_sequence"));
         smartFormFe_Edit.clickAddRule();
         smartFormFe_Edit.enterRuleName(value.get("SmartForms", "rule_name"));
-        smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown("Contact has Tag");
-        smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
         smartFormFe_Edit.clickThenDropDown();
         smartFormFe_Edit.enterThenInputForDropDown("Change", 1);
         smartFormFe_Edit.selectDropDown("Change the value of a field");
         smartFormFe_Edit.clickThenDropDown();
-        smartFormFe_Edit.selectDropDown("First Name");
+        smartFormFe_Edit.selectDropDown("Title");
         smartFormFe_Edit.enterThenInput(value.get("SmartForms", "change"), 2);
         smartFormFe_Edit.clickRuleSave();
         smartFormFe_Edit.clickSave();  

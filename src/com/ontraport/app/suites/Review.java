@@ -82,6 +82,21 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteFulfillmentStepSequence.class,
     com.ontraport.app.tests.DeleteFulfillment.class,
     
+
+  //used in following tests
+    com.ontraport.app.tests.CreateRuleStepSequence.class,
+   
+    //used in following tests
+    com.ontraport.app.tests.CreateGateway.class, 
+    //used in following tests
+    com.ontraport.app.tests.CreateATag.class,
+    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
+    com.ontraport.app.tests.CreateOrderform.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.CreateLandingPageWithForm.class,
+    //used in following tests and uses CreateOrderform orderform
+    com.ontraport.app.tests.SubmitOrderForm.class,
+
 }
 )
 public class Review extends AbstractSuite

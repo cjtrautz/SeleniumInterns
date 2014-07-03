@@ -252,6 +252,8 @@ public class SmartFormFe_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 30);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenInput.get(i-1));
         wait.until(ExpectedConditions.visibilityOf(thenInput.get(i-1)));
+        thenInput.get(i-1).click();
+        thenInput.get(i-1).clear();
         thenInput.get(i-1).sendKeys(string);
         return this;
     }
