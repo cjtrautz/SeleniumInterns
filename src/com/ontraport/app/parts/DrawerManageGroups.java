@@ -203,6 +203,8 @@ private WebElement uiButtonDeleteGroup;
     {
         waitForAjax(driver, 20);
         List<WebElement> ya = uiInputValueRows.get(row).findElements(By.xpath("//tr[@class='sem_condition_row']//td[contains(@class,'sem_value')]//input"));
+        ya.get(index).click();
+        ya.get(index).clear();
         ya.get(index).sendKeys(value);
         return this;
     }

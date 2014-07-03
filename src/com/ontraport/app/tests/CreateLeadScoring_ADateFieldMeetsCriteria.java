@@ -35,15 +35,15 @@ public class CreateLeadScoring_ADateFieldMeetsCriteria extends AbstractTest
         //verify new section is in the field editor
         if(contact_ScoreEdit.verifyConditionDrillDown(value.get("Fields", "Date_Field"))==null)
         {
-            fail("didnt Select date sequence");
+            fail("didnt Select date field");
         }
         if(contact_ScoreEdit.verifyConditionDrillDown("Equal To", 2)==null)
         {
-            fail("didnt Select date sequence");
+            fail("didnt Select equal to");
         }
         if(contact_ScoreEdit.verifyConditionDrillDown("01/01/2016", 3)==null)
         {
-            fail("didnt Select date sequence");
+            fail("didnt Select date");
         }
         if(contact_ScoreEdit.verifyPointScore("25")==null)
         {
