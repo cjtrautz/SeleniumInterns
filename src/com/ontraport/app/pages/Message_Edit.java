@@ -884,6 +884,7 @@ public class Message_Edit extends AbstractPage
     public Message_Edit verifyMessageName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(textArea2));
         try
         {
             System.out.println(textArea2.getAttribute("value"));

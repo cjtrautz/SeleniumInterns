@@ -41,7 +41,7 @@ public class CreateFulfillmentFromSequence extends AbstractTest
         fulfillment_Edit.enterEmailNotification("sel@email.com");
         fulfillment_Edit.enterEmailSubject("selSubject");
         fulfillment_Edit.enterEmailMessage("SelMessage");
-        Sequence_Edit sequence_Edit = fulfillment_Edit.clickSaveToSequence();
+        Sequence_Edit sequence_Edit = fulfillment_Edit.clickSaveToEditSequence();
         if(sequence_CreateStep.verifySequenceName(value.get("Sequences", "sequence_edit_fulfillment"))==null)
         {
             fail("couldn't find message body");

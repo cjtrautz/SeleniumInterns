@@ -244,7 +244,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateFulfillmentStepSequence.class,
     com.ontraport.app.tests.EditFulfillmentStepSequence.class,
     com.ontraport.app.tests.DeleteFulfillmentStepSequence.class,
-    com.ontraport.app.tests.DeleteFulfillment.class,
+
     
     com.ontraport.app.tests.CreateRule_RemoveContactFromFulfillmentList.class,
     com.ontraport.app.tests.DeleteRule_RemoveContactFromFulfillmentList.class,

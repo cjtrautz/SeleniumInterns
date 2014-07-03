@@ -962,7 +962,6 @@ public class Sequence_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(editButton));
         editButton.click();
-       // return this; //gotta change the type
         return (Message_Edit) new Message_Edit().init();
     }
     public Message_Edit clickEditSMS ()
@@ -970,7 +969,6 @@ public class Sequence_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(editButton));
         editButton.click();
-       // return this; //gotta change the type
         return (Message_Edit) new Message_Edit().init();
     }
     public Fulfillment_Edit clickEditFulfillment ()
@@ -978,7 +976,6 @@ public class Sequence_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(editFulfillmentButton));
         editFulfillmentButton.click();
-       // return this; //gotta change the type
         return (Fulfillment_Edit) new Fulfillment_Edit().init();
     }
     
@@ -1186,6 +1183,8 @@ public class Sequence_Edit extends AbstractPage
     public Sequence_Edit verifySequenceName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
+
         try
         {
             if(!sequenceNameInput.getAttribute("value").equals(string))

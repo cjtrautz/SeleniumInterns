@@ -644,12 +644,20 @@ public class Fulfillment_Edit extends AbstractPage
         return this;
     }
 
-    public Sequence_Edit clickSaveToSequence ()
+    public Sequence_Edit clickSaveToEditSequence ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(save)));
         save.click();
         return (Sequence_Edit) new Sequence_Edit().init();
+    }
+    
+    public Sequence_CreateStep clickSaveToSequence ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(save)));
+        save.click();
+        return (Sequence_CreateStep) new Sequence_CreateStep().init();
     }
 
     public Fulfillment_Edit openCompileListTimePane ()
@@ -679,7 +687,6 @@ public class Fulfillment_Edit extends AbstractPage
     public Fulfillment_Edit enterFulfillmentListName ( String name )
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(fulfillmentListNameInput)));
         fulfillmentListNameInput.sendKeys(name);
         return this;
         

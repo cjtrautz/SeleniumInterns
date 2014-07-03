@@ -49,7 +49,7 @@ import com.ontraport.app.tools.AbstractTest;
             fulfillment_Edit.enterEmailNotification(value.get("Admin", "fulfillment_email_edit"));
             fulfillment_Edit.enterEmailSubject(value.get("Admin", "fulfillment_email_subject_edit"));
             fulfillment_Edit.enterEmailMessage(value.get("Admin", "fulfillment_email_message_edit"));
-            sequence_Edit = fulfillment_Edit.clickSaveToSequence();
+            sequence_Edit = fulfillment_Edit.clickSaveToEditSequence();
             
             //verify values of fulfillment in sequence
             if(sequence_Edit.verifyFulfillmentDropDown ()==null)
