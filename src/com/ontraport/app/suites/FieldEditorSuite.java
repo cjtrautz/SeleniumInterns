@@ -54,6 +54,10 @@ import com.ontraport.app.tools.Values;
     //used in following tests
     com.ontraport.app.tests.CreateGateway.class, 
     //used in following tests
+    com.ontraport.app.tests.CreateContact.class,
+    com.ontraport.app.tests.CreateProduct.class,
+    //used in following tests and uses CreateGateway and uses CreateContact and uses CreateProduct
+    com.ontraport.app.tests.CreateManualTransactionFromContact.class,
     com.ontraport.app.tests.CreateATag.class,
     //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
     com.ontraport.app.tests.CreateOrderform.class,

@@ -141,6 +141,10 @@ public class Contact_Edit extends AbstractPage
             using = "//a[contains(concat(' ', normalize-space(@class), ' '),' jb-overflowmenu-menu-secondary-handle ')]/span")
     private WebElement overflowIcon;
     
+    @FindBy(how = How.XPATH,
+            using = "//div[@id='ontraport_panel_action_personal_actions']")
+    private WebElement actionsButton;
+    
     public Contact_Edit clickLastName ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -600,6 +604,7 @@ public class Contact_Edit extends AbstractPage
         }
         return this;
     }
+    
     public Contact_Edit verifyNoLogItem (String string)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -611,6 +616,14 @@ public class Contact_Edit extends AbstractPage
             return this;
         }
         return null;
+    }
+    
+    public Contact_Edit openActionsDrawer ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(actionsButton));
+        actionsButton.click();
+        return this;
     }
 
 }

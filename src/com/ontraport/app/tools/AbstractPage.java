@@ -28,6 +28,7 @@ import com.ontraport.app.parts.MenuUser;
 import com.ontraport.app.parts.MenuWorkflow;
 import com.ontraport.app.parts.Paginator;
 import com.ontraport.app.parts.Pin;
+import com.ontraport.app.parts.ProductGrid;
 
 public abstract class AbstractPage
 {
@@ -55,6 +56,7 @@ public abstract class AbstractPage
     public Paginator                    paginator                   = (Paginator) new Paginator().init();
     public DrawerSimpleActions          drawerSimpleActions         = (DrawerSimpleActions) new DrawerSimpleActions().init();
     public DrawerPermissionException    drawerPermissionException   = (DrawerPermissionException) new DrawerPermissionException().init();
+    public ProductGrid                  productGrid                 = (ProductGrid) new ProductGrid().init();
     // SELECTORS -------------------------------------------------------------------------------------------------------
 //    @FindBy(how = How.XPATH,
 //            using = "")

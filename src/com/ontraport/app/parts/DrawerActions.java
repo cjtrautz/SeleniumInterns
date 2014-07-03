@@ -360,6 +360,58 @@ public class DrawerActions extends AbstractPart
             using = "//div[@class='sequence_setting_controls']/button[contains(@class,'sequence-settings__button--save')]")
     private WebElement saveSettings;
     
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Log Transaction')]")
+    private WebElement logTransaction;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_address')]//input")
+    private WebElement billingAddress;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_address2')]//input")
+    private WebElement billingAddress2;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_city')]//input")
+    private WebElement billingCity;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_state')]//input")
+    private WebElement billingState;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_zip')]//input")
+    private WebElement billingZip;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_country')]//input")
+    private WebElement billingCountry;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_ccNumber')]//input")
+    private WebElement ccNumber;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_ccCVC')]//input")
+    private WebElement ccCVC;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_ccExpirationMonth')]//input")
+    private WebElement ccExpMonth;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_ccExpirationYear')]//input")
+    private WebElement ccExpYear;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_invoice_template')]//input")
+    private WebElement invoiceTemplate;
+    
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'NAME_gateway_id')]//input")
+    private WebElement gateway;
+    
     public DrawerActions clickDeleteContacts ()
     {
         waitForAjax(driver, 20);
@@ -1261,6 +1313,12 @@ public class DrawerActions extends AbstractPart
         emailFromDropDown.click();
         return this;
     }
-
+    public DrawerActions clickLogTransaction ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(logTransaction));
+        logTransaction.click();
+        return this;
+    }
 
 }

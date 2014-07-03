@@ -19,27 +19,25 @@ public class CreateProduct extends AbstractTest
         
         Product_ListAll product_ListAll = contactListAll.menuPrimary.clickProductListAll();
         Product_Create product_Create = product_ListAll.clickNewProduct();
-        product_Create.enterProductName("SelProduct");
-        product_Create.enterProductPrice("800.00");
+        product_Create.enterProductName(value.get("Sales", "product"));
+        product_Create.enterProductPrice(value.get("Sales", "product_price"));
         product_ListAll = product_Create.clickSave();
-        product_ListAll.formSearch.find("SelProduct");
+        product_ListAll.formSearch.find(value.get("Sales", "product"));
         
         //verify product exists
-        if(product_ListAll.verifyProduct("SelProduct")==null)
+        if(product_ListAll.verifyProduct(value.get("Sales", "product"))==null)
         {
             fail("couldnt find product");
         }
 
-        Product_Edit product_Edit = product_ListAll.clickProduct("SelProduct");
-        if(product_Edit.verifyName("SelProduct")==null)
+        Product_Edit product_Edit = product_ListAll.clickProduct(value.get("Sales", "product"));
+        if(product_Edit.verifyName(value.get("Sales", "product"))==null)
         {
             fail("couldnt find product name");
         }
-        if(product_Edit.verifyPrice("$800.00")==null)
+        if(product_Edit.verifyPrice(value.get("Sales", "product_price"))==null)
         {
             fail("couldnt find product price");
         }
-
-        
     }
 }
