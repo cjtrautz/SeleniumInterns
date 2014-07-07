@@ -260,8 +260,9 @@ public class FieldEditorSuite extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setLogin("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
-        AbstractPage.setPassword("test123");
+        AbstractPage.setLogin("orm_off2@ontraport.com");
+        AbstractPage.setPassword("password2");
+        //AbstractPage.setUrl("https://app.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(false);
         profile.setPreference("browser.cache.disk.enable", false);
@@ -279,46 +280,70 @@ public class FieldEditorSuite extends AbstractSuite
         driver.manage()
               .window()
               .maximize();
-        Values value = new Values();
-        driver.get("https://ontraport.com/ontraport-comped-signup.php");
-        Ontraport_SignUp ontraport_SignUp = (Ontraport_SignUp) new Ontraport_SignUp().init();
-        ontraport_SignUp.enterFirstName(value.get("SignUp", "first_name"));
-        ontraport_SignUp.enterLastName(value.get("SignUp", "last_name"));
-        ontraport_SignUp.enterBusinessName(value.get("SignUp", "business"));
-        ontraport_SignUp.enterPhoneNumber(value.get("SignUp", "phone_number"));
-        ontraport_SignUp.enterAddress(value.get("SignUp", "address"));
-        ontraport_SignUp.enterCity(value.get("SignUp", "city"));
-        ontraport_SignUp.enterState("c");
-        ontraport_SignUp.enterZip(value.get("SignUp", "zip"));
-        ontraport_SignUp.enterCountry("u");
-        ontraport_SignUp.enterEmailAddress("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
-        ontraport_SignUp.enterEmailAddressAgain("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
-        ontraport_SignUp.enterPassword("test123");
-        ontraport_SignUp.enterPasswordAgain("test123");
-        ontraport_SignUp.enterNameOnCard(value.get("SignUp", "name"));
-        ontraport_SignUp.enterCard(value.get("SignUp", "card"));
-        ontraport_SignUp.enterSecurityCode(value.get("SignUp", "code"));
-        ontraport_SignUp.enterExpiresOnMonth("2");
-        ontraport_SignUp.enterExpiresOnYear("2");
-        ontraport_SignUp.enterBillingZip(value.get("SignUp", "zip"));
-        ontraport_SignUp.checkAgreeToTerms();
-        ontraport_SignUp.clickCreateMyAccount();
-        Thread.sleep(4000);
-        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
-        //AbstractPage.setUrl("https://staging.ontraport.com/");
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
         login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
         Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
-        ontraport_SignUp.dialogBox.enterSubDomain(value.get("SignUp", "first_name") + AbstractSuite.UNIQUE);
-        ontraport_SignUp.dialogBox.enterReplyToName(value.get("SignUp", "email"));
-        ontraport_SignUp.dialogBox.enterBusinessName(value.get("SignUp", "business"));
-        ontraport_SignUp.dialogBox.enterBusinessAddress(value.get("SignUp", "address"));
-        ontraport_SignUp.dialogBox.enterBusinessCity(value.get("SignUp", "city"));
-        ontraport_SignUp.dialogBox.enterBusinessZip(value.get("SignUp", "zip"));
-        Contact_ListAll contact_ListAll = ontraport_SignUp.dialogBox.clickSubmit();
-        contact_ListAll.dialogBox.clickCancelTour();
+//        AbstractPage.setLogin("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
+//        AbstractPage.setPassword("test123");
+//        FirefoxProfile profile = new FirefoxProfile();
+//        profile.setEnableNativeEvents(false);
+//        profile.setPreference("browser.cache.disk.enable", false);
+//        profile.setPreference("browser.cache.memory.enable", false);
+//        profile.setPreference("browser.cache.offline.enable", false);
+//        profile.setPreference("network.http.use-cache", false);
+//        driver = new FirefoxDriver(profile);
+//        //driver = new ChromeDriver();
+//        driver.manage()
+//              .timeouts()
+//              .implicitlyWait(DEFAULT_WAIT, TimeUnit.SECONDS);
+//        driver.manage()
+//              .window()
+//              .setPosition(new Point(0, 0));
+//        driver.manage()
+//              .window()
+//              .maximize();
+//        Values value = new Values();
+//        driver.get("https://ontraport.com/ontraport-comped-signup.php");
+//        Ontraport_SignUp ontraport_SignUp = (Ontraport_SignUp) new Ontraport_SignUp().init();
+//        ontraport_SignUp.enterFirstName(value.get("SignUp", "first_name"));
+//        ontraport_SignUp.enterLastName(value.get("SignUp", "last_name"));
+//        ontraport_SignUp.enterBusinessName(value.get("SignUp", "business"));
+//        ontraport_SignUp.enterPhoneNumber(value.get("SignUp", "phone_number"));
+//        ontraport_SignUp.enterAddress(value.get("SignUp", "address"));
+//        ontraport_SignUp.enterCity(value.get("SignUp", "city"));
+//        ontraport_SignUp.enterState("c");
+//        ontraport_SignUp.enterZip(value.get("SignUp", "zip"));
+//        ontraport_SignUp.enterCountry("u");
+//        ontraport_SignUp.enterEmailAddress("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
+//        ontraport_SignUp.enterEmailAddressAgain("ontraportselenium+" + AbstractSuite.UNIQUE +"@ontraport.com");
+//        ontraport_SignUp.enterPassword("test123");
+//        ontraport_SignUp.enterPasswordAgain("test123");
+//        ontraport_SignUp.enterNameOnCard(value.get("SignUp", "name"));
+//        ontraport_SignUp.enterCard(value.get("SignUp", "card"));
+//        ontraport_SignUp.enterSecurityCode(value.get("SignUp", "code"));
+//        ontraport_SignUp.enterExpiresOnMonth("2");
+//        ontraport_SignUp.enterExpiresOnYear("2");
+//        ontraport_SignUp.enterBillingZip(value.get("SignUp", "zip"));
+//        ontraport_SignUp.checkAgreeToTerms();
+//        ontraport_SignUp.clickCreateMyAccount();
+//        Thread.sleep(4000);
+//        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
+//        //AbstractPage.setUrl("https://staging.ontraport.com/");
+//        Login login = (Login) new Login().init();
+//        login.open(Login.url, true);
+//        login.as(AbstractPage.getLogin(), AbstractPage.getPassword());
+//        Thread.sleep(10000);
+//        driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
+//        ontraport_SignUp.dialogBox.enterSubDomain(value.get("SignUp", "first_name") + AbstractSuite.UNIQUE);
+//        ontraport_SignUp.dialogBox.enterReplyToName(value.get("SignUp", "email"));
+//        ontraport_SignUp.dialogBox.enterBusinessName(value.get("SignUp", "business"));
+//        ontraport_SignUp.dialogBox.enterBusinessAddress(value.get("SignUp", "address"));
+//        ontraport_SignUp.dialogBox.enterBusinessCity(value.get("SignUp", "city"));
+//        ontraport_SignUp.dialogBox.enterBusinessZip(value.get("SignUp", "zip"));
+//        Contact_ListAll contact_ListAll = ontraport_SignUp.dialogBox.clickSubmit();
+//        contact_ListAll.dialogBox.clickCancelTour();
         //AbstractPart.waitForAjax(driver, 30);
         //WebDriverWait wait = new WebDriverWait(driver, 20);
         //wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@id='ussr-chrome-panel-pane']//div[div[@class='user-leading-container'] or table[tbody[tr[td[2]]]]]")));
