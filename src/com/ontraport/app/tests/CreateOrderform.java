@@ -67,7 +67,7 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Edit.enterThenInputForDropDown("Change", 1);
         smartFormFe_Edit.selectDropDown("Change the value of a field");
         smartFormFe_Edit.clickThenDropDown();
-        smartFormFe_Edit.selectDropDown("Title");
+        smartFormFe_Edit.selectDropDown("First Name");
         smartFormFe_Edit.enterThenInput(value.get("SmartForms", "change"), 2);
         smartFormFe_Edit.clickRuleSave();
         smartFormFe_Edit.clickSave();  
@@ -94,10 +94,6 @@ public class CreateOrderform extends AbstractTest
             fail("couldn't find rule");
         }
         smartFormFe_Edit.clickRule(value.get("SmartForms", "rule_name"));
-        if(smartFormFe_Edit.verifyIfDropDown(value.get("Contacts", "tag"))==null)
-        {
-            fail("couldn't find if");
-        }
         if(smartFormFe_Edit.verifyThenInput("First Name", 1)==null)
         {
             fail("couldn't find then");
