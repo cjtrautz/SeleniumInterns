@@ -351,18 +351,18 @@ public class FieldEditorSuite extends AbstractSuite
     @AfterClass
     public static void afterSuite ()
     {
-        Contact_ListAll contact_ListAll = (Contact_ListAll) new Contact_ListAll().init();
-        contact_ListAll.menuUser.open();
-        OPPackage_View oPPackage_View = contact_ListAll.menuUser.clickAccount();
-        oPPackage_View.clickCancelAccount();
-        oPPackage_View.dialogBox.checkIKnowDeleted();
-        oPPackage_View.dialogBox.checkIKnowNoRecovery();
-        oPPackage_View.dialogBox.checkIKnowStopWorking();
-        Login login = oPPackage_View.dialogBox.clickCancelAccount();
-        AbstractPart.waitForAjax(driver, 30);
-        if ( driver.findElements(By.xpath("//input[@class='moonray-form-input']")).size() == 0 )
-        {
-            fail("Can't find Affiliates page");
-        }
+//        Contact_ListAll contact_ListAll = (Contact_ListAll) new Contact_ListAll().init();
+//        contact_ListAll.menuUser.open();
+//        OPPackage_View oPPackage_View = contact_ListAll.menuUser.clickAccount();
+//        oPPackage_View.clickCancelAccount();
+//        oPPackage_View.dialogBox.checkIKnowDeleted();
+//        oPPackage_View.dialogBox.checkIKnowNoRecovery();
+//        oPPackage_View.dialogBox.checkIKnowStopWorking();
+//        Login login = oPPackage_View.dialogBox.clickCancelAccount();
+//        AbstractPart.waitForAjax(driver, 30);
+//        if ( driver.findElements(By.xpath("//input[@class='moonray-form-input']")).size() == 0 )
+//        {
+//            fail("Can't find Affiliates page");
+//        }
     }
 }
