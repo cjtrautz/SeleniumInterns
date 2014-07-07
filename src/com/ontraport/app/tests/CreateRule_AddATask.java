@@ -40,7 +40,7 @@ public class CreateRule_AddATask extends AbstractTest
         {
             fail("didnt select when contact is created");
         }
-        if(rule_Edit.verifyText("Send a ")==null)
+        if(rule_Edit.verifyText("Send an ")==null)
         {
             fail("didnt select when contact is created");
         }

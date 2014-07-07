@@ -591,7 +591,7 @@ public class Contact_Edit extends AbstractPage
     public Contact_Edit selectAllTasks ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        wait.until(ExpectedConditions.visibilityOf(selectAllTasks));
+        //wait.until(ExpectedConditions.visibilityOf(selectAllTasks));
         Actions action = new Actions(driver);
         action.click(selectAllTasks).build().perform();
         return this;
