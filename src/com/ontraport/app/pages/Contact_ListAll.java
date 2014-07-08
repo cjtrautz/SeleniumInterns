@@ -13,6 +13,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.ontraport.app.pages.Contact_Create;
+import com.ontraport.app.parts.Paginator;
 import com.ontraport.app.tools.AbstractPage;
 import com.ontraport.app.tools.AbstractPart;
 import com.ontraport.app.tools.AbstractSuite;
@@ -69,6 +70,9 @@ public class Contact_ListAll extends AbstractPage
     @FindBy(how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//div[div[contains(concat(' ', normalize-space(@class), ' '), ' user-leading-container ')] or table[tbody[tr[td[2]]]]]")
     private WebElement firstCellOrContactAddOptions;
+    @FindBy(how=How.XPATH,
+            using="//span[contains(concat(' ',@class,' '),' ussr-component-collection-meta-count-number ')]")
+    private WebElement totalContactNumber;
 
     public Contact_Create clickNewContact ()
     {
@@ -491,7 +495,21 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
-
-
-    
+    public Contact_ListAll verifyTotalContactNumber ( String count )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(totalContactNumber));
+        try
+        {
+            String compare = totalContactNumber.getText();
+            if(compare.equals(count)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
 }
