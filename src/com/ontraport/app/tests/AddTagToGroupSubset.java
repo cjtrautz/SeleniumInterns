@@ -54,11 +54,11 @@ public class AddTagToGroupSubset extends AbstractTest
         contactListAll.paginator.clickRecordsPerPage(5);
         contactListAll.formSearch.find("test");
         
-/*        if(contactListAll.verifyTotalContactNumber("6") == null)
+        if(contactListAll.verifyTotalContactNumber("6") == null)
         {
             fail("incorrect number of contacts in search");
         }
-*/        
+
         contactListAll.selectAllOnPage();
         contactListAll.selectAllInGroup();
         contactListAll.drawerActions.clickAddRemoveTags();
