@@ -15,19 +15,19 @@ import com.ontraport.app.tools.AbstractSuite;
 public class Facebook_Edit extends AbstractPage
 {
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_input_text ')]//label[text()='Name your App']/following-sibling::div/div[@class='ussr-form-input']")
+            using = "//div[contains(@class,'input_text_NAME_name')]//div[@class='ussr-form-input']")
     private WebElement nameYourApp;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_input_text ')]//label[text()='Application ID']/following-sibling::div/div[@class='ussr-form-input']")
+            using = "//div[contains(@class,'NAME_api_key')]//div[@class='ussr-form-input']")
     private WebElement applicationID;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_input_text ')]//label[text()='Redirect']/following-sibling::div/div[@class='ussr-form-input']")
+            using = "//div[contains(@class,'NAME_redirect')]//div[@class='ussr-form-input']")
     private WebElement redirect;
     
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_form_control_input_text ')]//label[text()='Visits']/following-sibling::div/div[@class='ussr-form-input']")
+            using = "//div[contains(@class,'input_text_NAME_name')]//div[@class='ussr-form-input']")
     private WebElement visits;
     
     public Facebook_Edit verifyFacebookName (String value)

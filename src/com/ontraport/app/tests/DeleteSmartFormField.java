@@ -25,7 +25,7 @@ public class DeleteSmartFormField extends AbstractTest
         SmartFormFe_Edit smartFormFe_Edit = smartFormFe_ListAll.clickSmartform(value.get("SmartForms", "add_field"));
         smartFormFe_Edit.clickField("title");
         smartFormFe_Edit.deleteActiveField();
-        driver.switchTo().alert().accept();
+        smartFormFe_Edit.dialogBox.clickYes2();
         smartFormFe_Edit.clickSave();
         smartFormFe_ListAll = smartFormFe_Edit.menuPrimary.clickSmartFormFeListAll();
         smartFormFe_ListAll.formSearch.find(value.get("SmartForms", "add_field"));
