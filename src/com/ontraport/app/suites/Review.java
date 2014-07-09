@@ -20,6 +20,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
 
+
     //used in following tests
     //com.ontraport.app.tests.SendSingleEmailToContact.class,                  
     //sends CreateMessage message 
@@ -96,6 +97,10 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateLandingPageWithForm.class,
     //used in following tests and uses CreateOrderform orderform
     com.ontraport.app.tests.SubmitOrderForm.class,
+
+
+    com.ontraport.app.tests.UploadToAttachmentManager.class,
+    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
 
 }
 )

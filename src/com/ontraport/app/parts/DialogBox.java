@@ -260,7 +260,7 @@ public class DialogBox extends AbstractPart
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll; 
     @FindBy(how = How.XPATH,
-            using = "//td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]")
+            using = "//table[contains(concat(' ', normalize-space(@class), ' '),' collection-empty ')]")
     private WebElement emptyCell;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' sender_new_email ')]//input")

@@ -11,7 +11,7 @@ import com.ontraport.app.tools.AbstractPart;
 public class Contact_Create extends AbstractPage
 {
     @FindBy(how = How.XPATH,
-            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-section-titlebar ')]/span[text()='Sequences and Tags']")
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-component-section-titlebar ')]/span[contains(text(), 'Sequences and Tags')]")
     private WebElement sequencesAndTagsTitle;
     @FindBy(how = How.XPATH,
             using = "//label[text()='First Name']/following-sibling::div/input")

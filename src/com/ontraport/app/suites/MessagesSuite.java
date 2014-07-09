@@ -184,6 +184,8 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.CreateContact.class,
     //used in following tests and uses CreateContact contact
     com.ontraport.app.tests.AddTaskToContact.class,
+    com.ontraport.app.tests.CreateWPSiteFromContact.class,
+    com.ontraport.app.tests.DeleteWPSiteCreatedFromContact.class,
     //uses CreateUser user and uses AddTaskToContact task
     com.ontraport.app.tests.TaskActions.class,
     //end use of AddTaskToContact task
