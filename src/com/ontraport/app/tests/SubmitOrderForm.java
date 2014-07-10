@@ -81,7 +81,7 @@ public class SubmitOrderForm extends AbstractTest
         Purchase_ListAll purchase_ListAll = contact_Edit.menuPrimary.clickPurchaseListAll();
         if(purchase_ListAll.verifyPurchase(value.get("SmartForms", "product") + AbstractSuite.UNIQUE)==null)
         {
-            fail("couldnt find tag");
+            fail("couldnt find purchase");
         }
         contactListAll = purchase_ListAll.menuPrimary.clickContactListAll();
         contactListAll.formSearch.find("5555555");
