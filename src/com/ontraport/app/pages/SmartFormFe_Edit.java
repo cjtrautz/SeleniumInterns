@@ -131,7 +131,7 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Tags')]/following-sibling::div//input")
+            using = "//div[contains(@class,'tags_form_editor')]//button")
     private WebElement tagDropDown;
     
     @FindBy(
@@ -141,7 +141,7 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Sequences')]/following-sibling::div//input")
+            using = "//div[contains(@class,'sequences_form_editor')]//button")
     private WebElement sequenceDropDown;
     
     @FindBy(
@@ -197,7 +197,7 @@ public class SmartFormFe_Edit extends AbstractPage
         System.out.println("here2");
         wait.until(ExpectedConditions.visibilityOf(drillDown));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
-        wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
+        //wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
@@ -292,7 +292,7 @@ public class SmartFormFe_Edit extends AbstractPage
         try
         {
             wait.until(ExpectedConditions.visibilityOf(tagList));
-            if(!tagList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isDisplayed())
+            if(!tagList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isEnabled())
             {
                 return null;
             } 
@@ -311,7 +311,7 @@ public class SmartFormFe_Edit extends AbstractPage
         try
         {
             wait.until(ExpectedConditions.visibilityOf(sequenceList));
-            if(!sequenceList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isDisplayed())
+            if(!sequenceList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isEnabled())
             {
                 return null;
             } 
