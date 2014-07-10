@@ -124,6 +124,9 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(@class, 'AME_conditionsRedirectRadioButtons')]//span[contains(@class, 'ussr-icon-radiobutton')]")
     private WebElement redirectRadioButton;
     @FindBy(how = How.XPATH,
+            using = "//div[contains(@class, 'massDeleteVerify')]//input")
+    private WebElement verifyMassDelete;
+    @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' ontraport_components_button ')]//span[contains(text(), 'Yes')]")
     private WebElement yes2;
     @FindBy(how = How.XPATH,
@@ -1477,6 +1480,13 @@ public class DialogBox extends AbstractPart
         AbstractPart.waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(redirectRadioButton));
         redirectRadioButton.click();
+        return this;
+    }
+    public DialogBox sendDelete ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait(30).until(ExpectedConditions.visibilityOf(verifyMassDelete));
+        verifyMassDelete.sendKeys("DELETE");
         return this;
     }
 

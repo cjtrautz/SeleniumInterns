@@ -136,7 +136,7 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Tags')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' component-subscription-simple-list-target ')]")
+            using = "//div[contains(@class,'form_editor_tags')]//ul[contains(concat(' ', normalize-space(@class), ' '),' component-simple-list-target-ul ')]")
     private WebElement tagList;
     
     @FindBy(
@@ -146,7 +146,7 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Sequences')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' component-subscription-simple-list-target ')]")
+            using = "//div[contains(@class,'form_editor_sequences')]//ul[contains(concat(' ', normalize-space(@class), ' '),' component-simple-list-target-ul ')]")
     private WebElement sequenceList;
     
     @FindBy(

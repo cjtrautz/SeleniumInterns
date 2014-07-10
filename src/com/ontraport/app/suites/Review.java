@@ -20,18 +20,65 @@ import com.ontraport.app.tools.AbstractSuite;
 @SuiteClasses(
 {
 //  //used in following tests
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//   
-//    //used in following tests
-//    com.ontraport.app.tests.CreateGateway.class, 
+//    com.ontraport.app.tests.CreateRole.class,
+//    //used in following tests uses CreateRole role
+//    com.ontraport.app.tests.CreateUser.class,
 //    //used in following tests
 //    com.ontraport.app.tests.CreateATag.class,
-//    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
-//    com.ontraport.app.tests.CreateOrderform.class,
-    //used in following tests and uses CreateOrderform orderform
-    com.ontraport.app.tests.CreateLandingPageWithForm.class,
-    //used in following tests and uses CreateOrderform orderform
-    com.ontraport.app.tests.SubmitOrderForm.class,
+//    //used in following tests
+//    com.ontraport.app.tests.CreateContact.class,
+//    //used in following tests and uses CreateContact contact
+//    com.ontraport.app.tests.AddTaskToContact.class,
+    com.ontraport.app.tests.CreateWPSiteFromContact.class,
+    com.ontraport.app.tests.DeleteWPSiteCreatedFromContact.class,
+    //uses CreateUser user and uses AddTaskToContact task
+    com.ontraport.app.tests.TaskActions.class,
+    //end use of AddTaskToContact task
+    com.ontraport.app.tests.DeleteAddTaskToCopy.class,
+    //uses CreateATag tag
+    com.ontraport.app.tests.EnsureTaskOutcomeWorksOnCompletion.class,
+    //end use of CreateUser user
+    com.ontraport.app.tests.DeleteUser.class,
+    //end use of CreateRole role
+    com.ontraport.app.tests.DeleteRole.class,
+    //needs contact in the contact collection to do column test
+    com.ontraport.app.tests.AddColumn.class,
+    com.ontraport.app.tests.MoveColumn.class,
+    com.ontraport.app.tests.DeleteColumn.class,
+    //uses CreateContact contact
+    com.ontraport.app.tests.EnsureRulesFire.class,
+    com.ontraport.app.tests.DeleteEnsureRulesFire.class,
+    com.ontraport.app.tests.CreateNote.class,
+    com.ontraport.app.tests.DeleteNote.class,
+    com.ontraport.app.tests.AddDeleteUserPermissions.class,
+    //relies on having contacts
+    com.ontraport.app.tests.CreateExportContacts.class,
+    //uses CreateContact contact and uses CreateATag tag
+    com.ontraport.app.tests.AddTagToContact.class,
+    //uses CreateATag tag
+    com.ontraport.app.tests.CreateRule_RemoveContactFromTag.class,
+    com.ontraport.app.tests.DeleteRule_RemoveContactFromTag.class,
+    com.ontraport.app.tests.CreateRule_AddContactToTag.class,
+    com.ontraport.app.tests.DeleteRule_AddContactToTag.class,
+    com.ontraport.app.tests.CreateRule_1ConditionWithOrAndAnd.class,
+    com.ontraport.app.tests.DeleteRule_1ConditionWithOrAndAnd.class,
+    com.ontraport.app.tests.CreateRule_ContactIsNotSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactIsNotSubscribedToTag.class,
+    com.ontraport.app.tests.CreateRule_ContactIsSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactIsSubscribedToTag.class,
+    com.ontraport.app.tests.CreateRule_ContactRemovedFromTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactRemovedFromTag.class,
+    com.ontraport.app.tests.CreateRule_ContactAddedToTag.class,
+    com.ontraport.app.tests.DeleteRule_ContactAddedToTag.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactNotSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactNotSubscribedToTag.class,
+    com.ontraport.app.tests.CreateLeadScoring_ContactSubscribedToTag.class,
+    com.ontraport.app.tests.DeleteLeadScoring_ContactSubscribedToTag.class,
+    //end use of CreateATag tag
+    com.ontraport.app.tests.DeleteTag.class,
+    //end use of CreateContact contact
+    com.ontraport.app.tests.DeleteContact.class,
+    
 }
 )
 public class Review extends AbstractSuite
