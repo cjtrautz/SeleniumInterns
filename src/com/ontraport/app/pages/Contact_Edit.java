@@ -112,7 +112,7 @@ public class Contact_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH, 
-            using = "//a[@class='ussr-component-sub-collection-add-new']/span[text()='NEW Note']")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]/span[text()='NEW Note']")
     private WebElement newNote;
     
     @FindBy(

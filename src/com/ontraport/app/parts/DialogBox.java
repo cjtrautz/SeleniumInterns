@@ -197,7 +197,7 @@ public class DialogBox extends AbstractPart
     private WebElement addOptionInput;
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']")
+            using = "//div[@class='ussr-pane-field-editor-new-section']//span")
     private WebElement newSectionButton;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-custom-value-creator-target-save-button ')]/span[contains(text(), 'Add')]")

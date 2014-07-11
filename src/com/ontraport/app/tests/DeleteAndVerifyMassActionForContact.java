@@ -91,6 +91,7 @@ public class DeleteAndVerifyMassActionForContact extends AbstractTest
         }
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
+        contactListAll.dialogBox.sendDelete();
         contactListAll.dialogBox.clickOk();
         //verify its gone
         if(contactListAll.verifyNoContact()==null)
