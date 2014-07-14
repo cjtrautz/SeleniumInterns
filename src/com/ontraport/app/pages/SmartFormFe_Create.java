@@ -162,6 +162,7 @@ public class SmartFormFe_Create extends AbstractPage
         Actions action = new Actions(driver);
         action.sendKeys(Keys.RETURN).build().perform();
         action.sendKeys(Keys.TAB).build().perform();
+        smartFormName.click();
         AbstractPart.waitForAjax(driver, 20);
         return this;
         

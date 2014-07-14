@@ -49,7 +49,7 @@ public class MenuPrimary extends AbstractPart
             using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/rule/listAll']")
     private WebElement uiRuleListAll;
     @FindBy(how = How.XPATH,
-            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/smart_form_fe/listAll']")
+            using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/contact/smartforms']")
     private WebElement uiSmartFormFeListAll;
     @FindBy(how = How.XPATH,
             using = "//aside[@id='ussr-chrome-sidebar']//a[@href='#!/message/listAll']")

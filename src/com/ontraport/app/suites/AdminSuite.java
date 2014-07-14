@@ -153,8 +153,8 @@ public class AdminSuite extends AbstractSuite
     @BeforeClass
     public static void beforeSuite () throws Exception
     {
-        AbstractPage.setLogin("ontraportselenium+4@gmail.com");
-        AbstractPage.setPassword("test123");
+        AbstractPage.setLogin("orm_off2@ontraport.com");
+        AbstractPage.setPassword("password2");
         //AbstractPage.setUrl("https://staging.ontraport.com/");
         FirefoxProfile profile = new FirefoxProfile();
         profile.setEnableNativeEvents(false);
