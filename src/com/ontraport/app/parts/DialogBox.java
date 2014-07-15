@@ -76,7 +76,7 @@ public class DialogBox extends AbstractPart
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-dialog ')]")
     private WebElement uiDialogBox;
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-form-conditions-add ')]")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-form-conditions-add ')]")
     private WebElement addFormConditions;
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-redirect-conditions-add ')]")

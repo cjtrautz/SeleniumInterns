@@ -19,13 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    com.ontraport.app.tests.CreateGateway.class,
-    //used in following tests
-    com.ontraport.app.tests.CreateATag.class,
-    com.ontraport.app.tests.CreateRuleStepSequence.class,
-    //used in following tests and uses CreateGateway gateway and uses CreateATag
-    com.ontraport.app.tests.CreateOrderform.class,
-    com.ontraport.app.tests.VerifyOrderformProductOptions.class,
+    com.ontraport.app.tests.EnsurePagination.class, 
 }
 )
 public class Review extends AbstractSuite
