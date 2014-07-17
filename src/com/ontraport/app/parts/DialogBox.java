@@ -79,7 +79,7 @@ public class DialogBox extends AbstractPart
             using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-form-conditions-add ')]")
     private WebElement addFormConditions;
     @FindBy(how = How.XPATH,
-            using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-redirect-conditions-add ')]")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-redirect-conditions-add ')]")
     private WebElement addRedirect;
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' fe-conditions__custom-url ')]//input")
@@ -88,7 +88,7 @@ public class DialogBox extends AbstractPart
             using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-field ')]//select")
     private WebElement ifFieldDropDown;
     @FindBy(how = How.XPATH,
-            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-opertator ')]//select")
+            using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-condition-operator ')]//select")
     private WebElement ifOperatorDropDown;
     @FindBy(how = How.XPATH,
             using = "//td[contains(concat(' ', normalize-space(@class), ' '), ' fe-design-conditions-outcome-action ')]//select")
@@ -121,7 +121,7 @@ public class DialogBox extends AbstractPart
             using = "//button[contains(@class, 'button_NAME_dialog_button')]//span[contains(text(), 'Delete')]")
     private WebElement deleteConfirm;
     @FindBy(how = How.XPATH,
-            using = "//div[contains(@class, 'AME_conditionsRedirectRadioButtons')]//span[contains(@class, 'ussr-icon-radiobutton')]")
+            using = "//div[contains(@class, 'AME_conditionsRedirectRadioButtons')]//a[@value=1]")
     private WebElement redirectRadioButton;
     @FindBy(how = How.XPATH,
             using = "//div[contains(@class, 'massDeleteVerify')]//input")
@@ -358,9 +358,9 @@ public class DialogBox extends AbstractPart
         waitForAjax(driver, 20);
         wait(30).until(ExpectedConditions.visibilityOf(uiOk));
         uiOk.click();
-        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+    
     public DialogBox clickCancel ()
     {
         waitForAjax(driver, 20);
