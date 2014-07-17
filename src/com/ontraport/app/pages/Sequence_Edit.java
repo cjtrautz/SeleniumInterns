@@ -236,6 +236,15 @@ public class Sequence_Edit extends AbstractPage
             using = "//div[contains(concat(' ', @class, ' '),' component-target-message-edit-button ')]")
     private WebElement editButton;
     
+    @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' preview_data_box ')]")
+    private WebElement previewData;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' ussr-pane-editor-name ')]//input")
+    private WebElement sequenceNameInput;
+    
     public Sequence_Edit verifySequenceStepAndExpand (String step, int index)
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -932,6 +941,30 @@ public class Sequence_Edit extends AbstractPage
        // return this; //gotta change the type
         return (Message_Edit) new Message_Edit().init();
     }
+    public Message_Edit clickEditSMS ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(editButton));
+        editButton.click();
+       // return this; //gotta change the type
+        return (Message_Edit) new Message_Edit().init();
+    }
+    public Sequence_Edit verifyPreviewData ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!previewData.getText().equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
     public Sequence_Edit verifySplitTestOn ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -1116,6 +1149,22 @@ public class Sequence_Edit extends AbstractPage
         }
         
         return this;
+    }
+    public Sequence_Edit verifySequenceName ( String string )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            if(!sequenceNameInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return (Sequence_Edit) new Sequence_Edit().init();
     }
     
 

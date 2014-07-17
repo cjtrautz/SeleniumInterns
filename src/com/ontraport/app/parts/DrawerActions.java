@@ -234,107 +234,107 @@ public class DrawerActions extends AbstractPart
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//div[@class='control_buttons']//span[text()='Delete']")
-        private WebElement uiReassignDelete;
+    private WebElement uiReassignDelete;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-message-selector ')]//button")
-        private WebElement emailNameDropDown;
+    private WebElement emailNameDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
-        private WebElement drillDown;
+    private WebElement drillDown;
     
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']/li[contains(concat(' ', normalize-space(@class), ' '), ' create-new ')]")
-        private WebElement drillDownCreateNew;
+    private WebElement drillDownCreateNew;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
-        private WebElement actionPane;
+    private WebElement actionPane;
     
     @FindBy(how = How.XPATH,
             using = "//input[@placeholder='Select Tag']/following-sibling::button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-drilldownselect-button-menu-toggle ')]")
-        private WebElement dropDownButton;
+    private WebElement dropDownButton;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-sequence-selector ')]//button")
-        private WebElement sequenceDropDown;
+    private WebElement sequenceDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' sem-field-selector ')]//button")
-        private WebElement fieldDropDown;
+    private WebElement fieldDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' sem-value-selector ')]//input")
-        private WebElement valueInput;
+    private WebElement valueInput;
     
     @FindBy(how = How.XPATH,
             using = "//button[@value='Save']")
-        private WebElement saveField;
+    private WebElement saveField;
     
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-done-button ')]")
-        private WebElement submitButton;
+    private WebElement submitButton;
     
     @FindBy(how = How.XPATH,
             using = "//a[@value='scheduled']//span")
-        private WebElement scheduledRadioButton;
+    private WebElement scheduledRadioButton;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]//button")
-        private WebElement reassignDropDown;
+    private WebElement reassignDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-destination-url ')]//input")
-        private WebElement destinationURLInput;
+    private WebElement destinationURLInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
-        private WebElement objectCreaterInput;
+    private WebElement objectCreaterInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-campaign ')]//button")
-        private WebElement campaignDropDown;
+    private WebElement campaignDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-lead-source ')]//button")
-        private WebElement leadSourceDropDown;
+    private WebElement leadSourceDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-medium ')]//button")
-        private WebElement mediumDropDown;
+    private WebElement mediumDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-content ')]//button")
-        private WebElement contentDropDown;
+    private WebElement contentDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-term ')]//button")
-        private WebElement termDropDown;
+    private WebElement termDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-campaign ')]//input")
-        private WebElement campaignDropDownInput;
+    private WebElement campaignDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-lead-source ')]//input")
-        private WebElement leadSourceDropDownInput;
+    private WebElement leadSourceDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-medium ')]//input")
-        private WebElement mediumDropDownInput;
+    private WebElement mediumDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-content ')]//input")
-        private WebElement contentDropDownInput;
+    private WebElement contentDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-term ')]//input")
-        private WebElement termDropDownInput;
+    private WebElement termDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-action-create-url ')]")
-        private WebElement createURL;
+    private WebElement createURL;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(@class, 'checkbox_NAME_weekdays_only')]//span[@class='ussr-icon ussr-icon-checkbox-empty']")
@@ -374,6 +374,7 @@ public class DrawerActions extends AbstractPart
         
         return this;
     }
+    
     public DrawerActions open ()
     {
         waitForAjax(driver, 20);
@@ -382,6 +383,7 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+    
     public DrawerActions close ()
     {
         waitForAjax(driver, 20);
@@ -391,6 +393,7 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+    
     public DrawerActions clickDeleteRouter ()
     {
         waitForAjax(driver, 20);
@@ -400,6 +403,7 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+    
     public DrawerActions clickDeleteAPIKey ()
     {
         waitForAjax(driver, 20);
@@ -410,6 +414,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteTag ()
     {
         waitForAjax(driver, 20);
@@ -420,6 +425,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteSequences ()
     {
         waitForAjax(driver, 20);
@@ -430,6 +436,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public Contact_Export clickExportContacts ()
     {
         waitForAjax(driver, 20);
@@ -439,6 +446,7 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return (Contact_Export) new Contact_Export().init();
     }
+    
     public DrawerActions clickDeleteFacebookApp ()
     {
         waitForAjax(driver, 20);
@@ -449,6 +457,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteList ()
     {
         waitForAjax(driver, 20);
@@ -459,6 +468,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteMessage ()
     {
         waitForAjax(driver, 20);
@@ -469,6 +479,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteProduct ()
     {
         waitForAjax(driver, 20);
@@ -479,6 +490,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteRule ()
     {
         waitForAjax(driver, 20);
@@ -489,6 +501,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteGateway ()
     {
         waitForAjax(driver, 20);
@@ -499,6 +512,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteLandingPage ()
     {
         waitForAjax(driver, 20);
@@ -509,6 +523,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteWordPressSite ()
     {
         waitForAjax(driver, 20);
@@ -519,6 +534,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteTemplate ()
     {
         waitForAjax(driver, 20);
@@ -529,6 +545,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteRole ()
     {
         waitForAjax(driver, 20);
@@ -539,6 +556,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickRemoveRole ()
     {
         waitForAjax(driver, 20);
@@ -549,6 +567,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteUser ()
     {
         waitForAjax(driver, 20);
@@ -558,6 +577,7 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+
     public DrawerActions clickDeleteTaxItem ()
     {
         waitForAjax(driver, 20);
@@ -567,6 +587,7 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+
     public DrawerActions clickDelete ()
     {
         waitForAjax(driver, 20);
@@ -577,6 +598,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickSendEmail ()
     {
         waitForAjax(driver, 20);
@@ -587,6 +609,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickEmailNameDropDown ()
     {
         waitForAjax(driver, 20);
@@ -594,6 +617,7 @@ public class DrawerActions extends AbstractPart
         emailNameDropDown.click();
         return this;
     }
+    
     public Message_Edit selectDropDown ( int i )
     {
         waitForAjax(driver, 20);
@@ -603,6 +627,7 @@ public class DrawerActions extends AbstractPart
         options.get(i-1).click();
         return (Message_Edit) new Message_Edit().init();
     }
+    
     public DrawerActions clickAddRemoveTags ()
     {
         waitForAjax(driver, 20);
@@ -611,6 +636,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickTagDropDown ()
     {
         waitForAjax(driver, 20);
@@ -619,6 +645,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions selectDrillDown ( String string )
     {
         waitForAjax(driver, 20);
@@ -627,6 +654,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickSubmit ()
     {
         waitForAjax(driver, 20);
@@ -635,6 +663,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions checkRunOnlyOnWeekends ()
     {
         waitForAjax(driver, 20);
@@ -643,14 +672,15 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickSaveSettings ()
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(saveSettings));
         saveSettings.click();
         return this;
-        
     }
+    
     public DrawerActions verifyOnlyOnWeekendsChecked ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -677,9 +707,9 @@ public class DrawerActions extends AbstractPart
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
+    
     public DrawerActions checkUnsubscribeContactAfterLastStep ()
     {
         waitForAjax(driver, 20);
@@ -688,6 +718,7 @@ public class DrawerActions extends AbstractPart
         return this;
   
     }
+    
     public DrawerActions verifyUnsubscribeContactAfterLastStepChecked ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -717,6 +748,7 @@ public class DrawerActions extends AbstractPart
         
         return this;
     }
+    
     public DrawerActions uncheckRunOnlyOnWeekends ()
     {
         waitForAjax(driver, 20);
@@ -725,6 +757,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions uncheckUnsubscribeContactAfterLastStep ()
     {
         waitForAjax(driver, 20);
@@ -733,15 +766,16 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickDeleteSmartForm ()
     {
         waitForAjax(driver, 20);
         wait(5).until(ExpectedConditions.visibilityOf(actionPane));
         wait(5).until(ExpectedConditions.visibilityOf(uiDelete));
         uiDelete.click();
-        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
+    
     public DrawerActions checkShowSequenceOnSubscriptionManaementPage ()
     {
         waitForAjax(driver, 20);
@@ -749,6 +783,7 @@ public class DrawerActions extends AbstractPart
         showSequenceOnSubscriptionManagmentPageEmptyCheckbox.click();
         return this;
     }
+    
     public DrawerActions verifyShowSequenceOnSubscriptionManaementPageChecked ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -778,6 +813,7 @@ public class DrawerActions extends AbstractPart
         
         return this;
     }
+    
     public DrawerActions uncheckShowSequenceOnSubscriptionManaementPage ()
     {
         waitForAjax(driver, 20);
@@ -785,6 +821,7 @@ public class DrawerActions extends AbstractPart
         showSequenceOnSubscriptionManagmentPageCheckedCheckbox.click();
         return this;
     }
+    
     public DrawerActions clickCreateNew ()
     {
         waitForAjax(driver, 20);
@@ -792,6 +829,7 @@ public class DrawerActions extends AbstractPart
         drillDownCreateNew.click();
         return this;
     }
+    
     public DrawerActions enterName ( String string )
     {
         waitForAjax(driver, 20);
@@ -799,6 +837,7 @@ public class DrawerActions extends AbstractPart
         quickCreaterNameInput.sendKeys(string);
         return this;
     }
+    
     public DrawerActions clickSave ()
     {
         waitForAjax(driver, 20);
@@ -806,6 +845,7 @@ public class DrawerActions extends AbstractPart
         objectCreatorSave.click();
         return this;
     }
+    
     public DrawerActions clickSendFromDropDown ()
     {
         waitForAjax(driver, 20);
@@ -813,6 +853,7 @@ public class DrawerActions extends AbstractPart
         sendFromDropDown.click();
         return this;
     }
+    
     public DrawerActions enterTodaysDate ()
     {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -827,6 +868,7 @@ public class DrawerActions extends AbstractPart
         action.sendKeys(Keys.RETURN).build().perform();
         return this;
     }
+    
     public DrawerActions clickAtDropDown ()
     {
         waitForAjax(driver, 20);
@@ -834,6 +876,7 @@ public class DrawerActions extends AbstractPart
         timeDropDown.click();
         return this;
     }
+    
     public DrawerActions selectFutureHour ()
     {
         DateFormat dateFormat = new SimpleDateFormat("h");
@@ -882,6 +925,7 @@ public class DrawerActions extends AbstractPart
         return this;
         
     }
+    
     public DrawerActions clickSend ()
     {
         waitForAjax(driver, 20);
@@ -889,6 +933,7 @@ public class DrawerActions extends AbstractPart
         sendButton.click();
         return this;
     }
+    
     public DrawerActions clickDeletePackages ()
     {
         waitForAjax(driver, 20);
@@ -896,6 +941,7 @@ public class DrawerActions extends AbstractPart
         uiDeletePackages.click();
         return this;
     }
+    
     public DrawerActions clickReassignContacts ()
     {
         waitForAjax(driver, 20);
@@ -903,6 +949,7 @@ public class DrawerActions extends AbstractPart
         reassignDropDown.click();
         return this;
     }
+    
     public DrawerActions clickCancel ()
     {
         waitForAjax(driver, 20);
@@ -910,6 +957,7 @@ public class DrawerActions extends AbstractPart
         cancel.click();
         return this;
     }
+    
     public Sequence_Edit clickCopySequence ()
     {
         waitForAjax(driver, 20);
@@ -917,6 +965,7 @@ public class DrawerActions extends AbstractPart
         copySequence.click();
         return (Sequence_Edit) new Sequence_Edit().init();
     }
+    
     public DrawerActions clickTaskNameDropDown ()
     {
         waitForAjax(driver, 20);
@@ -924,6 +973,7 @@ public class DrawerActions extends AbstractPart
         taskNameDropDown.click();
         return this;
     }
+    
     public Message_CreateTask createNewTask ()
     {
         waitForAjax(driver, 20);
@@ -931,6 +981,7 @@ public class DrawerActions extends AbstractPart
         createNew.click();
         return (Message_CreateTask) new Message_CreateTask().init();
     }
+    
     public DrawerActions clickDeleteProgram ()
     {
         waitForAjax(driver, 20);
@@ -938,6 +989,7 @@ public class DrawerActions extends AbstractPart
         uiDelete.click();
         return this;
     }
+    
     public LandingPage_Edit clickCopyLandingPage ()
     {
         waitForAjax(driver, 20);
@@ -945,6 +997,7 @@ public class DrawerActions extends AbstractPart
         copyLandingPage.click();
         return (LandingPage_Edit) new LandingPage_Edit().init();
     }
+    
     public DrawerActions clickPauseRule ()
     {
         waitForAjax(driver, 20);
@@ -952,6 +1005,7 @@ public class DrawerActions extends AbstractPart
         pauseRule.click();
         return this;
     }
+    
     public DrawerActions clickUnpauseRule ()
     {
         waitForAjax(driver, 20);
@@ -959,6 +1013,7 @@ public class DrawerActions extends AbstractPart
         unpauseRule.click();
         return this;
     }
+    
     public DrawerActions clickReAssign ()
     {
         waitForAjax(driver, 20);
@@ -966,6 +1021,7 @@ public class DrawerActions extends AbstractPart
         reassign.click();
         return this;
     }
+    
     public DrawerActions clickUserDropDown ()
     {
         waitForAjax(driver, 20);
@@ -973,6 +1029,7 @@ public class DrawerActions extends AbstractPart
         userDropDown.click();
         return this;
     }
+    
     public DrawerActions clickReschedule ()
     {
         waitForAjax(driver, 20);
@@ -980,6 +1037,7 @@ public class DrawerActions extends AbstractPart
         reschedule.click();
         return this;
     }
+    
     public DrawerActions clickDateSelectorInput ()
     {
         waitForAjax(driver, 20);
@@ -993,6 +1051,7 @@ public class DrawerActions extends AbstractPart
         action2.click(datePickerInput2).build().perform();
         return this;
     }
+    
     public DrawerActions clickCancelSendEmail ()
     {
         waitForAjax(driver, 20);
@@ -1000,6 +1059,7 @@ public class DrawerActions extends AbstractPart
         cancelButton.click();
         return this;
     }
+    
     public DrawerActions clickSaveReAssign ()
     {
         waitForAjax(driver, 20);
@@ -1007,6 +1067,7 @@ public class DrawerActions extends AbstractPart
         saveReAssign.click();
         return this;
     }
+    
     public DrawerActions clickCancelTask ()
     {
         waitForAjax(driver, 20);
@@ -1014,6 +1075,7 @@ public class DrawerActions extends AbstractPart
         cancelTask.click();
         return this;
     }
+    
     public DrawerActions clickDeleteTrackedLink ()
     {
         waitForAjax(driver, 20);
@@ -1021,6 +1083,7 @@ public class DrawerActions extends AbstractPart
         uiDelete.click();
         return this;
     }
+    
     public DrawerActions clickViewTrackingScript ()
     {
         waitForAjax(driver, 20);
@@ -1028,6 +1091,7 @@ public class DrawerActions extends AbstractPart
         uiViewTrackingScript.click();
         return this;
     }
+    
     public DrawerActions verifyTrackingScript ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -1045,6 +1109,7 @@ public class DrawerActions extends AbstractPart
         
         return this;
     }
+    
     public DrawerActions clickDeleteTrackedDomain ()
     {
         waitForAjax(driver, 20);
@@ -1052,6 +1117,7 @@ public class DrawerActions extends AbstractPart
         uiDeleteTrackedDomain.click();
         return this;
     }
+    
     public DrawerActions enterURL (String string)
     {
         waitForAjax(driver, 20);
@@ -1060,6 +1126,7 @@ public class DrawerActions extends AbstractPart
         destinationURLInput.sendKeys(string);
         return this;
     }
+    
     public DrawerActions clickCampaignDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1067,6 +1134,7 @@ public class DrawerActions extends AbstractPart
         campaignDropDown.click();
         return this;
     }
+    
     public DrawerActions selectCreateNew ()
     {
         waitForAjax(driver, 20);
@@ -1074,6 +1142,7 @@ public class DrawerActions extends AbstractPart
         createNew.click();
         return this;
     }
+    
     public DrawerActions enterObjectCreater (String string)
     {
         waitForAjax(driver, 20);
@@ -1082,6 +1151,7 @@ public class DrawerActions extends AbstractPart
         objectCreaterInput.sendKeys(string);
         return this;
     }
+    
     public DrawerActions clickLeadSourceDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1089,6 +1159,7 @@ public class DrawerActions extends AbstractPart
         leadSourceDropDown.click();
         return this;
     }
+    
     public DrawerActions clickMediumDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1096,6 +1167,7 @@ public class DrawerActions extends AbstractPart
         mediumDropDown.click();
         return this;
     }
+    
     public DrawerActions clickContentDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1103,6 +1175,7 @@ public class DrawerActions extends AbstractPart
         contentDropDown.click();
         return this;
     }
+    
     public DrawerActions clickTermDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1110,6 +1183,7 @@ public class DrawerActions extends AbstractPart
         termDropDown.click();
         return this;
     }
+    
     public DrawerActions clickCreateURL ()
     {
         waitForAjax(driver, 20);
@@ -1117,6 +1191,7 @@ public class DrawerActions extends AbstractPart
         createURL.click();
         return this;
     }
+    
     public DrawerActions clickDeleteURLHistory ()
     {
         waitForAjax(driver, 20);
@@ -1124,6 +1199,7 @@ public class DrawerActions extends AbstractPart
         uiDelete.click();
         return this;
     }
+    
     public DrawerActions enterCampaignDropDown ( String unique )
     {
         waitForAjax(driver, 20);
@@ -1132,6 +1208,7 @@ public class DrawerActions extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//li/div[contains(text(), '" + unique + "')]"))));
         return this;
     }
+    
     public DrawerActions enterLeadSourceDropDown ( String valueOf )
     {
         waitForAjax(driver, 20);
@@ -1139,6 +1216,7 @@ public class DrawerActions extends AbstractPart
         leadSourceDropDownInput.sendKeys(valueOf);
         return this;
     }
+    
     public DrawerActions enterMediumDropDown ( String valueOf )
     {
         waitForAjax(driver, 20);
@@ -1146,6 +1224,7 @@ public class DrawerActions extends AbstractPart
         mediumDropDownInput.sendKeys(valueOf);
         return this;
     }
+    
     public DrawerActions enterContentDropDown ( String valueOf )
     {
         waitForAjax(driver, 20);
@@ -1153,6 +1232,7 @@ public class DrawerActions extends AbstractPart
         contentDropDownInput.sendKeys(valueOf);
         return this;
     }
+    
     public DrawerActions enterTermDropDown ( String valueOf )
     {
         waitForAjax(driver, 20);
@@ -1160,6 +1240,7 @@ public class DrawerActions extends AbstractPart
         termDropDownInput.sendKeys(valueOf);
         return this;
     }
+    
     public DrawerActions clickSequences ()
     {
         waitForAjax(driver, 20);
@@ -1167,6 +1248,7 @@ public class DrawerActions extends AbstractPart
         uiSequences.click();
         return this;
     }
+    
     public DrawerActions clickSequenceDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1174,6 +1256,7 @@ public class DrawerActions extends AbstractPart
         sequenceDropDown.click();
         return this;
     }
+    
     public DrawerActions clickChangeFieldValue ()
     {
         waitForAjax(driver, 20);
@@ -1181,6 +1264,7 @@ public class DrawerActions extends AbstractPart
         changeFieldValue.click();
         return this;
     }
+    
     public DrawerActions clickFieldDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1188,6 +1272,7 @@ public class DrawerActions extends AbstractPart
         fieldDropDown.click();
         return this; 
     }
+    
     public DrawerActions enterValue ( String string )
     {
         waitForAjax(driver, 20);
@@ -1195,6 +1280,7 @@ public class DrawerActions extends AbstractPart
         valueInput.sendKeys(string);
         return this; 
     }
+    
     public DrawerActions clickSaveField ()
     {
         waitForAjax(driver, 20);
@@ -1202,6 +1288,7 @@ public class DrawerActions extends AbstractPart
         saveField.click();
         return this; 
     }
+    
     public DrawerActions clickScheduledSendTime ()
     {
         waitForAjax(driver, 20);
@@ -1209,6 +1296,7 @@ public class DrawerActions extends AbstractPart
         scheduledRadioButton.click();
         return this;
     }
+    
     public DrawerActions selectFutureHourOneOff ()
     {
         DateFormat dateFormat = new SimpleDateFormat("h");
@@ -1260,6 +1348,7 @@ public class DrawerActions extends AbstractPart
         selectDrillDown(name + ":" + name2 + " " + name3);
         return this;
     }
+    
     public DrawerActions clickSendDoubleOptIn ()
     {
         waitForAjax(driver, 20);
@@ -1267,6 +1356,7 @@ public class DrawerActions extends AbstractPart
         sendDoubleOptin.click();
         return this;
     }
+    
     public DrawerActions clickEmailFromDropDown ()
     {
         waitForAjax(driver, 20);
@@ -1274,6 +1364,4 @@ public class DrawerActions extends AbstractPart
         emailFromDropDown.click();
         return this;
     }
-
-
 }

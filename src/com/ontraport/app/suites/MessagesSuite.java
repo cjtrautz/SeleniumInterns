@@ -33,6 +33,10 @@ import com.ontraport.app.tools.AbstractSuite;
     //end use of CreateSMSMessage message
     com.ontraport.app.tests.DeleteSMSMessage.class,
     
+    com.ontraport.app.tests.CreateSMSMessageFromSequence.class,
+    com.ontraport.app.tests.EditSMSMessageFromSequence.class,
+    com.ontraport.app.tests.DeleteSMSMessageFromSequence.class,
+    
     com.ontraport.app.tests.CreateMessageCancel.class,
     
     com.ontraport.app.tests.TaskMessageCancel.class,

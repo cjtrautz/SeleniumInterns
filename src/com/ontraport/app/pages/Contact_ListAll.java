@@ -19,58 +19,78 @@ import com.ontraport.app.tools.AbstractSuite;
 
 public class Contact_ListAll extends AbstractPage
 {
+	public static String    url = "/#!/contact/listAll";
+    
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-helper-cursor-pointer ')]")
     private WebElement uiSelectAllInGroup;
+    
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification2;
+    
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]")
     private WebElement notification3;
+    
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-component-message-close ')]")
     private WebElement notificationClose;
+    
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-component-message-close ')]")
     private WebElement notificationClose2;
+    
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' ussr-message-notification ')]/a[contains(concat(' ', normalize-space(@href), ' '), ' javascript:ontraport.Panes.Contact.goToHome(true) ')]")
     private WebElement notificationGo;
     
-    public static String    url = "/#!/contact/listAll";
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']")
     private WebElement uiCollectionHead;
+    
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']")
     private WebElement uiCollectionBody;
+    
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr")
     private WebElement uiCollectionBodyRow1;
+    
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr/td[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-collection-cell-type-text ')]/span/a")
     private WebElement uiCollectionBodyFirstCell;
+    
     @FindBy(how = How.XPATH,
             using = "//tbody[@class='ussr-component-collection-body']/tr")
     private List<WebElement> uiCollectionBodyRows;
+    
     @FindBy(how = How.XPATH,
             using = "//thead[@class='ussr-component-collection-head']/tr/th")
     private WebElement uiSelectAll;
+    
     @FindBy(how = How.XPATH,
             using = "//div[@id='ontraport_panel_action_new']")
     private WebElement uiNewContact;
+    
     @FindBy(how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//div[div[contains(concat(' ', normalize-space(@class), ' '), ' user-leading-container ')] or table[tbody[tr[td[contains(concat(' ', normalize-space(@class), ' '),' ussr-collection-empty ')]]]]]")
     private WebElement emptyCell;
+    
     @FindBy(how = How.XPATH,
             using = "//div[@id='ussr-chrome-panel-pane']//div[div[contains(concat(' ', normalize-space(@class), ' '), ' user-leading-container ')] or table[tbody[tr[td[2]]]]]")
     private WebElement firstCellOrContactAddOptions;
+    
+    @FindBy(how = How.XPATH,
+            using = "//span[contains(concat(' ',@class,' '),' ussr-component-collection-meta-count-number ')]")
+    private WebElement totalContactNumber;
 
-    public Contact_Create clickNewContact ()
+    
+	public Contact_Create clickNewContact ()
     {
         AbstractPart.waitForAjax(driver, 20);
         //wait.until(ExpectedConditions.visibilityOf(uiSelectAll));
@@ -78,7 +98,9 @@ public class Contact_ListAll extends AbstractPage
         uiNewContact.click();
         return (Contact_Create) new Contact_Create().init();
     }
-    public Contact_ListAll selectAllOnPage ()
+    
+    
+	public Contact_ListAll selectAllOnPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
         driver.manage()
@@ -105,19 +127,25 @@ public class Contact_ListAll extends AbstractPage
         }
         return this;
     }
-    public Contact_ListAll selectAllInGroup ()
+    
+    
+	public Contact_ListAll selectAllInGroup ()
     {
         AbstractPart.waitForAjax(driver, 20);
         uiSelectAllInGroup.click();
         return this;
     }
-    public Contact_ListAll selectNone ()
+    
+    
+	public Contact_ListAll selectNone ()
     {
         AbstractPart.waitForAjax(driver, 20);
         uiSelectAll.click();
         return this;
     }
-    public Contact_ListAll verifyColumn (String column)
+    
+    
+	public Contact_ListAll verifyColumn (String column)
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -139,7 +167,9 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
-    public Contact_ListAll verifyNotColumn (String column)
+    
+
+	public Contact_ListAll verifyNotColumn (String column)
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -161,7 +191,9 @@ public class Contact_ListAll extends AbstractPage
         
         return null;
     }
-    public Contact_Edit clickContact ( int i )
+    
+	
+	public Contact_Edit clickContact ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -202,7 +234,8 @@ public class Contact_ListAll extends AbstractPage
         }
         return (Contact_Edit) new Contact_Edit().init();
     }
-    public Contact_ListAll verifyContact (String contact)
+    
+	public Contact_ListAll verifyContact (String contact)
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -225,7 +258,8 @@ public class Contact_ListAll extends AbstractPage
         return this;
     }
     
-    public Contact_ListAll verifyNoContact ()
+    
+	public Contact_ListAll verifyNoContact ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -247,7 +281,8 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
-    public Contact_Edit clickContact ( String string )
+    
+	public Contact_Edit clickContact ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -288,7 +323,8 @@ public class Contact_ListAll extends AbstractPage
         }
         return (Contact_Edit) new Contact_Edit().init();
     }
-    public Contact_ListAll selectContact (int i)
+    
+	public Contact_ListAll selectContact (int i)
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
@@ -298,7 +334,8 @@ public class Contact_ListAll extends AbstractPage
         return this;
         
     }
-    public Contact_ListAll verifyNumberOfContactsPerPage ( int i )
+    
+	public Contact_ListAll verifyNumberOfContactsPerPage ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -316,7 +353,8 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
-    public Contact_ListAll verifyQued ()
+    
+	public Contact_ListAll verifyQued ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -344,7 +382,8 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
-    public Contact_ListAll verifyBeingImportedAndClose ()
+    
+	public Contact_ListAll verifyBeingImportedAndClose ()
     {  
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -376,7 +415,8 @@ public class Contact_ListAll extends AbstractPage
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         return this;
     }
-    public Contact_ListAll verifyBeingProcessedAndClose ()
+    
+	public Contact_ListAll verifyBeingProcessedAndClose ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -408,7 +448,8 @@ public class Contact_ListAll extends AbstractPage
         .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         return this;
     }
-    public Contact_ListAll verifyDoneAndClick ()
+    
+	public Contact_ListAll verifyDoneAndClick ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -442,7 +483,8 @@ public class Contact_ListAll extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         return this;
     }
-    public Contact_ListAll verifyNumberOfContacts ( int i )
+    
+	public Contact_ListAll verifyNumberOfContacts ( int i )
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -459,14 +501,16 @@ public class Contact_ListAll extends AbstractPage
         }
         return this;
     }
-    public Contact_Edit clickFirstContact ()
+    
+	public Contact_Edit clickFirstContact ()
     {
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBodyFirstCell));
         uiCollectionBodyFirstCell.click();
         return (Contact_Edit) new Contact_Edit().init();
     }
-    public Contact_ListAll verifyPage ()
+    
+	public Contact_ListAll verifyPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
         try
@@ -491,7 +535,22 @@ public class Contact_ListAll extends AbstractPage
         
         return this;
     }
-
-
     
+	public Contact_ListAll verifyTotalContactNumber ( String count )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(totalContactNumber));
+        try
+        {
+            String compare = totalContactNumber.getText();
+            if(compare.equals(count)!=true)
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e){
+            return null;
+        }
+        return this;
+    }
 }

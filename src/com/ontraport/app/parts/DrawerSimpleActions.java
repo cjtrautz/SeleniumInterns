@@ -22,7 +22,7 @@ public class DrawerSimpleActions extends AbstractPart
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
     private WebElement addPermissionException;
     
     @FindBy(

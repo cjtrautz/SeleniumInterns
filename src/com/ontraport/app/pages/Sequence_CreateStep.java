@@ -109,6 +109,11 @@ public class Sequence_CreateStep extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
+            using = "//li[contains(concat(' ', @class, ' '),' jb-ace-scroll-target ')]")
+    private WebElement smsNumber;
+    
+    @FindBy(
+            how = How.XPATH,
             using = "//div[contains(@class,'ussr-component-quick-object-creator-target-sub-comp')]//input")
     private WebElement objectCreatorName;
     
@@ -181,6 +186,11 @@ public class Sequence_CreateStep extends AbstractPage
             how = How.XPATH,
             using = "//div[contains(concat(' ', @class, ' '),' component-target-message-selector ')]//button")
     private WebElement smsMessageDropDown;
+    
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' component-target-send-fields ')]//button")
+    private WebElement smsMessageNumberDropDown;
     
     @FindBy(
             how = How.XPATH,
@@ -278,6 +288,10 @@ public class Sequence_CreateStep extends AbstractPage
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-rule-editor-target-actions ')]//button[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]/following-sibling::div//ul[@class='ussr-component-drilldownselect-ul']")
     private WebElement thenDrillDownSelectPane;
 
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-form-state-active ')]//ul[@class='ussr-component-drilldownselect-ul']")
+    private WebElement dropDownCollection;
 
     public Sequence_CreateStep enterSequenceName ( String name )
     {
@@ -368,6 +382,7 @@ public class Sequence_CreateStep extends AbstractPage
     public Sequence_ListAll clickSave ()
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(save));
         save.click();
         return (Sequence_ListAll) new Sequence_ListAll().init();
 
@@ -774,6 +789,14 @@ public class Sequence_CreateStep extends AbstractPage
         createNew.click();
         return this;
     }
+    
+    public Sequence_CreateStep clickSMSNumber ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smsNumber));
+        smsNumber.click();
+        return this;
+    }
 
     public Sequence_CreateStep enterName ( String string )
     {
@@ -796,6 +819,13 @@ public class Sequence_CreateStep extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(smsMessageDropDown));
         smsMessageDropDown.click();
+        return this;
+    }
+    public Sequence_CreateStep clickSMSNumberDropDown ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(smsMessageNumberDropDown));
+        smsMessageNumberDropDown.click();
         return this;
     }
 
@@ -866,6 +896,17 @@ public class Sequence_CreateStep extends AbstractPage
         wait.until(ExpectedConditions.visibilityOf(ruleActionDropDown));
         ruleActionDropDown.click();
         return this;
+    }
+    
+    public Sequence_CreateStep selectDropDownOption ( String option )
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        //wait.until(ExpectedConditions.visibilityOf(dropDownCollection));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li/div[contains(text(), '" + option + "')]")));
+        dropDownCollection.findElement(By.xpath(".//li/div[contains(text(), '" + option + "')]")).click();
+        return this;
+        
     }
 
 

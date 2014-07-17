@@ -63,16 +63,12 @@ public class CreateOrderform extends AbstractTest
         smartFormFe_Edit.selectDropDown(value.get("Sequences", "step_rule_sequence"));
         smartFormFe_Edit.clickAddRule();
         smartFormFe_Edit.enterRuleName(value.get("SmartForms", "rule_name"));
-        smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown("Contact has Tag");
-        smartFormFe_Edit.clickIfDropDown();
-        smartFormFe_Edit.selectDropDown(value.get("Contacts", "tag"));
         smartFormFe_Edit.clickThenDropDown();
         smartFormFe_Edit.enterThenInputForDropDown("Change", 1);
         smartFormFe_Edit.selectDropDown("Change the value of a field");
         smartFormFe_Edit.clickThenDropDown();
-        smartFormFe_Edit.selectDropDown("First Name");
-        smartFormFe_Edit.enterThenInput(value.get("SmartForms", "change"), 2);
+        smartFormFe_Edit.selectDropDown("Office Phone");
+        smartFormFe_Edit.enterThenInput("5555555", 2);
         smartFormFe_Edit.clickRuleSave();
         smartFormFe_Edit.clickSave();  
         smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
@@ -98,15 +94,11 @@ public class CreateOrderform extends AbstractTest
             fail("couldn't find rule");
         }
         smartFormFe_Edit.clickRule(value.get("SmartForms", "rule_name"));
-        if(smartFormFe_Edit.verifyIfDropDown(value.get("Contacts", "tag"))==null)
-        {
-            fail("couldn't find if");
-        }
-        if(smartFormFe_Edit.verifyThenInput("First Name", 1)==null)
+        if(smartFormFe_Edit.verifyThenInput("Office Phone", 1)==null)
         {
             fail("couldn't find then");
         }
-        if(smartFormFe_Edit.verifyThenInput(value.get("SmartForms", "change"), 2)==null)
+        if(smartFormFe_Edit.verifyThenInput("5555555", 2)==null)
         {
             fail("couldn't find then 2");
         }

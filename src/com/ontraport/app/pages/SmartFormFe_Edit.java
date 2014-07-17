@@ -160,22 +160,22 @@ public class SmartFormFe_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Tags')]/following-sibling::div//input")
+            using = "//div[contains(@class,'tags_form_editor')]//button")
     private WebElement tagDropDown;
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Tags')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' component-subscription-simple-list-target ')]")
+            using = "//div[contains(@class,'form_editor_tags')]//ul[contains(concat(' ', normalize-space(@class), ' '),' component-simple-list-target-ul ')]")
     private WebElement tagList;
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Sequences')]/following-sibling::div//input")
+            using = "//div[contains(@class,'sequences_form_editor')]//button")
     private WebElement sequenceDropDown;
     
     @FindBy(
             how = How.XPATH,
-            using = "//label[contains(text(),'Sequences')]/following-sibling::div//div[contains(concat(' ', normalize-space(@class), ' '),' component-subscription-simple-list-target ')]")
+            using = "//div[contains(@class,'form_editor_sequences')]//ul[contains(concat(' ', normalize-space(@class), ' '),' component-simple-list-target-ul ')]")
     private WebElement sequenceList;
     
     @FindBy(
@@ -226,7 +226,7 @@ public class SmartFormFe_Edit extends AbstractPage
         System.out.println("here2");
         wait.until(ExpectedConditions.visibilityOf(drillDown));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")));
-        wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
+        //wait.until(ExpectedConditions.visibilityOf(drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]"))));
         drillDown.findElement(By.xpath(".//li[contains(., '" + string + "')]")).click();
         return this;
     }
@@ -281,6 +281,8 @@ public class SmartFormFe_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 30);
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", thenInput.get(i-1));
         wait.until(ExpectedConditions.visibilityOf(thenInput.get(i-1)));
+        thenInput.get(i-1).click();
+        thenInput.get(i-1).clear();
         thenInput.get(i-1).sendKeys(string);
         return this;
     }
@@ -328,7 +330,7 @@ public class SmartFormFe_Edit extends AbstractPage
         try
         {
             wait.until(ExpectedConditions.visibilityOf(tagList));
-            if(!tagList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isDisplayed())
+            if(!tagList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isEnabled())
             {
                 return null;
             } 
@@ -347,7 +349,7 @@ public class SmartFormFe_Edit extends AbstractPage
         try
         {
             wait.until(ExpectedConditions.visibilityOf(sequenceList));
-            if(!sequenceList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isDisplayed())
+            if(!sequenceList.findElement(By.xpath(".//li[contains(., '" + string + "')]")).isEnabled())
             {
                 return null;
             } 

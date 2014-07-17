@@ -21,7 +21,7 @@ public class Purchase_ListAll extends AbstractPage
         try
         {
             wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
-            if(!uiCollectionBody.findElement(By.xpath(".//td[contains(., '" + string + "')]")).isDisplayed())
+            if(!uiCollectionBody.findElement(By.xpath(".//td[contains(., '" + string + "')]")).isEnabled())
             {
                 return null;
             } 

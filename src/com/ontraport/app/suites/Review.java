@@ -19,67 +19,7 @@ import com.ontraport.app.tools.AbstractSuite;
 @RunWith(Suite.class)
 @SuiteClasses(
 {
-    //used in following tests
-    //com.ontraport.app.tests.SendSingleEmailToContact.class,                  
-    //sends CreateMessage message 
-//    com.ontraport.app.tests.SendTestEmail.class,
-    //uses CreateMessage message
-    
-//    //used in following tests
-//    com.ontraport.app.tests.CreateLandingPagePictureWithRectangle.class,
-//    //uses CreateLandingPagePictureWithRectangle landing page
-//    com.ontraport.app.tests.EditLandingPageCircleImage.class,
-//    com.ontraport.app.tests.EditLandingPageImageTop.class,
-//    com.ontraport.app.tests.EditLandingPageImageWidth.class,
-//    com.ontraport.app.tests.EditLandingPageImageHeight.class,
-//    com.ontraport.app.tests.EditLandingPageImageLeft.class,
-//    com.ontraport.app.tests.EditLandingPageImageLinksTo.class,
-//    com.ontraport.app.tests.EditLandingPageImageOpacity.class,
-//    com.ontraport.app.tests.EditLandingPageImageRounded.class,
-//    com.ontraport.app.tests.EditLandingPageImageSelectImage.class,
-//    //end use of CreateLandingPagePictureWithRectangle landing page
-//    com.ontraport.app.tests.DeleteLandingPageImage.class,
-//    
-//    com.ontraport.app.tests.CreateLandingPageCodeMode.class,
-//    //uses CreateLandingPageCodeMode landing page
-//    com.ontraport.app.tests.EditLandingPageCodeModeInsertField.class,
-//    com.ontraport.app.tests.EditLandingPageCodeModeAddText.class,
-//    com.ontraport.app.tests.EditLandingPageCodeModeAddHTMLViaSource.class,
-//    com.ontraport.app.tests.EditLandingPageCodeModeSplitTestCheckbox.class,
-      com.ontraport.app.tests.CancelBroadCast.class,
-      com.ontraport.app.tests.DeleteCancelBroadCast.class,
-
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    com.ontraport.app.tests.CreateTaskMessageBeforeDue.class,
-//    //used in following tests
-//    com.ontraport.app.tests.CreateGateway.class, 
-//    //used in following tests
-//    com.ontraport.app.tests.CreateATag.class,
-//    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence 
-//    com.ontraport.app.tests.UploadToAttachmentManager.class,
-//    com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
-//    com.ontraport.app.tests.CreateTaskFromSequence.class,
-//    com.ontraport.app.tests.DeleteCreateTaskFromSequence.class,
-//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.CreateProduct.class,
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
-
-
-
-//    com.ontraport.app.tests.CreateRuleStepSequence.class,
-//    com.ontraport.app.tests.CreateGateway.class, 
-//    //used in following tests
-//    com.ontraport.app.tests.CreateATag.class,
-    //used in following tests and uses CreateGateway gateway and uses CreateATag tag and uses CreateRuleStepSequence sequence and 
-//    com.ontraport.app.tests.CreateGatewayPayPalPaymentsPro.class,
-//    com.ontraport.app.tests.CreateProduct.class,
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-
-//    com.ontraport.app.tests.CreateOrderformWithTaxAndShipping.class,
-//    com.ontraport.app.tests.DeleteOrderformWithTaxAndShipping.class,
-    //used in following tests and uses CreateOrderform orderform
-    
+    com.ontraport.app.tests.EnsurePagination.class, 
 }
 )
 public class Review extends AbstractSuite
@@ -107,7 +47,7 @@ public class Review extends AbstractSuite
               .maximize();
         Login login = (Login) new Login().init();
         login.open(Login.url, true);
-        login.as("ontraportselenium+4@gmail.com", "test123");
+        login.as("nick@ontraport.com", "test123");
         Thread.sleep(10000);
         driver.get(AbstractPage.getUrl() + "?track_requests=1/#!/contact/listAll");
         //AbstractPart.waitForAjax(driver, 30);

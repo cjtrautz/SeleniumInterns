@@ -68,7 +68,7 @@ public class Field_Editor extends AbstractPage
     
     @FindBy(
             how = How.XPATH,
-            using = "//div[@class='ussr-pane-field-editor-new-section']//span[normalize-space(text())='add new section']")
+            using = "//div[@class='ussr-pane-field-editor-new-section']//a")
     private WebElement newSectionButton;
     
     @FindBy(

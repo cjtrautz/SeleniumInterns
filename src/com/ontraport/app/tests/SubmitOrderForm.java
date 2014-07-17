@@ -64,16 +64,12 @@ public class SubmitOrderForm extends AbstractTest
         driver.navigate().refresh();
         AbstractPart.waitForAjax(driver, 20);
         contactListAll = (Contact_ListAll) new Contact_ListAll().init();
-        contactListAll.formSearch.find(value.get("SmartForms", "change"));
-        if(contactListAll.verifyContact(value.get("SmartForms", "change"))==null)
+        contactListAll.formSearch.find("5555555");
+        if(contactListAll.verifyContact("5555555")==null)
         {
             fail("Contact not added to records");
         }
-        Contact_Edit contact_Edit = contactListAll.clickContact(value.get("SmartForms", "change"));
-        if(contact_Edit.verifyFirstName(value.get("SmartForms", "change"))==null)
-        {
-            fail("couldnt find first name");
-        }
+        Contact_Edit contact_Edit = contactListAll.clickContact("5555555");
         if(contact_Edit.verifySequence(value.get("Sequences", "step_rule_sequence"))==null)
         {
             fail("couldnt find sequence");
@@ -85,10 +81,10 @@ public class SubmitOrderForm extends AbstractTest
         Purchase_ListAll purchase_ListAll = contact_Edit.menuPrimary.clickPurchaseListAll();
         if(purchase_ListAll.verifyPurchase(value.get("SmartForms", "product") + AbstractSuite.UNIQUE)==null)
         {
-            fail("couldnt find tag");
+            fail("couldnt find purchase");
         }
         contactListAll = purchase_ListAll.menuPrimary.clickContactListAll();
-        contactListAll.formSearch.find(value.get("SmartForms", "change"));
+        contactListAll.formSearch.find("5555555");
         contactListAll.selectAllOnPage();
         contactListAll.drawerActions.clickDeleteContacts();
         contactListAll.dialogBox.clickOk();
