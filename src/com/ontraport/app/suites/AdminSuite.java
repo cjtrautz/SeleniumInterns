@@ -144,6 +144,7 @@ import com.ontraport.app.tools.AbstractSuite;
     com.ontraport.app.tests.DeleteEmailDateSequence.class,
     com.ontraport.app.tests.DeleteMessage.class,
     com.ontraport.app.tests.DeleteRuleStepSequence.class,
+    com.ontraport.app.tests.AddTagToGroupSubset.class
    
     
     
