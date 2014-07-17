@@ -100,6 +100,10 @@ public class DrawerManageGroups extends AbstractPart
     private WebElement uiButtonSave;
     
     @FindBy(how = How.XPATH,
+            using = "//button[contains(concat(' ',@class,' '), ' sem-new-button ')]")
+    private WebElement uiButtonNew;
+    
+    @FindBy(how = How.XPATH,
     using = "//button[contains(concat(' ',@class,' '), ' sem-delete-button ')]")
 private WebElement uiButtonDeleteGroup;
     
@@ -233,6 +237,13 @@ private WebElement uiButtonDeleteGroup;
         waitForAjax(driver, 20);
         wait(1).until(ExpectedConditions.visibilityOf(uiButtonSave));
         uiButtonSave.click();
+        return this;
+    }
+    public DrawerManageGroups clickNew ()
+    {
+        waitForAjax(driver, 20);
+        wait(1).until(ExpectedConditions.visibilityOf(uiButtonNew));
+        uiButtonNew.click();
         return this;
     }
     public DrawerManageGroups clickDeleteGroup ()
