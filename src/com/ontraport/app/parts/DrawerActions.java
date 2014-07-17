@@ -221,6 +221,10 @@ public class DrawerActions extends AbstractPart
     private WebElement uiRemoveRole;
     
     @FindBy(how = How.XPATH,
+            using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete Tax Item')]")
+    private WebElement uiDeleteTaxItem;
+    
+    @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//a[contains(., 'Delete User')]")
     private WebElement uiDeleteUser;
     
@@ -230,107 +234,107 @@ public class DrawerActions extends AbstractPart
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]//div[@class='control_buttons']//span[text()='Delete']")
-        private WebElement uiReassignDelete;
+    private WebElement uiReassignDelete;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-target-message-selector ')]//button")
-        private WebElement emailNameDropDown;
+    private WebElement emailNameDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']")
-        private WebElement drillDown;
+    private WebElement drillDown;
     
     @FindBy(how = How.XPATH,
             using = "//ul[@class='ussr-component-drilldownselect-ul']/li[contains(concat(' ', normalize-space(@class), ' '), ' create-new ')]")
-        private WebElement drillDownCreateNew;
+    private WebElement drillDownCreateNew;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-chrome-panel-action-drawer-content ')]")
-        private WebElement actionPane;
+    private WebElement actionPane;
     
     @FindBy(how = How.XPATH,
             using = "//input[@placeholder='Select Tag']/following-sibling::button[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-drilldownselect-button-menu-toggle ')]")
-        private WebElement dropDownButton;
+    private WebElement dropDownButton;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-sequence-selector ')]//button")
-        private WebElement sequenceDropDown;
+    private WebElement sequenceDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' sem-field-selector ')]//button")
-        private WebElement fieldDropDown;
+    private WebElement fieldDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//span[contains(concat(' ', normalize-space(@class), ' '), ' sem-value-selector ')]//input")
-        private WebElement valueInput;
+    private WebElement valueInput;
     
     @FindBy(how = How.XPATH,
             using = "//button[@value='Save']")
-        private WebElement saveField;
+    private WebElement saveField;
     
     @FindBy(how = How.XPATH,
             using = "//button[contains(concat(' ', normalize-space(@class), ' '), ' component-subscription-target-done-button ')]")
-        private WebElement submitButton;
+    private WebElement submitButton;
     
     @FindBy(how = How.XPATH,
             using = "//a[@value='scheduled']//span")
-        private WebElement scheduledRadioButton;
+    private WebElement scheduledRadioButton;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' reassign_placeholder ')]//button")
-        private WebElement reassignDropDown;
+    private WebElement reassignDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-destination-url ')]//input")
-        private WebElement destinationURLInput;
+    private WebElement destinationURLInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' ussr-component-quick-object-creator-target-sub-comp ')]//input")
-        private WebElement objectCreaterInput;
+    private WebElement objectCreaterInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-campaign ')]//button")
-        private WebElement campaignDropDown;
+    private WebElement campaignDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-lead-source ')]//button")
-        private WebElement leadSourceDropDown;
+    private WebElement leadSourceDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-medium ')]//button")
-        private WebElement mediumDropDown;
+    private WebElement mediumDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-content ')]//button")
-        private WebElement contentDropDown;
+    private WebElement contentDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-term ')]//button")
-        private WebElement termDropDown;
+    private WebElement termDropDown;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-campaign ')]//input")
-        private WebElement campaignDropDownInput;
+    private WebElement campaignDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-lead-source ')]//input")
-        private WebElement leadSourceDropDownInput;
+    private WebElement leadSourceDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-medium ')]//input")
-        private WebElement mediumDropDownInput;
+    private WebElement mediumDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-content ')]//input")
-        private WebElement contentDropDownInput;
+    private WebElement contentDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-term ')]//input")
-        private WebElement termDropDownInput;
+    private WebElement termDropDownInput;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '), ' component-campaign-code-target-action-create-url ')]")
-        private WebElement createURL;
+    private WebElement createURL;
     
     @FindBy(how = How.XPATH,
             using = "//div[contains(@class, 'checkbox_NAME_weekdays_only')]//span[@class='ussr-icon ussr-icon-checkbox-empty']")
@@ -573,7 +577,17 @@ public class DrawerActions extends AbstractPart
         //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
         return this;
     }
-    
+
+    public DrawerActions clickDeleteTaxItem ()
+    {
+        waitForAjax(driver, 20);
+        wait(5).until(ExpectedConditions.visibilityOf(actionPane));
+        wait(5).until(ExpectedConditions.visibilityOf(uiDeleteTaxItem));
+        uiDeleteTaxItem.click();
+        //wait(5).until(ExpectedConditions.not(ExpectedConditions.visibilityOf(actionPane)));
+        return this;
+    }
+
     public DrawerActions clickDelete ()
     {
         waitForAjax(driver, 20);
@@ -665,7 +679,6 @@ public class DrawerActions extends AbstractPart
         wait(5).until(ExpectedConditions.visibilityOf(saveSettings));
         saveSettings.click();
         return this;
-        
     }
     
     public DrawerActions verifyOnlyOnWeekendsChecked ()
@@ -694,7 +707,6 @@ public class DrawerActions extends AbstractPart
             .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
             return null;
         }
-        
         return this;
     }
     

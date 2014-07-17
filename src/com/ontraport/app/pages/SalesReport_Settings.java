@@ -23,6 +23,10 @@ public class SalesReport_Settings extends AbstractPage
             using = "//a[@href='#!/message_template/listAll']")
     private WebElement doubleOptInInvoice;
     
+    @FindBy(how = How.XPATH,
+            using = "//a[@href='#!/taxes/listAll']")
+    private WebElement taxTypes;
+    
     public Gateway_ListAll clickGateways ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -47,4 +51,11 @@ public class SalesReport_Settings extends AbstractPage
         return (MessageTemplate_ListAll) new MessageTemplate_ListAll().init();
     }
     
+    public Taxes_ListAll clickTaxTypes ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(taxTypes));
+        taxTypes.click();
+        return (Taxes_ListAll) new Taxes_ListAll().init();
+    }
 }

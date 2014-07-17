@@ -20,7 +20,7 @@ public class CreateOrderform extends AbstractTest
         
         SmartFormFe_ListAll smartFormFe_ListAll = contactListAll.menuPrimary.clickSmartFormFeListAll();
         SmartFormFe_Create smartFormFe_Create = smartFormFe_ListAll.clickNewSmartForm();
-        smartFormFe_Create.sendSmartFormName("SelOrderform");
+        smartFormFe_Create.sendSmartFormName(value.get("SmartForms", "orderForm"));
         smartFormFe_Create.clickSellProducts();
         smartFormFe_Create.clickAddProduct();
         smartFormFe_Create.dialogBox.clickProductName();
