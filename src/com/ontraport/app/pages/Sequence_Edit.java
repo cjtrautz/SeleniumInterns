@@ -236,6 +236,11 @@ public class Sequence_Edit extends AbstractPage
             using = "//div[contains(concat(' ', @class, ' '),' component-target-message-edit-button ')]")
     private WebElement editButton;
     
+    @FindBy(
+            how = How.XPATH,
+            using = "//div[contains(concat(' ', @class, ' '),' step_detail_item_edit')]")
+    private WebElement editFulfillmentButton;
+    
     @FindBy(how = How.XPATH,
             using = "//div[contains(concat(' ', normalize-space(@class), ' '),' preview_data_box ')]")
     private WebElement previewData;
@@ -511,6 +516,25 @@ public class Sequence_Edit extends AbstractPage
         
         return this;
     }
+    public Sequence_Edit verifyFulfillmentDropDown (String string)
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(fulfillmentDropDownInput));
+            System.out.println(fulfillmentDropDownInput.getAttribute("value"));
+            if(!fulfillmentDropDownInput.getAttribute("value").equals(string))
+            {
+                return null;
+            }
+        }
+        catch(NoSuchElementException e)
+        {
+            return null;
+        }
+        return this;
+    }
+    
     public Sequence_Edit verifySpecificEventSelected ()
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -938,7 +962,6 @@ public class Sequence_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(editButton));
         editButton.click();
-       // return this; //gotta change the type
         return (Message_Edit) new Message_Edit().init();
     }
     public Message_Edit clickEditSMS ()
@@ -946,9 +969,16 @@ public class Sequence_Edit extends AbstractPage
         AbstractPart.waitForAjax(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(editButton));
         editButton.click();
-       // return this; //gotta change the type
         return (Message_Edit) new Message_Edit().init();
     }
+    public Fulfillment_Edit clickEditFulfillment ()
+    {
+        AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(editFulfillmentButton));
+        editFulfillmentButton.click();
+        return (Fulfillment_Edit) new Fulfillment_Edit().init();
+    }
+    
     public Sequence_Edit verifyPreviewData ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
@@ -1153,6 +1183,8 @@ public class Sequence_Edit extends AbstractPage
     public Sequence_Edit verifySequenceName ( String string )
     {
         AbstractPart.waitForAjax(driver, 20);
+        wait.until(ExpectedConditions.visibilityOf(sequenceNameInput));
+
         try
         {
             if(!sequenceNameInput.getAttribute("value").equals(string))

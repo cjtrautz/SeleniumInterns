@@ -32,11 +32,11 @@ public class CreateFulfillmentStepSequence extends AbstractTest
         sequence_ListAll.formSearch.find("SelFulfillmentStepSequence");
         
         //verify Sequence exists
-        if(sequence_ListAll.verifySequence("SelFulfillmentStepSequence")==null)
+        if(sequence_ListAll.verifySequence(value.get("Sequences", "sequence_step_fulfillment"))==null)
         {
             fail("couldn't find sequence");
         }
-        Sequence_Edit sequence_Edit = sequence_ListAll.clickSequence("SelFulfillmentStepSequence");
+        Sequence_Edit sequence_Edit = sequence_ListAll.clickSequence(value.get("Sequences", "sequence_step_fulfillment"));
         if(sequence_Edit.verifySequenceStepAndExpand("FULFILLMENT", 1)==null)
         {
             fail("couldn't find sequence step");

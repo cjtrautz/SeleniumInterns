@@ -22,28 +22,28 @@ public class CreateFulfillment extends AbstractTest
         Account_View account_View = contactListAll.menuUser.clickAdmin();
         Fulfillment_ListAll fulfillment_ListAll = account_View.clickFulfillmentManager();
         Fulfillment_Create fulfillment_Create = fulfillment_ListAll.clickNewFulfillmentList();
-        fulfillment_Create.enterFulfillmentListName("SelFulfillment");
+        fulfillment_Create.enterFulfillmentListName(value.get("Admin", "fulfillment_list"));
         fulfillment_Create.openSendTimePane();
-        fulfillment_Create.selectTime("12:00 AM");
+        fulfillment_Create.selectTime(value.get("Admin", "fulfillment_time"));
         fulfillment_Create.openFieldPane();
         fulfillment_Create.selectField("First Name");
-        fulfillment_Create.enterEmailNotification("sel@email.com");
-        fulfillment_Create.enterEmailSubject("selSubject");
-        fulfillment_Create.enterEmailMessage("SelMessage");
+        fulfillment_Create.enterEmailNotification(value.get("Admin", "fulfillment_email"));
+        fulfillment_Create.enterEmailSubject(value.get("Admin", "fulfillment_email_subject"));
+        fulfillment_Create.enterEmailMessage(value.get("Admin", "fulfillment_email_message"));
         fulfillment_ListAll = fulfillment_Create.clickSave();
-        fulfillment_ListAll.formSearch.find("SelFulfillment");
+        fulfillment_ListAll.formSearch.find(value.get("Admin", "fulfillment_list"));
         
         //verify fulfillment exists
         if(fulfillment_ListAll.verifyFulfillment("SelFulfillment")==null)
         {
             fail("didnt find fulfillment");
         }
-        Fulfillment_Edit fulfillment_Edit = fulfillment_ListAll.clickFulfillment("SelFulfillment");
+        Fulfillment_Edit fulfillment_Edit = fulfillment_ListAll.clickFulfillment(value.get("Admin", "fulfillment_list"));
         if(fulfillment_Edit.verifyFieldValue(1, "First Name")==null)
         {
             fail("didnt find fulfillment field vale");
         }
-        if(fulfillment_Edit.verifyFulfillmentName("SelFulfillment")==null)
+        if(fulfillment_Edit.verifyFulfillmentName(value.get("Admin", "fulfillment_list"))==null)
         {
             fail("didnt find fulfillment list name");
         }

@@ -8,6 +8,7 @@ import com.ontraport.app.pages.Account_View;
 import com.ontraport.app.pages.Contact_ListAll;
 import com.ontraport.app.pages.Fulfillment_Create;
 import com.ontraport.app.pages.Fulfillment_Edit;
+import com.ontraport.app.pages.Sequence_Edit;
 import com.ontraport.app.pages.Fulfillment_ListAll;
 import com.ontraport.app.pages.Message_Edit;
 import com.ontraport.app.pages.Sequence_CreateStep;
@@ -40,14 +41,14 @@ public class CreateFulfillmentFromSequence extends AbstractTest
         fulfillment_Edit.enterEmailNotification("sel@email.com");
         fulfillment_Edit.enterEmailSubject("selSubject");
         fulfillment_Edit.enterEmailMessage("SelMessage");
-        sequence_CreateStep = fulfillment_Edit.clickSaveToSequence();
+        Sequence_Edit sequence_Edit = fulfillment_Edit.clickSaveToEditSequence();
         if(sequence_CreateStep.verifySequenceName(value.get("Sequences", "sequence_edit_fulfillment"))==null)
         {
             fail("couldn't find message body");
         }
         if(sequence_CreateStep.verifyFulfillmentDropDown(value.get("Admin", "fulfillment_from_sequence"))==null)
         {
-            fail("couldnt fine fulfillment");
+            fail("couldnt find fulfillment");
         }
         sequence_CreateStep.menuUser.open();
         Account_View account_View = sequence_CreateStep.menuUser.clickAdmin();

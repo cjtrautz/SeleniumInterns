@@ -125,13 +125,7 @@ public class Sequence_ListAll extends AbstractPage
     public Sequence_ListAll selectAllOnPage ()
     {
         AbstractPart.waitForAjax(driver, 20);
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(0, TimeUnit.SECONDS);
         wait.until(ExpectedConditions.visibilityOf(uiCollectionBody));
-        driver.manage()
-        .timeouts()
-        .implicitlyWait(AbstractSuite.DEFAULT_WAIT, TimeUnit.SECONDS);
         uiSelectAll.click();
         return this;
         
