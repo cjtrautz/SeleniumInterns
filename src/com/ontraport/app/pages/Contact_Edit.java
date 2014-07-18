@@ -36,7 +36,7 @@ public class Contact_Edit extends AbstractPage
     private WebElement bulkEmailStatus;
     
     @FindBy(how=How.XPATH,
-            using="//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_section ')][2]//div[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
+            using="//div[contains(concat(' ', normalize-space(@class), ' '),' ontraport_components_section ')][2]//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]")
     private WebElement newTask;
     
     @FindBy(how=How.XPATH,
@@ -112,7 +112,7 @@ public class Contact_Edit extends AbstractPage
     
     @FindBy(
             how = How.XPATH, 
-            using = "//div[@class='ussr-component-sub-collection-add-new']/span[text()='NEW Note']")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]/span[text()='NEW Note']")
     private WebElement newNote;
     
     @FindBy(
@@ -149,7 +149,7 @@ public class Contact_Edit extends AbstractPage
     private WebElement overflowIcon;
     
     @FindBy(how = How.XPATH,
-            using = "//div[@class='ussr-component-sub-collection-add-new']/span[text()='NEW WordPress Membership']")
+            using = "//a[contains(concat(' ', normalize-space(@class), ' '),' ussr-component-sub-collection-add-new ')]/span[text()='NEW WordPress Membership']")
     private WebElement newWPMembership;
     
     @FindBy(how = How.XPATH,

@@ -24,6 +24,7 @@ public class DeleteUploadToAttachmentManager extends AbstractTest
         account_View.drawerSimpleActions.clickDelete();
         account_View.dialogBox.clickOk();
         account_View.dialogBox.clickBrowse();
+        account_View.formSearch.clear();
         
         //verify App Name, ID, Redirect, and Visits
         if(account_View.dialogBox.verifyNoAttachement()==null)

@@ -1,5 +1,7 @@
 package com.ontraport.app.parts;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,7 +12,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.ontraport.app.pages.Contact_Edit;
 import com.ontraport.app.tools.AbstractPart;
+import com.ontraport.app.tools.AbstractSuite;
 
 public class Paginator extends AbstractPart
 {
@@ -41,6 +45,7 @@ public class Paginator extends AbstractPart
     @FindBy(how=How.XPATH,
             using="//li[contains(concat(' ',@class,' '),' ussr-component-paginator-label ')]")
     private WebElement paginatorlabel;
+    
     public Boolean isDisplayed ()
     {
         waitForAjax(driver, 20);
@@ -153,8 +158,6 @@ public class Paginator extends AbstractPart
         catch (TimeoutException te)
         {
             return null;
-        }
-
-        
+        }       
     }
 }

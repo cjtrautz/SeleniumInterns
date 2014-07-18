@@ -101,9 +101,11 @@ import com.ontraport.app.tools.AbstractSuite;
 
     com.ontraport.app.tests.UploadToAttachmentManager.class,
     com.ontraport.app.tests.DeleteUploadToAttachmentManager.class,
+    com.ontraport.app.tests.EnsurePagination.class,
 
 }
 )
+
 public class Review extends AbstractSuite
 {
     @BeforeClass
